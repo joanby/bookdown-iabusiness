@@ -168,7 +168,7 @@ par(mfrow=c(1,1))
 })
 ```
 
-[![](Images/noshinyImages/interactiva_ber1.png)](https://github.com/joanby/probabilidad)
+[![](Images/noshinyImages/interactiva_ber1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
 
 ## Distribución binomial
 
@@ -502,7 +502,7 @@ renderPlot({
 
 ```
 
-[![](Images/noshinyImages/interactiva_bino1.png)](https://github.com/joanby/probabilidad)
+[![](Images/noshinyImages/interactiva_bino1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
 
 ### Gráficos de la distribución binomial con python
 
@@ -1356,7 +1356,7 @@ renderPlot({
 })
 ```
 
-[![](Images/noshinyImages/interactiva_geometrica1.png)](https://github.com/joanby/probabilidad)
+[![](Images/noshinyImages/interactiva_geometrica1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
 
 ### Cálculos con python
 
@@ -2047,7 +2047,7 @@ renderPlot({
 
 ```
 
-[![](Images/noshinyImages/interactiva_binomial_negativa1.png)](https://github.com/joanby/probabilidad)
+[![](Images/noshinyImages/interactiva_binomial_negativa1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
 
 ### Gráficos de la binomial negativa con python
 
@@ -2563,7 +2563,7 @@ renderPlot({
 
 ```
 
-[![](Images/noshinyImages/interactiva_poisson1.png)](https://github.com/joanby/probabilidad)
+[![](Images/noshinyImages/interactiva_poisson1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
 
 
 ### Ejemplo $Po(\lambda)$ 
@@ -2868,7 +2868,7 @@ renderPlot({
 ```
 
 
-[![](Images/noshinyImages/interactiva_poisson2.png)](https://github.com/joanby/probabilidad)
+[![](Images/noshinyImages/interactiva_poisson2.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
 
 ### Cálculos con python
 
@@ -3049,7 +3049,7 @@ renderPlot({
   })
 ```
 
-![[](Images/noshinyImages/interactivos_proceso_poisson1.png)](https://github.com/joanby/probabilidad)
+![[](Images/noshinyImages/interactivos_proceso_poisson1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
 
 
 ### Ejemplo proceso Poisson
@@ -3408,7 +3408,7 @@ renderPlot({
 })
 ```
 
-[![](Images/noshinyImages/interactivos_hiper_geom1.png)](https://github.com/joanby/probabilidad)
+[![](Images/noshinyImages/interactivos_hiper_geom1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
 
 
 ### Comparación $H(m,n,k)$ y $B\left(k,\frac{m}{n+m}\right)$.
@@ -3469,7 +3469,7 @@ renderPlot({
 })
 ```
 
-[![](Images/noshinyImages/interactivos_hipergeom_binom1.png)](https://github.com/joanby/probabilidad)
+[![](Images/noshinyImages/interactivos_hipergeom_binom1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
 
 
 ### Cálculos con python 
@@ -3780,7 +3780,7 @@ renderPlot({
 
 ```
 
-[![](Images/noshinyImages/interactiva_uniforme1.png)](https://github.com/joanby/probabilidad)
+[![](Images/noshinyImages/interactiva_uniforme1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
 
 
 ### Cambio lineal v.a. uniforme.
@@ -4181,7 +4181,7 @@ renderPlot({
 })
 ```
 
-[![](Images/noshinyImages/interactiva_cuantiles1.png)](https://github.com/joanby/probabilidad)
+[![](Images/noshinyImages/interactiva_cuantiles1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
 
 
 ### Generador de números aleatorios método de la transformada inversa
@@ -4455,7 +4455,7 @@ renderPlot({
 
 ```
 
-[![](Images/noshinyImages/interactiva_exponencial1.png)](https://github.com/joanby/probabilidad)
+[![](Images/noshinyImages/interactiva_exponencial1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
 
 
 
@@ -4731,7 +4731,7 @@ curve(dnorm(x,m2,s2),add=TRUE,col="blue",lty=2)
 
 ```
 
-[![](Images/noshinyImages/interactiva_normal1.png)](https://github.com/joanby/probabilidad)
+[![](Images/noshinyImages/interactiva_normal1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
 
 
 ### Transformaciones lineales de variables aleatorias normales

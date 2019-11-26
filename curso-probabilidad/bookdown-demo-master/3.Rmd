@@ -139,7 +139,7 @@ par(mfrow=c(1,1))
 
 ### Gráficas interactivas $Ber(p)$
 
-TODO: rellenar
+Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
 ```{r echo = TRUE,eval=FALSE}
 
@@ -168,12 +168,7 @@ par(mfrow=c(1,1))
 })
 ```
 
-
-//TODO: click
-
-![](Images/noshinyImages/interactiva_ber1.png)
-
-
+[![](Images/noshinyImages/interactiva_ber1.png)](https://github.com/joanby/probabilidad)
 
 ## Distribución binomial
 
@@ -471,7 +466,7 @@ par(mfrow=c(1,1))
 
 ### Gráficas interactivas binomial
 
-//TODO: reemplazar
+Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
 ```{r echo = TRUE,eval=FALSE}
 
@@ -507,8 +502,7 @@ renderPlot({
 
 ```
 
-//TODO: CLICK
-![](Images/noshinyImages/interactiva_bino1.png)
+[![](Images/noshinyImages/interactiva_bino1.png)](https://github.com/joanby/probabilidad)
 
 ### Gráficos de la distribución binomial con python
 
@@ -1339,7 +1333,7 @@ par(mfrow=c(1,1))
 
 ### Gráficas interactivas geométrica
 
-TODO: reemplazar
+Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
 ```{r echo = TRUE,eval=FALSE}
  
@@ -1362,8 +1356,7 @@ renderPlot({
 })
 ```
 
-TODO: click
-![](Images/noshinyImages/interactiva_geometrica1.png)
+[![](Images/noshinyImages/interactiva_geometrica1.png)](https://github.com/joanby/probabilidad)
 
 ### Cálculos con python
 
@@ -2018,8 +2011,7 @@ par(mfrow=c(1,1))
 
 ### Gráficas interactivas binomial negativa
 
-
-TODO: arreglar
+Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
 ```{r  GRAFICOS_binomial_negativa, echo = TRUE,eval=FALSE}
 
@@ -2055,8 +2047,7 @@ renderPlot({
 
 ```
 
-//TODO: click
-![](Images/noshinyImages/interactiva_binomial_negativa1.png)
+[![](Images/noshinyImages/interactiva_binomial_negativa1.png)](https://github.com/joanby/probabilidad)
 
 ### Gráficos de la binomial negativa con python
 
@@ -2529,7 +2520,7 @@ la aproximación  de una $B(n,p)$ por una $Po(n\cdot p)$ es buena. Sobre todo pa
 
 Condición deseable $n\geq 20$,  $n\cdot p < 10$, $p\leq 0.05$
 
-TODO: arreglar
+Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
 ```{r echo = TRUE,eval=FALSE}
 fluidPage(
@@ -2572,8 +2563,7 @@ renderPlot({
 
 ```
 
-TODO: click
-![](Images/noshinyImages/interactiva_poisson1.png)
+[![](Images/noshinyImages/interactiva_poisson1.png)](https://github.com/joanby/probabilidad)
 
 
 ### Ejemplo $Po(\lambda)$ 
@@ -2852,7 +2842,7 @@ par(mfrow=c(1,1))
 
 ### Gráficos  interactivos con R
 
-TODO: arreglar
+Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
 ```{r pofrafico11, echo = TRUE,eval=FALSE}
 
@@ -2878,8 +2868,7 @@ renderPlot({
 ```
 
 
-TODO: click
-![](Images/noshinyImages/interactiva_poisson2.png)
+[![](Images/noshinyImages/interactiva_poisson2.png)](https://github.com/joanby/probabilidad)
 
 ### Cálculos con python
 
@@ -3025,28 +3014,24 @@ _=plt.show()
 
 ### Gráficos interactivos  proceso $Po(\lambda\cdot t$)
 
-TODO: arreglar
+Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
+
 
 ```{r echo = TRUE,eval=FALSE,message=FALSE,warning=FALSE}
 
 fluidPage(
-fluidRow(
-  column(6,
-         sliderInput("lambdapp", label="Promedio eventos por unidad de tiempo",
-              min = 0.1, max = 50, value =10 , step = 0.01)
-         ),
-  column(6,
-          sliderInput("t", label = "Intervalo de tiempo (0,t]",
-                     min = 1, max = 120, value =1 , step = 0.5)
-         )
- )
+  fluidRow(
+      column(6,
+           sliderInput("lambdapp", label="Promedio eventos por unidad de tiempo", min = 0.1, max = 50, value =10 , step = 0.01)),
+    column(6,sliderInput("t", label = "Intervalo de tiempo (0,t]", min = 1, max = 120, value =1 , step = 0.5))
+   )
 )
 
 
 renderPlot({
   lambda1=input$lambdapp
   t=input$t
-  lambda=lambda1*t## es lambda* t
+  lambda=lambda1*t ## es lambda* t
   par(mfrow=c(1,2))
   n=qpois(0.99,lambda=lambda)
   #n
@@ -3064,7 +3049,7 @@ renderPlot({
   })
 ```
 
-![](Images/noshinyImages/interactivos_proceso_poisson1.png)
+![[](Images/noshinyImages/interactivos_proceso_poisson1.png)](https://github.com/joanby/probabilidad)
 
 
 ### Ejemplo proceso Poisson
@@ -3380,7 +3365,7 @@ par(mfrow=c(1,1))
 
 ### Gráficos interactivos $H(m,n,k)$
 
-TODO: arreglar
+Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
 ```{r GRAFICOS_Hiper_interac_aprox,echo = TRUE,eval=FALSE}
 fluidPage(
@@ -3423,14 +3408,12 @@ renderPlot({
 })
 ```
 
-TODO: CLICK
-
-![](Images/noshinyImages/interactivos_hiper_geom1.png)
+[![](Images/noshinyImages/interactivos_hiper_geom1.png)](https://github.com/joanby/probabilidad)
 
 
 ### Comparación $H(m,n,k)$ y $B\left(k,\frac{m}{n+m}\right)$.
 
-TODO: ARREGLAR
+Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
 ```{r GRAFICOS_Hiper_interac_compara,echo = TRUE,eval=FALSE}
 fluidPage(
@@ -3486,9 +3469,7 @@ renderPlot({
 })
 ```
 
-TODO: CLICK
-
-![](Images/noshinyImages/interactivos_hipergeom_binom1.png)
+[![](Images/noshinyImages/interactivos_hipergeom_binom1.png)](https://github.com/joanby/probabilidad)
 
 
 ### Cálculos con python 
@@ -3756,7 +3737,7 @@ curve(punif(x,a,b),xlim=c(a-1,b+1),ylim=c(0,1.1),
 
 ### Gráficas interactivas  $U(a,b)$
 
-TODO: arreglar
+Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
 ```{r uniforme_plots1_interactivo, echo = TRUE, eval=FALSE}
 fluidPage(
@@ -3799,8 +3780,7 @@ renderPlot({
 
 ```
 
-TODO: click
-![](Images/noshinyImages/interactiva_uniforme1.png)
+[![](Images/noshinyImages/interactiva_uniforme1.png)](https://github.com/joanby/probabilidad)
 
 
 ### Cambio lineal v.a. uniforme.
@@ -4149,7 +4129,7 @@ rnbinom(10,3,0.1)
 
 ### Un ejemplo gráficas cuantiles $B(n,p)$ y $Po(\lambda)$.
 
-TODO: arreglar
+Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
 ```{r cuantiles_graficosPOBIN, echo = TRUE, eval = FALSE}
 fluidPage(
@@ -4201,8 +4181,7 @@ renderPlot({
 })
 ```
 
-TODO: click
-![](Images/noshinyImages/interactiva_cuantiles1.png)
+[![](Images/noshinyImages/interactiva_cuantiles1.png)](https://github.com/joanby/probabilidad)
 
 
 ### Generador de números aleatorios método de la transformada inversa
@@ -4431,7 +4410,7 @@ Dibujad la función de densidad y de distribución de una $Exp(10).$
 
 ### Gráficas interactivas de una $X$ $Exp(\lambda)$.
 
-TODO: arreglar
+Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
 ```{r uniforme_plots1_interactivo_exponencial, echo = TRUE, eval = FALSE}
 fluidPage(
@@ -4476,8 +4455,7 @@ renderPlot({
 
 ```
 
-TODO: click
-![](Images/noshinyImages/interactiva_exponencial1.png)
+[![](Images/noshinyImages/interactiva_exponencial1.png)](https://github.com/joanby/probabilidad)
 
 
 
@@ -4713,7 +4691,7 @@ par(mfrow=c(1,1))
 
 ### Gráficas interactivas parámetros normal
 
-//TODO: arreglar
+Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
 ```{r NORMAL_plots1_interactivo, echo = TRUE, eval = FALSE}
 fluidPage(
@@ -4753,14 +4731,10 @@ curve(dnorm(x,m2,s2),add=TRUE,col="blue",lty=2)
 
 ```
 
-TODO: click
-![](Images/noshinyImages/interactiva_normal1.png)
-
-
+[![](Images/noshinyImages/interactiva_normal1.png)](https://github.com/joanby/probabilidad)
 
 
 ### Transformaciones lineales de variables aleatorias normales
-
 
 <l class="prop"> Propiedad: transformación lineal la distribución  normal </l>
 

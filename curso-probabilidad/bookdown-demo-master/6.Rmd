@@ -53,7 +53,7 @@ O sea, si pensamos el plano anterior como un "espejo" sería la parte de atrás 
 
 <div class="center">
 
-```{r, echo=FALSE, label=bid1,fig.cap="",out.width = "650px"}
+```{r, echo=FALSE, label=bid1,fig.cap=""}
 knitr::include_graphics("Images/EjPlano3D.png",dpi=1200)
 ```
 </div>
@@ -63,7 +63,7 @@ Suceso: $\{X_1^2+X_2^2+X_3^2\leq 1\}$. Sería el interior de la esfera del gráf
 
 ### Varias variables aleatorias. Introducción 
 <div class="center">
-```{r, echo=FALSE, label=bid2_0,fig.cap="",out.width = "750px"}
+```{r, echo=FALSE, label=bid2_0,fig.cap=""}
 knitr::include_graphics("Images/EjEsfera3D.png",dpi=1200)
 ```
 </div>
@@ -73,7 +73,7 @@ Suceso: $\{0\leq X_1\leq 1,\ 0\leq X_2\leq 1,\ 0\leq X_3\leq 1\}$. Sería el int
 
 ### Varias variables aleatorias. Introducción 
 <div class="center">
-```{r, echo=FALSE, label=bid3_0,fig.cap="",out.width = "950px"}
+```{r, echo=FALSE, label=bid3_0,fig.cap=""}
 knitr::include_graphics("Images/Ej3DCubo.png",dpi=1200)
 ```
 </div>
@@ -122,7 +122,7 @@ $$
 El gráfico siguiente muestra el conjunto $(-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3]$ en $\mathbb{R}^3$ para un valor $(x,y,z)$:
 
 <div class="center">
-```{r, echo=FALSE, label=bid777,fig.cap="",out.width = "550px"}
+```{r, echo=FALSE, label=bid777,fig.cap=""}
 knitr::include_graphics("Images/Fx1x2x3.png",dpi=1200)
 ```
 </div>
@@ -196,7 +196,7 @@ La segunda figura muestra las zonas del "primer piso" o para $x_3>1$. Los colore
 ### Función de distribución conjunta. Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid7_0,fig.cap="",out.width = "650px"}
+```{r, echo=FALSE, label=bid7_0,fig.cap=""}
 knitr::include_graphics("Images/Ej3DFxyz.png",dpi=1200)
 ```
 </div>
@@ -205,7 +205,7 @@ knitr::include_graphics("Images/Ej3DFxyz.png",dpi=1200)
 ### Función de distribución conjunta. Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid77,fig.cap="",out.width = "650px"}
+```{r, echo=FALSE, label=bid77,fig.cap=""}
 knitr::include_graphics("Images/Ej3DFxy2pis.png",dpi=1200)
 ```
 </div>
@@ -652,6 +652,8 @@ Apliquemos la fórmula que relaciona la función de distribución conjunta con l
 
 <div class="example">
 Observamos que los únicos valores $(x_{i_1},x_{i_2},x_{i_3})\in (X_1 X_2,X_3)(\Omega)$ que verifican $x_{i_1}\leq 1$, $x_{i_2}\leq 2$ y $x_{i_3}\leq 2$ son $(0,0,0)$, $(0,0,1)$, $(0,0,2)$, $(0,1,0)$, $(0,1,1)$, $(0,1,2)$, $(0,2,0)$, $(0,2,1)$, $(0,2,2)$, $(1,0,0)$, $(1,0,1)$, $(1,0,2)$, $(1,1,0)$, $(1,1,1)$, $(1,1,2)$, $(1,2,0)$, $(1,2,1)$ y $(1,2,2)$:
+
+
 $$
 \begin{array}{rl}
 F_{X_1X_2X_3}(1,2,2) & =P_{X_1X_2X_3}(0,0,0)+P_{X_1X_2X_3}(0,0,1)+P_{X_1X_2X_3}(0,0,2)+P_{X_1X_2X_3}(0,1,0)\\ & +P_{X_1X_2X_3}(0,1,1)+P_{X_1X_2X_3}(0,1,2)+P_{X_1X_2X_3}(0,2,0)+P_{X_1X_2X_3}(0,2,1)\\ & +P_{X_1X_2X_3}(0,2,2) +
@@ -663,6 +665,10 @@ $$
 
 
 </div>
+
+
+
+
 
 
 ### Ejemplo con `R`
@@ -754,6 +760,8 @@ P_{X_1X_2X_3}(3,3,3)=`r round(sum(tabla.3),4)`
 \end{array}
 $$
 </div>
+
+
 
 ### Ejemplo
 
@@ -930,7 +938,7 @@ En la figura siguiente hemos dibujado en rosa la región donde $f_{X_1X_2X_3}$ n
 ### Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid8_0,fig.cap="",out.width = "900px"}
+```{r, echo=FALSE, label=bid8_0,fig.cap=""}
 knitr::include_graphics("Images/Cubo3D2.png",dpi=1200)
 ```
 </div>
@@ -1038,7 +1046,7 @@ $$
 ### Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid_09,fig.cap="",out.width = "800px"}
+```{r, echo=FALSE, label=bid_09,fig.cap=""}
 knitr::include_graphics("Images/Fx1x2x3bajos.png",dpi=1200)
 ```
 </div>
@@ -1066,7 +1074,7 @@ $$
 ### Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid99,fig.cap="",out.width = "800px"}
+```{r, echo=FALSE, label=bid99,fig.cap=""}
 knitr::include_graphics("Images/Fx1x2x3bajosx1.png",dpi=1200)
 ```
 </div>
@@ -1089,7 +1097,7 @@ $$
 ### Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid991,fig.cap="",out.width = "800px"}
+```{r, echo=FALSE, label=bid991,fig.cap=""}
 knitr::include_graphics("Images/Fx1x2x3bajosx1x2.png",dpi=1200)
 ```
 </div>
@@ -1115,7 +1123,7 @@ $$
 ### Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid992,fig.cap="",out.width = "800px"}
+```{r, echo=FALSE, label=bid992,fig.cap=""}
 knitr::include_graphics("Images/Fx1x2x3piso.png",dpi=1200)
 ```
 </div>
@@ -1146,7 +1154,7 @@ $$
 ### Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid993,fig.cap="",out.width = "800px"}
+```{r, echo=FALSE, label=bid993,fig.cap=""}
 knitr::include_graphics("Images/Fx1x2x3pisox1.png",dpi=1200)
 ```
 </div>
@@ -1169,7 +1177,7 @@ $$
 ### Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid994,fig.cap="",out.width = "800px"}
+```{r, echo=FALSE, label=bid994,fig.cap=""}
 knitr::include_graphics("Images/Fx1x2x3pisox1x2.png",dpi=1200)
 ```
 </div>
@@ -1418,6 +1426,7 @@ Al igual que pasaba con las variables bidimensionales, si la tabla de la **funci
 <l class="observ"> Observación. </l>
 Si $X_1,\ldots, X_n$ son variables aleatorias independientes, y consideramos una distribución marginal, por ejemplo $(X_{s_1},\ldots,X_{s_k})$, entonces las variables $X_{s_1},\ldots,X_{s_k}$ también son independientes.
 
+
 ### Independencia de variables aleatorias continuas
 La definición dada para **variables aleatorias discretas** se traslada de forma natural a las **variables aleatorias continuas**:
 
@@ -1519,6 +1528,7 @@ F_{X_1\ldots X_n}(x_1,\ldots,x_n)=F_{X_1}(x_1)\cdots F_{X_n}(x_n),\ (x_1,\ldots,
 $$
 
 
+
 ### Ejemplo 
 <div class="example">
 **Ejemplo**
@@ -1549,12 +1559,14 @@ $$
 ### Ejemplo 
 <div class="example">
 Recordemos las **funciones de densidad** de las **distribuciones marginales**:
+
 $$
 \begin{array}{rl}
 f_{X_1}(x_1) & =\begin{cases}
 2x_1, & \mbox{ si }0\leq x\leq 1,\\
 0, & \mbox{en caso contrario.}
-\end{cases}\quad f_{X_2}(x_2)=\begin{cases}
+\end{cases}\\ 
+f_{X_2}(x_2)&=\begin{cases}
 2x_2, & \mbox{ si }0\leq x_2\leq 1,\\
 0, & \mbox{en caso contrario.}
 \end{cases}\\ f_{X_3}(x_3) & =\begin{cases}
@@ -1565,13 +1577,16 @@ f_{X_1}(x_1) & =\begin{cases}
 $$
 Dejamos como ejercicio verificar que las expresiones siguientes correspondes a las **funciones de distribución marginales**: 
 
+
+
 $$
 \begin{array}{rl}
 F_{X_1}(x_1) & =\begin{cases}
 0, & \mbox{ si }x_1<0, \\
 x_1^2, & \mbox{ si }0\leq x_1\leq 1,\\
 1, & \mbox{ si }x_1 > 1.
-\end{cases}\quad F_{X_2}(x_2) & =\begin{cases}
+\end{cases}\\
+F_{X_2}(x_2) & =\begin{cases}
 0, & \mbox{ si }x_2<0, \\
 x_2^2, & \mbox{ si }0\leq x_2\leq 1,\\
 1, & \mbox{ si }x_2 > 1.
@@ -1584,6 +1599,9 @@ x_3^2, & \mbox{ si }0\leq x_3\leq 1,\\
 $$
 
 </div>
+
+
+
 
 ### Ejemplo 
 <div class="example">
@@ -1654,6 +1672,7 @@ Sea $Z=g(X_1,\ldots,X_n)$ una **variable aleatoria unidimensional** función de 
 * Media aritmética de las $n$ variables $g(x_1,\ldots,x_n)=\frac{x_1+\cdots + x_n}{n}$: $Z=\frac{X_1+\cdots +X_n}{n}$.
 * Media geométrica de las $n$ variables $g(x_1,\ldots,x_n)=\sqrt[n]{x_1\cdots x_n}$: $Z=\sqrt[n]{X_1\cdots X_n}$.
 * Suma de los cuadrados de las variables $g(x_1,\ldots,x_n)=x_1^2+\cdots +x_n^2$: $Z=X_1^2+\cdots +X_n^2$.
+
 
 ### Valor esperado de una función de dos variables aleatorias
 Hay que tener en cuenta que $Z$, como **variable aleatoria unidimensional** tiene una **función de probabilidad** $P_Z$ en el caso en que $(X_1,\ldots,X_n)$ sea discreta y una **función de densidad** $f_Z$ en el caso en que $(X_1,\ldots,X_n)$ sea continua.

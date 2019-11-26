@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.9.24)  26 NOV 2019 18:52
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.9.24)  26 NOV 2019 20:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -833,8 +833,7 @@ Package: amsthm 2017/10/31 v2.20.4
 \thm@postskip=\skip64
 \thm@headsep=\skip65
 \dth@everypar=\toks29
-)
-No file curso-probabilidad-udemy.aux.
+) (./curso-probabilidad-udemy.aux)
 \openout1 = `curso-probabilidad-udemy.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 152.
@@ -885,28 +884,17 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 152.
 LaTeX Info: Redefining \pageref on input line 152.
 LaTeX Info: Redefining \nameref on input line 152.
+(./curso-probabilidad-udemy.out) (./curso-probabilidad-udemy.out)
 \@outlinefile=\write4
 \openout4 = `curso-probabilidad-udemy.out'.
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 [1
 
 
 ] [2
 
-]
-\tf@toc=\write5
-\openout5 = `curso-probabilidad-udemy.toc'.
-
-[3] [4
-
-] [5] [6
-
-] [7]
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 235.
-
+] (./curso-probabilidad-udemy.toc
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 3.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -914,39 +902,44 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmr' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 235.
-
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 3.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 235
-.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 3.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 235
-.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 3.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 235.
+(Font)              <10> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 235.
+(Font)              <7> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 235.
-LaTeX Font Info:    Try loading font information for U+msa on input line 235.
+(Font)              <5> on input line 3.
+LaTeX Font Info:    Try loading font information for U+msa on input line 3.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 235.
+LaTeX Font Info:    Try loading font information for U+msb on input line 3.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [8] [9]
+) [3])
+\tf@toc=\write5
+\openout5 = `curso-probabilidad-udemy.toc'.
+
+[4] [5
+
+] [6
+
+] [7] [8] [9]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 408.
 [10] [11]
@@ -991,6 +984,10 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 797.
 [18]
+Overfull \hbox (217.29387pt too wide) in alignment at lines 897--901
+ [] [] [] 
+ []
+
 File: Images/proba1dibujos/distr11.jpg Graphic file (type bmp)
 <Images/proba1dibujos/distr11.jpg>
 File: Images/proba1dibujos/distr12.jpg Graphic file (type bmp)
@@ -1003,9 +1000,9 @@ Overfull \hbox (217.29387pt too wide) in alignment at lines 901--904
  []
 
 [19]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 1.1 on input line 904.
+Overfull \hbox (217.29387pt too wide) in alignment at lines 909--913
+ [] [] [] 
+ []
 
 File: Images/proba1dibujos/distr21.jpg Graphic file (type bmp)
 <Images/proba1dibujos/distr21.jpg>
@@ -1019,8 +1016,9 @@ Overfull \hbox (217.29387pt too wide) in alignment at lines 913--916
  []
 
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 1.2 on input line 916.
+Overfull \hbox (217.12404pt too wide) in alignment at lines 924--928
+ [] [] [] 
+ []
 
 File: Images/proba1dibujos/dd2.jpg Graphic file (type bmp)
 <Images/proba1dibujos/dd2.jpg>
@@ -1034,9 +1032,9 @@ Overfull \hbox (217.12404pt too wide) in alignment at lines 928--931
  []
 
 [20]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 1.3 on input line 931.
+Overfull \hbox (45.80814pt too wide) in alignment at lines 940--944
+ [] [] 
+ []
 
 File: Images/proba1dibujos/demorgan6.jpg Graphic file (type bmp)
 <Images/proba1dibujos/demorgan6.jpg>
@@ -1048,13 +1046,13 @@ Overfull \hbox (45.80814pt too wide) in alignment at lines 944--947
  []
 
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 1.4 on input line 947.
-
-
 Underfull \vbox (badness 2818) has occurred while \output is active []
 
 [21]
+Overfull \hbox (247.2122pt too wide) in alignment at lines 956--960
+ [] [] [] 
+ []
+
 File: Images/proba1dibujos/demorgan8.jpg Graphic file (type bmp)
 <Images/proba1dibujos/demorgan8.jpg>
 File: Images/proba1dibujos/demorgan9.jpg Graphic file (type bmp)
@@ -1067,8 +1065,9 @@ Overfull \hbox (247.2122pt too wide) in alignment at lines 960--963
  []
 
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 1.5 on input line 963.
+Overfull \hbox (45.80814pt too wide) in alignment at lines 972--976
+ [] [] 
+ []
 
 File: Images/proba1dibujos/demorgan1.jpg Graphic file (type bmp)
 <Images/proba1dibujos/demorgan1.jpg>
@@ -1080,13 +1079,13 @@ Overfull \hbox (45.80814pt too wide) in alignment at lines 976--979
  []
 
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 1.6 on input line 979.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [22]
+Overfull \hbox (247.2122pt too wide) in alignment at lines 988--992
+ [] [] [] 
+ []
+
 File: Images/proba1dibujos/demorgan3.jpg Graphic file (type bmp)
 <Images/proba1dibujos/demorgan3.jpg>
 File: Images/proba1dibujos/demorgan5.jpg Graphic file (type bmp)
@@ -1097,10 +1096,6 @@ File: Images/proba1dibujos/demorgan4.jpg Graphic file (type bmp)
 Overfull \hbox (247.2122pt too wide) in alignment at lines 992--995
  [] [] [] 
  []
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 1.7 on input line 995.
 
 [23]
 File: Images/proba1dibujos/A-B.jpg Graphic file (type bmp)
@@ -1120,11 +1115,6 @@ Underfull \vbox (badness 1308) has occurred while \output is active []
 File: Images/proba1dibujos/tresconjunts.jpg Graphic file (type bmp)
 <Images/proba1dibujos/tresconjunts.jpg>
 [26] [27] [28] [29] [30] [31] [32] [33]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 1.8 on input line 1679.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [34] [35] [36] [37] [38] [39]
@@ -1174,18 +1164,2096 @@ File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-12-1.pdf Graphi
 c file (type pdf)
 <use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-12-1.pdf>
 [80]
-! Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.4036 \begin{eqnarray*}
-                         
-Here is how much of TeX's memory you used:
- 22639 strings out of 492970
- 424149 string characters out of 6133938
- 550661 words of memory out of 5000000
- 26381 multiletter control sequences out of 15000+600000
- 555067 words of font info for 72 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 45i,15n,54p,10465b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
+Overfull \hbox (4.11768pt too wide) in alignment at lines 4035--4051
+ [][][] []
+ []
 
-Output written on curso-probabilidad-udemy.pdf (80 pages).
+
+Underfull \vbox (badness 1038) has occurred while \output is active []
+
+[81] [82] [83]
+Overfull \hbox (61.02895pt too wide) in paragraph at lines 4179--4180
+[]$[]$|  
+ []
+
+[84]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 4272--4272
+[]\TU/lmtt/m/n/10 ##   [1] 12 11  9 11  6  6 12  5  7 11 12 11  8  8 11 11  7 1
+1  9 10  9 10 14  8  8[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 4272--4272
+[]\TU/lmtt/m/n/10 ##  [26]  5 11 14 11 10 11  5 12  8  6  7  9 10  5 12 11  9 1
+2 11 12 10 13 13  8  8[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 4272--4272
+[]\TU/lmtt/m/n/10 ##  [51]  9  7  6  9 10  9 16 13  6  6  8  8 11  9 12 15  9  
+7 12 11  9  8  9  8 11[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 4272--4272
+[]\TU/lmtt/m/n/10 ##  [76] 15  7 10  9 12  6 13 14  8 10  8 10 11 11  9 10 11 1
+2  8 10 12  9 13  9 13[] 
+ []
+
+[85]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 4371--4371
+[]\TU/lmtt/m/n/10 ## array([ 4,  6,  3,  4,  3,  8,  5,  5,  6,  4,  7,  8,  3,
+  6,  6,  5,  6,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 4371--4371
+[]\TU/lmtt/m/n/10 ##         6,  8,  4,  8,  6,  7,  3,  5,  9,  5,  8,  3,  4,
+  5,  7,  6,  4,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 4371--4371
+[]\TU/lmtt/m/n/10 ##         7,  5,  9,  4,  6,  5,  9,  8,  6,  4,  1,  5,  8,
+  5,  4,  6,  4,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 4371--4371
+[]\TU/lmtt/m/n/10 ##         3,  6, 10,  5,  6,  7,  7,  8,  2,  7,  4,  2,  6,
+  4,  3,  2,  8,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 4371--4371
+[]\TU/lmtt/m/n/10 ##         3,  4,  3,  6,  5,  3,  5,  6,  5,  2,  5,  5,  4,
+  2,  4,  3,  5,[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4371--4371
+[]\TU/lmtt/m/n/10 ##         3,  7,  7,  5,  4,  3,  7,  4,  3,  5,  2,  4,  3,
+  3,  6])[] 
+ []
+
+[86]
+Overfull \hbox (64.5pt too wide) in paragraph at lines 4391--4391
+[]\TU/lmtt/m/n/10 ## array([7, 2, 4, 5, 4, 3, 5, 7, 7, 6, 4, 7, 6, 6, 4, 7, 8, 
+4, 9, 6, 5, 5, 8,[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 4391--4391
+[]\TU/lmtt/m/n/10 ##        2, 1, 5, 7, 5, 6, 7, 8, 3, 4, 6, 4, 7, 4, 2, 2, 5, 
+7, 6, 3, 6, 6, 6,[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 4391--4391
+[]\TU/lmtt/m/n/10 ##        2, 6, 6, 4, 5, 6, 4, 5, 6, 3, 4, 2, 6, 3, 3, 4, 4, 
+6, 3, 3, 7, 3, 4,[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 4391--4391
+[]\TU/lmtt/m/n/10 ##        2, 3, 6, 0, 5, 6, 4, 4, 3, 6, 5, 3, 4, 6, 3, 9, 6, 
+7, 6, 6, 7, 4, 7,[] 
+ []
+
+[87]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-21-1.pdf Graphi
+c file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-21-1.pdf>
+[88] [89]
+File: curso-probabilidad-udemy_files/figure-latex/dibu_python2-1.pdf Graphic fi
+le (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/dibu_python2-1.pdf>
+Missing character: There is no É in font lmmi10!
+[90] [91] [92] [93] [94] [95]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[96]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[97]
+Overfull \hbox (59.45085pt too wide) in paragraph at lines 4984--4985
+[]$[]$|  
+ []
+
+
+Overfull \hbox (9.65492pt too wide) in paragraph at lines 5031--5032
+[]$[]$|  
+ []
+
+
+Overfull \hbox (49.32587pt too wide) in paragraph at lines 5036--5037
+[]$[]$|  
+ []
+
+[98]
+Overfull \hbox (70.5796pt too wide) in alignment at lines 5073--5077
+ [][][] []
+ []
+
+[99] [100]
+Overfull \hbox (91.90793pt too wide) in alignment at lines 5143--5149
+ [][][] []
+ []
+
+[101] [102]
+Missing character: There is no ç in font lmmi10!
+Missing character: There is no ç in font lmmi10!
+[103]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 5312--5312
+[]\TU/lmtt/m/n/10 ##  [1]  5  4  1  6 10  0  0 10  7  0  6  2  1  3  0  2  5  0
+  0  5  5  3  3  2  2[] 
+ []
+
+File: curso-probabilidad-udemy_files/figure-latex/graficos22-1.pdf Graphic file
+ (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/graficos22-1.pdf>
+[104] [105] [106]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 5446--5446
+[]\TU/lmtt/m/n/10 ## array([ 3,  0,  1,  5,  0,  2,  0,  0,  4,  5,  1,  0,  1,
+  0,  0, 10,  2,[] 
+ []
+
+[107]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-35-1.pdf Graphi
+c file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-35-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[108]
+Overfull \hbox (20.55516pt too wide) detected at line 5577
+\OMS/lmsy/m/n/10 f\OML/lmm/m/it/10 EE; FEE; EFE; FFEE; FEFE; EFFE; FFFEE; FFEFE
+; FEFFE; EFFFE\OMS/lmsy/m/n/10 g
+ []
+
+[109]
+Overfull \hbox (9.8944pt too wide) detected at line 5611
+\OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X \OT1/lmr/m/n/10 = \OML/lm
+m/m/it/10 k\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 ([])
+ []
+
+[110] [111]
+Overfull \hbox (31.13446pt too wide) in paragraph at lines 5707--5708
+[]$[]$|  
+ []
+
+
+Overfull \hbox (87.67917pt too wide) in paragraph at lines 5712--5713
+[]$[]$|  
+ []
+
+
+Underfull \vbox (badness 5924) has occurred while \output is active []
+
+[112] [113]
+Overfull \hbox (20.80478pt too wide) detected at line 5810
+\OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \OML
+/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X \OMS/lmsy/m/n/10 ^^T \OML/lmm
+/m/it/10 x\OT1/lmr/m/n/10 ) = []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5843--5844
+
+ []
+
+
+Overfull \hbox (62.97128pt too wide) in alignment at lines 5850--5859
+ [][][] []
+ []
+
+[114]
+Overfull \hbox (110.34947pt too wide) in alignment at lines 5864--5879
+ [][][] []
+ []
+
+[115] [116]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 6043--6043
+[]\TU/lmtt/m/n/10 ## array([ 0, 22, 12, 10, 10,  4, 17,  6, 28,  4, 41, 31, 13,
+ 16, 14,  5,  9,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 6043--6043
+[]\TU/lmtt/m/n/10 ##        40, 14, 13,  8,  1, 27, 41,  6, 39,  6,  4, 28,  5,
+ 18, 10, 10, 44,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 6043--6043
+[]\TU/lmtt/m/n/10 ##        23,  6, 11,  8, 15, 19,  5,  7,  2, 12,  7, 10, 28,
+ 18,  7,  7, 12,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 6043--6043
+[]\TU/lmtt/m/n/10 ##         5, 34,  1, 16, 11, 35, 14, 17, 12, 12, 14,  9, 11,
+ 17, 15,  8, 23,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 6043--6043
+[]\TU/lmtt/m/n/10 ##         5, 34, 21, 16,  3,  5, 24, 37, 15, 46, 11, 34,  8,
+ 12, 11,  3, 23,[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 6043--6043
+[]\TU/lmtt/m/n/10 ##         0,  7, 15, 16, 15, 25,  4,  7, 26, 20,  9, 14, 14,
+ 24, 28])[] 
+ []
+
+[117]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-46-1.pdf Graphi
+c file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-46-1.pdf>
+[118]
+Underfull \vbox (badness 4096) has occurred while \output is active []
+
+[119]
+File: curso-probabilidad-udemy_files/figure-latex/negativa_py_show-1.pdf Graphi
+c file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/negativa_py_show-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[120] [121] [122]
+Overfull \hbox (139.69987pt too wide) in alignment at lines 6337--6340
+ [][][] []
+ []
+
+[123] [124] [125] [126] [127]
+Overfull \hbox (90.92557pt too wide) in paragraph at lines 6600--6601
+[]$[]$|  
+ []
+
+
+Overfull \hbox (114.93266pt too wide) in paragraph at lines 6635--6636
+[]$[]$|  
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[128] [129] [130]
+Overfull \hbox (6.72343pt too wide) detected at line 6808
+\OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \OML
+/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X \OMS/lmsy/m/n/10 ^^T \OML/lmm
+/m/it/10 X\OT1/lmr/m/n/10 ) = []
+ []
+
+[131]
+Overfull \hbox (81.40858pt too wide) in alignment at lines 6850--6859
+ [][][] []
+ []
+
+[132]
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6951--6951
+[]\TU/lmtt/m/n/10 ##  [1] 0.0497870684 0.1493612051 0.2240418077 0.2240418077 0
+.1680313557[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6951--6951
+[]\TU/lmtt/m/n/10 ##  [6] 0.1008188134 0.0504094067 0.0216040315 0.0081015118 0
+.0027005039[] 
+ []
+
+[133]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 6988--6988
+[]\TU/lmtt/m/n/10 ##   [1] 2 5 3 3 2 2 5 2 4 4 2 3 2 2 2 2 2 3 3 5 3 3 2 4 2 3 
+2 1 1 3 4 6 2 5 3 4 1[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 6988--6988
+[]\TU/lmtt/m/n/10 ##  [38] 1 6 3 4 1 4 3 4 3 0 2 1 4 3 0 2 4 2 3 5 2 1 3 3 4 2 
+5 0 3 1 1 4 6 4 5 0 4[] 
+ []
+
+[134]
+File: curso-probabilidad-udemy_files/figure-latex/graficosPOISON-1.pdf Graphic 
+file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/graficosPOISON-1.pdf>
+[135] [136]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7191--7191
+[]\TU/lmtt/m/n/10 ## array([ 0.04978707,  0.14936121,  0.22404181,  0.22404181,
+  0.16803136,[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 7191--7191
+[]\TU/lmtt/m/n/10 ##         0.10081881,  0.05040941,  0.02160403,  0.00810151,
+  0.0027005 ])[] 
+ []
+
+[137]
+Overfull \hbox (64.5pt too wide) in paragraph at lines 7278--7278
+[]\TU/lmtt/m/n/10 ## array([3, 5, 0, 1, 5, 0, 0, 3, 2, 3, 4, 2, 5, 4, 3, 1, 2, 
+2, 5, 1, 3, 3, 5,[] 
+ []
+
+[138]
+File: curso-probabilidad-udemy_files/figure-latex/py_poiss2-1.pdf Graphic file 
+(type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/py_poiss2-1.pdf>
+[139]
+Underfull \vbox (badness 1540) has occurred while \output is active []
+
+[140] [141] [142]
+Overfull \hbox (22.94653pt too wide) in paragraph at lines 7549--7550
+[]$[]$|  
+ []
+
+
+Overfull \hbox (115.60664pt too wide) in paragraph at lines 7554--7555
+[]$[]$|  
+ []
+
+[143]
+Overfull \hbox (30.64456pt too wide) detected at line 7584
+\OML/lmm/m/it/10 P[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \OML
+/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X \OT1/lmr/m/n/10 = \OML/lmm/m/
+it/10 x\OT1/lmr/m/n/10 ) = []
+ []
+
+[144]
+Overfull \hbox (1.38432pt too wide) in paragraph at lines 7659--7660
+\TU/lmr/m/n/10 Sea $\OML/lmm/m/it/10 X$ \TU/lmr/m/n/10 una va.a $\OML/lmm/m/it/
+10 H\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 m; n; k\OT1/lmr/m/n/10 )$ \TU/lmr/m/n/10 
+Las funciones de R son $\OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X \
+OT1/lmr/m/n/10 = \OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) =$\TU/lmtt/m/n/10 dhyper(x
+,m,n,k)
+ []
+
+[145]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7714--7714
+[]\TU/lmtt/m/n/10 ##   [1] 2 3 1 3 1 2 2 3 2 2 1 2 1 2 2 3 3 1 1 1 1 0 2 3 2 1 
+3 2 2 2 2 3 2 3 3 2 0[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7714--7714
+[]\TU/lmtt/m/n/10 ##  [38] 1 2 1 3 2 2 3 2 3 2 2 3 2 3 1 2 2 2 2 3 2 2 1 3 2 2 
+3 1 2 2 2 2 2 3 0 2 0[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7714--7714
+[]\TU/lmtt/m/n/10 ##  [75] 3 2 2 2 1 2 2 3 1 1 1 2 2 2 2 1 1 3 2 2 3 2 2 1 1 1 
+3 3 2 2 2 1 3 2 2 2 1[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7714--7714
+[]\TU/lmtt/m/n/10 ## [112] 1 2 3 2 2 1 2 2 2 2 2 2 3 1 2 3 3 1 1 2 2 1 1 3 2 1 
+1 2 2 3 1 1 1 2 1 1 3[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7714--7714
+[]\TU/lmtt/m/n/10 ## [149] 1 2 2 3 3 2 3 1 2 1 2 2 2 1 2 3 1 3 3 3 2 2 1 3 3 1 
+1 2 2 2 2 2 3 2 1 2 1[] 
+ []
+
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-70-1.pdf Graphi
+c file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-70-1.pdf>
+[146]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[147]
+Overfull \vbox (1.73515pt too high) detected at line 7828
+ []
+
+[148]
+Overfull \hbox (64.5pt too wide) in paragraph at lines 7901--7901
+[]\TU/lmtt/m/n/10 ## array([1, 1, 1, 2, 1, 1, 0, 3, 1, 3, 2, 2, 2, 2, 2, 3, 2, 
+2, 3, 2, 3, 2, 2,[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 7901--7901
+[]\TU/lmtt/m/n/10 ##        2, 2, 1, 1, 1, 0, 2, 2, 3, 2, 2, 2, 0, 2, 1, 1, 2, 
+1, 2, 1, 1, 1, 2,[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 7901--7901
+[]\TU/lmtt/m/n/10 ##        1, 3, 0, 2, 2, 2, 3, 1, 1, 1, 2, 1, 3, 3, 3, 1, 3, 
+3, 2, 2, 0, 2, 2,[] 
+ []
+
+[149]
+Overfull \hbox (64.5pt too wide) in paragraph at lines 7901--7901
+[]\TU/lmtt/m/n/10 ##        2, 3, 3, 2, 2, 1, 2, 2, 1, 3, 2, 3, 2, 3, 2, 2, 1, 
+3, 2, 2, 2, 2, 3,[] 
+ []
+
+File: curso-probabilidad-udemy_files/figure-latex/py_hyper2-1.pdf Graphic file 
+(type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/py_hyper2-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[150]
+Overfull \hbox (6.32407pt too wide) in alignment at lines 7960--7963
+ [][][] []
+ []
+
+[151] [152] [153]
+File: curso-probabilidad-udemy_files/figure-latex/grafica_unif10_vista-1.pdf Gr
+aphic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/grafica_unif10_vista-1.pdf>
+[154] [155]
+Underfull \hbox (badness 10000) in paragraph at lines 8151--8153
+
+ []
+
+
+Overfull \hbox (106.26826pt too wide) in alignment at lines 8172--8183
+ [][][] []
+ []
+
+[156]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 8311--8311
+[]\TU/lmtt/m/n/10 ## [1] 0.382302539 0.009313886 0.351767001 0.294007361 0.0715
+81515[] 
+ []
+
+[157]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 8357--8357
+[]\TU/lmtt/m/n/10 ## array([-0.09305401,  0.20964274,  0.24813991,  0.46749608,
+  0.5535493 ,[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 8357--8357
+[]\TU/lmtt/m/n/10 ##         0.73174668,  0.17189636,  0.97666741, -0.05228066,
+ -0.11645772,[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 8357--8357
+[]\TU/lmtt/m/n/10 ##        -0.41229308,  0.85864646,  0.45970182, -0.21154498,
+ -0.31719711,[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 8357--8357
+[]\TU/lmtt/m/n/10 ##         0.11183185,  0.39265913, -0.73759319,  0.74374792,
+ -0.70079676,[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 8357--8357
+[]\TU/lmtt/m/n/10 ##        -0.10627077,  0.96403393, -0.1930067 ,  0.49768432,
+  0.86153321,[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 8357--8357
+[]\TU/lmtt/m/n/10 ##         0.01441561,  0.21194998,  0.59687583, -0.08850559,
+ -0.96733341])[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 8392--8392
+[]\TU/lmtt/m/n/10 ## array([ 0.20421159,  0.05434809,  0.667532  ,  0.30512103,
+  0.22675806])[] 
+ []
+
+
+Underfull \vbox (badness 1412) has occurred while \output is active []
+
+[158]
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 8449.
+
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 8453.
+[159]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 8535--8535
+[]\TU/lmtt/m/n/10 ##  [1] 0.1666667 0.1666667 0.1666667 0.1666667 0.1666667 0.1
+666667 0.0000000[] 
+ []
+
+[160]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 8556--8556
+[]\TU/lmtt/m/n/10 ##  [1] 0.0000000 0.1666667 0.3333333 0.5000000 0.6666667 0.8
+333333 1.0000000[] 
+ []
+
+[161]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 8628--8628
+[]\TU/lmtt/m/n/10 ##  [1] 0.36765818 0.18187591 0.82617679 0.58497444 0.9588698
+3 0.10179894[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 8666--8666
+[]\TU/lmtt/m/n/10 ##  [1] 0.36765818 0.18187591 0.82617679 0.58497444 0.9588698
+3 0.10179894[] 
+ []
+
+[162]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[163] [164] [165] [166]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 8928--8928
+[]\TU/lmtt/m/n/10 ##  [1] 0.5069426 0.4497573 0.2876943 0.5514840 1.0552252 0.3
+168070 0.2488148[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 8965--8965
+[]\TU/lmtt/m/n/10 ## array([ 0.10598852,  0.09375588,  0.75599006,  0.37998813,
+  0.10353392,[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 8965--8965
+[]\TU/lmtt/m/n/10 ##         1.61762757,  0.18703927,  0.09169915,  0.49085878,
+  0.02530674])[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[167]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-89-1.pdf Graphi
+c file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-89-1.pdf>
+[168] [169]
+File: curso-probabilidad-udemy_files/figure-latex/normaldensidad1-1.pdf Graphic
+ file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/normaldensidad1-1.pdf>
+[170]
+
+Package amsmath Warning: Foreign command \over;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 9171.
+
+[171]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 9266--9266
+[]\TU/lmtt/m/n/10 ## [1]  2.19858942  0.03274072 -0.59125322 -0.88202614  1.951
+60505[] 
+ []
+
+[172]
+Overfull \hbox (48.75pt too wide) in paragraph at lines 9328--9328
+[]\TU/lmtt/m/n/10 ## array([-0.61990291,  3.41911104,  0.97976474,  3.9984665 ,
+  1.54283983])[] 
+ []
+
+
+Underfull \hbox (badness 1975) in paragraph at lines 9340--9342
+\TU/lmr/m/n/10 La función de densidad de la distribución normal tiene las sigui
+entes
+ []
+
+[173]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-95-1.pdf Graphi
+c file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-95-1.pdf>
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-96-1.pdf Graphi
+c file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-96-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[174] [175] [176] [177] [178] [179] [180]
+Chapter 4.
+[181
+
+] [182] [183] [184]
+Underfull \hbox (badness 5302) in paragraph at lines 9866--9868
+[]\TU/lmr/m/n/10 Si intentamos calcular el momento central de orden 4, obtenemo
+s:
+ []
+
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-99-1.pdf Graphi
+c file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-99-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[185] [186]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-100-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-100-1.pdf>
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-101-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-101-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[187]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-102-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-102-1.pdf>
+
+Underfull \vbox (badness 5741) has occurred while \output is active []
+
+[188] [189] [190] [191]
+Overfull \hbox (60.47887pt too wide) detected at line 10073
+\OML/lmm/m/it/10 m[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 ) = \OML
+/lmm/m/it/10 E [] \OT1/lmr/m/n/10 = [][] e[]\OML/lmm/m/it/10 ^^U\OT1/lmr/m/n/10
+ e[] \OML/lmm/m/it/10 dx \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 ^^U [][] \OT1/lmr/m
+/n/10 e[] \OML/lmm/m/it/10 dx \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 ^^U [][] \OT1/
+lmr/m/n/10 = []\OML/lmm/m/it/10 ;  []t < ^^U:
+ []
+
+
+Overfull \hbox (100.59773pt too wide) detected at line 10093
+[]
+ []
+
+[192]
+Underfull \hbox (badness 1292) in paragraph at lines 10119--10122
+\OML/lmm/m/it/10 E []$ \TU/lmr/m/n/10 y veamos que $\OML/lmm/m/it/10 m[]\OT1/lm
+r/m/n/10 (\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 E []$\TU/lmr/m
+/n/10 : $\OML/lmm/m/it/10 m[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 t\OT1/lmr/m/n/10
+ ) =
+ []
+
+[193]
+Overfull \hbox (58.47704pt too wide) in paragraph at lines 10173--10175
+[]\TU/lmr/m/n/10 Por último, para $\OML/lmm/m/it/10 n \OT1/lmr/m/n/10 = 4$\TU/l
+mr/m/n/10 , obtenemos: $\OML/lmm/m/it/10 m[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 t
+\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 e[] []$\TU/lmr/m/n/10 ,
+ []
+
+[194]
+Overfull \hbox (25.32455pt too wide) detected at line 10228
+[]
+ []
+
+[195]
+Overfull \hbox (49.44327pt too wide) detected at line 10240
+\OML/lmm/m/it/10 ^^^[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 w\OT1/lmr/m/n/10 ) = \O
+ML/lmm/m/it/10 E [] \OT1/lmr/m/n/10 = [][] e[]\OML/lmm/m/it/10 ^^U\OT1/lmr/m/n/
+10 e[] \OML/lmm/m/it/10 dx \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 ^^U [][] \OT1/lmr
+/m/n/10 e[] \OML/lmm/m/it/10 dx \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 ^^U [][] \OT
+1/lmr/m/n/10 = []\OML/lmm/m/it/10 :
+ []
+
+
+Overfull \hbox (128.36447pt too wide) detected at line 10266
+[]
+ []
+
+[196]
+Overfull \hbox (127.47179pt too wide) detected at line 10279
+[]
+ []
+
+[197]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-103-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-103-1.pdf>
+[198]
+Overfull \hbox (76.26234pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 4.6.  GENERACIÓN DE MUESTRAS DE VARIABLES ALEATORIAS POR ORDENA
+DOR \TU/lmr/m/n/10 199
+ []
+
+[199]
+Overfull \hbox (89.40675pt too wide) detected at line 10392
+[]
+ []
+
+[200]
+Overfull \hbox (69.75pt too wide) in paragraph at lines 10435--10435
+[]\TU/lmtt/m/n/10 ##  [1] 0.062256517 0.387562735 0.027692186 0.291087771 0.403
+917952 0.778602890[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 10435--10435
+[]\TU/lmtt/m/n/10 ##  [7] 0.131150860 0.280350342 0.003796249 0.219507956 0.945
+829891 0.775659317[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 10435--10435
+[]\TU/lmtt/m/n/10 ## [13] 0.682033958 0.067873161 1.216091515 1.232550124 0.689
+270257 0.158571891[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 10435--10435
+[]\TU/lmtt/m/n/10 ## [19] 0.336484163 0.267092819 0.183228046 0.027120529 0.326
+765414 0.129877407[] 
+ []
+
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-106-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-106-1.pdf>
+
+Underfull \vbox (badness 6961) has occurred while \output is active []
+
+
+Overfull \hbox (76.26234pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 4.6.  GENERACIÓN DE MUESTRAS DE VARIABLES ALEATORIAS POR ORDENA
+DOR \TU/lmr/m/n/10 201
+ []
+
+[201]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-107-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-107-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[202]
+Overfull \hbox (76.26234pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 4.6.  GENERACIÓN DE MUESTRAS DE VARIABLES ALEATORIAS POR ORDENA
+DOR \TU/lmr/m/n/10 203
+ []
+
+[203]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10542--10542
+[]\TU/lmtt/m/n/10 ##  [1] 0.8934245 1.0241151 0.7485943 1.1318743 1.1174486 0.8
+956145 1.6270601[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10542--10542
+[]\TU/lmtt/m/n/10 ##  [8] 0.6737312 0.9584882 0.5762514 0.7390811 0.4276671 1.5
+210227 0.8506008[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10542--10542
+[]\TU/lmtt/m/n/10 ## [15] 0.4126257 0.9897587 1.2166050 1.6098125 0.8727734 0.8
+756381 1.4853939[] 
+ []
+
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-110-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-110-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[204] [205]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-111-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-111-1.pdf>
+[206]
+Overfull \hbox (16.13805pt too wide) detected at line 10642
+[]
+ []
+
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-112-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-112-1.pdf>
+
+Underfull \vbox (badness 1221) has occurred while \output is active []
+
+[207] [208]
+Chapter 5.
+[209
+
+]
+File: Images/Bidim1.png Graphic file (type bmp)
+<Images/Bidim1.png>
+[210]
+File: Images/Bidim2.png Graphic file (type bmp)
+<Images/Bidim2.png>
+File: Images/Bidim3.png Graphic file (type bmp)
+<Images/Bidim3.png>
+[211]
+File: Images/Fxy.png Graphic file (type bmp)
+<Images/Fxy.png>
+[212]
+Underfull \hbox (badness 2277) in paragraph at lines 10804--10805
+[]\TU/lmr/m/n/10 Las variables aleatorias $\OML/lmm/m/it/10 X$ \TU/lmr/m/n/10 e
+ $\OML/lmm/m/it/10 Y$ \TU/lmr/m/n/10 se llaman \TU/lmr/bx/n/10 variables aleato
+rias
+ []
+
+File: Images/Fxy2.png Graphic file (type bmp)
+<Images/Fxy2.png>
+[213]
+File: Images/Fxy3.png Graphic file (type bmp)
+<Images/Fxy3.png>
+File: Images/FxyEx.png Graphic file (type bmp)
+<Images/FxyEx.png>
+[214]
+Overfull \hbox (64.77429pt too wide) detected at line 10903
+[] \OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x; \OT1/lmr/m/n/10 1) 
+= [] 1 = \OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (1\OML/lmm/m/it/10 ; \OT1/lmr/m/n/
+10 1)\OML/lmm/m/it/10 ;  [] F[]\OT1/lmr/m/n/10 (1\OML/lmm/m/it/10 ; y\OT1/lmr/m
+/n/10 ) = [] 1 = \OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (1\OML/lmm/m/it/10 ; \OT1/
+lmr/m/n/10 1)\OML/lmm/m/it/10 :
+ []
+
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 10907.
+
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-114-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-114-1.pdf>
+[215] [216]
+Underfull \hbox (badness 1043) in paragraph at lines 10954--10955
+\TU/lmr/bx/n/10 aleatoria bidimensional \TU/lmr/m/n/10 anterior $\OT1/lmr/m/n/1
+0 (\OML/lmm/m/it/10 S; P\OT1/lmr/m/n/10 )$ \TU/lmr/m/n/10 en los valores $\OT1/
+lmr/m/n/10 (\OML/lmm/m/it/10 i; j\OT1/lmr/m/n/10 )$ \TU/lmr/m/n/10 siguientes:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10968--10968
+[]\TU/lmr/bx/n/12 Variables aleatorias bidimensionales discretas.
+ []
+
+
+Overfull \hbox (91.74223pt too wide) detected at line 10977
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10980--10980
+[]\TU/lmr/bx/n/12 Variables aleatorias bidimensionales discretas.
+ []
+
+[217]
+Overfull \hbox (72.93793pt too wide) in alignment at lines 11035--11039
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (72.93793pt too wide) in alignment at lines 11039--11046
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[218]
+Overfull \hbox (39.05386pt too wide) in alignment at lines 11051--11055
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (39.05386pt too wide) in alignment at lines 11055--11063
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[219]
+Overfull \hbox (30.02014pt too wide) in paragraph at lines 11165--11182
+[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[220]
+Overfull \hbox (35.02014pt too wide) in paragraph at lines 11226--11241
+[] 
+ []
+
+[221] [222] [223] [224]
+Overfull \hbox (35.39008pt too wide) in alignment at lines 11389--11417
+ [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (35.39008pt too wide) in alignment at lines 11417--11444
+ [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 11463--11463
+[]\TU/lmtt/m/n/10 ##          2          3          4          5          6    
+      7          8[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 11463--11463
+[]\TU/lmtt/m/n/10 ## 0.02777778 0.05555556 0.08333333 0.11111111 0.13888889 0.1
+6666667 0.13888889[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 11484--11484
+[]\TU/lmtt/m/n/10 ##          1          2          3          4          5    
+      6          8[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 11484--11484
+[]\TU/lmtt/m/n/10 ## 0.02777778 0.05555556 0.05555556 0.08333333 0.05555556 0.1
+1111111 0.05555556[] 
+ []
+
+[225]
+Overfull \hbox (69.75pt too wide) in paragraph at lines 11484--11484
+[]\TU/lmtt/m/n/10 ##          9         10         12         15         16    
+     18         20[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 11484--11484
+[]\TU/lmtt/m/n/10 ## 0.02777778 0.05555556 0.11111111 0.05555556 0.02777778 0.0
+5555556 0.05555556[] 
+ []
+
+
+Overfull \hbox (54.84683pt too wide) detected at line 11524
+\OML/lmm/m/it/10 P\OT1/lmr/m/n/10 ((\OML/lmm/m/it/10 X; Y\OT1/lmr/m/n/10 ) \OMS
+/lmsy/m/n/10 2 \OML/lmm/m/it/10 B\OT1/lmr/m/n/10 ) = [][] [][] \OML/lmm/m/it/10
+ f[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x; y\OT1/lmr/m/n/10 ) \OML/lmm/m/it/10 dx
+ dy \OT1/lmr/m/n/10 = [][] [][] 1 \OML/lmm/m/it/10 dx dy \OT1/lmr/m/n/10 = [][]
+ 1 \OML/lmm/m/it/10 dx [][] \OT1/lmr/m/n/10 1 \OML/lmm/m/it/10 dy \OT1/lmr/m/n/
+10 = [] \OMS/lmsy/m/n/10 ^^A [] \OT1/lmr/m/n/10 = []\OML/lmm/m/it/10 :
+ []
+
+[226]
+File: Images/VaUniformeBidi.png Graphic file (type bmp)
+<Images/VaUniformeBidi.png>
+[227]
+File: Images/VaUniformeBidi2.png Graphic file (type bmp)
+<Images/VaUniformeBidi2.png>
+
+Overfull \hbox (37.82515pt too wide) detected at line 11612
+\OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x; y\OT1/lmr/m/n/10 ) = [
+][] [][] \OML/lmm/m/it/10 f[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 u; v\OT1/lmr/m/n
+/10 ) \OML/lmm/m/it/10 du dv \OT1/lmr/m/n/10 = [] [][] \OML/lmm/m/it/10 f[]\OT1
+/lmr/m/n/10 (\OML/lmm/m/it/10 u; v\OT1/lmr/m/n/10 ) \OML/lmm/m/it/10 du dv:
+ []
+
+[228]
+File: Images/VaUniformeBidi3.png Graphic file (type bmp)
+<Images/VaUniformeBidi3.png>
+File: Images/VaUniformeBidi4.png Graphic file (type bmp)
+<Images/VaUniformeBidi4.png>
+[229] [230]
+File: Images/Ejemplo2Bidi.png Graphic file (type bmp)
+<Images/Ejemplo2Bidi.png>
+
+Overfull \hbox (37.12254pt too wide) detected at line 11740
+[]
+ []
+
+[231]
+File: Images/Ejemplo2Bidi2.png Graphic file (type bmp)
+<Images/Ejemplo2Bidi2.png>
+[232]
+Overfull \hbox (90.57413pt too wide) detected at line 11779
+[]
+ []
+
+File: Images/Ejemplo2Bidi3.png Graphic file (type bmp)
+<Images/Ejemplo2Bidi3.png>
+
+Overfull \hbox (88.79163pt too wide) detected at line 11802
+[]
+ []
+
+File: Images/Ejemplo2Bidi4.png Graphic file (type bmp)
+<Images/Ejemplo2Bidi4.png>
+[233] [234]
+Overfull \hbox (65.77815pt too wide) detected at line 11854
+[]
+ []
+
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-132-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-132-1.pdf>
+[235]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-133-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-133-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[236]
+Underfull \vbox (badness 4608) has occurred while \output is active []
+
+[237]
+Overfull \hbox (21.45193pt too wide) detected at line 11933
+[]
+ []
+
+[238]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-135-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-135-1.pdf>
+
+Underfull \vbox (badness 6412) has occurred while \output is active []
+
+[239] [240]
+Overfull \hbox (16.78831pt too wide) in alignment at lines 12033--12051
+ [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (16.78831pt too wide) in alignment at lines 12051--12068
+ [] [] [] [] [] [] [] 
+ []
+
+[241]
+Overfull \hbox (30.02014pt too wide) in paragraph at lines 12101--12118
+[] 
+ []
+
+
+Overfull \hbox (30.02014pt too wide) in paragraph at lines 12122--12139
+[] 
+ []
+
+
+Overfull \hbox (35.02014pt too wide) in paragraph at lines 12143--12158
+[] 
+ []
+
+
+Overfull \hbox (35.02014pt too wide) in paragraph at lines 12162--12177
+[] 
+ []
+
+[242] [243] [244] [245]
+Overfull \hbox (27.32144pt too wide) detected at line 12338
+[]
+ []
+
+
+Overfull \hbox (9.53365pt too wide) detected at line 12359
+\OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \OML
+/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 i\OT1/lmr/m/n/10 ) = \OML/lmm
+/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X \OMS/lmsy/m/n/10 ^^T \OML/lmm/m/i
+t/10 i\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10 f
+\OML/lmm/m/it/10 k \OMS/lmsy/m/n/10 2 f\OT1/lmr/m/n/10 1\OML/lmm/m/it/10 ; \OT1
+/lmr/m/n/10 2\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 3\OML/lmm/m/it/10 ; \OT1/lmr/m/
+n/10 4\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 5\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 6\
+OMS/lmsy/m/n/10 g\OML/lmm/m/it/10 ;  \OMS/lmsy/m/n/10 j \OML/lmm/m/it/10 k \OMS
+/lmsy/m/n/10 ^^T \OML/lmm/m/it/10 i\OMS/lmsy/m/n/10 g\OT1/lmr/m/n/10 ) = [] \OM
+L/lmm/m/it/10 ;
+ []
+
+[246] [247] [248]
+Overfull \hbox (7.31453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.6.  MOMENTOS CONJUNTOS Y VALORES ESPERADOS CONJUNTOS \TU/lmr/
+m/n/10 249
+ []
+
+[249]
+Overfull \hbox (111.00215pt too wide) detected at line 12546
+[]
+ []
+
+[250]
+Overfull \hbox (90.58688pt too wide) detected at line 12589
+[]
+ []
+
+
+Overfull \hbox (7.31453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.6.  MOMENTOS CONJUNTOS Y VALORES ESPERADOS CONJUNTOS \TU/lmr/
+m/n/10 251
+ []
+
+[251]
+Overfull \hbox (6.44926pt too wide) in alignment at lines 12641--12659
+ [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (6.44926pt too wide) in alignment at lines 12659--12676
+ [] [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[252]
+Overfull \hbox (6.6629pt too wide) detected at line 12701
+\OML/lmm/m/it/10 E\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X \OMS/lmsy/m/n/10 ^^A \OML
+/lmm/m/it/10 Y\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 E[]\OT1/lmr/m/n/10 (\OML/lmm
+/m/it/10 X\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^A \OML/lmm/m/it/10 E[]\OT1/lmr/m
+/n/10 (\OML/lmm/m/it/10 Y\OT1/lmr/m/n/10 ) = [][] \OML/lmm/m/it/10 x \OMS/lmsy/
+m/n/10 ^^A \OT1/lmr/m/n/10 1 \OML/lmm/m/it/10 dx \OMS/lmsy/m/n/10 ^^A [][] \OML
+/lmm/m/it/10 y \OMS/lmsy/m/n/10 ^^A \OT1/lmr/m/n/10 1 \OML/lmm/m/it/10 dy \OT1/
+lmr/m/n/10 = [][] \OMS/lmsy/m/n/10 ^^A [][] \OT1/lmr/m/n/10 = [] \OMS/lmsy/m/n/
+10 ^^A [] \OT1/lmr/m/n/10 = []\OML/lmm/m/it/10 :
+ []
+
+
+Overfull \hbox (7.31453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.6.  MOMENTOS CONJUNTOS Y VALORES ESPERADOS CONJUNTOS \TU/lmr/
+m/n/10 253
+ []
+
+[253] [254]
+Overfull \hbox (15.0024pt too wide) detected at line 12805
+[]
+ []
+
+
+Overfull \hbox (7.31453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.6.  MOMENTOS CONJUNTOS Y VALORES ESPERADOS CONJUNTOS \TU/lmr/
+m/n/10 255
+ []
+
+[255] [256]
+Overfull \hbox (33.34401pt too wide) detected at line 12868
+[]
+ []
+
+
+Overfull \hbox (65.12802pt too wide) detected at line 12898
+\OML/lmm/m/it/10 E\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X\OT1/lmr/m/n/10 ) = [][] \
+OML/lmm/m/it/10 x\OT1/lmr/m/n/10 2 []  \OML/lmm/m/it/10 dx \OT1/lmr/m/n/10 = 2 
+[][] = 2 [] = []\OML/lmm/m/it/10 :
+ []
+
+
+Overfull \hbox (34.79958pt too wide) detected at line 12909
+[]
+ []
+
+
+Overfull \hbox (7.31453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.6.  MOMENTOS CONJUNTOS Y VALORES ESPERADOS CONJUNTOS \TU/lmr/
+m/n/10 257
+ []
+
+[257]
+Overfull \hbox (124.87418pt too wide) detected at line 12940
+[]
+ []
+
+[258]
+Overfull \hbox (7.31453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.6.  MOMENTOS CONJUNTOS Y VALORES ESPERADOS CONJUNTOS \TU/lmr/
+m/n/10 259
+ []
+
+[259]
+Underfull \hbox (badness 1097) in paragraph at lines 13039--13040
+[]\TU/lmr/m/n/10 También nos interesa el valor esperado de la \TU/lmr/bx/n/10 v
+ariable condicional $\OML/lmm/m/it/10 Y$
+ []
+
+[260]
+Overfull \hbox (50.57048pt too wide) detected at line 13075
+[] \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 Y \OT1/lmr/m/n/10 = \OML
+/lmm/m/it/10 y[]\OMS/lmsy/m/n/10 j\OML/lmm/m/it/10 X \OT1/lmr/m/n/10 = \OML/lmm
+/m/it/10 x[]\OT1/lmr/m/n/10 ) = [] [] = [] [] \OML/lmm/m/it/10 P[]\OT1/lmr/m/n/
+10 (\OML/lmm/m/it/10 x[]; y[]\OT1/lmr/m/n/10 ) = [] \OMS/lmsy/m/n/10 ^^A \OML/l
+mm/m/it/10 P[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]\OT1/lmr/m/n/10 ) = 1\OML/lm
+m/m/it/10 :
+ []
+
+
+Overfull \hbox (88.12344pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.7.  VARIABLES ALEATORIAS CONDICIONALES Y VALOR ESPERADO CONDI
+CIONAL \TU/lmr/m/n/10 261
+ []
+
+[261] [262]
+Overfull \hbox (88.12344pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.7.  VARIABLES ALEATORIAS CONDICIONALES Y VALOR ESPERADO CONDI
+CIONAL \TU/lmr/m/n/10 263
+ []
+
+[263] [264]
+Overfull \hbox (37.21191pt too wide) detected at line 13289
+[][] \OML/lmm/m/it/10 f[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 y\OT1/lmr/m/n/10 ) \
+OML/lmm/m/it/10 dy \OT1/lmr/m/n/10 = [][] [] \OML/lmm/m/it/10 dy \OT1/lmr/m/n/1
+0 = [] [][] \OML/lmm/m/it/10 f[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x; y\OT1/lmr/
+m/n/10 ) \OML/lmm/m/it/10 dy \OT1/lmr/m/n/10 = [] \OMS/lmsy/m/n/10 ^^A \OML/lmm
+/m/it/10 f[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = 1\OML/lmm/m/
+it/10 :
+ []
+
+
+Overfull \hbox (88.12344pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.7.  VARIABLES ALEATORIAS CONDICIONALES Y VALOR ESPERADO CONDI
+CIONAL \TU/lmr/m/n/10 265
+ []
+
+[265] [266]
+Overfull \hbox (16.86694pt too wide) detected at line 13379
+\OML/lmm/m/it/10 f[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 y\OT1/lmr/m/n/10 ) = [] =
+ [] = []e[]\OML/lmm/m/it/10 ;  y \OMS/lmsy/m/n/10 2 \U/msb/m/n/10 R\OML/lmm/m/i
+t/10 :
+ []
+
+
+Overfull \hbox (88.12344pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.7.  VARIABLES ALEATORIAS CONDICIONALES Y VALOR ESPERADO CONDI
+CIONAL \TU/lmr/m/n/10 267
+ []
+
+[267]
+Overfull \hbox (49.41115pt too wide) detected at line 13428
+[]
+ []
+
+[268]
+Overfull \hbox (88.12344pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.7.  VARIABLES ALEATORIAS CONDICIONALES Y VALOR ESPERADO CONDI
+CIONAL \TU/lmr/m/n/10 269
+ []
+
+[269]
+Overfull \hbox (35.92255pt too wide) detected at line 13549
+\OML/lmm/m/it/10 E\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 Y\OMS/lmsy/m/n/10 j\OML/lmm
+/m/it/10 X \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 x[]\OT1/lmr/m/n/10 ) = [][] \OML/
+lmm/m/it/10 y[] dy \OT1/lmr/m/n/10 = [] [][] = []\OML/lmm/m/it/10 :
+ []
+
+
+Overfull \hbox (22.00993pt too wide) detected at line 13561
+[]
+ []
+
+[270]
+Overfull \hbox (193.69012pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.8.  VARIABLES ALEATORIAS DEFINIDAS COMO FUNCIÓN DE DOS VARIAB
+LES ALEATORIAS CONJUNTAS \TU/lmr/m/n/10 271
+ []
+
+[271] [272]
+Overfull \hbox (22.5pt too wide) in paragraph at lines 13640--13640
+[]\TU/lmtt/m/n/10 ##  [1]  2  5  8 10 13 17 18 20 25 26 29 32 34 37 40 41 45 50
+ 52 61 72[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 13687--13687
+[]\TU/lmtt/m/n/10 ##        X1    X2    X3     X4     X5     X6     X7     X8  
+   X9    X10    X11[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 13687--13687
+[]\TU/lmtt/m/n/10 ## Z   2.000 5.000 8.000 10.000 13.000 17.000 18.000 20.000 2
+5.000 26.000 29.000[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 13687--13687
+[]\TU/lmtt/m/n/10 ## P_Z 0.028 0.056 0.028  0.056  0.056  0.056  0.028  0.056  
+0.056  0.056  0.056[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 13687--13687
+[]\TU/lmtt/m/n/10 ##        X12    X13    X14    X15    X16    X17    X18    X1
+9    X20    X21[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 13687--13687
+[]\TU/lmtt/m/n/10 ## Z   32.000 34.000 37.000 40.000 41.000 45.000 50.000 52.00
+0 61.000 72.000[] 
+ []
+
+
+Overfull \hbox (193.69012pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.8.  VARIABLES ALEATORIAS DEFINIDAS COMO FUNCIÓN DE DOS VARIAB
+LES ALEATORIAS CONJUNTAS \TU/lmr/m/n/10 273
+ []
+
+[273]
+Overfull \hbox (54.0pt too wide) in paragraph at lines 13687--13687
+[]\TU/lmtt/m/n/10 ## P_Z  0.028  0.056  0.056  0.056  0.056  0.056  0.028  0.05
+6  0.056  0.028[] 
+ []
+
+
+Overfull \hbox (69.23973pt too wide) detected at line 13706
+\OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 z\OT1/lmr/m/n/10 ) = \OML
+/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 Z \OMS/lmsy/m/n/10 ^^T \OML/lmm
+/m/it/10 z\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/
+10 X \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 Y \OMS/lmsy/m/n/10 ^^T \OML/lmm/m/it/10
+ z\OT1/lmr/m/n/10 ) = [] [][] 2e[]e[] \OML/lmm/m/it/10 dy dx
+ []
+
+File: Images/EjSumaXY.png Graphic file (type bmp)
+<Images/EjSumaXY.png>
+
+Overfull \hbox (56.37573pt too wide) detected at line 13722
+[]
+ []
+
+[274]
+Overfull \hbox (136.01363pt too wide) detected at line 13746
+[]
+ []
+
+
+Overfull \hbox (67.79678pt too wide) detected at line 13755
+[]
+ []
+
+
+Overfull \hbox (43.65952pt too wide) detected at line 13761
+[]
+ []
+
+
+Overfull \hbox (193.69012pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.8.  VARIABLES ALEATORIAS DEFINIDAS COMO FUNCIÓN DE DOS VARIAB
+LES ALEATORIAS CONJUNTAS \TU/lmr/m/n/10 275
+ []
+
+[275] [276]
+File: Images/EjTranLineal.png Graphic file (type bmp)
+<Images/EjTranLineal.png>
+
+Overfull \hbox (193.69012pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.8.  VARIABLES ALEATORIAS DEFINIDAS COMO FUNCIÓN DE DOS VARIAB
+LES ALEATORIAS CONJUNTAS \TU/lmr/m/n/10 277
+ []
+
+[277]
+File: Images/EjTranLineal2.png Graphic file (type bmp)
+<Images/EjTranLineal2.png>
+[278]
+Overfull \hbox (193.69012pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.8.  VARIABLES ALEATORIAS DEFINIDAS COMO FUNCIÓN DE DOS VARIAB
+LES ALEATORIAS CONJUNTAS \TU/lmr/m/n/10 279
+ []
+
+[279] [280]
+File: Images/Polares.png Graphic file (type bmp)
+<Images/Polares.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (193.69012pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.8.  VARIABLES ALEATORIAS DEFINIDAS COMO FUNCIÓN DE DOS VARIAB
+LES ALEATORIAS CONJUNTAS \TU/lmr/m/n/10 281
+ []
+
+[281] [282]
+Overfull \hbox (193.69012pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.8.  VARIABLES ALEATORIAS DEFINIDAS COMO FUNCIÓN DE DOS VARIAB
+LES ALEATORIAS CONJUNTAS \TU/lmr/m/n/10 283
+ []
+
+[283] [284
+
+]
+Chapter 6.
+[285]
+Overfull \hbox (182.47833pt too wide) in paragraph at lines 14057--14058
+[]\TU/lmr/m/n/10 Por ejemplo, el suceso $\OMS/lmsy/m/n/10 f\OML/lmm/m/it/10 X[]
+ \OMS/lmsy/m/n/10 ^^T \OT1/lmr/m/n/10 1\OML/lmm/m/it/10 ; X[] \OMS/lmsy/m/n/10 
+^^U \OT1/lmr/m/n/10 3\OML/lmm/m/it/10 ; X[] \OMS/lmsy/m/n/10 ^^T \OT1/lmr/m/n/1
+0 1\OMS/lmsy/m/n/10 g$ \TU/lmr/m/n/10 sería $\OMS/lmsy/m/n/10 f\OT1/lmr/m/n/10 
+(0\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 3\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 0)\OML
+/lmm/m/it/10 ; \OT1/lmr/m/n/10 (0\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 3\OML/lmm/m
+/it/10 ; \OT1/lmr/m/n/10 1)\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 (0\OML/lmm/m/it/1
+0 ; \OT1/lmr/m/n/10 4\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 0)\OML/lmm/m/it/10 ; \O
+T1/lmr/m/n/10 (0\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 4\OML/lmm/m/it/10 ; \OT1/lmr
+/m/n/10 1)\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 (1\OML/lmm/m/it/10 ; \OT1/lmr/m/n/
+10 3\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 0)\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 (1\
+OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 3\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 1)\OML/lm
+m/m/it/10 ; \OT1/lmr/m/n/10 (1\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 4\OML/lmm/m/it
+/10 ; \OT1/lmr/m/n/10 0)\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 (1\OML/lmm/m/it/10 ;
+ \OT1/lmr/m/n/10 4\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 1)\OMS/lmsy/m/n/10 g$\TU/l
+mr/m/n/10 . 
+ []
+
+File: Images/EjPlano3D.png Graphic file (type bmp)
+<Images/EjPlano3D.png>
+[286]
+File: Images/EjEsfera3D.png Graphic file (type bmp)
+<Images/EjEsfera3D.png>
+File: Images/Ej3DCubo.png Graphic file (type bmp)
+<Images/Ej3DCubo.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[287]
+Overfull \hbox (4.67397pt too wide) in paragraph at lines 14104--14105
+[]\TU/lmr/m/n/10 Por ejemplo, si consideramos $\OML/lmm/m/it/10 B \OT1/lmr/m/n/
+10 = \OMS/lmsy/m/n/10 f\OML/lmm/m/it/10 X[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 
+X[] \OT1/lmr/m/n/10 + [] + \OML/lmm/m/it/10 X[] \OMS/lmsy/m/n/10 ^^T \OT1/lmr/m
+/n/10 1\OMS/lmsy/m/n/10 g$\TU/lmr/m/n/10 , $\OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (
+(\OML/lmm/m/it/10 X[]; X[]; [] ; X[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 2
+ []
+
+[288]
+File: Images/Fx1x2x3.png Graphic file (type bmp)
+<Images/Fx1x2x3.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[289]
+Overfull \hbox (23.50992pt too wide) detected at line 14155
+[]\OML/lmm/m/it/10 x[] \OMS/lmsy/m/n/10 ^^T \OML/lmm/m/it/10 x[]; [][]F[]\OT1/l
+mr/m/n/10 (\OML/lmm/m/it/10 x[]; [] ; x[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^T
+ \OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]; [] ; x[]\OT1/lmr/m/
+n/10 )\OML/lmm/m/it/10 :
+ []
+
+
+Overfull \hbox (31.35802pt too wide) in paragraph at lines 14157--14158
+[]$\OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]; [] ; x[]; []; x[]
+; [] ; x[]\OT1/lmr/m/n/10 ) = 0\OML/lmm/m/it/10 ;$ \TU/lmr/m/n/10 para todo $\O
+ML/lmm/m/it/10 i$ \TU/lmr/m/n/10 y $\OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OMS/l
+msy/m/n/10 1\OML/lmm/m/it/10 ; [] ; \OMS/lmsy/m/n/10 1\OT1/lmr/m/n/10 ) =
+ []
+
+[290] [291]
+File: Images/Ej3DFxyz.png Graphic file (type bmp)
+<Images/Ej3DFxyz.png>
+File: Images/Ej3DFxy2pis.png Graphic file (type bmp)
+<Images/Ej3DFxy2pis.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[292]
+Overfull \hbox (49.22485pt too wide) in paragraph at lines 14237--14239
+[]\TU/lmr/m/n/10 Claramente $\OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it
+/10 x[]; x[]; \OMS/lmsy/m/n/10 ^^@1\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 F[]\OT1
+/lmr/m/n/10 (\OML/lmm/m/it/10 x[]; \OMS/lmsy/m/n/10 ^^@1\OML/lmm/m/it/10 ; x[]\
+OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10 ^^@1\O
+ML/lmm/m/it/10 ; x[]; x[]\OT1/lmr/m/n/10 ) =
+ []
+
+
+Overfull \hbox (0.76382pt too wide) in paragraph at lines 14239--14241
+[]\TU/lmr/m/n/10 De la misma manera $\OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OMS/
+lmsy/m/n/10 1\OML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 1\OML/lmm/m/it/10 ; \OMS/lmsy/
+m/n/10 1\OT1/lmr/m/n/10 ) = 1$ \TU/lmr/m/n/10 ya que $\OML/lmm/m/it/10 F[]\OT1/
+lmr/m/n/10 (\OML/lmm/m/it/10 x[]; x[]; x[]\OT1/lmr/m/n/10 ) =
+ []
+
+[293] [294]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-150-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-150-1.pdf>
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-151-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-151-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[295]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-152-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-152-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[296]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-153-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-153-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[297] [298]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 14358.
+
+Overfull \hbox (76.47333pt too wide) detected at line 14384
+[]
+ []
+
+
+Underfull \hbox (badness 3118) in paragraph at lines 14389--14391
+\TU/lmr/m/n/10 Definición de función de probabilidad conjunta: Dada una \TU/lmr
+/bx/n/10 variable
+ []
+
+
+Underfull \hbox (badness 1308) in paragraph at lines 14389--14391
+\TU/lmr/bx/n/10 aleatoria $\OML/lmm/m/it/10 n$\TU/lmr/bx/n/10 -dimensional disc
+reta $\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X[] [] ; X[]\OT1/lmr/m/n/10 )$ \TU/lmr/
+m/n/10 con $\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X[] [] ; X[]\OT1/lmr/m/n/10 )(
+) =
+ []
+
+[299]
+Overfull \hbox (4.26964pt too wide) detected at line 14396
+[]
+ []
+
+
+Underfull \hbox (badness 3068) in paragraph at lines 14401--14403
+\TU/lmr/m/n/10 Observación: Si $\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]; x[]; [] 
+; x[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 62 \OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X[
+] [] ; X[]\OT1/lmr/m/n/10 )(
+)$\TU/lmr/m/n/10 , el valor de la
+ []
+
+
+Underfull \hbox (badness 6944) in paragraph at lines 14401--14403
+\TU/lmr/bx/n/10 función de probabilidad conjunta \TU/lmr/m/n/10 en $\OT1/lmr/m/
+n/10 (\OML/lmm/m/it/10 x[]; x[]; [] ; x[]\OT1/lmr/m/n/10 )$ \TU/lmr/m/n/10 en n
+ulo:
+ []
+
+
+Underfull \hbox (badness 1629) in paragraph at lines 14401--14403
+\OT1/lmr/m/n/10 
+\OML/lmm/m/it/10 ;  \OMS/lmsy/m/n/10 j\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X[]\OT1
+/lmr/m/n/10 (\OML/lmm/m/it/10 w\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 ; [] ; X[]\OT1
+/lmr/m/n/10 (\OML/lmm/m/it/10 w\OT1/lmr/m/n/10 )) = (\OML/lmm/m/it/10 x[]; x[];
+ [] ; x[]\OT1/lmr/m/n/10 )\OMS/lmsy/m/n/10 g \OT1/lmr/m/n/10 = \OMS/lmsy/m/n/10
+ ;$ \TU/lmr/m/n/10 ya que recordemos
+ []
+
+
+Underfull \hbox (badness 2042) in paragraph at lines 14409--14410
+[]\TU/lmr/m/n/10 Los valores de $\OML/lmm/m/it/10 P[]\OT1/lmr/m/n/10 (\OML/lmm/
+m/it/10 x[]; [] ; x[]\OT1/lmr/m/n/10 )$ \TU/lmr/m/n/10 estarían organizados en 
+una tabla
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[300] [301] [302]
+Underfull \vbox (badness 1412) has occurred while \output is active []
+
+[303]
+Overfull \hbox (72.08316pt too wide) detected at line 14656
+[]
+ []
+
+[304]
+Underfull \hbox (badness 4819) in paragraph at lines 14700--14701
+\TU/lmr/m/n/10 con \TU/lmr/bx/n/10 función de probabilidad conjunta $\OML/lmm/m
+/it/10 P[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]; [] ; x[]\OT1/lmr/m/n/10 )$\TU/
+lmr/m/n/10 , con
+ []
+
+[305]
+Underfull \hbox (badness 3439) in paragraph at lines 14707--14709
+\TU/lmr/m/n/10 Proposición. Expresión de las funciones de probabilidad marginal
+es.
+ []
+
+
+Underfull \hbox (badness 1286) in paragraph at lines 14707--14709
+\TU/lmr/m/n/10 Sea $\OT1/lmr/bx/n/10 X \OT1/lmr/m/n/10 = (\OML/lmm/m/it/10 X[] 
+[] ; X[]\OT1/lmr/m/n/10 )$ \TU/lmr/m/n/10 una variable aleatoria $\OML/lmm/m/it
+/10 n$\TU/lmr/bx/n/10 -dimensional discreta
+ []
+
+
+Underfull \hbox (badness 5726) in paragraph at lines 14707--14709
+\TU/lmr/m/n/10 con \TU/lmr/bx/n/10 función de probabilidad conjunta $\OML/lmm/m
+/it/10 P[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]; [] ; x[]\OT1/lmr/m/n/10 )$\TU/
+lmr/m/n/10 , con
+ []
+
+
+Overfull \hbox (114.45422pt too wide) detected at line 14739
+[]
+ []
+
+
+Overfull \hbox (114.45422pt too wide) detected at line 14753
+[]
+ []
+
+[306]
+Overfull \hbox (96.05629pt too wide) detected at line 14790
+[]
+ []
+
+
+Overfull \hbox (96.05629pt too wide) detected at line 14802
+[]
+ []
+
+
+Underfull \vbox (badness 4291) has occurred while \output is active []
+
+[307] [308] [309]
+File: Images/Cubo3D2.png Graphic file (type bmp)
+<Images/Cubo3D2.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[310]
+Underfull \vbox (badness 5652) has occurred while \output is active []
+
+[311]
+Overfull \hbox (51.10199pt too wide) detected at line 14993
+\OML/lmm/m/it/10 f[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]; [] ; x[]\OT1/lmr/m/n
+/10 ) = [][] [] [][] \OML/lmm/m/it/10 f[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[];
+ [] ; x[]\OT1/lmr/m/n/10 ) \OML/lmm/m/it/10 dx[] [] dx[];
+ []
+
+
+Overfull \hbox (11.2897pt too wide) detected at line 15015
+[]
+ []
+
+[312] [313]
+Overfull \hbox (67.77158pt too wide) detected at line 15064
+\OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]; x[]; x[]\OT1/lmr/m/n
+/10 ) = [][] [][] [][] 8\OML/lmm/m/it/10 x[]x[]x[]dx[] dx[] dx[] \OT1/lmr/m/n/1
+0 = 8 [][] [][] [][] = \OML/lmm/m/it/10 x[]x[]x[]:
+ []
+
+File: Images/Fx1x2x3bajos.png Graphic file (type bmp)
+<Images/Fx1x2x3bajos.png>
+
+Overfull \hbox (48.66684pt too wide) detected at line 15086
+\OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]; x[]; x[]\OT1/lmr/m/n
+/10 ) = [][] [][] [][] 8\OML/lmm/m/it/10 x[]x[]x[]dx[] dx[] dx[] \OT1/lmr/m/n/1
+0 = 8 [][] [][] [][] = \OML/lmm/m/it/10 x[]x[]:
+ []
+
+[314]
+File: Images/Fx1x2x3bajosx1.png Graphic file (type bmp)
+<Images/Fx1x2x3bajosx1.png>
+[315]
+Overfull \hbox (29.5621pt too wide) detected at line 15118
+\OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]; x[]; x[]\OT1/lmr/m/n
+/10 ) = [][] [][] [][] 8\OML/lmm/m/it/10 x[]x[]x[]dx[] dx[] dx[] \OT1/lmr/m/n/1
+0 = 8 [][] [][] [][] = \OML/lmm/m/it/10 x[]:
+ []
+
+File: Images/Fx1x2x3bajosx1x2.png Graphic file (type bmp)
+<Images/Fx1x2x3bajosx1x2.png>
+
+Overfull \hbox (48.66684pt too wide) detected at line 15141
+\OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]; x[]; x[]\OT1/lmr/m/n
+/10 ) = [][] [][] [][] 8\OML/lmm/m/it/10 x[]x[]x[]dx[] dx[] dx[] \OT1/lmr/m/n/1
+0 = 8 [][] [][] [][] = \OML/lmm/m/it/10 x[]x[]:
+ []
+
+[316]
+File: Images/Fx1x2x3piso.png Graphic file (type bmp)
+<Images/Fx1x2x3piso.png>
+
+Overfull \hbox (29.5621pt too wide) detected at line 15164
+\OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]; x[]; x[]\OT1/lmr/m/n
+/10 ) = [][] [][] [][] 8\OML/lmm/m/it/10 x[]x[]x[]dx[] dx[] dx[] \OT1/lmr/m/n/1
+0 = 8 [][] [][] [][] = \OML/lmm/m/it/10 x[]:
+ []
+
+[317]
+File: Images/Fx1x2x3pisox1.png Graphic file (type bmp)
+<Images/Fx1x2x3pisox1.png>
+
+Overfull \hbox (15.45737pt too wide) detected at line 15196
+\OML/lmm/m/it/10 F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]; x[]; x[]\OT1/lmr/m/n
+/10 ) = [][] [][] [][] 8\OML/lmm/m/it/10 x[]x[]x[]dx[] dx[] dx[] \OT1/lmr/m/n/1
+0 = 8 [][] [][] [][] = 1\OML/lmm/m/it/10 :
+ []
+
+File: Images/Fx1x2x3pisox1x2.png Graphic file (type bmp)
+<Images/Fx1x2x3pisox1x2.png>
+[318] [319]
+Overfull \hbox (4.07666pt too wide) detected at line 15241
+[] \OT1/lmr/m/n/10 = []
+ []
+
+
+Overfull \hbox (8.56265pt too wide) detected at line 15259
+[] \OT1/lmr/m/n/10 = []
+ []
+
+
+Overfull \hbox (8.56265pt too wide) detected at line 15277
+[] \OT1/lmr/m/n/10 = []
+ []
+
+
+Underfull \vbox (badness 8151) has occurred while \output is active []
+
+[320]
+Overfull \hbox (7.41306pt too wide) detected at line 15300
+\OML/lmm/m/it/10 f[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]\OT1/lmr/m/n/10 ) = []
+
+ []
+
+[321]
+Overfull \hbox (32.87224pt too wide) detected at line 15317
+\OML/lmm/m/it/10 f[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]; x[]\OT1/lmr/m/n/10 )
+ = []
+ []
+
+
+Underfull \hbox (badness 1571) in paragraph at lines 15345--15346
+\TU/lmr/m/n/10 Propiedades de la \TU/lmr/bx/n/10 función de densidad de la vari
+able gaussiana
+ []
+
+[322]
+Underfull \hbox (badness 2512) in paragraph at lines 15359--15361
+[]\TU/lmr/m/n/10 Proposición (transformación afín de una \TU/lmr/bx/n/10 normal
+ $\OML/lmm/m/it/10 n$\TU/lmr/bx/n/10 -dimensional\TU/lmr/m/n/10 ) Sea
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 15367--15369
+\TU/lmr/m/n/10 entonces la variable $\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X[]; [] 
+; X[]\OT1/lmr/m/n/10 )$ \TU/lmr/m/n/10 se distribuye según una \TU/lmr/bx/n/10 
+normal $\OML/lmm/m/it/10 k$\TU/lmr/bx/n/10 -
+ []
+
+[323]
+Underfull \hbox (badness 1728) in paragraph at lines 15389--15390
+\TU/lmr/m/n/10 Queremos estudiar cuál es la distribución de la variable $\OT1/l
+mr/m/n/10 3$\TU/lmr/m/n/10 -dimensional
+ []
+
+[324]
+Overfull \hbox (14.25493pt too wide) detected at line 15428
+\OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X[] \OT1/lmr/m/n/10 = \OML/
+lmm/m/it/10 x[];  X[] \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 x[]\OT1/lmr/m/n/10 ) =
+ \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X[] \OT1/lmr/m/n/10 = \OML
+/lmm/m/it/10 x[]\OT1/lmr/m/n/10 ) [] \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lm
+m/m/it/10 X[] \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 x[]\OT1/lmr/m/n/10 )\OML/lmm/m
+/it/10 ;  i[] \OT1/lmr/m/n/10 = 1\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 2\OML/lmm/m
+/it/10 ; [] ; i[] \OT1/lmr/m/n/10 = 1\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 2\OML/l
+mm/m/it/10 ; []
+ []
+
+
+Overfull \hbox (54.26723pt too wide) detected at line 15442
+\OML/lmm/m/it/10 P[]\OT1/lmr/m/n/10 (1\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 1\OML/
+lmm/m/it/10 ; \OT1/lmr/m/n/10 3) = 0 \OMS/lmsy/m/n/10 6\OT1/lmr/m/n/10 = \OML/l
+mm/m/it/10 P[]\OT1/lmr/m/n/10 (1) \OMS/lmsy/m/n/10 ^^A \OML/lmm/m/it/10 P[]\OT1
+/lmr/m/n/10 (1) \OMS/lmsy/m/n/10 ^^A \OML/lmm/m/it/10 P[]\OT1/lmr/m/n/10 (3) = 
+0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 3472222 \OMS/lmsy/m/n/10 ^^A \OT1/lmr/m/n/10
+ 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 3472222 \OMS/lmsy/m/n/10 ^^A \OT1/lmr/m/n/1
+0 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 0046296 = 6 \OMS/lmsy/m/n/10 ^^B \OT1/lmr/
+m/n/10 10[]\OML/lmm/m/it/10 :
+ []
+
+[325]
+Overfull \hbox (6.7973pt too wide) detected at line 15487
+[]
+ []
+
+
+Underfull \hbox (badness 1314) in paragraph at lines 15515--15516
+\TU/lmr/m/n/10 En este caso, recordemos que la \TU/lmr/bx/n/10 función de densi
+dad conjunta \TU/lmr/m/n/10 de
+ []
+
+[326]
+Underfull \hbox (badness 1668) in paragraph at lines 15523--15524
+[]\TU/lmr/m/n/10 Recordemos también que las \TU/lmr/bx/n/10 funciones de densid
+ad marginales \TU/lmr/m/n/10 de
+ []
+
+[327] [328] [329]
+Underfull \hbox (badness 3701) in paragraph at lines 15706--15708
+[]\TU/lmr/m/n/10 Media aritmética de las $\OML/lmm/m/it/10 n$ \TU/lmr/m/n/10 va
+riables $\OML/lmm/m/it/10 g\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]; [] ; x[]\OT1/
+lmr/m/n/10 ) = []$\TU/lmr/m/n/10 :
+ []
+
+[330]
+Overfull \hbox (7.31453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 6.6.  MOMENTOS CONJUNTOS Y VALORES ESPERADOS CONJUNTOS \TU/lmr/
+m/n/10 331
+ []
+
+[331]
+Overfull \hbox (120.48427pt too wide) detected at line 15803
+[]
+ []
+
+
+Underfull \hbox (badness 1168) in paragraph at lines 15810--15812
+[]\TU/lmr/m/n/10 Proposición. Valor esperado de la suma de variables aleatorias
+. Sea
+ []
+
+[332]
+Overfull \hbox (17.27992pt too wide) detected at line 15828
+[]
+ []
+
+
+Overfull \hbox (7.31453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 6.6.  MOMENTOS CONJUNTOS Y VALORES ESPERADOS CONJUNTOS \TU/lmr/
+m/n/10 333
+ []
+
+[333]
+Underfull \hbox (badness 1215) in paragraph at lines 15905--15908
+[]\TU/lmr/m/n/10 Proposición: cálculo del valor esperado de una función de $\OM
+L/lmm/m/it/10 n$ \TU/lmr/m/n/10 variables
+ []
+
+
+Overfull \hbox (19.85837pt too wide) detected at line 15921
+[]
+ []
+
+[334]
+Overfull \hbox (96.5159pt too wide) detected at line 15952
+[]
+ []
+
+
+Overfull \hbox (6.7973pt too wide) detected at line 15968
+[]
+ []
+
+
+Overfull \hbox (7.31453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 6.6.  MOMENTOS CONJUNTOS Y VALORES ESPERADOS CONJUNTOS \TU/lmr/
+m/n/10 335
+ []
+
+[335]
+Overfull \hbox (142.65668pt too wide) detected at line 16005
+[]
+ []
+
+[336]
+Overfull \hbox (155.5481pt too wide) detected at line 16031
+[]
+ []
+
+
+Overfull \hbox (7.31453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 6.6.  MOMENTOS CONJUNTOS Y VALORES ESPERADOS CONJUNTOS \TU/lmr/
+m/n/10 337
+ []
+
+[337] [338]
+Chapter 7.
+[339
+
+]
+Overfull \hbox (80.28014pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 340 \TU/lmr/m/sl/10 CHAPTER 7.  LEY DE LOS GRANDES NÚMEROS Y TEO
+REMA CENTRAL DEL LÍMITE
+ []
+
+[340]
+Underfull \hbox (badness 1622) in paragraph at lines 16147--16147
+[]\TU/lmr/bx/n/14.4 Convergencia de sucesiones de variables
+ []
+
+
+Overfull \hbox (4.45453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 7.2.  CONVERGENCIA DE SUCESIONES DE VARIABLES ALEATORIAS \TU/lm
+r/m/n/10 341
+ []
+
+[341]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (80.28014pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 342 \TU/lmr/m/sl/10 CHAPTER 7.  LEY DE LOS GRANDES NÚMEROS Y TEO
+REMA CENTRAL DEL LÍMITE
+ []
+
+[342]
+Overfull \hbox (98.30899pt too wide) detected at line 16245
+[]
+ []
+
+
+Overfull \hbox (4.45453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 7.2.  CONVERGENCIA DE SUCESIONES DE VARIABLES ALEATORIAS \TU/lm
+r/m/n/10 343
+ []
+
+[343]
+Overfull \hbox (80.28014pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 344 \TU/lmr/m/sl/10 CHAPTER 7.  LEY DE LOS GRANDES NÚMEROS Y TEO
+REMA CENTRAL DEL LÍMITE
+ []
+
+[344]
+Overfull \hbox (4.45453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 7.2.  CONVERGENCIA DE SUCESIONES DE VARIABLES ALEATORIAS \TU/lm
+r/m/n/10 345
+ []
+
+[345]
+Underfull \hbox (badness 5105) in paragraph at lines 16372--16373
+[]\TU/lmr/m/n/10 En el tema de distribuciones notables demostramos que para tod
+o
+ []
+
+
+Overfull \hbox (52.97926pt too wide) detected at line 16381
+[]
+ []
+
+
+Overfull \hbox (80.28014pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 346 \TU/lmr/m/sl/10 CHAPTER 7.  LEY DE LOS GRANDES NÚMEROS Y TEO
+REMA CENTRAL DEL LÍMITE
+ []
+
+[346] [347]
+Overfull \hbox (80.28014pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 348 \TU/lmr/m/sl/10 CHAPTER 7.  LEY DE LOS GRANDES NÚMEROS Y TEO
+REMA CENTRAL DEL LÍMITE
+ []
+
+[348] [349]
+Overfull \hbox (2.17957pt too wide) in paragraph at lines 16516--16517
+[]\TU/lmr/m/n/10 Luego, fijado un $\OML/lmm/m/it/10 ^^O$\TU/lmr/m/n/10 , para c
+ada $\OML/lmm/m/it/10 n$\TU/lmr/m/n/10 , aproximaremos la probabilidad $\OML/lm
+m/m/it/10 P []$
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 16553--16553
+[]\TU/lmtt/m/n/10 ##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,
+11] [,12] [,13][] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 16553--16553
+[]\TU/lmtt/m/n/10 ## [1,]    0    1    1    1    1    1    1    0    1     1   
+  0     0     0[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 16553--16553
+[]\TU/lmtt/m/n/10 ## [2,]    0    0    0    0    0    1    0    1    1     0   
+  1     1     0[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 16553--16553
+[]\TU/lmtt/m/n/10 ## [3,]    1    1    1    0    0    1    1    0    0     1   
+  0     1     0[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 16553--16553
+[]\TU/lmtt/m/n/10 ## [4,]    0    0    1    1    1    0    0    0    1     1   
+  0     1     1[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 16553--16553
+[]\TU/lmtt/m/n/10 ## [5,]    0    1    1    1    1    1    0    1    0     1   
+  1     1     1[] 
+ []
+
+
+Overfull \hbox (80.28014pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 350 \TU/lmr/m/sl/10 CHAPTER 7.  LEY DE LOS GRANDES NÚMEROS Y TEO
+REMA CENTRAL DEL LÍMITE
+ []
+
+[350]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-174-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-174-1.pdf>
+[351]
+Overfull \hbox (80.28014pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 352 \TU/lmr/m/sl/10 CHAPTER 7.  LEY DE LOS GRANDES NÚMEROS Y TEO
+REMA CENTRAL DEL LÍMITE
+ []
+
+[352] [353]
+Overfull \hbox (80.28014pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 354 \TU/lmr/m/sl/10 CHAPTER 7.  LEY DE LOS GRANDES NÚMEROS Y TEO
+REMA CENTRAL DEL LÍMITE
+ []
+
+[354] [355]
+Overfull \hbox (80.28014pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 356 \TU/lmr/m/sl/10 CHAPTER 7.  LEY DE LOS GRANDES NÚMEROS Y TEO
+REMA CENTRAL DEL LÍMITE
+ []
+
+[356]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-178-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-178-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[357]
+Overfull \hbox (80.28014pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 358 \TU/lmr/m/sl/10 CHAPTER 7.  LEY DE LOS GRANDES NÚMEROS Y TEO
+REMA CENTRAL DEL LÍMITE
+ []
+
+[358] [359]
+Overfull \hbox (29.62401pt too wide) detected at line 16906
+[]
+ []
+
+
+Overfull \hbox (80.28014pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 360 \TU/lmr/m/sl/10 CHAPTER 7.  LEY DE LOS GRANDES NÚMEROS Y TEO
+REMA CENTRAL DEL LÍMITE
+ []
+
+[360] [361]
+Overfull \hbox (80.28014pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 362 \TU/lmr/m/sl/10 CHAPTER 7.  LEY DE LOS GRANDES NÚMEROS Y TEO
+REMA CENTRAL DEL LÍMITE
+ []
+
+[362] [363]
+Overfull \hbox (5.55104pt too wide) detected at line 17073
+\OML/lmm/m/it/10 ^^^[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 w\OT1/lmr/m/n/10 ) = \O
+ML/lmm/m/it/10 E [] \OT1/lmr/m/n/10 = [] e[][]e[] = e[] [] [] = e[] \OMS/lmsy/m
+/n/10 ^^A \OT1/lmr/m/n/10 e[] = e[]\OML/lmm/m/it/10 :
+ []
+
+
+Overfull \hbox (82.99481pt too wide) detected at line 17107
+[]
+ []
+
+
+Overfull \hbox (80.28014pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 364 \TU/lmr/m/sl/10 CHAPTER 7.  LEY DE LOS GRANDES NÚMEROS Y TEO
+REMA CENTRAL DEL LÍMITE
+ []
+
+[364]
+Overfull \hbox (102.13359pt too wide) detected at line 17167
+[]
+ []
+
+[365]
+Overfull \hbox (80.28014pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 366 \TU/lmr/m/sl/10 CHAPTER 7.  LEY DE LOS GRANDES NÚMEROS Y TEO
+REMA CENTRAL DEL LÍMITE
+ []
+
+[366]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-182-1.pdf Graph
+ic file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-182-1.pdf>
+No file curso-probabilidad-udemy.bbl.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 17223.
+[367]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 17223.
+(./curso-probabilidad-udemy.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 17223.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 17223
+.
+Package rerunfilecheck Info: File `curso-probabilidad-udemy.out' has not change
+d.
+(rerunfilecheck)             Checksum: 427E7AA4619B7D6CEF3A198BFBF109F5.
+ ) 
+Here is how much of TeX's memory you used:
+ 24003 strings out of 492970
+ 470679 string characters out of 6133938
+ 637805 words of memory out of 5000000
+ 27652 multiletter control sequences out of 15000+600000
+ 586653 words of font info for 92 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 45i,24n,54p,10465b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on curso-probabilidad-udemy.pdf (367 pages).

@@ -168,7 +168,9 @@ par(mfrow=c(1,1))
 })
 ```
 
-[![](Images/noshinyImages/interactiva_ber1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
+
+<!--[![](Images/noshinyImages/interactiva_ber1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
+
 
 ## Distribución binomial
 
@@ -197,7 +199,7 @@ $$
 
 Su **función de distribución** no tiene una fórmula cerrada. Hay que acumular la función de probabilidad:
 
-$$
+
 \begin{eqnarray*}
 F_{X}(x)=P(X\leq x) & = & \sum_{i=0}^x P_X(i)\\
 & = & 
@@ -215,7 +217,7 @@ F_{X}(x)=P(X\leq x) & = & \sum_{i=0}^x P_X(i)\\
 \end{array}
 \right..
 \end{eqnarray*}
-$$
+
 
 
 ### Números binomiales con R
@@ -274,12 +276,12 @@ $$E(X)=\displaystyle\sum_{k=0}^n k \cdot  {n \choose k }\cdot p^k\cdot q^{n-k} =
 
 La esperanza de $X^2$ es 
 
-$$
+
 \begin{eqnarray*}
 E(X^2)&=& \displaystyle\sum_{k=0}^n k^2 \cdot  {n \choose k }\cdot p^k\cdot q^{n-k}\\
 &=& n\cdot p\cdot q-(n\cdot p)^2.
 \end{eqnarray*}
-$$
+
 
 ### Varianza de una $X$  $B(n,p)$
 
@@ -502,7 +504,7 @@ renderPlot({
 
 ```
 
-[![](Images/noshinyImages/interactiva_bino1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
+<!--[![](Images/noshinyImages/interactiva_bino1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 ### Gráficos de la distribución binomial con python
 
@@ -619,14 +621,13 @@ Nos preguntamos:
 
 Utilizando al función de probabilidad  tenemos que 
 
-$$
+
 \begin{eqnarray*}
 P_x(X=4)&=&{10\choose 4}\cdot 0.4^4\cdot (1-0.4)^{10-4}
 = \frac{10!}{(10-4)!\cdot 4!}\cdot 0.4^4\cdot 0.6^6\\
 &=& \frac{7\cdot 8\cdot 9\cdot 10}{1\cdot 2\cdot 3\cdot 4}\cdot 0.4^4\cdot 0.6^6=`r round(choose(10,4)* 0.4^4*0.6^6,7)`
 \end{eqnarray*}
-.
-$$
+
 
 
 Con R
@@ -647,7 +648,7 @@ Al menos 4 rojas es $P(X \geq  4)=1-P(X<4)=1-P(x\leq 3).$
 
 Así que calculemos $P(X\leq 3)$
 
-$$
+
 \begin{eqnarray*}
 P(x\leq 3)&=& P(X=0)+P(X=1)+P(X=2)+P(X=3)\\
 &=& 
@@ -655,8 +656,7 @@ P(x\leq 3)&=& P(X=0)+P(X=1)+P(X=2)+P(X=3)\\
 &+&{10\choose 2}\cdot 0.4^2\cdot (1-0.4)^{10-2}+ {10\choose 3}\cdot 0.4^3\cdot (1-0.4)^{10-3}\\
 &=&`r round(pbinom(3,10,0.4),7)`
 \end{eqnarray*}
-.
-$$
+
 
 </div>
 
@@ -698,7 +698,7 @@ pbinom(3,10,0.4,lower.tail = FALSE)
 
 **Solución 3**.  ¿Cuál es la probabilidad de que saquemos  menos  de $3$ rojas?
 
-$$
+
 \begin{eqnarray*}
 P(x< 3)&=& P(X\leq 2)=  P(X=0)+P(X=1)+P(X=2)\\
 &=& 
@@ -707,8 +707,7 @@ P(x< 3)&=& P(X\leq 2)=  P(X=0)+P(X=1)+P(X=2)\\
 {10\choose 2}\cdot 0.4^2\cdot (1-0.4)^{10-2}\\
 &=&`r round(pbinom(2,10,0.4),7)`
 \end{eqnarray*}
-.
-$$
+
 
 
 ```{r}
@@ -790,7 +789,6 @@ La **modelización de este tipo de problemas se consigue con la  llamada distrib
 
 $$P(\overbrace{FFF\ldots F}^{x}E)=P(F)^{x}\cdot P(E)=(1-p)^{x}\cdot p=q^{x}\cdot p.$$
 
-
 ### Distribución geométrica
 
 Su función de probabilidad es 
@@ -832,13 +830,11 @@ $$
 
 Ahora, al  ser los intentos sucesos independientes, tenemos que:
 
-$$
 \begin{eqnarray*}
 P(X>3) & = & P(\{FFFF\})= P(F)\cdot P(F)\cdot P(F)\cdot P(F)\\
 &=& (1-p)\cdot (1-p)\cdot (1-p)\cdot (1-p)= (1-p)^{3+1}\\\
 &=&(1-p)^{4}.
 \end{eqnarray*}
-$$
 
 
 Calculamos 
@@ -848,6 +844,7 @@ $$F_X(3)=P(X\leq 3)=1-P(X>3)=1-(1-p)^{3+1}.$$
 Por lo que podemos generalizar a cualquier entero positivo $k=0,1,2,\ldots$  
 
 $$F_X(k)=P(X\leq k)=1-(1-p)^{k+1}\mbox{ si } k=0,1,2,\ldots$$
+
 
 ### Función de distribución geométrica
 
@@ -900,31 +897,31 @@ Recordemos del tema de variables aleatorias que
 
 
 * Si $|r|<1$  también son convergentes las derivadas, respecto de $r$, de la serie geométrica y convergen a la derivada correspondiente. Así tenemos que
-$$
+
 \begin{eqnarray*}
-\left(\sum_{k=0}^{+\infty} r^k\right)'&= & \sum_{k=1}^{+\infty}k\cdot
-r^{k-1} &=& \left(\frac1{1-r}\right)'=\frac1{(1-r)^2}\\
-\left(\sum_{k=0}^{+\infty} r^k\right)^{''}&=& \sum_{k=2}^{+\infty}k \cdot(k-1)\cdot
-r^{k-2}&=&\left(\frac1{1-r}\right)^{''}=\frac2{(1-r)^3}
-\end{eqnarray*}.
-$$
+\left(\sum_{k=0}^{+\infty} r^k\right)' &=& \sum_{k=1}^{+\infty}k\cdot
+r^{k-1}\\
+&=& \left(\frac{1}{1-r}\right)'=\frac{1}{(1-r)^2}\\
+\left(\sum_{k=0}^{+\infty} r^k\right)^{''} &=& \sum_{k=2}^{+\infty}k \cdot(k-1)\cdot r^{k-2} \\
+&=& \left(\frac{1}{1-r}\right)^{''}=\frac{2}{(1-r)^3}
+\end{eqnarray*}
 
 
 ### Esperanza de una v.a. $Ge(p)$
 
 Recordemos que $P(X=x)=(1-p)^x\cdot p$ si $x=0,1,2,\ldots$ y aplicado la fórmula anterior con $r=1-p$
 
-$$
+
 \begin{eqnarray*}
 E(X)&=&\sum_{x=0}^{+\infty} x\cdot P_x(x)=\sum_{x=0}^{+\infty} x\cdot (1-p)^x\cdot p=
 p\cdot (1-p) \cdot \sum_{x=1}^{+\infty} x\cdot (1-p)^{x-1}\\
 &=& p\cdot (1-p)\cdot \frac{1}{(1-(1-p))^2}=p\cdot (1-p)\cdot \frac{1}{p^2}=\frac{1-p}{p}
-\end{eqnarray*}.
-$$
+\end{eqnarray*}
+
 
 ### Valor $E(X^2)$ de una v.a. $Ge(p)$
 
-$$
+
 \begin{eqnarray*}
 E(X^2)&=&\sum_{x=0}^{+\infty} x^2\cdot P_X(x)=\sum_{x=1}^{+\infty} x^2\cdot (1-p)^x\cdot p\\
 &=& 
@@ -934,12 +931,12 @@ E(X^2)&=&\sum_{x=0}^{+\infty} x^2\cdot P_X(x)=\sum_{x=1}^{+\infty} x^2\cdot (1-p
 &=&
 (1-p)^{2}\cdot p\cdot \sum_{x=2}^{+\infty} x\cdot (x-1)\cdot (1-p)^{x-2}\\ 
 &  +&   (1-p)\cdot p\sum_{x=1}^{+\infty} x \cdot (1-p)^{x-1} = \ldots
-\end{eqnarray*}.
-$$
+\end{eqnarray*}
+
 
 ### Valor $E(X^2)$ de una v.a. $Ge(p)$
 
-$$
+
 \begin{eqnarray*}
 E(X^2)&=&\ldots\\
 &=&
@@ -950,15 +947,13 @@ p\cdot (1-p)^2 \frac{2}{(1-(1-p))^3}+  (1-p)\cdot p \frac{1}{(1-(1-p))^2}\\
 &=&
 p\cdot (1-p)^2 \frac{2}{p^3}+  (1-p)\cdot p \frac{1}{p^2}\\
 &=&\frac{2\cdot (1-p)^2}{p^2}+\frac{1-p}{p}
-\end{eqnarray*}.
-$$
-
+\end{eqnarray*}
 
 
 ### Varianza de una v.a. $Ge(p)$
 
 
-$$
+
 \begin{eqnarray*}
 Var(X)&=&E(X^2)-E(X)^2=\frac{2\cdot (1-p)^2}{p^2}+\frac{1-p}{p}-\left(\frac{1-p}{p}\right)^2\\
 &=&
@@ -967,7 +962,8 @@ Var(X)&=&E(X^2)-E(X)^2=\frac{2\cdot (1-p)^2}{p^2}+\frac{1-p}{p}-\left(\frac{1-p}
 \frac{1-2\cdot p + p^2+p-p^2}{p^2}\\
 &=& \frac{1-p}{p^2}.
 \end{eqnarray*}
-$$
+
+
 Y su desviación típica será
 
 $$\sqrt{Var(X)}=\sqrt{\frac{1-p}{p^2}}.$$
@@ -1033,13 +1029,13 @@ El lado de izquierdo es
 
 
 
-$$
+
 \begin{eqnarray*} 
 P\left(X> k+j\big| X\geq j\right)&=&\frac{P\left(\{X> k+j\}\cap \{X\geq j\} \right)}{P\left(X\geq j\right)}=
 \frac{P\left(X>k+j \right)}{P\left(X\geq j \right)} = \frac{1-P(X\leq k+j)}{1-P(X\leq j-1)}\\
 &=&  \frac{1-(1-(1-p)^{k+j+1})}{1-(1-(1-p)^{j-1+1})} =\frac{(1-p)^{k+j+1}}{(1-p)^{j}} = (1-p)^{k+1}
 \end{eqnarray*}
-$$
+
 
 
 Lo que demuestra  la igualdad.
@@ -1060,12 +1056,12 @@ P\left(X> k+1\big| X\geq 1\right)=\frac{P(X>k+1, X\geq 1)}{P(X\geq 1)}=\frac{P(X
 $$
 Así podemos poner que 
 
-$$
+
 \begin{eqnarray*}
 P(X>k+1)&=&P(X\geq 1)\cdot P(X>k)=\left(1-P(X<1)\right)\cdot P(X>k)\\
 &=&\left(1-P(X=0)\right)\cdot P(X>k)=(1-p)\cdot P(X>k).
 \end{eqnarray*}
-$$
+
 
 
 Es decir  en general tenemos que 
@@ -1113,15 +1109,15 @@ P(X=k+1)=(1-p)\cdot P(X=k)
 $$
 Utilicemos la recurrencia anterior  para calcular todas las probabilidades a partir de la $P(X=0)=p$; que vienen dadas por: 
 
-$$
+
 \begin{eqnarray*}
 P(X=0)&=& p\\
 P(X=1)&=&P(X=0+1)= (1-p)\cdot P(X=0) =(1-p)\cdot  p\\
 P(X=2)&=&P(X=1+1)= (1-p)\cdot P(X=1)=(1-p)\cdot (1-p)\cdot p=(1-p)^2\cdot p\\
 \ldots \ldots\ldots && \ldots  \ldots \ldots \ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\\
 P(X=k)&=&P(X=(k-1)+1)= (1-p)\cdot P(X=k-1)=(1-p)\cdot (1-p)^{k-1}\cdot p=(1-p)^{k}\cdot p
-\end{eqnarray*}.
-$$
+\end{eqnarray*}
+
 Lo que demuestra  el recíproco, es decir que $X$ es $Geom(p)$.
 </div>
 
@@ -1356,7 +1352,7 @@ renderPlot({
 })
 ```
 
-[![](Images/noshinyImages/interactiva_geometrica1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
+<!--[![](Images/noshinyImages/interactiva_geometrica1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 ### Cálculos con python
 
@@ -1597,13 +1593,13 @@ $$
 
 Con R es la misma función que para los números binomiales
 
-$$
+
 \begin{eqnarray*}
 {-6\choose 4}&=&\frac{-6\cdot (-6-1)\cdot \cdot (-6-2)\cdot (-6-3) }{4!}\\
 &=&  \frac{-6\cdot(-7)\cdot (-8)\cdot (-9)}{24}\\
 &=& \frac{3024}{24}=126.
 \end{eqnarray*}
-$$
+
 
 
 Efectivamente obtenemos el mismo resultado
@@ -1788,12 +1784,12 @@ $$
 
 **Solución 3.**  ¿Cuál es la probabilidad de fallar  exactamente  5 veces antes de abrir la puerta?
 
-$$
+
 \begin{eqnarray*}
 P(X=5)&=&{5+2-1\choose 1} \cdot 0.9^{5}\cdot 0.1^2= {6\choose 1} \cdot 0.9^{5}\cdot 0.1^2\\
 &=& 6\cdot 0.9^5\cdot 0.1^2= `r 6*0.9^5*0.1^2`.
 \end{eqnarray*}
-$$
+
 
 </div>
 
@@ -1814,7 +1810,7 @@ $$
 
 Calculemos primero $P(X\leq 4):$
 
-$$
+
 \begin{eqnarray*}
 P(X\leq 4) &= & \displaystyle\sum_{x=0}^{4} P(X=x)=P(X=0)+P(X=1)+P(X=2)+P(X=3)+P(X=4)\\
 &=& {0+2-1\choose 1} \cdot 0.9^{0}\cdot 0.1^2+
@@ -1825,7 +1821,7 @@ P(X\leq 4) &= & \displaystyle\sum_{x=0}^{4} P(X=x)=P(X=0)+P(X=1)+P(X=2)+P(X=3)+P
   &+&
     {4+2-1\choose 1} \cdot 0.9^{4}\cdot 0.1^2=\ldots
 \end{eqnarray*}
-$$
+
 </div>
     
 ### Ejemplo $BN(n=2,p=0.1)$ 
@@ -1833,7 +1829,7 @@ $$
 
 <div class="example-sol">
 
-$$
+
 \begin{eqnarray*}
 P(X\leq 4)=\ldots   &=& 
 {1\choose 1} \cdot 0.9^{0}\cdot 0.1^2+
@@ -1849,8 +1845,8 @@ P(X\leq 4)=\ldots   &=&
 5\cdot 0.9^4\cdot 0.1^2\\
 =
 `r 0.1^2+ 2* 0.9 * 0.1^2+ 3*0.9^2* 0.1^2 +4*0.9^3* 0.1^2+5*0.9^4* 0.1^2`
-\end{eqnarray*}.
-$$
+\end{eqnarray*}
+
 
 Por lo tanto 
 
@@ -2047,7 +2043,7 @@ renderPlot({
 
 ```
 
-[![](Images/noshinyImages/interactiva_binomial_negativa1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
+<!--[![](Images/noshinyImages/interactiva_binomial_negativa1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 ### Gráficos de la binomial negativa con python
 
@@ -2266,12 +2262,12 @@ $$P(X>150)=1-P(X\leq 150)$$
 
 Calculemos $P(X\leq 150)$
 
-$$
+
 \begin{eqnarray*}
 P(X\leq 150) &=& P(X=0)+P(X=1)+P(X=2)+\ldots+P(X=150)= \sum_{k=0}^{150} {k+3-1\choose 3-1} \cdot (0.999)^{k}\cdot 0.001^3\\
 &=& \ldots = `r pnbinom(150,3,0.001)`
 \end{eqnarray*}
-$$
+
 
 ```{r}
 pnbinom(150,3,0.001)
@@ -2399,7 +2395,7 @@ Entonces si $n\to\infty$ y $p_n\cdot n$ se mantiene igual a $\lambda$ resulta qu
 
 ### La distribución Poisson como "límite" de una binomial.
 
-$$
+
 \begin{eqnarray*}
 P(X_n=k)&=&\left(\begin{array}{c} n\\ k\end{array}\right) \cdot p_n^k\cdot  (1-p_n)^{n-k}
 \\
@@ -2408,7 +2404,7 @@ P(X_n=k)&=&\left(\begin{array}{c} n\\ k\end{array}\right) \cdot p_n^k\cdot  (1-p
 \frac{\lambda^k}{k!}\cdot\frac{n!}{(n-k)!\cdot n^k}\cdot
 \left(1-\frac{\lambda}{n}\right)^{n}\cdot \left(1-\frac{\lambda}{n}\right)^{-k}=\ldots
 \end{eqnarray*}
-$$
+
 
 ### La distribución Poisson como "límite" de una binomial.
 
@@ -2563,7 +2559,7 @@ renderPlot({
 
 ```
 
-[![](Images/noshinyImages/interactiva_poisson1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
+<!--[![](Images/noshinyImages/interactiva_poisson1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 
 ### Ejemplo $Po(\lambda)$ 
@@ -2696,7 +2692,7 @@ dpois(21,lambda = 20)
 
 
 Nos piden
-$$
+
 \begin{eqnarray*}
  P(X\geq 6)&=&1- P(X<6)=1-P(X\leq 5)=1-F_X(5)=1-\displaystyle\sum_{x=0}^{5} \frac{20^{x}}{x!}\cdot e^{-20}\\
  &=&
@@ -2707,7 +2703,7 @@ $$
  1-e^{-20} \cdot \left(\frac{1 \cdot 120+20\cdot 120+400\cdot 30+8000\cdot 20+160000\cdot 24+3200000\cdot 1}{120}\right)\\
  &=& 1-e^{-20}\cdot\left(\frac{4186520}{120}\right)=1-`r exp(-20)+20*exp(-20)+200*exp(-20)+8000/6*exp(-20)+160000/24*exp(-20)+3200000*exp(-20)`.
 \end{eqnarray*}
-$$
+
 
 </div>
 
@@ -2868,7 +2864,7 @@ renderPlot({
 ```
 
 
-[![](Images/noshinyImages/interactiva_poisson2.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
+<!--[![](Images/noshinyImages/interactiva_poisson2.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 ### Cálculos con python
 
@@ -3049,7 +3045,7 @@ renderPlot({
   })
 ```
 
-![[](Images/noshinyImages/interactivos_proceso_poisson1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
+<!--![[](Images/noshinyImages/interactivos_proceso_poisson1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 
 ### Ejemplo proceso Poisson
@@ -3269,7 +3265,7 @@ phyper(2,15,10,3)
 
 La probabilidad de que saquemos más de   1 bola blanca es
 
-$$
+
 \begin{eqnarray*}
 P(X> 1)&=& 1-P(X\leq 1)=1-(P(X=0)+P(X=1))\\
 &=&
@@ -3280,7 +3276,7 @@ P(X> 1)&=& 1-P(X\leq 1)=1-(P(X=0)+P(X=1))\\
 \frac{`r choose(15,0)`\cdot`r choose(10,3)` }{`r choose(25,3)`}+\frac{`r choose(15,1)`\cdot`r choose(10,2)` }{`r choose(25,3)`}
 \right)=1-\frac{120+15\cdot 45}{2300}=`r 1-(120+15*45)/2300`
 \end{eqnarray*}
-$$
+
 
 </div>
 
@@ -3296,7 +3292,6 @@ $$E(X)=\frac{k\cdot m}{m+n}=\frac{3\cdot 15}{15+10}=\frac{45}{35}=`r round(45/35
 
 
 
-$$
 \begin{eqnarray*}
 Var(X)&=&k\cdot\frac{m}{m+n}\cdot\left(1-\frac{m}{m+n}\right) \cdot\frac{m+n-k}{m+n-1}\\
 &=&3\cdot\frac{15}{15+10}\cdot\left(1-\frac{15}{15+10}\right) \cdot\frac{15+10-3}{15+10-1}\\
@@ -3306,7 +3301,6 @@ Var(X)&=&k\cdot\frac{m}{m+n}\cdot\left(1-\frac{m}{m+n}\right) \cdot\frac{m+n-k}{
 &=&
 3\cdot\frac{15}{25}\cdot\frac{10}{25}\cdot\frac{22}{24}=`r 3*15/25*10/25*22/24`.
 \end{eqnarray*}
-$$
 
 Y por lo tanto su desviación típica es 
 
@@ -3408,7 +3402,7 @@ renderPlot({
 })
 ```
 
-[![](Images/noshinyImages/interactivos_hiper_geom1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
+<!--[![](Images/noshinyImages/interactivos_hiper_geom1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 
 ### Comparación $H(m,n,k)$ y $B\left(k,\frac{m}{n+m}\right)$.
@@ -3469,7 +3463,7 @@ renderPlot({
 })
 ```
 
-[![](Images/noshinyImages/interactivos_hipergeom_binom1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
+<!--[![](Images/noshinyImages/interactivos_hipergeom_binom1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 
 ### Cálculos con python 
@@ -3586,12 +3580,10 @@ vale 1.
 
 <div class="exercise-sol">
 
-$$
 \begin{eqnarray*}
 \displaystyle\int_{-\infty}^{+\infty} f_x(x)\cdot dx=\int_{a}^{b} \frac{1}{b-a} \cdot dx=\left.\frac{x}{b-a}\right]_{x=a}^{x=b}=\frac{b}{b-a}-\frac{a}{b-a}=
 \frac{b-a}{b-a}=1.
 \end{eqnarray*}
-$$
 </div>
 
 
@@ -3617,25 +3609,21 @@ Efectivamente:
 $$F_X(x)=\displaystyle\int_{-\infty}^{x} f(t)\cdot dt= \displaystyle\int_{-\infty}^{x} 0\cdot dt.$$
 * Si $a<x<b$ entonces 
 
-$$
 \begin{eqnarray*}
 F_X(x)&=&\int_{-\infty}^{x} f(t)\cdot dt= \int_{-\infty}^{a} 0\cdot dt+\int_{-a}^{x} \frac1{b-a} \cdot dt\\
 &=& 0 +\left.\frac{t}{b-a}\right]_{t=a}^{t=x}= \frac{x}{b-a}-\frac{a}{b-a}=\frac{x-a}{b-a}.
 \end{eqnarray*}
-$$
 
 ### Función de distribución uniforme:  cálculo.
 
 
 * Por último si $x\geq b$ entonces 
 
-$$
 \begin{eqnarray*}
 F_X(x)&=&\displaystyle\int_{-\infty}^{x} f(t) dt=\int_{a}^{b} \frac{1}{b-a} dt=
   \left.  \frac{t}{b-a} \right]_{t=a}^{t=b}
 \\&=& \frac{b}{b-a}-\frac{a}{b-a}=\frac{b-a}{b-a}=1.
 \end{eqnarray*}
-$$
 
 
 Si $X$ es una v.a. uniforme en el intervalo $(a,b)$  lo denotaremos por  $U(a,b)$.
@@ -3645,7 +3633,6 @@ Si $X$ es una v.a. uniforme en el intervalo $(a,b)$  lo denotaremos por  $U(a,b)
 
 Calculemos  la esperanza de $X$
 
-$$
 \begin{eqnarray*}
 E(X)&=&\displaystyle\int_{-\infty}^{+\infty} x\cdot f_X(x) dx =\int_{a}^{b} x \cdot \frac{1}{b-a} dx =
 \left.\frac{x^2}{2\cdot (b-a)}\right]_{x=a}^{x=b}\\
@@ -3655,20 +3642,17 @@ E(X)&=&\displaystyle\int_{-\infty}^{+\infty} x\cdot f_X(x) dx =\int_{a}^{b} x \c
 &=&
 \frac{b+a}{2}.
 \end{eqnarray*}
-$$
 
 
 ### Esperanza y varianza  para una v.a. $X$ $U(a,b)$
 
 Calculemos  la esperanza de $X^2$
 
-$$
 \begin{eqnarray*}
 E(X^2)&=&\displaystyle\int_{-\infty}^{+\infty} x^2 f_X(x) dx=\int_{a}^{b} x^2 \frac1{b-a}
 dx =\left.\frac{x^3}{3\cdot (b-a)}\right]_{x=a}^{x=b} \\
 &=&\frac{b^3-a^3}{3\cdot (b-a)}=\frac{b^2+ab+a^2}{3}.
 \end{eqnarray*}
-$$
 
 <div class="exercise">
 
@@ -3685,7 +3669,6 @@ $$
 
 Calculemos $Var(X)$.
 
-$$
 \begin{eqnarray*}
 Var(X)&=&\displaystyle E(X^2)-(E(X))^2=\frac{b^2+ab+a^2}3-\left(\frac{b+a}2\right)^2\\&=&
 \frac{b^2+ab+a^2}{3}-\frac{b^2+2ab+a^2}{4}\\
@@ -3696,7 +3679,6 @@ Var(X)&=&\displaystyle E(X^2)-(E(X))^2=\frac{b^2+ab+a^2}3-\left(\frac{b+a}2\righ
 \frac{b^2-2ab+a^2}{12}=
 \frac{(b-a)^2}{12}.
 \end{eqnarray*}
-$$
 
 
 ### Gráficas $U(0,1)$
@@ -3780,7 +3762,7 @@ renderPlot({
 
 ```
 
-[![](Images/noshinyImages/interactiva_uniforme1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
+<!--[![](Images/noshinyImages/interactiva_uniforme1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 
 ### Cambio lineal v.a. uniforme.
@@ -3825,7 +3807,6 @@ $$
 Si $T$ es una $U(scale\cdot a +loc,scale\cdot b +loc)$   su función de distribución será 
 
 
-$$
 \begin{eqnarray*}
 F_T(t)&=&P(T\leq t)= P(scale\cdot X+ loc\leq t)= P\left(X\leq \frac{t-loc}{scale}\right)=F_X\left(\frac{t-loc}{scale}\right)\\
 &=&
@@ -3838,7 +3819,6 @@ F_T(t)&=&P(T\leq t)= P(scale\cdot X+ loc\leq t)= P\left(X\leq \frac{t-loc}{scale
 \frac{t-(scale\cdot a+loc)}{scale\cdot b+loc-(scale\cdot a+loc)} & \mbox{ si } scale\cdot a+loc \leq t\leq scale\cdot b+loc \\
 1 & \mbox{ si } scale\cdot b+loc\leq t\end{array}\right.
 \end{eqnarray*}
-$$
 
 que es la función de distribución de una v.a. $U(scale\cdot a+loc,scale\cdot b+loc)$, como queríamos demostrar.
 </div>
@@ -4181,7 +4161,7 @@ renderPlot({
 })
 ```
 
-[![](Images/noshinyImages/interactiva_cuantiles1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
+<!--[![](Images/noshinyImages/interactiva_cuantiles1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 
 ### Generador de números aleatorios método de la transformada inversa
@@ -4225,14 +4205,12 @@ Sea $t$ una cantidad de tiempo en u.t. entonces $N_{t}=$ número de eventos en e
 
 Sea $t>0$, entonces
 
-$$
 \begin{eqnarray*}
 P(T>t)&=&P(\mbox{Cero eventos en el intervalo}(0,t])\\
 &=&P(N_{t}=0)=
          \frac{(\lambda t)^0}{0!} e^{-\lambda
          t}=e^{-\lambda t}.
 \end{eqnarray*}
-$$
 
 ###  Distribución del tiempo entre dos eventos Poisson
 
@@ -4455,7 +4433,7 @@ renderPlot({
 
 ```
 
-[![](Images/noshinyImages/interactiva_exponencial1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
+<!--[![](Images/noshinyImages/interactiva_exponencial1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 
 
@@ -4731,7 +4709,7 @@ curve(dnorm(x,m2,s2),add=TRUE,col="blue",lty=2)
 
 ```
 
-[![](Images/noshinyImages/interactiva_normal1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)
+<!--[![](Images/noshinyImages/interactiva_normal1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 
 ### Transformaciones lineales de variables aleatorias normales
@@ -4831,14 +4809,12 @@ $$
 
 * Cuando tengamos un intervalo
 
-$$
 \begin{eqnarray*}
 P(a<X<b)&=&P\left(\frac{a-\mu}{\sigma}<\frac{X-\mu}{\sigma}<\frac{b-\mu}{\sigma}\right)= \\
 &=& P\left(\frac{a-\mu}{\sigma}<Z<\frac{b-\mu}{\sigma}\right)\\
 &=&F_{Z}\left(\frac{b-\mu}{\sigma}\right)-
 F_{Z}\left(\frac{a-\mu}{\sigma}\right)
 \end{eqnarray*}
-$$
 
 * Si $\delta>0$ $P\left(\mu-\delta\leq X \leq\mu+\delta\right)=2\cdot  F_Z\left(\frac{\delta}{\sigma}\right)-1$
 
@@ -4863,12 +4839,10 @@ Sea $X$ una normal com media $2$ y varianza $4$. Calcular
 
 El cálculo de la primera pregunta es
  
-$$
 \begin{eqnarray*}
 P(1< X< 2)&=& P\left(\frac{1-2}{2}<\frac{X-2}{2}<\frac{2-2}{2}\right)= P\left(\frac{-1}{2}<Z<0\right)\\
 &=& F_{Z}(0)-F_{Z}(-0.5)=\frac12-1+F_{Z}(0.5)=-\frac12+F_Z(0.5).
 \end{eqnarray*}
-$$
 
 La segunda cuestión se resuelve así
 
@@ -4918,3 +4892,4 @@ En los temas que siguen veremos como, bajo determinadas condiciones:
 * La distribución normal puede aproximar la distribución binomial
 * La distribución normal puede aproximar la distribución Poisson
 * La distribución normal  es la distribución límite de la media aritmética.
+

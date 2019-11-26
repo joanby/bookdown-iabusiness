@@ -104,7 +104,7 @@ Suceso: $\{X+Y\leq 1\}$. Sería la zona sombreada del gráfico siguiente:
 
 <div class="center">
 
-```{r, echo=FALSE, label=bid1_1,fig.cap="",out.width = "450px"}
+```{r, echo=FALSE, label=bid1_1,fig.cap=""}
 knitr::include_graphics("Images/Bidim1.png",dpi=1200)
 ```
 </div>
@@ -114,7 +114,7 @@ Suceso: $\{X^2+Y^2\leq 4\}$. Sería la zona sombreada del gráfico siguiente:
 
 <div class="center">
 
-```{r, echo=FALSE, label=bid2,fig.cap="",out.width = "450px"}
+```{r, echo=FALSE, label=bid2,fig.cap=""}
 knitr::include_graphics("Images/Bidim2.png",dpi=1200)
 ```
 </div>
@@ -124,7 +124,7 @@ Suceso: $\{\max\{X,Y\}\geq 1\}$. Sería la zona sombreada del gráfico siguiente
 
 <div class="center">
 
-```{r, echo=FALSE, label=bid3,fig.cap="",out.width = "450px"}
+```{r, echo=FALSE, label=bid3,fig.cap=""}
 knitr::include_graphics("Images/Bidim3.png",dpi=1200)
 ```
 </div>
@@ -161,7 +161,7 @@ $$
 O sea, dado un valor $(x,y)\in \mathbb{R}^2$, consideramos la región del plano $(-\infty,x]\times (-\infty,y]$:
 <div class="center">
 
-```{r, echo=FALSE, label=bid4,fig.cap="",out.width = "450px"}
+```{r, echo=FALSE, label=bid4,fig.cap=""}
 knitr::include_graphics("Images/Fxy.png",dpi=1200)
 ```
 </div>
@@ -206,7 +206,7 @@ para todo $a,b\in\mathbb{R}$. Ver figura siguiente.
 ### Función de distribución conjunta. Propiedades
 <div class="center">
 
-```{r, echo=FALSE, label=bid5,fig.cap="",out.width = "450px"}
+```{r, echo=FALSE, label=bid5,fig.cap=""}
 knitr::include_graphics("Images/Fxy2.png",dpi=1200)
 ```
 </div>
@@ -225,7 +225,7 @@ $$
 
 <div class="center">
 
-```{r, echo=FALSE, label=bid6,fig.cap="",out.width = "450px"}
+```{r, echo=FALSE, label=bid6,fig.cap=""}
 knitr::include_graphics("Images/Fxy3.png",dpi=1200)
 ```
 </div>
@@ -252,7 +252,7 @@ En la figura siguiente, hemos representado por zonas cómo está definida $F_{XY
 <div class="example">
 <div class="center">
 
-```{r, echo=FALSE, label=bid7,fig.cap="",out.width = "450px"}
+```{r, echo=FALSE, label=bid7,fig.cap=""}
 knitr::include_graphics("Images/FxyEx.png",dpi=1200)
 ```
 </div>
@@ -776,7 +776,7 @@ En la figura siguiente hemos dibujado en morado la región donde $f_{XY}$ no es 
 ### Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid8,fig.cap="",out.width = "700px"}
+```{r, echo=FALSE, label=bid8,fig.cap=""}
 knitr::include_graphics("Images/VaUniformeBidi.png",dpi=1200)
 ```
 </div>
@@ -836,7 +836,7 @@ $$
 ### Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid9,fig.cap="",out.width = "700px"}
+```{r, echo=FALSE, label=bid9,fig.cap=""}
 knitr::include_graphics("Images/VaUniformeBidi2.png",dpi=1200)
 ```
 </div>
@@ -858,7 +858,7 @@ Por tanto en este caso, $F_{XY}(x,y)=0$.
 ### Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid10,fig.cap="",out.width = "700px"}
+```{r, echo=FALSE, label=bid10,fig.cap=""}
 knitr::include_graphics("Images/VaUniformeBidi3.png",dpi=1200)
 ```
 </div>
@@ -878,7 +878,7 @@ $$
 ### Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid11,fig.cap="",out.width = "700px"}
+```{r, echo=FALSE, label=bid11,fig.cap=""}
 knitr::include_graphics("Images/VaUniformeBidi4.png",dpi=1200)
 ```
 </div>
@@ -971,7 +971,7 @@ Primero fijémonos en como es la región de integración (zona morada de la figu
 ### Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid12,fig.cap="",out.width = "700px"}
+```{r, echo=FALSE, label=bid12,fig.cap=""}
 knitr::include_graphics("Images/Ejemplo2Bidi.png",dpi=1200)
 ```
 </div>
@@ -1003,7 +1003,7 @@ Vamos a considerar dos casos:
 ### Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid13,fig.cap="",out.width = "700px"}
+```{r, echo=FALSE, label=bid13,fig.cap=""}
 knitr::include_graphics("Images/Ejemplo2Bidi2.png",dpi=1200)
 ```
 </div>
@@ -1026,7 +1026,7 @@ $$
 ### Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid14,fig.cap="",out.width = "700px"}
+```{r, echo=FALSE, label=bid14,fig.cap=""}
 knitr::include_graphics("Images/Ejemplo2Bidi3.png",dpi=1200)
 ```
 </div>
@@ -1049,7 +1049,7 @@ $$
 ### Ejemplo
 <div class="center">
 
-```{r, echo=FALSE, label=bid15,fig.cap="",out.width = "700px"}
+```{r, echo=FALSE, label=bid15,fig.cap=""}
 knitr::include_graphics("Images/Ejemplo2Bidi4.png",dpi=1200)
 ```
 </div>
@@ -2663,7 +2663,7 @@ El gráfico siguiente muestra en color violeta la región de integración para h
 ### Ejemplo variables aleatorias continuas
 <div class="center">
 
-```{r, echo=FALSE, label=bid19,fig.cap="",out.width = "750px"}
+```{r, echo=FALSE, label=bid19,fig.cap=""}
 knitr::include_graphics("Images/EjSumaXY.png",dpi=1200)
 ```
 </div>
@@ -2801,7 +2801,7 @@ Dejamos como ejercicio al lector comprobar que la función anterior es una **fun
 
 <div class="center">
 
-```{r, echo=FALSE, label=Ej2.png,fig.cap="",out.width = "750px"}
+```{r, echo=FALSE, label=Ej2.png,fig.cap=""}
 knitr::include_graphics("Images/EjTranLineal.png",dpi=1200)
 ```
 </div>
@@ -2834,7 +2834,7 @@ $$
 
 <div class="center">
 
-```{r, echo=FALSE, label=Ej3.png,fig.cap="",out.width = "750px"}
+```{r, echo=FALSE, label=Ej3.png,fig.cap=""}
 knitr::include_graphics("Images/EjTranLineal2.png",dpi=1200)
 ```
 </div>
@@ -2947,7 +2947,7 @@ $$
 
 <div class="center">
 
-```{r, echo=FALSE, label=Ej4.png,fig.cap="",out.width = "750px"}
+```{r, echo=FALSE, label=Ej4.png,fig.cap=""}
 knitr::include_graphics("Images/Polares.png",dpi=1200)
 ```
 </div>

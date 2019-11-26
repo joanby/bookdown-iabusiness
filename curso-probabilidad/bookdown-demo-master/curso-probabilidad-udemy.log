@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.9.24)  26 NOV 2019 14:20
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.9.24)  26 NOV 2019 18:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -900,23 +900,292 @@ Package hyperref Warning: Rerun to get /PageLabels entry.
 \tf@toc=\write5
 \openout5 = `curso-probabilidad-udemy.toc'.
 
+[3] [4
 
-! LaTeX Error: Command \FunCar already defined.
-               Or name \end... illegal, see p.192 of the manual.
+] [5] [6
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.159 \newcommand{\FunCar}{\phi}
-                                 
+] [7]
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 235.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmr' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 235.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 235
+.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 235
+.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 235.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 235.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 235.
+LaTeX Font Info:    Try loading font information for U+msa on input line 235.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 235.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+) [8] [9]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 408.
+[10] [11]
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 596.
+
+[12] [13] [14] [15] [16
+
+]
+Chapter 1.
+File: Images/proba1dibujos/dice/1.png Graphic file (type bmp)
+<Images/proba1dibujos/dice/1.png>
+File: Images/proba1dibujos/dice/2.png Graphic file (type bmp)
+<Images/proba1dibujos/dice/2.png>
+File: Images/proba1dibujos/dice/3.png Graphic file (type bmp)
+<Images/proba1dibujos/dice/3.png>
+File: Images/proba1dibujos/dice/4.png Graphic file (type bmp)
+<Images/proba1dibujos/dice/4.png>
+File: Images/proba1dibujos/dice/5.png Graphic file (type bmp)
+<Images/proba1dibujos/dice/5.png>
+File: Images/proba1dibujos/dice/6.png Graphic file (type bmp)
+<Images/proba1dibujos/dice/6.png>
+File: Images/proba1dibujos/dice/1.png Graphic file (type bmp)
+<Images/proba1dibujos/dice/1.png>
+File: Images/proba1dibujos/dice/2.png Graphic file (type bmp)
+<Images/proba1dibujos/dice/2.png>
+File: Images/proba1dibujos/dice/3.png Graphic file (type bmp)
+<Images/proba1dibujos/dice/3.png>
+File: Images/proba1dibujos/dice/4.png Graphic file (type bmp)
+<Images/proba1dibujos/dice/4.png>
+File: Images/proba1dibujos/dice/5.png Graphic file (type bmp)
+<Images/proba1dibujos/dice/5.png>
+File: Images/proba1dibujos/dice/6.png Graphic file (type bmp)
+<Images/proba1dibujos/dice/6.png>
+[17]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 797.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 797.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 797.
+[18]
+File: Images/proba1dibujos/distr11.jpg Graphic file (type bmp)
+<Images/proba1dibujos/distr11.jpg>
+File: Images/proba1dibujos/distr12.jpg Graphic file (type bmp)
+<Images/proba1dibujos/distr12.jpg>
+File: Images/proba1dibujos/distr13.jpg Graphic file (type bmp)
+<Images/proba1dibujos/distr13.jpg>
+
+Overfull \hbox (217.29387pt too wide) in alignment at lines 901--904
+ [] [] [] 
+ []
+
+[19]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1.1 on input line 904.
+
+File: Images/proba1dibujos/distr21.jpg Graphic file (type bmp)
+<Images/proba1dibujos/distr21.jpg>
+File: Images/proba1dibujos/distr22.jpg Graphic file (type bmp)
+<Images/proba1dibujos/distr22.jpg>
+File: Images/proba1dibujos/distr23.jpg Graphic file (type bmp)
+<Images/proba1dibujos/distr23.jpg>
+
+Overfull \hbox (217.29387pt too wide) in alignment at lines 913--916
+ [] [] [] 
+ []
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1.2 on input line 916.
+
+File: Images/proba1dibujos/dd2.jpg Graphic file (type bmp)
+<Images/proba1dibujos/dd2.jpg>
+File: Images/proba1dibujos/dd1.jpg Graphic file (type bmp)
+<Images/proba1dibujos/dd1.jpg>
+File: Images/proba1dibujos/dd3.jpg Graphic file (type bmp)
+<Images/proba1dibujos/dd3.jpg>
+
+Overfull \hbox (217.12404pt too wide) in alignment at lines 928--931
+ [] [] [] 
+ []
+
+[20]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1.3 on input line 931.
+
+File: Images/proba1dibujos/demorgan6.jpg Graphic file (type bmp)
+<Images/proba1dibujos/demorgan6.jpg>
+File: Images/proba1dibujos/demorgan7.jpg Graphic file (type bmp)
+<Images/proba1dibujos/demorgan7.jpg>
+
+Overfull \hbox (45.80814pt too wide) in alignment at lines 944--947
+ [] [] 
+ []
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1.4 on input line 947.
+
+
+Underfull \vbox (badness 2818) has occurred while \output is active []
+
+[21]
+File: Images/proba1dibujos/demorgan8.jpg Graphic file (type bmp)
+<Images/proba1dibujos/demorgan8.jpg>
+File: Images/proba1dibujos/demorgan9.jpg Graphic file (type bmp)
+<Images/proba1dibujos/demorgan9.jpg>
+File: Images/proba1dibujos/demorgan10.jpg Graphic file (type bmp)
+<Images/proba1dibujos/demorgan10.jpg>
+
+Overfull \hbox (247.2122pt too wide) in alignment at lines 960--963
+ [] [] [] 
+ []
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1.5 on input line 963.
+
+File: Images/proba1dibujos/demorgan1.jpg Graphic file (type bmp)
+<Images/proba1dibujos/demorgan1.jpg>
+File: Images/proba1dibujos/demorgan2.jpg Graphic file (type bmp)
+<Images/proba1dibujos/demorgan2.jpg>
+
+Overfull \hbox (45.80814pt too wide) in alignment at lines 976--979
+ [] [] 
+ []
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1.6 on input line 979.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[22]
+File: Images/proba1dibujos/demorgan3.jpg Graphic file (type bmp)
+<Images/proba1dibujos/demorgan3.jpg>
+File: Images/proba1dibujos/demorgan5.jpg Graphic file (type bmp)
+<Images/proba1dibujos/demorgan5.jpg>
+File: Images/proba1dibujos/demorgan4.jpg Graphic file (type bmp)
+<Images/proba1dibujos/demorgan4.jpg>
+
+Overfull \hbox (247.2122pt too wide) in alignment at lines 992--995
+ [] [] [] 
+ []
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1.7 on input line 995.
+
+[23]
+File: Images/proba1dibujos/A-B.jpg Graphic file (type bmp)
+<Images/proba1dibujos/A-B.jpg>
+[24]
+File: Images/proba1dibujos/A-B.jpg Graphic file (type bmp)
+<Images/proba1dibujos/A-B.jpg>
+
+Overfull \hbox (1.73204pt too wide) in alignment at lines 1107--1109
+ [][][] []
+ []
+
+
+Underfull \vbox (badness 1308) has occurred while \output is active []
+
+[25]
+File: Images/proba1dibujos/tresconjunts.jpg Graphic file (type bmp)
+<Images/proba1dibujos/tresconjunts.jpg>
+[26] [27] [28] [29] [30] [31] [32] [33]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1.8 on input line 1679.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[34] [35] [36] [37] [38] [39]
+Underfull \hbox (badness 2662) in paragraph at lines 2018--2020
+[]$\OML/lmm/m/it/10 A[]; [] ; A[]$ \TU/lmr/m/n/10 son sucesos \TU/lmr/bx/n/10 i
+ndependientes \TU/lmr/m/n/10 cuando, para toda subfamilia
+ []
+
+[40] [41] [42]
+Chapter 2.
+[43
+
+] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55]
+Underfull \hbox (badness 10000) in paragraph at lines 2782--2783
+
+ []
+
+[56] [57] [58] [59] [60] [61]
+File: curso-probabilidad-udemy_files/figure-latex/figUNIF-7.pdf Graphic file (t
+ype pdf)
+<use curso-probabilidad-udemy_files/figure-latex/figUNIF-7.pdf>
+[62] [63] [64]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-10-1.pdf Graphi
+c file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-10-1.pdf>
+[65] [66] [67] [68]
+Overfull \hbox (37.14343pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 2.7.  ESPERANZA Y VARIANZA PARA VARIABLES ALEATORIAS CONTINUAS 
+\TU/lmr/m/n/10 69
+ []
+
+[69] [70] [71]
+Overfull \hbox (12.31744pt too wide) in alignment at lines 3627--3632
+ [][][] []
+ []
+
+[72] [73] [74] [75] [76
+
+]
+Chapter 3.
+[77] [78]
+Overfull \vbox (1.396pt too high) detected at line 3965
+ []
+
+[79]
+File: curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-12-1.pdf Graphi
+c file (type pdf)
+<use curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-12-1.pdf>
+[80]
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.4036 \begin{eqnarray*}
+                         
 Here is how much of TeX's memory you used:
- 22289 strings out of 492970
- 415646 string characters out of 6133938
- 543661 words of memory out of 5000000
- 26135 multiletter control sequences out of 15000+600000
- 530704 words of font info for 32 fonts, out of 8000000 for 9000
+ 22639 strings out of 492970
+ 424149 string characters out of 6133938
+ 550661 words of memory out of 5000000
+ 26381 multiletter control sequences out of 15000+600000
+ 555067 words of font info for 72 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 45i,6n,54p,10465b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,15n,54p,10465b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on curso-probabilidad-udemy.pdf (2 pages).
+Output written on curso-probabilidad-udemy.pdf (80 pages).

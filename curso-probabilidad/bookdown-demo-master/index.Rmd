@@ -13,13 +13,7 @@ description: "Asienta las bases para convertirte en el Data Scientist del futuro
 ---
 
 
-\newcommand{\FunCar}{\phi}
-\newcommand{\FunGenMom}{m}
-\newcommand{\Momk}{M}
-\newcommand{\MomCenk}{MC}
-\newcommand\momento{m}
-\newcommand{\momentocentral}{\mu}
-\newcommand{\Entropia}{H}
+
 
 # {-}
 

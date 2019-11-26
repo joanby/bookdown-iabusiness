@@ -1,0 +1,5 @@
+book_filename: "curso-probabilidad-udemy"
+language:
+  ui:
+    chapter_name: "Tema "
+delete_merged_file: true

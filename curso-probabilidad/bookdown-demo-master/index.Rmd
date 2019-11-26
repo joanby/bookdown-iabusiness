@@ -43,7 +43,7 @@ Y todo con más de 30 horas de vídeo a demanda, cientos de ejercicios, tareas, 
 run_shiny = FALSE
 
 library(shiny)
-
+library(reticulate)
 ``` 
 
 

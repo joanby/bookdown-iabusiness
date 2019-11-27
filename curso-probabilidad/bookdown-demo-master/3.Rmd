@@ -105,7 +105,7 @@ dbinom(1,size=1,prob=0.25)
 rbinom(n=20,size = 1,prob=0.25)
 ```
 
-### Distribución Bernoulli. Ejemplo
+
 
 
 El siguiente código dibuja las función de probabilidad y la de distribución de una  $Ber(p=0.25)$
@@ -123,7 +123,6 @@ par(mfrow=c(1,1))
 ```
 
 
-### Distribución Bernoulli. Ejemplo
 
 ```{r fig.align='center',echo=FALSE}
 par(mfrow=c(1,2))
@@ -195,7 +194,7 @@ P_{X}(x)=\left\{
 \end{array}\right..
 $$
 
-### Función de distribución de binomial
+### Función de distribución  binomial
 
 Su **función de distribución** no tiene una fórmula cerrada. Hay que acumular la función de probabilidad:
 
@@ -330,7 +329,6 @@ y si queremos por ejemplo $F_X(4)=P(X\leq 4)$:
 pbinom(4,size=10,prob=0.25)
 ```
 
-### Cálculos binomial con R
 
 Sin embargo, si queremos calcular algún valor de la función de probabilidad como por ejemplo $P(X=0)$:
 
@@ -348,7 +346,7 @@ dbinom(4,size=10,prob=0.25)
 
 Generaremos una muestra aleatoria  de  100 valores  de una población $B(20,0.5)$
 
-```{r semilla_binomial}
+```{r semilla_binomial,size="scriptsize"}
 set.seed(2019)
 rbinom(100,size = 20,prob=0.5)
 ```
@@ -375,7 +373,6 @@ En general en el paquete `scipy`, la función de probabilidad se invocará con e
 binom.pmf(k, n, p, loc) =  binom.pmf(k - loc, n, p)
 ```
 
-###  Cálculos distribución binomial con python
 
 Para calcular los valores de la función de distribución como por ejemplo $F_X(0)=P(X\leq 0)$ y $F_X(4)=P(X\leq 4)$ utilizamos la función `cdf`
 
@@ -386,7 +383,6 @@ binom.cdf(4,n=10,p=0.25)
 
 Notemos que al no indicar el valor de `loc`, se le asume que toma el valor 0.
 
-###  Cálculos distribución binomial con python
 
 Para calcular los valores de la función de probabilidad $P(X=0)$ y $P(X=4)$ utilizamos la función `pmf`:
 
@@ -397,7 +393,7 @@ binom.pmf(4,n=10,p=0.25)
 
 Notemos que al no indicar el valor de `loc`, se le asume que toma el valor 0.
 
-###  Cálculos distribución binomial con python
+
 
 Si queremos generar una muestras aleatorias que siga una distribución binomial, podemos usar la función `rvs`. En este caso, generaremos una muestra aleatoria  de  100 valores  de una población $B(20,0.5)$
 
@@ -405,7 +401,7 @@ Si queremos generar una muestras aleatorias que siga una distribución binomial,
 binom.rvs(n=20,p=0.25,size = 100)
 ```
 
-###  Cálculos distribución binomial con python
+
 
 <l class="observ"> Observación</l>
 Notemos que la secuencia aleatoria generada no es la misma que con R. De hecho si volvemos a ejecutar esta función obtendremos una muestra aleatoria distinta.
@@ -417,7 +413,7 @@ binom.rvs(n=20,p=0.25,size = 100)
 </div>
 
 
-### Cálculos binomial con python
+
 
 Veamos algunos cálculos básicos con funciones de python para la binomial  $B(n=10,p=0.25)$.
 
@@ -446,8 +442,6 @@ curve(pbinom(x,size=10,prob=0.25),
 par(mfrow=c(1,1))
 ```
 
-
-### Gráficas de la distribución binomial con R 
 
 El siguiente código de R dibuja las función de probabilidad y la de distribución de una  $B(n=10,p=0.25)$
 
@@ -523,7 +517,7 @@ import matplotlib.pyplot as plt
 ```
 </div>
 
-### Gráficos de la distribución binomial con python
+
 
 ```{python dibu_python1,eval=FALSE}
 n, p = 10, 0.25
@@ -548,9 +542,6 @@ plt.show()
 ```
 
 
-
-
-### Gráficos de la distribución binomial con python
 
 <div class="center"> 
 
@@ -581,7 +572,7 @@ plt.show()
 
 
 
-### Ejemplo distribución binomial
+#### Ejemplo distribución binomial
 
 <div class="example">
 **Ejemplo: Número de bolas rojas extraídas  de urna con reposición.**
@@ -601,7 +592,7 @@ $$P(Roja)=P(Éxito)=p=\frac{40}{100}=0.4.$$
 Así que la variable $X=$"número de bolas rojas extraídas de la urna (con reposición) en $n=10$ ocasiones sigue una ley binomial  $B(n=10,p=0.4).$
 </div>
 
-### Ejemplo $B(n=10,p=0.4).$
+
 <div class="example">
 Nos preguntamos:
 
@@ -613,7 +604,7 @@ Nos preguntamos:
 
 </div>
 
-### Ejemplo $B(n=10,p=0.4).$
+
 
 <div class="example-sol">
  
@@ -639,7 +630,7 @@ dbinom(4,size=10,prob = 0.4)
 </div>
 
 
-### Ejemplo $B(n=10,p=0.4).$
+
 
 <div class="example-sol">
 **Solución 2**.  ¿Cuál es la probabilidad de que saquemos al menos  $4$ rojas?
@@ -661,7 +652,7 @@ P(x\leq 3)&=& P(X=0)+P(X=1)+P(X=2)+P(X=3)\\
 </div>
 
 
-### Ejemplo $B(n=10,p=0.4).$
+
 <div class="example-sol">
 Con R
 
@@ -676,7 +667,6 @@ $$P(X \geq 4 )=1-P(x< 4)=P(X\leq 3)=1-`r round(pbinom(3,10,0.4),7)`=`r round(1-p
 
 </div>
 
-### Ejemplo $B(n=10,p=0.4).$
 
 <div class="example-sol">
 O con R también
@@ -693,7 +683,7 @@ pbinom(3,10,0.4,lower.tail = FALSE)
 
 </div>
 
-### Ejemplo $B(n=10,p=0.4).$
+
 <div class="example-sol">
 
 **Solución 3**.  ¿Cuál es la probabilidad de que saquemos  menos  de $3$ rojas?
@@ -717,7 +707,7 @@ pbinom(2,10,0.4)
 
 </div>
 
-### Ejemplo $B(n=10,p=0.4).$
+
 
 <div class="example-sol">
 
@@ -735,7 +725,6 @@ print("E(X) = {m}".format(m=binom.stats(n = 10, p = 0.4, moments='m')))
 
 </div>
 
-### Ejemplo $B(n=10,p=0.4).$
 
 <div class="example-sol">
 **Solución 5**. ¿Cuál es la desviación típica  del número de bolas rojas?
@@ -766,7 +755,6 @@ print("Var(X) = {v}".format(v=binom.stats(n = 10, p = 0.4, moments='v')))
 ## Distribución geométrica
 
 
-### Distribución geométrica
 
 * Todos hemos jugado a, por ejemplo, tirar una moneda hasta que obtengamos la primera cara.
 
@@ -779,7 +767,7 @@ print("Var(X) = {v}".format(v=binom.stats(n = 10, p = 0.4, moments='v')))
 La **modelización de este tipo de problemas se consigue con la  llamada distribución geométrica**.
 
 
-### Distribución geométrica
+
 
 
 <l class="definition"> Distribución geométrica </l>
@@ -789,7 +777,6 @@ La **modelización de este tipo de problemas se consigue con la  llamada distrib
 
 $$P(\overbrace{FFF\ldots F}^{x}E)=P(F)^{x}\cdot P(E)=(1-p)^{x}\cdot p=q^{x}\cdot p.$$
 
-### Distribución geométrica
 
 Su función de probabilidad es 
 
@@ -809,7 +796,6 @@ distribución geométrica de parámetro $p$.
 * Su dominio es  $D_X=\{0,1,2,\ldots\}$.
 
 
-### Función de distribución geométrica
 
 Calculemos P($X\leq 3$).
 
@@ -826,7 +812,6 @@ $$
 \{X>3\}=\{X\geq 4\}= \{FFFF\}
 $$
 
-### Función de distribución geométrica
 
 Ahora, al  ser los intentos sucesos independientes, tenemos que:
 
@@ -846,7 +831,7 @@ Por lo que podemos generalizar a cualquier entero positivo $k=0,1,2,\ldots$
 $$F_X(k)=P(X\leq k)=1-(1-p)^{k+1}\mbox{ si } k=0,1,2,\ldots$$
 
 
-### Función de distribución geométrica
+
 
 
 En general  tendremos que 
@@ -864,8 +849,6 @@ F_X(x)=P(X\leq x)=
 $$
 
 
-
-### Función de distribución geométrica
 
 De forma más compacta tendremos que 
 
@@ -930,16 +913,8 @@ E(X^2)&=&\sum_{x=0}^{+\infty} x^2\cdot P_X(x)=\sum_{x=1}^{+\infty} x^2\cdot (1-p
 \sum_{x=1}^{+\infty} x\cdot (x-1)\cdot (1-p)^{x}\cdot p+\sum_{x=1}^{+\infty} x \cdot (1-p)^{x}\cdot p\\
 &=&
 (1-p)^{2}\cdot p\cdot \sum_{x=2}^{+\infty} x\cdot (x-1)\cdot (1-p)^{x-2}\\ 
-&  +&   (1-p)\cdot p\sum_{x=1}^{+\infty} x \cdot (1-p)^{x-1} = \ldots
-\end{eqnarray*}
-
-
-### Valor $E(X^2)$ de una v.a. $Ge(p)$
-
-
-\begin{eqnarray*}
-E(X^2)&=&\ldots\\
-&=&
+&  +&   (1-p)\cdot p\sum_{x=1}^{+\infty} x \cdot (1-p)^{x-1} 
+\\  &=&
 (1-p)^{2}\cdot p\cdot \sum_{x=2}^{+\infty} x\cdot (x-1)\cdot (1-p)^{x-2}\\ 
 &  +&   (1-p)\cdot p\sum_{x=1}^{+\infty} x \cdot (1-p)^{x-1}\\
 &=&
@@ -1014,7 +989,6 @@ P\left(X> k+j\big| X\geq j\right)=P(X> k)
 $$
 para todo $k,j=0,1,2,3\ldots$.
 
-### Propiedad de la falta de memoria
 
 <div class="dem">
 **Demostración**
@@ -1123,7 +1097,7 @@ Lo que demuestra  el recíproco, es decir que $X$ es $Geom(p)$.
 
 
 
-### Falta de memoria
+
 
 <l class="observ"> Observación: Interpretación  de la propiedad</l>
 
@@ -1158,7 +1132,7 @@ Después de 5 fracasos no estamos *más cerca* de abrir la puerta.
 La propiedad de la  falta de  memoria  nos dice que en **después de cada intento es como si empezásemos  de nuevo a abrir la puerta**. Tras 5 fracasos la probabilidad de que fallemos más de  4 veces  más es la misma.
 </div>
 
-### Ejemplo falta de memoria 
+
 
 <div class="example-sol">
 
@@ -1204,9 +1178,9 @@ La pregunta es: ¿Cuál es la probabilidad de no ver ganar al Barça en al menos
 
 Como nuestro aficionada tiene un tía que juega mucho al fútbol en su consola  y con los datos que le damos  estima que  la probabilidad de que el Barça gane un clásico cualquiera es
 
-$$P(Barça)=\frac{72}{178}=`r round(72/178,4)`.$$
+$$P(\mbox{Barça})=\frac{72}{178}=`r round(72/178,4)`.$$
 
-Supongamos  pues que nuestro  *experimento de fútbol*  sigue una ley  geométrica con probabilidad de éxito $p=P(Barça)=\frac{72}{178}.$
+Supongamos  pues que nuestro  *experimento de fútbol*  sigue una ley  geométrica con probabilidad de éxito $p=P(\mbox{Barça})=\frac{72}{178}.$
 
 Entonces si $X$ es el número de partidos que pierde el Barça antes de que gane el primero  seguirá  una ley $Ge(p=\frac{72}{178})$.
 
@@ -1267,9 +1241,6 @@ pgeom(0,prob=0.25)
 
 
 
-
-
-### Cálculos con R
 
 
 
@@ -1365,8 +1336,6 @@ from scipy.stats import geom
 ```
 
 
-### Cálculos con python
-
 La función de probabilidad es `geom.pmf(x,p,loc=0)=geom.pmf(x,p)` es un geométrica que cuenta el número de intentos para obtener el primer éxito el valor por defecto del último parámetro es  `loc=0`.
 
 Si queremos la que cuenta el número de fracasos para obtener el primer éxito (la geométrica que empieza en 0) tenemos que usar `geom.pmf(x,p,loc=-1)`.
@@ -1374,7 +1343,7 @@ Si queremos la que cuenta el número de fracasos para obtener el primer éxito (
 Es decir `geom.pmf(x,p,loc=-1)=geom.pmf(x-1,p,loc=0)`
 
 
-### Cálculos con python
+
 
 Veamos pues los cálculos para la $Ge(p)$ que empieza en $0$.
 
@@ -1390,7 +1359,6 @@ $P(X\leq 0)=1- (1-0.25)^{0+1}=1-0.75=0.25$
 geom.cdf(0,p=0.25,loc=-1)
 ```
 
-### Cálculos con python
 
 $P(X\leq 4)=1-(1-0.25)^{4+1}=1-0.75=1-0.75^5=`r 1-0.75^5`.$
 
@@ -1404,7 +1372,7 @@ Una muestra aleatoria de tamaño 25 de una $Ge(0.25)$
 geom.rvs(p=0.25, size=20, loc=-1)
 ```
 
-### Cálculos con python 
+
 
 <div class="exercise">
 **Ejercicio**
@@ -1428,8 +1396,6 @@ geom.stats(p=0.25, loc=0, moments='mv')
 geom.stats(p=0.25, loc=-1, moments='mv')
 ```
 
-
-### Cálculos con python  esperanza y  varianza
 
 <div class="exercise">
 **Ejercicio**
@@ -1466,7 +1432,7 @@ plt.show()
 ```
 
 
-### Gráficos con python
+
 
 ```{python, echo=F}
 
@@ -1516,7 +1482,7 @@ En general tendremos un experimento  Bernoulli con probabilidad de éxito $0<p<1
 * Repetimos el experimento hasta obtener el $n$-ésimo éxito ¡¡abrir la maldita puerta!!.
 * Sea $X$ la v.a que cuenta el número fallos hasta abrir la puerta, es decir, hasta  conseguir el n-ésimo éxito. Notemos que no contamos los éxitos, solo  contamos los fracasos
 
-### Distribución binomial negativa
+
 
  Si representamos como es habitual un suceso son una cadena de F's y E's. 
  
@@ -1532,7 +1498,7 @@ $$P(X=2)=P(\{FFEE,FEFE,EFFE\})=3\cdot (1-p) 2\cdot p^2$$
 
 $$P(X=3)=P(\{FFFEE,FFEFE,FEFFE,EFFFE\})=4\cdot (1-p)^3\cdot p^2$$
 
-### Distribución binomial negativa
+
  
 En general su función de probabilidad es
 
@@ -1543,7 +1509,7 @@ P_{X}(k)=P(X=k)=\left\{\begin{array}{ll}
 $$
      
 
-### Distribución binomial negativa
+
 
 Una v.a. con este tipo de distribución recibe el nombre de *binomial negativa* y la denotaremos por $BN(n,p)$. 
 
@@ -1589,7 +1555,6 @@ $$
 $$
 
 
-### Números binomiales negativos
 
 Con R es la misma función que para los números binomiales
 
@@ -1732,7 +1697,7 @@ P_X(X=k)=P(X=k)=
 $$
 </div>
 
-### Ejemplo $BN(n=2,p=0.1)$ 
+
 
 
 <div class="example-sol">
@@ -1753,7 +1718,7 @@ $$
 </div>
 
 
-### Ejemplo $BN(n=2,p=0.1)$ 
+
 
 
 <div class="example-sol">
@@ -1777,7 +1742,7 @@ $$
 
 
 
-### Ejemplo $BN(n=2,p=0.1)$ 
+
 
 
 <div class="example-sol">
@@ -1794,7 +1759,7 @@ P(X=5)&=&{5+2-1\choose 1} \cdot 0.9^{5}\cdot 0.1^2= {6\choose 1} \cdot 0.9^{5}\c
 </div>
 
 
-### Ejemplo $BN(n=2,p=0.1)$ 
+
 
 
 <div class="example-sol">
@@ -1824,12 +1789,8 @@ P(X\leq 4) &= & \displaystyle\sum_{x=0}^{4} P(X=x)=P(X=0)+P(X=1)+P(X=2)+P(X=3)+P
 
 </div>
     
-### Ejemplo $BN(n=2,p=0.1)$ 
-
 
 <div class="example-sol">
-
-
 \begin{eqnarray*}
 P(X\leq 4)=\ldots   &=& 
 {1\choose 1} \cdot 0.9^{0}\cdot 0.1^2+
@@ -1867,8 +1828,6 @@ dnbinom(2,2,0.1)
 3*0.9^2* 0.1^2
 ```
 </div>
-
-### Ejemplo $BN(n=2,p=0.1)$ 
 
 
 <div class="example-sol">
@@ -1913,8 +1872,6 @@ dnbinom(5,size=2,p=0.1)
 
 
 
-### Cálculos con R
-
 De forma similar calculamos calculamos $P(X\leq 4)$, $P(X>4)=1-P(X\leq 4)$ y $P(X>4)$.
 
 ```{r}
@@ -1936,9 +1893,6 @@ Recordemos que de nuevo se cumple que
 nbinom.pmf(k, n, p, loc) = nbinom.pmf(k-loc, n, p)`
 ```
 
-
-### Cálculos $BN(n,p)$ con python
-
 ```{python}
 nbinom.pmf(k=5,n=2,p=0.1)
 nbinom.pmf(k=5,n=2,p=0.1,loc=0)
@@ -1947,15 +1901,11 @@ nbinom.cdf(k=4,n=2,p=0.1)
 ```
 
 
-### Cálculos $BN(n,p)$ con python
-
 Generemos 100 observaciones aleatorias de una $BN(n=2,0.1)$. Es decir serán las veces que hemos fallado hasta abrir la prueba 100 veces.
 
 ```{python}
 nbinom.rvs(n=2, p=0.1, size=100)
 ```
-
-### Cálculos $BN(n,p)$ con python
 
 La **esperanza** y la **varianza**de una $BN(n=2,0.1)$ es 
 
@@ -1985,8 +1935,6 @@ curve(pnbinom(x,size=2,prob=0,1),
 par(mfrow=c(1,1))
 ```
 
-
-### Gráficas de la binomial negativa con R 
 
 El siguiente código de R dibuja las función de probabilidad y la de distribución de una  $BN(n=2,p=0.1)$
 
@@ -2045,8 +1993,6 @@ renderPlot({
 
 <!--[![](Images/noshinyImages/interactiva_binomial_negativa1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
-### Gráficos de la binomial negativa con python
-
 <div class="exercise">
 **Ejercicio**
 
@@ -2090,9 +2036,6 @@ fig.suptitle('Distribucion Binomial Negativa')
 plt.show()
 ```
 
-
-
-### Gráficos de la binomial negativa con python
 
 
 ```{python  negativa_py_show, echo=FALSE}
@@ -2140,8 +2083,6 @@ Sea $X$ la v.a que nos da el número de fallos antes de  entrar en el sistema.
 
 </div>
 
-### Ejercicio  acceso aleatorio a un sistema con triple clave. 
-
 
 <div class="exercise">
 
@@ -2156,8 +2097,6 @@ Estamos interesados en modelar  este problema.  La preguntas son:
 </div>
 
 
-### Ejemplo $BN(r,p)$ 
-
 <div class="exercise-sol">
 
 **Solución 1.**  ¿Cuál es la distribución de probabilidad de $X$ la v.a que nos da el número de fallos antes de acceder al  sistema.
@@ -2168,8 +2107,6 @@ Así que  la variable $X$   cuenta el número de fracasos independientes hasta c
 
 </div>
 
-
-### Ejemplo $BN(r,p)$ 
 
 
 <div class="exercise-sol">
@@ -2199,8 +2136,6 @@ $$
 </div>
 
 
-### Solución  ejemplo  $BN(n=3,p=0.001)$ 
-
 
 <div class="exercise-sol">
 
@@ -2226,8 +2161,6 @@ dnbinom(150,size=3,p=0.001)
 
 </div>
 
-### Solución  ejemplo  $BN(n=3,p=0.001)$ 
-
 
 <div class="exercise-sol">
 
@@ -2249,8 +2182,6 @@ nbinom.pmf(150,n=3,p=0.001)
 
 </div>
 
-
-### Solución  ejemplo  $BN(n,p)$ 
 
 
 <div class="example-sol">
@@ -2278,8 +2209,6 @@ nbinom.cdf(150,n=3,p=0.001)
 ```
 </div>
 
-
-### Solución  ejemplo  $BN(n,p)$ 
 
 
 <div class="example-sol">
@@ -2315,7 +2244,6 @@ Si seguimos suponiendo que cada vez ponemos la contraseña al azar pero esta vez
 
 Si llamamos $X_9$  a la variable aleatoria que nos da el número de fallos antes de entra en el sistema seguirá una distribución $Ge(p=\frac{1}{10^9}=0.000000001)$.
 </div>
-###  Qué da más seguridad  ¿tres claves de tres dígitos o una de 9 dígitos?
 
 <div class="exercice">
 
@@ -2377,7 +2305,6 @@ Supongamos que nuestra variable de interés es  $X$= número de eventos en el in
 
 Como por ejemplo el número de llamadas a un *call center* en una hora  y que sabemos que se cumplen las siguientes condiciones:
 
-### La distribución Poisson como "límite" de una binomial.
 
 1. El número promedio de eventos en el intervalo $(0,t]$ es
 $\lambda>0$.
@@ -2387,13 +2314,13 @@ gran número de subintervalos (denotemos por $n$ al número de intervalos) de fo
     + El número de ocurrencias de eventos en un intervalo  es independiente del número de ocurrencias en otro intervalo.
     + La probabilidad de que un evento ocurra en un subintervalo es $p_n\cdot n=\lambda$ o lo que es lo mismo $p_n=\frac{\lambda}{n}$·
 
-### La distribución Poisson como "límite" de una binomial.
+
 
 Bajo estas condiciones podemos considerar que el número de eventos en el intervalo $(0,t]$ será el número de "éxitos" en $n$ repeticiones independientes de un proceso Bernoulli de parámetro $p_n$
 
 Entonces si $n\to\infty$ y $p_n\cdot n$ se mantiene igual a $\lambda$ resulta que la función de probabilidad de $X$ se puede poner como
 
-### La distribución Poisson como "límite" de una binomial.
+
 
 
 \begin{eqnarray*}
@@ -2406,7 +2333,7 @@ P(X_n=k)&=&\left(\begin{array}{c} n\\ k\end{array}\right) \cdot p_n^k\cdot  (1-p
 \end{eqnarray*}
 
 
-### La distribución Poisson como "límite" de una binomial.
+
 
 
 Estamos interesados en calcular 
@@ -2424,7 +2351,6 @@ $$
 $$
 
 
-### La distribución Poisson como "límite" de una binomial.
 
 $$
 \lim_{n\to \infty} \left(1-\frac{\lambda}{n}\right)^{n}=e^{-\lambda}
@@ -2437,7 +2363,6 @@ $$
 \lim_{n\to \infty} \left(1-\frac{\lambda}{n}\right)^{-k}=\lim_{n\to \infty} 1^{-k}=\lim_{n\to \infty}  1=1.
 $$
 
-### La distribución Poisson como "límite" de una binomial.
 
 Para acabar
 
@@ -2461,7 +2386,6 @@ Pero en general si la variable es poisson en  $(0,t]$  también lo será en cual
 Así que podremos definir una serie de variables $X_t$ de distribución $Po(\lambda\cdot t)$.
 
 
-### Procesos de Poisson
 
 <l class="prop"> Definición procesos de Poisson </l>
 
@@ -2562,7 +2486,7 @@ renderPlot({
 <!--[![](Images/noshinyImages/interactiva_poisson1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 
-### Ejemplo $Po(\lambda)$ 
+#### Ejemplo $Po(\lambda)$ Trampa insectos 
 
 <div class="example">
 **Ejemplo**: Trampa insectos.
@@ -2583,9 +2507,6 @@ Nos piden
 </div>
 
 
-### Ejemplo $Po(\lambda)$ 
-
-
 
 <div class="example-sol">
 
@@ -2602,8 +2523,6 @@ gran número de subintervalos (denotemos por $n$ al número de intervalos) de fo
     + Por ejemplo si $n=60$ tenemos que $p_n=\frac{20}{60}=\frac{1}{3}$. La probabilidad de que en un minuto la trampa chisporrotee es  $\frac{1}{3}$.
     
 </div>
-
-### Ejemplo $Po(\lambda)$ 
 
 <div class="example-sol">
 **Solución 2.** Escribid de forma explicita la función de probabilidad  y de distribución de $X$.
@@ -2622,8 +2541,6 @@ P_X(x)=P(X=x)=\left\{\begin{array}{ll}\frac{20^x}{x!}e^{-20} & \mbox{ si } x=0,1
 $$
 
 </div>
-
-### Ejemplo $Po(\lambda)$ 
 
 <div class="example-sol">
 La función de distribución es 
@@ -2659,8 +2576,6 @@ $$
  
 </div>
 
-### Ejemplo $Po(\lambda)$ 
-
 
 
 <div class="example-sol">
@@ -2684,7 +2599,6 @@ dpois(21,lambda = 20)
 
 </div>
 
-### Ejemplo $Po(\lambda)$ 
 
 <div class="example-sol">
 
@@ -2709,7 +2623,6 @@ Nos piden
 
 
 
-### Ejemplo $Po(\lambda)$ 
 
 
 
@@ -2738,7 +2651,6 @@ dpois(0,lambda = 3)
 dpois(1,lambda = 3)
 ```
 
-### Cálculos con R
 
 $F_X(0)=P(X\leq 0), F_X(1)=P(X\leq 1)$:
 
@@ -2748,7 +2660,6 @@ ppois(1,lambda = 3)
 dpois(0,lambda = 3)+dpois(1,lambda = 3) ### es igual a ppois(1,lambda=3)
 ```
 
-### Cálculos con R
 
 Por ejemplo podemos comprobar que $F_X(10)=\sum_{x=0}^{10} P_X(x)$
 
@@ -2758,18 +2669,15 @@ sum(dpois(0:10,3))
 ppois(10,3)
 ```
 
-### Cálculos distribución Poisson con R
 
 Y también generar secuencias de observaciones aleatorias de una población $Po(3)$
 
 ```{r random_pois}
 rpois(n=100,lambda = 3)
 ```
-### Cálculos con R
 
 <div class="exercise">
-En   el ejercicio de la trampa para insectos  teníamos que $X$ es una $Po(20)$. Responded con R  a la preguntas 3 y 4 de este ejercicio
-
+En el ejercicio de la trampa para insectos  teníamos que $X$ es una $Po(20)$. Responded con R  a la preguntas 3 y 4 de este ejercicio
 </div>
 
 <div class="example-sol">
@@ -2781,8 +2689,6 @@ En   el ejercicio de la trampa para insectos  teníamos que $X$ es una $Po(20)$.
 dpois(21,lambda=20)## P(X=21)
 ```
 </div>
-
-### Cálculos con R
 
 <div class="example-sol">
 **Pregunta 4.**  Calculad la probabilidad de  que en una hora caigan en la trampa  al menos 6 insectos.
@@ -2881,8 +2787,6 @@ poisson.pmf(1,mu = 3)
 ```
 
 
-### Cálculos con python
-
 Sea $X$ un una v.a. $Po(\lambda=3)$. Entonces
 
 $F_X(0)=P(X\leq 0), F_X(1)=P(X\leq 1)$   en este orden son 
@@ -2895,8 +2799,6 @@ poisson.pmf(0,mu = 3)+poisson.pmf(1,mu= 3) ### es igual a poisson.cdf(1,lambda=3
 ```
 
 
-
-### Cálculos con python
 Por ejemplo  podemos comprobar que $F_X(10)=\displaystyle\sum_{0}^{10} P_X(x)$
 ```{python poisson_python2}
 range(0,10)
@@ -2904,7 +2806,6 @@ poisson.pmf(range(0,10),mu=3)
 sum(poisson.pmf(range(0,10),mu=3))
 poisson.cdf(10,mu=3)
 ```
-### Cálculos con python
 
 <div class="exercise">
 En   el ejercicio de la trampa para insectos  teníamos que $X$ es una $Po(20)$. Responded con python a la preguntas 3 y 4 de este ejercicio
@@ -2981,7 +2882,6 @@ plt.show()
 ```
 
 
-### Gráficos con python
 
 ```{python py_poiss2,eval=TRUE,echo=FALSE}
 from scipy.stats import poisson
@@ -3052,7 +2952,7 @@ renderPlot({
 
 <div class="example">
 
-**Número de impactos de insectos en la visera de un casco**
+**Ejemplo: Número de impactos de insectos en la visera de un casco**
 
 Un colega de trabajo, al que llamaremos  JG, es muy aficionado a los grandes premios de velocidad tanto en coches como en motos.
 
@@ -3069,8 +2969,6 @@ Así que bajo estas condiciones  si denotamos por $X_t=$ el número de insectos 
 
 </div>
 
-
-### Ejemplo proceso Poisson
 
 <div class="exercise-sol">
 
@@ -3091,8 +2989,6 @@ lo resolvemos con R
 ```
 
 </div>
-
-### Ejemplo proceso Poisson
 
 <div class="exercise-sol">
 
@@ -3167,8 +3063,6 @@ P_{X}(x)=\left\{
 $$
 
 
-### Distribución hipergeométrica
-
 Una v.a. **hipergeométrica con los  parámetros anteriores** la
 denotaremos por 
 $$H(m,n,k).$$
@@ -3198,10 +3092,10 @@ $F_X(x)=P(X\leq x)$ | Hay que sumarla. Utilizad funciones de R o de python.
 $E(X)=\frac{k\cdot m}{m+n}$   | $Var(X)=k\cdot\frac{m}{m+n}\cdot\left(1-\frac{m}{m+n}\right) \cdot\frac{m+n-k}{m+n-1}$
 
 
-### Ejemplo clásico urna $m=15$ blancas, $n=10$ rojas y $k=3$ extracciones sin reposición.
+#### Ejemplo clásico urna $m=15$ blancas, $n=10$ rojas y $k=3$ extracciones sin reposición.
 
 <div class="example">
-**Urna con bolas blancas y rojas**
+**Ejemplo: Urna con bolas blancas y rojas**
 
 Tenemos una urna con 10 bolas rojas, 15 bolas blancas. Extraemos al azar tres bolas de la urna sin reposición. Sea  $X$=número de bolas **blancas** extraídas. Bajo esta condiciones la v.a. $X$ sigue una ley de distribución $H(m=15,n=10,k=3)$.
 
@@ -3259,8 +3153,6 @@ phyper(2,15,10,3)
 
 </div>
 
-### Ejemplo clásico urna $m=15$ blancas, $n=10$ rojas y $k=3$ extracciones sin reposición.
-
 <div class="example-sol">
 
 La probabilidad de que saquemos más de   1 bola blanca es
@@ -3280,8 +3172,6 @@ P(X> 1)&=& 1-P(X\leq 1)=1-(P(X=0)+P(X=1))\\
 
 </div>
 
-
-### Ejemplo clásico urna $m=15$ blancas, $n=10$ rojas y $k=3$ extracciones sin reposición.
 
 
 <div class="example-sol">
@@ -3315,8 +3205,6 @@ Sea $X$ una va.a $H(m,n,k)$ Las funciones de R son $P(X=x)=$`dhyper(x,m,n,k)` y 
 
 Si $X$ es una $H(m=15,n=10,k=3)$, $P(X=2)$ y que $P(X>1)=1-P(X\leq 1)$ son... 
 
-### Cálculos con R
-
 
 
 ```{r}
@@ -3325,16 +3213,12 @@ phyper(q=1,m=15,n=10,k=3)## sí, le han puesto q ya veremos el porqué
 1-phyper(q=1,m=15,n=10,k=3)
 ```
 
-### Cálculos con R
-
 Una muestra aleatoria de este experimento de tamaño 200 sería...
 
 ```{r}
 rhyper(nn=200,m=15,n=10,k=3)
 ```
 
-
-### Gráficas  con R
 
 ```{r fig.align='center',echo=FALSE}
 par(mfrow=c(1,2))
@@ -3480,23 +3364,17 @@ Sea $X$ una $H(m,n,k)$, las funciones de `scipy.stats` cambian los parámetros
 from scipy.stats import hypergeom
 ```
 
-### Cálculos con python 
-
 ```{python}
 hypergeom.pmf(1,M=15+10,n=15,N=3)
 hypergeom.cdf(1,M=15+10,n=15,N=3)
 1-hypergeom.cdf(1,M=15+10,n=15,N=3)
 ```
 
-### Cálculos con python 
-
 Una muestra aleatoria de este experimento sería... 
 ```{python}
 hypergeom.rvs(M=15+10,n=15,N=3,size=100)
 ```
 
-
-### Gráficos con python
 
 
 ```{python py_hyper2:1,eval=FALSE,echo=TRUE}
@@ -3522,8 +3400,6 @@ for tick in ax.yaxis.get_major_ticks():
  =fig.suptitle('Distribucion Hipergeometrica')
  =plt.show()
 ```
-
-### Gráficos con python
 
 
 ```{python py_hyper2,eval=TRUE,echo=FALSE}
@@ -3554,8 +3430,6 @@ _=plt.show()
 
 
 ## Distribución uniforme 
-
-### Distribución uniforme
 
 Una v.a. continua $X$ diremos que tiene una distribución uniforme sobre el intervalo real $(a,b)$ ,con $a<b$, si su función de densidad es 
 
@@ -3643,9 +3517,6 @@ E(X)&=&\displaystyle\int_{-\infty}^{+\infty} x\cdot f_X(x) dx =\int_{a}^{b} x \c
 \frac{b+a}{2}.
 \end{eqnarray*}
 
-
-### Esperanza y varianza  para una v.a. $X$ $U(a,b)$
-
 Calculemos  la esperanza de $X^2$
 
 \begin{eqnarray*}
@@ -3664,8 +3535,6 @@ dx =\left.\frac{x^3}{3\cdot (b-a)}\right]_{x=a}^{x=b} \\
 
 </div>
 
-
-### Esperanza y varianza  para una v.a. $X$ $U(a,b)$.
 
 Calculemos $Var(X)$.
 
@@ -3700,8 +3569,6 @@ par(mfrow=c(1,1))
 ```
   
 
-
-### Gráficas $U(0,1)$
 
 
 ```{r grafica_unif10_vista, echo=FALSE,fig.align='center'}
@@ -3783,9 +3650,6 @@ Si $scale\not=0$ y $loc$ son dos constantes reales   entonces
 * si $scale>0$ $T=scale\cdot X+loc$ sigue una ley $U(scale\cdot a +loc,scale\cdot b +loc)$  
 * si $scale<0$ $T=scale\cdot X+loc$ sigue una ley $U(scale\cdot b +loc,scale\cdot a +loc)$
 
-
-### Cambio lineal v.a. uniforme.
-
 <div class="dem">
 
 Supongamos  que $X$ sigue una ley $U(a,b)$, que $scale>0$ y que $T=\frac{X-loc}{scale}$
@@ -3798,9 +3662,6 @@ $$
 </div>
 
 
-
-
-### Cambio lineal v.a. uniforme.
 
 <div class="dem">
 
@@ -3824,8 +3685,6 @@ que es la función de distribución de una v.a. $U(scale\cdot a+loc,scale\cdot b
 </div>
 
 
-
-###  Cambio lineal v.a. uniforme.
 
 
 <div class="exercise">
@@ -3861,8 +3720,6 @@ punif(q=0.5,min=-1,max=1)
 runif(n=5,min=-1,max=1)## generación de números aleatorios uniforme U(min.max)
 ```
 
-### Cálculos con  R
-
 Por defecto `dunif(x,min=0,max=1)`
 
 ```{r}
@@ -3870,8 +3727,6 @@ dunif(x=0.5)
 punif(q=0.5)
 runif(n=5)
 ```
-
-### Cálculos con python
 
 Sea $X$ una $v.a.$ $U(-1,1)$ $a=-1$ y $b=1$ así que $loc=-1$ y $scale=b-a=1-(-1)=2.$
 
@@ -3881,15 +3736,11 @@ uniform.pdf(0.5,loc=-1,scale=2)
 uniform.ppf(0.5,loc=-1,scale=2)
 ```
 
-### Cálculos con python
-
 Generación de aletorios uniforme
 
 ```{python}
 uniform.rvs(size=30,loc=-1,scale=2)
 ```
-
-### Cálculos con python
 
 Los valores de los parámetros con por defecto  `loc=0, scale=1`
 
@@ -3904,8 +3755,6 @@ uniform.rvs(size=5)
 ## Cuantiles de variables aleatorias
 
 
-### Cuantiles
-
 <div class="definition"> 
 **Cuantiles** 
 </div>
@@ -3918,8 +3767,6 @@ En `R`, cada distribución $X$ tiene la función `qX(p,...)` que devuelve precis
 
 
 
-### Cuantiles
-
 <div class="example">
 
 Por ejemplo si $X$ es una B(5,0.5)
@@ -3930,8 +3777,6 @@ qbinom(c(0.25,0.5,0.75),5,0.5)
 qbinom(c(0.3,0.6,0.8),5,0.5)
 ```
 </div>
-
-### Cuantiles
 
 <div class="example">
 Como $X$ sigue una $B(5,0.5)$, recordemos que $D_X=\{0,1,2,\ldots,n=5\}.$ y que su función de distribución es  
@@ -3953,8 +3798,6 @@ F_x(x)=P(X\leq x)=
 $$
 </div>
 
-### Cuantiles
-
 <div class="example">
 El cuantil $q=0.3$ es el  primer valor $x\in D_X$  tal que $F_X(x)=P(X\leq x_{0.3})\geq 0.3.$ así que el primer valor es $x_{0.3}=2$ ya que $F_X(2)=P(X\leq 2)=0.5 \geq 0.3$.
 </div>
@@ -3969,8 +3812,6 @@ Calcular los cuantiles de  $0.6$ y $0.8$ de una $B(5,0.5).$
 
 En general podemos considerar que $F^{-1}$ es la función que nos da los cuantiles (es decir si $F^{-1}(p)$ da más de una valor tomaremos como antiimagen el valor más pequeño que esté dentro del dominio $D_X$).
 
-
-### Cuantiles
 
 <div class="example">
 
@@ -4004,8 +3845,6 @@ F_X(x)= P(X\leq x)=
 $$
 
 </div>
-
-### Cuantiles
 
 <div class="example">
 
@@ -4373,7 +4212,7 @@ curve(pexp(x,rate=lambda),xlim=c(-0.05,qexp(0.999,10)),ylim=c(0,1.1),col="blue",
 par(mfrow=c(1,1))
 ```
 
-### Gráficas densidad y distribución $Exp(\lambda=10)$
+
 
 <div class="exercise">
 **Ejercicio**
@@ -4386,7 +4225,7 @@ Dibujad la función de densidad y de distribución de una $Exp(10).$
 </div>
 
 
-### Gráficas interactivas de una $X$ $Exp(\lambda)$.
+### Gráficas interactivas de una $Exp(\lambda)$.
 
 Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
@@ -4456,7 +4295,6 @@ Supongamos que compramos una bombilla led que promete un **valor esperado** de d
 ## Distribución normal o Gaussiana
 
 
-### Distribución normal o Gaussiana
 
 Una de las más variables  aleatorias  continua más populares  son las  llamadas    distribuciones normales o de [Gaussiana](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_normal) .
 
@@ -4473,14 +4311,14 @@ $$
 
 para todo $x\in \mathbb{R}.$
 
-### Distribución normal o Gaussiana
+
 
 La gráfica de esta función es la conocida campana de Gauss.
 
 La v.a. normal con $\mu=0$ y $\sigma=1$ recibe el nombre de
 normal estándar y se suele denotar por la letra $Z$ normal $N(0,1)$.
 
-### Distribución normal o Gaussiana
+
 
 
 ```{r normaldensidad1,fig.align="center"}
@@ -4543,7 +4381,7 @@ y la función de distribución $F_X(2) = P(X\leq 2)$ como
 pnorm(2,mean=1,sd=2) 
 ```
 
-###  Cálculos con R
+
  
 El cuantil $x_{0.95}$ es el valor que cumple  $P(X\leq x_{0.95})=0.95$ como
 
@@ -4581,8 +4419,6 @@ norm.cdf(2,loc=1,scale=2)
 
 
 
-###  Cálculos con python
-
  
 El cuantil $x_{0.95}$ es el valor que cumple  $P(X\leq x_{0.95})=0.95$ como
 
@@ -4597,7 +4433,7 @@ Y la generación aleatoria de valores según $X$ como
 norm.rvs(loc=1,scale=2,size=5)
 ```
 
-### Cálculos python
+
 
 <div class="exercise">
 **Ejercicio**
@@ -4618,7 +4454,7 @@ e^{-\frac{1}{2}\cdot \left(\frac{x-\mu}{\sigma}\right)^2} dx =1.$ (propiedad de 
 
 
 
-### Propiedades de la distribución normal.
+
 
 ```{r echo=FALSE,fig.align='center'}
 curve(dnorm(x,0,1),xlim=c(-4,4),ylim=c(0,1/sqrt(2*pi)),col="blue",xaxt="n",yaxt="n",
@@ -4633,7 +4469,7 @@ text(x = -3,y=dnorm(-0.9),expression(f(mu-x)==f(mu+x)))
 ```
 
 
-### Propiedades de la distribución normal
+
 
 *  $\lim\limits_{x\to+\infty}f(x)=\lim\limits_{x\to-\infty}f(x)=0$ es decir tiene asíntota horizontal a derecha e izquierda.
 * $f$ es estrictamente creciente si $x<\mu$ y decreciente si $x>\mu$.
@@ -4641,7 +4477,7 @@ text(x = -3,y=dnorm(-0.9),expression(f(mu-x)==f(mu+x)))
 * Tiene dos puntos de inflexión en $x=\mu+\sigma$ y en $x=\mu-\sigma$.
 
 
-### Propiedades de la distribución normal.
+
 
 ```{r echo=FALSE,fig.align='center'}
 par(mfrow=c(1,2))
@@ -4727,7 +4563,7 @@ En particular si  $X$ sigue una $N(\mu,\sigma)$, tomando $a=\frac1{\sigma}$ y $b
 $$Z={{X-\mu}\over {\sigma}}$$
 se distribuye $N(0,1)$, es decir $E(X)=0$ y $Var(X)=1$.
 
-### Transformaciones lineales de variables aleatorias normales
+
 
 Esta propiedad es muy útil, ya que utilizándola sólo necesitaremos tabular la
 $N(0,1)$. 
@@ -4743,6 +4579,7 @@ $$
 
 
 ### Propiedades de la distribución normal estándar
+
 Sea $Z$ una $N(0,1)$.
 
 Como en este caso $\mu=0$ y $\sigma=1$ tenemos que algunas de las propiedades anteriores se simplifican incluso más:
@@ -4775,7 +4612,7 @@ Sea  $Z$  una distribución $N(0,1)$, calcular las siguientes probabilidades en 
 </div>
 
 
-### Cálculos con la distribución normal
+
 
 <div class="example-sol">
 
@@ -4803,7 +4640,7 @@ P(X\leq x)=P\left(\frac{X-\mu}{\sigma}\leq \frac{x-\mu}{\sigma}\right)=F_{Z}\lef
 $$
 
 
-### Relación entre una  distribución normal y la normal estándar.
+
 
 <l class="prop">**Propiedad**</l>
 
@@ -4864,7 +4701,7 @@ Sea $X$ una normal com media $2$ y varianza $4$. Calcular  con R y con python la
 
 </div>
 
-### Ejemplo normal con R y python
+
 
 
 <div class="example-sol">

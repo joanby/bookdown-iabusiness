@@ -1,8 +1,6 @@
 # Pre requisitos: Teoría de conjuntos y combinatoria{-}
 
-## Antes de empezar
 
-###  Consideraciones 
 
 Para aprender cálculo de probabilidades son necesarios conocimientos de:
 
@@ -15,7 +13,7 @@ Por experiencia sabemos que  la mayoría de estudiantes tienen más conocimiento
 Pero muchos  tienen  una falta de conocimientos  en teoría básica de conjuntos y combinatoria (matemática discreta).
 
 
-###  Teoría de conjuntos
+##  Teoría de conjuntos
 
 <l class="definition"> Definición de conjunto </l>
 
@@ -341,8 +339,7 @@ La función gamma de Euler, cobrará mucha importancia en el curso de estadísti
 
 ## Para acabar
 
-
-### Otros asuntos básicos
+**Otros asuntos**
 
 Evidentemente nos hemos dejado muchas otras propiedades básicas de teoría de conjuntos y de combinatoria como: 
 

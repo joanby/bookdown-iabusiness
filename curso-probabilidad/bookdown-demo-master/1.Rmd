@@ -52,7 +52,6 @@ pero por comodidad, a partir de ahora pondremos
 $$\Omega = \{1,2,3,4,5,6\}$$
 </div>
 
-### Definiciones básicas
 
 
 <l class="definition"> Suceso </l> : Cualquier subconjunto del espacio muestral.
@@ -69,7 +68,7 @@ $$\Omega = \{1,2,3,4,5,6\}$$
 ¿Cuantos elementos contiene el conjunto de partes de $\Omega$ del experimento anterior?
 </div>
 
-### Ejemplo $n$-grama
+#### Ejemplo $n$-grama
 
 Se define un $n$-grama de una palabra como el conjunto de $n$ letras consecutivas de la misma (contando los blancos de inicio y final de palabra que marcamos como "\_"). 
 
@@ -110,7 +109,7 @@ Si tenemos dos sucesos $A,B\subseteq \Omega$, podemos definir:
 <l class="definition"> Sucesos incompatibles</l>: $A$ y $B$ son *incompatibles* (o *disjuntos*) cuando  $A\cap B=\emptyset$.
 
 
-### Ejemplo género
+#### Ejemplo género
 
 <div class="example">
 **Ejemplo**
@@ -149,19 +148,15 @@ $$A\cap(B\cup C)=(A\cap B)\cup (A\cap C), \quad A\cup(B\cap C)=(A\cup B)\cap (A\
 
 
 
-### Propiedades
-
 | $A$ | $B\cap C$ | $A\cup (B\cap C)$ |
 |:--:|:--:|:--:| 
 | ![](Images/proba1dibujos/distr11.jpg){height="200px"} | ![](Images/proba1dibujos/distr12.jpg){height="200px"} | ![](Images/proba1dibujos/distr13.jpg){height="200px"} |
 
-### Propiedades
 
 | $A\cup B$ | $A\cup C$ | $(A\cup B)\cap (A\cup C)$ |
 |:--:|:--:|:--:| 
 | ![](Images/proba1dibujos/distr21.jpg){height="200px" .image-caption} | ![](Images/proba1dibujos/distr22.jpg){height="200px"} | ![](Images/proba1dibujos/distr23.jpg){height="200px"} |
 
-### Propiedades 
 
 <l class="definition"> Complementario del complementario </l> 
 $$(A^c)^c=A$$
@@ -170,7 +165,6 @@ $$(A^c)^c=A$$
 |:--:|:--:|:--:| 
 | ![](Images/proba1dibujos/dd2.jpg){height="200px"} | ![](Images/proba1dibujos/dd1.jpg){height="200px"} | ![](Images/proba1dibujos/dd3.jpg){height="200px"} |
 
-### Propiedades 
 
 <l class="definition">Leyes de De Morgan</l>
 
@@ -180,7 +174,6 @@ $$(A\cup B)^c=A^c\cap B^c$$
 |:--:|:--:|
 | ![](Images/proba1dibujos/demorgan6.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan7.jpg){height="200px"} |
 
-### Propiedades 
 
 <l class="definition">Leyes de De Morgan</l>
 
@@ -191,7 +184,6 @@ $$(A\cup B)^c=A^c\cap B^c$$
 | ![](Images/proba1dibujos/demorgan8.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan9.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan10.jpg){height="200px"} |
 
 
-### Propiedades 
 
 <l class="definition">Leyes de De Morgan</l>
 
@@ -201,7 +193,6 @@ $$(A\cap B)^c=A^c\cup B^c$$
 |:--:|:--:|
 | ![](Images/proba1dibujos/demorgan1.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan2.jpg){height="200px"} |
 
-### Propiedades 
 
 <l class="definition">Leyes de De Morgan</l>
 
@@ -225,7 +216,6 @@ Esta verosimilitud puede estar justificada por
 
 * Cálculo formal
 
-### Definición de probabilidad
 
 Sea $\Omega$ el espacio muestral de un experimento aleatorio. 
 Supongamos que el número de posibles resultados, por el momento, es finito.
@@ -242,7 +232,7 @@ $$
 
 Si $a\in \Omega$ es un suceso elemental cometeremos el abuso de notación de poner $P(a)$ en lugar de $P(\{a\})$
 
-### Ejemplo: grupos sangíneos
+#### Ejemplo: grupos sangíneos
 
 <div class="example">
 **Ejemplo**
@@ -283,8 +273,6 @@ P(\mbox{A})+P (\mbox{B})+P(\mbox{AB})\!=\!0.57$$
 
 * $P(A^c)=1-P(A)$
 
-### Propiedades
-
 * $P(A\cup B)=P(A)+P(B)-P(A\cap B)$ porque
 
 \begin{eqnarray*}
@@ -298,7 +286,6 @@ P(A)+P(B)-P(A\cap B) &=& P(A-B)+P(A\cap B)+\\
 ![](Images/proba1dibujos/A-B.jpg){height="200px"}
 </div>
 
-### Propiedades
 
 * \begin{eqnarray*}
 P(A\cup B\cup C)&=&P(A)+P(B)+P(C)  \\ &&-P(A\cap B)-P(A\cap C)-P(B\cap C)  +P(A\cap B\cap C)
@@ -310,7 +297,6 @@ P(A\cup B\cup C)&=&P(A)+P(B)+P(C)  \\ &&-P(A\cap B)-P(A\cap C)-P(B\cap C)  +P(A\
 
 $$P(A\cup B\cup C)=P(1)+P(2)+P(3)+P(4)+P(5)+P(6)+P(7)$$
 
-### Propiedades 
 
 * Si $A=\{a_1,a_2,\ldots,a_k\}$, entonces
 $$
@@ -322,10 +308,10 @@ $$
 P(A)=\frac{|A|}{|\Omega|}\Big(=\frac{\mbox{casos favorables}}{\mbox{casos posibles}}\Big)
 $$
 
-### Ejemplo: Frecuencia de vocales 
+#### Ejemplos 
 
 <div class="example">
-**Ejemplo**
+**Ejemplo: : Frecuencia de vocales**
 
 Los porcentajes de vocales de un determinado idioma (de alfabeto latino) según la [Wikipedia](https://es.wikipedia.org/wiki/Frecuencia_de_aparici%C3%B3n_de_letras) son:
 
@@ -345,9 +331,10 @@ $$P(\{E,O\})=P(E)+P(O)=0.261+0.244=0.505.$$
 
 </div>
 
-### Ejemplo: Consumo de drogas
 
-<div class="example">
+<div class="example"> 
+**Ejemplo: Consumo de drogas**
+
 Segun un árticulo de [El País](https://elpais.com/politica/2019/01/02/actualidad/1546426491_623324.html), en un control especial de la policía el $0.1\%$ de todos los conductores analizados en un control de tráfico dan  positivo en un el test  en cocaína, y  el $1\%$ da positivo  en cannabis. Un $1.05\%$ da positivo en alguno de los dos test. 
 
 ¿Cuál  es la probabilidad que un individuo analizado  en el control de drogas  escogido  al azar no de positivo  en ninguno de lo dos test?
@@ -369,7 +356,6 @@ $$P((A\cup B)^c)=1-P(A\cup B)=1-0.0105=0.9895.$$
 
 </div>
 
-### Ejemplos: Consumo de drogas
 
 <div class="example">
 
@@ -400,10 +386,9 @@ $$\begin{array}{rl}
 
 </div>
 
-### Ejemplo: Control de drogas
 
 <div class="example">
-**Ejemplo**
+**Ejemplo: Control de drogas**
 
 En un control especial de la policía el $0.1\%$ de todos los conductores analizados en un control de tráfico dan  positivo en un el test  en cocaína, y  el $1\%$ da positivo  en cannabis. Un $1.05\%$ da positivo en alguno de los dos test. 
 
@@ -426,10 +411,9 @@ de donde, por tanto:
 $$P(B-A) =P(B)-P(A\cap B) =0.01-0.0005=0.0095$$
 </div>
 
+
+
 ## Probabilidad condicionada
-
-
-### Probabilidad condicionada
 
 <l class="definition"> Probabilidad condicionada</l>: Dados dos sucesos  $A$  y $B$, con $P(A)>0$, la  probabilidad $P(B|A)$ de $B$ condicionado a $A$ es la probabilidad
 
@@ -444,10 +428,10 @@ P(B|A)=\frac{P(A\cap B)}{P(A)}
 $$
 
 
-### Ejemplo: frecuencia género y gafas
+### Ejemplos
 
 <div class="example">
-**Ejemplo**
+**Ejemplo: frecuencia género y gafas**
 
 En una clase de 20 hombres  y 30 mujeres, 15 hombres y 18 mujeres llevan gafas. Contestemos las siguientes preguntas:
 </div>
@@ -467,10 +451,8 @@ $$
 $$
 </div>
 
-### Ejemplo: sexo y gafas
-
 <div class="example">
-**Ejemplo**
+**Ejemplo: sexo y gafas**
 
 En una clase de 20 hombres  y 30 mujeres, 15 hombres y 18 mujeres llevan gafas. Contestemos las siguientes preguntas:
 </div>
@@ -493,13 +475,6 @@ $$
 </div>
 
 
-### Ejemplo
-
-<div class="example">
-**Ejemplo**
-
-En una clase de 20 hombres  y 30 mujeres, 15 hombres y 18 mujeres llevan gafas. Contestemos las siguientes preguntas:
-</div>
 
 <div class="example-sol">
 
@@ -532,7 +507,7 @@ Hay que distinguir bien entre
 
 Cuando utilizamos probabilidad condicional  $P(A|B)$ estamos restringiendo el espacio muestral a $B$
 
-### Probabilidad condicionada. Propiedades
+### Propiedades
 
 La probabilidad condicionada es una probabilidad
 
@@ -561,14 +536,16 @@ $$
 Escribid el resto de propiedades que cumpliría una probabilidad condicionada al evento $A$.
 </div>
 
-### Ejemplos
+#### Ejemplos
 
 <div class="example">
-**Ejemplo**
+**Ejemplo: Hipertensos**
 
 Un 15\% de los adultos son hipertensos, un 25\% de los adultos creen que son hipertensos, y un 9\% de los adultos son hipertensos y creen que lo son.
 
-Si un adulto cree que es hipertenso, ¿cuál es la probabilidad que lo sea?
+* ¿Si un adulto cree que es hipertenso, ¿cuál es la probabilidad que lo sea?
+* ¿Si un adulto es hipertenso, ¿cuál es la probabilidad que crea que lo es?
+
 </div>
 
 <div class="example-sol">
@@ -584,19 +561,11 @@ entonces podemos definir el suceso:
 de donde, la probabilidad condicionada de ser hipertenso creyéndonos que lo somos es: 
 
 $$P(A|B)=\dfrac{P(A\cap B)}{P(B)}=\dfrac{0.09}{0.25}=0.36$$
-</div>
 
-### Ejemplo
+¿Si un adulto es hipertenso, ¿cuál es la probabilidad que crea que lo es?
 
-<div class="example">
-**Ejemplo**
+¿Si un adulto es hipertenso, ¿cuál es la probabilidad que crea que lo es?
 
-Un 15\% de los adultos son hipertensos, un 25\% de los adultos creen que son hipertensos, y un 9\% de los adultos son hipertensos y creen que lo son.
-
-Si un adulto es hipertenso, ¿cuál es la probabilidad que crea que lo es?
-</div>
-
-<div class="example-sol">
 Si tenemos los sucesos:
 
 * $A$: ser hipertenso; 
@@ -613,10 +582,8 @@ $$
 
 </div>
 
-### Ejemplos: dígitos de control
-
 <div class="example">
-**Ejemplo**
+**Ejemplo: dígitos de control**
 
 Un dígito de control de error toma  el valor 0  en el 99\% de los casos en que hay un error. Si la probabilidad de error en un mensaje es  del $0.5\%$. \blue{¿cuál  es la probabilidad de que el mensaje sea erróneo y el código de error tenga valor 0?
 </div>
@@ -631,49 +598,31 @@ entonces:
 $$P(A\cap B)=P(B)\cdot P(A|B)=0.005\cdot 0.99=0.00495$$
 </div>
 
-### Ejemplos
-
 <div class="example">
-**Ejemplo**
+**Ejemplo: SPAM**
 
 Un 50\% de  correos recibidos en un servidor llevan adjuntos  y un 65\% son  publicidad no deseada (SPAM). Sólo un 15\% de estos correos no llevan adjuntos y no son SPAM. 
 
 * ¿Cuál  es la probabilidad que un correo  lleve adjunto si es SPAM?
 * ¿Cuál es la probabilidad que un correo **no** tenga adjuntos si **no**  es SPAM?
-</div>
-
-### Ejemplos
-
-<div class="example">
-**Ejemplo**
-
-Un 50\% de  correos recibidos en un servidor llevan adjuntos  y un 65\% son  publicidad no deseada (SPAM). Sólo un 15\% de estos correos no llevan adjuntos y no son SPAM. 
-
-* ¿Cuál  es la probabilidad que un correo  lleve adjunto si es SPAM?
-
+* ¿Cuál  es la probabilidad de que un correo no lleve adjuntos si  no es SPAM?
 </div>
 
 <div class="example-sol">
+
+
+
+¿Cuál  es la probabilidad que un correo  lleve adjunto si es SPAM?
+
 
 * $A$: llevar adjuntos; $P(A)=0.5$
 * $S$: SPAM; $P(S)=0.65$
 * $A^c\cap S^c=(A\cup S)^c$: no llevar adjunto y no ser SPAM; $P((A\cup S)^c)=0.15$
 
 $$P(A|S)=\dfrac{P(A\cap S)}{P(S)}=?$$
-</div>
 
-### Ejemplos
+ ¿Cuál  es la probabilidad que un correo  lleve adjunto si es SPAM?
 
-<div class="example">
-**Ejemplo**
-
-Un 50\% de  correos recibidos en un servidor llevan adjuntos  y un 65\% son  publicidad no deseada (SPAM). Sólo un 15\% de estos correos no llevan adjuntos y no son SPAM. 
-
-* ¿Cuál  es la probabilidad que un correo  lleve adjunto si es SPAM?
-
-</div>
-
-<div class="example-sol">
 
 * $P(A)=0.5, P(S)=0.65, P(A^c\cap S^c)=P((A\cup S)^c)=0.15$
 
@@ -682,22 +631,12 @@ Un 50\% de  correos recibidos en un servidor llevan adjuntos  y un 65\% son  pub
 * $P(A\cap S)=P(A)+P(S)-P(A\cup S)=0.3$
 
 $$P(A|S)=\dfrac{P(A\cap S)}{P(S)}=\dfrac{0.3}{0.65}\approx 0.46$$
-</div>
 
-### Ejemplos SPAM continuación
-
-<div class="example">
-**Ejemplo**
-
-Un 50\% de  correos recibidos en un servidor llevan adjuntos  y un 65\% son  publicidad no deseada (SPAM). Sólo un 15\% de estos correos no llevan adjuntos y no son SPAM. 
 
 * ¿Cuál  es la probabilidad de que un correo no lleve adjuntos si  no es SPAM?
 
-</div>
 
-<div class="example-sol">
-
-* $P(A)=0.5, P(S)=0.65, P(A^c\cap S^c)=P((A\cup S)^c)=0.15$
+$P(A)=0.5, P(S)=0.65, P(A^c\cap S^c)=P((A\cup S)^c)=0.15$
 
 $$P(A^c|S^c)=\dfrac{P(A^c\cap S^c)}{P(S^c)}=\dfrac{P(A^c\cap S^c)}{1-P(S)}=\dfrac{0.15}{0.35}\approx 0.43$$
 </div>
@@ -716,7 +655,6 @@ P(B)&= P(B\cap A) +P(B\cap A^c)\\
 $$
 
 
-### Teorema de la probabilidad total
 
 <div class="prop">Partición del espacio espacio muestral</div>
 
@@ -737,11 +675,11 @@ $$
 
 
 
-### Ejemplos
+#### Ejemplos
 
 <div class="example">
 
-**Ejemplo**
+**Ejemplo: Dígito de control de error**
 
 Un dígito de control de error toma  el valor 0  en un $99\%$ de los casos en que hay un error y en un $5\%$  de los mensajes sin error.
 La probabilidad de error en un mensaje es  del $0.5\%$ 
@@ -781,7 +719,6 @@ Consideremos alguna de las siguientes situaciones:
 
 Nos ceñiremos a la casuística más elemental  el algoritmo de clasificación o la diagnosis solo da dos resultado **Positivo** (sí tienes la enfermedad, sí es un fraude) o **Negativo** (en caso contrario). 
 
-### Clasificación o Diagnósticos
 
 En todas estas situaciones  podemos calcular lo que se llama **matriz de confusión** que representa todas las situaciones posibles. En el caso de estudiar una condición de tipo binario, 
 
@@ -790,7 +727,6 @@ En todas estas situaciones  podemos calcular lo que se llama **matriz de confusi
 |Condición Positiva | Correcto | Error|
 |Condición Negativa | Error | Correcto|
 
-### Clasificación o Diagnósticos
 
 
 En general los  modelos y algoritmos de clasificación suelen aportar puntuaciones (*scores*) que determinan el grado de pertenencia a  una clase, o que miden si dos objetos están en la misma clase.
@@ -801,14 +737,12 @@ Así  el resultado del clasificador o del diagnóstico  puede ser:
 * **un número real**, en cuyo caso debe clasificador entre cada clase debe determinarse por un valor umbral  (*threshold*) por ejemplo para determinar si una persona está estresado podemos dar un *scores* entre 0 y 1 (1 máximo estrés 0 estrés nulo):
 * **un resultado discreto** que indica directamente una de las clases (esto es necesario si es un algoritmo que debe decidir  qué hacer con el objeto.
 
-### Clasificación o Diagnósticos
 
 <!--<div class="center">
 [![SiliconValley]](https://www.youtube.com/watch?v=pqTntG1RXSY "SiliconValley")
 </div>-->
 
 
-### Clasificación o Diagnósticos
 
 <div class="definition"> Positivos y Negativos en Clasificación</div>
 Consideremos un problema de predicción de clases binario, en la que los resultados se etiquetan positivos (P) o negativos (N). Hay cuatro posibles resultados a partir de un clasificador binario como el propuesto. 
@@ -819,8 +753,6 @@ Consideremos un problema de predicción de clases binario, en la que los resulta
 * Un Falso Negativo (FN) cuando el resultado de la predicción es N pero el valor real es P.
 
 
-### Clasificación o Diagnósticos
-
 
 Un ejemplo aproximado de un problema real es el siguiente: consideremos una prueba diagnóstica que persiga determinar si una persona tiene una cierta enfermedad. 
 
@@ -828,7 +760,6 @@ Un ejemplo aproximado de un problema real es el siguiente: consideremos una prue
 * Un falso negativo, por el contrario, ocurre cuando el resultado de la prueba es negativo, sugiriendo que no tiene la enfermedad cuando realmente sí la tiene.
 
 
-### Clasificación o Diagnósticos
 
 En un diagnósticos de una  cierta  condición (por ejemplo, test embarazo, test de enfermedad), tenemos dos tipos de sucesos:
 
@@ -842,10 +773,10 @@ En un diagnósticos de una  cierta  condición (por ejemplo, test embarazo, test
 * **Falsos negativos** $T^c\cap M$: El test da negativo, pero la condición sí que se da
 * **Coeficiente de falsos negativos**: $P(T^c|M)$
 
-### Clasificación o Diagnósticos
+#### Ejemplos
 
 <div class="example">
-**Ejemplo**
+**Ejemplo: Prueba médica**
 
 Un test diseñado para diagnosticar una determinada enfermedad tiene un coeficiente de falsos negativos de 0.06, y un coeficiente de falsos positivos de 0.04. En un estudio masivo se observa que un 15\% de la población da positivo al test.
 
@@ -861,8 +792,6 @@ Los datos del problema son:
 * $P(T)=0.15$, $P(T^c|M)=0.06$, $P(T|M^c)=0.04$
 * ¿$P(M)$?
 </div>
-
-### Ejemplos
 
 <div class="example-sol">
 * $P(T)=0.15$, $P(T^c|M)=0.06$, $P(T|M^c)=0.04$
@@ -915,10 +844,6 @@ $$P(A|B) =\frac{P(A\cap B)}{P(B)}=\cdots$$
 </div>
 
 
-
-
-### Fórmula de Bayes
-
 <div class="definition"> Teorema de Bayes </div>
 
 
@@ -941,12 +866,15 @@ $$P(A_i|B) =\dfrac{P(A_i\cap B)}{P(B)}=\cdots$$
 
 </div>
 
-### Ejemplos
+### Ejemplo VIH
 
 <div class="example">
-**Ejemplo**
+**Ejemplo: Test VIH**
 
-Un test para detección de VIH da positivo un 99\% de los casos en los que  está presente y en un 5\% de los casos  en los que  el virus está ausente. En una población con un  $0.5\%$ de infectados por VIH, ¿cuál es la probabilidad que un individuo que  haya dado positivo en el test esté infectado?
+Un test para detección de VIH da positivo un 99\% de los casos en los que  está presente y en un 5\% de los casos  en los que  el virus está ausente. En una población con un  $0.5\%$ de infectados por VIH:
+
+* ¿Cuál es la probabilidad que un individuo que  haya dado positivo en el test esté infectado?
+* ¿Cuál es la probabilidad de que un individuo que haya dado **negativo** en el test **no** esté infectado?
 </div>
 
 <div class="example-sol">
@@ -955,7 +883,7 @@ Los sucesos del ejemplo son:
 * $A$: individuo infectado
 * $B$: el test da positivo
 
-de donde podemos calcular:
+Ahora podemos calcular la probabilidad que un individuo que  haya dado positivo en el test esté infectado
 
 
 \begin{eqnarray*}
@@ -963,24 +891,7 @@ P(A|B) & =& \dfrac{P(B|A)\cdot P(A)}{P(B|A)\cdot P(A)+P(B|A^c)\cdot P(A^c)}\\
 &=&\dfrac{0.99\cdot 0.005}{0.005\cdot 0.99+0.995\cdot 0.05}=0.09
 \end{eqnarray*}
 
-</div>
-
-### Ejemplos
-
-
-<div class="example">
-**Ejemplo**
-
-Un test para detección de VIH da positivo un 99\% de los casos en los que  está presente y en un 5\% de los casos  en los que el virus está ausente. En una población con un  $0.5\%$ de infectados por VIH, ¿cuál es la probabilidad de que un individuo que haya dado **negativo** en el test **no** esté infectado?
-</div>
-
-<div class="example-sol">
-Los sucesos del ejemplo son:
-
-* $A$: individuo infectado
-* $B$: el test da positivo
-
-de donde podemos calcular:
+ Para calcular la probabilidad de que un individuo que haya dado **negativo** en el test **no** esté infectado hacemos;
 
 $$
 \begin{array}{rl} P(A^c|B^c)& =\dfrac{P(B^c|A^c)\cdot P(A^c)}{P(B^c|A)\cdot P(A)+P(B^c|A^c)\cdot P(A^c)}\\ & =\dfrac{0.95\cdot 0.995}{0.01\cdot 0.005+0.95\cdot 0.995}=0.999947\end{array}
@@ -988,10 +899,10 @@ $$
 
 </div>
 
-### Ejemplos
+
 
 <div class="exercise">
-**Ejercicio**
+**Ejercicio: Ventas  por internet**
 
 Se ha observado que  los cientes de una empresa de ventas por internet son de tres tipos, A, B y C, disjuntos dos a dos. La probabilidad que  ser de cualquiera de cada uno de los tipos es $1/3$, pero la probabilidad de compra de cada tipo es diferente:  si es de tipo A  compra un 50\% de las veces,  si de tipo B, un 75\% de las veces, y de tipo C, un 60\%.
 
@@ -1012,10 +923,9 @@ $$P(E|A)=0.5, P(E|B)=0.75, P(E|C)=0.6$$
 $$P(B|E)\!=\!\dfrac{P(E|B)\cdot P(B)}{P(E|A)\!\cdot\! P(A)\!+\!P(E|B)\!\cdot\! P(B)\!+\!P(E|C)\!\cdot\! P(C)}\!=\!\ldots$$
 </div>
 
-### Ejemplos
 
 <div class="exercise">
-**Ejercicio**
+**Ejercicio: Detección precoz de abandono de clientes**
 
 Un test de detección precoz de abandono de clientes de una  empresa de telefonía  da  positivo el 97.5\% de las ocasiones en las que, posteriormente, el cliente se da de baja, y un 12\% de las veces en que no se dio de baja. La probabilidad que un cliente escogido al azar se dé de baja es de un 2\%.
 
@@ -1037,8 +947,6 @@ Definimos los sucesos y datos del ejercicio:
 </div>
 
 
-### Ejemplos
-
 <div class="exercise-sol">
 
 $$P(B)=0.02, P(T|B)=0.975, P(T|B^c)=0.12$$
@@ -1059,7 +967,6 @@ $$P(B\cap T)= P(B)\cdot P(T|B)=0.02\cdot 0.975=0.0195$$
 
 </div>
 
-### Ejemplos
 
 <div class="exercise-sol">
 
@@ -1114,7 +1021,7 @@ Dados dos sucesos  $A$ y $B$ con  $P(A),P(B)>0$,  las siguientes afirmaciones so
 3. $P(B|A)=P(B)$
 </l>
 
-### Sucesos independientes
+
 
 <l class="prop"> Proposición </l>
 
@@ -1125,10 +1032,10 @@ Las siguientes afirmaciones son equivalentes:
 3. $A$ y $B^c$ son independientes.
 4. $A^c$ y $B^c$ son independientes.
 
-### Ejemplo billete avión
+#### Ejemplo
 
 <div class="example">
-**Ejemplo**
+**Ejemplo:  Compra billete avión**
 
 En la web de viajes WEBTravel, el 55\% de los clientes compra billete de avión, el $20\%$  alojamiento en hotel, y el $60\%$  billete de avión  o alojamiento en hotel. ¿Son los sucesos comprar billete de avión y  comprar alojamiento en hotel independientes?
 </div>

@@ -8,8 +8,6 @@ Una **muestra aleatoria simple**, desde el punto de vista de la probabilidad es 
 
 Por tanto, estudiar una **muestra aleatoria simple** equivale a estudiar su distribución.
 
-### Introducción
-
 En muchos casos, nos bastará estudiar la distribución de una variable que "represente" a dicha **muestra aleatoria simple**: la media muestral definida como $\overline{X}=\frac{X_1+\cdots + X_n}{n}$.
 
 Las **leyes de los grandes números** nos dicen que, de alguna manera (que concretaremos más adelante), la media muestral y la media poblacional se "parecen" a la larga o cuando el número de repeticiones $n$ tiende a infinito.
@@ -24,7 +22,6 @@ Vamos cómo se distribuye la media de un conjunto de variables normales e idént
 <l class="prop">Proposición. Distribución de la media muestral de $n$ variables normales independientes e idénticamente distribuidas. </l>
 Sean $X_1,\ldots, X_n$ $n$ variables normales de media $\mu$ y varianza $\sigma^2$, todas normales e independientes. Consideramos la variable $\overline{X}=\frac{X_1+\cdots + X_n}{n}$ la media muestral. Entonces la distribución de la variable aleatoria $\overline{X}$ es normal de la misma media $\mu$ de las $X_i$ y varianza $\frac{\sigma^2}{n}$.
 
-### La distribución de la media muestral
 <div class="dem">
 **Demostración**
 
@@ -37,9 +34,8 @@ $$
 0 & 0 & \ldots & \sigma^2
 \end{pmatrix}.
 $$
-</div>
-### La distribución de la media muestral
-<div class="dem">
+
+
 Para hallar la variable  $\overline{X}$, realizamos la transformación afín siguiente:
 $$
 \overline{X}=\left(\frac{1}{n},\ldots,\frac{1}{n}\right)\begin{pmatrix} X_1 \\ X_2\\\vdots \\ X_n \end{pmatrix}.
@@ -57,7 +53,7 @@ $$
 
 ## Convergencia de sucesiones de variables aleatorias
 
-### Introducción
+
 En esta sección vamos a intentar concretar cómo la media muestral y la media poblacional de una **muestra aleatoria simple** se van pareciendo, así como la distribución de la **media muestral** se va "acercando" a la normalidad.
 
 Para ello, necesitamos introducir un conjunto de conceptos relacionados con la convergencia de variables aleatorias. 
@@ -67,7 +63,6 @@ En primer lugar, introduciremos el concepto de **sucesión de variables aleatori
 <l class="definition"> Definición de sucesión de variables aleatorias. </l>
 Consideremos un experimento aleatorio sobre un **espacio muestral** $\Omega$. Sea $P$ una probabilidad definida sobre el conjunto de sucesos de $\Omega$. Entonces, si $X_1,X_2,\ldots,X_n,\ldots$ son variables aleatorias definidas sobre $\Omega,P$, diremos que forman una **sucesión de variables aleatorias** y lo denotaremos por $\{X_n\}_{n=1}^\infty$.
 
-### Ejemplo
 <div class="example">
 **Ejemplo: lanzamiento de un dado**
 
@@ -87,14 +82,11 @@ P(\{w\in \Omega\ |\ \lim_{n\to\infty} X_n(w)=X(w)\})=1.
 $$
 Lo denotaremos por $X_n\stackrel{c.s.}{\longrightarrow}X$.
 
-### Convergencia casi segura
 
 O sea, si el conjunto de elementos $w$ del espacio muestral $\Omega$ que cumplen que el límite de la sucesión de números reales $(X_n(w))_n$ tiende a $X(w)$ tiene probabilidad $1$.
 
 De ahí viene el nombre de **casi segura**: el conjunto de valores $w$ del espacio muestral tal que la sucesión numérica $(X_n(w))_n$ **no converge** a $X(w)$ tiene probabilidad 0.
 
-
-### Convergencia casi segura
 Comprobar la **convergencia casi segura** a partir de la definición puede ser muy complicado. Por suerte, existe la proposición siguiente que nos hace la vida más fácil:
 
 <l class="prop"> Proposición. </l>
@@ -105,7 +97,7 @@ $$
 $$
 es convergente.
 
-### Ejemplo
+#### Ejemplo
 <div class="example">
 Veamos si la sucesión $\{X_n\}_{n=1}^\infty$ tiene convergencia **casi segura** hacia la variable $X$ cuya **función de probabilidad** es:
 <div class="center">
@@ -125,10 +117,7 @@ P_{X_nX}(x_n,x)=P_{X_n}(x_n)\cdot P_X(x)=\frac{1}{6}\cdot \frac{1}{6}=\frac{1}{3
 $$
 para todo $x_n=1,2,3,4,5,6$ y para todo $x=1,2,3,4,5,6$.
 
-</div>
 
-### Ejemplo
-<div class="example">
 La **función de probabilidad** de la variable $D_n$ será:
 $$
 \begin{array}{rl}
@@ -146,10 +135,6 @@ P_{D_n}(5) & =P_{X_nX}(6,1)=\frac{1}{36}.
 \end{array}
 $$
 
-</div>
-
-### Ejemplo
-<div class="example">
 Sea $\epsilon$ un valor real entre 0 y 1: $0<\epsilon <1$. Entonces el suceso $\{|D_n|>\epsilon\}$ será el complementario del suceso $\{D_n=0\}$ ya que el único valor entre $-5$ y $5$ que no cumple $|D_n|>\epsilon$ es el valor $D_n=0$. Por tanto:
 $$
 P(|D_n|>\epsilon)=1-P(D_n=0)=1-P_{D_n}(0)=1-\frac{1}{6}=\frac{5}{6}.
@@ -167,7 +152,6 @@ $$
 $$
 Lo denotaremos por $X_n\stackrel{c.p.}{\longrightarrow}X$.
 
-### Convergencia en probabilidad
 O sea, límite de la probabilidad de los sucesos formados por los $w\in\Omega$ tal que $|X_n(w)-X(w)|>\epsilon$ vale 0.
 
 <l class="observ">Observación.</l>
@@ -178,10 +162,6 @@ $$
 <l class="observ">Observación. </l>
 La convergencia **casi segura** implica la convergencia **en probabilidad** ya que si la sucesión $\{X_n\}_{n=1}^\infty$ converge **casi seguramente** hacia $X$, la serie $\sum_{n=1}^\infty P(|X_n-X|>\epsilon)$ será convergente y, por tanto, el límite de su término $P(|X_n-X|>\epsilon)$ tenderá a cero, hecho que equivale a la convergencia **en probabilidad**.
 
-
-
-### Convergencia en probabilidad
-
 El siguiente resultado nos puede ayudar algunas veces a comprobar la **convergencia en probabilidad**:
 
 <l class="prop">Proposición. </l>
@@ -189,8 +169,6 @@ Sea $X_1,\ldots,X_n,\ldots$ una sucesión de variables aleatorias. Sea $\mu_n$ e
 $$
 X_n-\mu_n\stackrel{c.p.}{\longrightarrow} 0.
 $$
-
-### Convergencia en probabilidad
 
 <div class="dem">
 **Demostración**
@@ -206,7 +184,7 @@ $$
 de donde deducimos que $\lim_{n\to\infty} P(|X_n-X|>\epsilon \})=0$, tal como queríamos ver.
 </div>
 
-### Ejemplo
+#### Ejemploa
 <div class="example">
 **Ejemplo del lanzamiento de un dado**
 
@@ -217,8 +195,6 @@ $$
 Por tanto, para $0<\epsilon<1$,  $\lim_{n\to\infty} P(|X_n-X|>\epsilon \})=\frac{5}{6}\neq 0.$
 </div>
 
-
-### Ejemplo
 <div class="example">
 **Ejemplo**
 
@@ -239,7 +215,6 @@ P(|X_n|>\epsilon \}) = \int_\epsilon^\infty \lambda n\mathrm{e}^{-\lambda n x}\,
 $$
 tal como queríamos ver.
 
-
 </div>
 
 ### Convergencia en ley o en distribución 
@@ -252,7 +227,6 @@ para todo valor $x\in\mathbb{R}$.
 
 Lo denotaremos por $X_n\stackrel{{\cal L}}{\longrightarrow}X$.
 
-### Convergencia en ley o en distribución 
 El resultado siguiente simplifica algunas veces comprobar que la sucesión $X_n$ converge en ley hacia $X$:
 
 <l class="prop"> Proposición. </l>
@@ -262,7 +236,7 @@ $$
 $$
 para cualquier número $t\in\mathbb{R}$.
 
-### Ejemplo
+#### Ejemplo
 <div class="example">
 **Ejemplo de la distribución binomial $B(n,p)$**
 
@@ -302,7 +276,6 @@ $$
 
 ## Leyes de los grandes números
 
-### Introducción 
 
 Como ya comentamos al principio del tema, las **leyes de los grandes números** estudian el comportamiento de la **media muestral** $\overline{X}_n$ cuando la sucesión de variables aleatorias $\{X_n\}_{n=1}^\infty$ se va hacia infinito.
 
@@ -313,6 +286,7 @@ Si este "alguna manera" es la convergencia más fuerte, o la **casi segura**, te
 En cambio, si la convergencia es **en probabilidad**, tendremos la **ley débil de los grandes números**.
 
 ### Leyes débiles de los grandes números
+
 <l class="prop"> Teorema. Ley débil de los grandes números. </l>
 Sea $\{X_n\}_{n=1}^\infty$ una sucesión de variables aleatorias independientes dos a dos tal que sus varianzas existen y están acotadas por una constante independiente de $n$. Entonces,
 $$
@@ -322,7 +296,6 @@ donde $\mu_i = E(X_i)$.
 
 Dicho en otras palabras: en las condiciones de la proposición anterior, la diferencia entre la sucesión de **medias muestrales** como variables aleatorias y la sucesión numérica de la medias poblacionales de dichas variables aleatorias tiende en **probabilidad** hacia 0.
 
-### Leyes débiles de los grandes números
 <div class="dem">
 **Demostración**
 
@@ -336,10 +309,7 @@ Sabemos por hipótesis que existe una constante $M$ tal que $\sigma_i^2\leq M$ p
 $$
 \mathrm{Var}(\overline{X}_n)=\frac{1}{n^2}\sum_{i=1}^n \sigma_i^2\leq \frac{1}{n^2}Mn =\frac{M}{n}.
 $$
-</div>
 
-### Leyes débiles de los grandes números
-<div class="dem">
 El valor del valor medio de la media muestral será:
 $$
 E(\overline{X}_n)=\frac{1}{n}\sum_{i=1}^n E(X_i)=\frac{1}{n}\sum_{i=1}^n \mu_i. 
@@ -356,7 +326,6 @@ tal como queríamos ver.
 
 </div>
 
-### Leyes débiles de los grandes números
 
 Derivadas del teorema anterior tenemos las consecuencias siguientes:
 
@@ -372,8 +341,6 @@ $$
 En este caso tenemos que $\mu_i=\mu$ y, por tanto, $\frac{1}{n}\sum\limits_{i=1}^n \mu_i =\frac{1}{n}\cdot n\mu=\mu$. Si aplicamos el teorema de la **ley débil de los grandes números** nos sale el resultado enunciado.
 </div>
 
-### Leyes débiles de los grandes números
-
 Derivadas del teorema anterior tenemos las consecuencias siguientes:
 
 <l class="prop">Corolario. </l>
@@ -388,7 +355,7 @@ $$
 Trivial a partir del Corolario anterior.
 </div>
 
-### Ejemplo
+#### Ejemplos
 <div class="example">
 **Ejemplo del lanzamiento de una moneda**
 
@@ -403,10 +370,7 @@ Vamos a hallar una muestra para cada variable $\overline{X}_n=\frac{\sum\limits_
 Para ello, vamos a repetir el experimento de lanzar la moneda $N=100$ veces y lo repetimos $k=500$ ocasiones. 
 
 Los resultados estarán en una matriz $k\times N =500\times 100$ donde cada fila de la matriz simulará una repetición del experimento de lanzar la moneda $N=100$ veces.
-</div>
 
-### Ejemplo
-<div class="example">
 Dada la fila $i$-ésima, iremos calculando $\overline{X}_1^{(i)},\overline{X}_2^{(i)},\ldots,\overline{X}_{N=100}^{(i)}$.
 
 Luego, fijado un $\epsilon$, para cada $n$, aproximaremos la probabilidad $P\left(\left|\overline{X}_n-\frac{1}{2}\right|>\epsilon\right)$ usando la fórmula de Laplace: 
@@ -415,11 +379,7 @@ p_n=P\left(\left|\overline{X}_n-\frac{1}{2}\right|>\epsilon\right) \approx\frac{
 $$
 
 Para comprobar dicha afirmación, la idea es hallar para cada valor $n$, una muestra para cada variable $\overline{X}_n=\frac{\sum\limits_{i=1}^n X_i}{n}$.
-</div>
 
-
-### Ejemplo
-<div class="example">
 Para hallar una muestra de cada variable $\overline{X}_n$, seguimos los pasos siguientes:
 
 * En primer lugar, simulamos la repetición del experimento de lanzar la moneda $N=100$ veces y lo repetimos $k=500$ ocasiones. 
@@ -437,11 +397,6 @@ valores.experimento[1:5,1:13]
 ```
 
 ...
-</div>
-
-
-### Ejemplo
-<div class="example">
 
 * En segundo lugar, dada la fila $i$-ésima de la matriz anterior, iremos calculando $\overline{X}_1^{(i)},\overline{X}_2^{(i)},\ldots,\overline{X}_{N=100}^{(i)}$ guardando los resultados en una matriz de medias muestrales.
 Antes de nada, creamos la función que nos realizará la operación anterior dado un vector cualquiera `x`:
@@ -458,10 +413,7 @@ matriz.medias.muestrales = t(apply(valores.experimento,1,cálculo.xnbarra))
 ```
 
 La columna $j$-ésima de la matriz `matriz.medias.muestrales` contiene una muestra de $k=500$ valores de la variable $\overline{X}_j$.
-</div>
 
-### Ejemplo
-<div class="example">
 
 * En último lugar, fijado un $\epsilon$, para cada $n$, aproximaremos la probabilidad $P\left(\left|\overline{X}_n-\frac{1}{2}\right|>\epsilon\right)$ usando la fórmula de Laplace: 
 $$
@@ -472,36 +424,19 @@ La columna $j$-ésima de la matriz `matriz.medias.muestrales` es una muestra de 
 epsilon=0.1
 probabilidades.pn= colSums(abs(matriz.medias.muestrales-0.5) > epsilon)/k
 ```
-</div>
 
-### Ejemplo
-<div class="example">
 Para ver los resultados, dibujamos el gráfico $n$ vs. $p_n$:
-```{r,eval=FALSE}
-plot(1:N,probabilidades.pn,type="l",xlab=expression(N),ylab=expression(p[n]),col="red")
-```
-Observamos que las probabilidades tienden a cero tal como nos dice el **Teorema de la ley débil de los grandes números**.
-
-</div>
-
-
-
-
-</div>
-
-### Ejemplo
 
 <div class="center">
 ```{r, echo=FALSE,fig=TRUE,fig.height=5.8}
 epsilon=0.1
 probabilidades.pn= colSums(abs(matriz.medias.muestrales-0.5) > epsilon)/k
-#probabilidades.pn = c()
-## for (j in 1:N){
-##   pn=length(matriz.medias.muestrales[(abs(matriz.medias.muestrales[,j]-0.5)>epsilon),j])/k
-##   probabilidades.pn=c(probabilidades.pn,pn)
-## }
 plot(1:N,probabilidades.pn,type="l",xlab=expression(N),ylab=expression(p[n]),main="Simulación de la convergencia en probabilidad",col="red")
 ```
+</div>
+
+Observamos que las probabilidades tienden a cero tal como nos dice el **Teorema de la ley débil de los grandes números**.
+
 </div>
 
 
@@ -518,7 +453,6 @@ $$
 el **momento muestral** de orden $k=1$ es la **media muestral** $\overline{X}_n$.
 
 
-### Convergencia de los momentos muestrales
 <l class="definition"> Definición de los momentos muestrales centrados de una sucesión de variables aleatorias.</l>
 Sea $\{X_n\}_{n=1}^\infty$ una sucesión de variables aleatorias. Dado $k$ valor entero positivo, definimos el **momento muestral centrado en la media** de orden $k$ como la sucesión de variables aleatorias siguientes:
 $$
@@ -529,7 +463,6 @@ $$
 el **momento muestral centrado en la media** de orden $k=2$ es la **varianza muestral** $S_{X_n}^2$.
 
 
-### Convergencia de los momentos muestrales
 <l class="definition"> Definición de la covarianza y el coeficiente de correlación muestral de una sucesión de variables aleatorias.</l>
 Sea $\{(X_n,Y_n)\}_{n=1}^\infty$ una sucesión de variables aleatorias bidimensionales. Definimos la  **covarianza muestral** como la sucesión de variables aleatorias siguientes:
 $$
@@ -540,20 +473,17 @@ $$
 R_{X_n,Y_n}=\frac{S_{X_n,Y_n}}{\sqrt{S_{X_n}^2 S_{Y_n}^2}}.
 $$
 
-### Convergencia de los momentos muestrales
 Dada $\{X_n\}_{n=1}^\infty$ una sucesión de variables aleatorias y $k$ un valor entero positivo, en el tema de Complementos de variables aleatorias, definimos los momentos y los momentos centrales de orden $k$ para cada de dichas variables como:
 $$
 \momento_k^{(n)} = E\left(X_n^k\right),\quad\momentocentral_k^{(n)}=E\left(\left(X_n-\mu_n\right)^k\right),
 $$
 donde $\mu_n$ es el valor medio de la variable $X_n$: $\mu_n = E(X_n)$.
 
-### Convergencia de los momentos muestrales
 Así mismo, dada $\{(X_n,Y_n)\}_{n=1}^\infty$ una sucesión de variables aleatorias bidimensionales, en el tema de variables aleatorias bidimensionales definimos para cada variable $(X_n,Y_n)$ la covarianza $\sigma_{X_nY_n}$ y el coeficiente de correlación $\rho_{X_nY_n}$:
 $$
 \sigma_{X_nY_n}=E((X_n-\mu_{X_n})(Y_n-\mu_{Y_n})),\quad \rho_{X_nY_n}=\frac{\sigma_{X_nY_n}}{\sqrt{\sigma_{X_n}^2\sigma_{Y_n}^2}}.
 $$
 
-### Convergencia de los momentos muestrales
 Dada una sucesión de variables aleatorias $\{X_n\}_{n=1}^\infty$, el resultado siguiente nos relaciona los **momentos muestrales** y los **momentos muestrales centrados en la media** con los **momentos** y los **momentos centrales** de cada variable:
 
 <l class="prop"> Teorema. Convergencia de los momentos muestrales y los momentos muestrales centrados en la media. </l>
@@ -563,7 +493,6 @@ $$
 $$
 
 
-### Convergencia de los momentos muestrales
 <div class="dem">
 **Demostración**
 
@@ -576,10 +505,6 @@ El valor medio de cada variable de la sucesión $\{X_n^k\}_{n=1}^\infty$ será: 
 Entonces, si hacemos $\frac{1}{n}\sum\limits_{i=1}^n \tilde{\mu}_n^{(k)}$ obtenemos:
 $\frac{1}{n} n\cdot \momento_k=\momento_k.$
 
-</div>
-
-### Convergencia de los momentos muestrales
-<div class="dem">
 Aplicando la **ley débil de los grandes números** a la sucesión $\{X_n^k\}_{n=1}^\infty$, tendremos que
 $$
 \overline{X^k}_n \stackrel{c.p.}{\longrightarrow}\momento_k,
@@ -591,12 +516,8 @@ $$
 variable aleatoria que coincide con el momento muestral de orden $k$, $\Momk_n^{(k)}$, tal como queríamos demostrar.
 
 Dejamos como ejercicio la demostración de los momentos centrales. Razonando de la misma manera, no tiene dificultad alguna.
-
-
-
 </div>
 
-### Convergencia de los momentos muestrales
 Enunciemos ahora el resultado para las covarianzas y las correlaciones muestrales:
 
 <l class="prop"> Teorema: convergencia de la covarianza y el coeficiente de correlación muestrales. </l>
@@ -607,7 +528,6 @@ S_{X_n,Y_n}\stackrel{c.p.}{\longrightarrow}\sigma_{XY},\quad R_{X_nY_n}\stackrel
 $$
 
 
-### Convergencia de los momentos muestrales
 <div class="dem">
 **Demostración**
 
@@ -628,7 +548,6 @@ $$
 \overline{X}_n-\frac{1}{n}\sum_{i=1}^n \mu_i \stackrel{c.s.}{\longrightarrow} 0.
 $$
 
-### Leyes fuertes de los grandes números
 Asociados al resultado anterior tenemos los corolarios siguientes:
 
 <l class="prop"> Corolario. </l>
@@ -639,7 +558,6 @@ $$
 \overline{X}_n-\frac{1}{n}\sum_{i=1}^n \mu_i \stackrel{c.s.}{\longrightarrow} 0.
 $$
 
-### Leyes fuertes de los grandes números
 <div class="dem">
 **Demostración**
 
@@ -653,7 +571,6 @@ Entonces aplicando el **Teorema de Kolmogorov** o la **ley fuerte de los grandes
 
 </div>
 
-### Leyes fuertes de los grandes números
 <l class="prop"> Corolario. </l>
 Sea $\{X_n\}_{n=1}^\infty$ una sucesión de variables aleatorias independientes de Bernoulli con el mismo parámetro $p$ que es lo mismo que decir que son idénticamente distribuidas.
 Entonces la sucesión de las medias muestrales convergen **casi seguramente** hacia $p$:
@@ -672,7 +589,7 @@ También se verifica que $\sigma_n^2 =p(1-p)$. Por tanto, existe una constante $
 
 </div>
 
-### Ejemplo
+#### Ejemplos
 <div class="example">
 **Ejemplo**
 
@@ -683,10 +600,7 @@ $$
 \sum_{n=1}^\infty P(|\overline{X}_n-p|>\epsilon),
 $$
 es convergente fijado $\epsilon >0$.
-</div>
 
-### Ejemplo
-<div class="example">
 Recordemos que en la variable `probabilidades.pn` calculábamos las probabilidades $P(|\overline{X}_n-p|>\epsilon)$ para un $\epsilon =0.1$. 
 
 Comprobar que la serie anterior es convergente es equivalente a comprobar que las sumas parciales convergen:
@@ -709,20 +623,15 @@ plot(1:N,cumsum(probabilidades.pn),xlab=expression(n),
 ```
 Como se puede observar, la serie parece que converge.
 
-</div>
-
-### Ejemplo
-
 <div class="center">
 ```{r,echo=FALSE}
 N=1000
 plot(1:N,cumsum(probabilidades.pn),xlab=expression(n),ylab="Sumas parciales",col='red', type='l')
 ```
 </div>
+</div>
 
 ## Teorema Central del Límite
-
-### Introducción
 
 Sabemos que si una sucesión $\{X_n\}$ está formada por variables normales, la sucesión de medias muestrales $\left\{\overline{X}_n=\frac{\sum\limits_{i=1}^n X_i}{n}\right\}_{n=1}^\infty$ también son normales ya que vimos en el tema de variables multidimensionales que si aplicamos una transformación afín (y, en particular, lineal) a una variable normal multidimensional, el resultado es una normal.
 
@@ -730,9 +639,6 @@ Para calcular la variable $\overline{X}_n$, es obvio que la transformación line
 $$
 \overline{X}_n = \left(\frac{1}{n},\ldots,\frac{1}{n}\right)\begin{pmatrix}X_1 \\\vdots\\ X_n\end{pmatrix}.
 $$
-
-### Introducción
-
 Si además la sucesión de variables $X_n$ son normales todas con media $\mu$ y varianza $\sigma^2$, la sucesión $\left\{\overline{X}_n\right\}_{n=1}^\infty$ serán normales de media $\mu$ y varianza $\frac{\sigma^2}{n}$.
 
 Estandarizando las variables anteriores, podemos concluir que las variables medias estandarizadas $Z_n =\left\{\frac{\overline{X}_n-\mu}{\frac{\sigma}{\sqrt{n}}}\right\}_{n=1}^\infty$ todas son $N(0,1)$.
@@ -748,7 +654,6 @@ $$
 \frac{\sum\limits_{i=1}^n X_i-n\mu}{\sigma\sqrt{n}}\stackrel{{\cal L}}{\longrightarrow} N(0,1).
 $$
 
-### Teorema Central del Límite
 <l class="observ"> Observación. </l>
 Una condición equivalente a la tesis del **Teorema Central del Límite** es:
 $$
@@ -756,7 +661,6 @@ $$
 $$
 Basta dividir por $n$ el numerador y el denominador de la tesis original del **Teorema Central del Límite**.
 
-### Demostración
 Para la demostración, usaremos dos propiedades de la función característica:
 
 <l class="prop"> Proposición. </l>
@@ -767,7 +671,6 @@ $$
 donde $w$ es cualquier valor real.
 
 
-### Demostración
 <div class="dem">
 **Demostración de la proposición**
 
@@ -778,8 +681,6 @@ $$
 \end{array}
 $$
 </div>
-
-### Demostración
 
 <l class="prop"> Proposición. </l>
 Sea $Y$ una variable aleatoria. Sea $U=kY$ la variable aleatoria $Y$ multiplicada por un valor real $k$. Entonces, para calcular $\FunCar_{U}$, podemos usar la expresión siguiente:
@@ -798,9 +699,6 @@ $$
 $$
 </div>
 
-### Demostración
-
-
 <div class="dem">
 **Demostración del Teorema Central del Límite**
 
@@ -810,10 +708,8 @@ $$
 \lim_{n\to \infty}\FunCar_{Z_n}(w)=\FunCar_Z(w),
 $$
 para cualquier valor $w\in\mathbb{R}$, siendo $Z=N(0,1)$.
-</div>
 
-### Demostración
-<div class="dem">
+
 Seguidamente, simplifiquemos la expresión $\FunCar_{Z_n}(w)=\FunCar_{\frac{\sum\limits_{i=1}^n X_i-n\mu}{\sigma\sqrt{n}}}(w)$ usando las dos proposiciones anteriores. En primer lugar, teniendo en cuenta que las variables $\left\{\frac{X_i-\mu}{\sigma\sqrt{n}}\right\}$ son independientes e idénticamente distribuidas, usando la primera proposición podemos escribir:
 $$
 \FunCar_{Z_n}(w) = \left(\FunCar_{\frac{X-\mu}{\sigma\sqrt{n}}}(w)\right)^n,
@@ -825,10 +721,6 @@ $$
 \FunCar_{Z_n}(w) = \left(\FunCar_{\frac{X-\mu}{\sigma\sqrt{n}}}(w)\right)^n = \left(\FunCar_{X-\mu}\left(\frac{w}{\sigma\sqrt{n}}\right)\right)^n.
 $$
 
-</div>
-
-### Demostración
-<div class="dem">
 Si desarrollamos por Taylor alrededor del valor $\hat{w}=0$ la función característica $\FunCar_{X-\mu}\left(\hat{w}\right)$ hasta segundo orden, obtenemos:
 $$
 \FunCar_{X-\mu}\left(\hat{w}\right) = \FunCar_{X-\mu}\left(0\right)+ \FunCar_{X-\mu}'\left(0\right) \hat{w}+ \FunCar_{X-\mu}''\left(0\right)\frac{\hat{w}^2}{2}+O(\hat{w}^3),
@@ -843,12 +735,9 @@ El desarrollo anterior será:
 $$
 \FunCar_{X-\mu}\left(\hat{w}\right) =1 - \frac{1}{2}\hat{w}^2\sigma^2+O(\hat{w}^3),
 $$
-</div>
-
-### Demostración
-<div class="dem">
 
 Aplicando la expresión anterior para $\hat{w}=\frac{w}{\sigma\sqrt{n}}$, obtenemos:
+
 $$
 \FunCar_{X-\mu}\left(\frac{w}{\sigma\sqrt{n}}\right) =1 - \frac{1}{2}\left(\frac{w}{\sigma\sqrt{n}}\right)^2\sigma^2+O\left(\frac{w}{\sigma\sqrt{n}}\right)^3= 1-\frac{w^2}{2n}+O\left(\frac{w^3}{n^{\frac{3}{2}}}\right),
 $$
@@ -862,10 +751,7 @@ $$
 \lim_{n\to \infty}\FunCar_{Z_n}(w) = \lim_{n\to\infty} \left(1-\frac{w^2}{2n}+O\left(\frac{w^3}{n^{\frac{3}{2}}}\right)\right)^n = 
 \lim_{n\to \infty}\mathrm{e}^{n\cdot \ln \left(1-\frac{w^2}{2n}+O\left(\frac{w^3}{n^{\frac{3}{2}}}\right)\right)}.
 $$
-</div>
 
-### Demostración
-<div class="dem">
 Usando que para $z\approx 0$, $\ln(1-z)=z+O(z^2)$, el límite anterior será:
 $$
 \lim_{n\to \infty}\FunCar_{Z_n}(w) = 
@@ -888,7 +774,6 @@ $$
 \sum_{i=1}^n X_i \approx N\left(n\mu,\sigma\sqrt{n}\right),
 $$
 
-### Teorema Central del Límite en la práctica
 Las aproximaciones anteriores se pueden obtener teniendo en cuenta que el **Teorema Central del Límite** nos dice que la variable 
 $Z_n= \frac{\sum\limits_{i=1}^n X_i-n\mu}{\sigma\sqrt{n}}$ es aproximadamente una $N(0,1)$. Por tanto,
 $$
@@ -910,16 +795,13 @@ $$
 \frac{B(n,p)-np}{\sqrt{n\cdot p\cdot (1-p)}}\stackrel{{\cal L}}{\longrightarrow} N(0,1).
 $$
 
-
-### Teorema de Moivre-Laplace
-
 En la práctica, decimos que podemos aproximar una variable binomial de parámetros $n$ y $p$ por una distribución normal de parámetros $\mu=np$ y $\sigma =\sqrt{n\cdot p\cdot (1-p)}$:
 $$
 B(n,p)\approx N(np,\sqrt{n\cdot p\cdot (1-p)}).
 $$
 
-
 ### Aproximación de una suma de variables Poisson
+
 Si aplicamos el **Teorema Central del Límite** en el caso en que las variables $X_n$ son de Poisson de parámetro $\lambda$, obtenemos el resultado siguiente:
 
 <l class="prop"> Proposición. </l>
@@ -928,13 +810,11 @@ $$
 \frac{\sum\limits_{i=1}^n X_i -n\lambda}{\sqrt{n\cdot \lambda}}\stackrel{{\cal L}}{\longrightarrow} N(0,1).
 $$
 
-### Aproximación de una suma de variables Poisson
 Antes de ver la aplicación práctica del resultado anterior, veamos que suma de variables Poisson independientes de parámetro $\lambda$ es una variable Poisson de parámetro $n\lambda$:
 
 <l class="prop"> Proposición. </l>
 Sea $\{X_n\}_{n=1}^\infty$ una sucesión de variables aleatorias independientes Poisson de parámetro $\lambda$. Entonces la variable $\sum\limits_{i=1}^n X_i$ sigue la distribución de Poisson de parámetro $n\lambda$.
 
-### Aproximación de una suma de variables Poisson
 <div class="dem">
 **Demostración**
 
@@ -949,16 +829,13 @@ $$
 función característica que corresponde a una variable de Poisson de parámetro $n\lambda$, $Poiss(n\lambda)$.
 </div>
 
-
-### Aproximación de una suma de variables Poisson
-
 Usando la proposición anterior, tenemos que la suma de variables Poisson independientes de parámetro $\lambda$ sigue una distribución Poisson de parámetro $n\lambda$. Por tanto, podemos escribir usando el corolario del **Teorema Central del Límite** aplicado a variables Poisson:
 $$
 Poiss(n\lambda)\approx N(n\lambda,\sqrt{n\lambda}).
 $$
 
 
-### Ejemplo
+#### Ejemplos
 <div class="example">
 **Ejemplo de aplicación del Teorema de Moivre-Laplace**
 
@@ -978,11 +855,8 @@ P(10\leq X\leq 20) & \approx P(10\leq X_N \leq 20) = P\left(\frac{10-`r round(50
 \end{array}
 $$
 donde $Z=N(0,1)$.
-</div>
 
 
-### Ejemplo
-<div class="example">
 Comparemos los valores aproximados anteriores con los valores "exactos" proporcionados por `R`:
 ```{r}
 pbinom(14,50,1/3)
@@ -996,7 +870,6 @@ Una razón por la que dichos errores no son pequeños es que aproximamos una dis
 
 La corrección de continuidad de Fisher nos mejora la aproximación disminuyendo dichos errores.
 
-
 </div>
 
 ### Corrección de continuidad de Fisher
@@ -1008,7 +881,6 @@ P(X\leq k)\approx P(X_N\leq k+0.5).
 $$
 O sea, para tener en cuenta el valor $k$ en la aproximación $X_N$ hay que sumarle la mitad entre dos valores consecutivos (0.5 si los valores son enteros) de la variable $X$.
 
-### Corrección de continuidad de Fisher
 Id con cuidado, si queremos calcular $P(X<k)$, hay que hacer $P(X<k) =P(X\leq k-1)\approx P(X_N \leq k-1+0.5)=P(X_N\leq k-0.5)$.
 
 <div class="example">
@@ -1023,7 +895,9 @@ P(10\leq X\leq 20) & P(X\leq 20)-P(X\leq 9)\approx P(X_N \leq 20.5)-P(X_N\leq 9.
 $$
 obteniendo unos errores de sólo `r round(abs(pbinom(14,50,1/3)-pnorm(14.5,50/3,sqrt(50*2/9))),5)` y `r round(pbinom(20,50,1/3)-pbinom(9,50,1/3)-(pnorm(20.5,50/3,sqrt(50*2/9))-pnorm(9.5,50/3,sqrt(50*2/9))),5)`, respectivamente.
 </div>
+
 ### Simulación del Teorema Central del Límite
+
 <div class="example">
 **Ejemplo de simulación de la aproximación de una variable binomial a una distribución normal**
 
@@ -1043,13 +917,10 @@ set.seed(2019)
 muestra.binomial = rbinom(1000,n,p)
 muestra.xnbarra = muestra.binomial/n
 ```
-</div>
 
-### Simulación del Teorema Central del Límite
-<div class="example">
 Para ver si la aproximación funciona, dibujaremos en una misma gráfica el histograma de frecuencias relativas de la muestra anterior y la curva de la función de densidad de la distribución normal de parámetros $\mu =\frac{1}{2}$ y $\sigma = `r round(sqrt(1/(400)),4)`$:
 
-```{r,eval=FALSE}
+```{r}
 hist(muestra.xnbarra,freq=FALSE,
      breaks=seq(from=min(muestra.xnbarra)-0.1,to=max(muestra.xnbarra)+0.1,by=0.01),
      main="Histograma de la distribución de las medias muestrales",
@@ -1059,20 +930,6 @@ sigma.xnbarra=sqrt(p*(1-p)/n)
 x=seq(from=min(muestra.xnbarra),to=max(muestra.xnbarra),by=0.01)
 lines(x,dnorm(x,mu,sigma.xnbarra),col='red')
 ```
+
 Observamos que la aproximación es bastante buena.
-</div>
-
-
-### Simulación del Teorema Central del Límite
-
-<div class="center">
-```{r,echo=FALSE}
-hist(muestra.xnbarra,freq=FALSE,
-     breaks=seq(from=min(muestra.xnbarra)-0.1,to=max(muestra.xnbarra)+0.1,by=0.01),
-     main="Histograma de la distribución de las medias muestrales",xlab="valores variable",ylab="frecuencias relativas")
-mu=p
-sigma.xnbarra=sqrt(p*(1-p)/n)
-x=seq(from=min(muestra.xnbarra),to=max(muestra.xnbarra),by=0.01)
-lines(x,dnorm(x,mu,sigma.xnbarra),col='red')
-```
 </div>

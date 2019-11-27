@@ -2,6 +2,8 @@
 
 ## Momentos de variables aleatorias
 
+### Momento de orden $n$
+
 <l class="definition"> Definición. </l> 
 Sea $X$ una variable aleatoria. Definimos el **momento de orden $n$** como 
 $\momento_n = E\left(X^n\right)$.
@@ -13,8 +15,8 @@ Los momentos de orden $n$ caracterizan una variable $X$. O sea, que si conocemos
 
 En general, el cálculo de los momentos de orden $n$ para una variable $X$ es bastante tedioso. 
 
+#### Ejemplos de momentos de orden $n$
 
-### Ejemplo momento de orden $n$
 <div class="example">
 **Ejemplo: momento de orden $n$ de una variable de Bernoulli de parámetro $p$**
 
@@ -27,11 +29,8 @@ $$
 \momento_n = E\left(X^n\right)=p\cdot 1^n+(1-p)\cdot 0^n = p.
 $$
 En este caso, todos los momentos de orden $n$ valen $p$.
-
 </div>
 
-
-### Ejemplo momento de orden $n$
 <div class="example">
 **Ejemplo: momento de orden $n$ de una variable exponencial de parámetro $\lambda$**
 
@@ -47,9 +46,9 @@ $$
 La expresión anterior se puede obtener integrando por partes $n$ veces y resolviendo los límites correspondientes. Dejámos al lector los cálculos correspondientes.
 
 Fijémonos que los momentos de orden $n$ tienden a infinito a medida que $n$ crece: $\lim\limits_{n\to\infty}\momento_n = \lim\limits_{n\to\infty}\frac{n!}{\lambda^n}=\infty$.
+
 </div>
 
-### Ejemplo momento de orden $n$
 <div class="example">
 **Ejemplo: momento de orden $n$ de una variable normal de parámetros $\momento=0$ y $\sigma =1$**
 
@@ -71,7 +70,8 @@ $\momento_4 = E\left(X^4\right)=\int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}}\math
 </div>
 
 
-### Momento central de orden $n$ de una variable aleatoria
+### Momento central de orden $n$ 
+
 <l class="definition"> Definición. </l> 
 Sea $X$ una variable aleatoria. Definimos el **momento central de orden $n$** como 
 $\momentocentral_n = E\left((X-\mu)^n\right)$, donde $\mu =E(X)$ es la media o la esperanza de la variable aleatoria $X$.
@@ -82,8 +82,6 @@ $$
 \momentocentral_1 = E\left((X-\mu)\right)=E(X)-E(\mu)=E(X)-E(X)=0.
 $$
 
-### Momento central de orden $n$ de una variable aleatoria
-
 <l class="observ"> Observación.</l>
 El momento central de orden $2$ de una variable aleatoria es la varianza:
 $$
@@ -92,17 +90,12 @@ $$
 
 Los momentos centrales de orden $n$ caracterizan también una variable $X$. O sea, que si conocemos todos los momentos centrales de orden $n$, podemos deducir cuál es la distribución de $X$. 
 
-### Momento central de orden $n$ de una variable aleatoria
-
 <l class="prop"> Proposición.</l>
 La relación que hay entre los momentos centrales y los momentos de una variable aleatoria es la siguiente:
 $$
 \momentocentral_n = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \mu^{n-k} \momento_k = \sum_{k=0}^n (-1)^{k} \binom{n}{k} \mu^{k} \momento_{n-k},
 $$
 donde $\mu =E(X)$ recordemos que es la esperanza de la variable aleatoria $X$.
-
-### Momento central de orden $n$ de una variable aleatoria
-
 
 <div class="dem">
 **Demostración**
@@ -118,7 +111,8 @@ $$
 </div>
 
 
-### Ejemplo momento central de orden $n$
+#### Ejemplos de momentos centrales de orden $n$
+
 <div class="example">
 **Ejemplo: momento central de orden $n$ de una variable de Bernoulli de parámetro $p$**
 
@@ -139,7 +133,6 @@ Demostrar que la expresión anterior corresponde a un polinomio de grado $n$.
 </div>
 
 
-### Ejemplo momento central de orden $n$
 <div class="example">
 **Ejemplo: momento central de orden $n$ de una variable exponencial de parámetro $\lambda$**
 
@@ -152,11 +145,7 @@ $$
 \momentocentral_n = E\left(\left(X-\frac{1}{\lambda}\right)^n\right)=\int_0^\infty \lambda \mathrm{e}^{-\lambda x} \left(x-\frac{1}{\lambda}\right)^n\, dx =\frac{a_n}{\lambda^n},
 $$
 donde $a_n = n!\sum\limits_{k=0}^n \frac{(-1)^k}{k!}.$
-</div>
 
-### Ejemplo momento central de orden $n$
-<div class="example">
-**Ejemplo: momento central de orden $n$ de una variable exponencial de parámetro $\lambda$**
 
 La expresión anterior fijado $n$ se puede obtener integrando por partes $n$ veces y resolviendo los límites correspondientes. Dejámos al lector los cálculos correspondientes. Sin embargo, la obtención de la fórmula general para $n$ se sale del nivel del curso.
 
@@ -167,7 +156,6 @@ $$
 $$
 </div>
 
-### Ejemplo momento central de orden $n$
 <div class="example">
 **Ejemplo: momento central de orden $n$ de una variable normal de parámetros $\mu$ y $\sigma$**
 
@@ -192,8 +180,6 @@ Una variable aleatoria tiene **asimetría positiva** si su función de densidad 
 
 Por ejemplo, en la figura siguiente, vemos la gráfica de la función de probabilidad de una variable aleatoria que presenta **asimetría negativa** a la izquierda y una función de densidad de una variable aleatoria que presenta **asimetría positiva** a la derecha:
 
-### Definición
-
 <div class="center">
 ```{r,echo=FALSE,fig=TRUE,warning=FALSE}
 par(mfrow=c(1,2))
@@ -214,8 +200,6 @@ donde $\mu = E(X)$ y $\sigma^2 =\mathrm{Var}(X)$.
 Dicho valor se denomina **coeficiente de asimetría de Pearson**.
 
 
-### ¿Cómo calcular la asimetría de una variable aleatoria?
-
 Usando la relación ya vista entre los momentos centrales y los momentos, podemos expresar el **coeficiente de asimetría** en función de los momentos:
 $$
 \gamma_1 = \frac{\momento_3 -3\mu\sigma^2-\mu^3}{\sigma^3}.
@@ -224,7 +208,7 @@ Dejamos al lector la comprobación de la expresión anterior.
 
 Por tanto, una variable aleatoria $X$ tendrá simetría positiva o a la derecha si $\gamma_1 >0$ y tendrá asimetría negativa o a la izquierda, si $\gamma_1 <0$.
 
-### Ejemplo de cálculo de asimetría
+#### Ejemplo de cálculo de asimetría
 <div class="example">
 **Ejemplo: cálculo del coeficiente de asimetría para una variable de Bernoulli de parámetro $p$**
 
@@ -233,7 +217,6 @@ $$
 \gamma_1 = \frac{p-3p(p-p^2)-p^3}{\sqrt{(p-p^2)^3}} = \frac{p (1-p) (1-2p)}{{\sqrt{(p-p^2)^3}}}.
 $$
 Por tanto, la variable de Bernoulli de parámetro $p$ tendrá simetria negativa si $p>\frac{1}{2}$ y positiva, si $p<\frac{1}{2}$:
-</div> 
 
 <div class="center">
 ```{r,echo=FALSE,warning=FALSE,fig=TRUE,fig.height=4}
@@ -255,10 +238,9 @@ text(1,-0.05,1)
 lines(c(1,1),c(0,p))
 text(0.5,0.75,expression(p<frac(1,2)))
 ```
-
+</div>
 </div>
 
-### Ejemplo de cálculo de asimetría
 <div class="example">
 **Ejemplo: cálculo del coeficiente de asimetría para una variable exponencial de parámetro $\lambda$**
 
@@ -267,7 +249,6 @@ Usando que $\sigma^2=\frac{1}{\lambda^2}$ y $\momentocentral_3 =\frac{a_3}{\lamb
 $\gamma_1 = \frac{\frac{2}{\lambda^3}}{\frac{1}{\lambda^3}}=2.$
 
 Entonces presenta asimetría positiva o a la derecha tal como se observa en su función de densidad:
-</div> 
 
 <div class="center">
 ```{r,echo=FALSE,warning=FALSE,fig=TRUE,fig.height=4}
@@ -276,8 +257,8 @@ x=seq(from=0,to=4,by=0.01)
 plot(x,dexp(x,rate=2),type="l",ylab="función de densidad")
 ```
 </div>
+</div>
 
-### Ejemplo de cálculo de asimetría
 <div class="example">
 **Ejemplo: cálculo del coeficiente de asimetría para una variable normal de parámetros $\mu$ y $\sigma$**
 
@@ -290,11 +271,7 @@ Por tanto, en este caso $\momentocentral_3=0$ y, por tanto, $\gamma_1=0$.
 Deducimos que la distribución normal es totalmente simétrica.
 
 De hecho, usando que su función de densidad es $f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}},$ para $x\in \mathbb{R}$, se puede comprobar que $f_X(\mu-x)=f_X(\mu +x)$, o sea, tiene el eje de simetría $x=\mu$:
-</div>
 
-### Ejemplo de cálculo de asimetría
-<div class="example">
-**Ejemplo: cálculo del coeficiente de asimetría para una variable normal de parámetros $\mu$ y $\sigma$**
 <div class="center">
 ```{r,echo=FALSE,warning=FALSE,fig=TRUE}
 mu=1.5
@@ -324,8 +301,6 @@ donde recordemos que $\mu=E(X)$ y $\sigma^2 =\mathrm{Var}(X)$.
 
 A la expresión anterior se le denomina **medida de curtosis de Pearson**.
 
-### Definición
-
 * Diremos que una variable aleatoria no tiene exceso de curtosis o **mesocúrtica** si $\gamma_2 \approx 3$.
 
 * Diremos que una variable aleatoria tiene exceso positivo de curtosis o **leptocúrtica** si $\gamma_2 >3$.
@@ -333,7 +308,7 @@ A la expresión anterior se le denomina **medida de curtosis de Pearson**.
 * Diremos que una variable aleatoria tiene exceso negativo de curtosis o **platicúrtica** si $\gamma_2 <3$.
 
 
-### Ejemplo de cálculo de curtosis
+#### Ejemplo de cálculo de curtosis
 
 <div class="example">
 **Ejemplo: cálculo del coeficiente de curtosis para una variable de Bernoulli de parámetro $p$**
@@ -349,13 +324,10 @@ $$
 \gamma_2 = \frac{p (1-p) (3 p^2-3p+1)}{p^2 (1-p)^2} = \frac{3 p^2-3p+1}{p(1-p)}.
 $$
 Se puede comprobar (ejercicio para el lector) que si $p\in \left(\frac{3-\sqrt{3}}{6},\frac{3+\sqrt{3}}{6}\right)\approx (`r round((3-sqrt(3))/6,3)`,`r round((3+sqrt(3))/6,3)`)$, $\gamma_2 <3$ y, por tanto $X$ será platicúrtica y en caso contrario, si $p\in \left(0,\frac{3-\sqrt{3}}{6}\right)\cup \left(\frac{3+\sqrt{3}}{6},1\right)$, $\gamma_2 >3$ y, por tanto, $X$ será leptocúrtica.
-
-
 </div>
 
-
-### Ejemplo de cálculo de curtosis
 <div class="example">
+
 **Ejemplo: cálculo del coeficiente de curtosis para una variable exponencial de parámetro $\lambda$**
 
 Sea $X$ una variable exponencial de parámetro $\lambda$. 
@@ -363,9 +335,9 @@ Usando que $\sigma^2=\frac{1}{\lambda^2}$ y $\momentocentral_4 =\frac{a_4}{\lamb
 $\gamma_2 = \frac{\frac{9}{\lambda^4}}{\frac{1}{\lambda^4}}=9.$
 
 Como $\gamma_2 >3$, se trataría de una distribución leptocúrtica.
+
 </div>
 
-### Ejemplo de cálculo de curtosis
 <div class="example">
 **Ejemplo: cálculo del coeficiente de curtosis para una variable normal de parámetros $\mu$ y $\sigma$**
 
@@ -384,8 +356,6 @@ Deducimos, por tanto, que toda distribución normal es mesocúrtica o no tiene e
 
 ## Métodos de transformación
 
-### Introducción
-
 Hemos visto anteriormente que el cálculo de los **momentos** o los **momentos centrados** de una variable aleatoria $X$ puede ser muy complicado y muy tedioso.
 
 Por dicho motivo, vamos a introducir un conjunto de funciones que nos permitirán calcular los **momentos** de la variable $X$ de forma relativamente sencilla.
@@ -399,7 +369,7 @@ Sea $t\in\mathbb{R}$ un valor real cualquiera.
 
 Definimos la función generatriz de momentos $\FunGenMom_X(t)$ en el valor $t$ como: $\FunGenMom_X(t)=E\left(\mathrm{e}^{tX}\right).$
 
-### Ejemplo de cálculo de función generatriz de momentos
+#### Ejemplo de cálculo de función generatriz de momentos
 <div class="example">
 **Ejemplo: cálculo de la función generatriz de momentos para una variable de Bernoulli de parámetro $p$**
 
@@ -413,8 +383,8 @@ $$
 $$
 </div>
 
-### Ejemplo de cálculo de función generatriz de momentos
 <div class="example">
+
 **Ejemplo: cálculo de la función generatriz de momentos para una variable exponencial de parámetro $\lambda$**
 
 Sea $X$ una variable aleatoria exponencial de parámetro $\lambda$. Recordemos que su función de densidad es: $f_X(x)=\lambda \mathrm{e}^{-\lambda x},$ para $x\geq 0$ y $0$, en caso contrario.
@@ -428,7 +398,6 @@ En este caso vemos que el dominio de la función generatriz de momentos $\FunGen
 Fijémonos por lo que vendrá más adelante que, como $\lambda >0$, el valor $0$ pertenece al dominio de $\FunGenMom_X$.
 </div>
 
-### Ejemplo de cálculo de función generatriz de momentos
 <div class="example">
 **Ejemplo: cálculo de la función generatriz de momentos para una variable normal de parámetros $\mu$ y $\sigma$**
 
@@ -446,7 +415,7 @@ $$
 La integral del último paréntesis se resuelve haciento el cambio de variable $u=x-\sigma^2 t$ y usando que la integral de la función de densidad de $X$ sobre todo $\mathbb{R}$ vale 1.
 </div>
 
-### Relación entre la función generatriz de momentos y los momentos
+#### Relación entre la función generatriz de momentos y los momentos
 La razón del nombre que lleva la **función generatriz de momentos** es que podemos obtener todos los momentos de la variable a partir de ella:
 
 <l class="prop"> Proposición </l>
@@ -457,7 +426,6 @@ $$
 O sea, el momento de orden $n$ de $X$ es la derivada $n$-ésima de la función generatriz de momentos evaluada en $t=0$.
 
 
-### Relación entre la función generatriz de momentos y los momentos
 <div class="dem">
 **Demostración**
 
@@ -477,7 +445,7 @@ tal como dice la proposición.
 </div>
 
 
-### Ejemplo
+#### Ejemplo
 <div class="example">
 **Ejemplo: aplicación de la proposición en el caso en que $X$ es una variable de Bernoulli de parámetro $p$**
 
@@ -490,8 +458,8 @@ $$
 tal como habíamos calculado anteriormente.
 </div>
 
-### Ejemplo
 <div class="example">
+
 **Ejemplo: aplicación de la proposición en el caso en que $X$ es una variable exponencial de parámetro $\lambda$**
 
 En este caso, recordemos que: $\FunGenMom_X (t)=\frac{\lambda}{\lambda -t},$ para $t<\lambda$ pero como $\lambda >0$, $t=0$ cumple la expresión anterior.
@@ -503,10 +471,8 @@ $$
 \momento_n = \FunGenMom_X^{(n)}(0) = \frac{\lambda n!}{\lambda^{n+1}}=\frac{n!}{\lambda^n},
 $$
 expresión que ya habíamos obtenido anteriormente.
-
 </div>
 
-### Ejemplo
 <div class="example">
 **Ejemplo: aplicación de la proposición en el caso en que $X$ es una variable normal de parámetros $\mu$ y $\sigma$**
 
@@ -531,7 +497,6 @@ $\FunGenMom^{(iv)}(t)=e^{\mu  t+\frac{\sigma ^2 t^2}{2}}
    +\sigma ^2 t\right)^4+3 \sigma
    ^4\right)$, que en $t=0$ vale: $\FunGenMom^{(iv)}(0)=6\sigma^2\mu^2+\mu^4+3\sigma^4=E\left(X^4\right)$, valor que correspondería al momento de cuarto orden de $X$.
 
-
 </div>
 
 ### Función característica
@@ -543,16 +508,12 @@ Sea $w\in\mathbb{R}$ un valor real cualquiera.
 
 Definimos la función característica $\FunCar_X(w)$ en el valor $w$ como: $\FunCar_X(w)=E\left(\mathrm{e}^{\mathrm{i} w X}\right),$  donde $\mathrm{i}$ es el número complejo $\mathrm{i}=\sqrt{-1}$.
 
-### Función característica
-
 <l class="observ">Observación: </l>
 Si $X$ es una variable continua, la **función característica** $\FunCar_X(w)$ puede interpretarse como la **transformada de Fourier** de la **función de densidad** de $X$:
 $\FunCar(w)=\int_{-\infty}^\infty f_X(x)\mathrm{e}^{\mathrm{i}w x}\, dx.$
 
 Por tanto, usando la fórmula de la **antitransformada de Fourier**, podemos escribir la **función de densidad** $f_X(x)$ como función de la **función característica** de $X$, $\FunCar(w)$:
 $f_X(x)=\frac{1}{2\pi}\int_{-\infty}^\infty \FunCar_X(w)\mathrm{e}^{-\mathrm{i}w x}\, dw.$
-
-### Función característica
 
 <l class="observ">Observación: </l>
 En el caso discreto, o sea, Si $X$ es una variable discreta, la **función característica** $\FunCar_X(w)$ se escribe como función de la **función de probabilidad** $P_X(x_k)$ con **Dominio** $D_X=\{x_k,\ k\}$ como:
@@ -563,7 +524,7 @@ En los casos en que los $x_k$ sean enteros, $x_k=k$, que son la mayoría, la ecu
 Por tanto, usando la fórmula de **inversión**,  podemos escribir la **función de probabilidad** $P_X(k)$ como función de la función característica de $X$, $\FunCar(w)$:
 $P_X(k)=\frac{1}{2\pi}\int_{0}^{2\pi} \FunCar_X(w)\mathrm{e}^{-\mathrm{i}w k}\, dw.$
 
-### Ejemplo de cálculo de función característica
+#### Ejemplos de cálculo de función característica
 <div class="example">
 **Ejemplo: cálculo de la función característica para una variable de Bernoulli de parámetro $p$**
 
@@ -584,8 +545,8 @@ P_X(0) & = \frac{1}{2\pi}\int_0^{2\pi} \left(1+p\left(\mathrm{e}^{\mathrm{i}w} -
 $$
 </div>
 
-### Ejemplo de cálculo de función característica
 <div class="example">
+
 **Ejemplo: cálculo de la función característica para una variable exponencial de parámetro $\lambda$**
 
 Sea $X$ una variable aleatoria exponencial de parámetro $\lambda$. Recordemos que su función de densidad es: $f_X(x)=\lambda \mathrm{e}^{-\lambda x},$ para $x\geq 0$ y $0$, en caso contrario.
@@ -605,8 +566,8 @@ $$
 si $x>0$ y $0$ en caso contrario. El cálculo de la integral anterior debe realizarse usando el *Teorema de los Residuos*,  [Residue theorem](https://en.wikipedia.org/wiki/Residue_theorem) y se sale de los objetivos de este curso.
 </div>
 
-### Ejemplo de cálculo de función característica
 <div class="example">
+
 **Ejemplo: cálculo de la función característica para una variable normal de parámetros $\mu$ y $\sigma$**
 
 Sea $X$ una variable normal de parámetros $\mu$ y $\sigma$. 
@@ -621,12 +582,6 @@ $$
 \end{array}
 $$
 La integral del último paréntesis se resuelve haciento el cambio de variable $u=x-\sigma^2 \mathrm{i}w$ y usando que la integral de la función de densidad de $X$ sobre todo $\mathbb{R}$ vale 1.
-</div>
-
-
-### Ejemplo de cálculo de función característica
-<div class="example">
-**Ejemplo: cálculo de la función característica para una variable normal de parámetros $\mu$ y $\sigma$**
 
 Calculemos la función de densidad a partir de la función característica:
 $$
@@ -638,7 +593,7 @@ función que coincide con la densidad de la distribución $N(\mu,\sigma)$.
 
 </div>
 
-### Relación entre la función característica y los momentos
+#### Relación entre la función característica y los momentos
 La relación entre la **función característica** y los **momentos** es la siguiente:
 
 <l class="prop"> Proposición </l>
@@ -648,8 +603,6 @@ $$
 $$
 O sea, el momento de orden $n$ de $X$ es la derivada $n$-ésima de la función característica evaluada en $w=0$ dividido por $\mathrm{i}^n$.
 
-
-### Relación entre la función característica y los momentos
 <div class="exercise">
 **Ejercicio**
 
@@ -675,8 +628,6 @@ Realizar los mismos ejemplos que los realizados para la función generatriz de m
 
 
 ## Fiabilidad
-
-### Introducción
 
 Sea $T\geq 0$ una variable aleatoria que nos da, por ejemplo, el tiempo de vida de cierto componente o dispositivo.
 
@@ -708,7 +659,7 @@ $$
 donde $f_T(u)$ seria la función de densidad de la variable $T$ en el valor $u$.
 
 
-### Ejemplo
+#### Ejemplo
 <div class="example">
 **Ejemplo**
 
@@ -726,8 +677,6 @@ plot(x,1-pexp(x,lambda),type="l",ylab="función de fiabilidad")
 </div>
 
 ## Generación de muestras de variables aleatorias por ordenador
-
-### Introducción 
 
 La simulación por **computadora** de cualquier fenómeno aleatorio implica la **generación de variables aleatorias** con distribuciones prefijadas de antemano. 
 
@@ -758,12 +707,9 @@ F_Y(y) & =P(Y\leq y)=P(F_X(X)\leq y)\stackrel{\mbox{usando que $F_X$ es estricta
 $$
 </div>
 
-### Método de transformación
-
 Usando la proposición anterior, dada una variable $X$, como la distribución de la variable aleatoria $Y=F_X(X)$ es $U[0,1]$, si hacemos $X=F_X^{-1}(Y)$, tendremos que si sabemos generar una muestra de $Y$, aplicándole a la muestra la función $F_X^{-1}$ tendremos generada una muestra de $X$.
 
-
-### Ejemplo
+### Ejemplos
 <div class="example">
 **Ejemplo: generar una muestra de una variable exponencial de parámetro $\lambda$**
 
@@ -774,11 +720,6 @@ $$
 y=1-\mathrm{e}^{-\lambda x},\ \Leftrightarrow 1-y=\mathrm{e}^{-\lambda x},\ \Leftrightarrow \ln(1-y)=-\lambda x,\ \Leftrightarrow x=-\frac{1}{\lambda}\ln(1-y).
 $$
 Por tanto, $F_X^{-1}(y)=-\frac{1}{\lambda}\ln(1-y)$.
-</div>
-
-### Ejemplo
-<div class="example">
-**Ejemplo: generar una muestra de una variable exponencial de parámetro $\lambda$**
 
 Generemos una muestra con `R` de 25 valores de una variable exponencial de parámetro $\lambda=2$ usando el método anterior:
 ```{r}
@@ -788,15 +729,6 @@ muestra.y = runif(n)
 muestra.x = -(1/lambda)*log(1-muestra.y)
 muestra.x
 ```
-
-
-
-</div>
-
-
-### Ejemplo
-<div class="example">
-**Ejemplo: generar una muestra de una variable exponencial de parámetro $\lambda$**
 
 Vamos a testear si nuestro método funciona. 
 
@@ -814,12 +746,6 @@ x2=seq(from=0,to=2.5,by=0.01)
 lines(x2,dexp(x2,lambda),col="red")
 ```
 
-
-</div>
-
-### Ejemplo
-<div class="example">
-**Ejemplo: generar una muestra de una variable exponencial de parámetro $\lambda$**
 <div class="center">
 
 ```{r,echo=FALSE}
@@ -847,9 +773,6 @@ Sea $X$ una variable aleatoria continua tal que su función de densidad verifica
 En resumen, los puntos $(x,f(x))$ pertenecen al rectángulo $[a,b]\times [c,d]$ y en caso contrario $f_X(x)=0$.
 
 En el gráfico siguiente, $a=0$, $b=2$, $c=0$ y $d=1$.
-
-
-### Método de rechazo
 
 <div class="center">
 
@@ -885,9 +808,6 @@ text(0.35,0.5,expression(f[X](x)))
 ```
 </div>
 
-
-### Método de rechazo
-
 Para generar una **muestra aleatoria** de la variable $X$, hacemos lo siguiente:
 
 1) generamos un valor aleatorio $x$ entre $a$ y $b$.
@@ -897,7 +817,7 @@ Para generar una **muestra aleatoria** de la variable $X$, hacemos lo siguiente:
 3) si $y\leq f_X(x)$, aceptamos $x$ como valor de la muestra. En caso contrario, volvemos a empezar en 1.
 
 
-### Ejemplo
+#### Ejemplos
 <div class="example">
 **Ejemplo**
 
@@ -909,10 +829,6 @@ x, & \mbox{ si }0\leq x\leq 1,\\
 0, & \mbox{en caso contrario.}
 \end{cases}
 $$
-</div>
-
-### Ejemplo
-<div class="example">
 
 Vamos a generar una muestra de $25$ valores usando el **método del rechazo**:
 ```{r}
@@ -926,10 +842,7 @@ while(i <=n){
 }
 muestra
 ```
-</div>
 
-### Ejemplo
-<div class="example">
 Como hicimos con el ejemplo del **método de transformación**, vamos a generar una muestra de 500 valores de la variable $X$, vamos a dibujar el **histograma de frecuencias relativas** junto con la función de densidad para ver si ésta se aproxima a dicho histograma:
 ```{r,eval=FALSE}
 a=0; b=2; c=0; d=1; n=500; i=1;
@@ -945,10 +858,6 @@ x2=seq(from=0,to=2,by=0.01)
 lines(x2,f(x2),col="red")
 ```
 
-</div>
-
-
-### Ejemplo
 <div class="center">
 
 ```{r,echo=FALSE}
@@ -965,10 +874,9 @@ x2=seq(from=0,to=2,by=0.01)
 lines(x2,f(x2),col="red")
 ```
 </div>
+</div>
 
 ## Entropía
-
-### Introducción
 
 La **entropía** es una medida de la **incertidumbre** en un experimento aleatorio. 
 
@@ -982,14 +890,10 @@ Sea $k\in D_X$ un valor de la variable. Estamos interesados en cuantificar la **
 
 O sea, cuánta **menos incertidumbre** tenga $A_k$, más **alta será su probabilidad**, y cuánta **más incertidumbre**, **menos probabilidad** de aparecer $A_k$.
 
-### Entropía de una variable aleatoria
-
 Una medida que cumple las condiciones anteriores es la siguiente: $I(A_k)=I(\{X=k\})=\ln\left(\frac{1}{P(X=k)}\right)=-\ln\left(P(X=k)\right).$
 
 Por ejemplo, si $P(A_k)=1$, o sea, $A_k$ aparece "**seguro**", entonces tiene incertidumbre **nula**, $I(A_k)=0$, y si $P(A_k)=0$, o sea, $A_k$ no aparece "**nunca**", tiene incertidumbre **máxima**, $I(A_k)=\infty$.
 
-
-### Entropía de una variable aleatoria
 La motivación anterior hace que definamos la **entropía** de una variable aleatoria de la forma siguiente:
 
 <l class="definition">Definición:</l>
@@ -997,7 +901,7 @@ Sea $X$ una variable aleatoria con función de densidad $f_X(x)$ en el caso cont
 $\Entropia_X = E\left(-\ln(f_X)\right)=\int_{-\infty}^\infty -\ln(f_X(x)) f_X(x)\, dx,$ en el caso continuo y,
 $\Entropia_X = E\left(-\ln(P_X)\right)=\sum_{x_k\in D_X} -\ln(P_X(x_k)) P_X(x_k),$ en el caso discreto.
 
-### Ejemplo
+#### Ejemplos
 <div class="example">
 **Ejemplo: entropía de una variable de Bernoulli de parámetro $p$**
 
@@ -1011,11 +915,6 @@ $$
 $$
 El gráfico de la entropía se puede observar en el gráfico siguiente donde $X$ tiene entropía máxima cuando $p=\frac{1}{2}$ que sería cuando $X$ tiene incertidumbre máxima al tratar de adivinar el resultado de $X$ y $X$ tiene entropía mínima cuando $p=0$ o $p=1$ ya que en estos casos el resultado de $X$ sería siempre $0$ o $1$, respectivamente.
 
-</div>
-
-### Ejemplo
-<div class="example">
-**Ejemplo: entropía de una variable de Bernoulli de parámetro $p$**
 <div class="center">
 ```{r,echo=FALSE,fig=TRUE}
 x=seq(from=0,to=1,by=0.01)
@@ -1025,10 +924,8 @@ plot(x,f(x),type="l",ylab="Entropía")
 </div>
 </div>
 
-### Ejemplo
-
 <div class="example">
-**Entropía de una variable aleatoria exponencial de parámetro $\lambda$**
+**Ejemplo: Entropía de una variable aleatoria exponencial de parámetro $\lambda$**
 
 Sea $X$ una variable aleatoria exponencial de parámetro $\lambda$. 
 
@@ -1042,12 +939,6 @@ $$
 $$
 El gráfico de la entropía se puede observar en el gráfico siguiente donde $X$ tiene entropía máxima cuando $\lambda=0$ que sería cuando $X$ tiene incertidumbre máxima al tratar de adivinar el resultado de $X$ al tener media $E(X)=\frac{1}{\lambda}=\infty$ y $X$ tiene entropía mínima cuando $\lambda$ tiende a $\infty$ ya que su media $E(X)=\frac{1}{\lambda}$ tendería a 0.
 
-</div>
-
-
-### Ejemplo
-<div class="example">
-**Ejemplo: entropía de una variable exponencial de parámetro $\lambda$**
 <div class="center">
 ```{r,echo=FALSE,fig=TRUE}
 x=seq(from=0,to=5,by=0.01)

@@ -384,12 +384,14 @@ Para hallar una muestra de cada variable $\overline{X}_n$, seguimos los pasos si
 
 * En primer lugar, simulamos la repetición del experimento de lanzar la moneda $N=100$ veces y lo repetimos $k=500$ ocasiones. 
 Los resultados estarán en una matriz $k\times N =500\times 100$ donde cada fila de la matriz simulará una repetición del experimento de lanzar la moneda $N=100$ veces:
+
 ```{r}
 N=100
 k=500
 set.seed(2019) ## fijamos la semila de aleatoriedad para que a todos nos dé lo mismo
 valores.experimento=matrix(sample(c(0,1),N*k,replace=TRUE),k,N)
 ```
+
 Los primeros resultados son:
 
 ```{r,echo=FALSE}
@@ -612,23 +614,22 @@ cumsum(probabilidades.pn)
 El problema es que la `n` y la `N` escogidas son demasiado pequeñas. Para realizar el experimento actual tenéis que considerar `n=1000` y `N=5000`. Id con cuidado que el programa os tardará un rato.
 
 ```{r,echo=FALSE}
-probabilidades.pn = read.table("../scripts/Probabilidadesn.txt")
+probabilidades.pn = read.table("book-files/Probabilidadesn.txt")
 probabilidades.pn = t(probabilidades.pn)
 ```
+
 El gráfico de las sumas parciales se muestra a continuación:
-```{r,eval=FALSE}
-N=1000
-plot(1:N,cumsum(probabilidades.pn),xlab=expression(n),
-     ylab="Sumas parciales",col='red', type='l')
-```
-Como se puede observar, la serie parece que converge.
 
 <div class="center">
-```{r,echo=FALSE}
+```{r}
 N=1000
 plot(1:N,cumsum(probabilidades.pn),xlab=expression(n),ylab="Sumas parciales",col='red', type='l')
 ```
 </div>
+
+Como se puede observar, la serie parece que converge.
+
+
 </div>
 
 ## Teorema Central del Límite

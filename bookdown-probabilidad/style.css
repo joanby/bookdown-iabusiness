@@ -44,6 +44,7 @@ pre code {
 }
 
 .box{
+  padding: 30px;
   border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px 10px 10px 10px;
@@ -51,10 +52,11 @@ pre code {
 }
 
 .dem {
+  padding: 30px;
   border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px 10px 10px 10px;
-  background-color: #c9b2f8;
+  background-color: #e0e0e0;
   font-size: 0.99em;
   color: black;
 }
@@ -71,10 +73,11 @@ pre code {
 
 .example{
   color: black;
+  padding: 30px;
   border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px 10px 10px 10px;
-  background-color: #bfeeff;
+  background-color: #b0b0b0;
   font-size: 0.99em;
 }
 
@@ -84,10 +87,11 @@ pre code {
 
 .exercise{
   color: black;
+  padding: 30px;
   border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px 10px 10px 10px;
-  background-color: #92e394;
+  background-color: #909090;
   font-size: 0.99em;
 }
 

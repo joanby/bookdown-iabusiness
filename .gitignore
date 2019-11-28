@@ -37,5 +37,5 @@ rsconnect/
 .DS_Store
 
 
-bookdown-probabilidad/_book/
-bookdown-probabilidad/_bookdown_files/
+*/_book/
+*/_bookdown_files/

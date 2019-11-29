@@ -73,7 +73,7 @@ Suceso: $\{X^2+Y^2\leq 4\}$. Sería la zona sombreada del gráfico siguiente:
 
 <div class="center">
 
-```{r, echo=FALSE, label=bid2,fig.cap=""}
+```{r, echo=FALSE, label=bid2,fig.cap="", fig.align='center'}
 knitr::include_graphics("Images/Bidim2.png",dpi=1200)
 ```
 </div>

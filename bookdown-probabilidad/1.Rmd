@@ -150,12 +150,12 @@ $$A\cap(B\cup C)=(A\cap B)\cup (A\cap C), \quad A\cup(B\cap C)=(A\cup B)\cap (A\
 
 | $A$ | $B\cap C$ | $A\cup (B\cap C)$ |
 |:--:|:--:|:--:| 
-| ![](Images/proba1dibujos/distr11.jpg){height="200px"} | ![](Images/proba1dibujos/distr12.jpg){height="200px"} | ![](Images/proba1dibujos/distr13.jpg){height="200px"} |
+| ![](Images/proba1dibujos/distr11.jpg){height="4cm"} | ![](Images/proba1dibujos/distr12.jpg){height="4cm"} | ![](Images/proba1dibujos/distr13.jpg){height="4cm"} |
 
 
 | $A\cup B$ | $A\cup C$ | $(A\cup B)\cap (A\cup C)$ |
 |:--:|:--:|:--:| 
-| ![](Images/proba1dibujos/distr21.jpg){height="200px" .image-caption} | ![](Images/proba1dibujos/distr22.jpg){height="200px"} | ![](Images/proba1dibujos/distr23.jpg){height="200px"} |
+| ![](Images/proba1dibujos/distr21.jpg){height="4cm"} | ![](Images/proba1dibujos/distr22.jpg){height="4cm"} | ![](Images/proba1dibujos/distr23.jpg){height="4cm"} |
 
 
 <l class="definition"> Complementario del complementario </l> 
@@ -163,7 +163,7 @@ $$(A^c)^c=A$$
 
 | $A$ | $A^c$ | $(A^c)^c$ |
 |:--:|:--:|:--:| 
-| ![](Images/proba1dibujos/dd2.jpg){height="200px"} | ![](Images/proba1dibujos/dd1.jpg){height="200px"} | ![](Images/proba1dibujos/dd3.jpg){height="200px"} |
+| ![](Images/proba1dibujos/dd2.jpg){height="4cm"} | ![](Images/proba1dibujos/dd1.jpg){height="4cm"} | ![](Images/proba1dibujos/dd3.jpg){height="4cm"} |
 
 
 <l class="definition">Leyes de De Morgan</l>
@@ -172,16 +172,11 @@ $$(A\cup B)^c=A^c\cap B^c$$
 
 | $A\cup B$ | $(A\cup B)^c$ |
 |:--:|:--:|
-| ![](Images/proba1dibujos/demorgan6.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan7.jpg){height="200px"} |
-
-
-<l class="definition">Leyes de De Morgan</l>
-
-$$(A\cup B)^c=A^c\cap B^c$$
+| ![](Images/proba1dibujos/demorgan6.jpg){height="6cm"} | ![](Images/proba1dibujos/demorgan7.jpg){height="6cm"} |
 
 | $A^c$ | $B^c$ | $A^c\cap B^c$
 |:--:|:--:|:--:|
-| ![](Images/proba1dibujos/demorgan8.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan9.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan10.jpg){height="200px"} |
+| ![](Images/proba1dibujos/demorgan8.jpg){height="4cm"} | ![](Images/proba1dibujos/demorgan9.jpg){height="4cm"} | ![](Images/proba1dibujos/demorgan10.jpg){height="4cm"} |
 
 
 
@@ -191,16 +186,11 @@ $$(A\cap B)^c=A^c\cup B^c$$
 
 | $A\cap B$ | $(A\cap B)^c$ |
 |:--:|:--:|
-| ![](Images/proba1dibujos/demorgan1.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan2.jpg){height="200px"} |
-
-
-<l class="definition">Leyes de De Morgan</l>
-
-$$(A\cap B)^c=A^c\cup B^c$$
+| ![](Images/proba1dibujos/demorgan1.jpg){height="6cm"} | ![](Images/proba1dibujos/demorgan2.jpg){height="6cm"} |
 
 | $A^c$ | $B^c$ | $A^c\cup B^c$
 |:--:|:--:|:--:|
-| ![](Images/proba1dibujos/demorgan3.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan5.jpg){height="200px"} | ![](Images/proba1dibujos/demorgan4.jpg){height="200px"} |
+| ![](Images/proba1dibujos/demorgan3.jpg){height="4cm"} | ![](Images/proba1dibujos/demorgan5.jpg){height="4cm"} | ![](Images/proba1dibujos/demorgan4.jpg){height="4cm"} |
 
 ### Definición de probabilidad
 
@@ -209,11 +199,8 @@ La probabilidad de un suceso es una puntuación (*score*) numérico entre 0 y 1 
 Esta verosimilitud puede estar justificada por 
 
 * Estimación personal
-
 * Estimación de expertos
-
 * La frecuencia con la que se da 
-
 * Cálculo formal
 
 

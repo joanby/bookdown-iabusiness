@@ -77,11 +77,16 @@ pre code {
   border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px 10px 10px 10px;
-  background-color: #b0b0b0;
+  background-color: #D0D0D0;
   font-size: 0.99em;
 }
 
 .example-sol{
+  padding: 10px;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  background-color: #F0F0F0;
   font-size: 0.99em;
 }
 
@@ -91,11 +96,16 @@ pre code {
   border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px 10px 10px 10px;
-  background-color: #909090;
+  background-color: #B0B0B0;
   font-size: 0.99em;
 }
 
 .exercise-sol{
+  padding: 10px;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  background-color: #F0F0F0;
   font-size: 0.99em;
 }
 

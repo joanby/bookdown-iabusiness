@@ -75,7 +75,6 @@ Se define un $n$-grama de una palabra como el conjunto de $n$ letras consecutiva
 
 Consideremos el experimento aleatorio que consiste en escoger al  azar un 3-grama de la palabra "\_Baleares\_". Vamos a escribir el espacio muestral y algunos sucesos elementales del mismo.
 
-</div>
 
 <div class="example-sol">
 
@@ -90,6 +89,7 @@ Algunos sucesos serían:
 * 3-gramas de inicio y final de palabra: $\{\_Ba,es\_\}$.
 * 3-gramas que contengan una $l$: $\{Bal,ale,lea\}$.
 
+</div>
 </div>
 
 ### Operaciones con sucesos
@@ -110,7 +110,6 @@ Si tenemos dos sucesos $A,B\subseteq \Omega$, podemos definir:
 **Ejemplo género**
 
 Supongamos que el sexo se divide entre Mujeres y Hombres. Vamos a definir el espacio muestral, los sucesos elementales y a realizar algunas operaciones entre ellos.
-</div>
 
 <div class="example-sol">
 * Estudiantes de esta clase: $\Omega$.
@@ -126,6 +125,8 @@ Algunas operaciones entre los conjuntos:
 * $B-A$: Hombres de la clase que son zurdos.
 * ¡Cuidado! No son incompatibles.
 </div>
+</div>
+
 
 ### Propiedades
 
@@ -227,7 +228,7 @@ $$A: 46\%;\ B: 7.5\%;\ AB: 3.5\%;\ O: 43\%.$$
 <div class="example-sol">
 **Experimento aleatorio:** tipo de sangre de un paciente humano
 
-$$\Omega=\{\mbox{A,B,AB,O}\}$$
+$$\Omega=\{\mbox{A,B,AB,O}\}.$$
 
 
 **Probabilidad** de un suceso: se asimila al porcentaje observado de individuos
@@ -235,7 +236,7 @@ $$\Omega=\{\mbox{A,B,AB,O}\}$$
 **Suceso:** $\{\mbox{O}\}^c=\{\mbox{A,B,AB}\}$
 
 $$P(\{\mbox{O}\}^c)\!=\!P(\{\mbox{A,B,AB}\})\!=\!
-P(\mbox{A})+P (\mbox{B})+P(\mbox{AB})\!=\!0.57$$
+P(\mbox{A})+P (\mbox{B})+P(\mbox{AB})\!=\!0.57.$$
 </div>
 </div>
 
@@ -590,6 +591,7 @@ $$P(A|S)=\dfrac{P(A\cap S)}{P(S)}=\dfrac{0.3}{0.65}\approx 0.46.$$
 $$P(A)=0.5, P(S)=0.65, P(A^c\cap S^c)=P((A\cup S)^c)=0.15.$$
 
 $$P(A^c|S^c)=\dfrac{P(A^c\cap S^c)}{P(S^c)}=\dfrac{P(A^c\cap S^c)}{1-P(S)}=\dfrac{0.15}{0.35}\approx 0.43.$$
+</div>
 </div>
 
 ### Teorema de la probabilidad total

@@ -305,13 +305,13 @@ Justificar de forma intuitiva que si $X_i$ con $i=1,2,\ldots, n$ son v.a. $Ber(p
 
 ### Resumen v.a con distribución binomial $B(n,p)$
 
-$X$ binomial | $B(n,p)$ 
--------------:|:--------
-$D_X=$ |  $\{0,1,\ldots n\}$ 
-$P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}{n\choose x}\cdot  p^x\cdot  (1-p)^{n-x} & \mbox{ si } x=0,1,\ldots,n\\0  & \mbox{ en otro caso.}\end{array}\right.$
-$F_X(x)=P(X\leq X)=$ | no tiene fórmula (utilizad funciones de R o python)
-$E(X)=$ |  $n\cdot p$
-$Var(X)=$ | $n\cdot p \cdot (1-p)$
+$X$ binomial | $B(n,p)$ |
+-------------:|:--------|--------
+$D_X=$ |  $\{0,1,\ldots n\}$ |
+$P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}{n\choose x}\cdot  p^x\cdot  (1-p)^{n-x} & \mbox{ si } x=0,1,\ldots,n\\0  & \mbox{ en otro caso.}\end{array}\right.$|
+$F_X(x)=P(X\leq X)=$ | no tiene fórmula (utilizad funciones de R o python)|
+$E(X)=$ |  $n\cdot p$|
+$Var(X)=$ | $n\cdot p \cdot (1-p)$|
 
 ### Cálculos binomial con R
 

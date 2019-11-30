@@ -1,90 +1,77 @@
 # Distribuciones Notables
 
-* En este tema estudiaremos diversos tipos de experimentos que son muy frecuentes y algunas de las variables aleatorias asociadas a ellos. 
+En este tema estudiaremos diversos tipos de experimentos que son muy frecuentes y algunas de las variables aleatorias asociadas a ellos. 
 
-* Estas variables reciben distintos nombres que aplicaremos sin distinción al tipo de población del experimento a la variable o a su función de probabilidad, densidad o distribución.
+Estas variables reciben distintos nombres que aplicaremos sin distinción al tipo de población del experimento a la variable o a su función de probabilidad, densidad o distribución.
 
-* Empezaremos con las variables aleatorias discretas que se presentan con frecuencia ya que están relacionadas con situaciones muy comunes como el número de caras en varios lanzamiento de una moneda, el número de veces que una maquina funciona hasta que se estropea, el numero de clientes en una cola,...
+Empezaremos con las variables aleatorias discretas que se presentan con frecuencia ya que están relacionadas con situaciones muy comunes como el número de caras en varios lanzamiento de una moneda, el número de veces que una maquina funciona hasta que se estropea, el numero de clientes en una cola,...
 
 
-## Distribución Bernoulli 
+## Distribuciones discretas
 
-<l class="definition"> Distribución Bernoulli </l>
+**Distribución de Bernoulli **
 
-* Consideremos un experimento con dos resultados posibles éxito (E) y
+Consideremos un experimento con dos resultados posibles éxito (E) y
 fracaso (F). El espacio de sucesos será $\Omega=\{E,F\}$.
-* Supongamos que la probabilidad de éxito es  $P(E)=p$,  y naturalmente $P(F)=1-p=q$ con $0<p<1$.
-* Consideremos la  aplicación 
+
+Supongamos que la probabilidad de éxito es  $P(E)=p$,  y naturalmente $P(F)=1-p=q$ con $0<p<1$.
+
+Consideremos la  aplicación 
 
 $$
-X:\Omega=\{E,F\}\to \mathbb{R}
+X:\Omega=\{E,F\}\to \mathbb{R},
 $$
+definida por $X(E)=1,\ X(F)=0.$
 
-definida por
-
-$$
-X(E)=1\mbox{, }X(F)=0.
-$$
-
-Su  función de probabilidad es
-
+Su  función de probabilidad es:
 $$
 P_{X}(x)=
 \left\{
-\begin{array}{ll} 1-p=q & \mbox{si } x=0\\
-p & \mbox{si } x=1\\
-0 & \mbox{en cualquier otro caso}
+\begin{array}{ll} 1-p=q, & \mbox{si } x=0,\\
+p, & \mbox{si } x=1,\\
+0, & \mbox{en cualquier otro caso.}
 \end{array}
-\right..
+\right.
 $$
 
-Su función de distribución es 
-
+Su función de distribución es:
 $$
 F_{X}(x)=P(X\leq x)=
 \left\{
 \begin{array}{ll} 
-0 & \mbox{si } x<0\\
-1-p=q & \mbox{si } 0\leq x <1\\
-1 & \mbox{si } 1\leq x \\
+0, & \mbox{si } x<0,\\
+1-p=q, & \mbox{si } 0\leq x <1,\\
+1, & \mbox{si } 1\leq x. \\
 \end{array}
-\right..
+\right.
 $$
+Bajo estas condiciones diremos que $X$  **es una v.a. Bernoulli** o que  sigue una ley de  **distribución de probabilidad Bernoulli** de parámetro $p$.
 
-* Bajo estas condiciones diremos que $X$  **es una v.a. Bernoulli** o que  sigue una ley de  **distribución de probabilidad  Bernoulli** de parámetro $p$.
-* Lo denotaremos por
-$$X\equiv Ber(p)\mbox{ o también } X\equiv B(1,p).$$
-* A este tipo de  experimentos (éxito/fracaso)se les denomina experimentos Bernoulli.
-* Fue su descubridor un científico suizo  [Jacob Bernoulli](https://es.wikipedia.org/wiki/Jakob_Bernoulli),  uno más de la de la conocida [familia de científicos suizos Bernoulli](https://es.wikipedia.org/wiki/Familia_Bernoulli)
+Lo denotaremos por $X\equiv Ber(p)$ o también $X\equiv B(1,p).$
 
-### Esperanza de una v.a. $X$  $Ber(p)$
+A este tipo de  experimentos (éxito/fracaso) se les denomina experimentos Bernoulli.
 
-Su **valor esperado** es 
+Fue su descubridor un científico suizo  [Jacob Bernoulli](https://es.wikipedia.org/wiki/Jakob_Bernoulli),  uno más de la de la conocida [familia de científicos suizos Bernoulli](https://es.wikipedia.org/wiki/Familia_Bernoulli).
 
+**Esperanza de una v.a. $X$  $Ber(p)$**
+
+Su **valor esperado** es:
 $$E(X)=\displaystyle\sum_{x=0}^1 x\cdot P(X=x)= 0\cdot(1-p)+1\cdot p=p.$$
-
-
-
-Calculemos también $E(X^2)$
+Calculemos también $E(X^2)$:
 
 $$E(X^2)=\displaystyle\sum_{x=0}^1 x^2\cdot P(X=x)= 0^2\cdot(1-p)+1^2\cdot p=p.$$
+**Varianza de una v.a. $X$  $Ber(p)$**
 
-### Varianza de una v.a. $X$  $Ber(p)$
 
-
-Su  **varianza** es 
+Su **varianza** es:
 
 $$Var(X)=E(X^2)-\left(E(X)\right)^2=p-p^2=p\cdot (1-p)=p\cdot q.$$
-
-
-Su desviación típica es 
-
+Su desviación típica es:
 $$
 \sqrt{Var(X)}=\sqrt{p \cdot (1-p)}.
 $$
 
-### Resumen v.a con distribución Bernoulli
-
+**Resumen v.a con distribución Bernoulli**
 
 $X$  Bernoulli | $Ber(p)$
 ----------:|:--------
@@ -95,18 +82,19 @@ $E(X)=p$ | $Var(X)=p\cdot q$
 
 
 
-### Distribución Bernoulli. Ejemplo
 
-Veamos los cálculos básicos $Ber(p=0.25)$ en `R`.
+
+
+<div class="example">
+**Ejemplo de Distribución Bernoulli**
+
+Veamos los cálculos básicos usando la distribución $Ber(p=0.25)$ en `R`.
 
 ```{r binomialfunciones}
 dbinom(0,size=1,prob=0.25)
 dbinom(1,size=1,prob=0.25)
 rbinom(n=20,size = 1,prob=0.25)
 ```
-
-
-
 
 El siguiente código dibuja las función de probabilidad y la de distribución de una  $Ber(p=0.25)$
 
@@ -123,7 +111,6 @@ par(mfrow=c(1,1))
 ```
 
 
-
 ```{r fig.align='center',echo=FALSE}
 par(mfrow=c(1,2))
 plot(x=c(0,1),y=dbinom(c(0,1),size=1,prob=0.25),
@@ -136,7 +123,8 @@ curve(pbinom(x,size=1,prob=0.25),
 par(mfrow=c(1,1))
 ```
 
-### Gráficas interactivas $Ber(p)$
+
+**Gráficas interactivas $Ber(p)$**
 
 Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
@@ -169,62 +157,54 @@ par(mfrow=c(1,1))
 
 
 <!--[![](Images/noshinyImages/interactiva_ber1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
+</div>
 
+** Distribución binomial**
 
-## Distribución binomial
-
-<l class=definition> Distribución binomial </l>
-
-Si repetimos $n$ veces de forma independiente un experimento Bernoulli de parámetro $p$.
-
-El espacio muestral $\Omega$ estará formado por cadenas de $E$'s y $F$'s de longitud $n$
-Consideremos la v.a.
-
+Si repetimos $n$ veces de forma independiente un experimento Bernoulli de parámetro $p$, el espacio muestral $\Omega$ estará formado por cadenas de $E$'s y $F$'s de longitud $n$.
+Consideremos la v.a.:
 $$X(\overbrace{EFFF\ldots EEF}^{n})=\mbox{número de éxitos en la cadena}.$$
+A la variable aleatoria anterior se le conoce como distribución binomial de parámetros $n$ y $p$, y lo denotaremos por $X\equiv B(n,p).$
 
-### Función de probabilidad de una  binomial
+**Función de probabilidad de una  binomial**
 
-Entonces su **función de probabilidad** es 
-
+Su **función de probabilidad** es:
 $$
 P_{X}(x)=\left\{
 \begin{array}{ll}
-{n\choose x}\cdot  p^x \cdot(1-p)^{n-x} &\mbox{ si } x=0,1,\ldots,n\\
-0  & \mbox{ en otro caso}
-\end{array}\right..
+{n\choose x}\cdot  p^x \cdot(1-p)^{n-x}, &\mbox{ si } x=0,1,\ldots,n,\\
+0,  & \mbox{ en otro caso.}
+\end{array}\right.
 $$
-
-### Función de distribución  binomial
+**Función de distribución de una binomial**
 
 Su **función de distribución** no tiene una fórmula cerrada. Hay que acumular la función de probabilidad:
-
-
 \begin{eqnarray*}
 F_{X}(x)=P(X\leq x) & = & \sum_{i=0}^x P_X(i)\\
 & = & 
 \left\{
 \begin{array}{ll}
-0 & \mbox{ si } x\leq 0\\\displaystyle
+0, & \mbox{ si } x\leq 0,\\\displaystyle
 \sum_{i=0}^k {n\choose i}\cdot  p^i \cdot (1-p)^{n-i} & \mbox{ si } 
 \left\{
   \begin{array}{l} 
-  k\leq x< k+1\\
-  k=0,1,\ldots,n.
+  k\leq x< k+1,\\
+  k=0,1,\ldots,n,
   \end{array}
 \right.\\
-1 & \mbox{ si } n\leq x
+1, & \mbox{ si } n\leq x.
 \end{array}
-\right..
+\right.
 \end{eqnarray*}
 
 
 
-### Números binomiales con R
+**Números binomiales con R**
 
-Los números binomiales alculan el número de equipos de baloncestodistintos que  ($k=5$ jugadores) se pueden hacer con 6 jugadores ($n=6$).
+Los números binomiales calculan el número de equipos de baloncesto distintos que  ($k=5$ jugadores) se pueden hacer con 6 jugadores ($n=6$).
 
-Es decir cuántas  manearas distintas hay para elegir (*choose*) 5 jugadores en un conjunto de 6 jugadores. Todo el mundo diría 
-¡¡¡6!!!. Efectivamente con R es 
+Es decir cuántas  maneras distintas hay para elegir (*choose*) 5 jugadores en un conjunto de 6 jugadores. Todo el mundo diría 
+¡¡¡6!!!. Efectivamente con `R` es 
 
 ```{r}
 choose(6,5)
@@ -236,22 +216,15 @@ Con 10 jugadores  el número de equipos de  5 distintos es bastante más grande
 choose(10,5)
 ```
 
-Y por ejemplo con un equipo de fútbol profesional  que tiene en plantilla 22 jugadores  (quitando los guardametas) se pueden formar ¡¡nada menos que!!
+Y, por ejemplo, con un equipo de fútbol profesional  que tiene en plantilla 22 jugadores  (quitando los guardametas) se pueden formar ¡¡nada menos que!!
 
 ```{r}
 choose(22,10)
 ```
 un bonito número capicúa que nos da el número de equipos distintos que se pueden formar.
 
-###  Distribución Binomial
-
-En las anteriores circunstancias diremos que la v.a. sigue una **ley de probabilidad binomial** ... con parámetros $n$ y $p$ y lo denotaremos así 
-    
-$$X\equiv B(n,p).$$ 
-    
-Obviamente se tiene que una bernoulli es una binomial con $n=1$
-
-$$B(1,p)=Ber(p).$$
+Obviamente se tiene que una v.a. Bernoulli es una binomial con $n=1$:
+$B(1,p)=Ber(p).$
 
 <div class="exercise"> 
 **Ejercicio**
@@ -259,78 +232,70 @@ $$B(1,p)=Ber(p).$$
 Calculad las funciones de distribución de una binomial $B(n=1,p=0.3)$ y comprobar que coinciden con  las distribuciones de una $Ber(p=0.3)$.
 </div>
 
-### Observaciones sobre la distribución binomial
+**Observaciones sobre la distribución binomial**
 
 * La probabilidad de fracaso se suele denotar con  $q=1-p$, **sin ningún aviso adicional**, con el fin de acortar  y agilizar la escritura de las  fórmulas.
-* Su **función de distribución no tienen una formula general**, hay que calcularla con una función de R o python... En el siglo pasado se tabulaban en los libros de papel :-).
+* Su **función de distribución no tienen una formula general**, hay que calcularla con una función de R o python. En el siglo pasado se tabulaban en los libros de papel :-).
 * En el material adicional os pondremos unas tablas de esta distribución
 para distintos valores de $n$ y $p$ para que disfrutéis de tan ancestral método de cálculo. 
-* Cualquier paquete estadístico, hoja de cálculo dispone de
+* Cualquier paquete estadístico u hoja de cálculo dispone de
 funciones para el cálculo de estas probabilidades, así que el **uso de las tablas** queda **totalmente anticuado**. 
 
-### Esperanza  de una $X$  $B(n,p)$
+** Esperanza  de una $B(n,p)$**
 
-Su **esperanza** es 
+Su **esperanza** es: 
 $$E(X)=\displaystyle\sum_{k=0}^n k \cdot  {n \choose k }\cdot p^k\cdot q^{n-k} = n\cdot p.$$
-
-La esperanza de $X^2$ es 
-
-
+La esperanza de $X^2$ es:
 \begin{eqnarray*}
 E(X^2)&=& \displaystyle\sum_{k=0}^n k^2 \cdot  {n \choose k }\cdot p^k\cdot q^{n-k}\\
 &=& n\cdot p\cdot q-(n\cdot p)^2.
 \end{eqnarray*}
 
+**Varianza de una $B(n,p)$**
 
-### Varianza de una $X$  $B(n,p)$
-
-Su **varianza** es 
+Su **varianza** es:
 
  $$Var(X)=E(X^2)-\left(E(X)\right)^2=n\cdot p \cdot q=n\cdot p\cdot (1-p).$$
 
-Su desviación  típica es
+Su desviación típica es:
  
- $$\sqrt{n\cdot p\cdot q}=\sqrt{n\cdot p\cdot (1-p)}.$$
+$$\sqrt{n\cdot p\cdot q}=\sqrt{n\cdot p\cdot (1-p)}.$$
  
- 
-En otos temas veremos una forma sencilla del cálculo de la esperanza y varianza de una $B(n,p)$ como las suma de n $Ber(p)$ independientes.
+En temas posteriores veremos una forma sencilla del cálculo de la esperanza y varianza de una $B(n,p)$ como las suma de $n$ v.a. $Ber(p)$ independientes.
 
 <div class="exercise">
 **Ejercicio**
 
-Justificar de forma intuitiva que si $X_i$ con $i=1,2,\ldots, n$ son v.a. $Ber(p)$ independientes  entonces $X=\displaystyle\sum_{i=1}^n X_i$    sigue una distribuciń $B(n,p).$ 
+Justificar de forma intuitiva que si $X_i$ con $i=1,2,\ldots, n$ son v.a. $Ber(p)$ independientes  entonces $X=\displaystyle\sum_{i=1}^n X_i$ sigue una distribución $B(n,p).$ 
 </div>
 
 
-
-### Resumen v.a con distribución binomial $B(n,p)$
+**Resumen v.a con distribución binomial $B(n,p)$**
 
 $X$ binomial | $B(n,p)$ |
 -------------:|:--------|--------
 $D_X=$ |  $\{0,1,\ldots n\}$ |
 $P_X(x)=P(X=x)=$ |$\left\{\begin{array}{ll}{n\choose x}\cdot  p^x\cdot  (1-p)^{n-x} & \mbox{ si } x=0,1,\ldots,n\\0  & \mbox{ en otro caso.}\end{array}\right.$|
-$F_X(x)=P(X\leq X)=$ | no tiene fórmula (utilizad funciones de R o python)|
+$F_X(x)=P(X\leq X)=$ | no tiene fórmula (utilizad funciones de `R` o python)|
 $E(X)=$ |  $n\cdot p$|
 $Var(X)=$ | $n\cdot p \cdot (1-p)$|
 
-### Cálculos binomial con R
+**Cálculos binomial con R**
 
 Veamos los cálculos básicos con funciones de R para una v.a $X$ con distribución  binomial  $B(n=10,p=0.25)$. 
 
-Si queremos calcular con R algún valor de la función de distribución como por ejemplo $F_X(0)=P(X\leq 0)$ 
+Si queremos calcular con `R` algún valor de la función de distribución como por ejemplo $F_X(0)=P(X\leq 0)$, tenemos que hacer:
 
 ```{r binomialfuncionesA}
 pbinom(0,size=10,prob=0.25)
 ```
-
-y si queremos por ejemplo $F_X(4)=P(X\leq 4)$:
+y si queremos por ejemplo $F_X(4)=P(X\leq 4)$, tenemos que hacer:
 
 ```{r}
 pbinom(4,size=10,prob=0.25)
 ```
 
-
-Sin embargo, si queremos calcular algún valor de la función de probabilidad como por ejemplo $P(X=0)$:
+Sin embargo, si queremos calcular algún valor de la función de probabilidad como por ejemplo $P(X=0)$, tenemos que hacer:
 
 ```{r binomialfunciones2A_dbinom}
 dbinom(0,size=10,prob=0.25)
@@ -342,9 +307,9 @@ o por ejemplo para  $P(X=4)$:
 dbinom(4,size=10,prob=0.25)
 ```
 
-### Generación de muestras aleatorias con R
+**Generación de muestras aleatorias con R**
 
-Generaremos una muestra aleatoria  de  100 valores  de una población $B(20,0.5)$
+Generaremos una muestra aleatoria  de  100 valores de una población con distribución $B(20,0.5)$
 
 ```{r semilla_binomial,size="scriptsize"}
 set.seed(2019)
@@ -354,27 +319,27 @@ rbinom(100,size = 20,prob=0.5)
 <div class="example"> 
 **Ejemplo**
 
-El ejemplo anterior correspondería a repetir 100 veces el experimento lanzar una moneda  20 veces y contar el número de caras.
+El ejemplo anterior correspondería a repetir 100 veces el experimento de lanzar una moneda  20 veces y contar el número de caras.
 </div>
 
-###  Cálculos distribución binomial con python
+**Cálculos distribución binomial con python**
 
-Veamos los cálculos básicos con funciones de python para una v.a $X$ con distribución  binomial  $B(n=10,p=0.25)$.
+Veamos los cálculos básicos con funciones de python para una v.a $X$ con distribución  binomial $B(n=10,p=0.25)$.
 
-Primero importamos la  función `binom` de la librería `scipy.stat`
+Primero importamos la  función `binom` de la librería `scipy.stat`:
 
 ```{python binomialfunciones2A_python}
 from scipy.stats import binom
 ```
 
-En general en el paquete `scipy`, la función de probabilidad se invocará con el método `pmf`, la de distribución con el método `cdf` mientras que una muestra aleatoria que siga esta distribución con el método `rvs`. En todos ellos aparecerá siempre el parámetro `loc` que se utiliza para desplazar el dominio de la variable aleatoria. Por ejemplo, en este caso 
+En general en el paquete `scipy`, la función de probabilidad se invocará con el método `pmf`, la de distribución con el método `cdf` mientras que una muestra aleatoria que siga esta distribución con el método `rvs`. En todos ellos aparecerá siempre el parámetro `loc` que se utiliza para desplazar el dominio de la variable aleatoria. Por ejemplo, en este caso:
 
 ```{python eval=F}
 binom.pmf(k, n, p, loc) =  binom.pmf(k - loc, n, p)
 ```
 
 
-Para calcular los valores de la función de distribución como por ejemplo $F_X(0)=P(X\leq 0)$ y $F_X(4)=P(X\leq 4)$ utilizamos la función `cdf`
+Para calcular los valores de la función de distribución como por ejemplo $F_X(0)=P(X\leq 0)$ y $F_X(4)=P(X\leq 4)$ utilizamos la función `cdf`:
 
 ```{python bino3_py}
 binom.cdf(0,n=10,p=0.25)
@@ -382,7 +347,6 @@ binom.cdf(4,n=10,p=0.25)
 ```
 
 Notemos que al no indicar el valor de `loc`, se le asume que toma el valor 0.
-
 
 Para calcular los valores de la función de probabilidad $P(X=0)$ y $P(X=4)$ utilizamos la función `pmf`:
 
@@ -393,8 +357,6 @@ binom.pmf(4,n=10,p=0.25)
 
 Notemos que al no indicar el valor de `loc`, se le asume que toma el valor 0.
 
-
-
 Si queremos generar una muestras aleatorias que siga una distribución binomial, podemos usar la función `rvs`. En este caso, generaremos una muestra aleatoria  de  100 valores  de una población $B(20,0.5)$
 
 ```{python bino4_py_3}
@@ -403,8 +365,9 @@ binom.rvs(n=20,p=0.25,size = 100)
 
 
 
-<l class="observ"> Observación</l>
-Notemos que la secuencia aleatoria generada no es la misma que con R. De hecho si volvemos a ejecutar esta función obtendremos una muestra aleatoria distinta.
+<l class="observ"> **Observación**</l>
+
+Notemos que la secuencia aleatoria generada no es la misma que con `R`. De hecho, si volvemos a ejecutar esta función obtendremos una muestra aleatoria distinta.
 
 
 ```{python bino4_py}

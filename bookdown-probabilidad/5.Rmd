@@ -15,7 +15,7 @@ La variable aleatoria que nos da la medición en 10 años sería una variable al
 Recordemos que una **variable aleatoria** $X$ es una aplicación que toma valores numéricos para cada resultado de un experimento aleatorio:
 $$
 \begin{array}{rl}
-(X,Y): \Omega & \longrightarrow \mathbb{R}\\
+X: \Omega & \longrightarrow \mathbb{R}\\
 w & \longrightarrow X(w).
 \end{array}
 $$
@@ -25,13 +25,13 @@ A partir de la definición anterior, generalizamos la noción de **variable alea
 Dado un experimento aleatorio con **espacio muestral** $\Omega$, definimos **variable aleatoria bidimensional** $(X,Y)$ a toda aplicación 
 $$
 \begin{array}{rl}
-X: \Omega & \longrightarrow \mathbb{R}^2\\
+(X,Y): \Omega & \longrightarrow \mathbb{R}^2\\
 w & \longrightarrow (X(w),Y(w)).
 \end{array}
 $$
 
 <div class="example">
-**Ejemplo**
+**Ejemplo: lanzamiento dos dados**
 
 Consideremos el experimento aleatorio de lanzar un dado no trucado dos veces.
 
@@ -39,23 +39,25 @@ Sea $S$ la suma de los resultados obtenidos y $P$ el producto de los mismos.
 
 La variable aleatoria $(S,P)$ que asigna a cada resultado $w=(x_1,x_2)$ donde $x_1$ es el resultado obtenido en el primer lanzamiento y $x_2$, el resultado obtenido en el segundo, los valores: $S(w)=x_1+x_2$ y $P(w)=x_1\cdot x_2$ sería una variable aleatoria bidimensional.
 
+<div class="example-sol">
 El suceso $\{2\leq S\leq 4,\ 3\leq P\leq 6\}$ seria:
 $$
 \{2\leq S\leq 4,\ 3\leq P\leq 6\} = \{(1,3),(3,1),(2,2)\}.
 $$
 
 </div>
+</div>
 
 <div class="example">
 **Ejemplo**
 
 Consideremos el experimento aleatorio de elegir al azar un estudiante de primer curso de grado. Sea $w$ el estudiante elegido. Consideremos la variable aleatoria $(H,W)$ que asigna a dicho estudiante $w$, $H(w):$ la altura de dicho estudiante en cm. y $W(w):$ el peso de dicho estudiante en kg.
-
+<div class="example-sol">
 Estamos interesado en sucesos del tipo $A=\{H\leq 176,\ W\leq 85\}$, o sea, el conjunto de estudiantes que miden menos de 1.76 m. y que pesan menos de 85 kg.
 </div>
+</div>
 
-
-### Representar el dominio de una variable aleatoria bidimensional
+### Representaciń del dominio de una variable aleatoria bidimensional
 
 Los sucesos que se derivan de una **variable aleatoria bidimensional** estan especificados por regiones del plano.
 Veamos algunos ejemplos:
@@ -64,7 +66,7 @@ Suceso: $\{X+Y\leq 1\}$. Sería la zona sombreada del gráfico siguiente:
 
 <div class="center">
 
-```{r, echo=FALSE, label=bid1_1,fig.cap=""}
+```{r, echo=FALSE, label=bid1_1,fig.cap="Dominio bidimensional"}
 knitr::include_graphics("Images/Bidim1.png",dpi=1200)
 ```
 </div>
@@ -73,7 +75,7 @@ Suceso: $\{X^2+Y^2\leq 4\}$. Sería la zona sombreada del gráfico siguiente:
 
 <div class="center">
 
-```{r, echo=FALSE, label=bid2,fig.cap="", fig.align='center'}
+```{r, echo=FALSE, label=bid2,fig.cap="", fig.align='center',fig.height=7}
 knitr::include_graphics("Images/Bidim2.png",dpi=1200)
 ```
 </div>
@@ -82,7 +84,7 @@ Suceso: $\{\max\{X,Y\}\geq 1\}$. Sería la zona sombreada del gráfico siguiente
 
 <div class="center">
 
-```{r, echo=FALSE, label=bid3,fig.cap=""}
+```{r, echo=FALSE, label=bid3,fig.cap="Representación suceso"}
 knitr::include_graphics("Images/Bidim3.png",dpi=1200)
 ```
 </div>
@@ -115,7 +117,7 @@ F_{XY}: \mathbb{R}^2 & \longrightarrow \mathbb{R}\\
 $$
 
 
-O sea, dado un valor $(x,y)\in \mathbb{R}^2$, consideramos la región del plano $(-\infty,x]\times (-\infty,y]$:
+POr lo tanto, dado un valor $(x,y)\in \mathbb{R}^2$, consideramos la región del plano $(-\infty,x]\times (-\infty,y]$:
 <div class="center">
 
 ```{r, echo=FALSE, label=bid4,fig.cap=""}
@@ -132,7 +134,7 @@ F_{XY}(x,y) & =P\{w\in\Omega,\ |\ (X(w),Y(w))\in (-\infty,x]\times (-\infty,y]\}
 $$
 
 ### Propiedades
-Sea $(X,Y)$ una variable bidimensional. Sean $F_{XY}$ su **función de distribución conjunta**. Dicha función satisface las propiedades siguientes:
+Sea $(X,Y)$ una variable bidimensional. y sea $F_{XY}$ su **función de distribución conjunta**. Dicha función satisface las propiedades siguientes:
 
 * La función de distribución conjunta es no decreciente en cada una de las variables:
 $$
@@ -148,18 +150,18 @@ F_X(x)=F_{XY}(x,\infty),\ F_Y(y)=F_{XY}(\infty,y),
 $$
 para todo $x,y\in\mathbb{R}$.
 
-* La función de distribución conjunta es continua por el "norte" y por el "este":
+* La función de distribución conjunta es continua por el "*norte*" y por el "*este*":
 $$
 \begin{array}{rl}
 \lim_{x\to a^+}F_{XY}(x,y) & =\lim_{x\to a, x> a}F_{XY}(x,y)=F_{XY}(a,y), \\
 \lim_{y\to b^+}F_{XY}(x,y) & =\lim_{y\to b, y> b}F_{XY}(x,y)=F_{XY}(x,b),
 \end{array}
 $$
-para todo $a,b\in\mathbb{R}$. Ver figura siguiente.
-
+para todo $a,b\in\mathbb{R}$. Ver la siguiente figura.
 <div class="center">
 
-```{r, echo=FALSE, label=bid5,fig.cap=""}
+
+```{r, echo=FALSE, label=bid5,fig.cap="Función de distribución conjunta"}
 knitr::include_graphics("Images/Fxy2.png",dpi=1200)
 ```
 </div>
@@ -196,7 +198,7 @@ En la figura siguiente, hemos representado por zonas cómo está definida $F_{XY
 
 <div class="center">
 
-```{r, echo=FALSE, label=bid7,fig.cap=""}
+```{r, echo=FALSE, label=bid7,fig.cap="Funciń de distribución uniforme bidimensional."}
 knitr::include_graphics("Images/FxyEx.png",dpi=1200)
 ```
 </div>
@@ -272,22 +274,26 @@ Hallar el valor de la **función de distribución conjunta** para la **variable 
 ## Variables aleatorias bidimensionales discretas
 
 <l class="definition">Definición de variable aleatoria bidimensional discreta:</l>
-Sea $(X,Y)$ una **variable aleatoria bidimensional**. Diremos que es discreta cuando su conjunto de valores en $\mathbb{R}^2$, $(X,Y)(\Omega)$ es un conjunto finito o numerable. 
+Sea $(X,Y)$ una **variable aleatoria bidimensional**. Diremos 
+que es discreta cuando su conjunto de valores en $\mathbb{R}^2$, $(X,Y)(\Omega)$ es un conjunto finito o numerable. 
 
 En la mayoría de los casos, dicho conjunto será un subconjunto de los enteros naturales.
 
 <div class="example">
-**Ejemplo**
+**Ejemplo: lanzamiento de dos dados (continuación)**
 
 La variable aleatoria bidimensional anterior que nos daba la suma y el producto de los resultados obtenidos por los dos lanzamientos, respectivamente es discreta ya que: 
 $$
 \begin{array}{rl}
-(S,P)(\Omega) & =\{(2,1),(3,2),(4,3),(4,4),(5,4),(5,6),(6,5),(6,8),(6,9),(7,6),(7,10),(7,12),(8,12),\\ & (8,15),(8,16),(9,18),(9,20),(10,24),(10,25),(11,30),(12,36)\}.
+(S,P)(\Omega) =&\{(2,1),(3,2),(4,3),(4,4),(5,4),(5,6),(6,5),(6,8),(6,9),(7,6),\\ & 
+(7,10),(7,12),(8,12), (8,15),(8,16),(9,18),(9,20),(10,24),\\ & (10,25),(11,30), (12,36)\}.
 \end{array}
 $$
 
 Comprobar que el conjunto $(S,P)(\Omega)$ dado por el ejemplo coincide con la expresión dada. 
-O sea, hallar el conjunto $(S,P)(\Omega)$:
+O lo que es lo mismo, hallar el conjunto $(S,P)(\Omega)$:
+
+<div class="example-sol">
 $$
 \begin{array}{rl}
 (S,P): \Omega & \longrightarrow \mathbb{R}^2\\
@@ -297,7 +303,7 @@ $$
 (6,6) & \longrightarrow (S(6,6),P(6,6))=(12,36).
 \end{array}
 $$
-
+</div>
 </div>
 
 ### Función de probabilidad conjunta
@@ -311,10 +317,14 @@ P_{XY}: \mathbb{R}^2 & \longrightarrow \mathbb{R}\\
 $$
 
 <l class="observ">Observación:</l>
-Si $(x,y)\not\in (X,Y)(\Omega)$, el valor de la **función de probabilidad conjunta** en $(x,y)$ en nulo: $P_{XY}(x,y)=0$, ya que, en este caso, el conjunto $\{w\in\Omega,\ | (X(w),Y(w))=(x,y)\}=\emptyset$ ya que recordemos $(x,y)\not\in (X,Y)(\Omega)$.
+Si $(x,y)\not\in (X,Y)(\Omega)$, el valor de la **función de probabilidad conjunta** en $(x,y)$ es nula: $P_{XY}(x,y)=0$. El motivo es que, en este caso,  el conjunto $\{w\in\Omega,\ | (X(w),Y(w))=(x,y)\}=\emptyset$ es vacío  pues $(x,y)\not\in (X,Y)(\Omega)$.
 
-Por tanto, de cara a calcular $P_{XY}$ basta calcular $P_{XY}(x_i,y_j)$ para $(x_i,y_j)\in (X,Y)(\Omega)$:
 
+<div class="example">
+**Ejemplo: lanzamiento de dos dados (continuación)**
+Por tanto, de cara a calcular $P_{XY}$ basta  conocer los valores de $P_{XY}(x_i,y_j)$ para $(x_i,y_j)\in (X,Y)(\Omega)$:
+
+<div class="example-sol">
 <div class="center">
 | $X/Y$| $y_1$    | $y_2$  | $\ldots$ | $y_N$ |
 |----|----|----|----|----|
@@ -325,11 +335,9 @@ Por tanto, de cara a calcular $P_{XY}$ basta calcular $P_{XY}(x_i,y_j)$ para $(x
 </div>
 
 
-#### Ejemplos
-<div class="example">
-**Ejemplo de la suma y el producto de los resultados de dos lanzamientos de un dado**
 
-La **función de probabilidad conjunta** será:
+
+La **función de probabilidad conjunta** es:
 <div class="center">
 | $S/P$| 1 | 2| 3 | 4 | 5| 6 | 8| 9| 10 | 12 | 15 | 16 | 18 | 20 | 24 | 25 | 30 | 36 
 |--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--
@@ -407,6 +415,8 @@ knitr::kable(round(tabla.func.prob.conjunta[7:11,10:18],4))
 ```
 
 lo cual finaliza nuestros cálculos en `R`. 
+
+</div>
 </div>
 
 #### Propiedades de la función de probabilidad conjunta
@@ -428,17 +438,20 @@ F_{XY}(x,y)=\sum_{x_i\leq x, y_j\leq y} P_{XY}(x_i,y_j).
 $$
 Dicha expresión se deduce de la expresión anterior considerando $B=(-\infty,x]\times (-\infty,y]$.
 
-**Ejemplo de la suma y el producto de los resultados de dos lanzamientos de un dado**
+
 
 <div class="exercise">
-**Ejercicio**
+** Ejercicio**
 
-Comprobad usando la tabla de la función de probabilidad conjunta que la suma de todos sus valores suma 1.
+En el  ejemplo del lanzamiento de  los dos dados. Comprobad usando la tabla de la función de probabilidad conjunta que la suma de todos sus valores suma 1.
 </div>
 
-<div class="example-sol">
+<div class="example">
+**Ejemplo: lanzamientos de dados (continuación)**
 
 Apliquemos la fórmula que relaciona la función de distribución conjunta con la función de probabilidad conjunta para $(x,y)=(5,4)$.
+
+<div class="example-sol">
 
 Recordemos la tabla de la función de probabilidad conjunta hasta $S=5$ y $P=4$:
 
@@ -458,7 +471,7 @@ $$
 F_{SP}(5,4) & = P_{SP}(2,1)+P_{SP}(3,2)+P_{SP}(4,3)+P_{SP}(4,4)+P_{SP}(5,4) \\ & = \frac{1}{36}+\frac{2}{36}+\frac{2}{36}+\frac{1}{36}+\frac{2}{36} = \frac{8}{36}=\frac{2}{9}.
 \end{array}
 $$
-O sea, "a la larga", de cada 9 ocasiones que lanzamos un dado dos veces, en 2 ocasiones obtenemos un resultado cuya suma es menor o igual que 5 y cuyo producto es menor o igual que 4.
+Es decir, "a largo plazo", de cada 9 ocasiones que lanzamos un dado dos veces; en 2 ocasiones obtenemos un resultado cuya suma es menor o igual que 5 y cuyo producto es menor o igual que 4.
 
 
 Para definir la **función de distribución conjunta** definimos la función siguiente en `R`:
@@ -468,15 +481,19 @@ func.dist.conj = function(x,y,n=6){
                             as.integer(colnames(tabla.func.prob.conjunta)) <=y])
 }
 ```
+
 Comprobemos que $F_{SP}(5,4)=\frac{2}{9}=`r round(2/9,4)`$:
+
 ```{r}
 func.dist.conj(5,4)
 ```
 
 </div>
+</div>
 
 
-### Variables aleatorias marginales
+### Distribuciones  marginales
+
 Consideremos una variable aleatoria **bidimensional discreta $(X,Y)$** con **función de probabilidad conjunta** $P_{XY}(x_i,y_j)$, con $(x_i,y_j)\in (X,Y)(\Omega)$, $i=1,2,\ldots$, $j=1,2,\ldots$.
 
 La tabla de la **función de probabilidad conjunta** contiene suficiente información para obtener las **funciones de probabilidad** de las variables $X$ e $Y$. 
@@ -495,7 +512,7 @@ P_X(x_i)  & = \sum_{j=1} P_{XY}(x_i,y_j),\  i=1,2,\ldots,\\ P_Y(y_j) &  = \sum_{
 \end{array}
 $$
 
-O sea, si pensamos $P_{XY}$ como una tabla bidimensional donde en la primera fila están los valores de la variable $Y$ ($y_1,y_2,\ldots$) y en la primera columna están los valores de la variable $X$ ($x_1,x_2,\ldots$), para obtener la **función de probabilidad marginal** de la variable $X$ en el valor $x_i$, $P_X(x_i)$, hay que sumar todos los valores de $P_{XY}(x_i,y_j)$ correspondientes a la fila $i$-ésima y para obtener la **función de probabilidad marginal** de la variable $Y$ en el valor $y_j$, $P_Y(y_j)$, hay que sumar todos los valores de $P_{XY}(x_i,y_j)$ correspondientes a la columna $j$-ésima.
+Si consideramos la funciòn  $P_{XY}$ como una tabla bidimensional en la  que en la primera fila están los valores de la variable $Y$ ($y_1,y_2,\ldots$) y en la primera columna están los valores de la variable $X$ ($x_1,x_2,\ldots$). Para obtener la **función de probabilidad marginal** de la variable $X$ en el valor $x_i$, $P_X(x_i)$, hay que sumar todos los valores de $P_{XY}(x_i,y_j)$ correspondientes a la fila $i$-ésima y para obtener la **función de probabilidad marginal** de la variable $Y$ en el valor $y_j$, $P_Y(y_j)$, hay que sumar todos los valores de $P_{XY}(x_i,y_j)$ correspondientes a la columna $j$-ésima.
 
 #### Ejemplo
 
@@ -559,9 +576,9 @@ $$
 
 #### Ejemplos
 <div class="example">
-**Ejemplo**
+**Ejemplo: cálculo probabilidad distribución bidimensional**
 
-Consideremos la **función de densidad siguiente**:
+Consideremos la siguiente **función de densidad**:
 $$
 f_{XY}(x,y)=\begin{cases}
 1, & \mbox{ si }0\leq x\leq 1,\ 0\leq y\leq 1, \\
@@ -569,9 +586,16 @@ f_{XY}(x,y)=\begin{cases}
 \end{cases}
 $$
 En este caso, si consideramos $B=\left[-1,\frac{1}{2}\right]\times \left[-1,\frac{1}{2}\right]$, la probabilidad de que $(X,Y)$ esté en $B$ se calcularía de la forma siguiente:
+
+<div class="example-sol">
+
 $$
-P((X,Y)\in B)=\int_{-1}^{\frac{1}{2}}\int_{-1}^{\frac{1}{2}} f_{XY}(x,y)\, dx\, dy =\int_0^{\frac{1}{2}}\int_0^{\frac{1}{2}} 1\, dx\,dy=\int_0^{\frac{1}{2}} 1\, dx\int_0^{\frac{1}{2}} 1\, dy=\frac{1}{2}\cdot\frac{1}{2}=\frac{1}{4}.
+\begin{array}{rl}
+P((X,Y)\in B)&=\int\int_{B} f_{XY}(x,y)\, dx\, dy=\int_{-1}^{\frac{1}{2}}\int_{-1}^{\frac{1}{2}} f_{XY}(x,y)\, dx\, dy \\
+&=\int_0^{\frac{1}{2}}\int_0^{\frac{1}{2}} 1\, dx\,dy=\int_0^{\frac{1}{2}} 1\, dx\int_0^{\frac{1}{2}} 1\, dy=\frac{1}{2}\cdot\frac{1}{2}=\frac{1}{4}.
+\end{array}
 $$
+
 En la figura siguiente hemos dibujado en morado la región donde $f_{XY}$ no es cero, o sea $[0,1]\times [0,1]$, la región $B$ en verde y la región intersección de las dos anteriores que es donde tenemos que integrar la **función de densidad** dada.
 
 <div class="center">
@@ -581,15 +605,19 @@ knitr::include_graphics("Images/VaUniformeBidi.png",dpi=1200)
 ```
 </div>
 </div>
+</div>
 
 ### Propiedades de la función de densidad
 Sea $(X,Y)$ una **variable aleatoria bidimensional continua** con **función de densidad** $f_{XY}$. Entonces dicha función verifica las propiedades siguientes:
 
 * La integral de dicha función sobre todo el plano vale 1: 
+
 $$
 \int\int_{\mathbb{R}^2} f_{XY}(x,y)\,dx\,dy =1.
 $$
+
 Para ver dicha propiedad, basta considerar $B=\mathbb{R}^2$, tener en cuenta que el suceso $(X,Y)\in \mathbb{R}^2$ es el total $\Omega$ y aplicar la definición de $f_{XY}$:
+
 $$
 P((X,Y)\in \mathbb{R}^2)=1= \int\int_{\mathbb{R}^2} f_{XY}(x,y)\,dx\,dy.
 $$
@@ -616,7 +644,7 @@ $$
 
 #### Ejemplos
 <div class="example">
-**Ejemplo anterior**
+**Ejemplo: continuación  ejemplo  anterior**
 
 Comprobemos las propiedades usando la **función de densidad** del ejemplo anterior: 
 $f_{XY}(x,y)=\begin{cases}
@@ -624,9 +652,14 @@ $f_{XY}(x,y)=\begin{cases}
 0, & \mbox{en caso contrario.}
 \end{cases}$
 
+<div class="example-sol">
 * La integral de $f_{XY}$ sobre todo el plano vale 1:
+
 $$
-\int\int_{\mathbb{R}^2} f_{XY}(x,y)\,dx\, dy=\int_0^1\int_0^1 1\, dx\, dv=\int_0^1 1\, dx\int_0^1 1\, dy=1\cdot 1=1.
+\begin{array}{rcl}
+\int\int_{\mathbb{R}^2} f_{XY}(x,y)\,dx\, dy &=&\int_0^1\int_0^1 1\, dx\, dv\\
+&=&\int_0^1 1\, dx\int_0^1 1\, dy=1\cdot 1=1.
+\end{array}
 $$
 
 * Vamos a calcular la función de distribución $F_{XY}$. Para ello dividimos el plano en 5 zonas tal como muestra la figura siguiente:
@@ -639,8 +672,12 @@ knitr::include_graphics("Images/VaUniformeBidi2.png",dpi=1200)
 </div>
 
 Sea $(x,y)$ un punto cualquiera de $\mathbb{R}^2$. De cara a calcular $F_{XY}(x,y)$ tenemos que averiguar el conjunto intersección siguiente: $([0,1]\times [0,1])\cap ((-\infty,x]\times (-\infty,y])$ ya que el dominio donde $f_{XY}$ es no nula es $[0,1]\times [0,1]$ y la función de distribución $F_{XY}(x,y)$ valdrá:
+
 $$
-F_{XY}(x,y)=\int_{-\infty}^x\int_{-\infty}^y f_{XY}(u,v)\,du\,dv =\int\int_{([0,1]\times [0,1])\cap ((-\infty,x]\times (-\infty,y])} f_{XY}(u,v)\,du\,dv.
+\begin{array}{rl}
+F_{XY}(x,y)&=\int_{-\infty}^x\int_{-\infty}^y f_{XY}(u,v)\,du\,dv\\ &=
+\int\int_{([0,1]\times [0,1])\cap ((-\infty,x]\times (-\infty,y])} f_{XY}(u,v)\,du\,dv.
+\end{array}
 $$
 
 * Caso $(x,y)\in \mbox{Zona A}$ o $x<0$ o $y<0$ En este caso: $([0,1]\times [0,1])\cap ((-\infty,x]\times (-\infty,y])=\emptyset.$ Ver figura siguiente donde la zona morada $([0,1]\times [0,1]$) no se interseca con la zona verde ($(-\infty,x]\times (-\infty,y]$).
@@ -726,10 +763,10 @@ Por tanto la variable $X$ sigue la distribución uniforme en el intervalo $[0,1]
 Dejamos como ejercicio comprobar que la variable $Y$ también sigue la distribución uniforme en el mismo intervalo.
 </div>
 
+</div>
 
-#### Ejemplo 2
 <div class="example">
-**Ejemplo**
+**Ejemplo: otra función de densidad bidimensional**
 
 Consideremos la variable aleatoria bidimensional $(X,Y)$ con **función de densidad**:
 $$
@@ -738,7 +775,9 @@ c \mathrm{e}^{-x}\mathrm{e}^{-y}, & 0\leq y\leq x < \infty,\\
 0, & \mbox{ en caso contrario,}
 \end{cases}
 $$
-donde $c$ es un valor que se tiene que hallar para que $f_{XY}$ sea función de densidad.
+donde $c$ es un valor que se tiene que hallar para que $f_{XY}$ sea función de densidad. Calcular $c$ y comprobar todas las propiedades de la función de densidad.
+
+<div class="example-sol">
 
 Para hallar $c$, hemos de imponer que la integral de la función anterior debe ser 1 sobre todo el plano $\mathbb{R}^2$.
 
@@ -753,8 +792,10 @@ knitr::include_graphics("Images/Ejemplo2Bidi.png",dpi=1200)
 
 $$
 \begin{array}{rl}
-1 & =\int\int_{\mathbb{R}^2}f_{XY}(x,y)\, dx\, dy=\int_{x=0}^{x=\infty}\int_{y=0}^{y=x} c \mathrm{e}^{-x}\mathrm{e}^{-y} \, dy\, dx =c \int_{x=0}^{x=\infty}\mathrm{e}^{-x}\int_{y=0}^{y=x}\mathrm{e}^{-y}\, dy\, dx \\ & =
-c \int_{x=0}^{x=\infty}\mathrm{e}^{-x}\left[-\mathrm{e}^{-y}\right]_{y=0}^{y=x}\, dx = c \int_{x=0}^{x=\infty}\mathrm{e}^{-x}\left(1-\mathrm{e}^{-x}\right)\, dx =c \int_{x=0}^{x=\infty}\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)\, dx \\ & = c \left[-\mathrm{e}^{-x}+\frac{1}{2}\mathrm{e}^{-2x}\right]_{x=0}^{x=\infty} = c\left(1-\frac{1}{2}\right)=\frac{c}{2}.
+1 &=  \int\int_{\mathbb{R}^2}f_{XY}(x,y)\, dx\, dy=\int_{x=0}^{x=\infty}\int_{y=0}^{y=x} c \mathrm{e}^{-x}\mathrm{e}^{-y} \, dy\, dx \\
+  &=  c \int_{x=0}^{x=\infty}\mathrm{e}^{-x}\int_{y=0}^{y=x}\mathrm{e}^{-y}\, dy\, dx = c    \int_{x=0}^{x=\infty}\mathrm{e}^{-x}\left[-\mathrm{e}^{-y}\right]_{y=0}^{y=x}\, dx \\
+  &=  c \int_{x=0}^{x=\infty}\mathrm{e}^{-x}\left(1-\mathrm{e}^{-x}\right)\, dx =c \int_{x=0}^{x=\infty}\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)\, dx 
+  \\ & =  c \left[-\mathrm{e}^{-x}+\frac{1}{2}\mathrm{e}^{-2x}\right]_{x=0}^{x=\infty} = c\left(1-\frac{1}{2}\right)=\frac{c}{2}.
 \end{array}
 $$
 
@@ -785,10 +826,11 @@ knitr::include_graphics("Images/Ejemplo2Bidi2.png",dpi=1200)
 
 Por tanto,
 $$
-\begin{array}{rl}
-F_{XY}(x,y) & =\int_{u=0}^{u=x}\int_{v=0}^{v=u} f_{XY}(u,v)\,dv\,du= 2 \int_{u=0}^{u=x} \mathrm{e}^{-u}\int_{v=0}^{v=u}  \mathrm{e}^{-v}\,dv\,du  =
-2 \int_{u=0}^{u=x} \mathrm{e}^{-u}\left[-\mathrm{e}^{-v}\right]_{v=0}^{v=u}\, du \\ & = 2 \int_{u=0}^{u=x} \mathrm{e}^{-u} (1-\mathrm{e}^{-u})\, du =2 \int_{u=0}^{u=x} \left(\mathrm{e}^{-u}-\mathrm{e}^{-2u}\right)\, du=2 \left[-\mathrm{e}^{-u}+\frac{1}{2}\mathrm{e}^{-2u}\right]_{u=0}^{u=x}  \\ & =
-2\left(-\mathrm{e}^{-x}+\frac{1}{2}\mathrm{e}^{-2x}+1-\frac{1}{2}\right) =1-2\mathrm{e}^{-x}+\mathrm{e}^{-2x}.
+\begin{array}{lcr}
+F_{XY}(x,y) & = & \int_{u=0}^{u=x}\int_{v=0}^{v=u} f_{XY}(u,v)\,dv\,du= 2 \cdot\int_{u=0}^{u=x} \mathrm{e}^{-u}\int_{v=0}^{v=u}  \mathrm{e}^{-v}\,dv\,du\\ &  = & 
+2 \cdot\int_{u=0}^{u=x} \mathrm{e}^{-u}\cdot\left[-\mathrm{e}^{-v}\right]_{v=0}^{v=u}\, du =  2 \cdot\int_{u=0}^{u=x} \mathrm{e}^{-u} \cdot (1-\mathrm{e}^{-u})\, du 
+\\ & = & 2 \int_{u=0}^{u=x} \left(\mathrm{e}^{-u}-\mathrm{e}^{-2u}\right)\, du=2\cdot \left[-\mathrm{e}^{-u}+\frac{1}{2}\cdot\mathrm{e}^{-2u}\right]_{u=0}^{u=x}  \\ & = &
+2\cdot\left(-\mathrm{e}^{-x}+\frac{1}{2}\cdot\mathrm{e}^{-2x}+1-\frac{1}{2}\right) =1-2\cdot\mathrm{e}^{-x}+\mathrm{e}^{-2x}.
 \end{array}
 $$
 
@@ -803,13 +845,16 @@ knitr::include_graphics("Images/Ejemplo2Bidi3.png",dpi=1200)
 * Caso $x\geq y$ (zona morada de la figura adjunta). En este caso, si hacemos la intersección de la región $B=(-\infty,x]\times (-\infty,y]$ (zona azul) con la zona morada o región donde $f_{XY}(x,y)\neq 0$ obtenemos el trapecio $T_{x,y}=\{(u,v)\in\mathbb{R}^2,\ 0\leq v\leq y,\ v\leq u\leq x\}.$ Ver figura adjunta.
 
 Por tanto,
+
 $$
 \begin{array}{rl}
-F_{XY}(x,y) & =\int_{v=0}^{v=y}\int_{u=v}^{u=x} f_{XY}(u,v)\,dv\,du= 2 \int_{v=0}^{v=y} \mathrm{e}^{-v}\int_{u=v}^{u=x} \mathrm{e}^{-u}\,du\,dv  =
-2 \int_{v=0}^{v=y} \mathrm{e}^{-v}\left[-\mathrm{e}^{-u}\right]_{u=v}^{u=x}\, dv \\ & = 2 \int_{v=0}^{v=y} \mathrm{e}^{-v} (\mathrm{e}^{-v}-\mathrm{e}^{-x})\, du =2 \int_{v=0}^{v=y} \left(\mathrm{e}^{-2v}-\mathrm{e}^{-v-x}\right)\, du=2 \left[-\frac{1}{2}\mathrm{e}^{-2v}+\mathrm{e}^{-v-x}\right]_{v=0}^{v=y}  \\ & =
-2\left(-\frac{1}{2}\mathrm{e}^{-2y}+\mathrm{e}^{-x-y}+\frac{1}{2}-\mathrm{e}^{-x}\right) =1-2\mathrm{e}^{-x}-\mathrm{e}^{-2y}+2\mathrm{e}^{-x-y}.
+F_{XY}(x,y) &=  \int_{v=0}^{v=y}\int_{u=v}^{u=x} f_{XY}(u,v)\,dv\,du= 2\cdot\int_{v=0}^{v=y} \mathrm{e}^{-v}\int_{u=v}^{u=x} \mathrm{e}^{-u}\,du\,dv \\
+&=  2 \cdot\int_{v=0}^{v=y} \mathrm{e}^{-v}\cdot\left[-\mathrm{e}^{-u}\right]_{u=v}^{u=x}\, dv  = 2 \cdot\int_{v=0}^{v=y} \mathrm{e}^{-v}\cdot (\mathrm{e}^{-v}-\mathrm{e}^{-x})\, du \\ 
+&=  2 \cdot\int_{v=0}^{v=y} \left(\mathrm{e}^{-2v}-\mathrm{e}^{-v-x}\right)\, du=2 \cdot\left[-\frac{1}{2}\mathrm{e}^{-2v}+\mathrm{e}^{-v-x}\right]_{v=0}^{v=y}  
+\\ &=  2\cdot\left(-\frac{1}{2}\cdot\mathrm{e}^{-2y}+\mathrm{e}^{-x-y}+\frac{1}{2}-\mathrm{e}^{-x}\right) \\&=  1-2\cdot\mathrm{e}^{-x}-\mathrm{e}^{-2y}+2\cdot\mathrm{e}^{-x-y}.
 \end{array}
 $$
+
 
 <div class="center">
 
@@ -851,10 +896,16 @@ Hallemos las **funciones de densidad marginales**. Fijémonos que basta tener en
 
 $$
 \begin{array}{rl}
-f_X(x) & = \int_{-\infty}^{\infty} f_{XY}(x,y)\, dy =\int_{y=0}^{y=x}2\mathrm{e}^{-x-y}\, dy = 2\left[-\mathrm{e}^{-x-y}\right]_{y=0}^{y=x} = 2\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right),\mbox{ si }x\geq 0, \\
-f_Y(y) & = \int_{-\infty}^{\infty} f_{XY}(x,y)\, dx =\int_{x=y}^{x=\infty}2\mathrm{e}^{-x-y}\, dx = 2\left[-\mathrm{e}^{-x-y}\right]_{x=y}^{x=\infty} = 2\mathrm{e}^{-2y}, \mbox{ si }y\geq 0.
+f_X(x) &=   \int_{-\infty}^{\infty} f_{XY}(x,y)\, dy =\int_{y=0}^{y=x}2\mathrm{e}^{-x-y}\, dy = 2\left[-\mathrm{e}^{-x-y}\right]_{y=0}^{y=x} \\ &=   2\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right),\mbox{ si }x\geq 0,
 \end{array}
 $$
+
+$$
+\begin{array}{rl}
+f_Y(y) & =  \int_{-\infty}^{\infty} f_{XY}(x,y)\, dx =\int_{x=y}^{x=\infty}2\mathrm{e}^{-x-y}\, dx = 2\left[-\mathrm{e}^{-x-y}\right]_{x=y}^{x=\infty}\\ &= 2\mathrm{e}^{-2y}, \mbox{ si }y\geq 0.
+\end{array}
+$$
+
 Vemos que la variable $Y$ corresponde a una distribución exponencial de parámetro $\lambda =2$.
 
 Dibujemos la **función de densidad conjunta** y la **función de distribución conjunta** con `R`. Primero las definimos:
@@ -875,6 +926,7 @@ z.fun.den.con=outer(x,y,fun.den.con)
 z.fun.dist.con = outer(x,y,fun.dist.con)
 persp(x,y,z.fun.den.con,theta=50,phi=40,col="green",shade=0.25,ticktype="detailed")
 ```
+</div>
 </div>
 
 ### La distribución gaussiana bidimensional
@@ -919,6 +971,7 @@ En `R` existe el paquete `bivariate` para trabajar con algunas distribuciones co
 
 La función que nos la densidad de la **distribución normal bidimensional** es `nbvpdf` y tiene 5 parámetros: la **media** de $X$ ($\mu_X$), la **media** de $Y$ ($\mu_Y$), la **desviación típica** de $X$ ($\sigma_X$), la **desviación típica** de $Y$ ($\sigma_Y$) y un concepto que veremos más adelante, la **correlación** entre $X$ e $Y$ ($\rho_{XY}$).
 
+<div class="example-sol">
 En el ejemplo que estamos tratando, los valores de los parámetros anteriores son: $\mu_X=\mu_Y=0$, $\sigma_X=\sigma_Y=1$ y $\rho_{XY}=\rho.$
 
 Vamos a hacer un gráfico de la **distribución normal bidimensional** para $\rho=\frac{1}{2}.$
@@ -929,10 +982,12 @@ f = nbvpdf (0, 0, 1, 1, 0.5)
 plot(f,TRUE)
 ```
 </div>
+</div>
 
 ## Independencia de variables aleatorias
 
-### Independencia de variables aleatorias discretas
+### Independencia de variables aleatorias discretas###
+
 Recordemos que dos sucesos $A$ y $B$ son independientes si $P(A\cap B)=P(A)\cdot P(B)$.
 
 ¿Cómo trasladar dicho concepto al caso de variables aleatorias?
@@ -950,32 +1005,31 @@ P(X=x_i,\ Y=y_k)=P(X=x_i)\cdot P(Y=y_k),\ i=1,2,\ldots,j=1,2,\ldots
 $$
 
 
-#### Ejemplo
 <div class="example">
-**Ejemplo de la suma y el producto de los resultados de dos lanzamientos de un dado**
+**Ejemplo: suma y el producto de los resultados de dos lanzamientos de un dado**
 
 Consideramos la variable aleatoria $(S,P)$ donde $S$ representa la suma de los valores obtenidos al lanzar dos veces un dado y $P$, su producto. 
 
+<div class="example-sol">
 En este caso $S$ y $P$ no son independientes ya que recordemos que por ejemplo $P_{SP}(3,2)=\frac{2}{36}$, $P_S(3)=\frac{2}{36}$ y $P_P(2)=\frac{2}{36}$, ya que en este último caso, sólo hay dos posibles resultados en los que el producto dé 2: el $(1,2)$ y el $(2,1)$.
 
 Entonces no se cumple que $P_{SP}(3,2)=P_S(3)\cdot P_P(2)$, ya que $\frac{2}{36}\neq \frac{2}{36}\cdot \frac{2}{36}$.
 
 De ahí que no sean independientes ya que la condición anterior se debería cumplir para todos los valores $x_i$ e $y_k$ y hemos encontrado un contraejemplo en donde no se cumple.
-
+</div>
 </div>
 
 <l class="observ">Observación. </l>
 Si la tabla de la **función de probabilidad conjunta** de $(X,Y)$ contiene algún $0$, $X$ e $Y$ no pueden ser independientes. ¿Podéis decir por qué?
 
 <div class="example">
-**Ejemplo**
+**Ejemplo: un caso de imdependencia**
 
-Veamos un caso de independencia.
-
-Consideramos el experimento aleatorio de lanzar un dado dos veces. Sea $X$ el resultado del primer lanzamiento e $Y$, el resultado del segundo lanzamiento.
+Veamos un caso de independencia. Consideramos el experimento aleatorio de lanzar un dado dos veces. Sea $X$ el resultado del primer lanzamiento e $Y$, el resultado del segundo lanzamiento.
 
 Veamos que, en este caso, $X$ e $Y$ son independientes.
 
+<div class="example-sol">
 El valor de $(X,Y)(\Omega)=\{(1,1),(1,2),\ldots,(6,6)\}$, en total 36 resultados.
 
 La **función de probabilidad conjunta** en un valor cualquiera $(i,j)$ con $i,j\in\{1,2,3,4,5,6\}$ será:
@@ -1019,8 +1073,10 @@ knitr::kable(round(tabla.ind.teor[7:11,10:18],4))
 
 lo cual finaliza nuestros cálculos en `R`.
 </div>
+</div>
 
 ### Independencia de variables aleatorias continuas
+
 La definición dada para **variables aleatorias discretas** se traslada de forma natural a las **variables aleatorias continuas**:
 
 <l class="definition">Definición de independencia para variables aleatorias bidimensionales continuas. </l>
@@ -1052,6 +1108,8 @@ f_{X}(x)=\begin{cases}
 $$
 
 Veamos que son independientes.
+
+<div class="example-sol">
 
 Consideremos dos casos:
 
@@ -1678,25 +1736,27 @@ $$
 Dejamos como ejercicio comprobar que es una **función de densidad**. O sea, que es positiva y que la integral sobre todo el plano vale 1.
 
 Calculemos las **densidades marginales**:
+
 $$
 \begin{array}{rl}
-f_X(x) & = \int_{-1}^{1} \frac{3}{8}(x^2+y^2)\, dy = \frac{3}{8}\left[x^2 y+\frac{y^3}{3}\right]_{-1}^1 =\frac{3}{8}\left(2 x^2+\frac{2}{3}\right)=\frac{3}{4} x^2+\frac{1}{4}, \\
-f_Y(y) & = \int_{-1}^{1} \frac{3}{8}(x^2+y^2)\, dx = \frac{3}{8}\left[\frac{x^3}{3}+y^2 x\right]_{-1}^1 =\frac{3}{8}\left(\frac{2}{3}+2 y^2+\right)=\frac{3}{4} y^2+\frac{1}{4}.
+f_X(x) & = \int_{-1}^{1} \frac{3}{8}(x^2+y^2)\, dy = \frac{3}{8}\cdot\left[x^2\cdot y+\frac{y^3}{3}\right]_{-1}^1 =\frac{3}{8}\cdot\left(2 \cdot x^2+\frac{2}{3}\right)=\frac{3}{4}
+\cdot x^2+\frac{1}{4}, \\
+f_Y(y) & = \int_{-1}^{1} \frac{3}{8}\cdot(x^2+y^2)\, dx = \frac{3}{8}\cdot\left[\frac{x^3}{3}+y^2 x\right]_{-1}^1 =\frac{3}{8}\cdot\left(\frac{2}{3}+2 y^2+\right)=\frac{3}{4}\cdot y^2+\frac{1}{4}.
 \end{array}
 $$
 
 Los valores esperados de cada variable $X$ e $Y$ serán:
 $$
 \begin{array}{rl}
-E(X) & =\int_{-1}^1 x \left(\frac{3}{4} x^2+\frac{1}{4}\right)\, dx =0, \mbox{al integrar una función impar,}\\
-E(Y) & =\int_{-1}^1 x \left(\frac{3}{4} y^2+\frac{1}{4}\right)\, dx =0, \mbox{al integrar una función impar.}
+E(X) & =\int_{-1}^1 x \cdot\left(\frac{3}{4} \cdot x^2+\frac{1}{4}\right)\, dx =0, \mbox{al integrar una función impar,}\\
+E(Y) & =\int_{-1}^1 x \left(\frac{3}{4}\cdot y^2+\frac{1}{4}\right)\, dx =0, \mbox{al integrar una función impar.}
 \end{array}
 $$
 
 El valor de la **correlación** entre $X$ e $Y$ será:
 $$
 \begin{array}{rl}
-E(X\cdot Y) & =\int_{-1}^1\int_{-1}^1 x y \frac{3}{8}(x^2+y^2)\, dy\, dx\\ & =\frac{3}{8}\left(\int_{-1}^1\int_{-1}^1 x^3 y\, dy \, dx+\int_{-1}^1\int_{-1}^1 x y^3\, dy \, dx\right) \\ & = \frac{3}{8} \left(\int_{x=-1}^{x=1}x^3 \left[\frac{y^2}{2}\right]_{y=-1}^{y=1}\, dx + \int_{y=-1}^{y=1}y^3 \left[\frac{x^2}{2}\right]_{x=-1}^{x=1}\right)=0.
+E(X\cdot Y) & =\int_{-1}^1\int_{-1}^1 x \cdot y \cdot \frac{3}{8}\cdot (x^2+y^2)\, dy\, dx\\ & =\frac{3}{8}\cdot\left(\int_{-1}^1\int_{-1}^1 x^3 \cdot y\, dy \, dx+\int_{-1}^1\int_{-1}^1 x\cdot y^3\, dy \, dx\right) \\ & = \frac{3}{8} \left(\int_{x=-1}^{x=1}x^3 \left[\frac{y^2}{2}\right]_{y=-1}^{y=1}\, dx + \int_{y=-1}^{y=1}y^3 \left[\frac{x^2}{2}\right]_{x=-1}^{x=1}\right)=0.
 \end{array}
 $$
 El **coeficiente de correlación** entre $X$ e $Y$ será: $\rho_{XY}=E(X\cdot Y)-E(X)\cdot E(Y)=0-0\cdot 0=0$. Por tanto, son **incorreladas**.
@@ -1862,14 +1922,18 @@ La **función de densidad** de la **variable aleatoria condicional continua$Y|X$
 
 <l class="observ">Observación. </l>
 Al ser $Y|X=x$ una variable aleatoria unidimensional, su **función de densidad** tiene que verificar que la integral de dicha función sobre todo $\mathbb{R}$ tiene que ser 1. O sea:
+
 $$
 \int_{-\infty}^\infty f_{Y|X=x}(y)\, dy=1.
 $$
+
 Veámoslo:
 <div class="dem">
+
 $$
 \int_{-\infty}^\infty f_{Y|X=x}(y)\, dy =\int_{-\infty}^\infty \frac{f_{XY}(x,y)}{f_X(x)}\, dy=\frac{1}{f_X(x)}\int_{-\infty}^\infty f_{XY}(x,y)\, dy= \frac{1}{f_X(x)}\cdot f_X(x) =1.
 $$
+
 </div>
 
 <l class="observ">Observación. </l>
@@ -1913,9 +1977,11 @@ si $0\leq y\leq x_0$, y $f_{Y|X=x_0}(y)=0$, en caso contrario.
 Recordemos que la **densidad marginal** de la variable $X$ era: $f_X(x_0)=2\left(\mathrm{e}^{-x_0}-\mathrm{e}^{-2x_0}\right)$. 
 
 La **función de densidad marginal** de la variable $Y|X=x_0$ será:
+
 $$
 f_{Y|X=x_0}(y)=\frac{2\mathrm{e}^{-x_0}\mathrm{e}^{-y}}{2\left(\mathrm{e}^{-x_0}-\mathrm{e}^{-2x_0}\right)}=\frac{e^{-y}}{1-\mathrm{e}^{-x_0}},
 $$
+
 si $0\leq y\leq x_0$, y $f_{Y|X=x_0}(y)=0$, en caso contrario.
 
 Sea ahora $y_0>0$. Calculemos ahora la **densidad marginal** de la variable $X|Y=y_0$.

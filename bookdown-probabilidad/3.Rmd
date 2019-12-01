@@ -1831,24 +1831,22 @@ Por lo tanto, desde el punto de vista de la seguridad, es mejor una clave larga 
 </div>
 </div>
 
-## Distribución Poisson
+### Distribución de Poisson
 
 Diremos que una v.a. discreta $X$ con $X(\Omega)=\mathbf{N}$ tiene distribución de Poisson con parámetro $\lambda>0$, y lo denotaremos por $Po(\lambda)$ si su función de probabilidad es:
 
 $$
 P_{X}(x)=P(X=x)=
 \left\{\begin{array}{ll}
-\frac{\lambda^x}{x!} e^{-\lambda}& \mbox{ si } x=0,1,\ldots\\
-0 & \mbox{en otro caso}\end{array}\right..
+\frac{\lambda^x}{x!} e^{-\lambda},& \mbox{ si } x=0,1,\ldots\\
+0, & \mbox{en otro caso.}\end{array}\right.
 $$
 
-Recordemos que el desarrollo en serie  de Taylor de la exponencial es 
-
+Usando que el desarrollo en serie  de Taylor de la función exponencial es 
 $$
-e^{\lambda}=\sum_{x=0}^{+\infty} \frac{\lambda^x}{x!}.
+e^{\lambda}=\sum_{x=0}^{+\infty} \frac{\lambda^x}{x!},
 $$
-
-Teniendo en cuenta esto es  fácil comprobar que  todos los valores de la función de probabilidad suman 1.
+es  fácil comprobar que la suma de la función de probabilidad en todos los valores del dominio de $X$, o sea, los enteros positivos, vale 1.
 
 
 Además recordemos que   dado $x\in\mathbb{R}-\{0\}$   se tiene que  
@@ -1857,56 +1855,39 @@ $$
 \lim_{n\to\infty} \left(1+\frac{x}{n}\right)^n=e^x.
 $$
 
-### Distribución Poisson
-
-Así, por ejemplo, se tiene que 
-
-
+Usando la expresión anterior para $x=-\lambda$, tenemos:
 $$
 \lim_{n\to\infty} \left(1-\frac{\lambda}{n}\right)^n=\lim_{n\to\infty} \left(1+\frac{-\lambda}{n}\right)^n=e^{-\lambda}.
 $$
 
-### La distribución Poisson como "límite" de una binomial.
+**La distribución de Poisson como "límite" de una binomial**
 
-La distribución Poisson ([Siméon Denis Poisson](https://es.wikipedia.org/wiki/Sim%C3%A9on_Denis_Poisson)) aparece en el conteo de determinados  eventos que se producen en un intervalo de tiempo o en el espacio.
+La distribución de Poisson ([Siméon Denis Poisson](https://es.wikipedia.org/wiki/Sim%C3%A9on_Denis_Poisson)) aparece en el conteo de determinados  eventos que se producen en un intervalo de tiempo o en el espacio.
 
-Supongamos que nuestra variable de interés es  $X$= número de eventos en el intervalo de tiempo $(0,t]$.
+Supongamos que nuestra variable de interés es  $X$, el número de eventos en el intervalo de tiempo $(0,t]$, como por ejemplo el número de llamadas a un *call center* en una hora donde suponemos que se cumplen las siguientes condiciones:
 
-Como por ejemplo el número de llamadas a un *call center* en una hora  y que sabemos que se cumplen las siguientes condiciones:
-
-
-1. El número promedio de eventos en el intervalo $(0,t]$ es
-$\lambda>0$.
+1. El número promedio de eventos en el intervalo $(0,t]$ es $\lambda>0$.
 2. Es posible dividir el intervalo de tiempo en un
 gran número de subintervalos (denotemos por $n$ al número de intervalos) de forma que:
     + La probabilidad de que se produzcan dos o más eventos en un subintervalo es despreciable.
     + El número de ocurrencias de eventos en un intervalo  es independiente del número de ocurrencias en otro intervalo.
-    + La probabilidad de que un evento ocurra en un subintervalo es $p_n\cdot n=\lambda$ o lo que es lo mismo $p_n=\frac{\lambda}{n}$·
+    + La probabilidad de que un evento ocurra en un subintervalo es $p_n=\frac{\lambda}{n}$·
 
+Bajo estas condiciones, podemos considerar que el número de eventos en el intervalo $(0,t]$ será el número de "éxitos" en $n$ repeticiones independientes de un proceso Bernoulli de parámetro $p_n$
 
+Entonces si $n\to\infty$ y $p_n\cdot n$ se mantiene igual a $\lambda$ resulta que la función de probabilidad de $X_n$ se puede escribir como
 
-Bajo estas condiciones podemos considerar que el número de eventos en el intervalo $(0,t]$ será el número de "éxitos" en $n$ repeticiones independientes de un proceso Bernoulli de parámetro $p_n$
-
-Entonces si $n\to\infty$ y $p_n\cdot n$ se mantiene igual a $\lambda$ resulta que la función de probabilidad de $X$ se puede poner como
-
-
-
-
-\begin{eqnarray*}
-P(X_n=k)&=&\left(\begin{array}{c} n\\ k\end{array}\right) \cdot p_n^k\cdot  (1-p_n)^{n-k}
+$$
+\begin{array}{rl}
+P(X_n=k)&=\left(\begin{array}{c} n\\ k\end{array}\right) \cdot p_n^k\cdot  (1-p_n)^{n-k}
 \\
-&=& {n\choose k}\cdot \left(\frac{\lambda}{n}\right)^{k}\cdot \left(1-\frac{\lambda}{n}\right)^{n-k}\\
-&=&
+&= {n\choose k}\cdot \left(\frac{\lambda}{n}\right)^{k}\cdot \left(1-\frac{\lambda}{n}\right)^{n-k}\\
+&=
 \frac{\lambda^k}{k!}\cdot\frac{n!}{(n-k)!\cdot n^k}\cdot
-\left(1-\frac{\lambda}{n}\right)^{n}\cdot \left(1-\frac{\lambda}{n}\right)^{-k}=\ldots
-\end{eqnarray*}
-
-
-
-
-
-Estamos interesados en calcular 
-
+\left(1-\frac{\lambda}{n}\right)^{n}\cdot \left(1-\frac{\lambda}{n}\right)^{-k}.
+\end{array}
+$$
+Si hacemos tender $n$ hacia $\infty$, obtenemos:
 $$
 \displaystyle\lim_{n\to \infty} P(X_n=k) = \lim_{n\to \infty} \frac{\lambda^k}{k!}\cdot\frac{n!}{(n-k)!\cdot n^k} \cdot
 \left(1-\frac{\lambda}{n}\right)^{n}\cdot \left(1-\frac{\lambda}{n}\right)^{-k}.
@@ -1915,99 +1896,79 @@ $$
 Calculemos el límite de algunos de los factores de la expresión 
 
 $$
-\displaystyle\lim_{n\to \infty}\frac{n!}{(n-k)!\cdot n^k}= \lim_{n\to \infty}\frac{n\cdot (n-1)\cdots (n-k-1)}{n^k}
-=\lim_{n\to \infty}\frac{n^{k}+\cdots}{n^k}=1.
+\begin{array}{rl}
+\lim\limits_{n\to \infty}\frac{n!}{(n-k)!\cdot n^k} & = \lim\limits_{n\to \infty}\frac{n\cdot (n-1)\cdots (n-k-1)}{n^k}
+=\lim\limits_{n\to \infty}\frac{n^{k}+\cdots}{n^k}=1, \\
+\lim\limits_{n\to \infty} \left(1-\frac{\lambda}{n}\right)^{n} & =e^{-\lambda},\\
+\lim\limits_{n\to \infty} \left(1-\frac{\lambda}{n}\right)^{-k} & =\lim\limits_{n\to \infty} 1^{-k}=\lim\limits_{n\to \infty}  1=1,
+\end{array}
 $$
+donde en el último límite, hemos tenido en cuenta que $k$ es constante.
 
-
-
-$$
-\lim_{n\to \infty} \left(1-\frac{\lambda}{n}\right)^{n}=e^{-\lambda}
-$$
-
-
-Y  también teniendo en cuanta que $k$ es constante.
-
-$$
-\lim_{n\to \infty} \left(1-\frac{\lambda}{n}\right)^{-k}=\lim_{n\to \infty} 1^{-k}=\lim_{n\to \infty}  1=1.
-$$
-
-
-Para acabar
+Usando las expresiones halladas anteriormente, tenemos que el límite de la función de probabilidad de la variable $X_n$ tiende a la función de probabilidad de la variable de Poisson de parámetro $\lambda$:
 
 $$
 \displaystyle\lim_{n\to\infty} P(X_n=k)=
 \lim_{n\to\infty} \left(\begin{array}{c} n\\ k\end{array}\right)
 \cdot p_n^k \cdot (1-p_n)^{n-k}= \frac{\lambda^k}{k!}\cdot 1 \cdot e^{-\lambda}\cdot 1=\frac{\lambda^k}{k!}\cdot e^{-\lambda}.
 $$
+Usando que las variables $X_n$ tienen distribución $B(n,p_n=\frac{\lambda}{n})$, tenemos que el límite de binomiales de parámetros $n$ y $p_n=\frac{\lambda}{n}$ es una distribución de Poisson de parámetro $\lambda$, $Po(\lambda)$.
 
-Lo que confirma que  límite de una serie de variables 
-$B(n,p_n=\frac{\lambda}{n})$ sigue una ley $Po(\lambda)$.
+**Procesos de Poisson**
 
-### Procesos de Poisson
+Lo interesante de las variables Poisson es que podemos modificar (si el modelo lo permite)  el intervalo de tiempo $(0,t]$ en el que contamos los eventos siempre y cuando se cumplan las condiciones 1 y 2 enunciadas anteriormente en el nuevo intervalo de tiempo. 
 
-Lo interesante de las variables Poisson es que podemos modificar (si el modelo lo permite)  el intervalo de tiempo $(0,t]$ en el que contamos los eventos.
+En general, podemos afirmar si la variable es poisson en  $(0,t]$,  también lo será en cualquier subintervalo $(0,t']$ para todo $t'$ tal que  $0<t'<t$. 
 
-Claro que esto no tiene que poder ser así. 
-
-Pero en general si la variable es poisson en  $(0,t]$  también lo será en cualquier subintervalo $(0,t']$ para todo $t'$ tal que  $0<t'<t$. 
-
-Así que podremos definir una serie de variables $X_t$ de distribución $Po(\lambda\cdot t)$.
+De esta forma, podremos definir una serie de variables $X_t$ de distribución $Po(\lambda\cdot t)$.
 
 
 
-<l class="prop"> Definición procesos de Poisson </l>
+<l class="prop"> **Definición procesos de Poisson** </l>
 
 Consideremos  un experimento *Poisson*  con $\lambda$ igual
 al promedio de eventos en una unidad de tiempo (u.t.).
 
-Si $t$ es una cantidad de tiempo en u.t., la v.a. $X_{t}$=numero de eventos en el intervalo $(0,t]$ es una $Po(\lambda\cdot t)$.
+Si $t$ es una cantidad de tiempo en u.t., la v.a. $X_{t}$ definida como el número de eventos en el intervalo $(0,t]$ es una $Po(\lambda\cdot t)$.
 
 El conjunto de variables $\{X_t\}_{t>0}$ recibe el nombre de **proceso de Poisson**.
 
 
-### Resumen distribución  Poisson  $X\equiv Po(\lambda)$
+**Resumen de la distribución de Poisson  $X\equiv Po(\lambda)$**
 
 $X$ Poisson |  $\lambda$
 -------:|:-------
 $D_X=$|  $\{0,1,\ldots \}$ 
-$P_X(x)=P(X=x)=$ | $\left\{\begin{array}{ll}  \frac{\lambda^x}{x!}e^{-\lambda} & \mbox{ si } x=0,1,\ldots\\ 0  & \mbox{ en otro caso.}\end{array}\right.$
-$F_X(x)=P(X\leq X)=$ |  $\begin{array}{l}\left\{\begin{array}{ll} 0 & \mbox{si } x<0\\\displaystyle\sum_{i=0}^{k} P(X=i)= \displaystyle\sum_{i=0}^{k} \frac{\lambda^i}{i!}\cdot e^{-\lambda} & \mbox{si  }\left\{\begin{array}{l}k\leq x< k+1\\k=0,1,2,\ldots\end{array}\right.\end{array}\right.
-\\\mbox{Calcular la suma o utilizar funciones de R o python.}
+$P_X(x)=P(X=x)=$ | $\left\{\begin{array}{ll}  \frac{\lambda^x}{x!}e^{-\lambda}, & \mbox{ si } x=0,1,\ldots\\ 0,  & \mbox{ en otro caso.}\end{array}\right.$
+$F_X(x)=P(X\leq X)=$ |  $\begin{array}{l}\left\{\begin{array}{ll} 0, & \mbox{si } x<0,\\\displaystyle\sum_{i=0}^{k} P(X=i)= \displaystyle\sum_{i=0}^{k} \frac{\lambda^i}{i!}\cdot e^{-\lambda}, & \mbox{si  }\left\{\begin{array}{l}k\leq x< k+1,\\k=0,1,2,\ldots\end{array}\right.\end{array}\right.
+\\\mbox{Calcular la suma o utilizar funciones de `R` o python.}
 \end{array}$     
 $E(X)=\lambda$ | $Var(X)=\lambda$
 
 
-### Resumen proceso   Poisson  $X_t\equiv Po(\lambda\cdot t)$
+**Resumen proceso   Poisson  $X_t\equiv Po(\lambda\cdot t)$**
 
 $X_t$  $Po(\lambda\cdot t)$ |  $\lambda$ promedio por u.t. 
 -------:|:-------
 $D_X=$|  $\{0,1,\ldots \}$ 
 $P_X(x)=P(X=x)=$ | $\left\{\begin{array}{ll}  \frac{(\lambda\cdot t)^x}{x!}e^{-\lambda\cdot t} & \mbox{ si } x=0,1,\ldots\\ 0  & \mbox{ en otro caso.}\end{array}\right.$
-$F_X(x)=P(X\leq X)=$ |  $\begin{array}{l}\left\{\begin{array}{ll} 0 & \mbox{si } x<0\\\displaystyle\sum_{i=0}^{k} P(X=i)= \displaystyle\sum_{i=0}^{k} \frac{(\lambda\cdot t)^i}{i!}\cdot e^{-\lambda\cdot t} & \mbox{si  }\left\{\begin{array}{l}k\leq x< k+1\\k=0,1,2,\ldots\end{array}\right.\end{array}\right.
-\\\mbox{Calcular la suma o utilizar funciones de R o python.}
+$F_X(x)=P(X\leq X)=$ |  $\begin{array}{l}\left\{\begin{array}{ll} 0, & \mbox{si } x<0,\\\displaystyle\sum_{i=0}^{k} P(X=i)= \displaystyle\sum_{i=0}^{k} \frac{(\lambda\cdot t)^i}{i!}\cdot e^{-\lambda\cdot t}, & \mbox{si  }\left\{\begin{array}{l}k\leq x< k+1,\\k=0,1,2,\ldots\end{array}\right.\end{array}\right.
+\\\mbox{Calcular la suma o utilizar funciones de `R` o python.}
 \end{array}$     
 $E(X)=\lambda\cdot t$ | $Var(X)=\lambda\cdot t$
 
-### Aproximación de la distribución binomial por la Poisson
+**Aproximación de la distribución binomial por la Poisson**
 
-Bajo el punto de vista anterior y si $p$ es pequeño y $n$ suficientemente grande  la distribución  $B(n,p)$ se aproxima a una $Po(\lambda=n\cdot p)$.
+Dada una variable aleatoria de distribución $B(n,p)$ si $n$ es grande y $p$ es pequeño, podemos aproximar la distribución anterior por una distribución Poisson de parámetre $\lambda=n\cdot p$, $Po(\lambda = n\cdot p)$.
 
-Existen distintos criterios (ninguno perfecto) de cuando la aproximación es buena.
+Un criterio para decidir que la aproximación anterior es buena es que 
+$n\geq 20$, o mejor, $n\geq 30$, $n\cdot p < 10$  y  $p\leq 0.05.$
 
-Por ejemplo  si 
+La aproximación de la función de probabilidad de una variable binomial a una variable de Poisson és óptima en los valores cercanos a $E(X)=\lambda$.
 
-$$n\geq 20\mbox{ o mejor }n\geq 30, n\cdot p < 10 \mbox{ y } p\leq 0.05,$$
+**Gráficos de la aproximación binomial a la de Poisson**
 
-
-la aproximación  de una $B(n,p)$ por una $Po(n\cdot p)$ es buena. Sobre todo para los valores cercanos a $E(X)=\lambda$.
-
-
-    
-
-### Gráficos aproximación binomial Poisson
-
-Condición deseable $n\geq 20$,  $n\cdot p < 10$, $p\leq 0.05$
+Suponemos que estamos en las condiciones anteriores: $n\geq 20$,  $n\cdot p < 10$, $p\leq 0.05$.
 
 Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
@@ -2039,14 +2000,18 @@ renderPlot({
   points(x=c(0:n),y=dpois(c(0:n),n*pr),
        ylim=c(0,0.6),xlim=c(-1,n+1),xlab="x",pch=25,col="red")
   lines(x=rep(0:n,each=2),y=aux, type = "h", lty = 3,col="red")
-  legend("topleft",legend=c("Binomial","Poisson"),col=c("blue","red"),pch=c(21,25),lty=c(2,3),bty = "n")
+  legend("topleft",legend=c("Binomial","Poisson"),col=c("blue","red"), 
+         pch=c(21,25),lty=c(2,3),bty = "n")
   curve(pbinom(x,size=n,p=pr),
         xlim=c(-1,n+1),col="blue",ylab="Función de Distribución",
-         main=paste0(c("Funciones de distribución \n B(n=",n,",p=",pr,"), Po(lambda=",n*pr,")"),collapse = ""))
+         main=paste0(c("Funciones de distribución \n B(n=",n,",p=",pr,"),
+                       Po(lambda=",n*pr,")"),collapse = ""))
   curve(ppois(x,n*pr),
         xlim=c(-1,n+1),col="red",add=TRUE)
-  if(all(c(n>=20,n*pr<10,pr<= 0.05))){aux_l="Condición\n TRUE"} else {aux_l="Condición\n FALSE"}
-  legend("topleft",legend=c(aux_l,paste0("n=",n),paste0("n*p=",n*pr),paste0("p=",pr)),bg="transparent",cex=0.8,bty = "n")
+  if(all(c(n>=20,n*pr<10,pr<= 0.05))){aux_l="Condición\n TRUE"} else 
+    {aux_l="Condición\n FALSE"}
+  legend("topleft",legend=c(aux_l,paste0("n=",n),paste0("n*p=",n*pr),
+                            paste0("p=",pr)),bg="transparent",cex=0.8,bty = "n")
   par(mfrow=c(1,1))
 })
 
@@ -2055,12 +2020,12 @@ renderPlot({
 <!--[![](Images/noshinyImages/interactiva_poisson1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 
-#### Ejemplo $Po(\lambda)$ Trampa insectos 
+
 
 <div class="example">
-**Ejemplo**: Trampa insectos.
+**Ejemplo de una distribución de Poisson$Po(\lambda)$: trampa para insectos**
 
-La conocida [lámpara antiinsectos o insecticida eléctrico](https://es.wikipedia.org/wiki/Insecticida_el%C3%A9ctrico) atrae a  los insectos voladores con una luz ultravioleta  y los mata por electrocución. 
+La conocida [lámpara antiinsectos o insecticida eléctrico](https://es.wikipedia.org/wiki/Insecticida_el%C3%A9ctrico) atrae a los insectos voladores con una luz ultravioleta  y los mata por electrocución. 
 
 Consideremos la v.a. $X$ que cuenta  número de insectos caídos en la trampa en una hora. Supongamos que el número promedio de insectos que captura la trampa en una hora es $E(X)=20$ y que podemos admitir que $X$ sigue una ley de probabilidad $Po(\lambda=20)$.
 

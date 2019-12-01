@@ -611,10 +611,13 @@ knitr::include_graphics("Images/VaUniformeBidi.png",dpi=1200)
 Sea $(X,Y)$ una **variable aleatoria bidimensional continua** con **función de densidad** $f_{XY}$. Entonces dicha función verifica las propiedades siguientes:
 
 * La integral de dicha función sobre todo el plano vale 1: 
+
 $$
 \int\int_{\mathbb{R}^2} f_{XY}(x,y)\,dx\,dy =1.
 $$
+
 Para ver dicha propiedad, basta considerar $B=\mathbb{R}^2$, tener en cuenta que el suceso $(X,Y)\in \mathbb{R}^2$ es el total $\Omega$ y aplicar la definición de $f_{XY}$:
+
 $$
 P((X,Y)\in \mathbb{R}^2)=1= \int\int_{\mathbb{R}^2} f_{XY}(x,y)\,dx\,dy.
 $$
@@ -651,10 +654,11 @@ $f_{XY}(x,y)=\begin{cases}
 
 <div class="example-sol">
 * La integral de $f_{XY}$ sobre todo el plano vale 1:
+
 $$
-\begin{array}
-\int\int_{\mathbb{R}^2} f_{XY}(x,y)\,dx\, dy & =\int_0^1\int_0^1 1\, dx\, dv
-\\&=\int_0^1 1\, dx\int_0^1 1\, dy=1\cdot 1=1.
+\begin{array}{rcl}
+\int\int_{\mathbb{R}^2} f_{XY}(x,y)\,dx\, dy &=&\int_0^1\int_0^1 1\, dx\, dv\\
+&=&\int_0^1 1\, dx\int_0^1 1\, dy=1\cdot 1=1.
 \end{array}
 $$
 
@@ -786,14 +790,14 @@ knitr::include_graphics("Images/Ejemplo2Bidi.png",dpi=1200)
 ```
 </div>
 
-
+$$
 \begin{array}{rl}
 1 &=  \int\int_{\mathbb{R}^2}f_{XY}(x,y)\, dx\, dy=\int_{x=0}^{x=\infty}\int_{y=0}^{y=x} c \mathrm{e}^{-x}\mathrm{e}^{-y} \, dy\, dx \\
   &=  c \int_{x=0}^{x=\infty}\mathrm{e}^{-x}\int_{y=0}^{y=x}\mathrm{e}^{-y}\, dy\, dx = c    \int_{x=0}^{x=\infty}\mathrm{e}^{-x}\left[-\mathrm{e}^{-y}\right]_{y=0}^{y=x}\, dx \\
   &=  c \int_{x=0}^{x=\infty}\mathrm{e}^{-x}\left(1-\mathrm{e}^{-x}\right)\, dx =c \int_{x=0}^{x=\infty}\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)\, dx 
-  \\ & =&  c \left[-\mathrm{e}^{-x}+\frac{1}{2}\mathrm{e}^{-2x}\right]_{x=0}^{x=\infty} = c\left(1-\frac{1}{2}\right)=\frac{c}{2}.
+  \\ & =  c \left[-\mathrm{e}^{-x}+\frac{1}{2}\mathrm{e}^{-2x}\right]_{x=0}^{x=\infty} = c\left(1-\frac{1}{2}\right)=\frac{c}{2}.
 \end{array}
-
+$$
 
 El valor de $c$ será $c=2$.
 
@@ -821,14 +825,14 @@ knitr::include_graphics("Images/Ejemplo2Bidi2.png",dpi=1200)
 * Caso $x\leq y$ (zona verde de la figura adjunta). En este caso, si hacemos la intersección de la región $B=(-\infty,x]\times (-\infty,y]$ (zona azul) con la zona morada o región donde $f_{XY}(x,y)\neq 0$ obtenemos el triángulo $T_{x,y}=\{(u,v)\in\mathbb{R}^2,\ 0\leq u\leq x,\ 0\leq v\leq u\}.$ Ver figura adjunta.
 
 Por tanto,
-
-\begin{array}
+$$
+\begin{array}{lcr}
 F_{XY}(x,y) & = & \int_{u=0}^{u=x}\int_{v=0}^{v=u} f_{XY}(u,v)\,dv\,du= 2 \cdot\int_{u=0}^{u=x} \mathrm{e}^{-u}\int_{v=0}^{v=u}  \mathrm{e}^{-v}\,dv\,du\\ &  = & 
 2 \cdot\int_{u=0}^{u=x} \mathrm{e}^{-u}\cdot\left[-\mathrm{e}^{-v}\right]_{v=0}^{v=u}\, du =  2 \cdot\int_{u=0}^{u=x} \mathrm{e}^{-u} \cdot (1-\mathrm{e}^{-u})\, du 
 \\ & = & 2 \int_{u=0}^{u=x} \left(\mathrm{e}^{-u}-\mathrm{e}^{-2u}\right)\, du=2\cdot \left[-\mathrm{e}^{-u}+\frac{1}{2}\cdot\mathrm{e}^{-2u}\right]_{u=0}^{u=x}  \\ & = &
 2\cdot\left(-\mathrm{e}^{-x}+\frac{1}{2}\cdot\mathrm{e}^{-2x}+1-\frac{1}{2}\right) =1-2\cdot\mathrm{e}^{-x}+\mathrm{e}^{-2x}.
 \end{array}
-
+$$
 
 <div class="center">
 
@@ -842,14 +846,14 @@ knitr::include_graphics("Images/Ejemplo2Bidi3.png",dpi=1200)
 
 Por tanto,
 
-
+$$
 \begin{array}{rl}
 F_{XY}(x,y) &=  \int_{v=0}^{v=y}\int_{u=v}^{u=x} f_{XY}(u,v)\,dv\,du= 2\cdot\int_{v=0}^{v=y} \mathrm{e}^{-v}\int_{u=v}^{u=x} \mathrm{e}^{-u}\,du\,dv \\
 &=  2 \cdot\int_{v=0}^{v=y} \mathrm{e}^{-v}\cdot\left[-\mathrm{e}^{-u}\right]_{u=v}^{u=x}\, dv  = 2 \cdot\int_{v=0}^{v=y} \mathrm{e}^{-v}\cdot (\mathrm{e}^{-v}-\mathrm{e}^{-x})\, du \\ 
 &=  2 \cdot\int_{v=0}^{v=y} \left(\mathrm{e}^{-2v}-\mathrm{e}^{-v-x}\right)\, du=2 \cdot\left[-\frac{1}{2}\mathrm{e}^{-2v}+\mathrm{e}^{-v-x}\right]_{v=0}^{v=y}  
 \\ &=  2\cdot\left(-\frac{1}{2}\cdot\mathrm{e}^{-2y}+\mathrm{e}^{-x-y}+\frac{1}{2}-\mathrm{e}^{-x}\right) \\&=  1-2\cdot\mathrm{e}^{-x}-\mathrm{e}^{-2y}+2\cdot\mathrm{e}^{-x-y}.
 \end{array}
-
+$$
 
 
 <div class="center">
@@ -1918,14 +1922,18 @@ La **función de densidad** de la **variable aleatoria condicional continua$Y|X$
 
 <l class="observ">Observación. </l>
 Al ser $Y|X=x$ una variable aleatoria unidimensional, su **función de densidad** tiene que verificar que la integral de dicha función sobre todo $\mathbb{R}$ tiene que ser 1. O sea:
+
 $$
 \int_{-\infty}^\infty f_{Y|X=x}(y)\, dy=1.
 $$
+
 Veámoslo:
 <div class="dem">
+
 $$
 \int_{-\infty}^\infty f_{Y|X=x}(y)\, dy =\int_{-\infty}^\infty \frac{f_{XY}(x,y)}{f_X(x)}\, dy=\frac{1}{f_X(x)}\int_{-\infty}^\infty f_{XY}(x,y)\, dy= \frac{1}{f_X(x)}\cdot f_X(x) =1.
 $$
+
 </div>
 
 <l class="observ">Observación. </l>
@@ -1969,9 +1977,11 @@ si $0\leq y\leq x_0$, y $f_{Y|X=x_0}(y)=0$, en caso contrario.
 Recordemos que la **densidad marginal** de la variable $X$ era: $f_X(x_0)=2\left(\mathrm{e}^{-x_0}-\mathrm{e}^{-2x_0}\right)$. 
 
 La **función de densidad marginal** de la variable $Y|X=x_0$ será:
+
 $$
 f_{Y|X=x_0}(y)=\frac{2\mathrm{e}^{-x_0}\mathrm{e}^{-y}}{2\left(\mathrm{e}^{-x_0}-\mathrm{e}^{-2x_0}\right)}=\frac{e^{-y}}{1-\mathrm{e}^{-x_0}},
 $$
+
 si $0\leq y\leq x_0$, y $f_{Y|X=x_0}(y)=0$, en caso contrario.
 
 Sea ahora $y_0>0$. Calculemos ahora la **densidad marginal** de la variable $X|Y=y_0$.

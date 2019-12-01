@@ -669,7 +669,7 @@ print("Var(X) = {v}".format(v=binom.stats(n = 10, p = 0.4, moments='v')))
 ```
 
 </div>
-
+</div>
 
 ### Distribución geométrica
 

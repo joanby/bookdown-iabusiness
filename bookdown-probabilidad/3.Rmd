@@ -997,7 +997,7 @@ La desviación típica es $\sqrt{90}=`r sqrt(90)`.$
 
 Los partidos Real Madrid vs FC Barcelona de **la liga** española se suelen denominar  **El Clásico**, sean en el Bernabeu (estadio del Real Madrid) o en el Camp Nou (estadio del Barça)
 
-Sea $X$ la variable que cuenta el número de veces consecutivas que en un partido de fútbol de la liga el Real Madrid gana al Barça sea en el Camp Nou o el Bernabeu.
+Sea $X$ la variable que cuenta el número de veces consecutivas que en un partido de fútbol de la liga el Barça no gana al Madrid sea en el Camp Nou o el Bernabeu.
 
 Nuestra amiga Aina es muy culé (hincha del Barça) y quiere averiguar cuántos partidos consecutivos de **El Clásico** tiene que ver hasta ver ganar al Barça por primera vez. 
 
@@ -3504,48 +3504,40 @@ $$
 
 Una pequeña peluquería es regentada por un único peluquero. El peluquero está esperando al próximo cliente mientras lee el periódico. 
 
-Supongamos que $N_T=$ número de clientes  que llegan en el intervalo $[0,t)$ es una $Po(\lambda\cdot t)$ entonces la variable $T=$ tiempo entre dos clientes consecutivos sigue una ley $Exp(\lambda)$.
+Supongamos que la v.a. $N_T$, que representa el número de clientes  que llegan en el intervalo $[0,t)$, es una $Po(\lambda\cdot t)$ entonces la variable $T$, tiempo entre dos clientes consecutivos, sigue una ley $Exp(\lambda)$.
 
 Supongamos que $t$ se mide en horas y que $\lambda=4$ es el promedio de clientes por hora.
 
-</div>
+Se pide:
+
+1. El tiempo esperado (en horas) y la varianza hasta el siguiente cliente.
+2. ¿Cuál es la probabilidad de que nuestro peluquero esté sin  clientes (leyendo el periódico) más de 30 minutos (0.5 horas)?
+
 
 <div class="example-sol">
 
 En este ejemplo la propiedad de la pérdida de memoria significa que
-si el peluquero lleva ya esperando más de $s>0.25$  un cuarto de hora  la probabilidad de que espere $t=1/6$ de hora más (10 minutos) no cambia sigue siendo $P(T>0.25+1/6|T>0.25)=P(T>1/6).$
-</div>
+por ejemplo, si el peluquero lleva ya esperando más de $s>0.25$ (un cuarto de hora),  la probabilidad de que espere $t=1/6$ de hora más (10 minutos) no cambia sigue siendo $P(T>0.25+1/6|T>0.25)=P(T>1/6).$
 
-
-### Ejemplo distribución exponencial
-
-<div class="example-sol">
+**Solución de 1. El tiempo esperado (en horas) y la varianza hasta el siguiente cliente.**
 
 El tiempo esperado (en horas) hasta el siguiente cliente es
 
 $$
-E(X)=\frac{1}{\lambda}=\frac{1}{4}=0.25.
+E(X)=\frac{1}{\lambda}=\frac{1}{4}=0.25,
 $$
-
 y la varianza es 
-
 $$
 Var(X)=\frac{1}{\lambda^2}=\frac{1}{4^2}=`r 1/16`.
 $$
+**Solución de 2. ¿Cuál es la probabilidad de que nuestro peluquero esté sin  clientes (leyendo el periódico) más de 30 minutos (0.5 horas)?**
 
-Por último ¿Cuál es la probabilidad de que nuestro peluquero esté sin  clientes (leyendo el periódico) más de 30 minutos (0.5 horas)?
-
-
+La probabilidad pedida vale:
 $$
-P(X>0.5)=1-P(X\leq 0.5)=1-(1-e^{-4\cdot 0.5 })=e^{-2})=`r exp(-2)`.
+P(X>0.5)=1-P(X\leq 0.5)=1-(1-e^{-4\cdot 0.5 })=e^{-2}=`r exp(-2)`.
 $$
-</div>
 
-### Ejemplo distribución exponencial
-
-<div class="example-sol">
-
-Si queremos hacer los cálculos con R, 
+Usando `R`, la probabilidad anterior puede ser calculada de la forma siguiente: 
 
 ```{r}
 pexp(0.5,rate=3)
@@ -3554,8 +3546,9 @@ pexp(0.5,rate=3,lower.tail = FALSE)
 ```
 
 </div>
+</div>
 
-### Cálculos  con R
+**Cálculos  con R**
 
 La función de densidad, de distribución y la generación aleatoria de valores de una exponencial, se pueden obtener en R con:
 

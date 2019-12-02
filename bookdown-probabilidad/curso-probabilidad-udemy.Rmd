@@ -3770,7 +3770,7 @@ La desviación típica es $\sqrt{90}=`r sqrt(90)`.$
 
 Los partidos Real Madrid vs FC Barcelona de **la liga** española se suelen denominar  **El Clásico**, sean en el Bernabeu (estadio del Real Madrid) o en el Camp Nou (estadio del Barça)
 
-Sea $X$ la variable que cuenta el número de veces consecutivas que en un partido de fútbol de la liga el Real Madrid gana al Barça sea en el Camp Nou o el Bernabeu.
+Sea $X$ la variable que cuenta el número de veces consecutivas que en un partido de fútbol de la liga el Barça no gana al Madrid sea en el Camp Nou o el Bernabeu.
 
 Nuestra amiga Aina es muy culé (hincha del Barça) y quiere averiguar cuántos partidos consecutivos de **El Clásico** tiene que ver hasta ver ganar al Barça por primera vez. 
 
@@ -6218,106 +6218,99 @@ renderPlot({
 
 ### Distribución exponencial
 
-###  Distribución del tiempo entre dos eventos Poisson
+**Distribución del tiempo entre dos eventos Poisson**
 
 Supongamos que tenemos un proceso Poisson con parámetro $\lambda$ en una unidad de tiempo.
 
-Sea $t$ una cantidad de tiempo en u.t. entonces $N_{t}=$ número de eventos en el intervalo de tiempo $(0,t]$ es una $Po(\lambda\cdot t)$. Consideremos la v.a. $T=$ tiempo transcurrido entre dos eventos Poisson consecutivos.
+Dado un tiempo $t$, definimos $N_{t}$ como el número de eventos en el intervalo de tiempo $(0,t]$. La distribución de $N(t)$ es una $Po(\lambda\cdot t)$. Consideremos la v.a. $T$ como el tiempo transcurrido entre dos eventos Poisson consecutivos.
 
 Sea $t>0$, entonces
 
-\begin{eqnarray*}
-P(T>t)&=&P(\mbox{Cero eventos en el intervalo}(0,t])\\
-&=&P(N_{t}=0)=
+$$
+\begin{array}{rl}
+P(T>t)&=P(\mbox{Cero eventos en el intervalo}(0,t])\\
+&=P(N_{t}=0)=
          \frac{(\lambda t)^0}{0!} e^{-\lambda
          t}=e^{-\lambda t}.
-\end{eqnarray*}
-
-###  Distribución del tiempo entre dos eventos Poisson
-
-Tomando complementarios, la función de distribución de $T$ será
-
-$$
-F_{T}(t)= P(T\leq t)=1-P(X>t)=\left\{\begin{array}{ll} 0 &\mbox{ si } t\leq 0\\
-  1-e^{-\lambda t}& \mbox{ si } t>0\end{array}\right.
+\end{array}
 $$
 
-Entonces, derivando respecto de $t$ en la expresión anterior
+Tomando complementarios, la función de distribución de $T$ será:
+$$
+F_{T}(t)= P(T\leq t)=1-P(T>t)=\left\{\begin{array}{ll} 0, &\mbox{ si } t\leq 0,\\
+  1-e^{-\lambda t},& \mbox{ si } t>0,\end{array}\right.
+$$
+
+Para hallar la función de densidad de $T$, basta derivar la expresión anterior:
 
 $$
-f_{T}(t)=\left\{\begin{array}{ll}\lambda \cdot e^{-\lambda t} & \mbox{ si }  t>0\\
-0 & \mbox{ si } t\leq 0 \end{array}\right.
+f_{T}(t)=\left\{\begin{array}{ll}\lambda \cdot e^{-\lambda t}, & \mbox{ si }  t>0,\\
+0, & \mbox{ si } t\leq 0. \end{array}\right.
 $$
 
-La exponencial se denota por $Exp(\lambda)$
+Llamaremos a la variable $T$ exponencial de parámetro $\lambda$ y la denotaremos por $Exp(\lambda)$.
 
 
+**Propiedad de la falta de memoria**
 
-
-### Propiedad de la falta de memoria
-
-Sea $X$  una v.a. $Exp(\lambda)$ entonces
+Sea $X$  una v.a. $Exp(\lambda)$, entonces
 
 $$P(X>s+t\big|X>s)=P(X>t)\mbox{  para todo } s,t\in \mathbb{R}$$
 
 <div class="dem">
 **Demostración**
 
-Si $X$ es una v.a. $Exp(\lambda)$ tenemos que $P(X>x)=1-P(X\leq x)=1-(1-e^{-\lambda\cdot x})=e^{-\lambda\cdot x}$ para todo $x>0$
+Si $X$ es una v.a. $Exp(\lambda)$ tenemos que $P(X>x)=1-P(X\leq x)=1-(1-e^{-\lambda\cdot x})=e^{-\lambda\cdot x}$ para todo $x>0$.
 
-$P(X>s+t\big|X>s)=\frac{P(\{X>s+t\}\cap \{X>s\})}{P(X>s)}=\frac{P(X>s+t)}{P(X>s)}=\frac{e^{-\lambda\cdot (s+t)}}{e^{-\lambda\cdot s}}=
-\frac{e^{-\lambda\cdot s}\cdot e^{-\lambda\cdot t} }{e^{-\lambda\cdot s}}=e^{-\lambda\cdot t}=P(X>t).$
+Por tanto,
+$$
+\begin{array}{rl}
+P(X>s+t\big|X>s) & =\frac{P(\{X>s+t\}\cap \{X>s\})}{P(X>s)}=\frac{P(X>s+t)}{P(X>s)}=\frac{e^{-\lambda\cdot (s+t)}}{e^{-\lambda\cdot s}}=
+\frac{e^{-\lambda\cdot s}\cdot e^{-\lambda\cdot t} }{e^{-\lambda\cdot s}}\\ & =e^{-\lambda\cdot t}=P(X>t).
+\end{array}
+$$
 </div>
 
-### Ejemplo distribución exponencial
 
 <div class="example"> 
-**El clásico problema del peluquero.** 
+**Ejemplo: el clásico problema del peluquero.** 
 
 Una pequeña peluquería es regentada por un único peluquero. El peluquero está esperando al próximo cliente mientras lee el periódico. 
 
-Supongamos que $N_T=$ número de clientes  que llegan en el intervalo $[0,t)$ es una $Po(\lambda\cdot t)$ entonces la variable $T=$ tiempo entre dos clientes consecutivos sigue una ley $Exp(\lambda)$.
+Supongamos que la v.a. $N_T$, que representa el número de clientes  que llegan en el intervalo $[0,t)$, es una $Po(\lambda\cdot t)$ entonces la variable $T$, tiempo entre dos clientes consecutivos, sigue una ley $Exp(\lambda)$.
 
 Supongamos que $t$ se mide en horas y que $\lambda=4$ es el promedio de clientes por hora.
 
-</div>
+Se pide:
+
+1. El tiempo esperado (en horas) y la varianza hasta el siguiente cliente.
+2. ¿Cuál es la probabilidad de que nuestro peluquero esté sin  clientes (leyendo el periódico) más de 30 minutos (0.5 horas)?
+
 
 <div class="example-sol">
 
 En este ejemplo la propiedad de la pérdida de memoria significa que
-si el peluquero lleva ya esperando más de $s>0.25$  un cuarto de hora  la probabilidad de que espere $t=1/6$ de hora más (10 minutos) no cambia sigue siendo $P(T>0.25+1/6|T>0.25)=P(T>1/6).$
-</div>
+por ejemplo, si el peluquero lleva ya esperando más de $s>0.25$ (un cuarto de hora),  la probabilidad de que espere $t=1/6$ de hora más (10 minutos) no cambia sigue siendo $P(T>0.25+1/6|T>0.25)=P(T>1/6).$
 
-
-### Ejemplo distribución exponencial
-
-<div class="example-sol">
+**Solución de 1. El tiempo esperado (en horas) y la varianza hasta el siguiente cliente.**
 
 El tiempo esperado (en horas) hasta el siguiente cliente es
 
 $$
-E(X)=\frac{1}{\lambda}=\frac{1}{4}=0.25.
+E(X)=\frac{1}{\lambda}=\frac{1}{4}=0.25,
 $$
-
 y la varianza es 
-
 $$
 Var(X)=\frac{1}{\lambda^2}=\frac{1}{4^2}=`r 1/16`.
 $$
+**Solución de 2. ¿Cuál es la probabilidad de que nuestro peluquero esté sin  clientes (leyendo el periódico) más de 30 minutos (0.5 horas)?**
 
-Por último ¿Cuál es la probabilidad de que nuestro peluquero esté sin  clientes (leyendo el periódico) más de 30 minutos (0.5 horas)?
-
-
+La probabilidad pedida vale:
 $$
-P(X>0.5)=1-P(X\leq 0.5)=1-(1-e^{-4\cdot 0.5 })=e^{-2})=`r exp(-2)`.
+P(X>0.5)=1-P(X\leq 0.5)=1-(1-e^{-4\cdot 0.5 })=e^{-2}=`r exp(-2)`.
 $$
-</div>
 
-### Ejemplo distribución exponencial
-
-<div class="example-sol">
-
-Si queremos hacer los cálculos con R, 
+Usando `R`, la probabilidad anterior puede ser calculada de la forma siguiente: 
 
 ```{r}
 pexp(0.5,rate=3)
@@ -6326,8 +6319,9 @@ pexp(0.5,rate=3,lower.tail = FALSE)
 ```
 
 </div>
+</div>
 
-### Cálculos  con R
+**Cálculos  con R**
 
 La función de densidad, de distribución y la generación aleatoria de valores de una exponencial, se pueden obtener en R con:
 

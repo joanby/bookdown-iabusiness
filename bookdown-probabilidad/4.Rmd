@@ -4,18 +4,18 @@
 
 ### Momento de orden $n$
 
-<l class="definition"> Definición. </l> 
+<l class="definition"> **Definición.** </l> 
 Sea $X$ una variable aleatoria. Definimos el **momento de orden $n$** como 
 $\momento_n = E\left(X^n\right)$.
 
-<l class="observ"> Observación.</l>
+<l class="observ"> **Observación.**</l>
 El momento de orden $1$ de una variable aleatoria es su valor medio o $E(X)$.
 
 Los momentos de orden $n$ caracterizan una variable $X$. O sea, que si conocemos todos los momentos de orden $n$, podemos deducir cuál es la distribución de $X$.
 
 En general, el cálculo de los momentos de orden $n$ para una variable $X$ es bastante tedioso. 
 
-#### Ejemplos de momentos de orden $n$
+**Ejemplos de momentos de orden $n$**
 
 <div class="example">
 **Ejemplo: momento de orden $n$ de una variable de Bernoulli de parámetro $p$**
@@ -72,11 +72,11 @@ $\momento_4 = E\left(X^4\right)=\int_{-\infty}^\infty \frac{1}{\sqrt{2\pi}}\math
 
 ### Momento central de orden $n$ 
 
-<l class="definition"> Definición. </l> 
+<l class="definition"> **Definición.** </l> 
 Sea $X$ una variable aleatoria. Definimos el **momento central de orden $n$** como 
 $\momentocentral_n = E\left((X-\mu)^n\right)$, donde $\mu =E(X)$ es la media o la esperanza de la variable aleatoria $X$.
 
-<l class="observ"> Observación.</l>
+<l class="observ"> **Observación.**</l>
 El momento central de orden $1$ de una variable aleatoria es siempre 0:
 $$
 \momentocentral_1 = E\left((X-\mu)\right)=E(X)-E(\mu)=E(X)-E(X)=0.
@@ -90,7 +90,7 @@ $$
 
 Los momentos centrales de orden $n$ caracterizan también una variable $X$. O sea, que si conocemos todos los momentos centrales de orden $n$, podemos deducir cuál es la distribución de $X$. 
 
-<l class="prop"> Proposición.</l>
+<l class="prop"> **Proposición.**</l>
 La relación que hay entre los momentos centrales y los momentos de una variable aleatoria es la siguiente:
 $$
 \momentocentral_n = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \mu^{n-k} \momento_k = \sum_{k=0}^n (-1)^{k} \binom{n}{k} \mu^{k} \momento_{n-k},
@@ -111,7 +111,7 @@ $$
 </div>
 
 
-#### Ejemplos de momentos centrales de orden $n$
+**Ejemplos de momentos centrales de orden $n$**
 
 <div class="example">
 **Ejemplo: momento central de orden $n$ de una variable de Bernoulli de parámetro $p$**
@@ -173,7 +173,6 @@ $\momentocentral_4 = E\left((X-\mu)^4\right)=\int_{-\infty}^\infty \frac{1}{\sqr
 
 ## Asimetría de una variable aleatoria
 
-### Definición
 
 Una variable aleatoria tiene **asimetría positiva** si su función de densidad o de probabilidad presenta una cola a la 
 **derecha** y **asimetría negativa**, si su función de densidad o de probabilidad presenta cola a la **izquierda**.
@@ -190,7 +189,8 @@ plot(x,dchisq(x,10),type="l",ylab="función de densidad")
 ```
 </div>
 
-### ¿Cómo calcular la asimetría de una variable aleatoria?
+**¿Cómo calcular la asimetría de una variable aleatoria?**
+
 La asimetría de una variable aleatoria $X$ se calcula a partir de sus momentos centrales de segundo y tercer orden:
 $$
 \gamma_1 = E\left({\left(\frac{X-\mu}{\sigma}\right)}^3\right)=\frac{\momentocentral_3}{\sigma^3},
@@ -208,7 +208,6 @@ Dejamos al lector la comprobación de la expresión anterior.
 
 Por tanto, una variable aleatoria $X$ tendrá simetría positiva o a la derecha si $\gamma_1 >0$ y tendrá asimetría negativa o a la izquierda, si $\gamma_1 <0$.
 
-#### Ejemplo de cálculo de asimetría
 <div class="example">
 **Ejemplo: cálculo del coeficiente de asimetría para una variable de Bernoulli de parámetro $p$**
 
@@ -287,8 +286,6 @@ abline(v=mu,col="red")
 
 ## Curtosis o apuntamiento de una variable aleatoria
 
-### Definición
-
 La curtosis de una variable aleatoria $X$ es una medida de cómo son las colas de su función de densidad. 
 
 Dicho en otras palabras, queremos medir de alguna manera la *tendencia* que tiene la variable aleatoria a tener valores atípicos o *outliers*.
@@ -307,8 +304,6 @@ A la expresión anterior se le denomina **medida de curtosis de Pearson**.
 
 * Diremos que una variable aleatoria tiene exceso negativo de curtosis o **platicúrtica** si $\gamma_2 <3$.
 
-
-#### Ejemplo de cálculo de curtosis
 
 <div class="example">
 **Ejemplo: cálculo del coeficiente de curtosis para una variable de Bernoulli de parámetro $p$**
@@ -361,7 +356,8 @@ Hemos visto anteriormente que el cálculo de los **momentos** o los **momentos c
 Por dicho motivo, vamos a introducir un conjunto de funciones que nos permitirán calcular los **momentos** de la variable $X$ de forma relativamente sencilla.
 
 ### Función generatriz de momentos
-<l class="definition">Definición de función generatriz de momentos: </l>
+
+<l class="definition">**Definición de función generatriz de momentos:** </l>
 Sea $X$ una variable aleatoria $X$ con función de probabilidad $P_X$ en el caso discreto o función
 de densidad $f_X$ en el caso continuo. 
 
@@ -369,7 +365,6 @@ Sea $t\in\mathbb{R}$ un valor real cualquiera.
 
 Definimos la función generatriz de momentos $\FunGenMom_X(t)$ en el valor $t$ como: $\FunGenMom_X(t)=E\left(\mathrm{e}^{tX}\right).$
 
-#### Ejemplo de cálculo de función generatriz de momentos
 <div class="example">
 **Ejemplo: cálculo de la función generatriz de momentos para una variable de Bernoulli de parámetro $p$**
 
@@ -409,16 +404,17 @@ Su función generatriz de momentos será:
 
 $$
 \begin{array}{rl}
-\FunGenMom_X (t) & =E\left(\mathrm{e}^{tX}\right)=\int_{-\infty}^\infty \mathrm{e}^{tx}\frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\, dx = \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{tx-\frac{(x-\mu)^2}{2\sigma^2}}\, dx \\  & =  \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}\left((x-(\sigma^2 t+\mu))^2-2\sigma^2 t \mu-\sigma^4t^2\right)}\, dx = \frac{1}{\sqrt{2\pi}\sigma} \mathrm{e}^{\frac{1}{2}(2 t \mu +\sigma^2 t^2)}\int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}(x-(\sigma^2 t+\mu))^2}\, dx\\ &  = \mathrm{e}^{\frac{1}{2}(2 t \mu +\sigma^2 t^2)} \left( \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}(x-(\sigma^2 t+\mu))^2}\, dx\right) =  \mathrm{e}^{ t \mu +\frac{\sigma^2 t^2}{2}}.
+\FunGenMom_X (t) & =E\left(\mathrm{e}^{tX}\right)=\displaystyle\int_{-\infty}^\infty \mathrm{e}^{tx}\frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\, dx = \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{tx-\frac{(x-\mu)^2}{2\sigma^2}}\, dx \\[1ex]  & =  \displaystyle\frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}\left((x-(\sigma^2 t+\mu))^2-2\sigma^2 t \mu-\sigma^4t^2\right)}\, dx = \frac{1}{\sqrt{2\pi}\sigma} \mathrm{e}^{\frac{1}{2}(2 t \mu +\sigma^2 t^2)}\int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}(x-(\sigma^2 t+\mu))^2}\, dx\\[1ex] &  = \displaystyle\mathrm{e}^{\frac{1}{2}(2 t \mu +\sigma^2 t^2)} \left( \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}(x-(\sigma^2 t+\mu))^2}\, dx\right) =  \mathrm{e}^{ t \mu +\frac{\sigma^2 t^2}{2}}.
 \end{array}
 $$
 La integral del último paréntesis se resuelve haciento el cambio de variable $u=x-\sigma^2 t$ y usando que la integral de la función de densidad de $X$ sobre todo $\mathbb{R}$ vale 1.
 </div>
 
-#### Relación entre la función generatriz de momentos y los momentos
+**Relación entre la función generatriz de momentos y los momentos**
+
 La razón del nombre que lleva la **función generatriz de momentos** es que podemos obtener todos los momentos de la variable a partir de ella:
 
-<l class="prop"> Proposición </l>
+<l class="prop"> **Proposición.** </l>
 Sean $X$ una variable aleatoria con **función generatriz de momentos** $\FunGenMom_X(t)$. Entonces, el momento de orden $n$ de $X$ se puede obtener de la forma siguiente:
 $$
 \momento_n =E\left(X^n\right)=\frac{d}{d t^n}\FunGenMom_X(t)|_{t=0} =\FunGenMom_X^{(n)}(0).
@@ -444,8 +440,6 @@ $\FunGenMom_X^{(n)}(0) =E\left(X^n\right)=\momento_n,$
 tal como dice la proposición.
 </div>
 
-
-#### Ejemplo
 <div class="example">
 **Ejemplo: aplicación de la proposición en el caso en que $X$ es una variable de Bernoulli de parámetro $p$**
 
@@ -500,7 +494,7 @@ $\FunGenMom^{(iv)}(t)=e^{\mu  t+\frac{\sigma ^2 t^2}{2}}
 </div>
 
 ### Función característica
-<l class="definition">Definición de función característica: </l>
+<l class="definition">**Definición de función característica:** </l>
 Sea $X$ una variable aleatoria $X$ con función de probabilidad $P_X$ en el caso discreto o función
 de densidad $f_X$ en el caso continuo. 
 
@@ -524,7 +518,6 @@ En los casos en que los $x_k$ sean enteros, $x_k=k$, que son la mayoría, la ecu
 Por tanto, usando la fórmula de **inversión**,  podemos escribir la **función de probabilidad** $P_X(k)$ como función de la función característica de $X$, $\FunCar(w)$:
 $P_X(k)=\frac{1}{2\pi}\int_{0}^{2\pi} \FunCar_X(w)\mathrm{e}^{-\mathrm{i}w k}\, dw.$
 
-#### Ejemplos de cálculo de función característica
 <div class="example">
 **Ejemplo: cálculo de la función característica para una variable de Bernoulli de parámetro $p$**
 
@@ -578,7 +571,7 @@ Su función característica será:
 
 $$
 \begin{array}{rl}
-\FunCar_X (w) & =E\left(\mathrm{e}^{\mathrm{i}w X}\right)=\int_{-\infty}^\infty \mathrm{e}^{\mathrm{i}w x}\frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\, dx = \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{\mathrm{i}wx-\frac{(x-\mu)^2}{2\sigma^2}}\, dx \\  & =  \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}\left((x-(\sigma^2 \mathrm{i}w+\mu))^2-2\sigma^2 \mathrm{i}w \mu+\sigma^4 w^2\right)}\, dx = \frac{1}{\sqrt{2\pi}\sigma} \mathrm{e}^{\frac{1}{2}(2 \mathrm{i}w \mu -\sigma^2 w^2)}\int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}(x-(\sigma^2 \mathrm{i}w+\mu))^2}\, dx\\ &  = \mathrm{e}^{\frac{1}{2}(2 \mathrm{i}w \mu -\sigma^2 w^2)} \left( \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}(x-(\sigma^2 \mathrm{i}w+\mu))^2}\, dx\right) =  \mathrm{e}^{ \mathrm{i}w \mu -\frac{\sigma^2 w^2}{2}}.
+\FunCar_X (w) & =\displaystyle E\left(\mathrm{e}^{\mathrm{i}w X}\right)=\int_{-\infty}^\infty \mathrm{e}^{\mathrm{i}w x}\frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\, dx = \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{\mathrm{i}wx-\frac{(x-\mu)^2}{2\sigma^2}}\, dx \\[1ex]  & =\displaystyle  \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}\left((x-(\sigma^2 \mathrm{i}w+\mu))^2-2\sigma^2 \mathrm{i}w \mu+\sigma^4 w^2\right)}\, dx = \frac{1}{\sqrt{2\pi}\sigma} \mathrm{e}^{\frac{1}{2}(2 \mathrm{i}w \mu -\sigma^2 w^2)}\int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}(x-(\sigma^2 \mathrm{i}w+\mu))^2}\, dx\\[1ex] &  = \displaystyle\mathrm{e}^{\frac{1}{2}(2 \mathrm{i}w \mu -\sigma^2 w^2)} \left( \frac{1}{\sqrt{2\pi}\sigma} \int_{-\infty}^\infty \mathrm{e}^{-\frac{1}{2\sigma^2}(x-(\sigma^2 \mathrm{i}w+\mu))^2}\, dx\right) =  \mathrm{e}^{ \mathrm{i}w \mu -\frac{\sigma^2 w^2}{2}}.
 \end{array}
 $$
 La integral del último paréntesis se resuelve haciento el cambio de variable $u=x-\sigma^2 \mathrm{i}w$ y usando que la integral de la función de densidad de $X$ sobre todo $\mathbb{R}$ vale 1.
@@ -586,17 +579,18 @@ La integral del último paréntesis se resuelve haciento el cambio de variable $
 Calculemos la función de densidad a partir de la función característica:
 $$
 \begin{array}{rl}
-f_X(x) & =\frac{1}{2\pi}\int_{-\infty}^\infty \mathrm{e}^{ \mathrm{i}w \mu -\frac{\sigma^2 w^2}{2}}\mathrm{e}^{-\mathrm{i} w x}\, dw = \frac{1}{2\pi}\int_{-\infty}^\infty \mathrm{e}^{\left(\frac{\mathrm{i}w\sigma}{\sqrt{2}}+\frac{\mu-x}{\sigma\sqrt{2}}\right)^2-\frac{(\mu-x)^2}{2\sigma^2}}\, dw =\frac{1}{2\pi}\mathrm{e}^{-\frac{(\mu-x)^2}{2\sigma^2}}\int_{-\infty}^\infty \mathrm{e}^{\left(\frac{\mathrm{i}w\sigma}{\sqrt{2}}+\frac{\mu-x}{\sigma\sqrt{2}}\right)^2}\, dw \\ & = \frac{1}{2\pi}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\int_{-\infty}^\infty \mathrm{e}^{-\left(\frac{w\sigma}{\sqrt{2}}+\frac{\mu-x}{\mathrm{i}\sigma\sqrt{2}}\right)^2}\, dw \stackrel{\mbox{cambio de variable } u=\frac{w\sigma}{\sqrt{2}}+\frac{\mu-x}{\mathrm{i}\sigma\sqrt{2}}}{=} \frac{1}{2\pi}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\int_{-\infty}^\infty \frac{\sqrt{2}}{\sigma}\mathrm{e}^{-u^2}\, du \\ & \stackrel{\int_{-\infty}^\infty \mathrm{e}^{-u^2}\, du =\sqrt{\pi}}{=} \frac{1}{\sqrt{2}\pi\sigma} \mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}} \sqrt{\pi} = \frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}},
+f_X(x) & =\displaystyle\frac{1}{2\pi}\int_{-\infty}^\infty \mathrm{e}^{ \mathrm{i}w \mu -\frac{\sigma^2 w^2}{2}}\mathrm{e}^{-\mathrm{i} w x}\, dw = \frac{1}{2\pi}\int_{-\infty}^\infty \mathrm{e}^{\left(\frac{\mathrm{i}w\sigma}{\sqrt{2}}+\frac{\mu-x}{\sigma\sqrt{2}}\right)^2-\frac{(\mu-x)^2}{2\sigma^2}}\, dw =\frac{1}{2\pi}\mathrm{e}^{-\frac{(\mu-x)^2}{2\sigma^2}}\int_{-\infty}^\infty \mathrm{e}^{\left(\frac{\mathrm{i}w\sigma}{\sqrt{2}}+\frac{\mu-x}{\sigma\sqrt{2}}\right)^2}\, dw \\[1ex] & =\displaystyle \frac{1}{2\pi}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\int_{-\infty}^\infty \mathrm{e}^{-\left(\frac{w\sigma}{\sqrt{2}}+\frac{\mu-x}{\mathrm{i}\sigma\sqrt{2}}\right)^2}\, dw \stackrel{\mbox{cambio de variable } u=\frac{w\sigma}{\sqrt{2}}+\frac{\mu-x}{\mathrm{i}\sigma\sqrt{2}}}{=} \frac{1}{2\pi}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}\int_{-\infty}^\infty \frac{\sqrt{2}}{\sigma}\mathrm{e}^{-u^2}\, du \\[1ex] & \displaystyle\stackrel{\int_{-\infty}^\infty \mathrm{e}^{-u^2}\, du =\sqrt{\pi}}{=} \frac{1}{\sqrt{2}\pi\sigma} \mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}} \sqrt{\pi} = \frac{1}{\sqrt{2\pi}\sigma}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}},
 \end{array}
 $$
 función que coincide con la densidad de la distribución $N(\mu,\sigma)$.
 
 </div>
 
-#### Relación entre la función característica y los momentos
+**Relación entre la función característica y los momentos**
+
 La relación entre la **función característica** y los **momentos** es la siguiente:
 
-<l class="prop"> Proposición </l>
+<l class="prop"> **Proposición.** </l>
 Sean $X$ una variable aleatoria con **función característica** $\FunCar_X(w)$. Entonces, el momento de orden $n$ de $X$ se puede obtener de la forma siguiente:
 $$
 \momento_n =E\left(X^n\right)=\frac{1}{\mathrm{i}^n}\frac{d}{d w^n}\FunCar_X(w)|_{w=0} =\frac{1}{\mathrm{i}^n}\FunCar_X^{(n)}(0).
@@ -635,10 +629,10 @@ Vamos a definir medidas para estudiar la fiabilidad de este tipo de variables al
 
 
 
-<l class="definition">Definición:</l>
+<l class="definition">**Definición:**</l>
 Sea $T\geq 0$ una variable aleatoria. La **fiabilidad** de $T$ en el tiempo $t$ se define como la probabilidad que el sistema, componente o dispositivo funcione en el tiempo $t$: $R(t)=P(T>t)$.
 
-<l class="observ">Observación:</l>
+<l class="observ">**Observación:**</l>
 Dada una variable $T\geq 0$, la relación existente entre la **fiabilidad** $R$ y la **función de distribución** $F_T$ es la siguiente:
 $$
 R(t)=P(T>t)=1-P(T\leq t)=1-F_T (t)
@@ -653,13 +647,12 @@ $E(T)=\int_0^\infty R(t)\, dt.$
 Veámoslo. Para ello basta ver que $E(T)=\int_0^\infty (1-F_T(t))\, dt$, donde $F_T(t)$ es la función de distribución de la variable $T$:
 $$
 \begin{array}{rl}
-E(T) & =\int_{t=0}^{t=\infty} 1-F_T(t)\, dt=\int_{t=0}^{t=\infty}\int_{u=t}^{u=\infty} f_T(u)\,du\,dt \\ & =\int_{u=0}^{u=\infty} f_T(u)\int_{t=0}^{t=u} \, dt\, du =\int_{u=0}^{u=\infty} f_T(u)\cdot u\, du = E(T),
+E(T) & =\displaystyle\int_{t=0}^{t=\infty} 1-F_T(t)\, dt=\int_{t=0}^{t=\infty}\int_{u=t}^{u=\infty} f_T(u)\,du\,dt \\[1ex] & =\displaystyle\int_{u=0}^{u=\infty} f_T(u)\int_{t=0}^{t=u} \, dt\, du =\int_{u=0}^{u=\infty} f_T(u)\cdot u\, du = E(T),
 \end{array}
 $$
 donde $f_T(u)$ seria la función de densidad de la variable $T$ en el valor $u$.
 
 
-#### Ejemplo
 <div class="example">
 **Ejemplo**
 
@@ -691,7 +684,7 @@ Todos los métodos que vamos a describir presuponen que podemos generar **númer
 
 El **método de transformación** se basa en el resultado siguiente:
 
-<l class="prop">Proposición: </l>
+<l class="prop">**Proposición.** </l>
 Sea $X$ una variable aleatoria con función de distribución $F_X(x)$. Supongamos que $F_X(x)$ es estrictamente creciente o que existe $F_X^{-1}(y)$, para todo $y\in [0,1]$. Sea $Y$ la variable aleatoria definida como: $Y=F_X(X)$. Entonces la distribución de $Y$ es uniforme en el intervalo $[0,1]$.
 
 <div class="dem">
@@ -709,7 +702,7 @@ $$
 
 Usando la proposición anterior, dada una variable $X$, como la distribución de la variable aleatoria $Y=F_X(X)$ es $U[0,1]$, si hacemos $X=F_X^{-1}(Y)$, tendremos que si sabemos generar una muestra de $Y$, aplicándole a la muestra la función $F_X^{-1}$ tendremos generada una muestra de $X$.
 
-### Ejemplos
+
 <div class="example">
 **Ejemplo: generar una muestra de una variable exponencial de parámetro $\lambda$**
 
@@ -817,7 +810,6 @@ Para generar una **muestra aleatoria** de la variable $X$, hacemos lo siguiente:
 3) si $y\leq f_X(x)$, aceptamos $x$ como valor de la muestra. En caso contrario, volvemos a empezar en 1.
 
 
-#### Ejemplos
 <div class="example">
 **Ejemplo**
 
@@ -896,12 +888,11 @@ Por ejemplo, si $P(A_k)=1$, o sea, $A_k$ aparece "**seguro**", entonces tiene in
 
 La motivación anterior hace que definamos la **entropía** de una variable aleatoria de la forma siguiente:
 
-<l class="definition">Definición:</l>
+<l class="definition">**Definición:**</l>
 Sea $X$ una variable aleatoria con función de densidad $f_X(x)$ en el caso continuo o función de probabilidad $P_X(x)$ en el caso discreto. Definimos **entropía de X** como: 
-$\Entropia_X = E\left(-\ln(f_X)\right)=\int_{-\infty}^\infty -\ln(f_X(x)) f_X(x)\, dx,$ en el caso continuo y,
-$\Entropia_X = E\left(-\ln(P_X)\right)=\sum_{x_k\in D_X} -\ln(P_X(x_k)) P_X(x_k),$ en el caso discreto.
+$\Entropia_X = \displaystyle E\left(-\ln(f_X)\right)=\int_{-\infty}^\infty -\ln(f_X(x)) f_X(x)\, dx,$ en el caso continuo y,
+$\Entropia_X = \displaystyle E\left(-\ln(P_X)\right)=\sum_{x_k\in D_X} -\ln(P_X(x_k)) P_X(x_k),$ en el caso discreto.
 
-#### Ejemplos
 <div class="example">
 **Ejemplo: entropía de una variable de Bernoulli de parámetro $p$**
 
@@ -934,7 +925,7 @@ Recordemos que su función de densidad es: $f_X(x)=\lambda \mathrm{e}^{-\lambda 
 Su entropía será:
 $$
 \begin{array}{rl}
-\Entropia_X & = E\left(-\ln(f_X)\right)=-\int_0^\infty \ln\left(\lambda\mathrm{e}^{-\lambda x}\right)\lambda\mathrm{e}^{-\lambda x}\, dx = -\lambda \int_0^\infty (\ln(\lambda) -\lambda x)\mathrm{e}^{-\lambda x}\, dx \\ & = -\ln (\lambda)\int_0^\infty \lambda\mathrm{e}^{-\lambda x}\, dx+\lambda \int_0^\infty \lambda x \mathrm{e}^{-\lambda x}\, dx =-\ln(\lambda)\int_0^\infty f_X(x)\, dx +\lambda E(X)\\ & =-\ln(\lambda)+\lambda \frac{1}{\lambda} =1-\ln(\lambda).
+\Entropia_X & = \displaystyle E\left(-\ln(f_X)\right)=-\int_0^\infty \ln\left(\lambda\mathrm{e}^{-\lambda x}\right)\lambda\mathrm{e}^{-\lambda x}\, dx = -\lambda \int_0^\infty (\ln(\lambda) -\lambda x)\mathrm{e}^{-\lambda x}\, dx \\[1ex] & =\displaystyle -\ln (\lambda)\int_0^\infty \lambda\mathrm{e}^{-\lambda x}\, dx+\lambda \int_0^\infty \lambda x \mathrm{e}^{-\lambda x}\, dx =-\ln(\lambda)\int_0^\infty f_X(x)\, dx +\lambda E(X)\\[1ex] & =\displaystyle -\ln(\lambda)+\lambda \frac{1}{\lambda} =1-\ln(\lambda).
 \end{array}
 $$
 El gráfico de la entropía se puede observar en el gráfico siguiente donde $X$ tiene entropía máxima cuando $\lambda=0$ que sería cuando $X$ tiene incertidumbre máxima al tratar de adivinar el resultado de $X$ al tener media $E(X)=\frac{1}{\lambda}=\infty$ y $X$ tiene entropía mínima cuando $\lambda$ tiende a $\infty$ ya que su media $E(X)=\frac{1}{\lambda}$ tendería a 0.

@@ -179,9 +179,10 @@ $$
 **Función de distribución de una binomial**
 
 Su **función de distribución** no tiene una fórmula cerrada. Hay que acumular la función de probabilidad:
-\begin{eqnarray*}
-F_{X}(x)=P(X\leq x) & = & \sum_{i=0}^x P_X(i)\\
-& = & 
+$$
+\begin{array}{ll}
+F_{X}(x)=P(X\leq x) & =  \sum_{i=0}^x P_X(i)\\
+& = 
 \left\{
 \begin{array}{ll}
 0, & \mbox{ si } x\leq 0,\\\displaystyle
@@ -195,7 +196,8 @@ F_{X}(x)=P(X\leq x) & = & \sum_{i=0}^x P_X(i)\\
 1, & \mbox{ si } n\leq x.
 \end{array}
 \right.
-\end{eqnarray*}
+\end{array}
+$$
 
 
 
@@ -246,10 +248,9 @@ funciones para el cálculo de estas probabilidades, así que el **uso de las tab
 Su **esperanza** es: 
 $$E(X)=\displaystyle\sum_{k=0}^n k \cdot  {n \choose k }\cdot p^k\cdot q^{n-k} = n\cdot p.$$
 La esperanza de $X^2$ es:
-\begin{eqnarray*}
-E(X^2)&=& \displaystyle\sum_{k=0}^n k^2 \cdot  {n \choose k }\cdot p^k\cdot q^{n-k}\\
-&=& n\cdot p\cdot q-(n\cdot p)^2.
-\end{eqnarray*}
+$$
+E(X^2)= \displaystyle\sum_{k=0}^n k^2 \cdot  {n \choose k }\cdot p^k\cdot q^{n-k}= n\cdot p\cdot q-(n\cdot p)^2.
+$$
 
 **Varianza de una $B(n,p)$**
 
@@ -535,7 +536,7 @@ Supongamos que repetimos este proceso $n=10$ reponiendo en cada ocasión la bola
 
 Consideremos la variable aleatoria $X$ como el número de bolas rojas extraídas (con reposición) en $n=10$ repeticiones del mismo experimento de Bernoulli.
 
-Bajo estas condiciones repetimos $n=10$ veces el mismo experimento de Bernouilli con probabilidad de éxito (sacar bola roja)
+Bajo estas condiciones repetimos $n=10$ veces el mismo experimento de Bernoulli con probabilidad de éxito (sacar bola roja)
 $$P(Roja)=P(Éxito)=p=\frac{40}{100}=0.4.$$
 
 Así que la variable $X$ que es el número de bolas rojas extraídas de la urna (con reposición) en $n=10$ ocasiones sigue una ley binomial  $B(n=10,p=0.4).$
@@ -557,11 +558,13 @@ Nos preguntamos:
 **Solución 1**. ¿Cuál es la probabilidad de que saquemos exactamente $4$ rojas?
 
 Utilizando la función de probabilidad, tenemos que:
-\begin{eqnarray*}
-P(X=4)&=&{10\choose 4}\cdot 0.4^4\cdot (1-0.4)^{10-4}
+$$
+\begin{array}{ll}
+P(X=4)&={10\choose 4}\cdot 0.4^4\cdot (1-0.4)^{10-4}
 = \frac{10!}{(10-4)!\cdot 4!}\cdot 0.4^4\cdot 0.6^6\\
-&=& \frac{7\cdot 8\cdot 9\cdot 10}{1\cdot 2\cdot 3\cdot 4}\cdot 0.4^4\cdot 0.6^6=`r round(choose(10,4)* 0.4^4*0.6^6,7)`.
-\end{eqnarray*}
+&= \frac{7\cdot 8\cdot 9\cdot 10}{1\cdot 2\cdot 3\cdot 4}\cdot 0.4^4\cdot 0.6^6=`r round(choose(10,4)* 0.4^4*0.6^6,7)`.
+\end{array}
+$$
 
 Con `R`:
 
@@ -577,14 +580,15 @@ dbinom(4,size=10,prob = 0.4)
 **Solución 2**.  ¿Cuál es la probabilidad de que saquemos al menos $4$ bolas rojas?
 
 La probabilidad de sacar al menos 4 rojas se expresa como $P(X \geq  4)=1-P(X<4)=1-P(X\leq 3):$
-
-\begin{eqnarray*}
-P(X\leq 3)&=& P(X=0)+P(X=1)+P(X=2)+P(X=3)\\
-&=& 
+$$
+\begin{array}{rl}
+P(X\leq 3)& = P(X=0)+P(X=1)+P(X=2)+P(X=3)\\
+&= 
  {10\choose 0}\cdot 0.4^0\cdot (1-0.4)^{10-0}+ {10\choose 1}\cdot 0.4^1\cdot (1-0.4)^{10-1}\\
-&+&{10\choose 2}\cdot 0.4^2\cdot (1-0.4)^{10-2}+ {10\choose 3}\cdot 0.4^3\cdot (1-0.4)^{10-3}\\
-&=&`r round(pbinom(3,10,0.4),7)`.
-\end{eqnarray*}
+&+{10\choose 2}\cdot 0.4^2\cdot (1-0.4)^{10-2}+ {10\choose 3}\cdot 0.4^3\cdot (1-0.4)^{10-3}\\
+&=`r round(pbinom(3,10,0.4),7)`.
+\end{array}
+$$
 
 Con `R`:
 ```{r}
@@ -614,15 +618,16 @@ pbinom(3,10,0.4,lower.tail = FALSE)
 
 **Solución 3**.  ¿Cuál es la probabilidad de que saquemos  menos  de $3$ bolas rojas?
 
-
-\begin{eqnarray*}
-P(X< 3)&=& P(X\leq 2)=  P(X=0)+P(X=1)+P(X=2)\\
-&=& 
+$$
+\begin{array}{ll}
+P(X< 3)&= P(X\leq 2)=  P(X=0)+P(X=1)+P(X=2)\\
+&=
 {10\choose 0}\cdot 0.4^0\cdot (1-0.4)^{10-0}+ {10\choose 1}\cdot 0.4^1\cdot (1-0.4)^{10-1}\\
-&&+
+&+
 {10\choose 2}\cdot 0.4^2\cdot (1-0.4)^{10-2}\\
-&=&`r round(pbinom(2,10,0.4),7)`.
-\end{eqnarray*}
+&=`r round(pbinom(2,10,0.4),7)`.
+\end{array}
+$$
 
 En `R`:
 ```{r}
@@ -715,11 +720,12 @@ $$
 
 
 Ahora, al  ser los intentos independientes, tenemos que:
-\begin{eqnarray*}
-P(X>3) & = & P(\{FFFF\})= P(F)\cdot P(F)\cdot P(F)\cdot P(F)\\
-&=& (1-p)\cdot (1-p)\cdot (1-p)\cdot (1-p)= (1-p)^{3+1}\\\
-&=&(1-p)^{4}.
-\end{eqnarray*}
+$$
+\begin{array}{ll}
+P(X>3) & =  P(\{FFFF\})= P(F)\cdot P(F)\cdot P(F)\cdot P(F)\\
+&= (1-p)\cdot (1-p)\cdot (1-p)\cdot (1-p)= (1-p)^{3+1}=(1-p)^{4}.
+\end{array}
+$$
 
 El valor de la función de distribución de $X$ en $x=3$ será, pues:
 $$F_X(3)=P(X\leq 3)=1-P(X>3)=1-(1-p)^{3+1}.$$
@@ -760,28 +766,32 @@ ya que $0<1-p<1$.
 Recordemos las propiedades siguientes del tema de variables aleatorias:
 
 * Si $|r|<1$  también son convergentes las derivadas, respecto de $r$, de la serie geométrica y convergen a la derivada correspondiente. Así, tenemos que:
-\begin{eqnarray*}
-\left(\sum_{k=0}^{+\infty} r^k\right)' &=& \sum_{k=1}^{+\infty}k\cdot
+$$
+\begin{array}{ll}
+\left(\sum_{k=0}^{+\infty} r^k\right)' &= \sum_{k=1}^{+\infty}k\cdot
 r^{k-1}\\
-&=& \left(\frac{1}{1-r}\right)'=\frac{1}{(1-r)^2}.\\
-\left(\sum_{k=0}^{+\infty} r^k\right)^{''} &=& \sum_{k=2}^{+\infty}k \cdot(k-1)\cdot r^{k-2} \\
-&=& \left(\frac{1}{1-r}\right)^{''}=\frac{2}{(1-r)^3}.
-\end{eqnarray*}
+&= \left(\frac{1}{1-r}\right)'=\frac{1}{(1-r)^2}.\\
+\left(\sum_{k=0}^{+\infty} r^k\right)^{''} &= \sum_{k=2}^{+\infty}k \cdot(k-1)\cdot r^{k-2} \\
+&= \left(\frac{1}{1-r}\right)^{''}=\frac{2}{(1-r)^3}.
+\end{array}
+$$
 
 
 **Esperanza de una v.a. $Ge(p)$**
 
 Recordemos que $P(X=x)=(1-p)^x\cdot p$ si $x=0,1,2,\ldots$ y aplicado la fórmula anterior con $r=1-p$, tenemos:
-\begin{eqnarray*}
+$$
+\begin{array}{rll}
 E(X)&=&\sum_{x=0}^{+\infty} x\cdot P_x(x)=\sum_{x=0}^{+\infty} x\cdot (1-p)^x\cdot p=
 p\cdot (1-p) \cdot \sum_{x=1}^{+\infty} x\cdot (1-p)^{x-1}\\
 &=& p\cdot (1-p)\cdot \frac{1}{(1-(1-p))^2}=p\cdot (1-p)\cdot \frac{1}{p^2}=\frac{1-p}{p}.
-\end{eqnarray*}
-
+\end{array}
+$$
 
 **Valor $E(X^2)$ de una v.a. $Ge(p)$**
 
-\begin{eqnarray*}
+$$
+\begin{array}{rll}
 E(X^2)&=&\sum_{x=0}^{+\infty} x^2\cdot P_X(x)=\sum_{x=1}^{+\infty} x^2\cdot (1-p)^x\cdot p\\
 &=& 
 \sum_{x=1}^{+\infty} (x\cdot (x-1)+x)\cdot (1-p)^{x}\cdot p\\
@@ -798,19 +808,22 @@ p\cdot (1-p)^2 \frac{2}{(1-(1-p))^3}+  (1-p)\cdot p \frac{1}{(1-(1-p))^2}\\
 &=&
 p\cdot (1-p)^2 \frac{2}{p^3}+  (1-p)\cdot p \frac{1}{p^2}\\
 &=&\frac{2\cdot (1-p)^2}{p^2}+\frac{1-p}{p}.
-\end{eqnarray*}
+\end{array}
+$$
 
 
 **Varianza de una v.a. $Ge(p)$**
 
-\begin{eqnarray*}
+$$
+\begin{array}{rll}
 Var(X)&=&E(X^2)-E(X)^2=\frac{2\cdot (1-p)^2}{p^2}+\frac{1-p}{p}-\left(\frac{1-p}{p}\right)^2\\
 &=&
 \frac{2\cdot (1-p)^2+p\cdot(1-p)-(1-p)^2}{p^2}=\frac{(1-p)^2+p\cdot(1-p)}{p^2}\\
 &=&
 \frac{1-2\cdot p + p^2+p-p^2}{p^2}\\
 &=& \frac{1-p}{p^2},
-\end{eqnarray*}
+\end{array}
+$$
 y su desviación típica será
 $$\sqrt{Var(X)}=\sqrt{\frac{1-p}{p^2}}.$$
 
@@ -870,11 +883,13 @@ $$
 P(X>k)=1-P(X\leq k)=1-\left(1-(1-p)^{k+1}\right)=(1-p)^{k+1},
 $$
 y el lado de izquierdo es:
-\begin{eqnarray*} 
+$$
+\begin{array}{rll} 
 P\left(X> k+j\big| X\geq j\right)&=&\frac{P\left(\{X> k+j\}\cap \{X\geq j\} \right)}{P\left(X\geq j\right)}=
 \frac{P\left(X>k+j \right)}{P\left(X\geq j \right)} = \frac{1-P(X\leq k+j)}{1-P(X\leq j-1)}\\
 &=&  \frac{1-(1-(1-p)^{k+j+1})}{1-(1-(1-p)^{j-1+1})} =\frac{(1-p)^{k+j+1}}{(1-p)^{j}} = (1-p)^{k+1},
-\end{eqnarray*}
+\end{array}
+$$
 lo que demuestra  la igualdad.
 
 Para demostrar el recíproco, tomemos $j=1$  y $k\geq 0$. Entonces, por la propiedad de la pérdida de memoria:
@@ -891,10 +906,12 @@ $$
 Así podemos poner que 
 
 
-\begin{eqnarray*}
+$$
+\begin{array}{rll}
 P(X>k+1)&=&P(X\geq 1)\cdot P(X>k)=\left(1-P(X<1)\right)\cdot P(X>k)\\
 &=&\left(1-P(X=0)\right)\cdot P(X>k)=(1-p)\cdot P(X>k).
-\end{eqnarray*}
+\end{array}
+$$
 
 En general tenemos que:
 
@@ -1918,7 +1935,7 @@ Usando que las variables $X_n$ tienen distribución $B(n,p_n=\frac{\lambda}{n})$
 
 Lo interesante de las variables Poisson es que podemos modificar (si el modelo lo permite)  el intervalo de tiempo $(0,t]$ en el que contamos los eventos siempre y cuando se cumplan las condiciones 1 y 2 enunciadas anteriormente en el nuevo intervalo de tiempo. 
 
-En general, podemos afirmar si la variable es poisson en  $(0,t]$,  también lo será en cualquier subintervalo $(0,t']$ para todo $t'$ tal que  $0<t'<t$. 
+En general, podemos afirmar si la variable es Poisson en  $(0,t]$,  también lo será en cualquier subintervalo $(0,t']$ para todo $t'$ tal que  $0<t'<t$. 
 
 De esta forma, podremos definir una serie de variables $X_t$ de distribución $Po(\lambda\cdot t)$.
 
@@ -1959,12 +1976,12 @@ $E(X)=\lambda\cdot t$ | $Var(X)=\lambda\cdot t$
 
 **Aproximación de la distribución binomial por la Poisson**
 
-Dada una variable aleatoria de distribución $B(n,p)$ si $n$ es grande y $p$ es pequeño, podemos aproximar la distribución anterior por una distribución Poisson de parámetre $\lambda=n\cdot p$, $Po(\lambda = n\cdot p)$.
+Dada una variable aleatoria de distribución $B(n,p)$ si $n$ es grande y $p$ es pequeño, podemos aproximar la distribución anterior por una distribución Poisson de parámetro $\lambda=n\cdot p$, $Po(\lambda = n\cdot p)$.
 
 Un criterio para decidir que la aproximación anterior es buena es que 
 $n\geq 20$, o mejor, $n\geq 30$, $n\cdot p < 10$  y  $p\leq 0.05.$
 
-La aproximación de la función de probabilidad de una variable binomial a una variable de Poisson és óptima en los valores cercanos a $E(X)=\lambda$.
+La aproximación de la función de probabilidad de una variable binomial a una variable de Poisson es óptima en los valores cercanos a $E(X)=\lambda$.
 
 **Gráficos de la aproximación binomial a la de Poisson**
 
@@ -2018,7 +2035,7 @@ renderPlot({
 
 ```
 
-<!--[![](Images/noshinyImages/interactiva_poisson1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
+<!--[![](Images/noshinyImages/interactiva_Poisson1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 
 
@@ -2118,11 +2135,11 @@ $$
 \begin{array}{rl}
  P(X\geq 6)&=1- P(X<6)=1-P(X\leq 5)=1-F_X(5)=1-\displaystyle\sum_{x=0}^{5} \frac{20^{x}}{x!}\cdot e^{-20}\\
  &=
- 1-\left(\frac{20^{0}}{0!}\cdot e^{-20}+\frac{20^{1}}{1!}\cdot e^{-20}+\frac{20^{2}}{2!}\cdot e^{-20}+\frac{20^{3}}{3!}\cdot e^{-20}+\frac{20^{4}}{4!}\cdot e^{-20}+\frac{20^{5}}{5!}\cdot e^{-20}\right)\\
+ 1-\left(\frac{20^{0}}{0!}\cdot e^{-20}+\frac{20^{1}}{1!}\cdot e^{-20}+\frac{20^{2}}{2!}\cdot e^{-20}+\frac{20^{3}}{3!}\cdot e^{-20}+\frac{20^{4}}{4!}\cdot e^{-20}+\frac{20^{5}}{5!}\cdot e^{-20}\right)\\[1ex]
  &=
- 1-e^{-20}\cdot \left(1+20+\frac{400}{4}+\frac{8000}{6}+\frac{160000}{24}+\frac{3200000}{120}\right)\\
+ 1-e^{-20}\cdot \left(1+20+\frac{400}{4}+\frac{8000}{6}+\frac{160000}{24}+\frac{3200000}{120}\right)\\[1ex]
  &=
- 1-e^{-20} \cdot \left(\frac{1 \cdot 120+20\cdot 120+400\cdot 30+8000\cdot 20+160000\cdot 24+3200000\cdot 1}{120}\right)\\
+ 1-e^{-20} \cdot \left(\frac{1 \cdot 120+20\cdot 120+400\cdot 30+8000\cdot 20+160000\cdot 24+3200000\cdot 1}{120}\right)\\[1ex]
  &= 1-e^{-20}\cdot\left(\frac{4186520}{120}\right)=1-`r exp(-20)+20*exp(-20)+200*exp(-20)+8000/6*exp(-20)+160000/24*exp(-20)+3200000*exp(-20)/120` =`r 1-( exp(-20)+20*exp(-20)+200*exp(-20)+8000/6*exp(-20)+160000/24*exp(-20)+3200000*exp(-20)/120)`.
 \end{array}
 $$
@@ -2263,11 +2280,11 @@ renderPlot({
 ```
 
 
-<!--[![](Images/noshinyImages/interactiva_poisson2.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
+<!--[![](Images/noshinyImages/interactiva_Poisson2.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 **Cálculos con python**
 
-Realicemos los mismos cálculos realizados con `R` pero ahora usando pyhton. Recordemos que considerábamos una v.a. $X$ con distribución $Po(\lambda=3)$. Calculemos $P_X(0)=P(X=0), P_X(1)=P(X=1)$ con python
+Realicemos los mismos cálculos realizados con `R` pero ahora usando python. Recordemos que considerábamos una v.a. $X$ con distribución $Po(\lambda=3)$. Calculemos $P_X(0)=P(X=0), P_X(1)=P(X=1)$ con python
 ```{python poisson_python}
 from scipy.stats import poisson
 poisson.pmf(0,mu = 3)
@@ -2339,14 +2356,14 @@ mu = 10 ## mu = lambda
 x = np.arange(poisson.ppf(0.01, mu),poisson.ppf(0.99, mu))
 fig =plt.figure(figsize=(5, 2.7))
 ax = fig.add_subplot(1,2,1)
-ax.plot(x, poisson.pmf(x, mu), 'bo', ms=5, label='poisson pmf')
+ax.plot(x, poisson.pmf(x, mu), 'bo', ms=5, label='Poisson pmf')
 ax.vlines(x, 0, poisson.pmf(x, mu), colors='b', lw=2, alpha=0.5)
 for tick in ax.xaxis.get_major_ticks():
   tick.label.set_fontsize(5)
 for tick in ax.yaxis.get_major_ticks():
   tick.label.set_fontsize(5) 
 ax = fig.add_subplot(1,2,2)
-ax.plot(x, poisson.cdf(x, mu), 'bo', ms=5, label='poisson cdf')
+ax.plot(x, poisson.cdf(x, mu), 'bo', ms=5, label='Poisson cdf')
 ax.vlines(x, 0, poisson.cdf(x, mu), colors='b', lw=2, alpha=0.5)
 for tick in ax.xaxis.get_major_ticks():
   tick.label.set_fontsize(5)
@@ -2362,14 +2379,14 @@ mu = 10 ## mu = lambda
 x = np.arange(poisson.ppf(0.01, mu),poisson.ppf(0.99, mu))
 fig =plt.figure(figsize=(5, 2.7))
 ax = fig.add_subplot(1,2,1)
-_=ax.plot(x, poisson.pmf(x, mu), 'bo', ms=5, label='poisson pmf')
+_=ax.plot(x, poisson.pmf(x, mu), 'bo', ms=5, label='Poisson pmf')
 _=ax.vlines(x, 0, poisson.pmf(x, mu), colors='b', lw=2, alpha=0.5)
 for tick in ax.xaxis.get_major_ticks():
   _=tick.label.set_fontsize(5)
 for tick in ax.yaxis.get_major_ticks():
   _=tick.label.set_fontsize(5) 
 ax = fig.add_subplot(1,2,2)
-_=ax.plot(x, poisson.cdf(x, mu), 'bo', ms=5, label='poisson cdf')
+_=ax.plot(x, poisson.cdf(x, mu), 'bo', ms=5, label='Poisson cdf')
 _=ax.vlines(x, 0, poisson.cdf(x, mu), colors='b', lw=2, alpha=0.5)
 for tick in ax.xaxis.get_major_ticks():
   _=tick.label.set_fontsize(5)
@@ -2419,7 +2436,7 @@ renderPlot({
   })
 ```
 
-<!--![[](Images/noshinyImages/interactivos_proceso_poisson1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
+<!--![[](Images/noshinyImages/interactivos_proceso_Poisson1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 
 
@@ -2605,7 +2622,7 @@ Si calculamos con ayuda de `R` los números binomiales involucrados en la expres
 c(choose(15,2), choose(10,1), choose(25,3))
 ```
 
-La probabilidad pedida, serà, pues:
+La probabilidad pedida, será, pues:
 $P(X=2)=\frac{`r choose(15,2)`\cdot`r choose(10,1)` }{`r choose(25,3)`}=`r choose(15,2)*choose(10,1)/choose(25,3)`.$
 
 ```{r eval=FALSE,echo=FALSE}
@@ -2911,6 +2928,108 @@ for tick in ax.yaxis.get_major_ticks():
 _=fig.suptitle('Distribucion Hipergeometrica')
 _=plt.show()
 ```
+
+
+## Cuantiles de distribuciones notables discretas
+
+<div class="example">
+**Ejemplo**
+
+Consideremos una v.a. $X$ de distribución $B(5,0.5)$. 
+
+Los cuantiles $x_{0.3}$, $x_{0.6}$ y $x_{0.8}$ son los siguientes:
+
+```{r quantile1, sixe="small"}
+qbinom(c(0.3,0.6,0.8),5,0.5)
+```
+
+Calculemos a mano, el valor $x_{0.3}$ y verifiquemos que da el mismo resultado que nos ha dado `R`.
+
+La función de distribución de $X$ es:
+$$
+\small{
+F_x(x)=P(X\leq x)=
+\left\{
+\begin{array}{ll}
+0, & x< 0, \\
+0.03125, & \mbox{ si } 0 \leq x< 1, \\
+0.18750, & \mbox{ si } 1 \leq x< 2, \\
+0.50000, & \mbox{ si } 2 \leq x< 3, \\
+0.81250, & \mbox{ si } 3 \leq x< 4, \\
+0.96875, & \mbox{ si } 4 \leq x< 5, \\
+1.00000, & \mbox{ si }  5\leq x. \\
+\end{array}
+\right.}
+$$
+
+El cuantil $q=0.3$ es el  primer valor $x\in D_X$  tal que $F_X(x)=P(X\leq x_{0.3})\geq 0.3.$. Mirando la expresión anterior, comprobamos que $x_{0.3}=2$ ya que $F_X(2)=P(X\leq 2)=0.5 \geq 0.3$.
+</div>
+
+
+<div class="exercise">
+**Ejercicio**
+
+Calcular los cuantiles de  $0.6$ y $0.8$ de una $B(5,0.5).$
+</div>
+
+
+**Gráfico interactivo que muestra los cuantiles de las distribuciones $B(n,p)$ y $Po(\lambda)$**
+
+Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
+
+```{r cuantiles_graficosPOBIN, echo = TRUE, eval = FALSE}
+fluidPage(
+fluidRow(
+  column(3,
+         sliderInput("nq", label = "Par. n B(n,p)",
+              min = 1, max = 20, value =10 , step = 1)
+         ),
+  column(3,
+          sliderInput("pq", label = "Par. p B(n,p)",
+                     min = 0.01, max = 0.99, value = 0.5, step = 0.1)
+         ),
+  column(3,
+         sliderInput("qq", label=" Cuantil q", value=0.75, min = 0.01, max = 0.99, 
+                     step = 0.01)
+         ),
+  column(3,
+         sliderInput("lq", label="Par. lambda Po(lambda)", value=5, min = 1, max = 20, 
+                     step = 1)
+         )
+  )
+)
+
+  
+renderPlot({
+  n=input$nq
+  p=input$pq
+  q=input$qq
+  lambda=input$lq
+  par(mfrow=c(1,2))
+  #n=10;p=0.5;q=0.75;lambda=5
+  #xx=c(seq(min(a,x),min(b,x),by=0.001))
+  probsB=pbinom(0:n,n,p)
+  curve(pbinom(x,n,p),xlim=c(0-0.25,n+0.25),ylim=c(0,max(probsB+0.05,0.1)),
+        col="blue",main=paste0("Función distribución\n B(n=",n,", p=",p,")"),
+        ylab=paste0("dbinom(x,",n,", ",p,")"),yaxt="n")
+  segments(x0 = qbinom(q,n,p),y0 = 0,x1 = qbinom(q,n,p),y1 = q,lty=2,col="red")
+  segments(x0 = qbinom(q,n,p),y0 = q,x1 = -0.25,y1 = q,lty=2,col="red")
+  ytick=c(0.0,q,1)
+  axis(side=2, at=ytick, labels = TRUE)
+  axis(side=1, at=qbinom(q,n,p), labels = TRUE)
+  curve(ppois(x,lambda),xlim=c(0-0.25,2.5*lambda),ylim=c(0,1+0.1),
+        col="blue",main=paste0("Función distribución \n Po(lambda=",lambda,")"),
+        ylab=paste0("dpois(x, lambda",lambda,")"),yaxt="n")
+  segments(x0 = qpois(q,lambda),y0 = 0,x1 = qpois(q,lambda),y1 = q,lty=2,col="red")
+  segments(x0 = qpois(q,lambda),y0 = q,x1 = -0.25,y1 = q,lty=2,col="red")
+  ytick=c(0.0,q,1)
+  axis(side=2, at=ytick, labels = TRUE)
+  axis(side=1, at=qpois(q,lambda), labels = TRUE)
+  par(mfrow=c(1,1))
+})
+```
+
+<!--[![](Images/noshinyImages/interactiva_cuantiles1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 
 ## Distribuciones continuas
@@ -3379,7 +3498,7 @@ $F_X(x)=P(X\leq X)=$ | $\left\{\begin{array}{ll} 0, &\mbox{si } x\leq 0,\\
 1-e^{-\lambda x},& \mbox{si } x>0.\end{array}\right.$
 $E(X)=\frac{1}{\lambda}$ | $Var(X)=\frac{1}{\lambda^2}$
 
-**Gráficas de las funciones de denside densidad y de distribución de la variable aleatoria $Exp(\lambda=10)$**
+**Gráficas de las funciones de  densidad y de distribución de la variable aleatoria $Exp(\lambda=10)$**
 
 ```{r eval=FALSE,fig.align="center"}
 lambda=10
@@ -3488,7 +3607,7 @@ Supongamos que compramos una bombilla led que promete un **valor esperado** de d
 
 
 
-Una de las variables  aleatorias  continua más populares  es la llamada    distribución normal o [Gaussiana](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_normal) .
+Una de las variables  aleatorias  continua más populares  es la llamada    distribución normal o [Gaussiana](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_normal).
 
 <l class="def"> **Distribución normal o de Gauss**</l>
 Diremos que una v.a. $X$ sigue una ley normal de parámetros
@@ -3514,7 +3633,7 @@ curve(dnorm(x),main="Función de densidad de una normal estándar",xlim=c(-3.9,3
 
 <l class="prop"> **Propiedades de la función de densidad de la distribución normal**</l>
 
-Sea $X$ una v.a. $N(\mu,\sigma)$ y sea $f_{X}$ su función de densidad. Entonces:
+Sea $X$ una v.a. $N(\mu,\sigma)$ y sean $f_{X}$ su función de densidad y $F_X(x)=\displaystyle\int_{-\infty}^x f_X(t)\, dt$ su función de distribución. Entonces:
 
 1. La función $f_{X}$ verifica todas las propiedades de las funciones de densidad: $f_X(x)>0$, para todo $x\in\mathbb{R}$ y $\displaystyle\int_{-\infty}^\infty f_X(x)\,dx=1$.
 1. La función $f_X(x)$ es simétrica respecto de la recta $x=\mu$: $f_{X}(\mu-x)=f_{X}(\mu+x)$, para todo $x\in\mathbb{R}$.
@@ -3522,117 +3641,10 @@ Sea $X$ una v.a. $N(\mu,\sigma)$ y sea $f_{X}$ su función de densidad. Entonces
 1. Si $F_{X}$ es la función de distribución de $X$, entonces $F_{X}(\mu+x)=1-F_{X}(\mu-x)$, para todo $x\in\mathbb{R}$. 
 1. En particular si $Z$ es una $N(0,1)$ entonces $F_{Z}(-x)=1-F_{Z}(x)$, para todo $x\in\mathbb{R}$.
 1. $Z=\frac{X-\mu}{\sigma}$ es una v.a. $N(0,1)$ y $X=\sigma\cdot Z+\mu$ es una $N(\mu,\sigma)$ donde $Z$ es la normal estándar.
-
-**Función de distribución  N(0,1)**
-
-Su función de distribución es, como sabemos:
-
-$$
-F(x)=\displaystyle\int_{-\infty}^{x} {1\over{\sqrt{2\cdot \pi\cdot\sigma^2}}}
-e^{-{1\over 2}{\left({t-\mu}\over{\sigma}\right)}^2} dt.
-$$
-
-La función $F(x)$ no tiene ninguna expresión algebraica "decente". Es por esta razón, y  por comodidad, que esta función está tabulada o hay que calcularla usando un software estadístico.
-
-
-
-**Resumen v.a con distribución normal, $N(\mu,\sigma)$**
-
-$X$  | $N(\mu,\sigma)$ 
------:|:--------
-$D_X=$ | $\mathbb{R}=(-\infty,+\infty)$
-$f_{X}(x)$ |$=\frac{1}{\sqrt{2\pi\cdot\sigma^2}}\cdot e^{\frac{-(x-\mu)^2}{2\cdot \sigma^2}}\mbox{ para todo }x\in \mathbb{R}.$
-$F_X(x)=P(X\leq X)=$ | Utilizad la función de `R` `pnorm(x,mean=mu,sd=sigma)` o la función correspondiente en python 
-$E(X)=\mu.$ | $Var(X)=\sigma^2.$
-
-
-**Cálculos con R**
-
-Las funciones que calculan la función de densidad y de distribución de una variable $N(\mu,\sigma)$ en un valor `x` son `dnorm(x,mean=mu,sd=sigma)` y `pnorm(x,mean=mu,sd=sigma)`, respectivamente. Por ejemplo, para una variable $X\sim N(\mu=1,\sigma=2)$ la función de densidad $f_X(2)$ se puede calcular de la forma siguiente:
- 
-```{r codigoNormalR1}
-dnorm(2,mean=1,sd=2)
-```
-y la función de distribución $F_X(2) = P(X\leq 2)$ de la forma siguiente:
-
-```{r codigoNormalR1_1}
-pnorm(2,mean=1,sd=2) 
-```
-
-
- 
-El cuantil $x_{0.95}$ es el valor que cumple  $P(X\leq x_{0.95})=0.95$ como
-
-```{r codigoNormalR2}
-qnorm(0.95,mean=1,sd=2)
-```
-
-Y la generación aleatoria de valores según $X$ como
-
-```{r codigoNormalR3}
-rnorm(n=5,mean=1,sd=2)
-```
-
-
-###  Cálculos con python
- 
-De forma la forma habitual importaremos `norm` de `scipy.stas` los parámetros son `loc` y `scale` la media $\mu$ y la desviación estándar $\sigma$. 
- 
-```{python}
-from scipy.stats import norm
-```
-
-Por ejemplo para una $X\sim N(\mu=1,\sigma=2)$, la función de densidad $f_X(2)$:
-
-```{python}
-norm.pdf(2,loc=1,scale=2)
-```
-
-y la función de distribución $F_X(2) = P(X\leq 2)$:
-
-```{python}
-norm.cdf(2,loc=1,scale=2)
-```
-
-
-
-
- 
-El cuantil $x_{0.95}$ es el valor que cumple  $P(X\leq x_{0.95})=0.95$ como
-
-```{python}
-norm.ppf(0.95,loc=1,scale=2)
-```
-
-Y la generación aleatoria de valores según $X$ como
-
-
-```{python}
-norm.rvs(loc=1,scale=2,size=5)
-```
-
-
-
-<div class="exercise">
-**Ejercicio**
-
-Consultad [SciPy.org](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html) para dibujar las funciones de densidad y de distribución con python.
-</div>
-
-### Propiedades de la distribución normal.
-
-La función de densidad de la
-distribución normal tiene las siguientes propiedades:
-
-* La función $f_X$ es continua.
-* $\int_{-\infty}^{+\infty} \frac{1}{\sqrt{2\cdot\pi\cdot \sigma^2}}\cdot 
-e^{-\frac{1}{2}\cdot \left(\frac{x-\mu}{\sigma}\right)^2} dx =1.$ (propiedad de todas las densidades).
-* $f(\mu+x)=f(\mu-x)$.
-* $F(\mu-x)=1-F(\mu+x)$.
-
-
-
-
+1. La función $f_X$ es continua.
+1.  $\lim\limits_{x\to+\infty}f(x)=\lim\limits_{x\to-\infty}f(x)=0$ es decir tiene asíntota horizontal a derecha e izquierda.
+1. $f$ es estrictamente creciente si $x<\mu$ y decreciente si $x>\mu$.
+1. Tiene dos puntos de inflexión en $x=\mu+\sigma$ y en $x=\mu-\sigma$.
 
 ```{r echo=FALSE,fig.align='center'}
 curve(dnorm(x,0,1),xlim=c(-4,4),ylim=c(0,1/sqrt(2*pi)),col="blue",xaxt="n",yaxt="n",
@@ -3645,17 +3657,6 @@ segments(x0=1,y0=0,x1=1,y1=dnorm(1,0,1),col="red",lty=2)
 segments(x0=1,y0=dnorm(1,0,1),x1=-4.4,y1=dnorm(1,0,1), col="red",lty=2)
 text(x = -3,y=dnorm(-0.9),expression(f(mu-x)==f(mu+x)))
 ```
-
-
-
-
-*  $\lim\limits_{x\to+\infty}f(x)=\lim\limits_{x\to-\infty}f(x)=0$ es decir tiene asíntota horizontal a derecha e izquierda.
-* $f$ es estrictamente creciente si $x<\mu$ y decreciente si $x>\mu$.
-* Alcanza el máximo en $x=\mu$ y en este punto vale $f(\mu)=\frac1{\sqrt{2\pi}\sigma}$
-* Tiene dos puntos de inflexión en $x=\mu+\sigma$ y en $x=\mu-\sigma$.
-
-
-
 
 ```{r echo=FALSE,fig.align='center'}
 par(mfrow=c(1,2))
@@ -3681,7 +3682,98 @@ par(mfrow=c(1,1))
 ```
 
 
-### Gráficas interactivas parámetros normal
+
+
+**Función de distribución de la N(0,1)**
+
+Su función de distribución es, como sabemos:
+
+$$
+F(x)=\displaystyle\int_{-\infty}^{x} {1\over{\sqrt{2\cdot \pi\cdot\sigma^2}}}
+e^{-{1\over 2}{\left({t-\mu}\over{\sigma}\right)}^2} dt.
+$$
+
+La función $F(x)$ no tiene ninguna expresión algebraica "decente". Es por esta razón, y  por comodidad, que esta función está tabulada o hay que calcularla usando un software estadístico.
+
+
+
+**Resumen v.a con distribución normal, $N(\mu,\sigma)$**
+
+$X$  | $N(\mu,\sigma)$ 
+-----:|:--------
+$D_X=$ | $\mathbb{R}=(-\infty,+\infty)$
+$f_{X}(x)$ |$=\frac{1}{\sqrt{2\pi\cdot\sigma^2}}\cdot e^{\frac{-(x-\mu)^2}{2\cdot \sigma^2}}\mbox{ para todo }x\in \mathbb{R}.$
+$F_X(x)=P(X\leq X)=$ | Utilizad la función de `R` `pnorm(x,mean=mu,sd=sigma)` o la función correspondiente en python 
+$E(X)=\mu.$ | $Var(X)=\sigma^2.$
+
+
+**Cálculos con R**
+
+Las funciones que calculan la función de densidad y de distribución de una variable $N(\mu,\sigma)$ en un valor `x` son `dnorm(x,mean=mu,sd=sigma)` y `pnorm(x,mean=mu,sd=sigma)`, respectivamente. Por ejemplo, para una variable $X\sim N(\mu=1,\sigma=2)$, la función de densidad $f_X(2)$ se puede calcular de la forma siguiente:
+ 
+```{r codigoNormalR1}
+dnorm(2,mean=1,sd=2)
+```
+y la función de distribución $F_X(2) = P(X\leq 2)$ de la forma siguiente:
+
+```{r codigoNormalR1_1}
+pnorm(2,mean=1,sd=2) 
+```
+
+
+Si queremos calcular el cuantil $x_{q}$ de una distribución normal $N(\mu,\sigma)$ que, recordemos es el valor que cumple  que $P(X\leq x_{q})=q$, tenemos que usar la función `qnorm(q,mean=mu,sd=sigma)`:
+
+```{r codigoNormalR2}
+qnorm(0.95,mean=1,sd=2)
+```
+
+Para generar `n` valores aleatorios de una distribución normal $N(\mu,\sigma)$, hay que usar la función `rnorm(n,mean=mu,sd=sigma)`:
+
+```{r codigoNormalR3}
+rnorm(n=5,mean=1,sd=2)
+```
+
+
+**Cálculos con python**
+ 
+Para poder trabajar con una distribución normal $N(\mu,\sigma)$ en python, tenemos que importar `norm` de `scipy.stas`. Los parámetros $\mu$ y $\sigma$ son `loc` y `scale`, respectivamente.
+
+```{python}
+from scipy.stats import norm
+```
+
+Por ejemplo, para una variable $X\sim N(\mu=1,\sigma=2)$, la función de densidad $f_X(2)$ se puede calcular de la forma siguiente:
+
+```{python}
+norm.pdf(2,loc=1,scale=2)
+```
+
+y la función de distribución $F_X(2) = P(X\leq 2)$, de la forma siguiente:
+
+```{python}
+norm.cdf(2,loc=1,scale=2)
+```
+
+Si queremos calcular el cuantil $x_{q}$ de una distribución normal $N(\mu,\sigma)$, tenemos que usar la función `norm.ppf(q,loc=mu,scale=sigma)`:
+
+```{python}
+norm.ppf(0.95,loc=1,scale=2)
+```
+
+Para generar `n` valores aleatorios de una distribución normal $N(\mu,\sigma)$, hay que usar la función `norm.rvs(loc=mu,scale=sigma,size=n)`:
+
+```{python}
+norm.rvs(loc=1,scale=2,size=5)
+```
+
+<div class="exercise">
+**Ejercicio**
+
+Consultad [SciPy.org](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html) para dibujar las funciones de densidad y de distribución con python.
+</div>
+
+
+**Gráficas interactivas usando los parámetros de la distribución normal**
 
 Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
@@ -3717,7 +3809,9 @@ m=min(c(qnorm(0.01,m1,s1),qnorm(0.01,m2,s2)))
 M=max(c(qnorm(0.99,m1,s1),qnorm(0.99,m2,s2)))
 
 curve(dnorm(x,m1,s1),xlim=c(m,M),ylim=c(0,1/sqrt(2*pi*mins2)),col="red",lty=1)
-legend("toplef",legend=c(expression(N(mu[1],sigma[1])),expression(N(mu[2],sigma[2]))),col=c("red","blue"),lty=c(1,2))
+legend("toplef",legend=c(expression(N(mu[1],sigma[1])),
+                         expression(N(mu[2],sigma[2]))),
+       col=c("red","blue"),lty=c(1,2))
 curve(dnorm(x,m2,s2),add=TRUE,col="blue",lty=2)
 })
 
@@ -3726,58 +3820,44 @@ curve(dnorm(x,m2,s2),add=TRUE,col="blue",lty=2)
 <!--[![](Images/noshinyImages/interactiva_normal1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 
-### Transformaciones lineales de variables aleatorias normales
+**Transformaciones lineales de variables aleatorias normales**
 
-<l class="prop"> Propiedad: transformación lineal la distribución  normal </l>
+<l class="prop"> **Propiedad: transformación lineal la distribución  normal** </l>
 
 Sea $X$ una variable  $N(\mu,\sigma)$  entonces la variable $Y=a X+b$ con
-$a\not=0,b\in\cal{R}$ tiene distribución $N(a\mu+b, |a| \sigma)$
+$a\not=0,b\in\mathbb{R}$ tiene distribución $N(a\mu+b, |a| \sigma)$
 
+En el caso particular en que $a=\frac1{\sigma}$ y $b=
+\frac{-\mu}{\sigma}$ obtenemos la v.a. $Z={{X-\mu}\over {\sigma}}$, que
+se distribuye según una normal estándar $N(0,1)$, es decir $E(X)=0$ y $Var(X)=1$. Dicha operación se denomina estandarización de la 
+distribución normal.
 
-
-En particular si  $X$ sigue una $N(\mu,\sigma)$, tomando $a=\frac1{\sigma}$ y $b=
-\frac{-\mu}{\sigma}$  obtenemos la tipificación  o estandarización  de la v.a. 
-
-$$Z={{X-\mu}\over {\sigma}}$$
-se distribuye $N(0,1)$, es decir $E(X)=0$ y $Var(X)=1$.
-
-
-
-Esta propiedad es muy útil, ya que utilizándola sólo necesitaremos tabular la
-$N(0,1)$. 
-
-
-Si $Z$ sigue una   distribución $N(0,1)$  diremos que $Z$ sigue una distribución normal estándar. 
-
-Por lo tanto  podemos calcular cualquier distribución  normal  desde la distribución normal estándar:
-
+La propiedad anterior nos permite calcular la función de distribución de cualquier v.a. $N(\mu,\sigma)$ a partir de la función de distribución de la distribución $Z=N(0,1)$:
 $$
-F_X(x)=F_Z \left(\frac{x-\mu}{\sigma}\right).
+F_X(x)=P(X\leq x)=P\left(\frac{X-\mu}{\sigma}\leq \frac{x-\mu}{\sigma}\right)=P\left(Z\leq \frac{x-\mu}{\sigma}\right)=F_Z \left(\frac{x-\mu}{\sigma}\right).
 $$
+Entonces, basta conocer la manera de calcular $F_Z$ para poder calcular $F_X$, para $X=N(\mu,\sigma)$, para cualquier $\mu$ y cualquier $\sigma>0$.
 
-
-### Propiedades de la distribución normal estándar
+**Propiedades de la distribución normal estándar**
 
 Sea $Z$ una $N(0,1)$.
 
-Como en este caso $\mu=0$ y $\sigma=1$ tenemos que algunas de las propiedades anteriores se simplifican incluso más:
+En este caso, $\mu=0$ y $\sigma=1$. Podemos escribir algunas de las propiedades vistas para una distribución normal cualquiera de la forma siguiente:
 
-
-* De $f_X(\mu-x)=f_X(\mu+x)$ obtenemos $f_Z(-x)=f_Z(x)$
-* De $F_X(\mu-x)=1-F_X(\mu+x)$ obtenemos $F_Z(-x)=1-F(x).$
+* La propiedad $f_X(\mu-x)=f_X(\mu+x)$ se traduce a $f_Z(-x)=f_Z(x)$
+* La propiedad $F_X(\mu-x)=1-F_X(\mu+x)$ se traduce a $F_Z(-x)=1-F(x).$
 * Dado $\delta>0$, 
 $$
 P(-\delta\leq Z \leq \delta)=F_{Z}(\delta)-F_{Z}(-\delta)=F_Z(\delta)-(1-F_Z(\delta))=
 2\cdot F_Z(\delta)-1.
 $$
 
-### Cálculos con la distribución normal
 
 <div class="exercise"> 
 
-**Ejercicio Cálculos con la distribución  normal estándar** 
+**Ejercicio: cálculos con la distribución normal estándar** 
 
-Sea  $Z$  una distribución $N(0,1)$, calcular las siguientes probabilidades en función de $F_Z$.
+Sea  $Z$  una distribución $N(0,1)$. Calcular las siguientes probabilidades en función de $F_Z$:
 
 * $P(-4\leq Z \leq 4).$
 * $P(-2\leq Z \leq 2).$
@@ -3787,333 +3867,109 @@ Sea  $Z$  una distribución $N(0,1)$, calcular las siguientes probabilidades en 
 * $P( Z > 2).$
 * $P( Z = 2).$
 * $P( Z \geq -2).$
-</div>
 
 
 
 
 <div class="example-sol">
 
-Resolvamos el ejercicio
+Resolución:
 
-* $P(-4\leq Z \leq 4)=F_{Z}(4)-F_{Z}(-4)=2\cdot F_Z(4)-1$
-* $P(-2\leq Z \leq 2)=F_{Z}(2)-F_{Z}(-2)=2\cdot F_Z(2)-1$
-* $P(Z\leq -2)=F_Z(-2)=1-F_Z(2)$
-* $P( Z \leq 2)=F_{Z}(2)$
-* $P( Z \geq 2)=1-P(Z<2)=1-F_{Z}(2)$
-* $P( Z > 2)=1-P(Z\leq 2)=1-F_{Z}(2)$
+* $P(-4\leq Z \leq 4)=F_{Z}(4)-F_{Z}(-4)=2\cdot F_Z(4)-1$.
+* $P(-2\leq Z \leq 2)=F_{Z}(2)-F_{Z}(-2)=2\cdot F_Z(2)-1$.
+* $P(Z\leq -2)=F_Z(-2)=1-F_Z(2)$.
+* $P( Z \leq 2)=F_{Z}(2)$.
+* $P( Z \geq 2)=1-P(Z<2)=1-F_{Z}(2)$.
+* $P( Z > 2)=1-P(Z\leq 2)=1-F_{Z}(2)$.
 * $P( Z = 2)=0$ ya que es una distribución continua.
 * $P( Z \geq -2)=1-P(Z< -2)=1-F_{Z}(-2)=1-(1-F_Z(2))=F_Z(2).$
 </div>
+</div>
 
 
-### Relación entre una normal y la normal estándar.
+**Cálculo de probabilidades de la distribución normal $X=N(\mu,\sigma)$ en un intervalo usando la distribución $Z=N(0,1)$**
 
-<l class="prop">**Propiedad**</l>
-
-Si $X$ es una normal $N(\mu,\sigma)$ y $Z$ es su variable tipificada, es decir, $Z=\frac{X-\mu}{\sigma}$ es una $N(0,1)$ entonces:
-
+Para hallar la probabilidad de que $X$ esté en un intervalo $(a,b)$ cualquiera, podemos usar la función de distribución de $Z$ de la siguiente manera:
 $$
-P(X\leq x)=P\left(\frac{X-\mu}{\sigma}\leq \frac{x-\mu}{\sigma}\right)=F_{Z}\left(\frac{x-\mu}{\sigma}\right).
+\begin{array}{ll}
+P(a<X<b)&=P\left(\frac{a-\mu}{\sigma}<\frac{X-\mu}{\sigma}<\frac{b-\mu}{\sigma}\right)= \\
+&=P\left(\frac{a-\mu}{\sigma}<Z<\frac{b-\mu}{\sigma}\right)=F_{Z}\left(\frac{b-\mu}{\sigma}\right)-
+F_{Z}\left(\frac{a-\mu}{\sigma}\right).
+\end{array}
 $$
 
+Para el caso particular en que el intervalo esté centrado en la media $\mu$, o sea existe un valor $\delta>0$ tal que $(a,b)=(\mu-\delta,\mu+\delta)$, obtenemos:
+$$
+P\left(\mu-\delta\leq X \leq\mu+\delta\right)=2\cdot  F_Z\left(\frac{\delta}{\sigma}\right)-1.
+$$
 
-
-
-<l class="prop">**Propiedad**</l>
-
-* Cuando tengamos un intervalo
-
-\begin{eqnarray*}
-P(a<X<b)&=&P\left(\frac{a-\mu}{\sigma}<\frac{X-\mu}{\sigma}<\frac{b-\mu}{\sigma}\right)= \\
-&=& P\left(\frac{a-\mu}{\sigma}<Z<\frac{b-\mu}{\sigma}\right)\\
-&=&F_{Z}\left(\frac{b-\mu}{\sigma}\right)-
-F_{Z}\left(\frac{a-\mu}{\sigma}\right)
-\end{eqnarray*}
-
-* Si $\delta>0$ $P\left(\mu-\delta\leq X \leq\mu+\delta\right)=2\cdot  F_Z\left(\frac{\delta}{\sigma}\right)-1$
-
-
-### Ejemplo cálculo probabilidades normal
 
 
 <div class="exercise">
-**Ejercicio**
+**Ejercicio: cálculo de probabilidades de una distribución normal**
 
-Sea $X$ una normal com media $2$ y varianza $4$. Calcular 
+Sea $X$ una normal con media $2$ y varianza $4$. Calcular 
 
 * $P(1< X< 2).$
 * $P(X>3).$
 
-</div>
-
-### Ejemplo cálculo probabilidades normal
-
 <div class="example-sol">
 **Solución**
 
-El cálculo de la primera pregunta es
- 
-\begin{eqnarray*}
-P(1< X< 2)&=& P\left(\frac{1-2}{2}<\frac{X-2}{2}<\frac{2-2}{2}\right)= P\left(\frac{-1}{2}<Z<0\right)\\
-&=& F_{Z}(0)-F_{Z}(-0.5)=\frac12-1+F_{Z}(0.5)=-\frac12+F_Z(0.5).
-\end{eqnarray*}
+La primera probabilidad se calcula de la forma siguiente:
+$$
+\begin{array}{ll}
+P(1< X< 2)&= P\left(\frac{1-2}{2}<\frac{X-2}{2}<\frac{2-2}{2}\right)= P\left(\frac{-1}{2}<Z<0\right)\\
+&= F_{Z}(0)-F_{Z}(-0.5)=\frac12-1+F_{Z}(0.5)=-\frac12+F_Z(0.5).
+\end{array}
+$$
 
-La segunda cuestión se resuelve así
-
+La segunda probabilidad se calcular de la forma siguiente:
 $$
 P(X>3)=P\left(\frac{X-2}2>\frac{3-2}{2}\right)=P(Z>0.5)=1-F_{Z}(0.5).
 $$
 
 </div>
+</div>
 
-### Ejemplo normal con R y python
 
 <div class="exercise">
 **Ejercicio**
 
-Sea $X$ una normal com media $2$ y varianza $4$. Calcular  con R y con python las probabilidades
+Sea $X$ una normal con media $2$ y varianza $4$. Calcular  usando `R` y con python las probabilidades siguientes:
 
 * $P(1< X< 2).$
 * $P(X>3).$
 
-</div>
-
-
-
-
 <div class="example-sol">
-**Solución con R**
+**Solución usando `R`**
 
 ```{r}
-pnorm(2,mean=2,sd=4)-pnorm(1,mean=2,sd=4)#P(1< X< 2)
-pnorm(3,mean=2,sd=4,lower.tail =FALSE)#P(X>3)
-1-pnorm(3,mean=2,sd=4,lower.tail=TRUE)#P(X>3) = 1-P(X<=3)
+pnorm(2,mean=2,sd=2)-pnorm(1,mean=2,sd=2) #P(1< X< 2)
+pnorm(3,mean=2,sd=2,lower.tail =FALSE) #P(X>3)
+1-pnorm(3,mean=2,sd=2,lower.tail=TRUE) #P(X>3) = 1-P(X<=3)
 ```
 
 **Solución con Python**
 
 
 ```{python}
-norm.cdf(2,loc=2,scale=4)-norm.cdf(1,loc=2,scale=4)#P(1< X< 2)
-1-norm.cdf(3,loc=2,scale=4)#P(X>3) = 1-P(X<=3)
-norm.stats(loc=2,scale=4,moments="mv")#E(X), Var(X)
+norm.cdf(2,loc=2,scale=2)-norm.cdf(1,loc=2,scale=2) #P(1< X< 2)
+1-norm.cdf(3,loc=2,scale=2) #P(X>3) = 1-P(X<=3)
 ```
 </div>
-
-### La distribución normal aproxima otras distribuciones
-En los temas que siguen veremos como, bajo determinadas condiciones:
-
-* La distribución normal puede aproximar la distribución binomial
-* La distribución normal puede aproximar la distribución Poisson
-* La distribución normal  es la distribución límite de la media aritmética.
-
-
-
-## Cuantiles de variables aleatorias
-
-Si  $X$ es una v.a. con dominio $D_X$ y  $0<q<1$, llamaremos cuantil de orden $q$ al menor valor  perteneciente al dominio $x_q\in D_X$ tal que:
-$$P(X\leq x_q)\geq q.$$
-
-En `R`, cada distribución $X$ tiene la función `qX(p,...)` que devuelve precisamente el cuantil $x_p$ tal que $P(X\leq x_p)\geq p.$
-
-
-
-<div class="example">
-**Ejemplo**
-
-Consideremos una v.a. $X$ de distribución $B(5,0.5)$. 
-
-Los cuantiles $x_{0.3}$, $x_{0.6}$ y $x_{0.8}$ son los siguientes:
-
-```{r quantile1, sixe="small"}
-qbinom(c(0.3,0.6,0.8),5,0.5)
-```
-
-Calculemos a mano, el valor $x_{0.3}$ y verifiquemos que da el mismo resultado que nos ha dado `R`.
-
-La función de distribución de $X$ es:
-$$
-\small{
-F_x(x)=P(X\leq x)=
-\left\{
-\begin{array}{ll}
-0, & x< 0, \\
-0.03125, & \mbox{ si } 0 \leq x< 1, \\
-0.18750, & \mbox{ si } 1 \leq x< 2, \\
-0.50000, & \mbox{ si } 2 \leq x< 3, \\
-0.81250, & \mbox{ si } 3 \leq x< 4, \\
-0.96875, & \mbox{ si } 4 \leq x< 5, \\
-1.00000, & \mbox{ si }  5\leq x. \\
-\end{array}
-\right.}
-$$
-
-El cuantil $q=0.3$ es el  primer valor $x\in D_X$  tal que $F_X(x)=P(X\leq x_{0.3})\geq 0.3.$. Mirando la expresión anterior, comprobamos que $x_{0.3}=2$ ya que $F_X(2)=P(X\leq 2)=0.5 \geq 0.3$.
 </div>
 
+**La distribución normal aproxima otras distribuciones**
 
-<div class="exercise">
-**Ejercicio**
+En los temas que siguen veremos como, bajo determinadas condiciones,
 
-Calcular los cuantiles de  $0.6$ y $0.8$ de una $B(5,0.5).$
-</div>
-
-Dada una variable aleatoria $X$, si existe la inversa de la función de distribución de $X$, $F_X^{-1}$, el cuantil $q$ sería el valor que tiene la función $F_X^{-1}$ en $q$: $x_q=F^{-1}(q)$.
-
-En caso de no existir la inversa, dado $q$, definimos el conjunto $F_X^{-1}(q)$ como:
-$$
-F_X^{-1}(q) =\{x\in\mathbb{R},\ |\ F_X(x)=q\}.
-$$
-Entonces el cuantil $q$ sería el mínimo del conjunto anterior considerando sólo valores del dominio de la variable: $x_q =\min_{x\in D_X}(F_X^{-1}(q))$.
+* la distribución normal puede aproximar la distribución binomial,
+* la distribución normal puede aproximar la distribución Poisson
+* la distribución normal es la distribución límite de la media aritmética de una muestra de variables aleatorias.
 
 
-<div class="example">
-
-**Ejemplo: variable aleatoria que nos da el resultado del lanzamiento de un dado**
-
-Sea  $X$ la variable aleatoria uniforme discreta que nos da el número de puntos obtenidos en el lanzamiento de un dado (seis caras numeradas del 1 al 6).
-
-Su dominio  es $D_X=\{1,2,3,4,5,6\}$ y su función de probabilidad es 
-$$
-P_X(x)=P(X=x)=
-\left\{
-\begin{array}{ll}
- \frac{1}{6}, & \mbox{ si } x=1,2,3,4,5,6, \\
-0, & \mbox{ en otro caso. }.
-\end{array}
-\right.
-$$
-Su función de distribución es:
-$$
-F_X(x)= P(X\leq x)=
-\left\{
-\begin{array}{ll}
-0, & \mbox{ si } x<1, \\
-\frac{k}{6} & \mbox{ si } k\leq x< k+1 \mbox{ para } x= 1,2,3,4,6, \\
- 1, & \mbox{si  } x \geq 6.
-\end{array}
-\right.
-$$
-
-La función siguiente llamada `ddado` nos define la función de probabilidad de $X$ para un dado de $n$ caras:
-```{r}
-ddado=function(x,n=6) {
-  sapply(x,FUN=function(x) {
-    if( x %in% c(1:n)){return(1/n)} else {return(0)}})
-  }
-```
-
-Por ejemplo, el valor de $P_X(0.5)$ sería:
-```{r}
-ddado(1.5,n=6)
-```
-y los valores de $P_X(i)$ para $i=1,\ldots 10$ sería:
-```{r}
-ddado(1:10,n=6)
-```
 
 
-La función `pdado` nos da la función de distribución de $X$:
-
-```{r}
-pdado=function(x,n=6) 
-  {
-  sapply(x,FUN=function(y){ if (y<1){ return(0)}else{if(y>=n){return(1)} else
-  {return(sum(ddado(c(1:(floor(y))),n=n)))}}})
-  }
-```
-
-Los valores de $F_X(i)$ para $i=0,\ldots, 11$ serían:
-```{r}
-pdado(0:11,6)
-```
-
-A continuación, construímos la función `qdado` que nos calcula el cuantil $p$, para $0\leq p\leq 1$, de la variable $X$ como el mínimo de la antiimagen de $p$ mediante la función de distribución $F_X^{-1}(p)$
-
-```{r}
-qdado=function(p,n=6){
-sapply(p,FUN=function(pp=p,nn=n) 
-  {
-  if(pp<0 | pp>1) {return(NA)}
-  else {
-  aux=pp>=pdado(1:n,nn)
-  aux
-  ifelse(all(!aux),return(1),return(max(which(pp>=pdado(1:n,nn)))))}}
-)
-}
-```
 
 
-Si $p=1.5$ o $p=-1$, la función anterior nos devuelve `NA` ya que ni 1.5 ni -1 están entre 0 y 1:
-
-```{r}
-qdado(1.5)
-qdado(-1)
-```
-
-Los cuantiles $x_{0.1}$, $x_{0.5}$ $x_{0.6}$ y $x_1$ son:
-```{r}
-qdado(c(0.1,0.5,0.6,1))
-```
-
-</div>
-
-
-**Gráfico interactivo que muestra los cuantiles de las distribuciones $B(n,p)$ y $Po(\lambda)$**
-
-Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
-
-```{r cuantiles_graficosPOBIN, echo = TRUE, eval = FALSE}
-fluidPage(
-fluidRow(
-  column(3,
-         sliderInput("nq", label = "Par. n B(n,p)",
-              min = 1, max = 20, value =10 , step = 1)
-         ),
-  column(3,
-          sliderInput("pq", label = "Par. p B(n,p)",
-                     min = 0.01, max = 0.99, value = 0.5, step = 0.1)
-         ),
-  column(3,
-         sliderInput("qq", label=" Cuantil q", value=0.75, min = 0.01, max = 0.99, 
-                     step = 0.01)
-         ),
-  column(3,
-         sliderInput("lq", label="Par. lambda Po(lambda)", value=5, min = 1, max = 20, 
-                     step = 1)
-         )
-  )
-)
-
-  
-renderPlot({
-  n=input$nq
-  p=input$pq
-  q=input$qq
-  lambda=input$lq
-  par(mfrow=c(1,2))
-  #n=10;p=0.5;q=0.75;lambda=5
-  #xx=c(seq(min(a,x),min(b,x),by=0.001))
-  probsB=pbinom(0:n,n,p)
-  curve(pbinom(x,n,p),xlim=c(0-0.25,n+0.25),ylim=c(0,max(probsB+0.05,0.1)),
-        col="blue",main=paste0("Función distribución\n B(n=",n,", p=",p,")"),
-        ylab=paste0("dbinom(x,",n,", ",p,")"),yaxt="n")
-  segments(x0 = qbinom(q,n,p),y0 = 0,x1 = qbinom(q,n,p),y1 = q,lty=2,col="red")
-  segments(x0 = qbinom(q,n,p),y0 = q,x1 = -0.25,y1 = q,lty=2,col="red")
-  ytick=c(0.0,q,1)
-  axis(side=2, at=ytick, labels = TRUE)
-  axis(side=1, at=qbinom(q,n,p), labels = TRUE)
-  curve(ppois(x,lambda),xlim=c(0-0.25,2.5*lambda),ylim=c(0,1+0.1),
-        col="blue",main=paste0("Función distribución \n Po(lambda=",lambda,")"),
-        ylab=paste0("dpois(x, lambda",lambda,")"),yaxt="n")
-  segments(x0 = qpois(q,lambda),y0 = 0,x1 = qpois(q,lambda),y1 = q,lty=2,col="red")
-  segments(x0 = qpois(q,lambda),y0 = q,x1 = -0.25,y1 = q,lty=2,col="red")
-  ytick=c(0.0,q,1)
-  axis(side=2, at=ytick, labels = TRUE)
-  axis(side=1, at=qpois(q,lambda), labels = TRUE)
-  par(mfrow=c(1,1))
-})
-```
-
-<!--[![](Images/noshinyImages/interactiva_cuantiles1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->

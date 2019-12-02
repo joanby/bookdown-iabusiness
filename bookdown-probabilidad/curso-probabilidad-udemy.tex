@@ -1,6 +1,3 @@
-\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
-\PassOptionsToPackage{hyphens}{url}
-%
 \documentclass[]{book}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
@@ -9,31 +6,30 @@
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
 \else % if luatex or xelatex
-  \usepackage{unicode-math}
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
   \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
 \IfFileExists{microtype.sty}{%
-\usepackage[]{microtype}
+\usepackage{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
 \usepackage{hyperref}
-\hypersetup{
+\hypersetup{unicode=true,
             pdftitle={Probabilidad y variables aleatorias para ML con R y Python},
             pdfauthor={Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -75,8 +71,6 @@
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
-% Fix footnotes in tables (requires footnote package)
-\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -86,6 +80,12 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -100,17 +100,32 @@
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
-% set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
 
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
 }
-\makeatother
+
+\setlength{\droptitle}{-2em}
+
+  \title{Probabilidad y variables aleatorias para ML con R y Python}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{2019-12-02}
+
 \usepackage{booktabs}
 \usepackage{amsthm}
 \usepackage[spanish]{babel}
@@ -134,28 +149,6 @@
 
 \usepackage{hyperref}
 \hypersetup{colorlinks=false, linkbordercolor=grey, linkcolor=grey,pdfborderstyle={/S/U/W 1}}
-% https://github.com/rstudio/rmarkdown/issues/337
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-% https://github.com/rstudio/rmarkdown/pull/252
-\usepackage{titling}
-\setlength{\droptitle}{-2em}
-
-\pretitle{\vspace{\droptitle}\centering\huge}
-\posttitle{\par}
-
-\preauthor{\centering\large\emph}
-\postauthor{\par}
-
-\predate{\centering\large\emph}
-\postdate{\par}
-\usepackage[]{natbib}
-\bibliographystyle{apalike}
-
-\title{Probabilidad y variables aleatorias para ML con R y Python}
-\author{Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir}
-\date{2019-12-01}
 
 \begin{document}
 \maketitle
@@ -3380,7 +3373,7 @@ Veamos los cálculos básicos usando la distribución \(Ber(p=0.25)\) en \texttt
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 1 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0
+##  [1] 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0
 \end{verbatim}
 
 El siguiente código dibuja las función de probabilidad y la de distribución de una \(Ber(p=0.25)\)
@@ -3767,12 +3760,12 @@ Si queremos generar una muestras aleatorias que siga una distribución binomial,
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 3,  5,  4,  7,  4,  7,  4,  2,  4,  2,  2,  4,  4,  3,  6,  3,  2,
-##         4,  3,  2,  6,  4,  5,  7,  8,  4,  5,  6,  5,  5,  6,  1,  8,  4,
-##         4,  4,  5,  5,  3,  4, 10,  7,  6,  4,  8,  5,  7,  8, 10,  5,  5,
-##         5,  4,  2,  8,  4,  5,  4,  7,  7,  6,  8,  4,  4,  5,  3,  2,  4,
-##         8,  3,  4,  5,  5,  5,  5,  3,  3,  9,  9,  6,  5,  5,  8,  6,  5,
-##         5,  8, 10,  4,  7,  6,  2,  9,  6,  3,  4,  5,  3,  6,  5])
+## array([ 6,  2,  4,  6,  5,  3,  3,  5,  6,  4,  2,  5,  3,  6,  5,  3,  7,
+##         1,  8,  7,  7,  7,  4,  5,  6,  2,  7,  5, 10,  4,  5,  4,  3,  5,
+##         0,  4,  6,  4,  7,  5,  3,  3,  3,  6,  2,  5,  5,  3,  5,  5,  4,
+##         7,  9,  4,  6,  5,  3,  7,  7,  3,  4,  5,  3,  5,  6,  5,  5,  5,
+##         5,  5,  4,  6,  5,  7,  9,  5,  9,  5,  3,  4,  6,  7,  7,  7,  7,
+##         4,  2,  4,  6,  2,  8,  5,  7,  1,  9,  3,  4,  5,  3,  4])
 \end{verbatim}
 
 \textbf{Observación}
@@ -3786,12 +3779,12 @@ Notemos que la secuencia aleatoria generada no es la misma que con \texttt{R}. D
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 4,  4,  5,  3,  4,  3,  6,  3,  3,  2,  3,  5,  5,  6,  5,  4, 12,
-##         6,  4,  4,  3,  2,  5,  5,  6,  6,  3,  8,  5,  5,  6,  1,  2,  6,
-##         5,  4,  6,  3,  7,  4,  7,  2,  6,  6,  6,  2,  5,  2,  4,  6,  6,
-##         5,  2,  8,  5,  7,  5,  3,  4,  4,  4,  4,  4,  9,  5,  7, 10,  4,
-##         6,  7,  7,  5,  9,  4,  7,  6,  4,  0,  8,  0,  5,  6,  5,  6,  8,
-##         3,  5,  7,  4,  9,  3,  7,  6,  5,  6,  7,  5,  3,  2,  6])
+## array([ 3,  6,  6,  4,  4,  1,  3,  4,  5,  3,  7,  4,  5,  4,  4,  7,  6,
+##         2,  3,  4,  4,  7,  5,  7,  4,  7,  7,  4,  6,  6,  4,  2,  5,  2,
+##         4,  4,  4,  6,  0,  4,  6,  3,  4,  8,  3,  4,  7,  4, 12,  4,  4,
+##         6,  4,  3,  9,  5,  7,  3,  5,  7,  4,  4,  4,  6,  6,  5,  7,  7,
+##         4,  4,  8,  4,  7,  4,  5,  6,  7,  6,  5,  5,  2,  5,  5,  2,  8,
+##         8,  5,  9,  6,  7,  6,  7,  1,  5,  3,  8,  7,  5,  5,  5])
 \end{verbatim}
 
 Veamos algunos cálculos básicos con funciones de python para la binomial \(B(n=10,p=0.25)\).
@@ -3823,7 +3816,7 @@ Veamos algunos cálculos básicos con funciones de python para la binomial \(B(n
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 4,  5,  7,  1, 10, 10,  7,  6,  7,  1])
+## array([4, 3, 3, 6, 6, 5, 8, 4, 5, 4])
 \end{verbatim}
 
 \textbf{Gráficas de la distribución binomial con \texttt{R}}
@@ -4457,7 +4450,7 @@ La desviación típica es \(\sqrt{90}=9.486833.\)
 
 Los partidos Real Madrid vs FC Barcelona de \textbf{la liga} española se suelen denominar \textbf{El Clásico}, sean en el Bernabeu (estadio del Real Madrid) o en el Camp Nou (estadio del Barça)
 
-Sea \(X\) la variable que cuenta el número de veces consecutivas que en un partido de fútbol de la liga el Real Madrid gana al Barça sea en el Camp Nou o el Bernabeu.
+Sea \(X\) la variable que cuenta el número de veces consecutivas que en un partido de fútbol de la liga el Barça no gana al Madrid sea en el Camp Nou o el Bernabeu.
 
 Nuestra amiga Aina es muy culé (hincha del Barça) y quiere averiguar cuántos partidos consecutivos de \textbf{El Clásico} tiene que ver hasta ver ganar al Barça por primera vez.
 
@@ -4646,7 +4639,7 @@ Una muestra aleatoria de tamaño 25 de una \(Ge(0.25)\):
 \end{Shaded}
 
 \begin{verbatim}
-## array([2, 7, 5, 0, 1, 1, 1, 3, 3, 1, 7, 5, 4, 1, 2, 6, 5, 9, 2, 8])
+## array([7, 4, 1, 4, 0, 2, 1, 8, 3, 0, 5, 5, 5, 3, 2, 4, 0, 2, 0, 1])
 \end{verbatim}
 
 \textbf{Ejercicio}
@@ -5116,12 +5109,12 @@ Generemos 100 observaciones aleatorias de una \(BN(n=2,0.1)\). Es decir serán l
 \end{Shaded}
 
 \begin{verbatim}
-## array([14,  9, 23, 44, 21,  9, 12, 22, 29,  3,  9, 27,  8, 14,  6, 29,  9,
-##         4, 26, 40, 43,  3, 72,  4, 19, 27, 14, 10, 29, 40, 10, 19, 17,  0,
-##        25, 20,  8,  7, 22, 32, 15, 26,  6, 10, 10,  4,  6, 13, 22, 15,  7,
-##        24,  9, 19, 13, 22,  4, 14, 17,  1, 45,  4, 13,  5,  8, 18,  9,  6,
-##        30, 15, 21, 13, 14, 30, 19,  4, 11, 25, 21,  2,  3, 19, 51, 12, 30,
-##        44, 15, 22,  8,  2, 34, 15, 25, 24, 13, 34,  2, 50, 16, 54])
+## array([ 3, 11, 13, 12, 26,  4, 39,  3, 55, 31,  9, 32, 23, 16, 35,  5, 17,
+##         6, 30,  1, 15, 18,  8, 13,  2,  2, 16, 16, 26,  3,  1, 15,  2, 14,
+##        19, 14,  7, 11, 24, 11, 13, 23, 17, 32, 10, 24, 23,  4, 21, 25, 24,
+##        14, 10,  6, 26, 22,  1, 24, 23,  3,  2, 22, 36, 31, 11, 32, 11, 18,
+##        21,  0, 16,  8, 18, 18, 11,  5, 20, 29, 16,  7, 21,  9, 53, 62, 55,
+##        29, 35,  2,  5, 21, 19,  2, 39,  6,  5, 25, 20,  4, 22, 15])
 \end{verbatim}
 
 La \textbf{esperanza} y la \textbf{varianza}de una \(BN(n=2,0.1)\) valen:
@@ -6204,8 +6197,9 @@ Y también generar secuencias de observaciones aleatorias de una población \(Po
 \end{Shaded}
 
 \begin{verbatim}
-## array([2, 3, 2, 1, 3, 5, 6, 3, 4, 2, 0, 6, 5, 4, 1, 2, 3, 5, 1, 0, 0, 2,
-##        4, 1, 1, 0, 1, 3, 1, 1, 4, 0, 0, 5, 2, 3, 5, 4, 0, 5])
+## array([10,  3,  4,  3,  3,  5,  4,  0,  3,  3,  3,  4,  2,  4,  5,  4,  3,
+##         8,  2,  2,  1,  7,  2,  3,  4,  3,  6,  3,  3,  2,  2,  4,  4,  5,
+##         5,  4,  1,  1,  3,  3])
 \end{verbatim}
 
 \textbf{Gráficos con python}
@@ -6835,11 +6829,11 @@ Una muestra aleatoria de este experimento sería:
 \end{Shaded}
 
 \begin{verbatim}
-## array([1, 2, 2, 0, 2, 0, 2, 2, 2, 2, 1, 3, 3, 2, 2, 3, 3, 1, 2, 1, 2, 2,
-##        1, 2, 3, 2, 3, 1, 1, 1, 2, 2, 2, 2, 2, 1, 2, 1, 2, 1, 3, 1, 1, 0,
-##        2, 3, 1, 1, 1, 2, 1, 2, 2, 3, 3, 2, 3, 3, 3, 2, 1, 2, 1, 2, 0, 1,
-##        2, 1, 1, 2, 2, 1, 2, 3, 2, 2, 2, 2, 1, 1, 1, 2, 2, 2, 2, 0, 2, 2,
-##        2, 2, 2, 2, 3, 2, 1, 3, 2, 2, 2, 1])
+## array([3, 2, 2, 1, 2, 3, 1, 3, 0, 1, 2, 2, 3, 3, 3, 1, 3, 3, 2, 1, 1, 2,
+##        2, 1, 2, 1, 1, 1, 2, 2, 3, 2, 2, 3, 2, 2, 2, 0, 1, 2, 0, 1, 0, 2,
+##        2, 2, 2, 3, 1, 2, 1, 2, 2, 1, 0, 3, 1, 2, 2, 3, 1, 3, 2, 2, 3, 2,
+##        1, 2, 1, 2, 3, 2, 2, 1, 0, 1, 1, 2, 2, 2, 2, 1, 2, 2, 3, 3, 2, 1,
+##        1, 1, 0, 2, 2, 1, 3, 1, 3, 2, 2, 3])
 \end{verbatim}
 
 Los gráficos de la función de probabilidad y de la función de distribución en python se realizan de la forma siguiente:
@@ -7252,12 +7246,12 @@ Para generar una muestra de valores aleatorios, hay que usar la función \texttt
 \end{Shaded}
 
 \begin{verbatim}
-## array([-0.39276011,  0.75027891, -0.29067122,  0.85596239, -0.1312917 ,
-##         0.29789098, -0.96604614, -0.4367619 ,  0.71749081,  0.66124123,
-##         0.06105872, -0.49679917,  0.52833102,  0.76119156,  0.75427484,
-##         0.88284939,  0.55864234, -0.15801606,  0.639845  ,  0.52469583,
-##         0.66903639,  0.58123917,  0.565671  ,  0.96381439,  0.48286393,
-##         0.20776702,  0.92372305, -0.65001527,  0.33430922,  0.97296579])
+## array([-0.55776847, -0.22118256,  0.9128915 ,  0.0203245 ,  0.77311668,
+##         0.56240535, -0.11745023,  0.78547743, -0.82681453, -0.2237993 ,
+##        -0.87446538, -0.73568611,  0.51654938, -0.37151817, -0.36370293,
+##         0.98612411, -0.33899483,  0.13763265,  0.81284179, -0.49191018,
+##        -0.28115256,  0.83016209, -0.06956841,  0.22300919, -0.24117142,
+##         0.2250286 ,  0.79239454, -0.12031712, -0.47082215, -0.96032849])
 \end{verbatim}
 
 Los valores de los parámetros por defecto son \texttt{loc=0,\ scale=1}:
@@ -7289,7 +7283,7 @@ Los valores de los parámetros por defecto son \texttt{loc=0,\ scale=1}:
 \end{Shaded}
 
 \begin{verbatim}
-## array([0.55455648, 0.59768783, 0.15411224, 0.57127061, 0.43139774])
+## array([0.44969675, 0.33455238, 0.09714847, 0.41024777, 0.09912737])
 \end{verbatim}
 
 \textbf{Cuantiles de variables aleatorias}
@@ -7547,93 +7541,97 @@ Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el 
 \hypertarget{distribuciuxf3n-exponencial}{%
 \subsection{Distribución exponencial}\label{distribuciuxf3n-exponencial}}
 
-\hypertarget{distribuciuxf3n-del-tiempo-entre-dos-eventos-poisson}{%
-\subsection{Distribución del tiempo entre dos eventos Poisson}\label{distribuciuxf3n-del-tiempo-entre-dos-eventos-poisson}}
+\textbf{Distribución del tiempo entre dos eventos Poisson}
 
 Supongamos que tenemos un proceso Poisson con parámetro \(\lambda\) en una unidad de tiempo.
 
-Sea \(t\) una cantidad de tiempo en u.t. entonces \(N_{t}=\) número de eventos en el intervalo de tiempo \((0,t]\) es una \(Po(\lambda\cdot t)\). Consideremos la v.a. \(T=\) tiempo transcurrido entre dos eventos Poisson consecutivos.
+Dado un tiempo \(t\), definimos \(N_{t}\) como el número de eventos en el intervalo de tiempo \((0,t]\). La distribución de \(N(t)\) es una \(Po(\lambda\cdot t)\). Consideremos la v.a. \(T\) como el tiempo transcurrido entre dos eventos Poisson consecutivos.
 
 Sea \(t>0\), entonces
 
-\begin{eqnarray*}
-P(T>t)&=&P(\mbox{Cero eventos en el intervalo}(0,t])\\
-&=&P(N_{t}=0)=
+\[
+\begin{array}{rl}
+P(T>t)&=P(\mbox{Cero eventos en el intervalo}(0,t])\\
+&=P(N_{t}=0)=
          \frac{(\lambda t)^0}{0!} e^{-\lambda
          t}=e^{-\lambda t}.
-\end{eqnarray*}
-
-\hypertarget{distribuciuxf3n-del-tiempo-entre-dos-eventos-poisson-1}{%
-\subsection{Distribución del tiempo entre dos eventos Poisson}\label{distribuciuxf3n-del-tiempo-entre-dos-eventos-poisson-1}}
-
-Tomando complementarios, la función de distribución de \(T\) será
-
-\[
-F_{T}(t)= P(T\leq t)=1-P(X>t)=\left\{\begin{array}{ll} 0 &\mbox{ si } t\leq 0\\
-  1-e^{-\lambda t}& \mbox{ si } t>0\end{array}\right.
+\end{array}
 \]
 
-Entonces, derivando respecto de \(t\) en la expresión anterior
-
+Tomando complementarios, la función de distribución de \(T\) será:
 \[
-f_{T}(t)=\left\{\begin{array}{ll}\lambda \cdot e^{-\lambda t} & \mbox{ si }  t>0\\
-0 & \mbox{ si } t\leq 0 \end{array}\right.
+F_{T}(t)= P(T\leq t)=1-P(T>t)=\left\{\begin{array}{ll} 0, &\mbox{ si } t\leq 0,\\
+  1-e^{-\lambda t},& \mbox{ si } t>0,\end{array}\right.
 \]
 
-La exponencial se denota por \(Exp(\lambda)\)
+Para hallar la función de densidad de \(T\), basta derivar la expresión anterior:
 
-\hypertarget{propiedad-de-la-falta-de-memoria}{%
-\subsection{Propiedad de la falta de memoria}\label{propiedad-de-la-falta-de-memoria}}
+\[
+f_{T}(t)=\left\{\begin{array}{ll}\lambda \cdot e^{-\lambda t}, & \mbox{ si }  t>0,\\
+0, & \mbox{ si } t\leq 0. \end{array}\right.
+\]
 
-Sea \(X\) una v.a. \(Exp(\lambda)\) entonces
+Llamaremos a la variable \(T\) exponencial de parámetro \(\lambda\) y la denotaremos por \(Exp(\lambda)\).
+
+\textbf{Propiedad de la falta de memoria}
+
+Sea \(X\) una v.a. \(Exp(\lambda)\), entonces
 
 \[P(X>s+t\big|X>s)=P(X>t)\mbox{  para todo } s,t\in \mathbb{R}\]
 
 \textbf{Demostración}
 
-Si \(X\) es una v.a. \(Exp(\lambda)\) tenemos que \(P(X>x)=1-P(X\leq x)=1-(1-e^{-\lambda\cdot x})=e^{-\lambda\cdot x}\) para todo \(x>0\)
+Si \(X\) es una v.a. \(Exp(\lambda)\) tenemos que \(P(X>x)=1-P(X\leq x)=1-(1-e^{-\lambda\cdot x})=e^{-\lambda\cdot x}\) para todo \(x>0\).
 
-\(P(X>s+t\big|X>s)=\frac{P(\{X>s+t\}\cap \{X>s\})}{P(X>s)}=\frac{P(X>s+t)}{P(X>s)}=\frac{e^{-\lambda\cdot (s+t)}}{e^{-\lambda\cdot s}}= \frac{e^{-\lambda\cdot s}\cdot e^{-\lambda\cdot t} }{e^{-\lambda\cdot s}}=e^{-\lambda\cdot t}=P(X>t).\)
+Por tanto,
+\[
+\begin{array}{rl}
+P(X>s+t\big|X>s) & =\frac{P(\{X>s+t\}\cap \{X>s\})}{P(X>s)}=\frac{P(X>s+t)}{P(X>s)}=\frac{e^{-\lambda\cdot (s+t)}}{e^{-\lambda\cdot s}}=
+\frac{e^{-\lambda\cdot s}\cdot e^{-\lambda\cdot t} }{e^{-\lambda\cdot s}}\\ & =e^{-\lambda\cdot t}=P(X>t).
+\end{array}
+\]
 
-\hypertarget{ejemplo-distribuciuxf3n-exponencial}{%
-\subsection{Ejemplo distribución exponencial}\label{ejemplo-distribuciuxf3n-exponencial}}
-
-\textbf{El clásico problema del peluquero.}
+\textbf{Ejemplo: el clásico problema del peluquero.}
 
 Una pequeña peluquería es regentada por un único peluquero. El peluquero está esperando al próximo cliente mientras lee el periódico.
 
-Supongamos que \(N_T=\) número de clientes que llegan en el intervalo \([0,t)\) es una \(Po(\lambda\cdot t)\) entonces la variable \(T=\) tiempo entre dos clientes consecutivos sigue una ley \(Exp(\lambda)\).
+Supongamos que la v.a. \(N_T\), que representa el número de clientes que llegan en el intervalo \([0,t)\), es una \(Po(\lambda\cdot t)\) entonces la variable \(T\), tiempo entre dos clientes consecutivos, sigue una ley \(Exp(\lambda)\).
 
 Supongamos que \(t\) se mide en horas y que \(\lambda=4\) es el promedio de clientes por hora.
 
-En este ejemplo la propiedad de la pérdida de memoria significa que
-si el peluquero lleva ya esperando más de \(s>0.25\) un cuarto de hora la probabilidad de que espere \(t=1/6\) de hora más (10 minutos) no cambia sigue siendo \(P(T>0.25+1/6|T>0.25)=P(T>1/6).\)
+Se pide:
 
-\hypertarget{ejemplo-distribuciuxf3n-exponencial-1}{%
-\subsection{Ejemplo distribución exponencial}\label{ejemplo-distribuciuxf3n-exponencial-1}}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  El tiempo esperado (en horas) y la varianza hasta el siguiente cliente.
+\item
+  ¿Cuál es la probabilidad de que nuestro peluquero esté sin clientes (leyendo el periódico) más de 30 minutos (0.5 horas)?
+\end{enumerate}
+
+En este ejemplo la propiedad de la pérdida de memoria significa que
+por ejemplo, si el peluquero lleva ya esperando más de \(s>0.25\) (un cuarto de hora), la probabilidad de que espere \(t=1/6\) de hora más (10 minutos) no cambia sigue siendo \(P(T>0.25+1/6|T>0.25)=P(T>1/6).\)
+
+\textbf{Solución de 1. El tiempo esperado (en horas) y la varianza hasta el siguiente cliente.}
 
 El tiempo esperado (en horas) hasta el siguiente cliente es
 
 \[
-E(X)=\frac{1}{\lambda}=\frac{1}{4}=0.25.
+E(X)=\frac{1}{\lambda}=\frac{1}{4}=0.25,
 \]
-
 y la varianza es
-
 \[
 Var(X)=\frac{1}{\lambda^2}=\frac{1}{4^2}=0.0625.
 \]
+\textbf{Solución de 2. ¿Cuál es la probabilidad de que nuestro peluquero esté sin clientes (leyendo el periódico) más de 30 minutos (0.5 horas)?}
 
-Por último ¿Cuál es la probabilidad de que nuestro peluquero esté sin clientes (leyendo el periódico) más de 30 minutos (0.5 horas)?
-
+La probabilidad pedida vale:
 \[
-P(X>0.5)=1-P(X\leq 0.5)=1-(1-e^{-4\cdot 0.5 })=e^{-2})=0.1353353.
+P(X>0.5)=1-P(X\leq 0.5)=1-(1-e^{-4\cdot 0.5 })=e^{-2}=0.1353353.
 \]
 
-\hypertarget{ejemplo-distribuciuxf3n-exponencial-2}{%
-\subsection{Ejemplo distribución exponencial}\label{ejemplo-distribuciuxf3n-exponencial-2}}
-
-Si queremos hacer los cálculos con R,
+Usando \texttt{R}, la probabilidad anterior puede ser calculada de la forma siguiente:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7665,8 +7663,7 @@ Si queremos hacer los cálculos con R,
 ## [1] 0.2231302
 \end{verbatim}
 
-\hypertarget{cuxe1lculos-con-r}{%
-\subsection{Cálculos con R}\label{cuxe1lculos-con-r}}
+\textbf{Cálculos con R}
 
 La función de densidad, de distribución y la generación aleatoria de valores de una exponencial, se pueden obtener en R con:
 
@@ -7734,8 +7731,8 @@ Y en python con:
 \end{Shaded}
 
 \begin{verbatim}
-## array([0.273074  , 0.34891399, 0.28661373, 0.05838788, 0.17561516,
-##        0.01490574, 0.5638597 , 0.20284327, 0.30730807, 0.37810802])
+## array([0.80408068, 0.59997115, 0.923264  , 0.35575296, 0.62634933,
+##        0.25718931, 0.11540355, 0.14608897, 0.54389597, 0.37842878])
 \end{verbatim}
 
 \hypertarget{resumen-v.a-con-distribuciuxf3n-exponencial-explambda}{%
@@ -7973,8 +7970,8 @@ Cuando una variable tiene distribución normal con parámetros \(\mu\) y \(\sigm
 \bottomrule
 \end{longtable}
 
-\hypertarget{cuxe1lculos-con-r-1}{%
-\subsection{Cálculos con R}\label{cuxe1lculos-con-r-1}}
+\hypertarget{cuxe1lculos-con-r}{%
+\subsection{Cálculos con R}\label{cuxe1lculos-con-r}}
 
 De forma la forma habitual los parámetros son \texttt{mean} y \texttt{sd} la media \(\mu\) y la desviación estándar \(\sigma\). Por ejemplo para una \(X\sim N(\mu=1,\sigma=2)\) la función de densidad \(f_X(2)\) se puede calcular como
 
@@ -8080,7 +8077,7 @@ Y la generación aleatoria de valores según \(X\) como
 \end{Shaded}
 
 \begin{verbatim}
-## array([1.2270189 , 3.90891802, 5.10679921, 2.08597942, 1.78199202])
+## array([ 2.1138545 ,  1.8882694 ,  2.12838486, -0.88005777,  0.27439974])
 \end{verbatim}
 
 \textbf{Ejercicio}
@@ -14861,5 +14858,6 @@ Para ver si la aproximación funciona, dibujaremos en una misma gráfica el hist
 Observamos que la aproximación es bastante buena.
 
 \bibliography{book.bib,packages.bib}
+
 
 \end{document}

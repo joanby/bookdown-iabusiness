@@ -997,7 +997,7 @@ La desviación típica es $\sqrt{90}=`r sqrt(90)`.$
 
 Los partidos Real Madrid vs FC Barcelona de **la liga** española se suelen denominar  **El Clásico**, sean en el Bernabeu (estadio del Real Madrid) o en el Camp Nou (estadio del Barça)
 
-Sea $X$ la variable que cuenta el número de veces consecutivas que en un partido de fútbol de la liga el Real Madrid gana al Barça sea en el Camp Nou o el Bernabeu.
+Sea $X$ la variable que cuenta el número de veces consecutivas que en un partido de fútbol de la liga el Barça no gana al Madrid sea en el Camp Nou o el Bernabeu.
 
 Nuestra amiga Aina es muy culé (hincha del Barça) y quiere averiguar cuántos partidos consecutivos de **El Clásico** tiene que ver hasta ver ganar al Barça por primera vez. 
 
@@ -3173,7 +3173,7 @@ Sea $X$ una variable $U(0,1)$ y sea $T=scale\cdot X+loc$:
 
 </div>
 
-### Resumen v.a con distribución uniforme, $U(a,b)$
+**Resumen v.a con distribución uniforme, $U(a,b)$**
 
 Distribución uniforme | $U(a,b)$
 ----:|:-----
@@ -3234,213 +3234,7 @@ uniform.rvs(size=5)
 
 
 
-**Cuantiles de variables aleatorias**
 
-Si  $X$ es una v.a. con dominio $D_X$ y  $0<q<1$, llamaremos cuantil de orden $q$ al menor valor  perteneciente al dominio $x_q\in D_X$ tal que:
-$$P(X\leq x_q)\geq q.$$
-
-En `R`, cada distribución $X$ tiene la función `qX(p,...)` que devuelve precisamente el cuantil $x_p$ tal que $P(X\leq x_p)\geq p.$
-
-
-
-<div class="example">
-**Ejemplo**
-
-Consideremos una v.a. $X$ de distribución $B(5,0.5)$. 
-
-Los cuantiles $x_{0.3}$, $x_{0.6}$ y $x_{0.8}$ son los siguientes:
-
-```{r quantile1, sixe="small"}
-qbinom(c(0.3,0.6,0.8),5,0.5)
-```
-
-Calculemos a mano, el valor $x_{0.3}$ y verifiquemos que da el mismo resultado que nos ha dado `R`.
-
-La función de distribución de $X$ es:
-$$
-\small{
-F_x(x)=P(X\leq x)=
-\left\{
-\begin{array}{ll}
-0, & x< 0, \\
-0.03125, & \mbox{ si } 0 \leq x< 1, \\
-0.18750, & \mbox{ si } 1 \leq x< 2, \\
-0.50000, & \mbox{ si } 2 \leq x< 3, \\
-0.81250, & \mbox{ si } 3 \leq x< 4, \\
-0.96875, & \mbox{ si } 4 \leq x< 5, \\
-1.00000, & \mbox{ si }  5\leq x. \\
-\end{array}
-\right.}
-$$
-
-El cuantil $q=0.3$ es el  primer valor $x\in D_X$  tal que $F_X(x)=P(X\leq x_{0.3})\geq 0.3.$. Mirando la expresión anterior, comprobamos que $x_{0.3}=2$ ya que $F_X(2)=P(X\leq 2)=0.5 \geq 0.3$.
-</div>
-
-
-<div class="exercise">
-**Ejercicio**
-
-Calcular los cuantiles de  $0.6$ y $0.8$ de una $B(5,0.5).$
-</div>
-
-Dada una variable aleatoria $X$, si existe la inversa de la función de distribución de $X$, $F_X^{-1}$, el cuantil $q$ sería el valor que tiene la función $F_X^{-1}$ en $q$: $x_q=F^{-1}(q)$.
-
-En caso de no existir la inversa, dado $q$, definimos el conjunto $F_X^{-1}(q)$ como:
-$$
-F_X^{-1}(q) =\{x\in\mathbb{R},\ |\ F_X(x)=q\}.
-$$
-Entonces el cuantil $q$ sería el mínimo del conjunto anterior considerando sólo valores del dominio de la variable: $x_q =\min_{x\in D_X}(F_X^{-1}(q))$.
-
-
-<div class="example">
-
-**Ejemplo: variable aleatoria que nos da el resultado del lanzamiento de un dado**
-
-Sea  $X$ la variable aleatoria uniforme discreta que nos da el número de puntos obtenidos en el lanzamiento de un dado (seis caras numeradas del 1 al 6).
-
-Su dominio  es $D_X=\{1,2,3,4,5,6\}$ y su función de probabilidad es 
-$$
-P_X(x)=P(X=x)=
-\left\{
-\begin{array}{ll}
- \frac{1}{6}, & \mbox{ si } x=1,2,3,4,5,6, \\
-0, & \mbox{ en otro caso. }.
-\end{array}
-\right.
-$$
-Su función de distribución es:
-$$
-F_X(x)= P(X\leq x)=
-\left\{
-\begin{array}{ll}
-0, & \mbox{ si } x<1, \\
-\frac{k}{6} & \mbox{ si } k\leq x< k+1 \mbox{ para } x= 1,2,3,4,6, \\
- 1, & \mbox{si  } x \geq 6.
-\end{array}
-\right.
-$$
-
-La función siguiente llamada `ddado` nos define la función de probabilidad de $X$ para un dado de $n$ caras:
-```{r}
-ddado=function(x,n=6) {
-  sapply(x,FUN=function(x) {
-    if( x %in% c(1:n)){return(1/n)} else {return(0)}})
-  }
-```
-
-Por ejemplo, el valor de $P_X(0.5)$ sería:
-```{r}
-ddado(1.5,n=6)
-```
-y los valores de $P_X(i)$ para $i=1,\ldots 10$ sería:
-```{r}
-ddado(1:10,n=6)
-```
-
-
-La función `pdado` nos da la función de distribución de $X$:
-
-```{r}
-pdado=function(x,n=6) 
-  {
-  sapply(x,FUN=function(y){ if (y<1){ return(0)}else{if(y>=n){return(1)} else
-  {return(sum(ddado(c(1:(floor(y))),n=n)))}}})
-  }
-```
-
-Los valores de $F_X(i)$ para $i=0,\ldots, 11$ serían:
-```{r}
-pdado(0:11,6)
-```
-
-A continuación, construímos la función `qdado` que nos calcula el cuantil $p$, para $0\leq p\leq 1$, de la variable $X$ como el mínimo de la antiimagen de $p$ mediante la función de distribución $F_X^{-1}(p)$
-
-```{r}
-qdado=function(p,n=6){
-sapply(p,FUN=function(pp=p,nn=n) 
-  {
-  if(pp<0 | pp>1) {return(NA)}
-  else {
-  aux=pp>=pdado(1:n,nn)
-  aux
-  ifelse(all(!aux),return(1),return(max(which(pp>=pdado(1:n,nn)))))}}
-)
-}
-```
-
-
-Si $p=1.5$ o $p=-1$, la función anterior nos devuelve `NA` ya que ni 1.5 ni -1 están entre 0 y 1:
-
-```{r}
-qdado(1.5)
-qdado(-1)
-```
-
-Los cuantiles $x_{0.1}$, $x_{0.5}$ $x_{0.6}$ y $x_1$ son:
-```{r}
-qdado(c(0.1,0.5,0.6,1))
-```
-
-</div>
-
-
-**Gráfico interactivo que muestra los cuantiles de las distribuciones $B(n,p)$ y $Po(\lambda)$**
-
-Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
-
-```{r cuantiles_graficosPOBIN, echo = TRUE, eval = FALSE}
-fluidPage(
-fluidRow(
-  column(3,
-         sliderInput("nq", label = "Par. n B(n,p)",
-              min = 1, max = 20, value =10 , step = 1)
-         ),
-  column(3,
-          sliderInput("pq", label = "Par. p B(n,p)",
-                     min = 0.01, max = 0.99, value = 0.5, step = 0.1)
-         ),
-  column(3,
-         sliderInput("qq", label=" Cuantil q", value=0.75, min = 0.01, max = 0.99, 
-                     step = 0.01)
-         ),
-  column(3,
-         sliderInput("lq", label="Par. lambda Po(lambda)", value=5, min = 1, max = 20, 
-                     step = 1)
-         )
-  )
-)
-
-  
-renderPlot({
-  n=input$nq
-  p=input$pq
-  q=input$qq
-  lambda=input$lq
-  par(mfrow=c(1,2))
-  #n=10;p=0.5;q=0.75;lambda=5
-  #xx=c(seq(min(a,x),min(b,x),by=0.001))
-  probsB=pbinom(0:n,n,p)
-  curve(pbinom(x,n,p),xlim=c(0-0.25,n+0.25),ylim=c(0,max(probsB+0.05,0.1)),
-        col="blue",main=paste0("Función distribución\n B(n=",n,", p=",p,")"),
-        ylab=paste0("dbinom(x,",n,", ",p,")"),yaxt="n")
-  segments(x0 = qbinom(q,n,p),y0 = 0,x1 = qbinom(q,n,p),y1 = q,lty=2,col="red")
-  segments(x0 = qbinom(q,n,p),y0 = q,x1 = -0.25,y1 = q,lty=2,col="red")
-  ytick=c(0.0,q,1)
-  axis(side=2, at=ytick, labels = TRUE)
-  axis(side=1, at=qbinom(q,n,p), labels = TRUE)
-  curve(ppois(x,lambda),xlim=c(0-0.25,2.5*lambda),ylim=c(0,1+0.1),
-        col="blue",main=paste0("Función distribución \n Po(lambda=",lambda,")"),
-        ylab=paste0("dpois(x, lambda",lambda,")"),yaxt="n")
-  segments(x0 = qpois(q,lambda),y0 = 0,x1 = qpois(q,lambda),y1 = q,lty=2,col="red")
-  segments(x0 = qpois(q,lambda),y0 = q,x1 = -0.25,y1 = q,lty=2,col="red")
-  ytick=c(0.0,q,1)
-  axis(side=2, at=ytick, labels = TRUE)
-  axis(side=1, at=qpois(q,lambda), labels = TRUE)
-  par(mfrow=c(1,1))
-})
-```
-
-<!--[![](Images/noshinyImages/interactiva_cuantiles1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
 
 ### Distribución exponencial
@@ -3504,48 +3298,40 @@ $$
 
 Una pequeña peluquería es regentada por un único peluquero. El peluquero está esperando al próximo cliente mientras lee el periódico. 
 
-Supongamos que $N_T=$ número de clientes  que llegan en el intervalo $[0,t)$ es una $Po(\lambda\cdot t)$ entonces la variable $T=$ tiempo entre dos clientes consecutivos sigue una ley $Exp(\lambda)$.
+Supongamos que la v.a. $N_T$, que representa el número de clientes  que llegan en el intervalo $[0,t)$, es una $Po(\lambda\cdot t)$ entonces la variable $T$, tiempo entre dos clientes consecutivos, sigue una ley $Exp(\lambda)$.
 
 Supongamos que $t$ se mide en horas y que $\lambda=4$ es el promedio de clientes por hora.
 
-</div>
+Se pide:
+
+1. El tiempo esperado (en horas) y la varianza hasta el siguiente cliente.
+2. ¿Cuál es la probabilidad de que nuestro peluquero esté sin  clientes (leyendo el periódico) más de 30 minutos (0.5 horas)?
+
 
 <div class="example-sol">
 
 En este ejemplo la propiedad de la pérdida de memoria significa que
-si el peluquero lleva ya esperando más de $s>0.25$  un cuarto de hora  la probabilidad de que espere $t=1/6$ de hora más (10 minutos) no cambia sigue siendo $P(T>0.25+1/6|T>0.25)=P(T>1/6).$
-</div>
+por ejemplo, si el peluquero lleva ya esperando más de $s>0.25$ (un cuarto de hora),  la probabilidad de que espere $t=1/6$ de hora más (10 minutos) no cambia sigue siendo $P(T>0.25+1/6|T>0.25)=P(T>1/6).$
 
-
-### Ejemplo distribución exponencial
-
-<div class="example-sol">
+**Solución de 1. El tiempo esperado (en horas) y la varianza hasta el siguiente cliente.**
 
 El tiempo esperado (en horas) hasta el siguiente cliente es
 
 $$
-E(X)=\frac{1}{\lambda}=\frac{1}{4}=0.25.
+E(X)=\frac{1}{\lambda}=\frac{1}{4}=0.25,
 $$
-
 y la varianza es 
-
 $$
 Var(X)=\frac{1}{\lambda^2}=\frac{1}{4^2}=`r 1/16`.
 $$
+**Solución de 2. ¿Cuál es la probabilidad de que nuestro peluquero esté sin  clientes (leyendo el periódico) más de 30 minutos (0.5 horas)?**
 
-Por último ¿Cuál es la probabilidad de que nuestro peluquero esté sin  clientes (leyendo el periódico) más de 30 minutos (0.5 horas)?
-
-
+La probabilidad pedida vale:
 $$
-P(X>0.5)=1-P(X\leq 0.5)=1-(1-e^{-4\cdot 0.5 })=e^{-2})=`r exp(-2)`.
+P(X>0.5)=1-P(X\leq 0.5)=1-(1-e^{-4\cdot 0.5 })=e^{-2}=`r exp(-2)`.
 $$
-</div>
 
-### Ejemplo distribución exponencial
-
-<div class="example-sol">
-
-Si queremos hacer los cálculos con R, 
+Usando `R`, la probabilidad anterior puede ser calculada de la forma siguiente: 
 
 ```{r}
 pexp(0.5,rate=3)
@@ -3554,21 +3340,22 @@ pexp(0.5,rate=3,lower.tail = FALSE)
 ```
 
 </div>
+</div>
 
-### Cálculos  con R
+**Cálculos  con R**
 
-La función de densidad, de distribución y la generación aleatoria de valores de una exponencial, se pueden obtener en R con:
+Las funciones de densidad y de distribución de una variable exponencial de parámetro $\lambda$ en un valor `x` se pueden obtener en `R` usando las funciones `dexp(x,lambda)` y `pexp(x,lambda)`, respectivamente. Para generar `n` valores aleatorios de una  variable exponencial de parámetro $\lambda$, hay que usar la función  `rexp(n,lambda)`. Veamos un ejemplo de aplicación de las tres funciones anteriores:
 
 ```{r}
-dexp(0.001,rate=3)### alerta no es una probailidad es una densidad y puede ser >1
+dexp(0.001,rate=3)### alerta no es una probabilidad, es una densidad y puede ser >1
 pexp(0.5,rate=3) ##P(X<0.5)
 rexp(10,3)### diez tiempos de una exponencial
 ```
 
 
-### Cálculos  con python
+**Cálculos  con python**
 
-Y en  python con:
+Las funciones de densidad y de distribución de una variable exponencial de parámetro $\lambda$ en un valor `x` se pueden obtener en python usando las funciones `expon.pdf(x,scale=1/lambda)` y `expon.cdf(x,scale=1/lambda)`, respectivamente. Para generar `n` valores aleatorios de una  variable exponencial de parámetro $\lambda$, hay que usar la función  `expon.rvs(scale=1/lambda,size=n)`. Veamos un ejemplo de aplicación de las tres funciones anteriores:
 
 
 ```{python}
@@ -3579,20 +3366,20 @@ expon.rvs(scale=1./3,size=10)
 ```
 
 
-### Resumen v.a con distribución exponencial, $Exp(\lambda)$
+**Resumen v.a con distribución exponencial, $Exp(\lambda)$**
 
 $X$ | $Exp(\lambda)$
 ------:|:------
 $D_X=$  | $(0,+\infty)$ 
 $f_{X}(x)=$ | $\left\{\begin{array}{ll}
-\lambda e^{-\lambda x} & \mbox{ si }  x>0\\
-0 & \mbox{ si } x\leq 0
+\lambda e^{-\lambda x}, & \mbox{ si }  x>0,\\
+0, & \mbox{ si } x\leq 0.
 \end{array}\right.$
-$F_X(x)=P(X\leq X)=$ | $\left\{\begin{array}{ll} 0 &\mbox{si } x\leq 0\\
-1-e^{-\lambda x}& \mbox{si } x>0\end{array}\right.$
+$F_X(x)=P(X\leq X)=$ | $\left\{\begin{array}{ll} 0, &\mbox{si } x\leq 0,\\
+1-e^{-\lambda x},& \mbox{si } x>0.\end{array}\right.$
 $E(X)=\frac{1}{\lambda}$ | $Var(X)=\frac{1}{\lambda^2}$
 
-### Gráficas densidad y distribución $Exp(\lambda=10)$
+**Gráficas de las funciones de denside densidad y de distribución de la variable aleatoria $Exp(\lambda=10)$**
 
 ```{r eval=FALSE,fig.align="center"}
 lambda=10
@@ -3606,8 +3393,6 @@ curve(pexp(x,rate=lambda),xlim=c(-0.05,qexp(0.999,10)),ylim=c(0,1.1),col="blue",
       ylab=paste0("pexp(x,rate=",lambda,")"))
 par(mfrow=c(1,1))
 ```
-
-### Gráficas densidad y distribución $Exp(\lambda=10)$
 
 ```{r echo=FALSE,fig.align="center"}
 lambda=10
@@ -3629,13 +3414,12 @@ par(mfrow=c(1,1))
 
 Consultad  en el manual de python [scipy.stats](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.expon.html). 
 
-
-Dibujad la función de densidad y de distribución de una $Exp(10).$
+Dibujad la función de densidad y de distribución de una $Exp(\lambda=10).$
 
 </div>
 
 
-### Gráficas interactivas de una $Exp(\lambda)$.
+**Gráficas interactivas de una variable $Exp(\lambda)$**
 
 Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
 
@@ -3665,12 +3449,14 @@ renderPlot({
   xx=seq(0,x,by=0.001)
   par(mfrow=c(1,2))
   curve(dexp(x,rate=lambda),xlim=c(-0.05,round(qexp(0.999,rate=lambda),2)),
-        ylim=c(0,dexp(0,lambda)+0.1),col="blue",main=paste0("Función densidad Exp(",lambda,")"),
+        ylim=c(0,dexp(0,lambda)+0.1),col="blue",
+        main=paste0("Función densidad Exp(",lambda,")"),
   ylab=paste0("dexp(x,",lambda,")"),xaxt="n")
   axis(side=1, at=c(0,x,round(qexp(0.999,rate=lambda),2)),cex.axis=0.8)
   polygon(x=c(0,xx,max(x,xx)),y=c(0,dexp(xx, rate=lambda),0),
           density=20,col="skyblue")
-  curve(pexp(x,rate=lambda),xlim=c(0.01,qexp(0.999,rate=lambda)+0.1),ylim=c(0,1.1),col="blue",
+  curve(pexp(x,rate=lambda),xlim=c(0.01,qexp(0.999,rate=lambda)+0.1),
+        ylim=c(0,1.1),col="blue",
         main=paste0("Función de distribución Exp(",lambda,")"),
         ylab=paste0("pexp(x,",lambda,")"),xaxt="n",yaxt="n")
   segments(x0=qexp(p,lambda),x1=qexp(p,lambda),y0=0,y1=p,col="red",lty=2)
@@ -3684,14 +3470,10 @@ renderPlot({
 
 <!--[![](Images/noshinyImages/interactiva_exponencial1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->
 
-
-
-### Ejercicio: las bombillas que no envejecen.
-
 <div class="exercise">
-**Ejercicio**
+**Ejercicio: las bombillas que no envejecen.**
 
-Supongamos que compramos una bombilla led que promete un **valor esperado** de duración de 10000 (1.14 años) horas de funcionamiento continuo. Además nos aseguran que  si $X$ es el número de horas de funcionamiento continuo de una bombilla led sigue una ley  exponencial 
+Supongamos que compramos una bombilla led que promete un **valor esperado** de duración de 10000 (1.14 años) horas de funcionamiento continuo. Además, nos aseguran que la distribución de $X$, el número de horas de funcionamiento continuo de una bombilla led, sigue una ley  exponencial.
 
 * Si $X$ es $Exp(\lambda)$ ¿cuál es el valor del parámetro  $\lambda$?.
 * ¿Cuál es la probabilidad de que una bombilla led ilumine más de 2 años?
@@ -3702,90 +3484,76 @@ Supongamos que compramos una bombilla led que promete un **valor esperado** de d
 
 
 
-## Distribución normal o Gaussiana
+### Distribución normal o Gaussiana
 
 
 
-Una de las más variables  aleatorias  continua más populares  son las  llamadas    distribuciones normales o de [Gaussiana](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_normal) .
+Una de las variables  aleatorias  continua más populares  es la llamada    distribución normal o [Gaussiana](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_normal) .
 
-<l class="def"> Distribución normal o de Gauss</l>
+<l class="def"> **Distribución normal o de Gauss**</l>
 Diremos que una v.a. $X$ sigue una ley normal de parámetros
-$\mu$ y $\sigma^2$ y lo denotaremos por $N(\mu,\sigma)$
-si tiene por función de densidad
+$\mu$ y $\sigma$ y la denotaremos por $N(\mu,\sigma)$
+si tiene por función de densidad:
 
 $$
 f_{X}(x)=\frac1{\sqrt{2\cdot\pi\cdot\sigma^2}}
-e^{-\frac{1}{2}\cdot\left(\frac{x-\mu}{\sigma}\right)^2}
+e^{-\frac{1}{2}\cdot\left(\frac{x-\mu}{\sigma}\right)^2},
 $$
-
-
 para todo $x\in \mathbb{R}.$
 
 
-
-La gráfica de esta función es la conocida campana de Gauss.
+La gráfica de esta función de densidad es conocida como **campana de Gauss.**
 
 La v.a. normal con $\mu=0$ y $\sigma=1$ recibe el nombre de
 normal estándar y se suele denotar por la letra $Z$ normal $N(0,1)$.
-
-
-
 
 ```{r normaldensidad1,fig.align="center"}
 curve(dnorm(x),main="Función de densidad de una normal estándar",xlim=c(-3.9,3.9))
 ```
 
 
-### Propiedades de la densidad normal
-
-<l class="prop"> Propiedades de la densidad normal</l>
+<l class="prop"> **Propiedades de la función de densidad de la distribución normal**</l>
 
 Sea $X$ una v.a. $N(\mu,\sigma)$ y sea $f_{X}$ su función de densidad. Entonces:
 
-1. Evidentemente $f_{X}$ verifica todas las propiedades de las funciones de densidad.
-2. $f_{X}(\mu-x)=f_{X}(\mu+x)$ es simétrica respecto de la recta $x=\mu$
-3. $f_{X}$ alcanza el máximo en $x=\mu$
-4. Si $F_{X}$ la función de distribución de $X$ entonces $F_{X}(\mu+x)=1-F_{X}(\mu-x)$.
-5. En particular si $Z$ es una $N(0,1)$ entonces $F_{Z}(-x)=1-F_{Z}(x)$
-6. $Z=\frac{X-\mu}{\sigma}$ es una v.a. $N(0,1)$ y $X=\sigma\cdot Z+\mu$ es una $N(\mu,\sigma)$ donde $Z$ es la normal estándar.
+1. La función $f_{X}$ verifica todas las propiedades de las funciones de densidad: $f_X(x)>0$, para todo $x\in\mathbb{R}$ y $\displaystyle\int_{-\infty}^\infty f_X(x)\,dx=1$.
+1. La función $f_X(x)$ es simétrica respecto de la recta $x=\mu$: $f_{X}(\mu-x)=f_{X}(\mu+x)$, para todo $x\in\mathbb{R}$.
+1. $f_{X}$ tiene un único máximo absoluto en $x=\mu$ que vale $f_X(\mu)=\frac{\sqrt{2\pi\sigma^2}}$.
+1. Si $F_{X}$ es la función de distribución de $X$, entonces $F_{X}(\mu+x)=1-F_{X}(\mu-x)$, para todo $x\in\mathbb{R}$. 
+1. En particular si $Z$ es una $N(0,1)$ entonces $F_{Z}(-x)=1-F_{Z}(x)$, para todo $x\in\mathbb{R}$.
+1. $Z=\frac{X-\mu}{\sigma}$ es una v.a. $N(0,1)$ y $X=\sigma\cdot Z+\mu$ es una $N(\mu,\sigma)$ donde $Z$ es la normal estándar.
 
-### Función de distribución  N(0,1)
+**Función de distribución  N(0,1)**
 
-Su función de distribución es, como sabemos :
+Su función de distribución es, como sabemos:
 
 $$
 F(x)=\displaystyle\int_{-\infty}^{x} {1\over{\sqrt{2\cdot \pi\cdot\sigma^2}}}
 e^{-{1\over 2}{\left({t-\mu}\over{\sigma}\right)}^2} dt.
 $$
 
-Que no tiene ninguna expresión algebraica "decente". Es por esta razón, y  por comodidad, que esta función está tabulada o hay que calcular con un programa.
+La función $F(x)$ no tiene ninguna expresión algebraica "decente". Es por esta razón, y  por comodidad, que esta función está tabulada o hay que calcularla usando un software estadístico.
 
 
 
-Cuando una variable tiene distribución normal con parámetros $\mu$ y $\sigma$ la denotamos con $X$ sigue un ley de distribución $N(\mu,\sigma).$
-
-
-
-
-### Resumen v.a con distribución normal, $N(\mu,\sigma)$
+**Resumen v.a con distribución normal, $N(\mu,\sigma)$**
 
 $X$  | $N(\mu,\sigma)$ 
 -----:|:--------
 $D_X=$ | $\mathbb{R}=(-\infty,+\infty)$
 $f_{X}(x)$ |$=\frac{1}{\sqrt{2\pi\cdot\sigma^2}}\cdot e^{\frac{-(x-\mu)^2}{2\cdot \sigma^2}}\mbox{ para todo }x\in \mathbb{R}.$
-$F_X(x)=P(X\leq X)=$ | `pnorm(x,mean=mu,sd=sigma)`. Utilizad funciones de R o python 
+$F_X(x)=P(X\leq X)=$ | Utilizad la función de `R` `pnorm(x,mean=mu,sd=sigma)` o la función correspondiente en python 
 $E(X)=\mu.$ | $Var(X)=\sigma^2.$
 
 
-###  Cálculos con R
- 
- De forma la forma habitual los parámetros son `mean` y `sd` la media $\mu$ y la desviación estándar $\sigma$. Por ejemplo para una $X\sim N(\mu=1,\sigma=2)$ la función de densidad $f_X(2)$ se puede calcular como
+**Cálculos con R**
+
+Las funciones que calculan la función de densidad y de distribución de una variable $N(\mu,\sigma)$ en un valor `x` son `dnorm(x,mean=mu,sd=sigma)` y `pnorm(x,mean=mu,sd=sigma)`, respectivamente. Por ejemplo, para una variable $X\sim N(\mu=1,\sigma=2)$ la función de densidad $f_X(2)$ se puede calcular de la forma siguiente:
  
 ```{r codigoNormalR1}
 dnorm(2,mean=1,sd=2)
 ```
-
-y la función de distribución $F_X(2) = P(X\leq 2)$ como
+y la función de distribución $F_X(2) = P(X\leq 2)$ de la forma siguiente:
 
 ```{r codigoNormalR1_1}
 pnorm(2,mean=1,sd=2) 
@@ -4140,3 +3908,212 @@ En los temas que siguen veremos como, bajo determinadas condiciones:
 * La distribución normal puede aproximar la distribución Poisson
 * La distribución normal  es la distribución límite de la media aritmética.
 
+
+
+## Cuantiles de variables aleatorias
+
+Si  $X$ es una v.a. con dominio $D_X$ y  $0<q<1$, llamaremos cuantil de orden $q$ al menor valor  perteneciente al dominio $x_q\in D_X$ tal que:
+$$P(X\leq x_q)\geq q.$$
+
+En `R`, cada distribución $X$ tiene la función `qX(p,...)` que devuelve precisamente el cuantil $x_p$ tal que $P(X\leq x_p)\geq p.$
+
+
+
+<div class="example">
+**Ejemplo**
+
+Consideremos una v.a. $X$ de distribución $B(5,0.5)$. 
+
+Los cuantiles $x_{0.3}$, $x_{0.6}$ y $x_{0.8}$ son los siguientes:
+
+```{r quantile1, sixe="small"}
+qbinom(c(0.3,0.6,0.8),5,0.5)
+```
+
+Calculemos a mano, el valor $x_{0.3}$ y verifiquemos que da el mismo resultado que nos ha dado `R`.
+
+La función de distribución de $X$ es:
+$$
+\small{
+F_x(x)=P(X\leq x)=
+\left\{
+\begin{array}{ll}
+0, & x< 0, \\
+0.03125, & \mbox{ si } 0 \leq x< 1, \\
+0.18750, & \mbox{ si } 1 \leq x< 2, \\
+0.50000, & \mbox{ si } 2 \leq x< 3, \\
+0.81250, & \mbox{ si } 3 \leq x< 4, \\
+0.96875, & \mbox{ si } 4 \leq x< 5, \\
+1.00000, & \mbox{ si }  5\leq x. \\
+\end{array}
+\right.}
+$$
+
+El cuantil $q=0.3$ es el  primer valor $x\in D_X$  tal que $F_X(x)=P(X\leq x_{0.3})\geq 0.3.$. Mirando la expresión anterior, comprobamos que $x_{0.3}=2$ ya que $F_X(2)=P(X\leq 2)=0.5 \geq 0.3$.
+</div>
+
+
+<div class="exercise">
+**Ejercicio**
+
+Calcular los cuantiles de  $0.6$ y $0.8$ de una $B(5,0.5).$
+</div>
+
+Dada una variable aleatoria $X$, si existe la inversa de la función de distribución de $X$, $F_X^{-1}$, el cuantil $q$ sería el valor que tiene la función $F_X^{-1}$ en $q$: $x_q=F^{-1}(q)$.
+
+En caso de no existir la inversa, dado $q$, definimos el conjunto $F_X^{-1}(q)$ como:
+$$
+F_X^{-1}(q) =\{x\in\mathbb{R},\ |\ F_X(x)=q\}.
+$$
+Entonces el cuantil $q$ sería el mínimo del conjunto anterior considerando sólo valores del dominio de la variable: $x_q =\min_{x\in D_X}(F_X^{-1}(q))$.
+
+
+<div class="example">
+
+**Ejemplo: variable aleatoria que nos da el resultado del lanzamiento de un dado**
+
+Sea  $X$ la variable aleatoria uniforme discreta que nos da el número de puntos obtenidos en el lanzamiento de un dado (seis caras numeradas del 1 al 6).
+
+Su dominio  es $D_X=\{1,2,3,4,5,6\}$ y su función de probabilidad es 
+$$
+P_X(x)=P(X=x)=
+\left\{
+\begin{array}{ll}
+ \frac{1}{6}, & \mbox{ si } x=1,2,3,4,5,6, \\
+0, & \mbox{ en otro caso. }.
+\end{array}
+\right.
+$$
+Su función de distribución es:
+$$
+F_X(x)= P(X\leq x)=
+\left\{
+\begin{array}{ll}
+0, & \mbox{ si } x<1, \\
+\frac{k}{6} & \mbox{ si } k\leq x< k+1 \mbox{ para } x= 1,2,3,4,6, \\
+ 1, & \mbox{si  } x \geq 6.
+\end{array}
+\right.
+$$
+
+La función siguiente llamada `ddado` nos define la función de probabilidad de $X$ para un dado de $n$ caras:
+```{r}
+ddado=function(x,n=6) {
+  sapply(x,FUN=function(x) {
+    if( x %in% c(1:n)){return(1/n)} else {return(0)}})
+  }
+```
+
+Por ejemplo, el valor de $P_X(0.5)$ sería:
+```{r}
+ddado(1.5,n=6)
+```
+y los valores de $P_X(i)$ para $i=1,\ldots 10$ sería:
+```{r}
+ddado(1:10,n=6)
+```
+
+
+La función `pdado` nos da la función de distribución de $X$:
+
+```{r}
+pdado=function(x,n=6) 
+  {
+  sapply(x,FUN=function(y){ if (y<1){ return(0)}else{if(y>=n){return(1)} else
+  {return(sum(ddado(c(1:(floor(y))),n=n)))}}})
+  }
+```
+
+Los valores de $F_X(i)$ para $i=0,\ldots, 11$ serían:
+```{r}
+pdado(0:11,6)
+```
+
+A continuación, construímos la función `qdado` que nos calcula el cuantil $p$, para $0\leq p\leq 1$, de la variable $X$ como el mínimo de la antiimagen de $p$ mediante la función de distribución $F_X^{-1}(p)$
+
+```{r}
+qdado=function(p,n=6){
+sapply(p,FUN=function(pp=p,nn=n) 
+  {
+  if(pp<0 | pp>1) {return(NA)}
+  else {
+  aux=pp>=pdado(1:n,nn)
+  aux
+  ifelse(all(!aux),return(1),return(max(which(pp>=pdado(1:n,nn)))))}}
+)
+}
+```
+
+
+Si $p=1.5$ o $p=-1$, la función anterior nos devuelve `NA` ya que ni 1.5 ni -1 están entre 0 y 1:
+
+```{r}
+qdado(1.5)
+qdado(-1)
+```
+
+Los cuantiles $x_{0.1}$, $x_{0.5}$ $x_{0.6}$ y $x_1$ son:
+```{r}
+qdado(c(0.1,0.5,0.6,1))
+```
+
+</div>
+
+
+**Gráfico interactivo que muestra los cuantiles de las distribuciones $B(n,p)$ y $Po(\lambda)$**
+
+Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el paquete `shiny` en tu ordenador y luego copiar/pegar las siguientes instrucciones. De este modo podrás observar los cambios en las distribuciones variando los parámetros.
+
+```{r cuantiles_graficosPOBIN, echo = TRUE, eval = FALSE}
+fluidPage(
+fluidRow(
+  column(3,
+         sliderInput("nq", label = "Par. n B(n,p)",
+              min = 1, max = 20, value =10 , step = 1)
+         ),
+  column(3,
+          sliderInput("pq", label = "Par. p B(n,p)",
+                     min = 0.01, max = 0.99, value = 0.5, step = 0.1)
+         ),
+  column(3,
+         sliderInput("qq", label=" Cuantil q", value=0.75, min = 0.01, max = 0.99, 
+                     step = 0.01)
+         ),
+  column(3,
+         sliderInput("lq", label="Par. lambda Po(lambda)", value=5, min = 1, max = 20, 
+                     step = 1)
+         )
+  )
+)
+
+  
+renderPlot({
+  n=input$nq
+  p=input$pq
+  q=input$qq
+  lambda=input$lq
+  par(mfrow=c(1,2))
+  #n=10;p=0.5;q=0.75;lambda=5
+  #xx=c(seq(min(a,x),min(b,x),by=0.001))
+  probsB=pbinom(0:n,n,p)
+  curve(pbinom(x,n,p),xlim=c(0-0.25,n+0.25),ylim=c(0,max(probsB+0.05,0.1)),
+        col="blue",main=paste0("Función distribución\n B(n=",n,", p=",p,")"),
+        ylab=paste0("dbinom(x,",n,", ",p,")"),yaxt="n")
+  segments(x0 = qbinom(q,n,p),y0 = 0,x1 = qbinom(q,n,p),y1 = q,lty=2,col="red")
+  segments(x0 = qbinom(q,n,p),y0 = q,x1 = -0.25,y1 = q,lty=2,col="red")
+  ytick=c(0.0,q,1)
+  axis(side=2, at=ytick, labels = TRUE)
+  axis(side=1, at=qbinom(q,n,p), labels = TRUE)
+  curve(ppois(x,lambda),xlim=c(0-0.25,2.5*lambda),ylim=c(0,1+0.1),
+        col="blue",main=paste0("Función distribución \n Po(lambda=",lambda,")"),
+        ylab=paste0("dpois(x, lambda",lambda,")"),yaxt="n")
+  segments(x0 = qpois(q,lambda),y0 = 0,x1 = qpois(q,lambda),y1 = q,lty=2,col="red")
+  segments(x0 = qpois(q,lambda),y0 = q,x1 = -0.25,y1 = q,lty=2,col="red")
+  ytick=c(0.0,q,1)
+  axis(side=2, at=ytick, labels = TRUE)
+  axis(side=1, at=qpois(q,lambda), labels = TRUE)
+  par(mfrow=c(1,1))
+})
+```
+
+<!--[![](Images/noshinyImages/interactiva_cuantiles1.png)](https://joanby.shinyapps.io/DistribucionesNotables/)-->

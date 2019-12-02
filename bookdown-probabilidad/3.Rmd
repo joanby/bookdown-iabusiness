@@ -3518,7 +3518,7 @@ Sea $X$ una v.a. $N(\mu,\sigma)$ y sea $f_{X}$ su función de densidad. Entonces
 
 1. La función $f_{X}$ verifica todas las propiedades de las funciones de densidad: $f_X(x)>0$, para todo $x\in\mathbb{R}$ y $\displaystyle\int_{-\infty}^\infty f_X(x)\,dx=1$.
 1. La función $f_X(x)$ es simétrica respecto de la recta $x=\mu$: $f_{X}(\mu-x)=f_{X}(\mu+x)$, para todo $x\in\mathbb{R}$.
-1. $f_{X}$ tiene un único máximo absoluto en $x=\mu$ que vale $f_X(\mu)=\frac{\sqrt{2\pi\sigma^2}}$.
+1. $f_{X}$ tiene un único máximo absoluto en $x=\mu$ que vale $f_X(\mu)=\frac1{\sqrt{2\pi\sigma^2}}$.
 1. Si $F_{X}$ es la función de distribución de $X$, entonces $F_{X}(\mu+x)=1-F_{X}(\mu-x)$, para todo $x\in\mathbb{R}$. 
 1. En particular si $Z$ es una $N(0,1)$ entonces $F_{Z}(-x)=1-F_{Z}(x)$, para todo $x\in\mathbb{R}$.
 1. $Z=\frac{X-\mu}{\sigma}$ es una v.a. $N(0,1)$ y $X=\sigma\cdot Z+\mu$ es una $N(\mu,\sigma)$ donde $Z$ es la normal estándar.

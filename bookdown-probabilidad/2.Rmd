@@ -1340,6 +1340,113 @@ Por ejemplo para $k=2$, esta desigualdad se puede interpretar como que, dada una
 Es decir sólo el 25\% de los valores estarán alejados de la media
 más de $2\sigma$, ¡*sea cual sea la distribución de la v.a.*!
 
+## Cuantiles de variables aleatorias
 
+Si  $X$ es una v.a. con dominio $D_X$ y  $0<q<1$, llamaremos cuantil de orden $q$ al menor valor  perteneciente al dominio $x_q\in D_X$ tal que:
+$$P(X\leq x_q)\geq q.$$
+
+En `R`, cada distribución $X$ tiene la función `qX(p,...)` que devuelve precisamente el cuantil $x_p$ tal que $P(X\leq x_p)\geq p.$
+
+
+
+Dada una variable aleatoria $X$, si existe la inversa de la función de distribución de $X$, $F_X^{-1}$, el cuantil $q$ sería el valor que tiene la función $F_X^{-1}$ en $q$: $x_q=F^{-1}(q)$.
+
+En caso de no existir la inversa, dado $q$, definimos el conjunto $F_X^{-1}(q)$ como:
+$$
+F_X^{-1}(q) =\{x\in\mathbb{R},\ |\ F_X(x)=q\}.
+$$
+Entonces el cuantil $q$ sería el mínimo del conjunto anterior considerando sólo valores del dominio de la variable: $x_q =\min_{x\in D_X}(F_X^{-1}(q))$.
+
+
+<div class="example">
+
+**Ejemplo: variable aleatoria que nos da el resultado del lanzamiento de un dado**
+
+Sea  $X$ la variable aleatoria uniforme discreta que nos da el número de puntos obtenidos en el lanzamiento de un dado (seis caras numeradas del 1 al 6).
+
+Su dominio  es $D_X=\{1,2,3,4,5,6\}$ y su función de probabilidad es 
+$$
+P_X(x)=P(X=x)=
+\left\{
+\begin{array}{ll}
+ \frac{1}{6}, & \mbox{ si } x=1,2,3,4,5,6, \\
+0, & \mbox{ en otro caso. }.
+\end{array}
+\right.
+$$
+Su función de distribución es:
+$$
+F_X(x)= P(X\leq x)=
+\left\{
+\begin{array}{ll}
+0, & \mbox{ si } x<1, \\
+\frac{k}{6} & \mbox{ si } k\leq x< k+1 \mbox{ para } x= 1,2,3,4,6, \\
+ 1, & \mbox{si  } x \geq 6.
+\end{array}
+\right.
+$$
+
+La función siguiente llamada `ddado` nos define la función de probabilidad de $X$ para un dado de $n$ caras:
+```{r}
+ddado=function(x,n=6) {
+  sapply(x,FUN=function(x) {
+    if( x %in% c(1:n)){return(1/n)} else {return(0)}})
+  }
+```
+
+Por ejemplo, el valor de $P_X(0.5)$ sería:
+```{r}
+ddado(1.5,n=6)
+```
+y los valores de $P_X(i)$ para $i=1,\ldots 10$ sería:
+```{r}
+ddado(1:10,n=6)
+```
+
+
+La función `pdado` nos da la función de distribución de $X$:
+
+```{r}
+pdado=function(x,n=6) 
+  {
+  sapply(x,FUN=function(y){ if (y<1){ return(0)}else{if(y>=n){return(1)} else
+  {return(sum(ddado(c(1:(floor(y))),n=n)))}}})
+  }
+```
+
+Los valores de $F_X(i)$ para $i=0,\ldots, 11$ serían:
+```{r}
+pdado(0:11,6)
+```
+
+A continuación, construímos la función `qdado` que nos calcula el cuantil $p$, para $0\leq p\leq 1$, de la variable $X$ como el mínimo de la antiimagen de $p$ mediante la función de distribución $F_X^{-1}(p)$
+
+```{r}
+qdado=function(p,n=6){
+sapply(p,FUN=function(pp=p,nn=n) 
+  {
+  if(pp<0 | pp>1) {return(NA)}
+  else {
+  aux=pp>=pdado(1:n,nn)
+  aux
+  ifelse(all(!aux),return(1),return(max(which(pp>=pdado(1:n,nn)))))}}
+)
+}
+```
+
+
+Si $p=1.5$ o $p=-1$, la función anterior nos devuelve `NA` ya que ni 1.5 ni -1 están entre 0 y 1:
+
+```{r}
+qdado(1.5)
+qdado(-1)
+```
+
+Los cuantiles $x_{0.1}$, $x_{0.5}$ $x_{0.6}$ y $x_1$ son:
+```{r}
+qdado(c(0.1,0.5,0.6,1))
+```
+
+</div>
 
 

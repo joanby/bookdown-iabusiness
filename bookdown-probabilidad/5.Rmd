@@ -57,7 +57,7 @@ Estamos interesado en sucesos del tipo $A=\{H\leq 176,\ W\leq 85\}$, o sea, el c
 </div>
 </div>
 
-### Representaciń del dominio de una variable aleatoria bidimensional
+### Representación del dominio de una variable aleatoria bidimensional
 
 Los sucesos que se derivan de una **variable aleatoria bidimensional** estan especificados por regiones del plano.
 Veamos algunos ejemplos:
@@ -66,7 +66,7 @@ Suceso: $\{X+Y\leq 1\}$. Sería la zona sombreada del gráfico siguiente:
 
 <div class="center">
 
-```{r, echo=FALSE, label=bid1_1,fig.cap="Dominio bidimensional"}
+```{r, echo=FALSE, label=bid1_1,fig.cap=""}
 knitr::include_graphics("Images/Bidim1.png",dpi=1200)
 ```
 </div>
@@ -129,7 +129,8 @@ Entonces la **función de distribución conjunta** en el valor $(x,y)$ es la pro
 
 $$
 \begin{array}{rl}
-F_{XY}(x,y) & =P\{w\in\Omega,\ |\ (X(w),Y(w))\in (-\infty,x]\times (-\infty,y]\} \\ & = P\{w\in\Omega,\ |\ X(w)\leq x,\ Y(w)\leq y\}.
+F_{XY}(x,y) &= P\{w\in\Omega,\ |\ (X(w),Y(w))\in (-\infty,x]\times (-\infty,y]\} \\ 
+&= P\{w\in\Omega,\ |\ X(w)\leq x,\ Y(w)\leq y\}.
 \end{array}
 $$
 
@@ -182,7 +183,7 @@ knitr::include_graphics("Images/Fxy3.png",dpi=1200)
 </div>
 
 <div class="example">
-**Ejemplo**
+**Ejemplo: Función de distribución uniforme**
 
 Consideremos una variable aleatoria bidimensional $(X,Y)$ con **función de distribución conjunta**:
 $$
@@ -201,9 +202,13 @@ En la figura siguiente, hemos representado por zonas cómo está definida $F_{XY
 ```{r, echo=FALSE, label=bid7,fig.cap="Funciń de distribución uniforme bidimensional."}
 knitr::include_graphics("Images/FxyEx.png",dpi=1200)
 ```
-</div>
 
 Comprobemos algunas de las propiedades que hemos enunciado anteriormente:
+
+</div>
+
+
+<div class="example-sol">
 
 * Claramente $F_{XY}(x,-\infty)=F_{XY}(-\infty,y)=0$ ya que $F_{XY}(x,y)=0$ si $x<0$ o $y<0$. Por tanto, si hacemos tender $x$ o $y$ hacia $-\infty$, obtendremos que $F_{XY}(x,-\infty)=F_{XY}(-\infty,y)=0$.
 
@@ -225,13 +230,17 @@ Para ver la expresión anterior basta trazar la recta vertical $X=x$ en el gráf
 
 Dejamos como ejercicio hallar la distribución marginal para la variable $Y$.
 
-* Comprobemos que $F_{XY}$ es continua por el "norte" y el "este" en el punto $(1,1)$ que sería un punto problemático:
+* Comprobemos que $F_{XY}$ es continua por el "norte" y el "este" en el punto $(1,1)$ que es un punto problemático:
 $$
-\lim_{x\to 1,x> 1} F_{XY}(x,1)=\lim_{x\to 1,x> 1} 1  = F_{XY}(1,1),\ \lim_{y\to 1,y> 1} F_{XY}(1,y)=\lim_{y\to 1,y> 1} 1  = F_{XY}(1,1).
+\lim_{x\to 1,x> 1} F_{XY}(x,1)=\lim_{x\to 1,x> 1} 1  = F_{XY}(1,1),
+$$
+
+$$
+\lim_{y\to 1,y> 1} F_{XY}(1,y)=\lim_{y\to 1,y> 1} 1  = F_{XY}(1,1).
 $$
 
 
-Hagamos un gráfico 3D de la **función de distribución conjunta** usando la función `persp` de `R` para $x$ e $y$ entre -2 y 2.
+Representemos en  un gráfico tridimensional la **función de distribución conjunta** usando la función `persp` de `R` para $x$ e $y$ entre -2 y 2.
 
 Primero definimos la **función** y luego la dibujamos:
 
@@ -246,6 +255,8 @@ z=outer(x,y,f.dist.con)
 persp(x,y,z,theta=50,phi=40,col="blue",shade=0.25,ticktype="detailed")
 ```
 </div>
+</div>
+
 
 <div class="example">
 **Ejemplo: dos lanzamientos de un dado no trucado**
@@ -253,6 +264,8 @@ persp(x,y,z,theta=50,phi=40,col="blue",shade=0.25,ticktype="detailed")
 Consideremos el experimento aleatorio de lanzar dos veces un dado no trucado. 
 
 Sea $(S,P)$ la **variable aleatoria bidimensional** que nos da la suma y el producto de los resultados obtenidos, respectivamente.
+
+<div class="example-sol">
 
 La **función de distribución conjunta** en el valor $(3,4)$ será:
 $$
@@ -263,6 +276,7 @@ $$
 \Omega =\{(1,1),(1,2).\ldots, (6,6)\}.
 $$
 y los únicos resultados en los que la suma es menor o igual que 3 y el producto menor o igual que 4 son $(1,1)$ (suma 2 producto 1), $(1,2)$ (suma 3 y producto 2) y $(2,1)$ (suma 3 y producto 2).
+</div>
 </div>
 
 <div class="exercise">
@@ -294,6 +308,7 @@ Comprobar que el conjunto $(S,P)(\Omega)$ dado por el ejemplo coincide con la ex
 O lo que es lo mismo, hallar el conjunto $(S,P)(\Omega)$:
 
 <div class="example-sol">
+
 $$
 \begin{array}{rl}
 (S,P): \Omega & \longrightarrow \mathbb{R}^2\\
@@ -307,6 +322,7 @@ $$
 </div>
 
 ### Función de probabilidad conjunta
+
 <l class="definition">Definición de función de probabilidad conjunta:</l>
 Dada una **variable aleatoria bidimensional discreta** $(X,Y)$ con $(X,Y)(\Omega)=\{(x_i,y_j),\ i=1,2,\ldots,\ j=1,2,\ldots,\}$, definimos la función de probabilidad discreta $P_{XY}$ para un valor $(x,y)\in\mathbb{R}^2$ de la siguiente forma:
 $$
@@ -341,11 +357,11 @@ La **función de probabilidad conjunta** es:
 <div class="center">
 | $S/P$| 1 | 2| 3 | 4 | 5| 6 | 8| 9| 10 | 12 | 15 | 16 | 18 | 20 | 24 | 25 | 30 | 36 
 |--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--
-| 2    |$\frac{1}{36}$|0 |0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-| 3    | 0 | $\frac{2}{36}$ |0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+| 2   |$\frac{1}{36}$|0 |0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+| 3   | 0 | $\frac{2}{36}$ |0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
 | 4   | 0 | 0 | $\frac{2}{36}$ | $\frac{1}{36}$ | 0|0|0|0|0|0|0|0|0|0|0|0|0|0
 | 5   | 0 | 0 | 0 | $\frac{2}{36}$ | 0 | $\frac{2}{36}$ | 0|0|0|0|0|0|0|0|0|0|0|0
-| 6 | 0 | 0 | 0 | 0 | $\frac{2}{36}$ | 0 | $\frac{2}{36}$ |$\frac{1}{36}$|0|0|0|0|0|0|0|0|0|0
+| 6   | 0 | 0 | 0 | 0 | $\frac{2}{36}$ | 0 | $\frac{2}{36}$ |$\frac{1}{36}$|0|0|0|0|0|0|0|0|0|0
 </div>
 
 

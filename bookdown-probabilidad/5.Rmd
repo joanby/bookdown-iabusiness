@@ -1826,7 +1826,7 @@ Calculemos las **densidades marginales**:
 <div class="example-sol">
 $$
 \begin{array}{rl}
-f_X(x) & = \int_{-1}^{1} \frac{3}{8}(x^2+y^2)\, dy = \frac{3}{8}\cdot\left[x^2\cdot y+\frac{y^3}{3}\right]_{-1}^1 =\frac{3}{8}\cdot\left(2 \cdot x^2+\frac{2}{3}\right)=\frac{3}{4}
+f_X(x) & = \int_{-1}^{1} \frac{3}{8}\cdot (x^2+y^2)\, dy = \frac{3}{8}\cdot\left[x^2\cdot y+\frac{y^3}{3}\right]_{-1}^1 =\frac{3}{8}\cdot\left(2 \cdot x^2+\frac{2}{3}\right)=\frac{3}{4}
 \cdot x^2+\frac{1}{4}, \\
 f_Y(y) & = \int_{-1}^{1} \frac{3}{8}\cdot(x^2+y^2)\, dx = \frac{3}{8}\cdot\left[\frac{x^3}{3}+y^2 x\right]_{-1}^1 =\frac{3}{8}\cdot\left(\frac{2}{3}+2 y^2+\right)=\frac{3}{4}\cdot y^2+\frac{1}{4}.
 \end{array}

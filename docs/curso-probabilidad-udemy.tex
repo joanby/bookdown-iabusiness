@@ -222,7 +222,9 @@
 
 Consulta el curso completo creado por Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir solamente en \href{https://www.udemy.com/course/probabilidad-y-variables-aleatorias-para-ml-con-r-y-python/?couponCode=B85F8D52148DF5AAD8F7}{Udemy}
 
-Puedes consultar todas las transparecias del curso en formato HTML desde nuestro \href{https://github.com/joanby/probabilidad}{Gihub.io}
+Puedes consultar todas las transparecias del curso en formato HTML desde nuestro \href{https://joanby.github.io/bookdown-probabilidad/}{Gihub.io}
+
+También tienes todas las distribuciones de probabilidad en nuestro \href{https://joanby.shinyapps.io/DistribucionesNotables/}{Shiny interactivo}
 
 Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos.
 
@@ -238,7 +240,7 @@ Asienta las bases para convertirte en el Data Scientist del futuro con todo el c
 \item
   Complementos avanzados
 \item
-  Variables bidimensionales
+  Variables bidimnsionales
 \item
   Variables multidimensionales
 \item
@@ -3520,7 +3522,7 @@ Veamos los cálculos básicos usando la distribución \(Ber(p=0.25)\) en \texttt
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 0 1 0 0 1 1 0 0 0 0 0 1 1 1 0 0 0 0 0 0
+##  [1] 0 0 1 1 0 1 1 0 0 0 0 0 0 0 0 0 0 1 0 0
 \end{verbatim}
 
 El siguiente código dibuja las función de probabilidad y la de distribución de una \(Ber(p=0.25)\)
@@ -3907,12 +3909,12 @@ Si queremos generar una muestras aleatorias que siga una distribución binomial,
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 7,  9,  4,  7,  7,  8,  9,  5,  2,  2,  1,  7,  8,  5,  5,  5,  4,
-##         5,  3,  3,  5,  7,  3,  7,  3,  4,  7,  1,  6,  8, 10,  5,  6,  7,
-##         3,  4,  6,  2,  6,  5,  5,  3,  4,  4,  1,  2,  8,  5,  1,  5,  5,
-##         7,  1,  8,  5,  3,  1,  6,  4,  5, 11,  4,  5,  2,  6,  6,  5,  6,
-##         4,  3,  4,  3,  5,  6,  7,  3,  4,  7,  6,  3,  3,  7,  5,  6,  5,
-##         3,  4,  5,  5,  6,  4,  5,  5,  4,  4,  5,  4,  2,  5,  5])
+## array([ 5,  4,  4,  4,  7, 11,  4,  4,  4,  5,  4,  6,  5,  0,  9,  5,  7,
+##         4,  7,  1,  2,  7,  0,  6,  7,  8,  7,  5,  3,  2,  4,  1,  4,  2,
+##         3,  5,  8,  7,  5,  6,  5,  5,  4,  5,  5,  5,  3,  3,  5,  4,  8,
+##         5,  4,  5,  4,  1,  6,  5,  7,  4,  7,  5,  4,  9,  5,  3,  2,  5,
+##         6,  2,  5,  6,  4,  4,  2,  5,  5,  4,  7,  5,  6,  8,  2,  5,  4,
+##         9,  5,  5,  5,  6,  5,  5,  3,  4,  3,  5,  7,  9,  3,  6])
 \end{verbatim}
 
  \textbf{Observación}
@@ -3926,12 +3928,12 @@ Notemos que la secuencia aleatoria generada no es la misma que con \texttt{R}. D
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 6,  8,  7,  5,  9,  0,  6,  5,  5,  7,  5,  6,  1,  8,  7,  6,  7,
-##         5,  2,  4,  6,  4,  4,  4,  7,  3,  2,  7,  0,  9,  3,  7,  6,  4,
-##         7,  4,  2,  4,  4,  7,  6,  4,  7,  8,  5,  8,  7,  2,  6,  2,  6,
-##         7,  2,  4,  5,  5,  5,  4,  2,  5,  3,  2,  4,  6,  3,  7,  6,  5,
-##         5,  7,  5,  3,  6,  5,  7,  2,  5,  3, 11,  6,  9,  6,  4,  6,  4,
-##         6,  3,  3,  6,  3,  4,  4,  2,  4,  8,  6,  3,  7,  2,  5])
+## array([ 6, 10,  7,  3,  6,  4,  8,  6,  1,  5,  8,  4,  3,  3,  6,  5,  5,
+##         6,  3,  4,  3,  4,  5,  3,  5,  4,  6,  4,  5,  4,  6,  4,  3,  7,
+##         9,  7,  5,  6,  6,  3,  7,  4,  5,  2,  6,  4,  4,  5,  7,  4,  4,
+##         3,  7,  1,  5,  6,  5,  3,  6,  7,  6,  2,  4,  4,  3,  3,  8,  6,
+##         4,  7,  6,  2,  5,  7,  6,  7,  6,  5,  8,  3,  1, 10,  4,  4,  7,
+##         8,  3,  8,  7,  3,  3,  5,  9,  6,  5,  5,  4,  5,  7,  3])
 \end{verbatim}
 
 Veamos algunos cálculos básicos con funciones de python para la binomial \(B(n=10,p=0.25)\).
@@ -3963,7 +3965,7 @@ Veamos algunos cálculos básicos con funciones de python para la binomial \(B(n
 \end{Shaded}
 
 \begin{verbatim}
-## array([4, 6, 3, 2, 6, 3, 2, 5, 7, 5])
+## array([ 8,  6, 10,  4,  3,  3,  4,  6,  9,  5])
 \end{verbatim}
 
 \textbf{Gráficas de la distribución binomial con \texttt{R}}
@@ -4803,7 +4805,8 @@ Una muestra aleatoria de tamaño 25 de una \(Ge(0.25)\):
 \end{Shaded}
 
 \begin{verbatim}
-## array([2, 0, 0, 3, 0, 2, 1, 0, 0, 3, 7, 4, 1, 3, 4, 4, 5, 2, 1, 3])
+## array([ 3,  2, 19,  4,  0,  3,  2,  0,  4,  3,  3,  3,  8, 10,  1,  3,  3,
+##         0,  1,  1])
 \end{verbatim}
 
 \textbf{Ejercicio}
@@ -5273,12 +5276,12 @@ Generemos 100 observaciones aleatorias de una \(BN(n=2,0.1)\). Es decir serán l
 \end{Shaded}
 
 \begin{verbatim}
-## array([29,  5, 13, 21,  0, 18, 22, 41,  8,  2, 12, 11, 11, 12, 14,  1, 12,
-##        11, 27, 32, 38, 13, 17,  8,  5, 14,  6,  3,  6, 12, 35, 18, 27, 10,
-##        14, 21, 14, 28, 30, 22, 45, 31, 25, 26,  5,  4, 18,  5,  9,  8,  3,
-##        34,  7,  5, 10,  1,  8, 19, 14, 45,  1, 31, 47, 10,  6, 10, 14,  1,
-##        47, 17, 20, 13, 12, 23, 16, 42,  8, 29, 24, 16, 49, 15,  3, 23, 10,
-##        17, 25, 28,  7,  9, 10, 24, 13, 37,  3, 15, 19, 10, 34, 28])
+## array([14,  2, 11, 17, 43, 15,  8, 46,  5, 12, 33,  8, 26,  9, 15, 27, 13,
+##        23, 18, 28,  5, 11,  1, 18, 30, 25, 40,  3, 18, 35,  6, 23, 18, 32,
+##        24, 18, 39, 11, 34,  7, 35, 22,  4, 25, 13, 15,  8, 28, 20,  8, 12,
+##        41, 17,  8, 16,  5, 12, 11, 17,  0, 22, 10, 43, 18, 20, 32, 12, 21,
+##        22, 17,  8,  8, 20, 32, 49, 22, 19, 17,  2,  7,  7, 19, 12, 15, 11,
+##        26, 30,  0, 48,  9,  6, 10,  3, 13, 34,  8, 19,  7, 37, 12])
 \end{verbatim}
 
 La \textbf{esperanza} y la \textbf{varianza}de una \(BN(n=2,0.1)\) valen:
@@ -6361,8 +6364,8 @@ Y también generar secuencias de observaciones aleatorias de una población \(Po
 \end{Shaded}
 
 \begin{verbatim}
-## array([3, 3, 3, 5, 0, 2, 4, 5, 2, 1, 5, 4, 6, 3, 2, 3, 0, 0, 3, 2, 4, 4, 3,
-##        2, 5, 2, 2, 1, 6, 3, 2, 8, 3, 1, 4, 3, 2, 2, 4, 1])
+## array([2, 3, 2, 1, 3, 3, 3, 1, 6, 5, 2, 3, 2, 5, 4, 2, 2, 3, 3, 0, 4, 4, 5,
+##        3, 6, 3, 2, 1, 1, 4, 3, 3, 4, 6, 2, 0, 4, 4, 3, 2])
 \end{verbatim}
 
 \textbf{Gráficos con python}
@@ -6992,11 +6995,11 @@ Una muestra aleatoria de este experimento sería:
 \end{Shaded}
 
 \begin{verbatim}
-## array([2, 2, 2, 1, 2, 2, 2, 2, 0, 1, 3, 2, 2, 3, 1, 1, 1, 1, 2, 1, 3, 1, 2,
-##        1, 2, 3, 1, 1, 2, 2, 3, 1, 2, 0, 3, 3, 0, 0, 2, 3, 1, 2, 1, 1, 2, 1,
-##        3, 2, 1, 2, 2, 0, 2, 2, 1, 3, 2, 3, 3, 2, 1, 3, 1, 2, 1, 3, 3, 2, 2,
-##        2, 1, 1, 3, 3, 1, 3, 1, 3, 1, 2, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3,
-##        2, 2, 2, 2, 2, 2, 1, 3])
+## array([2, 1, 2, 1, 2, 2, 2, 3, 1, 2, 1, 1, 1, 1, 2, 1, 2, 2, 2, 1, 2, 1, 3,
+##        1, 1, 3, 2, 1, 1, 2, 2, 2, 3, 3, 0, 3, 3, 0, 1, 2, 3, 0, 3, 1, 1, 1,
+##        2, 2, 3, 1, 2, 3, 3, 2, 2, 2, 3, 2, 2, 3, 2, 3, 3, 2, 1, 1, 1, 2, 1,
+##        0, 1, 2, 2, 2, 3, 3, 0, 2, 3, 2, 2, 1, 2, 2, 1, 1, 3, 2, 1, 2, 3, 2,
+##        2, 1, 2, 1, 2, 0, 2, 3])
 \end{verbatim}
 
 Los gráficos de la función de probabilidad y de la función de distribución en python se realizan de la forma siguiente:
@@ -7510,12 +7513,12 @@ Para generar una muestra de valores aleatorios, hay que usar la función \texttt
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 0.63164044, -0.36299847,  0.80773824, -0.73531379, -0.51330194,
-##         0.28706747,  0.95071465,  0.41992954, -0.40524844, -0.41398263,
-##        -0.41877277, -0.01009735,  0.86586819,  0.43799222, -0.24801335,
-##         0.89691755,  0.30106895,  0.2833411 , -0.81068093,  0.59178741,
-##        -0.13126057,  0.17461221,  0.25608142,  0.51586802,  0.70045968,
-##         0.03128377,  0.85289943,  0.62873026, -0.66674339,  0.06618953])
+## array([ 0.65289599, -0.85682223,  0.03606957,  0.70835414,  0.37310414,
+##        -0.91621247,  0.66120619, -0.45746474, -0.52089472,  0.63502219,
+##         0.18287074, -0.92150351, -0.67308057,  0.64329807,  0.21124746,
+##        -0.57233662, -0.65902493, -0.15106951,  0.68249158,  0.54293213,
+##         0.49308075,  0.89919777, -0.59527182,  0.50782712,  0.12976162,
+##        -0.29004971,  0.5880298 ,  0.30819297,  0.11153021, -0.21895097])
 \end{verbatim}
 
 Los valores de los parámetros por defecto son \texttt{loc=0,\ scale=1}:
@@ -7547,7 +7550,7 @@ Los valores de los parámetros por defecto son \texttt{loc=0,\ scale=1}:
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 0.74406771,  0.69656185,  0.56644482,  0.61985285,  0.77985744])
+## array([ 0.17641379,  0.88206836,  0.0193219 ,  0.323623  ,  0.36136585])
 \end{verbatim}
 
 \hypertarget{distribuciuxf3n-exponencial}{%
@@ -7742,8 +7745,8 @@ Las funciones de densidad y de distribución de una variable exponencial de par�
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 0.06887997,  0.04809453,  0.66293273,  0.31255099,  0.00672675,
-##         0.25744551,  0.24616419,  0.08351886,  0.0657496 ,  0.13376384])
+## array([ 0.20450532,  0.0965351 ,  0.01170922,  0.11987187,  0.76948522,
+##         0.25299269,  0.41902652,  0.37171881,  0.01288269,  0.11351932])
 \end{verbatim}
 
 \textbf{Resumen v.a con distribución exponencial, \(Exp(\lambda)\)}
@@ -8083,7 +8086,7 @@ Para generar \texttt{n} valores aleatorios de una distribución normal \(N(\mu,\
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 1.74858253, -0.8699035 ,  2.88770111, -1.50466268, -0.83029681])
+## array([-1.6671063 ,  4.11826416,  4.42479499, -1.77495491,  0.90060031])
 \end{verbatim}
 
 \textbf{Ejercicio}

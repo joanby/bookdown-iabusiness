@@ -24,7 +24,7 @@
 <meta name="author" content="Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir" />
 
 
-<meta name="date" content="2019-12-03" />
+<meta name="date" content="2019-12-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -446,7 +446,7 @@ Su desviación típica es:
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="kw">dbinom</span>(<span class="dv">1</span>,<span class="dt">size=</span><span class="dv">1</span>,<span class="dt">prob=</span><span class="fl">0.25</span>)</a></code></pre></div>
 <pre><code>## [1] 0.25</code></pre>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1"><span class="kw">rbinom</span>(<span class="dt">n=</span><span class="dv">20</span>,<span class="dt">size =</span> <span class="dv">1</span>,<span class="dt">prob=</span><span class="fl">0.25</span>)</a></code></pre></div>
-<pre><code>##  [1] 0 1 0 1 0 1 0 0 1 0 1 0 0 0 1 1 0 0 0 0</code></pre>
+<pre><code>##  [1] 0 0 0 0 0 0 0 1 0 0 0 1 0 0 1 1 0 0 0 0</code></pre>
 <p>El siguiente código dibuja las función de probabilidad y la de distribución de una <span class="math inline">\(Ber(p=0.25)\)</span></p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
 <a class="sourceLine" id="cb57-2" data-line-number="2"><span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">y=</span><span class="kw">dbinom</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">size=</span><span class="dv">1</span>,<span class="dt">prob=</span><span class="fl">0.25</span>),</a>
@@ -655,19 +655,21 @@ E(X^2)= \displaystyle\sum_{k=0}^n k^2 \cdot  {n \choose k }\cdot p^k\cdot q^{n-k
 <p>Notemos que al no indicar el valor de <code>loc</code>, se le asume que toma el valor 0.</p>
 <p>Si queremos generar una muestras aleatorias que siga una distribución binomial, podemos usar la función <code>rvs</code>. En este caso, generaremos una muestra aleatoria de 100 valores de una población <span class="math inline">\(B(20,0.5)\)</span></p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb85-1" data-line-number="1">binom.rvs(n<span class="op">=</span><span class="dv">20</span>,p<span class="op">=</span><span class="fl">0.25</span>,size <span class="op">=</span> <span class="dv">100</span>)</a></code></pre></div>
-<pre><code>## array([4, 3, 7, 4, 6, 6, 5, 5, 3, 3, 8, 7, 3, 5, 4, 5, 7, 3, 4, 8, 6, 6, 4,
-##        2, 3, 5, 6, 3, 9, 4, 5, 3, 3, 3, 6, 5, 3, 1, 6, 4, 6, 5, 4, 4, 5, 3,
-##        4, 6, 8, 6, 5, 3, 5, 4, 2, 4, 7, 2, 5, 7, 8, 3, 9, 5, 5, 8, 3, 8, 6,
-##        6, 4, 7, 4, 7, 5, 6, 7, 5, 3, 4, 6, 5, 3, 3, 3, 4, 5, 5, 3, 4, 5, 4,
-##        7, 6, 4, 3, 4, 5, 7, 8])</code></pre>
+<pre><code>## array([ 3,  6,  3,  5,  8,  8,  2,  6,  4,  6,  5,  5,  6,  5,  8,  4,  5,
+##         4,  5,  2,  8,  5,  5,  6,  6,  5,  5,  8,  7,  8,  5,  5,  8,  5,
+##         4,  1,  4,  5,  7,  2,  9,  8,  6,  5,  5,  7,  9, 11,  4,  3,  4,
+##         7,  6,  3,  6,  5,  4,  4,  6,  6,  6,  3,  6,  7,  7,  9,  3,  4,
+##         4,  7,  8,  6,  3,  6,  5,  4,  5,  5,  7,  5,  5,  5,  5,  6,  8,
+##         3,  3,  5,  3,  3,  9,  7,  7,  3,  7,  7,  5,  3,  4,  7])</code></pre>
 <p><l class="observ"> <strong>Observación</strong></l></p>
 <p>Notemos que la secuencia aleatoria generada no es la misma que con <code>R</code>. De hecho, si volvemos a ejecutar esta función obtendremos una muestra aleatoria distinta.</p>
 <div class="sourceCode" id="cb87"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb87-1" data-line-number="1">binom.rvs(n<span class="op">=</span><span class="dv">20</span>,p<span class="op">=</span><span class="fl">0.25</span>,size <span class="op">=</span> <span class="dv">100</span>)</a></code></pre></div>
-<pre><code>## array([6, 5, 4, 5, 6, 4, 1, 2, 5, 5, 1, 6, 5, 4, 5, 2, 7, 8, 6, 4, 5, 4, 6,
-##        7, 5, 4, 6, 6, 3, 7, 5, 5, 6, 4, 4, 7, 6, 3, 2, 4, 7, 8, 6, 5, 3, 6,
-##        6, 4, 6, 4, 1, 6, 5, 5, 4, 5, 6, 7, 6, 6, 2, 2, 6, 7, 2, 3, 1, 2, 4,
-##        6, 5, 2, 3, 4, 8, 6, 4, 5, 4, 5, 4, 7, 5, 7, 3, 4, 9, 7, 7, 6, 8, 4,
-##        7, 2, 4, 5, 4, 8, 1, 5])</code></pre>
+<pre><code>## array([ 3,  7,  5,  8,  4,  5,  7,  8,  5,  5,  2,  4,  7,  6,  5,  5,  5,
+##         3,  6,  3,  3,  7,  7,  1,  6,  3,  2,  4,  4,  2,  4,  2,  4, 11,
+##         1,  8,  5,  5,  2,  4,  2,  5,  6,  4, 10,  3,  4,  4,  6,  5,  2,
+##         4,  6,  5,  7,  3,  4,  4,  6,  3,  3,  6,  6,  9,  3,  2,  3,  4,
+##         7,  4,  4,  8,  5,  8,  2,  4,  5,  2,  4,  5,  6,  5,  4,  3,  5,
+##         6,  4,  2,  4,  5,  4,  5,  7,  4,  5,  4,  7,  4,  1,  2])</code></pre>
 </div>
 <p>Veamos algunos cálculos básicos con funciones de python para la binomial <span class="math inline">\(B(n=10,p=0.25)\)</span>.</p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb89-1" data-line-number="1">binom.cdf(<span class="dv">5</span>,n<span class="op">=</span><span class="dv">10</span>,p<span class="op">=</span><span class="fl">0.25</span>)</a></code></pre></div>
@@ -675,7 +677,7 @@ E(X^2)= \displaystyle\sum_{k=0}^n k^2 \cdot  {n \choose k }\cdot p^k\cdot q^{n-k
 <div class="sourceCode" id="cb91"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb91-1" data-line-number="1">binom.pmf(<span class="dv">1</span>,n<span class="op">=</span><span class="dv">10</span>,p<span class="op">=</span><span class="fl">0.25</span>)</a></code></pre></div>
 <pre><code>## 0.18771171569824247</code></pre>
 <div class="sourceCode" id="cb93"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb93-1" data-line-number="1">binom.rvs(n<span class="op">=</span><span class="dv">20</span>,p<span class="op">=</span><span class="fl">0.25</span>,size<span class="op">=</span><span class="dv">10</span>)</a></code></pre></div>
-<pre><code>## array([6, 1, 5, 4, 6, 4, 6, 4, 4, 5])</code></pre>
+<pre><code>## array([4, 5, 6, 7, 6, 2, 3, 6, 3, 5])</code></pre>
 <p><strong>Gráficas de la distribución binomial con <code>R</code></strong></p>
 <p>El siguiente código de <code>R</code> dibuja las función de probabilidad y la de distribución de una <span class="math inline">\(B(n=10,p=0.25)\)</span>:</p>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
@@ -1238,8 +1240,8 @@ y desviación típica:
 <pre><code>## 0.7626953125</code></pre>
 <p>Una muestra aleatoria de tamaño 25 de una <span class="math inline">\(Ge(0.25)\)</span>:</p>
 <div class="sourceCode" id="cb132"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb132-1" data-line-number="1">geom.rvs(p<span class="op">=</span><span class="fl">0.25</span>, size<span class="op">=</span><span class="dv">20</span>, loc<span class="op">=-</span><span class="dv">1</span>)</a></code></pre></div>
-<pre><code>## array([ 1, 10,  0,  2,  2,  3,  1,  4,  3,  3,  0,  9,  0,  2,  4, 10,  4,
-##         0,  0,  1])</code></pre>
+<pre><code>## array([15,  4,  6,  0,  9,  0,  2,  3, 11,  5,  1, 11,  3,  6,  2,  1,  0,
+##        15,  3,  3])</code></pre>
 <div class="exercise">
 <p><strong>Ejercicio</strong></p>
 <p>¿Qué probabilidades son las que calcula el siguiente código y qué tipo de variables geométricas son?</p>
@@ -1505,12 +1507,12 @@ La varianza de <span class="math inline">\(X\)</span> es 180 y su desviación t�
 <pre><code>## 0.88573499999999994</code></pre>
 <p>Generemos 100 observaciones aleatorias de una <span class="math inline">\(BN(n=2,0.1)\)</span>. Es decir serán las veces que hemos fallado hasta abrir la puerta 100 veces.</p>
 <div class="sourceCode" id="cb164"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb164-1" data-line-number="1">nbinom.rvs(n<span class="op">=</span><span class="dv">2</span>, p<span class="op">=</span><span class="fl">0.1</span>, size<span class="op">=</span><span class="dv">100</span>)</a></code></pre></div>
-<pre><code>## array([19, 13, 38, 15,  5, 29,  7, 11, 11, 12, 14,  3, 33, 23, 33, 13, 15,
-##        40,  7, 21, 11,  6, 17, 22, 21, 27, 30,  2, 20,  9, 12, 14, 26, 29,
-##        53, 43, 19, 15,  6,  5, 33, 21, 13, 25,  9, 27, 20, 17, 20, 16, 52,
-##        30, 12, 14, 41,  4, 19,  9,  4, 20,  7,  5, 19, 12, 12, 33, 13,  8,
-##        40, 19, 19, 19, 37, 22, 16,  2,  7,  4,  6, 37,  2, 33, 36, 23,  5,
-##         5,  3,  5,  9, 17, 11,  4, 15, 16, 17, 15, 22, 10, 31, 11])</code></pre>
+<pre><code>## array([ 9, 23, 17,  6, 17, 18,  7,  2, 11,  9, 10, 13, 10, 26, 16, 25, 10,
+##         7,  2, 13, 32, 27, 18, 60, 20,  3, 20, 35, 23,  1, 10, 16, 24, 20,
+##        22, 16, 32,  4, 14, 19, 34, 12,  4, 25, 43,  6, 10, 49, 29, 45, 30,
+##        12, 21, 16, 23,  4, 28, 17, 14, 49, 32,  5,  6, 13, 37, 16, 24, 38,
+##        20, 11, 21, 15, 21, 10, 12, 40, 53, 12, 19, 16,  3, 14, 13, 26, 58,
+##        12,  5,  6, 25, 16, 21, 13, 25, 10, 33,  8, 18,  9, 19, 11])</code></pre>
 <p>La <strong>esperanza</strong> y la <strong>varianza</strong>de una <span class="math inline">\(BN(n=2,0.1)\)</span> valen:</p>
 <div class="sourceCode" id="cb166"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb166-1" data-line-number="1">n, p<span class="op">=</span><span class="dv">2</span>,<span class="fl">0.1</span></a>
 <a class="sourceLine" id="cb166-2" data-line-number="2">params <span class="op">=</span> nbinom.stats(n,p,moments<span class="op">=</span><span class="st">&#39;mv&#39;</span>)</a>
@@ -2112,8 +2114,8 @@ y su desviación típica vale:
 <pre><code>## (array(3.0), array(3.0))</code></pre>
 <p>Y también generar secuencias de observaciones aleatorias de una población <span class="math inline">\(Po(3)\)</span>:</p>
 <div class="sourceCode" id="cb247"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb247-1" data-line-number="1">poisson.rvs(mu<span class="op">=</span><span class="dv">3</span>,size<span class="op">=</span><span class="dv">40</span>)</a></code></pre></div>
-<pre><code>## array([4, 1, 4, 7, 4, 3, 2, 7, 2, 2, 2, 1, 1, 3, 3, 2, 3, 2, 3, 2, 4, 2, 5,
-##        3, 2, 4, 3, 7, 3, 6, 1, 2, 3, 6, 4, 5, 4, 1, 3, 0])</code></pre>
+<pre><code>## array([4, 0, 1, 3, 4, 4, 2, 2, 3, 1, 1, 2, 5, 2, 4, 3, 3, 4, 5, 4, 2, 1, 4,
+##        2, 6, 4, 5, 1, 2, 5, 3, 3, 1, 4, 4, 4, 3, 0, 1, 2])</code></pre>
 </div>
 </div>
 <p><strong>Gráficos con python</strong></p>
@@ -2516,11 +2518,11 @@ Var(X)&amp;=k\cdot\frac{m}{m+n}\cdot\left(1-\frac{m}{m+n}\right) \cdot\frac{m+n-
 <pre><code>## 0.65434782608695519</code></pre>
 <p>Una muestra aleatoria de este experimento sería:</p>
 <div class="sourceCode" id="cb277"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb277-1" data-line-number="1">hypergeom.rvs(M<span class="op">=</span><span class="dv">15</span><span class="op">+</span><span class="dv">10</span>,n<span class="op">=</span><span class="dv">15</span>,N<span class="op">=</span><span class="dv">3</span>,size<span class="op">=</span><span class="dv">100</span>)</a></code></pre></div>
-<pre><code>## array([2, 2, 2, 0, 1, 1, 2, 2, 2, 1, 2, 2, 1, 3, 2, 1, 1, 2, 3, 0, 2, 2, 1,
-##        1, 2, 1, 2, 1, 3, 2, 1, 1, 2, 2, 2, 3, 2, 3, 1, 1, 3, 2, 2, 1, 2, 3,
-##        3, 2, 3, 1, 2, 1, 2, 1, 3, 1, 1, 3, 1, 1, 1, 1, 3, 2, 3, 2, 1, 2, 0,
-##        2, 2, 1, 2, 1, 2, 1, 3, 2, 3, 1, 2, 1, 3, 2, 2, 2, 2, 2, 0, 2, 2, 3,
-##        2, 2, 3, 2, 1, 2, 1, 3])</code></pre>
+<pre><code>## array([2, 2, 1, 3, 1, 3, 3, 0, 2, 2, 2, 2, 2, 2, 1, 2, 3, 3, 1, 3, 1, 1, 1,
+##        2, 2, 3, 3, 2, 2, 2, 2, 3, 2, 1, 3, 1, 3, 2, 2, 2, 1, 0, 3, 2, 0, 2,
+##        1, 2, 2, 0, 2, 2, 2, 1, 2, 3, 2, 2, 3, 1, 1, 2, 2, 1, 2, 3, 1, 2, 3,
+##        2, 3, 3, 2, 1, 3, 2, 2, 2, 3, 1, 1, 2, 2, 3, 2, 1, 3, 2, 0, 1, 2, 2,
+##        2, 2, 2, 2, 2, 3, 2, 2])</code></pre>
 <p>Los gráficos de la función de probabilidad y de la función de distribución en python se realizan de la forma siguiente:</p>
 <div class="sourceCode" id="cb279"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb279-1" data-line-number="1"><span class="im">from</span> scipy.stats <span class="im">import</span> hypergeom</a>
 <a class="sourceLine" id="cb279-2" data-line-number="2">[M, n, N] <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">7</span>, <span class="dv">12</span>] <span class="co">##20 elementos, 7 del tipo, extraemos 12</span></a>
@@ -2882,19 +2884,19 @@ función que corresponde a la función de distribución de una v.a. <span class=
 <pre><code>## 0.0</code></pre>
 <p>Para generar una muestra de valores aleatorios, hay que usar la función <code>uniform.rvs</code>:</p>
 <div class="sourceCode" id="cb301"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb301-1" data-line-number="1">uniform.rvs(size<span class="op">=</span><span class="dv">30</span>,loc<span class="op">=-</span><span class="dv">1</span>,scale<span class="op">=</span><span class="dv">2</span>)</a></code></pre></div>
-<pre><code>## array([-0.26713367,  0.75730431,  0.22118333, -0.42666118, -0.67041676,
-##        -0.03753193, -0.63970495,  0.65171839,  0.79842933, -0.12535534,
-##         0.40325357, -0.95738081, -0.46053088, -0.79668339, -0.72948407,
-##        -0.21988697,  0.78275418,  0.88938545,  0.2095792 ,  0.22075787,
-##         0.57301792, -0.40777367, -0.75010675, -0.85276577,  0.88091858,
-##         0.56615124, -0.84655512,  0.93443359, -0.26745557, -0.177183  ])</code></pre>
+<pre><code>## array([ 0.35952313, -0.3243074 ,  0.52842996, -0.83517555, -0.43299935,
+##         0.03214339,  0.99050291,  0.80931125, -0.27175744, -0.15869926,
+##         0.79015441,  0.32638362, -0.1266932 ,  0.07241758,  0.2719418 ,
+##        -0.51629868, -0.95957377,  0.31809497, -0.09115408, -0.51483363,
+##         0.82574525,  0.4651925 ,  0.42977603,  0.35033687, -0.88379137,
+##         0.42285998,  0.20945567, -0.94587379,  0.49944376,  0.93912337])</code></pre>
 <p>Los valores de los parámetros por defecto son <code>loc=0, scale=1</code>:</p>
 <div class="sourceCode" id="cb303"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb303-1" data-line-number="1">uniform.pdf(<span class="fl">0.5</span>)</a></code></pre></div>
 <pre><code>## 1.0</code></pre>
 <div class="sourceCode" id="cb305"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb305-1" data-line-number="1">uniform.ppf(<span class="fl">0.5</span>)</a></code></pre></div>
 <pre><code>## 0.5</code></pre>
 <div class="sourceCode" id="cb307"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb307-1" data-line-number="1">uniform.rvs(size<span class="op">=</span><span class="dv">5</span>)</a></code></pre></div>
-<pre><code>## array([ 0.61478831,  0.8387554 ,  0.77903255,  0.82732459,  0.9302549 ])</code></pre>
+<pre><code>## array([ 0.97931571,  0.60383461,  0.9108556 ,  0.58434905,  0.78937247])</code></pre>
 </div>
 <div id="distribución-exponencial" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> Distribución exponencial</h3>
@@ -2988,8 +2990,8 @@ P(X&gt;0.5)=1-P(X\leq 0.5)=1-(1-e^{-4\cdot 0.5 })=e^{-2}=0.1353353.
 <div class="sourceCode" id="cb323"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb323-1" data-line-number="1">expon.cdf(<span class="fl">0.5</span>,scale<span class="op">=</span> <span class="fl">1.</span><span class="op">/</span><span class="dv">3</span>) </a></code></pre></div>
 <pre><code>## 0.77686983985157021</code></pre>
 <div class="sourceCode" id="cb325"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb325-1" data-line-number="1">expon.rvs(scale<span class="op">=</span><span class="fl">1.</span><span class="op">/</span><span class="dv">3</span>,size<span class="op">=</span><span class="dv">10</span>)</a></code></pre></div>
-<pre><code>## array([ 0.14635942,  0.21717452,  0.03810198,  0.22078174,  0.07363983,
-##         0.31453876,  0.33858174,  0.14737346,  0.01389362,  0.01492125])</code></pre>
+<pre><code>## array([ 0.1072362 ,  0.30766273,  0.0799717 ,  0.33471955,  0.22966103,
+##         0.08418763,  0.30768995,  0.13213124,  0.55864463,  1.42786569])</code></pre>
 <p><strong>Resumen v.a con distribución exponencial, <span class="math inline">\(Exp(\lambda)\)</span></strong></p>
 <table>
 <colgroup>
@@ -3191,7 +3193,7 @@ e^{-{1\over 2}{\left({t-\mu}\over{\sigma}\right)}^2} dt.
 <pre><code>## 4.2897072539029448</code></pre>
 <p>Para generar <code>n</code> valores aleatorios de una distribución normal <span class="math inline">\(N(\mu,\sigma)\)</span>, hay que usar la función <code>norm.rvs(loc=mu,scale=sigma,size=n)</code>:</p>
 <div class="sourceCode" id="cb345"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb345-1" data-line-number="1">norm.rvs(loc<span class="op">=</span><span class="dv">1</span>,scale<span class="op">=</span><span class="dv">2</span>,size<span class="op">=</span><span class="dv">5</span>)</a></code></pre></div>
-<pre><code>## array([ 3.31170159, -0.35063818,  1.24817382,  4.32660092,  2.48034604])</code></pre>
+<pre><code>## array([-2.09920311,  3.45018823, -1.24045932,  1.57291904,  2.7477154 ])</code></pre>
 <div class="exercise">
 <p><strong>Ejercicio</strong></p>
 <p>Consultad <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html">SciPy.org</a> para dibujar las funciones de densidad y de distribución con python.</p>

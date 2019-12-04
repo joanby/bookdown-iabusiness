@@ -24,7 +24,7 @@
 <meta name="author" content="Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir" />
 
 
-<meta name="date" content="2019-12-03" />
+<meta name="date" content="2019-12-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -563,7 +563,7 @@ Para ver la expresión anterior basta trazar la recta vertical <span class="math
 <p>Consideremos el experimento aleatorio de lanzar dos veces un dado no trucado.</p>
 <p>Sea <span class="math inline">\((S,P)\)</span> la <strong>variable aleatoria bidimensional</strong> que nos da la suma y el producto de los resultados obtenidos, respectivamente.</p>
 <div class="example-sol">
-<p>La <strong>función de distribución conjunta</strong> en el valor <span class="math inline">\((3,4)\)</span> será:
+<p>La <strong>función de distribución conjunta</strong> en el valor <span class="math inline">\((3,4)\)</span> es:
 <span class="math display">\[
 F_{XY}(3,4) = P(S\leq 3,\ P\leq 4)=P\{(1,1), (1,2), (2,1) \}=\frac{3}{36}=\frac{1}{12}\approx 0.083, 
 \]</span>
@@ -585,7 +585,7 @@ y los únicos resultados en los que la suma es menor o igual que 3 y el producto
 <p><l class="definition">Definición de variable aleatoria bidimensional discreta:</l>
 Sea <span class="math inline">\((X,Y)\)</span> una <strong>variable aleatoria bidimensional</strong>. Diremos
 que es discreta cuando su conjunto de valores en <span class="math inline">\(\mathbb{R}^2\)</span>, <span class="math inline">\((X,Y)(\Omega)\)</span> es un conjunto finito o numerable.</p>
-<p>En la mayoría de los casos, dicho conjunto será un subconjunto de los enteros naturales.</p>
+<p>En la mayoría de los casos, dicho conjunto es un subconjunto de los enteros naturales.</p>
 <div class="example">
 <p><strong>Ejemplo: lanzamiento de dos dados (continuación)</strong></p>
 <p>La variable aleatoria bidimensional anterior que nos daba la suma y el producto de los resultados obtenidos por los dos lanzamientos, respectivamente es discreta ya que:
@@ -965,7 +965,7 @@ La <strong>función de probabilidad conjunta</strong> es:
 <pre><code>## [1] 0.1666667</code></pre>
 <p>La función <code>pdado2</code> devuelve la probabilidad de que salgan las caras <code>x</code> e <code>y</code> cuando lanzamos un dado de <code>n</code> caras dos veces:</p>
 <div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" data-line-number="1">pdado2 =<span class="cf">function</span>(x,y,<span class="dt">n=</span><span class="dv">6</span>) {<span class="kw">pdado</span>(x,n)<span class="op">*</span><span class="kw">pdado</span>(y,n)}</a></code></pre></div>
-<p>Por ejemplo la probabilidad de que salgan las caras 3 y 4 en un dado de 6 caras será:</p>
+<p>Por ejemplo la probabilidad de que salgan las caras 3 y 4 en un dado de 6 caras es:</p>
 <div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb369-1" data-line-number="1"><span class="kw">pdado2</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>)</a></code></pre></div>
 <pre><code>## [1] 0.02777778</code></pre>
 <p>La función <code>psum_prod</code> nos da la <strong>función de probabilidad conjunta</strong> de la suma y el producto cuando lanzamos dos dados de <code>n</code> caras:</p>
@@ -1407,8 +1407,9 @@ P_X(x_i)  &amp; = \sum_{j=1} P_{XY}(x_i,y_j),\  i=1,2,\ldots,\\ P_Y(y_j) &amp;  
 <h4><span class="header-section-number">5.3.2.1</span> Ejemplo</h4>
 <div class="example">
 <p><strong>Ejemplo de la suma y el producto de los resultados de dos lanzamientos de un dado</strong></p>
-<p>Hallemos la función de probabilidad marginal para la suma de los resultados <span class="math inline">\(S\)</span> usando la expresión vista:</p>
+<p>Hallemos la función de probabilidad marginal para la suma de los resultados <span class="math inline">\(S\)</span>:</p>
 <div class="example-sol">
+<p>Usando la expresión de la probabilidad marginal tenemos que</p>
 <p><span class="math display">\[
 \begin{array}{rl}
 P_S(2) &amp; = P_{SP}(2,1)=\frac{1}{36},\\
@@ -1504,7 +1505,7 @@ P_S(12) &amp; = P_{SP}(12,36)=\frac{1}{36}.
 <p><span class="math display">\[
 P(X\in B)=P(a&lt; X &lt; b)=\int_B f_{X}(x)\,du=\int_a^b f_{X}(x)\,dx.
 \]</span></p>
-<p>La generalización natural será, entonces:</p>
+<p>La generalización natural es, entonces:</p>
 <p><l class="definition">Definición de variable aleatoria bidimensional continua. </l>
 Sea <span class="math inline">\((X,Y)\)</span> una variable aleatoria bidimensional. Diremos que <span class="math inline">\((X,Y)\)</span> es continua si existe una función
 <span class="math inline">\(f_{XY}:\mathbb{R}^2\longrightarrow \mathbb{R}\)</span> llamada <strong>función de densidad</strong> no negativa <span class="math inline">\(f_{XY}(x,y)\geq 0\)</span> para todo <span class="math inline">\((x,y)\in\mathbb{R}^2\)</span> tal que dado cualquier región <span class="math inline">\(B\)</span> del plano, la probabilidad de que <span class="math inline">\((X,Y)\)</span> esté en <span class="math inline">\(B\)</span> se calcula de la forma siguiente:
@@ -1530,7 +1531,7 @@ P((X,Y)\in B)&amp;=\int\int_{B} f_{XY}(x,y)\, dx\, dy=\int_{-1}^{\frac{1}{2}}\in
 &amp;=\int_0^{\frac{1}{2}}\int_0^{\frac{1}{2}} 1\, dx\,dy=\int_0^{\frac{1}{2}} 1\, dx\int_0^{\frac{1}{2}} 1\, dy=\frac{1}{2}\cdot\frac{1}{2}=\frac{1}{4}.
 \end{array}
 \]</span></p>
-<p>En la figura siguiente hemos dibujado en morado la región donde <span class="math inline">\(f_{XY}\)</span> no es cero, o sea <span class="math inline">\([0,1]\times [0,1]\)</span>, la región <span class="math inline">\(B\)</span> en verde y la región intersección de las dos anteriores que es donde tenemos que integrar la <strong>función de densidad</strong> dada.</p>
+<p>En la figura siguiente hemos dibujado en morado la región donde <span class="math inline">\(f_{XY}\)</span> no es cero, es decir <span class="math inline">\([0,1]\times [0,1]\)</span>, la región <span class="math inline">\(B\)</span> en verde y la región intersección de las dos anteriores que es donde tenemos que integrar la <strong>función de densidad</strong> dada.</p>
 <div class="center">
 <p><img src="Images/VaUniformeBidi.png" /><!-- --></p>
 </div>
@@ -1655,7 +1656,7 @@ expresión que coincide con la <strong>función de densidad</strong> <span class
 <span class="math display">\[
 f_X(x)=\int_{-\infty}^\infty  f_{XY}(x,y)\, dy.
 \]</span>
-Recordemos que la región donde no se anulaba la <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{XY}\)</span> era el cuadrado <span class="math inline">\([0,1]\times [0,1]\)</span>. Por tanto, fijado <span class="math inline">\(x\)</span>, el valor de <span class="math inline">\(f_X(x)\)</span> será no nulo si la recta vertical <span class="math inline">\(X=x\)</span> interseca dicho cuadrado. Y esto ocurre siempre que <span class="math inline">\(x\in (0,1)\)</span>. Por tanto,
+Recordemos que la región donde no se anulaba la <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{XY}\)</span> era el cuadrado <span class="math inline">\([0,1]\times [0,1]\)</span>. Por tanto, fijado <span class="math inline">\(x\)</span>, el valor de <span class="math inline">\(f_X(x)\)</span> es no nulo si la recta vertical <span class="math inline">\(X=x\)</span> interseca dicho cuadrado. Y esto ocurre siempre que <span class="math inline">\(x\in (0,1)\)</span>. Por tanto,
 <span class="math display">\[
 f_X(x)=\begin{cases}
 \int_{0}^1  f_{XY}(x,y)\, dy=\int_{0}^1  1\, dy=1, &amp; \mbox{ si }x\in (0,1),\\
@@ -1690,7 +1691,7 @@ donde <span class="math inline">\(c\)</span> es un valor que se tiene que hallar
   \\ &amp; =  c \cdot\left[-\mathrm{e}^{-x}+\frac{1}{2}\mathrm{e}^{-2x}\right]_{x=0}^{x=\infty} = c\left(1-\frac{1}{2}\right)=\frac{c}{2}.
 \end{array}
 \]</span></p>
-<p>El valor de <span class="math inline">\(c\)</span> será <span class="math inline">\(c=2\)</span>.</p>
+<p>El valor de <span class="math inline">\(c\)</span> es <span class="math inline">\(c=2\)</span>.</p>
 <p>Vamos a calcular seguidamente su función de distribución.</p>
 <p>Fijémonos que, en este caso, si <span class="math inline">\(x&lt;0\)</span> o <span class="math inline">\(y&lt;0\)</span>, <span class="math inline">\(F_{XY}(x,y)=0\)</span>, ya que el dominio <span class="math inline">\(B=(-\infty,x]\times (-\infty,y]\)</span> no interseca la zona morada del gráfico anterior.</p>
 <p>Suponemos entonces que <span class="math inline">\(x\geq 0\)</span> e <span class="math inline">\(y\geq 0\)</span>.</p>
@@ -1758,7 +1759,7 @@ Si ahora derivamos respecto <span class="math inline">\(y\)</span> obtenemos:
 \end{cases}
 \]</span>
 expresión que coincide con la <strong>función de densidad</strong> <span class="math inline">\(f_{XY}(x,y)\)</span>.</p>
-<p>Hallemos las <strong>funciones de densidad marginales</strong>. Fijémonos que basta tener en cuenta los casos en que <span class="math inline">\(x\geq 0\)</span> e <span class="math inline">\(y\geq 0\)</span> ya que en caso contrario tanto <span class="math inline">\(f_X(x)\)</span> como <span class="math inline">\(f_Y(y)\)</span> serán nulas.</p>
+<p>Hallemos las <strong>funciones de densidad marginales</strong>. Fijémonos que basta tener en cuenta los casos en que <span class="math inline">\(x\geq 0\)</span> e <span class="math inline">\(y\geq 0\)</span> ya que en caso contrario tanto <span class="math inline">\(f_X(x)\)</span> como <span class="math inline">\(f_Y(y)\)</span> son nulas.</p>
 <p><span class="math display">\[
 \begin{array}{rl}
 f_X(x) &amp;=   \int_{-\infty}^{\infty} f_{XY}(x,y)\, dy =\int_{y=0}^{y=x}2\cdot\mathrm{e}^{-x-y}\, dy = 2\cdot\left[-\mathrm{e}^{-x-y}\right]_{y=0}^{y=x} \\ &amp;=   2\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right),\mbox{ si }x\geq 0,
@@ -1866,9 +1867,9 @@ Si la tabla de la <strong>función de probabilidad conjunta</strong> de <span cl
 <p>Veamos que, en este caso, <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes.</p>
 <div class="example-sol">
 <p>El valor de <span class="math inline">\((X,Y)(\Omega)=\{(1,1),(1,2),\ldots,(6,6)\}\)</span>, en total 36 resultados.</p>
-<p>La <strong>función de probabilidad conjunta</strong> en un valor cualquiera <span class="math inline">\((i,j)\)</span> con <span class="math inline">\(i,j\in\{1,2,3,4,5,6\}\)</span> será:
-<span class="math inline">\(P_{XY}(i,j)=\frac{1}{36}\)</span> ya que la probabilidad que salga <span class="math inline">\(i\)</span> en el primer lanzamiento es <span class="math inline">\(\frac{1}{6}\)</span> y la probabilidad de que salga <span class="math inline">\(j\)</span> en el segundo lanzamiento, también. Por tanto, la probabilidad de que salga <span class="math inline">\(i\)</span> en el primer lanzamiento y <span class="math inline">\(j\)</span> en el segundo será: <span class="math inline">\(\frac{1}{6}\cdot \frac{1}{6}=\frac{1}{36}.\)</span></p>
-Las <strong>funciones de densidad marginales</strong> de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> serán:
+<p>La <strong>función de probabilidad conjunta</strong> en un valor cualquiera <span class="math inline">\((i,j)\)</span> con <span class="math inline">\(i,j\in\{1,2,3,4,5,6\}\)</span> es:
+<span class="math inline">\(P_{XY}(i,j)=\frac{1}{36}\)</span> ya que la probabilidad que salga <span class="math inline">\(i\)</span> en el primer lanzamiento es <span class="math inline">\(\frac{1}{6}\)</span> y la probabilidad de que salga <span class="math inline">\(j\)</span> en el segundo lanzamiento, también. Por tanto, la probabilidad de que salga <span class="math inline">\(i\)</span> en el primer lanzamiento y <span class="math inline">\(j\)</span> en el segundo es: <span class="math inline">\(\frac{1}{6}\cdot \frac{1}{6}=\frac{1}{36}.\)</span></p>
+Las <strong>funciones de densidad marginales</strong> de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son:
 <div class="center">
 <table style="width:100%;">
 <colgroup>
@@ -2326,7 +2327,7 @@ F_{XY}(x,y)=F_X(x)\cdot F_Y(y),\ (x,y)\in\mathbb{R}^2.
 <p>En cualquier caso, se cumple <span class="math inline">\(F_{XY}(x,y)=0=F_X(x)\cdot F_Y(y)\)</span>.</p>
 <p>Podemos suponer, por tanto, que <span class="math inline">\(x\geq 1\)</span> e <span class="math inline">\(y\geq 1\)</span>.</p>
 <p>Sea <span class="math inline">\((x,y)\in \mathbb{R}^2\)</span> con <span class="math inline">\(x\geq 1\)</span> e <span class="math inline">\(y\geq 1\)</span>. Podemos suponer tal que existen dos valores <span class="math inline">\(i\)</span> y <span class="math inline">\(j\)</span> en <span class="math inline">\(\{1,2,\ldots\}\)</span> con <span class="math inline">\(i\leq x &lt; i+1\)</span> y <span class="math inline">\(j\leq y &lt;j+1\)</span>.</p>
-<p>El valor de la <strong>función de distribución conjunta</strong> en <span class="math inline">\((x,y)\)</span> será:
+<p>El valor de la <strong>función de distribución conjunta</strong> en <span class="math inline">\((x,y)\)</span> es:
 <span class="math display">\[
 F_{XY}(x,y)=\begin{cases}
 \frac{i\cdot j}{36}, &amp; \mbox{si }i\leq 6, \ j\leq 6, \\
@@ -2424,7 +2425,7 @@ y, &amp; \mbox{si }0\leq y\leq 1,\ x&gt; 1, \\
 1, &amp; x\geq 1,\ y\geq 1.
 \end{cases}
 \]</span></p>
-<p>Recordemos también que las <strong>distribuciones marginales</strong> de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> eran uniformes en el intervalo <span class="math inline">\([0,1]\)</span>. Por tanto, las <strong>funciones de distribución marginales</strong> serán:
+<p>Recordemos también que las <strong>distribuciones marginales</strong> de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> eran uniformes en el intervalo <span class="math inline">\([0,1]\)</span>. Por tanto, las <strong>funciones de distribución marginales</strong> son:
 <span class="math display">\[
 F_X(x)=\begin{cases}
 0, &amp; \mbox{si }x\leq 0, \\
@@ -2487,8 +2488,9 @@ E(Z)=E(g(X,Y))=\int_{-\infty}^\infty \int_{-\infty}^\infty g(x,y)\cdot f_{XY}(x,
 <p><strong>Ejemplo: suma y producto de dos dados (continuación)</strong></p>
 <p>Consideremos el ejemplo de la variable <span class="math inline">\((S,P)\)</span> que nos daba la suma y el producto de los resultados cuando lanzábamos dos veces un dado.</p>
 <p>Vamos a calcular <span class="math inline">\(E(S+P)\)</span>.</p>
-<p>Recordemos que ya hemos calculado <span class="math inline">\(P_{SP}\)</span>. La expresión de <span class="math inline">\(E(S+P)\)</span> será:
-<span class="math display">\[
+<div class="example-sol">
+<p>Recordemos que ya hemos calculado <span class="math inline">\(P_{SP}\)</span>. La expresión de <span class="math inline">\(E(S+P)\)</span> es:</p>
+<p><span class="math display">\[
 \begin{array}{rl}
 E(S+P) &amp; = (2+1)\cdot P_{SP}(2,1)+(3+2)\cdot P_{SP}(3,2)+(4+3)\cdot P_{SP}(4,3)  \\ &amp;
 \quad +(4+4)\cdot P_{SP}(4,4) + (5+4)\cdot P_{SP}(5,4)+(5+6)\cdot P_{SP}(5,6)\\ &amp; 
@@ -2510,7 +2512,7 @@ E(S+P) &amp; = (2+1)\cdot P_{SP}(2,1)+(3+2)\cdot P_{SP}(3,2)+(4+3)\cdot P_{SP}(4
 <a class="sourceLine" id="cb387-3" data-line-number="3">suma.valores =<span class="st"> </span><span class="kw">outer</span>(valores.suma,valores.producto,<span class="st">&quot;+&quot;</span>)</a>
 <a class="sourceLine" id="cb387-4" data-line-number="4">(<span class="dt">valor.esperado.suma =</span> <span class="kw">sum</span>(suma.valores<span class="op">*</span>tabla.func.prob.conjunta))</a></code></pre></div>
 <pre><code>## [1] 19.25</code></pre>
-<!--</div>-->
+</div>
 </div>
 <p><l class="observ">Observación:</l>
 En <code>R</code> para hallar el valor esperado de una función <span class="math inline">\(g(X,Y)\)</span>, <span class="math inline">\(E(g(X,Y))\)</span> de las variables aleatorias <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, basta sustituir el valor <code>+</code> en el script anterior por <code>FUN=g</code>, definiendo previamente la función <code>g</code>.</p>
@@ -2551,15 +2553,15 @@ En el último cálculo hemos usado integración por partes para integrar <span c
 <p>El siguiente resultado nos simplifica el cálculo del <strong>valor esperado de una función de dos variables aleatorias</strong> en el caso en que sean <strong>independientes</strong>:</p>
 <p><l class="prop">Proposición: cálculo del valor esperado de una función de dos variables aleatorias en el caso de independencia. </l>
 Sea <span class="math inline">\((X,Y)\)</span> una variable aleatoria bidimensionaltal que <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes.
-Sea <span class="math inline">\(Z=g(X,Y)\)</span> una variable aleatoria unidimensional función de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> en la que podemos “separar” las variables <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> en la función <span class="math inline">\(g\)</span>. O sea, existen dos funciones <span class="math inline">\(g_x\)</span> y <span class="math inline">\(g_y\)</span> tal que <span class="math inline">\(g(x,y)=g_x(x)\cdot g_y(y)\)</span> para todo valor <span class="math inline">\(x,y\in\mathbb{R}\)</span>. En este caso, el valor esperado de <span class="math inline">\(Z\)</span> se puede calcular como:
+Sea <span class="math inline">\(Z=g(X,Y)\)</span> una variable aleatoria unidimensional función de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> en la que podemos “separar” las variables <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> en la función <span class="math inline">\(g\)</span>. Es decir, existen dos funciones <span class="math inline">\(g_x\)</span> y <span class="math inline">\(g_y\)</span> tal que <span class="math inline">\(g(x,y)=g_x(x)\cdot g_y(y)\)</span> para todo valor <span class="math inline">\(x,y\in\mathbb{R}\)</span>. En este caso, el valor esperado de <span class="math inline">\(Z\)</span> se puede calcular como:
 <span class="math display">\[
 E(Z)=E(g(X,Y))=E_X(g_x(X))\cdot E_Y(g_y(Y)).
 \]</span></p>
 <p>Es decir, el cálculo de <span class="math inline">\(E(g(X,Y))\)</span> que es una suma doble en el caso de que <span class="math inline">\((X,Y)\)</span> sea <strong>discreta</strong> o una integral doble en el caso en que <span class="math inline">\((X,Y)\)</span> sea continua se transforma en el producto de dos sumas simples (caso <strong>discreto</strong>) o el producto de dos integrales simples (caso <strong>continuo</strong>):</p>
 <p><span class="math display">\[
 \begin{array}{rl}
-E(Z) &amp; =E(g(X,Y))=\left(\sum_{x_i} g_x(x_i)\cdot P_X(x_i)\right)\cdot \left(\sum_{y_j} g_y(y_j)\cdot P_Y(y_j)\right),\\ &amp;\ \quad \mbox{caso discreto},\\
-E(Z) &amp; =E(g(X,Y))=\left(\int_{-\infty}^\infty g_x(x)\cdot f_X(x)\, dx\right)\cdot \left(\int_{-\infty}^\infty g_y(y)\cdot f_Y(y)\right), \\  &amp;\ \quad \mbox{caso continuo}.
+E(Z) &amp; =E(g(X,Y))=\displaystyle\left(\sum_{x_i} g_x(x_i)\cdot P_X(x_i)\right)\cdot \left(\sum_{y_j} g_y(y_j)\cdot P_Y(y_j)\right),\\ &amp;\ \quad \mbox{caso discreto},\\
+E(Z) &amp; =E(g(X,Y))=\displaystyle\left(\int_{-\infty}^\infty g_x(x)\cdot f_X(x)\, dx\right)\cdot \left(\int_{-\infty}^\infty g_y(y)\cdot f_Y(y)\right), \\  &amp;\ \quad \mbox{caso continuo}.
 \end{array}
 \]</span></p>
 <p>Un caso particular de aplicación de la proposición anterior es el calculo de <span class="math inline">\(E(X\cdot Y)\)</span> cuando <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes. En este caso <span class="math inline">\(g(x,y)=x\cdot y\)</span>, <span class="math inline">\(g_x(x)=x\)</span>, y <span class="math inline">\(g_y(y)=y\)</span>.</p>
@@ -2612,16 +2614,16 @@ Las marginales de <span class="math inline">\(X\)</span> e <span class="math inl
 Calculemos <span class="math inline">\(E(X\cdot Y)\)</span> usando la proposición anterior:
 <div class="example-sol">
 <p><span class="math display">\[
-E(X\cdot Y)=E_X(X)\cdot E_Y(Y)=\left(\sum_{i=1}^6 i\cdot \frac{1}{6}\right)\cdot \left(\sum_{i=1}^6 i\cdot \frac{1}{6}\right)=\left(\frac{21}{6}\right)^2 = 12.25.
+E(X\cdot Y)=\displaystyle E_X(X)\cdot E_Y(Y)=\left(\sum_{i=1}^6 i\cdot \frac{1}{6}\right)\cdot \left(\sum_{i=1}^6 i\cdot \frac{1}{6}\right)=\left(\frac{21}{6}\right)^2 = 12.25.
 \]</span>
 Dejamos como ejercicio el cálculo de <span class="math inline">\(E(X\cdot Y)\)</span> usando la <strong>función de probabilidad conjunta</strong> <span class="math inline">\(P_{XY}\)</span> y comprobar que da el mismo resultado.</p>
 </div>
 </div>
 <div class="example">
-<p><strong>Ejemplo: uniforme cuadrado unidad</strong></p>
+<p><strong>Ejemplo: densidad uniforme cuadrado unidad</strong></p>
 <p>Recordemos la variable aleatoria bidimensional continua con <strong>función de densidad conjunta</strong>:
 <span class="math display">\[
-f_{XY}(x,y)=\begin{cases}
+f_{XY}(x,y)=\displaystyle \begin{cases}
 1, &amp; \mbox{ si }0\leq x\leq 1,\ 0\leq y\leq 1, \\
 0, &amp; \mbox{en caso contrario.}
 \end{cases}
@@ -2630,7 +2632,7 @@ donde vimos que <span class="math inline">\(X\)</span> e <span class="math inlin
 <p>Calculemos <span class="math inline">\(E(X\cdot Y)\)</span> usando la proposición:</p>
 <div class="example-sol">
 <p><span class="math display">\[
-E(X\cdot Y)=E_X(X)\cdot E_Y(Y)=\int_0^1 x\cdot 1\, dx\cdot \int_0^1 y\cdot 1\, dy =\left.\frac{x^2}{2}\right]_{x=0}^{x=1}\cdot \left.\frac{y^2}{2}\right]_{y=0}^{y=1}=\frac{1}{2}\cdot \frac{1}{2}=\frac{1}{4}.
+E(X\cdot Y)=\displaystyle E_X(X)\cdot E_Y(Y)=\int_0^1 x\cdot 1\, dx\cdot \int_0^1 y\cdot 1\, dy =\left.\frac{x^2}{2}\right]_{x=0}^{x=1}\cdot \left.\frac{y^2}{2}\right]_{y=0}^{y=1}=\frac{1}{2}\cdot \frac{1}{2}=\frac{1}{4}.
 \]</span>
 Dejamos como ejercicio el cálculo de <span class="math inline">\(E(X\cdot Y)\)</span> usando la <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{XY}\)</span> y comprobar que da el mismo resultado.</p>
 </div>
@@ -2644,7 +2646,7 @@ Dejamos como ejercicio el cálculo de <span class="math inline">\(E(X\cdot Y)\)<
 Sean <span class="math inline">\((X,Y)\)</span> una variable aleatoria bidimensional con <strong>función de probabilidad conjunta</strong> <span class="math inline">\(P_{XY}\)</span> en el caso discreto y <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{XY}\)</span> en el caso continuo. Dados <span class="math inline">\(k\)</span> y <span class="math inline">\(l\)</span> números enteros positivos, definimos el <strong>momento conjunto de orden <span class="math inline">\((k,l)\)</span></strong> para la variable <span class="math inline">\((X,Y)\)</span> como:
 <span class="math display">\[
 E\left(X^k Y^l\right)=\begin{cases}
-\sum_{x_i}\sum_{y_j} x_i^k y_j^l P_{XY}(x_i,y_j), &amp; \mbox{ caso discreto,} \\
+\displaystyle \sum_{x_i}\sum_{y_j} x_i^k y_j^l P_{XY}(x_i,y_j), &amp; \mbox{ caso discreto,} \\\displaystyle
 \int_{-\infty}^\infty\int_{-\infty}^\infty x^k y^l f_{XY}(x,y)\, dx\, dy. &amp; \mbox{ caso continuo.}
 \end{cases}
 \]</span></p>
@@ -2669,7 +2671,7 @@ E\left((X-\mu_X)^k\cdot  (Y-\mu_Y)^l\right)=\begin{cases}
 <h3><span class="header-section-number">5.6.5</span> Covariancia entre las variables</h3>
 <p>El <strong>momento conjunto centrado en las medias para <span class="math inline">\(k=1\)</span> y <span class="math inline">\(l=1\)</span></strong> se denomina <strong>covariancia</strong> entre las variables <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>:
 <span class="math display">\[
-\mathrm{Cov}(X,Y)=E((X-\mu_X)(Y-\mu_Y)).
+\mathrm{Cov}(X,Y)=E((X-\mu_X)\cdot (Y-\mu_Y)).
 \]</span>
 La covariancia puede calcularse a partir de la <strong>correlación</strong> entre las variables:
 <span class="math display">\[
@@ -2708,7 +2710,7 @@ Desarrollando las expresiones anteriores, obtenemos:
 \begin{array}{rl}
 \mathrm{Var}(X\pm Y) &amp; =E\left(X^2+Y^2\pm 2XY\right)-\left(E(X)\pm E(Y)\right)^2 \\ &amp; =
 E(X^2)+E(Y^2)\pm 2\cdot E(X\cdot Y) \\ &amp;\qquad\qquad - \left(E(X)^2+E(Y)^2\pm 2\cdot E(X)\cdot E(Y)\right)
-\\ &amp; = E(X^2)-E(X)^2+E(Y^2)-E(Y)^2\pm 2(E(X\cdot Y)-E(X)\cdot E(Y)) \\ &amp; = \mathrm{Var}(X)+\mathrm{Var}(Y)\pm 2\cdot \mathrm{Cov}(X,Y),
+\\ &amp; = E(X^2)-E(X)^2+E(Y^2)-E(Y)^2\\ &amp;\qquad\qquad \pm 2\cdot (E(X\cdot Y)-E(X)\cdot E(Y)) \\ &amp; = \mathrm{Var}(X)+\mathrm{Var}(Y)\pm 2\cdot \mathrm{Cov}(X,Y),
 \end{array}
 \]</span>
 tal como queríamos ver.</p>
@@ -2744,7 +2746,7 @@ Si las variables <span class="math inline">\(X\)</span> e <span class="math inli
 <p>Además, la <strong>covarianza</strong> de las <strong>variables tipificadas</strong> <span class="math inline">\(\frac{X-\mu_X}{\sigma_X}\)</span> y <span class="math inline">\(\frac{Y-\mu_Y}{\sigma_Y}\)</span> coincide con la <strong>correlación</strong> de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>.</p>
 <p>El <strong>coeficiente de correlación</strong> es un valor normalizado ya que siempre está entre -1 y 1: <span class="math inline">\(-1\leq\rho_{XY}\leq 1\)</span>.</p>
 <div class="dem">
-<p>Para ver la demostración de este hecho, sean <span class="math inline">\(\mu_X=E(X)\)</span>, <span class="math inline">\(\mu_Y=E(Y)\)</span>, <span class="math inline">\(\sigma_X=\sqrt{\mathrm{Var}(X)}\)</span> y <span class="math inline">\(\sigma_Y=\sqrt{\mathrm{Var}(Y)}\)</span>.</p>
+<p>Para demostrar de este hecho, sean <span class="math inline">\(\mu_X=E(X)\)</span>, <span class="math inline">\(\mu_Y=E(Y)\)</span>, <span class="math inline">\(\sigma_X=\sqrt{\mathrm{Var}(X)}\)</span> y <span class="math inline">\(\sigma_Y=\sqrt{\mathrm{Var}(Y)}\)</span>.</p>
 <p>Consideremos la variable <span class="math inline">\(Z=\left(\frac{X-\mu_X}{\sigma_X}\pm \frac{Y-\mu_Y}{\sigma_Y}\right)^2\)</span>. Como <span class="math inline">\(Z\geq 0\)</span>, tenemos que <span class="math inline">\(E(Z)\geq 0\)</span>. Desarrollemos el valor de <span class="math inline">\(E(Z)\)</span>:</p>
 <p><span class="math display">\[
 \begin{array}{rl}
@@ -2772,7 +2774,7 @@ Recordemos los cálculos realizados anteriormente:</p>
 <div class="example-sol">
 <ul>
 <li><p><span class="math inline">\(E(X\cdot Y)=1.\)</span></p></li>
-<li><p><span class="math inline">\(f_X(x)=2\cdot \left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)\)</span>, si <span class="math inline">\(x\geq 0\)</span>. Su esperanza será:</p></li>
+<li><p><span class="math inline">\(f_X(x)=2\cdot \left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)\)</span>, si <span class="math inline">\(x\geq 0\)</span>. Su esperanza es:</p></li>
 </ul>
 <p><span class="math display">\[
 \begin{array}{rl}
@@ -2780,18 +2782,18 @@ E(X)&amp;=\int_0^\infty x\cdot 2\left(\mathrm{e}^{-x}-\mathrm{e}^{-2x}\right)\, 
 &amp; = 2\left(1-\frac{1}{4}\right)=\frac{3}{2}.
 \end{array}
 \]</span></p>
-<p>Calculemos a continuación su varianza: <span class="math inline">\(\mathrm{Var}(X)=E\left(X^2\right)-\mu_X^2\)</span>. El valor de <span class="math inline">\(E\left(X^2\right)\)</span> será:
+<p>Calculemos a continuación su varianza: <span class="math inline">\(\mathrm{Var}(X)=E\left(X^2\right)-\mu_X^2\)</span>. El valor de <span class="math inline">\(E\left(X^2\right)\)</span> es:
 <span class="math display">\[
 \begin{array}{rl}
 E\left(X^2\right) &amp; =\displaystyle \int_0^\infty x^2 \cdot 2\cdot \left(\mathrm{e}^{-x}-\mathrm{e}^{-2\cdot x}\right)\, dx\\
 &amp;=\displaystyle 2 \cdot  \left[\frac{1}{4} \cdot \mathrm{e}^{-2 \cdot x} \cdot  (2\cdot x^2+2\cdot x+1)- \mathrm{e}^{-x} \cdot (x^2+2\cdot x+2)\right]_0^\infty \\ &amp; = 2\cdot \left(2-\frac{1}{4}\right)=\frac{7}{2}.
 \end{array}
 \]</span></p>
-<p>El valor de la varianza de <span class="math inline">\(X\)</span> será: <span class="math inline">\(\mathrm{Var}(X)=\frac{7}{2}-\left(\frac{3}{2}\right)^2 = \frac{5}{4}.\)</span></p>
+<p>El valor de la varianza de <span class="math inline">\(X\)</span> es: <span class="math inline">\(\mathrm{Var}(X)=\frac{7}{2}-\left(\frac{3}{2}\right)^2 = \frac{5}{4}.\)</span></p>
 <ul>
 <li>La variable <span class="math inline">\(Y\)</span> era exponencial de parámetro <span class="math inline">\(\lambda =2\)</span>. Por tanto, <span class="math inline">\(E(Y)=\frac{1}{2}\)</span>, <span class="math inline">\(\mathrm{Var}(Y)=\frac{1}{4}\)</span>.</li>
 </ul>
-<p>El <strong>coeficiente de correlación</strong> entre las variables <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> será:
+<p>El <strong>coeficiente de correlación</strong> entre las variables <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> es:
 <span class="math display">\[
 \rho_{XY}=\frac{E(X\cdot Y)-\mu_X\cdot \mu_Y}{\sqrt{\mathrm{Var}(X)}\cdot\sqrt{\mathrm{Var}(Y)}}=\frac{1-\frac{3}{2}\cdot \frac{1}{2}}{\sqrt{\frac{5}{4}}\cdot\sqrt{\frac{1}{4}}}=\frac{\sqrt{5}}{5}\approx 0.447.
 \]</span>
@@ -2825,12 +2827,12 @@ Por último, usando que la varianza de la distribución <span class="math inline
 <span class="math display">\[
 \frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty x^2\mathrm{e}^{-\frac{x^2}{2}}\, dx=1,\ \Rightarrow \int_{-\infty}^\infty x^2\mathrm{e}^{-\frac{x^2}{2}}\, dx=\sqrt{2\pi}.
 \]</span>
-El valor de <span class="math inline">\(E(X\cdot Y)\)</span> será:
+El valor de <span class="math inline">\(E(X\cdot Y)\)</span> es:
 <span class="math display">\[
 E(X\cdot Y)=\frac{\rho}{\sqrt{2\pi}}\sqrt{2\pi}=\rho.
 \]</span></p>
 <p>La correlación entre las variables <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> es precisamente <span class="math inline">\(\rho\)</span>.</p>
-<p>Ahora, usando que <span class="math inline">\(\mu_X=\mu_Y=0\)</span> y <span class="math inline">\(\sigma_X=\sigma_Y=1\)</span> ya que recordemos que las marginales son <span class="math inline">\(N(0,1)\)</span>, el <strong>coeficiente de correlación</strong> entre las variables <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> será:
+<p>Ahora, usando que <span class="math inline">\(\mu_X=\mu_Y=0\)</span> y <span class="math inline">\(\sigma_X=\sigma_Y=1\)</span> ya que recordemos que las marginales son <span class="math inline">\(N(0,1)\)</span>, el <strong>coeficiente de correlación</strong> entre las variables <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> es:
 <span class="math display">\[
 \rho_{XY}=\frac{E(X\cdot Y)-\mu_X\cdot \mu_Y}{\sqrt{\mathrm{Var}(X)}\cdot\sqrt{\mathrm{Var}(Y)}}=\frac{\rho-0\cdot 0}{1\cdot 1}=\rho.
 \]</span>
@@ -2841,7 +2843,7 @@ Por tanto, <span class="math inline">\(\rho\)</span> es el <strong>coeficiente d
 </div>
 <div id="incorrelación-e-independencia" class="section level3">
 <h3><span class="header-section-number">5.6.7</span> Incorrelación e independencia</h3>
-<p>Hemos visto que si dos variables <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son <strong>independientes</strong>, entonces son <strong>incorreladas</strong>, o sea, la <strong>covarianza</strong> es 0 (<span class="math inline">\(E(X\cdot Y)=E(X)\cdot E(Y)\)</span>).</p>
+<p>Hemos visto que si dos variables <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son <strong>independientes</strong>, entonces son <strong>incorreladas</strong>, es decir, la <strong>covarianza</strong> es 0 (<span class="math inline">\(E(X\cdot Y)=E(X)\cdot E(Y)\)</span>).</p>
 <p>El recíproco, sin embargo, es falso. Veamos un ejemplo de variables <strong>incorreladas</strong> que no son independientes.</p>
 <div class="example">
 <p><strong>Ejemplo de variables aleatorias incorreladas pero no independientes</strong></p>
@@ -2852,7 +2854,7 @@ f_{XY}(x,y)=\begin{cases}
 0, &amp; \mbox{en caso contrario.}
 \end{cases}
 \]</span></p>
-<p>Dejamos como ejercicio comprobar que es una <strong>función de densidad</strong>. O sea, que es positiva y que la integral sobre todo el plano vale 1.</p>
+<p>Dejamos como ejercicio comprobar que es una <strong>función de densidad</strong>. Es decir, que es positiva y que la integral sobre todo el plano vale 1.</p>
 <div class="example-sol">
 <p>Calculemos las <strong>densidades marginales</strong>:</p>
 <p><span class="math display">\[
@@ -2862,20 +2864,20 @@ f_X(x) &amp; = \int_{-1}^{1} \frac{3}{8}\cdot (x^2+y^2)\, dy = \frac{3}{8}\cdot\
 f_Y(y) &amp; = \int_{-1}^{1} \frac{3}{8}\cdot(x^2+y^2)\, dx = \frac{3}{8}\cdot\left[\frac{x^3}{3}+y^2 x\right]_{-1}^1 =\frac{3}{8}\cdot\left(\frac{2}{3}+2 y^2+\right)=\frac{3}{4}\cdot y^2+\frac{1}{4}.
 \end{array}
 \]</span></p>
-<p>Los valores esperados de cada variable <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> serán:</p>
+<p>Los valores esperados de cada variable <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son:</p>
 <p><span class="math display">\[
 \begin{array}{rl}
 E(X) &amp; =\int_{-1}^1 x \cdot\left(\frac{3}{4} \cdot x^2+\frac{1}{4}\right)\, dx =0, \mbox{al integrar una función impar,}\\
 E(Y) &amp; =\int_{-1}^1 x \left(\frac{3}{4}\cdot y^2+\frac{1}{4}\right)\, dx =0, \mbox{al integrar una función impar.}
 \end{array}
 \]</span></p>
-<p>El valor de la <strong>correlación</strong> entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> será:</p>
+<p>El valor de la <strong>correlación</strong> entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> es:</p>
 <p><span class="math display">\[
 \begin{array}{rl}
 E(X\cdot Y) &amp; =\int_{-1}^1\int_{-1}^1 x \cdot y \cdot \frac{3}{8}\cdot (x^2+y^2)\, dy\, dx\\ &amp; =\frac{3}{8}\cdot\left(\int_{-1}^1\int_{-1}^1 x^3 \cdot y\, dy \, dx+\int_{-1}^1\int_{-1}^1 x\cdot y^3\, dy \, dx\right) \\ &amp; = \frac{3}{8} \left(\int_{x=-1}^{x=1}x^3 \left[\frac{y^2}{2}\right]_{y=-1}^{y=1}\, dx + \int_{y=-1}^{y=1}y^3 \left[\frac{x^2}{2}\right]_{x=-1}^{x=1}\right)=0.
 \end{array}
 \]</span></p>
-<p>El <strong>coeficiente de correlación</strong> entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> será: <span class="math inline">\(\rho_{XY}=E(X\cdot Y)-E(X)\cdot E(Y)=0-0\cdot 0=0\)</span>. Por tanto, son <strong>incorreladas</strong>.</p>
+<p>El <strong>coeficiente de correlación</strong> entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> es: <span class="math inline">\(\rho_{XY}=E(X\cdot Y)-E(X)\cdot E(Y)=0-0\cdot 0=0\)</span>. Por tanto, son <strong>incorreladas</strong>.</p>
 <p>En cambio no son <strong>independientes</strong> ya que claramente si <span class="math inline">\((x,y)\in [-1,1]\times [-1,1]\)</span>,</p>
 <p><span class="math display">\[
 f_{XY}(x,y)=\frac{3}{8}(x^2+y^2) \neq f_X(x)\cdot f_Y(y)=\left(\frac{3}{4} x^2+\frac{1}{4}\right)\cdot \left(\frac{3}{4} y^2+\frac{1}{4}\right).
@@ -2905,7 +2907,7 @@ P_{Y|X=x_i}(y_j)=P(Y=y_j|X=x_i)=\frac{P(X=x_i,\ Y=y_j)}{P(X=x_i)}=\frac{P_{XY}(x
 <p>¡<l class="observ">Observación. </l>
 La <strong>función de probabilidad</strong> de la <strong>variable aleatoria condicional <span class="math inline">\(Y|X=x_i\)</span></strong> depende únicamente de la <strong>función de probabilidad conjunta</strong> de la variable aleatoria bidimensional <span class="math inline">\((X,Y)\)</span>.</p>
 <l class="observ">Observación. </l>
-Al ser <span class="math inline">\(Y|X=x_i\)</span> una variable aleatoria unidimensional, su <strong>función de probabilidad</strong> tiene que verificar que la suma de todos sus valores tiene que dar 1. O sea:
+Al ser <span class="math inline">\(Y|X=x_i\)</span> una variable aleatoria unidimensional, su <strong>función de probabilidad</strong> tiene que verificar que la suma de todos sus valores tiene que dar 1. Es decir:
 <span class="math display">\[
 \sum_{y_j} P(Y=y_j|X=x_i)=1.
 \]</span>
@@ -2916,7 +2918,7 @@ Veámoslo:
 \]</span></p>
 </div>
 <p><l class="observ">Observación. </l>
-Si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes, <span class="math inline">\(Y|X=x_i =Y\)</span>, o sea, la <strong>variable aleatoria condicional <span class="math inline">\(Y|X=x_i\)</span></strong> coincide con <span class="math inline">\(Y\)</span>. O sea, condicionar con <span class="math inline">\(X=x_i\)</span> no tiene ningún efecto sobre <span class="math inline">\(Y\)</span>.</p>
+Si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes, <span class="math inline">\(Y|X=x_i =Y\)</span>, es decir, la <strong>variable aleatoria condicional <span class="math inline">\(Y|X=x_i\)</span></strong> coincide con <span class="math inline">\(Y\)</span>. Es decir, condicionar con <span class="math inline">\(X=x_i\)</span> no tiene ningún efecto sobre <span class="math inline">\(Y\)</span>.</p>
 <div class="dem">
 <p>Efectivamente, veamos que <span class="math inline">\(P_{Y|X=x_i}(y_j)=P_Y(y_j)\)</span> para todo valor <span class="math inline">\(y_j\)</span> de <span class="math inline">\(Y(\Omega)\)</span>:
 <span class="math display">\[
@@ -2994,7 +2996,7 @@ De la misma manera, si tenemos la tabla de la <strong>función de probabilidad c
 <p>Tenemos calculada la tabla de la <strong>función de probabilidad conjunta <span class="math inline">\(P_{SP}\)</span></strong>.</p>
 <p>Si <span class="math inline">\(P=12\)</span>, los únicos valores <span class="math inline">\(x_i\)</span> de <span class="math inline">\(S(\Omega)\)</span> para los que se verifica <span class="math inline">\(P_{SP}(x_i,12)\neq 0\)</span> son 7 y 8.</p>
 <p>Además si calculamos <span class="math inline">\(P_P(12)\)</span>, obtenemos <span class="math inline">\(P(P=12)=\frac{4}{36}\)</span> ya que hay 4 casos en que el producto da 12: <span class="math inline">\((3,4), (4,3), (2,6)\)</span> y <span class="math inline">\((6,2)\)</span>.</p>
-<p>Por tanto, la tabla de la <strong>función de probabilidad condicional</strong> de la variable <span class="math inline">\(S|P=12\)</span> será:</p>
+<p>Por tanto, la tabla de la <strong>función de probabilidad condicional</strong> de la variable <span class="math inline">\(S|P=12\)</span> es:</p>
 <div class="center">
 <table>
 <thead>
@@ -3025,7 +3027,7 @@ De la misma manera, si tenemos la tabla de la <strong>función de probabilidad c
 <div class="example-sol">
 <p>Si <span class="math inline">\(S=8\)</span>, los únicos valores <span class="math inline">\(y_j\)</span> de <span class="math inline">\(P(\Omega)\)</span> para los que se verifica <span class="math inline">\(P_{SP}(8,y_j)\neq 0\)</span> son 12 y 15 y 16.</p>
 <p>El valor de <span class="math inline">\(P_S(8)\)</span> recordemos que valía: <span class="math inline">\(P_S(8)=\frac{5}{36}\)</span>.</p>
-<p>Por tanto, la tabla de la <strong>función de probabilidad condicional</strong> de la variable <span class="math inline">\(P|S=8\)</span> será:</p>
+<p>Por tanto, la tabla de la <strong>función de probabilidad condicional</strong> de la variable <span class="math inline">\(P|S=8\)</span> es:</p>
 <div class="center">
 <table>
 <colgroup>
@@ -3084,7 +3086,7 @@ f_{Y|X=x}(y)=\frac{f_{XY}(x,y)}{f_X(x)}.
 <p><l class="observ">Observación. </l>
 La <strong>función de densidad</strong> de la <strong>variable aleatoria condicional continua<span class="math inline">\(Y|X\)</span></strong> depende únicamente de la <strong>función de densidad conjunta</strong> de la variable aleatoria bidimensional <span class="math inline">\((X,Y)\)</span>.</p>
 <p><l class="observ">Observación. </l>
-Al ser <span class="math inline">\(Y|X=x\)</span> una variable aleatoria unidimensional, su <strong>función de densidad</strong> tiene que verificar que la integral de dicha función sobre todo <span class="math inline">\(\mathbb{R}\)</span> tiene que ser 1. O sea:</p>
+Al ser <span class="math inline">\(Y|X=x\)</span> una variable aleatoria unidimensional, su <strong>función de densidad</strong> tiene que verificar que la integral de dicha función sobre todo <span class="math inline">\(\mathbb{R}\)</span> tiene que ser 1. Es decir:</p>
 <p><span class="math display">\[
 \int_{-\infty}^\infty f_{Y|X=x}(y)\, dy=1.
 \]</span></p>
@@ -3095,7 +3097,7 @@ Veámoslo:
 \]</span></p>
 </div>
 <p><l class="observ">Observación. </l>
-Si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes, <span class="math inline">\(Y|X=x =Y\)</span>, o sea, la <strong>variable aleatoria condicional <span class="math inline">\(Y|X=x\)</span></strong> coincide con <span class="math inline">\(Y\)</span>. O sea, condicionar con <span class="math inline">\(X=x\)</span> no tiene ningún efecto sobre <span class="math inline">\(Y\)</span>.</p>
+Si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes, <span class="math inline">\(Y|X=x =Y\)</span>, es decir, la <strong>variable aleatoria condicional <span class="math inline">\(Y|X=x\)</span></strong> coincide con <span class="math inline">\(Y\)</span>. Es decir, condicionar con <span class="math inline">\(X=x\)</span> no tiene ningún efecto sobre <span class="math inline">\(Y\)</span>.</p>
 <div class="dem">
 <p>Efectivamente, veamos que <span class="math inline">\(f_{Y|X=x}(y)=f_Y(y)\)</span> para todo valor <span class="math inline">\(y\in\mathbb{R}.\)</span>
 <span class="math display">\[
@@ -3120,49 +3122,51 @@ f_{XY}(x,y)=\begin{cases}
 \end{cases}
 \]</span>
 Dado un valor <span class="math inline">\(x_0\geq 0\)</span> cualquiera, vamos a hallar la <strong>función de densidad</strong> de la <strong>variable aleatoria condicional</strong> <span class="math inline">\(Y|X=x_0\)</span>.</p>
+<div class="example-sol">
 <p>Fijémonos que, fijado un valor <span class="math inline">\(x_0\)</span>, los valores <span class="math inline">\(y\)</span> para los cuales <span class="math inline">\(f_{XY}(x_0,y)\neq 0\)</span> cumplen <span class="math inline">\(0\leq y\leq x_0\)</span>.
-Por tanto,
-<span class="math display">\[
+Por tanto,</p>
+<p><span class="math display">\[
 f_{Y|X=x_0}(y)=\frac{f_{XY}(x_0,y)}{f_X(x_0)}=\frac{2\cdot \mathrm{e}^{-x_0}\cdot \mathrm{e}^{-y}}{f_X(x_0)},
 \]</span>
 si <span class="math inline">\(0\leq y\leq x_0\)</span>, y <span class="math inline">\(f_{Y|X=x_0}(y)=0\)</span>, en caso contrario.</p>
 <p>Recordemos que la <strong>densidad marginal</strong> de la variable <span class="math inline">\(X\)</span> era: <span class="math inline">\(f_X(x_0)=2\left(\mathrm{e}^{-x_0}-\mathrm{e}^{-2x_0}\right)\)</span>.</p>
-<p>La <strong>función de densidad marginal</strong> de la variable <span class="math inline">\(Y|X=x_0\)</span> será:</p>
+<p>La <strong>función de densidad marginal</strong> de la variable <span class="math inline">\(Y|X=x_0\)</span> es:</p>
 <p><span class="math display">\[
 f_{Y|X=x_0}(y)=\frac{2\cdot \mathrm{e}^{-x_0}\cdot \mathrm{e}^{-y}}{2\cdot \left(\mathrm{e}^{-x_0}-\mathrm{e}^{-2\cdot x_0}\right)}=\frac{e^{-y}}{1-\mathrm{e}^{-x_0}},
 \]</span></p>
 <p>si <span class="math inline">\(0\leq y\leq x_0\)</span>, y <span class="math inline">\(f_{Y|X=x_0}(y)=0\)</span>, en caso contrario.</p>
 <p>Sea ahora <span class="math inline">\(y_0&gt;0\)</span>. Calculemos ahora la <strong>densidad marginal</strong> de la variable <span class="math inline">\(X|Y=y_0\)</span>.</p>
-<p>Fijémonos que, fijado un valor <span class="math inline">\(y_0\)</span>, los valores <span class="math inline">\(x\)</span> para los cuales <span class="math inline">\(f_{XY}(x,y_0)\neq 0\)</span> cumplen <span class="math inline">\(y_0\leq x\leq \infty\)</span>. Por tanto,
-<span class="math display">\[
+<p>Fijémonos que, fijado un valor <span class="math inline">\(y_0\)</span>, los valores <span class="math inline">\(x\)</span> para los cuales <span class="math inline">\(f_{XY}(x,y_0)\neq 0\)</span> cumplen <span class="math inline">\(y_0\leq x\leq \infty\)</span>. Por tanto,</p>
+<p><span class="math display">\[
 f_{X|Y=y_0}(x)=\frac{f_{XY}(x,y_0)}{f_Y(y_0)}=\frac{2\cdot \mathrm{e}^{-x}\cdot \mathrm{e}^{-y_0}}{f_Y(y_0)},
 \]</span>
 si <span class="math inline">\(y_0\leq x\leq \infty\)</span>, y <span class="math inline">\(f_{X|Y=y_0}(x)=0\)</span>, en caso contrario.</p>
 <p>Recordemos que la variable <span class="math inline">\(Y\)</span> era exponencial de parámetro <span class="math inline">\(\lambda=2\)</span>. Por tanto, <span class="math inline">\(f_Y(y_0)=2\mathrm{e}^{-2y_0}\)</span>.</p>
-<p>La <strong>función de densidad marginal</strong> de la variable <span class="math inline">\(X|Y=y_0\)</span> será:
-<span class="math display">\[
+<p>La <strong>función de densidad marginal</strong> de la variable <span class="math inline">\(X|Y=y_0\)</span> es:</p>
+<p><span class="math display">\[
 f_{X|Y=y_0}(x)=\frac{2\cdot \mathrm{e}^{-x}\cdot \mathrm{e}^{-y_0}}{2\cdot \mathrm{e}^{-2\cdot y_0}}=\frac{\mathrm{e}^{-x}}{\mathrm{e}^{-y_0}},
 \]</span>
 si <span class="math inline">\(y_0\leq x\leq \infty\)</span>, y <span class="math inline">\(f_{X|Y=y_0}(x)=0\)</span>, en caso contrario.</p>
 </div>
+</div>
 <div class="example">
 <p><strong>Ejemplo: normal bidimensional</strong></p>
-<p>Sea <span class="math inline">\((X,Y)\)</span> una variable aleatoria bidimensional normal bidimensional con <strong>densidad conjunta</strong>:
-<span class="math display">\[
+<p>Sea <span class="math inline">\((X,Y)\)</span> una variable aleatoria bidimensional normal bidimensional con <strong>densidad conjunta</strong>:</p>
+<p><span class="math display">\[
 f_{XY}(x,y)=\frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}},\ -\infty &lt;x,y&lt;\infty.
 \]</span>
 Sea <span class="math inline">\(x\in\mathbb{R}\)</span>. Hallemos la <strong>función de densidad</strong> de la <strong>variable aleatoria condicionada</strong> <span class="math inline">\(Y|X=x\)</span>.</p>
-<p>Recordemos que las <strong>marginales</strong> eran <span class="math inline">\(N(0,1)\)</span>. Por tanto, <span class="math inline">\(f_X(x)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}.\)</span></p>
 <div class="example-sol">
-<p>La <strong>función de densidad</strong> de la variable condicional <span class="math inline">\(Y|X=x\)</span> es:
-<span class="math display">\[
-f_{Y|X=x}(y)=\frac{f_{XY}(x,y)}{f_X(x)}=\frac{\frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}}}{\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}}=\frac{1}{\sqrt{2\pi (1-\rho^2)}}\mathrm{e}^{-\frac{(y-\rho x)^2}{2(1-\rho^2)}},\ y\in\mathbb{R}.
+<p>Recordemos que las <strong>marginales</strong> eran <span class="math inline">\(N(0,1)\)</span>. Por tanto, <span class="math inline">\(f_X(x)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}.\)</span></p>
+<p>La <strong>función de densidad</strong> de la variable condicional <span class="math inline">\(Y|X=x\)</span> es:</p>
+<p><span class="math display">\[
+f_{Y|X=x}(y)=\frac{f_{XY}(x,y)}{f_X(x)}=\frac{\frac{1}{2\cdot \pi\cdot \sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\cdot \rho \cdot x\cdot y+y^2)}{2(1-\rho^2)}}}{\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2}}}=\frac{1}{\sqrt{2\cdot \pi\cdot  (1-\rho^2)}}\mathrm{e}^{-\frac{(y-\rho\cdot  x)^2}{2\cdot (1-\rho^2)}},\ y\in\mathbb{R}.
 \]</span>
 Concluimos que la <strong>variable aleatoria condicional <span class="math inline">\(Y|X=x\)</span></strong> es una normal de parámetros <span class="math inline">\(\mu_{Y|X=x}=\rho x\)</span> y <span class="math inline">\(\sigma_{Y|X=x}^2 =1-\rho^2\)</span>.</p>
 <p>Tenemos dos observaciones con respecto al resultado obtenido:</p>
 <ul>
 <li><p>La varianza de la <strong>variable aleatoria condicional</strong> no depende de la <span class="math inline">\(x\)</span> que se ha fijado. Sólo depende del parámetro <span class="math inline">\(\rho\)</span>. La <span class="math inline">\(x\)</span> sólo influye en la media de dicha variable.</p></li>
-<li>En el caso en que <span class="math inline">\(\rho=0\)</span>, que significa que <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes, la distribución condicional de <span class="math inline">\(Y|X=x\)</span> es una <span class="math inline">\(N(0,1)\)</span>, distribución que coincide con la distribución de la <strong>variable aleatoria marginal</strong> <span class="math inline">\(Y\)</span>.</li>
+<li><p>En el caso en que <span class="math inline">\(\rho=0\)</span>, que significa que <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes, la distribución condicional de <span class="math inline">\(Y|X=x\)</span> es una <span class="math inline">\(N(0,1)\)</span>, distribución que coincide con la distribución de la <strong>variable aleatoria marginal</strong> <span class="math inline">\(Y\)</span>.</p></li>
 </ul>
 </div>
 </div>
@@ -3171,11 +3175,11 @@ Concluimos que la <strong>variable aleatoria condicional <span class="math inlin
 <div id="valores-esperados-condicionales" class="section level3">
 <h3><span class="header-section-number">5.7.3</span> Valores esperados condicionales</h3>
 <p><l class="definition">Definición de valor esperado condicional.</l>
-Dada una variable aleatoria bidimensional <span class="math inline">\((X,Y)\)</span>, definimos el <strong>valor esperado de la variable <span class="math inline">\(Y\)</span> dado que <span class="math inline">\(X=x\)</span></strong> como <span class="math inline">\(E(Y|x)\)</span>, o sea, el valor esperado de la <strong>variable aleatoria condicional <span class="math inline">\(Y|X=x\)</span></strong>:
+Dada una variable aleatoria bidimensional <span class="math inline">\((X,Y)\)</span>, definimos el <strong>valor esperado de la variable <span class="math inline">\(Y\)</span> dado que <span class="math inline">\(X=x\)</span></strong> como <span class="math inline">\(E(Y|x)\)</span>, es decir, el valor esperado de la <strong>variable aleatoria condicional <span class="math inline">\(Y|X=x\)</span></strong>:
 <span class="math display">\[
 E(Y|x)=\begin{cases}
-\sum_{y_j} y_j P_{Y|X=x}(y_j), &amp; \mbox{ caso discreto,}\\
-\int_{-\infty}^\infty y f_{Y|X=x}(y)\,dy, &amp; \mbox{ caso continuo.}
+\displaystyle\sum_{y_j} y_j \cdot P_{Y|X=x}(y_j), &amp; \mbox{ caso discreto,}\\
+\displaystyle\int_{-\infty}^\infty y \cdot f_{Y|X=x}(y)\,dy, &amp; \mbox{ caso continuo.}
 \end{cases}
 \]</span></p>
 <p>Tenemos el siguiente resultado relacionado con los valores esperados: el valor esperado respecto <span class="math inline">\(x\)</span> del valor esperado de la <strong>variable condicional <span class="math inline">\(Y|X=x\)</span></strong> coincide con el valor esperado de la variable <span class="math inline">\(Y\)</span>:</p>
@@ -3188,7 +3192,7 @@ E_X(E(Y|X))=E(Y).
 <p><strong>Demostración</strong></p>
 <p>Haremos la demostración en el caso continuo. Dejamos como ejercicio la demostración para el caso discreto.</p>
 <p>Sea <span class="math inline">\(f_{XY}\)</span> la <strong>función de densidad conjunta</strong> y <span class="math inline">\(f_X\)</span> y <span class="math inline">\(f_Y\)</span> las <strong>funciones de densidad marginales</strong>.</p>
-<p>El valor de <span class="math inline">\(E_X(E(Y|X))\)</span> será:
+<p>El valor de <span class="math inline">\(E_X(E(Y|X))\)</span> es:
 <span class="math display">\[
 \begin{array}{rl}
 E_X(E(Y|X)) &amp; =\int_{x=-\infty}^{x=\infty} E(Y|x)f_X(x)\, dx=\int_{x=-\infty}^{x=\infty}\int_{y=-\infty}^{y=\infty} y f_{Y|X=x}(y)\, dy f_X(x)\, dx \\ &amp; = \int_{x=-\infty}^{x=\infty}\int_{y=-\infty}^{y=\infty} y \frac{f_{XY}(x,y)}{f_X(x)}f_X(x)\, dy\, dx = \int_{y=-\infty}^{y=\infty} y \int_{x=-\infty}^{x=\infty}f_{XY}(x,y)\, dx\, dy \\ &amp;  = \int_{y=-\infty}^{y=\infty} y f_Y(y)\, dy = E(Y),
@@ -3208,14 +3212,14 @@ tal como queríamos ver.</p>
 <p>El siguiente resultado nos dice cuál es la función <span class="math inline">\(g\)</span>:</p>
 <p><l class="prop">Proposición: </l>
 La función <span class="math inline">\(g\)</span> solución del problema de <strong>regresión general</strong> es la siguiente: <span class="math inline">\(g(x)=E(Y|X=x)\)</span>.</p>
-<p>O sea, la función <span class="math inline">\(g\)</span> asigna a cada valor <span class="math inline">\(x\)</span> de la variable aleatoria <span class="math inline">\(X\)</span>, el valor esperado de la <strong>variable condicional</strong> <span class="math inline">\(Y|X=x\)</span>.</p>
+<p>Es decir, la función <span class="math inline">\(g\)</span> asigna a cada valor <span class="math inline">\(x\)</span> de la variable aleatoria <span class="math inline">\(X\)</span>, el valor esperado de la <strong>variable condicional</strong> <span class="math inline">\(Y|X=x\)</span>.</p>
 <p>En resumen, la función <span class="math inline">\(g(x)=E(Y|X=x)\)</span> es la función que minimiza el error. A la curva <span class="math inline">\(y=g(x)\)</span> se la denomina <strong>curva general de regresión de <span class="math inline">\(Y\)</span> sobre <span class="math inline">\(X\)</span></strong>.</p>
 </div>
 <div id="valores-esperados-condicionales.-caso-general" class="section level3">
 <h3><span class="header-section-number">5.7.5</span> Valores esperados condicionales. Caso general</h3>
 <p>Podemos generalizar los valores esperados condicionales en el sentido que en lugar de hallar <span class="math inline">\(E(Y|X=x)\)</span>, hallar <span class="math inline">\(E(g(Y)|X=x)\)</span>, donde <span class="math inline">\(g\)</span> es una función de la variable aleatoria <span class="math inline">\(Y\)</span>:</p>
 <p><l class="definition">Definición de valor esperado condicional.</l>
-Dada una variable aleatoria bidimensional <span class="math inline">\((X,Y)\)</span> y una función <span class="math inline">\(g\)</span>, definimos el <strong>valor esperado de la variable <span class="math inline">\(g(Y)\)</span> dado que <span class="math inline">\(X=x\)</span></strong> como <span class="math inline">\(E(g(Y)|x)\)</span>, o sea, el valor esperado de la <strong>variable aleatoria condicional <span class="math inline">\(g(Y)|X=x\)</span></strong>:
+Dada una variable aleatoria bidimensional <span class="math inline">\((X,Y)\)</span> y una función <span class="math inline">\(g\)</span>, definimos el <strong>valor esperado de la variable <span class="math inline">\(g(Y)\)</span> dado que <span class="math inline">\(X=x\)</span></strong> como <span class="math inline">\(E(g(Y)|x)\)</span>, es decir, el valor esperado de la <strong>variable aleatoria condicional <span class="math inline">\(g(Y)|X=x\)</span></strong>:
 <span class="math display">\[
 E(g(Y)|x)=\begin{cases}
 \sum_{y_j} g(y_j) P_{Y|X=x}(y_j), &amp; \mbox{ caso discreto,}\\
@@ -3255,12 +3259,12 @@ E(g(Y)|x)=\begin{cases}
 </tbody>
 </table>
 </div>
-<p>Su valor esperado será, pues:
+<p>Su valor esperado es:
 <span class="math display">\[
 E(P|S=8)=12\cdot \frac{2}{5}+15\cdot \frac{2}{5}+16\cdot \frac{1}{5}=\frac{70}{5}=14.
 \]</span>
 El valor medio del producto de los resultados al lanzar un dado dos veces cuando la suma de dichos resultados es 8 vale 14.</p>
-<p>El valor esperado de la variable <span class="math inline">\(E(P|S=8)\)</span> será:</p>
+<p>El valor esperado de la variable <span class="math inline">\(E(P|S=8)\)</span> es:</p>
 <div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" data-line-number="1">valores.cond.s8=<span class="kw">as.integer</span>(<span class="kw">names</span>(prob.cond.s8.buena))</a>
 <a class="sourceLine" id="cb395-2" data-line-number="2"><span class="kw">sum</span>(valores.cond.s8<span class="op">*</span>prob.cond.s8.buena)</a></code></pre></div>
 <pre><code>## [1] 14</code></pre>
@@ -3308,7 +3312,7 @@ E_X(E(Y|x)) &amp; =\int_0^\infty E(Y|x)\cdot f_X(x)\, dx = \int_0^\infty \frac{1
 <div id="variable-aleatoria-función-de-la-variable-aleatoria-bidimensional" class="section level3">
 <h3><span class="header-section-number">5.8.1</span> Variable aleatoria función de la variable aleatoria bidimensional</h3>
 <p><l class="prop">Proposición.</l>
-Sea <span class="math inline">\((X,Y)\)</span> una variable aleatoria bidimensional con <strong>función de probabilidad</strong> <span class="math inline">\(P_{XY}\)</span> (caso discreto) o <strong>función de densidad</strong> (caso continuo). Sea <span class="math inline">\(g\)</span> una función y definimos la <strong>variable aleatoria unidimensional</strong> <span class="math inline">\(Z\)</span> como <span class="math inline">\(Z=g(X,Y)\)</span>. Entonces la función de distribución de <span class="math inline">\(Z\)</span> será:
+Sea <span class="math inline">\((X,Y)\)</span> una variable aleatoria bidimensional con <strong>función de probabilidad</strong> <span class="math inline">\(P_{XY}\)</span> (caso discreto) o <strong>función de densidad</strong> (caso continuo). Sea <span class="math inline">\(g\)</span> una función y definimos la <strong>variable aleatoria unidimensional</strong> <span class="math inline">\(Z\)</span> como <span class="math inline">\(Z=g(X,Y)\)</span>. Entonces la función de distribución de <span class="math inline">\(Z\)</span> es:
 <span class="math display">\[
 \begin{array}{rl}
 F_Z(z) &amp; = P(Z\leq z)=\sum\sum_{(x_i,y_j),\ |\ g(x_i,y_j)\leq z} P_{XY}(x_i,y_j),\ z\in\mathbb{R},\\ &amp;\ \qquad\mbox{ (caso discreto),}\\
@@ -3317,7 +3321,7 @@ F_Z(z) &amp; = P(Z\leq z)=\int\int_{(x,y)\in\mathbb{R}^2,\ |\ g(x,y)\leq z} f_{X
 \]</span></p>
 <p><l class="observ">Observación.</l>
 En el caso discreto, la variable aleatoria será discreta con valores <span class="math inline">\(Z(\Omega)=\{z_{ij}=g(x_i,y_j),\ |\ (x_i,y_j)\in (X,Y)(\Omega)\}\)</span>.
-Hay que tener en cuenta que en dicho conjunto puede haber repeticiones, o sea, pueden existir dos parejas <span class="math inline">\((i,j)\)</span> y <span class="math inline">\((i&#39;,j&#39;)\)</span> tal que <span class="math inline">\(z_{ij}=z_{i&#39;j&#39;}\)</span>.</p>
+Hay que tener en cuenta que en dicho conjunto puede haber repeticiones, es decir, pueden existir dos parejas <span class="math inline">\((i,j)\)</span> y <span class="math inline">\((i&#39;,j&#39;)\)</span> tal que <span class="math inline">\(z_{ij}=z_{i&#39;j&#39;}\)</span>.</p>
 <p>La expresión de la <strong>función de probabilidad</strong> en el caso discreto se complica mucho debido a dichas repeticiones y es mejor hallarla en cada caso concreto.</p>
 <p>La última observación se puede aplicar también en el caso continuo: la expresión de la <strong>función de densidad</strong> se halla en cada caso concreto.</p>
 <div class="example">
@@ -3328,7 +3332,7 @@ Hay que tener en cuenta que en dicho conjunto puede haber repeticiones, o sea, p
 <p>Anteriormente hemos estudiado la suma <span class="math inline">\(S\)</span> de los resultados. En este caso podemos interpretar <span class="math inline">\(S=g(X,Y)\)</span> donde <span class="math inline">\(g(x,y)=x+y\)</span>.</p>
 <p>Como la función <span class="math inline">\(S\)</span> ya ha sido estudiada y el producto se ha dejado como ejercicio, estudiaremos la siguiente variable aleatoria función de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>: <span class="math inline">\(Z=X^2+Y^2\)</span>.</p>
 <p>Realizaremos los cálculos con ayuda de <code>R</code> ya que hacerlos a mano es bastante tedioso.</p>
-<p>Los valores de <span class="math inline">\(Z(\Omega)\)</span> serán: <span class="math inline">\(Z(\Omega)=\{z_{ij}=i^2+j^2,\ i=1,2,3,4,5,6,\ j=1,2,3,4,5,6\}\)</span>. Observad que hay parejas <span class="math inline">\((i,j)\)</span> que dan lugar a los mismos valores, por ejemplo <span class="math inline">\(1^2+2^2 = 2^2+1^2\)</span>, y, en general, si <span class="math inline">\(i\neq j\)</span>, <span class="math inline">\(z_{ij}=i^2+j^2=z_{ji}=j^2+i^2\)</span>.</p>
+<p>Los valores de <span class="math inline">\(Z(\Omega)\)</span> son: <span class="math inline">\(Z(\Omega)=\{z_{ij}=i^2+j^2,\ i=1,2,3,4,5,6,\ j=1,2,3,4,5,6\}\)</span>. Observad que hay parejas <span class="math inline">\((i,j)\)</span> que dan lugar a los mismos valores, por ejemplo <span class="math inline">\(1^2+2^2 = 2^2+1^2\)</span>, y, en general, si <span class="math inline">\(i\neq j\)</span>, <span class="math inline">\(z_{ij}=i^2+j^2=z_{ji}=j^2+i^2\)</span>.</p>
 <p>Para hallar el conjunto <span class="math inline">\(Z(\Omega)\)</span> usamos la función <code>outer</code> de <code>R</code>:</p>
 <div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" data-line-number="1">g=<span class="cf">function</span>(x,y){x<span class="op">^</span><span class="dv">2</span><span class="op">+</span>y<span class="op">^</span><span class="dv">2</span>}  <span class="co">## definimos la función g</span></a>
 <a class="sourceLine" id="cb397-2" data-line-number="2"><span class="kw">sort</span>(<span class="kw">unique</span>(<span class="kw">as.vector</span>(<span class="kw">outer</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>,g))))</a></code></pre></div>
@@ -3345,7 +3349,7 @@ Hay que tener en cuenta que en dicho conjunto puede haber repeticiones, o sea, p
 <a class="sourceLine" id="cb399-8" data-line-number="8">}</a>
 <a class="sourceLine" id="cb399-9" data-line-number="9">frecuencias</a></code></pre></div>
 <pre><code>##  [1] 1 2 1 2 2 2 1 2 2 2 2 1 2 2 2 2 2 1 2 2 1</code></pre>
-<p>La <strong>función de probabilidad</strong> de <span class="math inline">\(Z\)</span> será:</p>
+<p>La <strong>función de probabilidad</strong> de <span class="math inline">\(Z\)</span> es:</p>
 <div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" data-line-number="1">función.probabilidad.Z=<span class="kw">data.frame</span>(<span class="kw">rbind</span>(valores.variable.Z,<span class="kw">round</span>(frecuencias<span class="op">/</span><span class="dv">36</span>,<span class="dv">3</span>)))</a>
 <a class="sourceLine" id="cb401-2" data-line-number="2"><span class="kw">rownames</span>(función.probabilidad.Z)=<span class="kw">c</span>(<span class="st">&quot;Z&quot;</span>,<span class="st">&quot;P_Z&quot;</span>)</a>
 <a class="sourceLine" id="cb401-3" data-line-number="3">función.probabilidad.Z</a></code></pre></div>
@@ -3375,13 +3379,13 @@ El gráfico siguiente muestra en color violeta la región de integración para h
 <div class="center">
 <p><img src="Images/EjSumaXY.png" /><!-- --></p>
 </div>
-<p>El valor de <span class="math inline">\(F_Z(z)\)</span> será: (fijémonos que primero fijamos la <span class="math inline">\(y\)</span> y para cada <span class="math inline">\(y\)</span> la <span class="math inline">\(x\)</span> va desde la recta <span class="math inline">\(x=y\)</span> hasta la recta <span class="math inline">\(x=z-y\)</span>)
+<p>El valor de <span class="math inline">\(F_Z(z)\)</span> es: (fijémonos que primero fijamos la <span class="math inline">\(y\)</span> y para cada <span class="math inline">\(y\)</span> la <span class="math inline">\(x\)</span> va desde la recta <span class="math inline">\(x=y\)</span> hasta la recta <span class="math inline">\(x=z-y\)</span>)
 <span class="math display">\[
 \begin{array}{rl}
 F_Z(z) &amp; =\int_{y=0}^{y=\frac{z}{2}}\int_{x=y}^{x=z-y}2 \mathrm{e}^{-x}\mathrm{e}^{-y}\, dx\, dy = 2 \int_{y=0}^{y=\frac{z}{2}} \mathrm{e}^{-y} \left[-\mathrm{e}^{-x}\right]_{x=y}^{x=z-y}\, dy \\ &amp; = 2 \int_{y=0}^{y=\frac{z}{2}} \mathrm{e}^{-y} \left(\mathrm{e}^{-y}-\mathrm{e}^{y-z}\right)\, dy = 2 \int_{y=0}^{y=\frac{z}{2}} \left(\mathrm{e}^{-2y}-\mathrm{e}^{-z} \right)\, dy  = 2\left[-\frac{1}{2}\mathrm{e}^{-2y}-\mathrm{e}^{-z} y\right]_{y=0}^{y=\frac{z}{2}} \\ &amp; = 2\left(\frac{1}{2}-\frac{1}{2}\mathrm{e}^{-z}-\frac{z}{2}\mathrm{e}^{-z}\right) = 1-\mathrm{e}^{-z}(1+z),\ z\geq 0.
 \end{array}
 \]</span>
-La <strong>función de densidad</strong> de <span class="math inline">\(Z\)</span> será:
+La <strong>función de densidad</strong> de <span class="math inline">\(Z\)</span> es:
 <span class="math display">\[
 f_Z(z)=F&#39;_Z(z)=z \mathrm{e}^{-z},\ z\geq 0,
 \]</span>
@@ -3395,7 +3399,7 @@ y <span class="math inline">\(f_Z(z)=0\)</span> en caso contrario.</p>
 f_{XY}(x,y)=\frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}},\ -\infty &lt;x,y&lt;\infty.
 \]</span>
 Consideremos <span class="math inline">\(S=X+Y\)</span>. Estudiemos qué distribución tiene <span class="math inline">\(S\)</span>.</p>
-<p>Dado un valor <span class="math inline">\(z\in\mathbb{R}\)</span>, la <strong>función de distribución</strong> de <span class="math inline">\(S\)</span> en <span class="math inline">\(s\)</span> será:
+<p>Dado un valor <span class="math inline">\(z\in\mathbb{R}\)</span>, la <strong>función de distribución</strong> de <span class="math inline">\(S\)</span> en <span class="math inline">\(s\)</span> es:
 <span class="math display">\[
 \begin{array}{rl}
 F_S(s) &amp; =P(S\leq s)=\int\int_{\{(x,y)\in\mathbb{R}^2,\ |\ x+y\leq s\}}\frac{1}{2\pi\sqrt{1-\rho^2}}\mathrm{e}^{-\frac{(x^2-2\rho xy+y^2)}{2(1-\rho^2)}}\, dy\, dx \\ &amp; =
@@ -3432,7 +3436,7 @@ f_S(s)  &amp; = \frac{\mathrm{e}^{-\frac{s^2}{4(1+\rho)}}}{2\pi\sqrt{1-\rho^2}}\
 <div id="transformaciones-lineales-de-variables-aleatorias" class="section level3">
 <h3><span class="header-section-number">5.8.2</span> Transformaciones lineales de variables aleatorias</h3>
 <p>Consideremos una variable aleatoria bidimensional continua <span class="math inline">\((X,Y)\)</span> con <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{XY}\)</span>.</p>
-<p>Definimos la variable aleatoria bidimensional continua <span class="math inline">\((U,V)\)</span> a partir de una transformación lineal de la variable <span class="math inline">\((X,Y)\)</span>. O sea, existe una matriz <span class="math inline">\(\mathbf{M}=\begin{pmatrix}a &amp; b\\ c&amp; d\end{pmatrix}\)</span> y un vector <span class="math inline">\(\mathbf{n}=\begin{pmatrix}\alpha\\\beta \end{pmatrix}\)</span> tal que:
+<p>Definimos la variable aleatoria bidimensional continua <span class="math inline">\((U,V)\)</span> a partir de una transformación lineal de la variable <span class="math inline">\((X,Y)\)</span>. Es decir, existe una matriz <span class="math inline">\(\mathbf{M}=\begin{pmatrix}a &amp; b\\ c&amp; d\end{pmatrix}\)</span> y un vector <span class="math inline">\(\mathbf{n}=\begin{pmatrix}\alpha\\\beta \end{pmatrix}\)</span> tal que:
 <span class="math display">\[
 \begin{array}{rl}
 \begin{pmatrix}U\\ V\end{pmatrix} &amp; =\mathbf{M}\cdot \begin{pmatrix}X\\ Y\end{pmatrix}+\mathbf{n}=\begin{pmatrix}a &amp; b\\ c&amp; d\end{pmatrix}\cdot\begin{pmatrix}X\\ Y\end{pmatrix}+\begin{pmatrix}\alpha\\\beta \end{pmatrix},\\  &amp; \Rightarrow \left.\begin{array}{rl}U &amp; = aX+bY+\alpha,\\ V &amp; =cX+dY+\beta.\end{array}\right\}
@@ -3444,7 +3448,7 @@ f_S(s)  &amp; = \frac{\mathrm{e}^{-\frac{s^2}{4(1+\rho)}}}{2\pi\sqrt{1-\rho^2}}\
 f_{UV}(u,v)=\frac{1}{|\mathrm{det}(\mathbf{M})|}f_{XY}\left(\mathbf{M}^{-1}\begin{pmatrix}u-\alpha\\ v-\beta\end{pmatrix}\right), \ (u,v)\in\mathbb{R}^2.
 \]</span></p>
 <p><l class="observ">Observación. </l>
-Si la variable <span class="math inline">\((X,Y)\)</span> tiene una región <span class="math inline">\(D\)</span> donde <span class="math inline">\(f_{XY}(x,y)\neq 0\)</span>, para todo <span class="math inline">\((x,y)\in D\)</span>, antes de aplicar la expresión anterior para hallar la <strong>función de densidad</strong> de la variable <span class="math inline">\((U,V)\)</span> hemos de calcular cómo se transforma <span class="math inline">\(D\)</span> con la matriz <span class="math inline">\(\mathbf{M}\)</span>. O sea, hay que hallar la región
+Si la variable <span class="math inline">\((X,Y)\)</span> tiene una región <span class="math inline">\(D\)</span> donde <span class="math inline">\(f_{XY}(x,y)\neq 0\)</span>, para todo <span class="math inline">\((x,y)\in D\)</span>, antes de aplicar la expresión anterior para hallar la <strong>función de densidad</strong> de la variable <span class="math inline">\((U,V)\)</span> hemos de calcular cómo se transforma <span class="math inline">\(D\)</span> con la matriz <span class="math inline">\(\mathbf{M}\)</span>. Es decir, hay que hallar la región
 <span class="math display">\[
 D&#39;=\mathbf{M}(D)=\{(u,v)\in\mathbb{R}^2,\ \mbox{existe $(x,y)\in D$ con } (u,v)=\mathbf{M}(x,y)+\mathbf{n}\}.
 \]</span></p>
@@ -3491,7 +3495,7 @@ Ver la figura adjunta.</p>
 <div class="center">
 <p><img src="Images/EjTranLineal2.png" /><!-- --></p>
 </div>
-<p>La <strong>función de densidad</strong> <span class="math inline">\(f_{UV}\)</span> será, por tanto,
+<p>La <strong>función de densidad</strong> <span class="math inline">\(f_{UV}\)</span> es,
 <span class="math display">\[
 \begin{array}{rl}
 f_{UV}(u,v) &amp; =\frac{1}{\left|\mathrm{det}\begin{pmatrix}1 &amp; -1\\ 1&amp; 1\end{pmatrix}\right|}\cdot f_{XY}\left(\frac{1}{2}(u+v),\frac{1}{2}(-u+v)\right) \\ &amp; =\frac{1}{2}\cdot \frac{1}{2}\cdot \left(1+\frac{1}{2}(-u+v)+\frac{1}{2}(u+v)\right)=\frac{1}{4}(1+v),
@@ -3517,7 +3521,7 @@ Recordemos que las <strong>distribuciones marginales</strong> eran distribucione
 <span class="math display">\[
 \begin{pmatrix}U\\ V\end{pmatrix}=\begin{pmatrix}\sigma_1 &amp; 0\\ 0&amp; \sigma_2\end{pmatrix}\cdot\begin{pmatrix}X\\ Y\end{pmatrix}+\begin{pmatrix}\mu_1\\\mu_2\end{pmatrix},\ \Rightarrow \left.\begin{array}{rl}U &amp; = \sigma_1\cdot X+\mu_1,\\ V &amp; =\sigma_2\cdot Y+\mu_2.\end{array}\right\}
 \]</span></p>
-<p>La función de densidad conjunta <span class="math inline">\(f_{UV}\)</span> será:
+<p>La función de densidad conjunta <span class="math inline">\(f_{UV}\)</span> es:
 <span class="math display">\[
 \begin{array}{rl}
 f_{UV}(u,v) &amp; = \frac{1}{\left|\begin{pmatrix}\sigma_1 &amp; 0\\ 0&amp; \sigma_2\end{pmatrix}\right|} f_{XY}\left(\frac{u-\mu_1}{\sigma_1},\frac{v-\mu_2}{\sigma_2}\right)
@@ -3536,7 +3540,7 @@ La variable aleatoria bidimensional <span class="math inline">\((X,Y)\)</span> e
 <div id="transformaciones-generales-de-variables-aleatorias" class="section level3">
 <h3><span class="header-section-number">5.8.3</span> Transformaciones generales de variables aleatorias</h3>
 <p>Consideremos una variable aleatoria bidimensional continua <span class="math inline">\((X,Y)\)</span> con <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{XY}\)</span>.</p>
-<p>Definimos la variable aleatoria bidimensional continua <span class="math inline">\((U,V)\)</span> a partir de una transformación general de la variable <span class="math inline">\((X,Y)\)</span>. O sea, existen dos funciones de dos variables <span class="math inline">\(g_1\)</span> y <span class="math inline">\(g_2\)</span> tal que:
+<p>Definimos la variable aleatoria bidimensional continua <span class="math inline">\((U,V)\)</span> a partir de una transformación general de la variable <span class="math inline">\((X,Y)\)</span>. Es decir, existen dos funciones de dos variables <span class="math inline">\(g_1\)</span> y <span class="math inline">\(g_2\)</span> tal que:
 <span class="math display">\[
 U  = g_1 (X,Y),\quad 
 V  = g_2 (X,Y).
@@ -3575,7 +3579,7 @@ x=h_1(r,\alpha)=r\cdot \cos\alpha,\quad y=h_2(r,\alpha)=r\cdot \sin\alpha.
 <span class="math display">\[
 \mathrm{det}\begin{pmatrix}\frac{\partial h_1}{\partial u} &amp; \frac{\partial h_1}{\partial v}\\ \frac{\partial h_2}{\partial u} &amp; \frac{\partial h_2}{\partial v}\end{pmatrix} =\mathrm{det}\begin{pmatrix}\cos\alpha &amp; -r\sin\alpha\\ \sin\alpha &amp; r\cdot\cos\alpha\end{pmatrix} = r.
 \]</span>
-La <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{r\alpha}\)</span> en las nuevas variables (polares) será:
+La <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{r\alpha}\)</span> en las nuevas variables (polares) es:
 <span class="math display">\[
 f_{r\alpha}(r,\alpha)=r\cdot \frac{2}{\pi}\left((r\cos\alpha)^2+(r\sin\alpha)^2\right)=\frac{2}{\pi}\cdot r^3,
 \]</span>

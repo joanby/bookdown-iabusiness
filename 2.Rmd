@@ -1342,20 +1342,22 @@ más de $2\sigma$, ¡*sea cual sea la distribución de la v.a.*!
 
 ## Cuantiles de variables aleatorias
 
-Si  $X$ es una v.a. con dominio $D_X$ y  $0<q<1$, llamaremos cuantil de orden $q$ al menor valor  perteneciente al dominio $x_q\in D_X$ tal que:
-$$P(X\leq x_q)\geq q.$$
+Si  $X$ es una v.a. con dominio $D_X$ y  $0<p<1$, llamaremos cuantil de orden $p$ al menor valor  perteneciente al dominio $x_p\in D_X$ tal que:
+$$P(X\leq x_p)\geq p.$$
 
 En `R`, cada distribución $X$ tiene la función `qX(p,...)` que devuelve precisamente el cuantil $x_p$ tal que $P(X\leq x_p)\geq p.$
 
 
 
-Dada una variable aleatoria $X$, si existe la inversa de la función de distribución de $X$, $F_X^{-1}$, el cuantil $q$ sería el valor que tiene la función $F_X^{-1}$ en $q$: $x_q=F^{-1}(q)$.
+Dada una variable aleatoria $X$, si existe la inversa de la función de distribución de $X$, $F_X^{-1}$, el cuantil de orden $p$ sería el valor que tiene la función $F_X^{-1}$ en $p$: $x_p=F^{-1}(p)$.
 
-En caso de no existir la inversa, dado $q$, definimos el conjunto $F_X^{-1}(q)$ como:
+En caso de no existir la inversa, dado $p$, definimos el conjunto $A_p$ como:
+
 $$
-F_X^{-1}(q) =\{x\in\mathbb{R},\ |\ F_X(x)=q\}.
+A_p =\{x\in\mathbb{R},\ |\ F_X(x)\geq p\}.
 $$
-Entonces el cuantil $q$ sería el mínimo del conjunto anterior considerando sólo valores del dominio de la variable: $x_q =\min_{x\in D_X}(F_X^{-1}(q))$.
+
+Entonces el cuantil $p$ es el mínimo del conjunto $A_p$ considerando sólo valores del dominio de la variable: $x_p =\displaystyle\min_{x\in D_X}(A_p)$. Este mínimo siempre existirá y nos da una fórmula explícita para calcular los cuantiles de cualquier variable aleatoria.
 
 
 <div class="example">
@@ -1419,7 +1421,7 @@ Los valores de $F_X(i)$ para $i=0,\ldots, 11$ serían:
 pdado(0:11,6)
 ```
 
-A continuación, construímos la función `qdado` que nos calcula el cuantil $p$, para $0\leq p\leq 1$, de la variable $X$ como el mínimo de la antiimagen de $p$ mediante la función de distribución $F_X^{-1}(p)$
+A continuación, construímos la función `qdado` que nos calcula el cuantil $p$, para $0\leq p\leq 1$, de la variable $X$ como el mínimo del conjunto $A_p$:
 
 ```{r}
 qdado=function(p,n=6){

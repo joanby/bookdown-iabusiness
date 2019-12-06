@@ -24,7 +24,7 @@
 <meta name="author" content="Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir" />
 
 
-<meta name="date" content="2019-12-05" />
+<meta name="date" content="2019-12-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -278,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html"><i class="fa fa-check"></i><b>6</b> Vectores aleatorios</a><ul>
 <li class="chapter" data-level="6.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#varias-variables-aleatorias"><i class="fa fa-check"></i><b>6.1</b> Varias variables aleatorias</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#definicion-3"><i class="fa fa-check"></i><b>6.1.1</b> Definición</a></li>
-<li class="chapter" data-level="6.1.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#representar-el-dominio-de-una-variable-aleatoria-n-dimensional"><i class="fa fa-check"></i><b>6.1.2</b> Representar el dominio de una variable aleatoria <span class="math inline">\(n\)</span>-dimensional</a></li>
+<li class="chapter" data-level="6.1.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#representacion-del-dominio-de-una-variable-aleatoria-n-dimensional"><i class="fa fa-check"></i><b>6.1.2</b> Representación del dominio de una variable aleatoria <span class="math inline">\(n\)</span>-dimensional</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#funcion-de-distribucion-conjunta-1"><i class="fa fa-check"></i><b>6.2</b> Función de distribución conjunta</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#definicion-4"><i class="fa fa-check"></i><b>6.2.1</b> Definición</a></li>
@@ -289,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#variables-aleatorias-n-dimensionales-discretas"><i class="fa fa-check"></i><b>6.3</b> Variables aleatorias <span class="math inline">\(n\)</span>-dimensionales discretas</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#funcion-de-probabilidad-conjunta-1"><i class="fa fa-check"></i><b>6.3.1</b> Función de probabilidad conjunta</a></li>
 <li class="chapter" data-level="6.3.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#propiedades-de-la-funcion-de-probabilidad-conjunta-1"><i class="fa fa-check"></i><b>6.3.2</b> Propiedades de la función de probabilidad conjunta</a></li>
-<li class="chapter" data-level="6.3.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#variables-aleatorias-marginales"><i class="fa fa-check"></i><b>6.3.3</b> Variables aleatorias marginales</a></li>
+<li class="chapter" data-level="6.3.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#funciones-de-distribucion-marginales"><i class="fa fa-check"></i><b>6.3.3</b> Funciones de distribución marginales</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#variables-aleatorias-n-dimensionales-continuas"><i class="fa fa-check"></i><b>6.4</b> Variables aleatorias <span class="math inline">\(n\)</span>-dimensionales continuas</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#definicion-5"><i class="fa fa-check"></i><b>6.4.1</b> Definición</a></li>
@@ -359,7 +359,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.1</span> Varias variables aleatorias</h2>
 <p>En el capítulo anterior trabajamos con <strong>variables aleatorias bidimensionales</strong></p>
 <p>En este capítulo vamos a generalizar los conceptos introducidos para <strong>variables aleatorias <span class="math inline">\(n\)</span>-dimensionales</strong>, con <span class="math inline">\(n\geq 3\)</span>.</p>
-<p>El ejemplo que comentamos en el capítulo de variables aleatorias de medir la temperatura media un día determinado del año durante 10 años sería un ejemplo de variable aleatoria 10-dimensional.</p>
+<p>El ejemplo que comentamos en el capítulo de variables aleatorias de medir la temperatura media un día determinado del año durante 10 años es un ejemplo de variable aleatoria 10-dimensional.</p>
 <div id="definicion-3" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> Definición</h3>
 <p>La generalización de la noción de <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional</strong> a partir de la noción de <strong>variable aleatoria bidimensional</strong> es bastante obvia:</p>
@@ -372,24 +372,26 @@ w &amp; \longrightarrow \mathbf{X}(w)=(X_1(w),X_2(w),\ldots,X_n(w)).
 \end{array}
 \]</span></p>
 <div class="example">
-<p><strong>Ejemplo</strong></p>
+<p><strong>Ejemplo: puertos entrada internet</strong></p>
 <p>Tenemos tres puertos de entrada de paquetes de internet.</p>
 <p>Supongamos que cada milisegundo llega un paquete y el switch lo asigna a cada uno de los puertos con probabilidad <span class="math inline">\(\frac{1}{3}\)</span>.</p>
 <p>Estudiamos cómo se distribuyen los paquetes en 4 milisegundos.</p>
+<div class="example-sol">
 <p>Sea <span class="math inline">\(\mathbf{X}=(X_1,X_2,X_3)\)</span> la variable aleatoria 3-dimensional, donde <span class="math inline">\(X_i\)</span> nos da el número de paquetes que ha recibido el puerto <span class="math inline">\(i\)</span>-ésimo durante estos 4 milisegundos.</p>
-<p>Por ejemplo, el suceso <span class="math inline">\(\{X_1\leq 1, X_2\geq 3, X_3\leq 1\}\)</span> sería <span class="math inline">\(\{(0,3,0),(0,3,1),(0,4,0),(0,4,1),(1,3,0),(1,3,1),(1,4,0),(1,4,1)\}\)</span>.</p>
+<p>Por ejemplo, el suceso <span class="math inline">\(\{X_1\leq 1, X_2\geq 3, X_3\leq 1\}\)</span> es <span class="math inline">\(\{(0,3,0),(0,3,1),(0,4,0),(0,4,1),(1,3,0),(1,3,1),(1,4,0),(1,4,1)\}\)</span>.</p>
 </div>
 </div>
-<div id="representar-el-dominio-de-una-variable-aleatoria-n-dimensional" class="section level3">
-<h3><span class="header-section-number">6.1.2</span> Representar el dominio de una variable aleatoria <span class="math inline">\(n\)</span>-dimensional</h3>
+</div>
+<div id="representacion-del-dominio-de-una-variable-aleatoria-n-dimensional" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Representación del dominio de una variable aleatoria <span class="math inline">\(n\)</span>-dimensional</h3>
 <p>Los sucesos que se derivan de una <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional</strong> estan especificados por regiones del espacio <span class="math inline">\(n\)</span>-dimensional.</p>
 <p>Veamos algunos ejemplos:</p>
-<p>Suceso: <span class="math inline">\(\{X_1+X_2+X_3\leq 1\}\)</span>. En el gráfico siguiente, el plano <span class="math inline">\(x_1+x_2+x_3=1\)</span> separa el espacio en dos partes. Sería la parte que corresponde al punto <span class="math inline">\((0,0,0)\)</span>.</p>
-<p>O sea, si pensamos el plano anterior como un “espejo” sería la parte de atrás del mismo.</p>
+<p>Suceso: <span class="math inline">\(\{X_1+X_2+X_3\leq 1\}\)</span>. En el gráfico siguiente, el plano <span class="math inline">\(x_1+x_2+x_3=1\)</span> separa el espacio en dos partes. Es la parte que corresponde al punto <span class="math inline">\((0,0,0)\)</span>.</p>
+<p>Si pensamos el plano anterior como un “espejo” sería la parte de atrás del mismo.</p>
 <div class="center">
 <p><img src="Images/EjPlano3D.png" width="142" /></p>
 </div>
-<p>Suceso: <span class="math inline">\(\{X_1^2+X_2^2+X_3^2\leq 1\}\)</span>. Sería el interior de la esfera del gráfico siguiente:</p>
+<p>Suceso: <span class="math inline">\(\{X_1^2+X_2^2+X_3^2\leq 1\}\)</span>. Es el interior de la esfera del gráfico siguiente:</p>
 <div class="center">
 <p><img src="Images/EjEsfera3D.png" width="142" /></p>
 </div>
@@ -401,7 +403,7 @@ w &amp; \longrightarrow \mathbf{X}(w)=(X_1(w),X_2(w),\ldots,X_n(w)).
 <span class="math display">\[
 P((X_1,X_2,\ldots,X_n)\in B)=P\{w\in \Omega,\ |\ (X_1(w),X_2(w),\ldots,X_n)\in B\},
 \]</span>
-o sea, la probabilidad anterior es la probabilidad del suceso formado por los elementos de <span class="math inline">\(w\in\Omega\)</span> que cumplen que su <strong>imagen</strong> por la <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional <span class="math inline">\((X_1,X_2,\ldots,X_n)\)</span></strong> esté en <span class="math inline">\(B\)</span>.</p>
+dicho de otra manera, la probabilidad anterior es la probabilidad del suceso formado por los elementos de <span class="math inline">\(w\in\Omega\)</span> que cumplen que su <strong>imagen</strong> por la <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional <span class="math inline">\((X_1,X_2,\ldots,X_n)\)</span></strong> esté en <span class="math inline">\(B\)</span>.</p>
 <p>Por ejemplo, si consideramos <span class="math inline">\(B=\{X_1+X_2+\cdots +X_n\leq 1\}\)</span>, <span class="math inline">\(P((X_1,X_2,\ldots,X_n)\in B)\)</span> sería la probabilidad del suceso formado por los elementos <span class="math inline">\(w\)</span> de <span class="math inline">\(\Omega\)</span> tal que la suma de las imágenes por <span class="math inline">\(X_i\)</span> desde <span class="math inline">\(i=1\)</span> hasta <span class="math inline">\(n\)</span> sea menor o igual que 1: <span class="math inline">\(X_1(w)+\cdots +X_n\leq 1\)</span>.</p>
 </div>
 </div>
@@ -419,7 +421,7 @@ F_{X_1\ldots X_n}: \mathbb{R}^n &amp; \longrightarrow \mathbb{R}\\
 (x_1,\ldots,x_n) &amp; \longrightarrow F_{X_1\ldots X_n}(x_1,\ldots,x_n)=P(X_1\leq x_1,\ldots,X_n\leq x_n).
 \end{array}
 \]</span></p>
-<p>O sea, dado un valor <span class="math inline">\((x_1,\ldots,x_n)\in \mathbb{R}^n\)</span>, consideramos la región del espacio <span class="math inline">\(n\)</span>-dimensional <span class="math inline">\((-\infty,x_1]\times\cdots\times (-\infty,x_n]\)</span>.</p>
+<p>Es decir, dado un valor <span class="math inline">\((x_1,\ldots,x_n)\in \mathbb{R}^n\)</span>, consideramos la región del espacio <span class="math inline">\(n\)</span>-dimensional <span class="math inline">\((-\infty,x_1]\times\cdots\times (-\infty,x_n]\)</span>.</p>
 <p>Entonces la <strong>función de distribución conjunta</strong> en el valor <span class="math inline">\((x_1,\ldots,x_n)\)</span> es la probabilidad del suceso formado por aquellos elementos tal que la imagen por la <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional</strong> <span class="math inline">\((X_1,X_2,\ldots,X_n)\)</span> caen dentro de la región anterior:</p>
 <p><span class="math display">\[
 \begin{array}{rl}
@@ -476,7 +478,7 @@ x_1^2\cdot x_2^2\cdot x_3^2, &amp; \mbox{si }0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\
 <p>La primera figura muestra las zonas en la “planta baja” o para <span class="math inline">\(0\leq x_3\leq 1\)</span>.
 En color marrón, está representada la región <span class="math inline">\(0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\ 0\leq x_3\leq 1\)</span>, en color amarillo, la región <span class="math inline">\(x_1&gt; 1,\ 0\leq x_2\leq 1,\ 0\leq x_3\leq 1\)</span>, en color verde, la región <span class="math inline">\(x_1&gt;1,\ x_2&gt;1,\ 0\leq x_3\leq 1\)</span> y en color violeta, la región <span class="math inline">\(0\leq x_1\leq 1,\ x_2&gt;1,\ 0\leq x_3\leq 1\)</span>.</p>
 <p>La segunda figura muestra las zonas del “primer piso” o para <span class="math inline">\(x_3&gt;1\)</span>. Los colores tienen un significado similar a los de la primera figura: en color marrón, está representada la región <span class="math inline">\(0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\  x_3&gt; 1\)</span>, en color amarillo u ocre, la región <span class="math inline">\(x_1&gt; 1,\ 0\leq x_2\leq 1,\ x_3&gt; 1\)</span>, en color verde, la región <span class="math inline">\(x_1&gt;1,\ x_2&gt;1,\ x_3&gt; 1\)</span> y en color violeta, la región <span class="math inline">\(0\leq x_1\leq 1,\ x_2&gt;1,\ x_3&gt; 1\)</span>.</p>
-<p><img src="Images/Ej3DFxyz.png" width="91" /><img src="Images/Ej3DFxy2pis.png" width="103" /></p>
+<p><img src="Images/Ej3DFxyz.png" width="91" style="display: block; margin: auto;" /><img src="Images/Ej3DFxy2pis.png" width="103" style="display: block; margin: auto;" /></p>
 <p>Comprobemos algunas de las propiedades que hemos enunciado anteriormente:</p>
 <ul>
 <li><p>Claramente <span class="math inline">\(F_{X_1X_2X_3}(x_1,x_2,-\infty)=F_{X_1X_2X_3}(x_1,-\infty,x_3)=F_{X_1X_2X_3}(-\infty,x_2,x_3)=0\)</span> ya que <span class="math inline">\(F_{X_1X_2X_3}(x_1,x_2,x_3)=0\)</span> si <span class="math inline">\(x_1&lt;0\)</span> o <span class="math inline">\(x_2&lt;0\)</span> o <span class="math inline">\(x_3&lt;0\)</span>. Por tanto, si hacemos tender <span class="math inline">\(x_1\)</span> o <span class="math inline">\(x_2\)</span> o <span class="math inline">\(x_3\)</span> hacia <span class="math inline">\(-\infty\)</span>, obtendremos que <span class="math inline">\(F_{X_1X_2X_3}(x_1,x_2,-\infty)=F_{X_1X_2X_3}(x_1,-\infty,x_3)=F_{X_1X_2X_3}(-\infty,x_2,x_3)=0\)</span>.</p></li>
@@ -495,15 +497,15 @@ Para ver la expresión anterior basta trazar el plano <span class="math inline">
 <p>¡Efectivamente!, <span class="math inline">\(X_1\)</span> es la uniforme en el intervalo <span class="math inline">\((0,1)\)</span>.</p>
 <p>Dejamos como ejercicio hallar la distribución marginal para las variables <span class="math inline">\(X_2\)</span> e <span class="math inline">\(X_3\)</span>.</p>
 <ul>
-<li>Comprobemos que <span class="math inline">\(F_{X_1X_2X_3}\)</span> es continua por la derecha para las variables <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> y <span class="math inline">\(x_3\)</span> en el punto <span class="math inline">\((1,1,1)\)</span> que sería un punto problemático:
-<span class="math display">\[
+<li>Comprobemos que <span class="math inline">\(F_{X_1X_2X_3}\)</span> es continua por la derecha para las variables <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> y <span class="math inline">\(x_3\)</span> en el punto <span class="math inline">\((1,1,1)\)</span> que sería un punto problemático:</li>
+</ul>
+<p><span class="math display">\[
 \begin{array}{rl}
  \lim_{x_1\to 1,x_1&gt; 1} F_{X_1X_2X_3}(x_1,1,1) &amp; =\lim_{x_1\to 1,x_1&gt; 1} 1  = F_{X_1X_2X_3}(1,1,1),\\
  \lim_{x_2\to 1,x_2&gt; 1} F_{X_1X_2X_3}(1,x_2,1) &amp; =\lim_{x_2\to 1,x_2&gt; 1} 1 = F_{X_1X_2X_3}(1,1,1),\\  
 \lim_{x_3\to 1,x_3&gt; 1} F_{X_1X_2X_3}(1,1,x_3) &amp; =\lim_{x_3\to 1,x_3&gt; 1} 1  = F_{X_1X_2X_3}(1,1,1).
 \end{array}
-\]</span></li>
-</ul>
+\]</span></p>
 </div>
 </div>
 <div id="ejemplo-con-r" class="section level3">
@@ -512,44 +514,53 @@ Para ver la expresión anterior basta trazar el plano <span class="math inline">
 <p>Realizar un gráfico 3D de la <strong>función de distribución conjunta</strong> no es posible ya que deberíamos pasar a <span class="math inline">\(\mathbb{R}^4\)</span>.</p>
 <p>Lo que sí es posible es dibujar las curvas de nivel de dicha función para un valor de <span class="math inline">\(x_3\)</span> fijado.</p>
 <p>El los gráficos siguientes dibujamos las curvas de nivel para <span class="math inline">\(x_3=0,0.5,1\)</span> i <span class="math inline">\(x_3=1.5\)</span>.</p>
+<div class="example-sol">
 <p>Primero definimos la <strong>función</strong> y luego la dibujamos para <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span> entre <span class="math inline">\(-1\)</span> y <span class="math inline">\(3\)</span>:</p>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" data-line-number="1">f.dist.con =<span class="st"> </span><span class="cf">function</span>(x1,x2,x3){<span class="kw">ifelse</span>(x1<span class="op">&lt;</span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>x2<span class="op">&lt;</span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>x3 <span class="op">&lt;</span><span class="dv">0</span>,<span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb403-2" data-line-number="2">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&lt;=</span><span class="dv">1</span>,x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x2<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb403-3" data-line-number="3">          <span class="kw">ifelse</span>(x1<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&lt;=</span><span class="dv">1</span>,x2<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb403-4" data-line-number="4">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&lt;=</span><span class="dv">1</span>,x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb403-5" data-line-number="5">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;</span><span class="dv">1</span>,x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x2<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb403-6" data-line-number="6">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2 <span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3 <span class="op">&gt;</span><span class="dv">1</span>,x1<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb403-7" data-line-number="7">          <span class="kw">ifelse</span>(x1<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2 <span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3 <span class="op">&gt;</span><span class="dv">1</span>,x2<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb403-8" data-line-number="8">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3 <span class="op">&gt;</span><span class="dv">1</span>,x3<span class="op">^</span><span class="dv">2</span>,<span class="dv">1</span>))))))))}</a>
-<a class="sourceLine" id="cb403-9" data-line-number="9">x1=<span class="kw">seq</span>(<span class="dt">from=</span><span class="op">-</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">3</span>,<span class="dt">by=</span><span class="fl">0.05</span>)</a>
-<a class="sourceLine" id="cb403-10" data-line-number="10">x2=<span class="kw">seq</span>(<span class="dt">from=</span><span class="op">-</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">3</span>,<span class="dt">by=</span><span class="fl">0.05</span>)</a>
-<a class="sourceLine" id="cb403-11" data-line-number="11">curva.nivel<span class="fl">.0</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb403-12" data-line-number="12">curva.nivel.<span class="fl">0.5</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb403-13" data-line-number="13">curva.nivel<span class="fl">.1</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb403-14" data-line-number="14">curva.nivel.<span class="fl">1.5</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="fl">1.5</span>)</a>
-<a class="sourceLine" id="cb403-15" data-line-number="15"><span class="kw">image</span>(x1,x2,curva.nivel<span class="fl">.0</span>)</a></code></pre></div>
-<p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-142-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb404-1" data-line-number="1"><span class="kw">image</span>(x1,x2,curva.nivel.<span class="fl">0.5</span>)</a></code></pre></div>
-<p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-142-2.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" data-line-number="1"><span class="kw">image</span>(x1,x2,curva.nivel<span class="fl">.1</span>)</a></code></pre></div>
-<p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-142-3.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb406-1" data-line-number="1"><span class="kw">image</span>(x1,x2,curva.nivel.<span class="fl">1.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">f.dist.con =<span class="st"> </span><span class="cf">function</span>(x1,x2,x3){<span class="kw">ifelse</span>(x1<span class="op">&lt;</span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>x2<span class="op">&lt;</span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>x3 <span class="op">&lt;</span><span class="dv">0</span>,<span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&lt;=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">                 x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x2<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">          <span class="kw">ifelse</span>(x1<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&lt;=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">                 x2<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&lt;=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">                 x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">                 x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x2<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2 <span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3 <span class="op">&gt;</span><span class="dv">1</span>,x1<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">          <span class="kw">ifelse</span>(x1<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2 <span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3 <span class="op">&gt;</span><span class="dv">1</span>,x2<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3 <span class="op">&gt;</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">                 x3<span class="op">^</span><span class="dv">2</span>,<span class="dv">1</span>))))))))}</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">x1=<span class="kw">seq</span>(<span class="dt">from=</span><span class="op">-</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">3</span>,<span class="dt">by=</span><span class="fl">0.05</span>)</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">x2=<span class="kw">seq</span>(<span class="dt">from=</span><span class="op">-</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">3</span>,<span class="dt">by=</span><span class="fl">0.05</span>)</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">curva.nivel<span class="fl">.0</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">curva.nivel.<span class="fl">0.5</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">curva.nivel<span class="fl">.1</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">curva.nivel.<span class="fl">1.5</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="fl">1.5</span>)</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="kw">image</span>(x1,x2,curva.nivel<span class="fl">.0</span>)</a></code></pre></div>
+<p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">image</span>(x1,x2,curva.nivel.<span class="fl">0.5</span>)</a></code></pre></div>
+<p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-1-2.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">image</span>(x1,x2,curva.nivel<span class="fl">.1</span>)</a></code></pre></div>
+<p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-1-3.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">image</span>(x1,x2,curva.nivel.<span class="fl">1.5</span>)</a></code></pre></div>
+</div>
 </div>
 <div class="example">
 <p><strong>Ejemplo del lanzamiento de un dado tres veces</strong></p>
 <p>Consideremos el experimento aleatorio que consiste en lanzar un dado tres veces.</p>
-<p>El espacio <span class="math inline">\(\Omega\)</span> de resultados será:
+<p>El espacio <span class="math inline">\(\Omega\)</span> de resultados es:
 <span class="math display">\[
 \Omega =\{(i,j,k),\ | i,j,k=1,2,3,4,5,6\}.
 \]</span>
 En total tendremos <span class="math inline">\(6\cdot 6\cdot 6=6^3=216\)</span> resultados posibles.</p>
 <p>Consideremos la variable 3-dimensional <span class="math inline">\(\mathbf{X}=(X_1,X_2,X_3)\)</span>, donde <span class="math inline">\(X_1\)</span> nos da el número de 1’s obtenidos, <span class="math inline">\(X_2\)</span>, el número de 2’s y <span class="math inline">\(X_3\)</span>, el número de 3’s.</p>
-<p>El conjunto <span class="math inline">\(\mathbf{X}(\Omega)\)</span> tiene en total 64 elementos ya que cada componente <span class="math inline">\(X_i\)</span> puede tener en total 4 resultados: 0, 1, 2 o 3. Por tanto el conjunto total de resultados será: <span class="math inline">\(4\cdot 4\cdot 4=4^3=64\)</span>.</p>
-<p>El valor de función de distribución conjunta en el resultado <span class="math inline">\((0,0,0)\)</span> será:
-<span class="math display">\[
+<div class="example-sol">
+<p>El conjunto <span class="math inline">\(\mathbf{X}(\Omega)\)</span> tiene en total 64 elementos ya que cada componente <span class="math inline">\(X_i\)</span> puede tener en total 4 resultados: 0, 1, 2 o 3. Por tanto el conjunto total de resultados es: <span class="math inline">\(4\cdot 4\cdot 4=4^3=64\)</span>.</p>
+<p>El valor de función de distribución conjunta en el resultado <span class="math inline">\((0,0,0)\)</span> es:</p>
+<p><span class="math display">\[
 F_{X_1X_2X_3}(0,0,0)=p(X_1\leq 0,\ X_2\leq 0,\ X_3\leq 0)=\frac{3^3}{6^3}=\left(\frac{1}{2}\right)^3 =0.125,
 \]</span>
 ya que si <span class="math inline">\(X_1\leq 0\)</span>, <span class="math inline">\(X_2\leq 0\)</span> y <span class="math inline">\(X_3\leq 0\)</span>, significa que no ha salido ni ningún 1, ni ningún 2 ni ningún 3. Sólo pueden salir 4’s, 5’s o 6’s y existen <span class="math inline">\(3\cdot 3\cdot 3=3^3=27\)</span> posibilidades de que esto pase entre <span class="math inline">\(6^3=216\)</span> posibilidades posibles.</p>
+</div>
 </div>
 </div>
 </div>
@@ -557,27 +568,34 @@ ya que si <span class="math inline">\(X_1\leq 0\)</span>, <span class="math inli
 <h2><span class="header-section-number">6.3</span> Variables aleatorias <span class="math inline">\(n\)</span>-dimensionales discretas</h2>
 <p><l class="definition">Definición de variable aleatoria <span class="math inline">\(n\)</span>-dimensional discreta:</l>
 Sea <span class="math inline">\((X_1,\ldots,X_n)\)</span> una <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional</strong>. Diremos que es discreta cuando su conjunto de valores en <span class="math inline">\(\mathbb{R}^n\)</span>, <span class="math inline">\((X_1,\ldots,X_n)(\Omega)\)</span> es un conjunto finito o numerable.</p>
-<p>En la mayoría de los casos, dicho conjunto será un subconjunto de los enteros naturales.</p>
+<p>En la mayoría de los casos, dicho conjunto es un subconjunto de los enteros naturales.</p>
 <div class="example">
 <p><strong>Ejemplo</strong></p>
-<p>La variable aleatoria 3-dimensional anterior que nos daba el número de 1’s obtenidos, el número de 2’s y el número de 3’s es discreta ya que
-<span class="math display">\[
+<p>La variable aleatoria 3-dimensional anterior que nos daba el número de 1’s obtenidos, el número de 2’s y el número de 3’s es discreta ya que</p>
+<div class="example-sol">
+<p><span class="math display">\[
 \begin{array}{rl}
-\mathbf{X}(\Omega)=\{&amp; (0,0,0),(1,0,0),(0,1,0),(0,0,1),(2,0,0),(0,2,0),(0,0,2),(3,0,0),(0,3,0),(0,0,3), \\
-&amp; (0,1,1),(1,0,1),(1,1,0),(0,1,2),(0,2,1),(1,0,2),(2,0,1),(1,2,0),(2,1,0),(0,1,3), \\ &amp;
-(0,3,1),(1,0,3),(3,0,1),(1,3,0),(3,1,0),(0,2,2),(2,0,2),(2,2,0),(0,2,3),(3,2,0),\\ &amp;
-(2,0,3),(3,0,2),(2,3,0),(3,2,0),(0,3,3),(3,0,3),(3,3,0),(1,1,1),(1,1,2),(1,2,1),\\ &amp;
-(2,1,1),(1,1,3),(1,3,1),(3,1,1),(1,2,2),(2,1,2),(2,2,1),(1,2,3),(2,1,3),(1,3,2),\\ &amp;
-(3,1,2),(2,3,1),(3,2,1),(1,3,3),(3,1,3),(3,3,1),(2,2,2),(2,2,3),(2,3,2),(3,2,2)\\ &amp;
-(2,3,3),(3,2,3),(3,3,2),(3,3,3)\}.
+\mathbf{X}(\Omega) =&amp; \{
+  (0,0,0),(1,0,0),(0,1,0),(0,0,1),(2,0,0),(0,2,0),\\
+&amp; (0,0,2),(3,0,0),(0,3,0),(0,0,3),(0,1,1),(1,0,1),\\
+&amp;  (1,1,0),(0,1,2),(0,2,1),(1,0,2),(2,0,1),(1,2,0),\\
+&amp;  (2,1,0),(0,1,3),(0,3,1),(1,0,3),(3,0,1),(1,3,0),\\
+&amp;  (3,1,0),(0,2,2),(2,0,2),(2,2,0),(0,2,3),(3,2,0),\\
+&amp;  (2,0,3),(3,0,2),(2,3,0),(3,2,0),(0,3,3),(3,0,3),\\
+&amp;  (3,3,0),(1,1,1),(1,1,2),(1,2,1),(2,1,1),(1,1,3),\\
+&amp; (1,3,1),(3,1,1),(1,2,2),(2,1,2),(2,2,1),(1,2,3),\\
+&amp; (2,1,3),(1,3,2),(3,1,2),(2,3,1),(3,2,1),(1,3,3),\\
+&amp; (3,1,3),(3,3,1),(2,2,2),(2,2,3),(2,3,2),(3,2,2),\\
+&amp; (2,3,3),(3,2,3),(3,3,2),(3,3,3)\}.
 \end{array}
 \]</span></p>
+</div>
 </div>
 <div id="funcion-de-probabilidad-conjunta-1" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> Función de probabilidad conjunta</h3>
 <p><l class="definition">Definición de función de probabilidad conjunta:</l>
-Dada una <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional discreta</strong> <span class="math inline">\((X_1\ldots,X_n)\)</span> con <span class="math inline">\((X_1\ldots,X_n)(\Omega)=\{(x_{i_1},x_{i_2},\ldots,x_{i_n}),\ i_1=1,2,\ldots,\ i_n=1,2,\ldots,\}\)</span>, definimos la función de probabilidad discreta <span class="math inline">\(P_{X_1\ldots X_n}\)</span> para un valor <span class="math inline">\((x_{i_1},x_{i_2},\ldots,x_{i_n})\in\mathbb{R}^n\)</span> de la siguiente forma:
-<span class="math display">\[
+Dada una <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional discreta</strong> <span class="math inline">\((X_1\ldots,X_n)\)</span> con <span class="math inline">\((X_1\ldots,X_n)(\Omega)=\{(x_{i_1},x_{i_2},\ldots,x_{i_n}),\ i_1=1,2,\ldots,\ i_n=1,2,\ldots,\}\)</span>, definimos la función de probabilidad discreta <span class="math inline">\(P_{X_1\ldots X_n}\)</span> para un valor <span class="math inline">\((x_{i_1},x_{i_2},\ldots,x_{i_n})\in\mathbb{R}^n\)</span> de la siguiente forma:</p>
+<p><span class="math display">\[
 \begin{array}{rl}
 P_{X_1\ldots X_n}: \mathbb{R}^n &amp; \longrightarrow \mathbb{R}\\
 (x_{i_1},x_{i_2},\ldots,x_{i_n}) &amp; \longrightarrow P_{X_1\ldots X_n}(x_{i_1},x_{i_2},\ldots,x_{i_n})=P(X= x_{i_1},\ldots X_n= x_{i_n}).
@@ -593,6 +611,7 @@ Si <span class="math inline">\((x_{i_1},x_{i_2},\ldots,x_{i_n})\not\in (X_1\ldot
 <p><strong>Ejemplo de la variable 3-dimensional que nos da el número de 1’s, 2’s y 3’s en el lanzamiento de un dado tres veces</strong></p>
 <p>Para mostrar la <strong>función de probabilidad conjunta</strong> haremos una tabla bidimensional para cada valor de <span class="math inline">\(X_3\)</span>.</p>
 <p>Como <span class="math inline">\(X_3(\Omega)=\{0,1,2,3\}\)</span>, en total mostraremos 4 tablas bidimensionales.</p>
+<div class="example-sol">
 <p>Tabla para <span class="math inline">\(X_3=0\)</span>:</p>
 <div class="center">
 <table>
@@ -771,33 +790,40 @@ Si <span class="math inline">\((x_{i_1},x_{i_2},\ldots,x_{i_n})\not\in (X_1\ldot
 </div>
 </div>
 </div>
+</div>
 <div id="ejemplo-con-r-1" class="section level4">
 <h4><span class="header-section-number">6.3.1.2</span> Ejemplo con <code>R</code></h4>
 <div class="example">
 <p>La función <code>fun.prod.con</code> nos da la <strong>función de probabilidad conjunta</strong> de la variable aleatoria <span class="math inline">\(\mathbf{X}\)</span> cuando lanzamos un dado tres veces:</p>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" data-line-number="1">fun.prob.con=<span class="cf">function</span>(x1,x2,x3){</a>
-<a class="sourceLine" id="cb407-2" data-line-number="2">  n=<span class="dv">6</span></a>
-<a class="sourceLine" id="cb407-3" data-line-number="3">  cuenta<span class="fl">.1</span> =<span class="cf">function</span>(x){<span class="kw">length</span>(x[x<span class="op">==</span><span class="dv">1</span>])}</a>
-<a class="sourceLine" id="cb407-4" data-line-number="4">  cuenta<span class="fl">.2</span> =<span class="cf">function</span>(x){<span class="kw">length</span>(x[x<span class="op">==</span><span class="dv">2</span>])}</a>
-<a class="sourceLine" id="cb407-5" data-line-number="5">  cuenta<span class="fl">.3</span> =<span class="cf">function</span>(x){<span class="kw">length</span>(x[x<span class="op">==</span><span class="dv">3</span>])}</a>
-<a class="sourceLine" id="cb407-6" data-line-number="6">  Dxyz=<span class="kw">data.frame</span>(<span class="dt">d1=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n,<span class="dt">each=</span>n),<span class="dt">d2=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n,<span class="dt">times=</span>n),<span class="dt">d3=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n,<span class="dt">each=</span>n<span class="op">*</span>n))</a>
-<a class="sourceLine" id="cb407-7" data-line-number="7">  X1=<span class="kw">apply</span>(Dxyz,<span class="dv">1</span>,cuenta<span class="fl">.1</span>)</a>
-<a class="sourceLine" id="cb407-8" data-line-number="8">  X2=<span class="kw">apply</span>(Dxyz,<span class="dv">1</span>,cuenta<span class="fl">.2</span>)</a>
-<a class="sourceLine" id="cb407-9" data-line-number="9">  X3=<span class="kw">apply</span>(Dxyz,<span class="dv">1</span>,cuenta<span class="fl">.3</span>)</a>
-<a class="sourceLine" id="cb407-10" data-line-number="10">  frecuencia =<span class="st"> </span><span class="kw">table</span>(X1<span class="op">==</span>x1 <span class="op">&amp;</span><span class="st"> </span>X2<span class="op">==</span>x2 <span class="op">&amp;</span><span class="st"> </span>X3<span class="op">==</span>x3)</a>
-<a class="sourceLine" id="cb407-11" data-line-number="11">  res=<span class="kw">ifelse</span>(<span class="kw">length</span>(frecuencia)<span class="op">==</span><span class="dv">2</span>,frecuencia[<span class="dv">2</span>],<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb407-12" data-line-number="12">  <span class="kw">return</span>(res<span class="op">/</span><span class="dv">6</span><span class="op">^</span><span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb407-13" data-line-number="13">}</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">fun.prob.con=<span class="cf">function</span>(x1,x2,x3){</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  n=<span class="dv">6</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">  cuenta<span class="fl">.1</span> =<span class="cf">function</span>(x){<span class="kw">length</span>(x[x<span class="op">==</span><span class="dv">1</span>])}</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">  cuenta<span class="fl">.2</span> =<span class="cf">function</span>(x){<span class="kw">length</span>(x[x<span class="op">==</span><span class="dv">2</span>])}</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">  cuenta<span class="fl">.3</span> =<span class="cf">function</span>(x){<span class="kw">length</span>(x[x<span class="op">==</span><span class="dv">3</span>])}</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">  Dxyz=<span class="kw">data.frame</span>(<span class="dt">d1=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n,<span class="dt">each=</span>n),<span class="dt">d2=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n,<span class="dt">times=</span>n),</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">                  <span class="dt">d3=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n,<span class="dt">each=</span>n<span class="op">*</span>n))</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">  X1=<span class="kw">apply</span>(Dxyz,<span class="dv">1</span>,cuenta<span class="fl">.1</span>)</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">  X2=<span class="kw">apply</span>(Dxyz,<span class="dv">1</span>,cuenta<span class="fl">.2</span>)</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">  X3=<span class="kw">apply</span>(Dxyz,<span class="dv">1</span>,cuenta<span class="fl">.3</span>)</a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">  frecuencia =<span class="st"> </span><span class="kw">table</span>(X1<span class="op">==</span>x1 <span class="op">&amp;</span><span class="st"> </span>X2<span class="op">==</span>x2 <span class="op">&amp;</span><span class="st"> </span>X3<span class="op">==</span>x3)</a>
+<a class="sourceLine" id="cb5-12" data-line-number="12">  res=<span class="kw">ifelse</span>(<span class="kw">length</span>(frecuencia)<span class="op">==</span><span class="dv">2</span>,frecuencia[<span class="dv">2</span>],<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb5-13" data-line-number="13">  <span class="kw">return</span>(res<span class="op">/</span><span class="dv">6</span><span class="op">^</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb5-14" data-line-number="14">}</a></code></pre></div>
 <p>Para construir la tabla de la <strong>función de probabilidad conjunta</strong> para la variable <span class="math inline">\(\mathbf{X}=(X_1,X_2,X_3)\)</span> con <span class="math inline">\(X_3=0\)</span> hacemos lo siguiente:</p>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1">valores.variables=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb408-2" data-line-number="2">tabla<span class="fl">.0</span> =<span class="st"> </span><span class="kw">c</span>()</a>
-<a class="sourceLine" id="cb408-3" data-line-number="3"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(valores.variables)){<span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(valores.variables)){</a>
-<a class="sourceLine" id="cb408-4" data-line-number="4">  tabla<span class="fl">.0</span>=<span class="kw">c</span>(tabla<span class="fl">.0</span>,<span class="kw">fun.prob.con</span>(valores.variables[i],valores.variables[j],<span class="dv">0</span>));</a>
-<a class="sourceLine" id="cb408-5" data-line-number="5">}}</a>
-<a class="sourceLine" id="cb408-6" data-line-number="6">tabla<span class="fl">.0</span> =<span class="st"> </span><span class="kw">matrix</span>(tabla<span class="fl">.0</span>,<span class="kw">length</span>(valores.variables),<span class="kw">length</span>(valores.variables))</a>
-<a class="sourceLine" id="cb408-7" data-line-number="7"><span class="kw">rownames</span>(tabla<span class="fl">.0</span>)=valores.variables</a>
-<a class="sourceLine" id="cb408-8" data-line-number="8"><span class="kw">colnames</span>(tabla<span class="fl">.0</span>)=valores.variables</a>
-<a class="sourceLine" id="cb408-9" data-line-number="9">knitr<span class="op">::</span><span class="kw">kable</span>(tabla<span class="fl">.0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">valores.variables=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">tabla<span class="fl">.0</span> =<span class="st"> </span><span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(valores.variables)){</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(valores.variables)){</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">  tabla<span class="fl">.0</span>=<span class="kw">c</span>(tabla<span class="fl">.0</span>,</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">            <span class="kw">fun.prob.con</span>(valores.variables[i],</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">                         valores.variables[j],<span class="dv">0</span>));</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">  }</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">  }</a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">tabla<span class="fl">.0</span> =<span class="st"> </span><span class="kw">matrix</span>(tabla<span class="fl">.0</span>,<span class="kw">length</span>(valores.variables),</a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">                 <span class="kw">length</span>(valores.variables))</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="kw">rownames</span>(tabla<span class="fl">.0</span>)=valores.variables</a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="kw">colnames</span>(tabla<span class="fl">.0</span>)=valores.variables</a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">knitr<span class="op">::</span><span class="kw">kable</span>(tabla<span class="fl">.0</span>)</a></code></pre></div>
 <p>Con los demás valores de <span class="math inline">\(X_3\)</span>, lo haríamos de forma similar.</p>
 <p>Tabla con <span class="math inline">\(X_3=0\)</span>:</p>
 <table>
@@ -972,15 +998,15 @@ Si <span class="math inline">\((x_{i_1},x_{i_2},\ldots,x_{i_n})\not\in (X_1\ldot
 </div>
 <div id="propiedades-de-la-funcion-de-probabilidad-conjunta-1" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> Propiedades de la función de probabilidad conjunta</h3>
-<p>Sea <span class="math inline">\((X_1\ldots,X_n)\)</span> una <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional discreta</strong> con conjunto de valores <span class="math inline">\((X_1\ldots,X_n)(\Omega)=\{(x_{i_1},\ldots,x_{i_n})\, i_1=1,\ldots,\ i_n=1,\ldots\}\)</span>. Entonces su <strong>función de probabilidad conjunta</strong> verifica las propiedades siguientes:</p>
+<p>Dada <span class="math inline">\((X_1\ldots,X_n)\)</span> una <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional discreta</strong> con conjunto de valores <span class="math inline">\((X_1\ldots,X_n)(\Omega)=\{(x_{i_1},\ldots,x_{i_n})\, \mid i_1=1,2\ldots,\ i_n=1,2\ldots\}\)</span>. Entonces su <strong>función de probabilidad conjunta</strong> verifica las propiedades siguientes:</p>
 <p>La suma de todos los valores de la <strong>función de probabilidad conjunta</strong> sobre el conjunto de valores siempre vale 1: <span class="math display">\[\sum_{i_1}\cdots\sum_{i_n} P_{X_1\ldots X_n}(x_{i_1},\ldots,x_{i_n})=1.\]</span></p>
 <p>Sea <span class="math inline">\(B\)</span> una región del espacio <span class="math inline">\(\mathbb{R}^n\)</span>. El valor de la probabilidad <span class="math inline">\(P((X_1\ldots,X_n)\in B)\)</span> se puede calcular de la forma siguiente:
 <span class="math display">\[
 P((X_1\ldots,X_n)\in B) =\sum_{(x_{i_1},\ldots,x_{i_n})\in B} P_{X_1\ldots X_n}(x_{i_1},\ldots,x_{i_n}).
 \]</span>
-O sea, la probabilidad de que la variable <span class="math inline">\(n\)</span>-dimensional coja valores en <span class="math inline">\(B\)</span> es igual a la suma de todos aquellos valores de la función de probabilidad conjunta que están en <span class="math inline">\(B\)</span>.</p>
-<p>En particular, tenemos la relación siguiente que relaciona la <strong>función de distribución conjunta</strong> con la <strong>función de probabilidad conjunta</strong>:
-<span class="math display">\[
+Es decir, la probabilidad de que la variable <span class="math inline">\(n\)</span>-dimensional tome valores en <span class="math inline">\(B\)</span> es igual a la suma de todos aquellos valores de la función de probabilidad conjunta que están en <span class="math inline">\(B\)</span>.</p>
+<p>En particular, tenemos la siguiente expresión relaciona la <strong>función de distribución conjunta</strong> con la <strong>función de probabilidad conjunta</strong>:</p>
+<p><span class="math display">\[
 F_{X_1\ldots X_n}(x_1,\ldots,x_n)=\sum_{x_{i_1}\leq x_1,\ldots, x_{i_n}\leq x_n} P_{X_1\ldots X_n}(x_{i_1},\ldots,x_{i_n}).
 \]</span>
 Dicha expresión se deduce de la expresión anterior considerando <span class="math inline">\(B=(-\infty,x_1]\times\cdots\times (-\infty,x_n]\)</span>.</p>
@@ -993,44 +1019,53 @@ Dicha expresión se deduce de la expresión anterior considerando <span class="m
 <p>Comprobad usando la tabla de la función de probabilidad conjunta que la suma de todos sus valores suma 1.</p>
 </div>
 <p>Apliquemos la fórmula que relaciona la función de distribución conjunta con la función de probabilidad conjunta para <span class="math inline">\((x_1,x_2,x_3)=(1,2,2)\)</span>.</p>
+<div class="example-sol">
 <p>Observamos que los únicos valores <span class="math inline">\((x_{i_1},x_{i_2},x_{i_3})\in (X_1 X_2,X_3)(\Omega)\)</span> que verifican <span class="math inline">\(x_{i_1}\leq 1\)</span>, <span class="math inline">\(x_{i_2}\leq 2\)</span> y <span class="math inline">\(x_{i_3}\leq 2\)</span> son <span class="math inline">\((0,0,0)\)</span>, <span class="math inline">\((0,0,1)\)</span>, <span class="math inline">\((0,0,2)\)</span>, <span class="math inline">\((0,1,0)\)</span>, <span class="math inline">\((0,1,1)\)</span>, <span class="math inline">\((0,1,2)\)</span>, <span class="math inline">\((0,2,0)\)</span>, <span class="math inline">\((0,2,1)\)</span>, <span class="math inline">\((0,2,2)\)</span>, <span class="math inline">\((1,0,0)\)</span>, <span class="math inline">\((1,0,1)\)</span>, <span class="math inline">\((1,0,2)\)</span>, <span class="math inline">\((1,1,0)\)</span>, <span class="math inline">\((1,1,1)\)</span>, <span class="math inline">\((1,1,2)\)</span>, <span class="math inline">\((1,2,0)\)</span>, <span class="math inline">\((1,2,1)\)</span> y <span class="math inline">\((1,2,2)\)</span>:</p>
 <p><span class="math display">\[
 \begin{array}{rl}
-F_{X_1X_2X_3}(1,2,2) &amp; =P_{X_1X_2X_3}(0,0,0)+P_{X_1X_2X_3}(0,0,1)+P_{X_1X_2X_3}(0,0,2)+P_{X_1X_2X_3}(0,1,0)\\ &amp; +P_{X_1X_2X_3}(0,1,1)+P_{X_1X_2X_3}(0,1,2)+P_{X_1X_2X_3}(0,2,0)+P_{X_1X_2X_3}(0,2,1)\\ &amp; +P_{X_1X_2X_3}(0,2,2) +
-P_{X_1X_2X_3}(1,0,0)+P_{X_1X_2X_3}(1,0,1)+P_{X_1X_2X_3}(1,0,2)\\ &amp; +P_{X_1X_2X_3}(1,1,0)+P_{X_1X_2X_3}(1,1,1)+
-P_{X_1X_2X_3}(1,1,2)+P_{X_1X_2X_3}(1,2,0)\\ &amp; + P_{X_1X_2X_3}(1,2,1)+P_{X_1X_2X_3}(1,2,2)\\ &amp;=
-\frac{1}{8}+\frac{1}{8}+\frac{1}{24}+\frac{1}{8}+\frac{1}{12}+\frac{1}{72}+\frac{1}{24}+\frac{1}{72}+0+\frac{1}{8}+\frac{1}{12}+\frac{1}{72}+\frac{1}{12}+\frac{1}{36}\\ &amp; +0+\frac{1}{72}+0+0=\frac{11}{12}=0.9167.
+F_{X_1X_2X_3}(1,2,2) 
+&amp; =P_{X_1X_2X_3}(0,0,0)+P_{X_1X_2X_3}(0,0,1)+P_{X_1X_2X_3}(0,0,2)\\
+&amp; +P_{X_1X_2X_3}(0,1,0)+P_{X_1X_2X_3}(0,1,1)+P_{X_1X_2X_3}(0,1,2)\\
+&amp; +P_{X_1X_2X_3}(0,2,0)+P_{X_1X_2X_3}(0,2,1)+P_{X_1X_2X_3}(0,2,2)\\
+&amp; +P_{X_1X_2X_3}(1,0,0)+P_{X_1X_2X_3}(1,0,1)+P_{X_1X_2X_3}(1,0,2)\\ 
+&amp; +P_{X_1X_2X_3}(1,1,0)+P_{X_1X_2X_3}(1,1,1)+P_{X_1X_2X_3}(1,1,2)\\
+&amp; +P_{X_1X_2X_3}(1,2,0)+ P_{X_1X_2X_3}(1,2,1)+P_{X_1X_2X_3}(1,2,2)\\ 
+&amp;=\frac{1}{8}+\frac{1}{8}+\frac{1}{24}+\frac{1}{8}+\frac{1}{12}+\frac{1}{72}+\frac{1}{24}+\frac{1}{72}+0\\
+&amp; +\frac{1}{8}+\frac{1}{12}+\frac{1}{72}+\frac{1}{12}+\frac{1}{36} +0+\frac{1}{72}+0+0=\\
+&amp; \frac{11}{12}=0.9167.
 \end{array}
 \]</span></p>
 <p>La función de distribución conjunta sería en <code>R</code>:</p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" data-line-number="1">fun.dis.con =<span class="st"> </span><span class="cf">function</span>(x1,x2,x3){</a>
-<a class="sourceLine" id="cb409-2" data-line-number="2">  suma=<span class="dv">0</span></a>
-<a class="sourceLine" id="cb409-3" data-line-number="3">  i1=<span class="dv">0</span>; i2=<span class="dv">0</span>; i3=<span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb409-4" data-line-number="4">  <span class="cf">while</span>(i1 <span class="op">&lt;=</span>x1 <span class="op">&amp;</span><span class="st"> </span>i1<span class="op">&lt;=</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb409-5" data-line-number="5">    <span class="cf">while</span>(i2 <span class="op">&lt;=</span><span class="st"> </span>x2 <span class="op">&amp;</span><span class="st"> </span>i2<span class="op">&lt;=</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb409-6" data-line-number="6">      <span class="cf">while</span>(i3<span class="op">&lt;=</span><span class="st"> </span>x3 <span class="op">&amp;</span><span class="st"> </span>i3 <span class="op">&lt;=</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb409-7" data-line-number="7">        suma=suma<span class="op">+</span><span class="kw">fun.prob.con</span>(i1,i2,i3); i3=i3<span class="op">+</span><span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb409-8" data-line-number="8">      }</a>
-<a class="sourceLine" id="cb409-9" data-line-number="9">      i3=<span class="dv">0</span>; i2=i2<span class="op">+</span><span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb409-10" data-line-number="10">    }</a>
-<a class="sourceLine" id="cb409-11" data-line-number="11">    i2=<span class="dv">0</span>; i3=<span class="dv">0</span>; i1=i1<span class="op">+</span><span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb409-12" data-line-number="12">  }</a>
-<a class="sourceLine" id="cb409-13" data-line-number="13">  <span class="kw">return</span>(suma)</a>
-<a class="sourceLine" id="cb409-14" data-line-number="14">}</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">fun.dis.con =<span class="st"> </span><span class="cf">function</span>(x1,x2,x3){</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  suma=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">  i1=<span class="dv">0</span>; i2=<span class="dv">0</span>; i3=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="cf">while</span>(i1 <span class="op">&lt;=</span>x1 <span class="op">&amp;</span><span class="st"> </span>i1<span class="op">&lt;=</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">    <span class="cf">while</span>(i2 <span class="op">&lt;=</span><span class="st"> </span>x2 <span class="op">&amp;</span><span class="st"> </span>i2<span class="op">&lt;=</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">      <span class="cf">while</span>(i3<span class="op">&lt;=</span><span class="st"> </span>x3 <span class="op">&amp;</span><span class="st"> </span>i3 <span class="op">&lt;=</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">        suma=suma<span class="op">+</span><span class="kw">fun.prob.con</span>(i1,i2,i3); i3=i3<span class="op">+</span><span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">      }</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">      i3=<span class="dv">0</span>; i2=i2<span class="op">+</span><span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">    }</a>
+<a class="sourceLine" id="cb7-11" data-line-number="11">    i2=<span class="dv">0</span>; i3=<span class="dv">0</span>; i1=i1<span class="op">+</span><span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">  }</a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">  <span class="kw">return</span>(suma)</a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">}</a></code></pre></div>
 <p>Comprobemos que la <strong>función de distribución conjunta</strong> en el valor <span class="math inline">\((1,2,2)\)</span> nos da el mismo resultado que vimos anteriormente:</p>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1"><span class="kw">fun.dis.con</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">fun.dis.con</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 0.9166667</code></pre>
 </div>
 </div>
 </div>
-<div id="variables-aleatorias-marginales" class="section level3">
-<h3><span class="header-section-number">6.3.3</span> Variables aleatorias marginales</h3>
-<p>Consideremos una variable aleatoria <strong><span class="math inline">\(n\)</span>-dimensional discreta <span class="math inline">\((X_1\ldots,X_n)\)</span></strong> con <strong>función de probabilidad conjunta</strong> <span class="math inline">\(P_{X_1\ldots,X_n}(x_{i_1},\ldots,x_{i_n})\)</span>, con <span class="math inline">\((x_{i_1},\ldots,x_{i_n})\in (X_1\ldots,X_n)(\Omega)\)</span>, <span class="math inline">\(i_1=1,2,\ldots\)</span>, <span class="math inline">\(i_n=1,2,\ldots\)</span>.</p>
+</div>
+<div id="funciones-de-distribucion-marginales" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Funciones de distribución marginales</h3>
+<p>Consideremos una variable aleatoria <strong><span class="math inline">\(n\)</span>-dimensional discreta <span class="math inline">\((X_1\ldots,X_n)\)</span></strong> con <strong>función de probabilidad conjunta</strong></p>
+<p><span class="math inline">\(P_{X_1\ldots,X_n}(x_{i_1},\ldots,x_{i_n})\)</span>, con <span class="math inline">\((x_{i_1},\ldots,x_{i_n})\in (X_1\ldots,X_n)(\Omega)\)</span>, <span class="math inline">\(i_1=1,2,\ldots\)</span>, <span class="math inline">\(i_n=1,2,\ldots\)</span>.</p>
 <p>La tabla de la <strong>función de probabilidad conjunta</strong> contiene suficiente información para obtener las <strong>funciones de probabilidad conjunta</strong> de cualquier <strong>variable aleatoria <span class="math inline">\(k\)</span>-dimensional</strong> <span class="math inline">\((X_{s_1},\ldots,X_{s_k})\)</span> donde <span class="math inline">\(\{s_1,\ldots,s_k\}\)</span> es un subconjunto de las componentes <span class="math inline">\(\{1,\ldots,n\}\)</span> de la variable aleatoria <span class="math inline">\(n\)</span>-dimensional. .</p>
-<p><l class="prop">Proposición. Expresión de las funciones de probabilidad marginales. </l>
-Sea <span class="math inline">\(\mathbf{X}=(X_1\ldots,X_n)\)</span> una variable aleatoria <strong><span class="math inline">\(n\)</span>-dimensional discreta</strong> con <strong>función de probabilidad conjunta</strong> <span class="math inline">\(P_{X_1\ldots X_n}(x_{i_1},\ldots,x_{i_n})\)</span>, con <span class="math inline">\((x_{i_1},\ldots,x_{i_n})\in (X_1\ldots,X_n)(\Omega)\)</span>, <span class="math inline">\(i_1=1,2,\ldots\)</span>, <span class="math inline">\(i_n=1,2,\ldots\)</span>.</p>
-<p>Sea <span class="math inline">\(\{s_1,\ldots,s_k\}\)</span> un subconjunto del conjunto de las componentes <span class="math inline">\(\{1,\ldots,n\}\)</span> donde suponemos que <span class="math inline">\(s_1 &lt; s_2&lt;\cdots &lt; s_k\)</span>. Entonces la <strong>función de probabilidad conjunta</strong> <span class="math inline">\(P_{X_{s_1}\ldots X_{s_k}}\)</span> de la variable aleatoria <span class="math inline">\(k\)</span>-dimensional <span class="math inline">\((X_{s_1},\ldots, X_{s_k})\)</span> se calcula usando la expresión siguiente:
-<span class="math display">\[
+<p><l class="prop">Proposición. Expresión de las funciones de probabilidad marginales. </l></p>
+<p>Sea <span class="math inline">\(\mathbf{X}=(X_1\ldots,X_n)\)</span> una variable aleatoria <strong><span class="math inline">\(n\)</span>-dimensional discreta</strong> con <strong>función de probabilidad conjunta</strong> <span class="math inline">\(P_{X_1\ldots X_n}(x_{i_1},\ldots,x_{i_n})\)</span>, con <span class="math inline">\((x_{i_1},\ldots,x_{i_n})\in (X_1\ldots,X_n)(\Omega)\)</span>, <span class="math inline">\(i_1=1,2,\ldots\)</span>, <span class="math inline">\(i_n=1,2,\ldots\)</span>.</p>
+<p>Sea <span class="math inline">\(\{s_1,\ldots,s_k\}\)</span> un subconjunto del conjunto de las componentes <span class="math inline">\(\{1,\ldots,n\}\)</span> donde suponemos que <span class="math inline">\(s_1 &lt; s_2&lt;\cdots &lt; s_k\)</span>. Entonces la <strong>función de probabilidad conjunta</strong> <span class="math inline">\(P_{X_{s_1}\ldots X_{s_k}}\)</span> de la variable aleatoria <span class="math inline">\(k\)</span>-dimensional <span class="math inline">\((X_{s_1},\ldots, X_{s_k})\)</span> se calcula usando la expresión siguiente:</p>
+<p><span class="math display">\[
 \begin{array}{rl}
 P_{X_{s_1}\ldots X_{s_k}}(x_{s_1},\ldots,x_{s_k})  &amp; = \sum_{x_t} P_{X_1\ldots X_n}(\mathbf{x}_s,\mathbf{x}_t),
 \end{array}
@@ -1041,25 +1076,42 @@ P_{X_{s_1}\ldots X_{s_k}}(x_{s_1},\ldots,x_{s_k})  &amp; = \sum_{x_t} P_{X_1\ldo
 <h4><span class="header-section-number">6.3.3.1</span> Ejemplos</h4>
 <div class="example">
 <p><strong>Ejemplo de la variable 3-dimensional que nos da el número de 1’s, 2’s y 3’s en el lanzamiento de un dado tres veces</strong></p>
-<p>Hallemos, en primer lugar, la <strong>función de probabilidad marginal</strong> de las variable <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> y <span class="math inline">\(X_3\)</span>. Empecemos con <span class="math inline">\(X_1\)</span>:
-<span class="math display">\[
+<p>Hallemos, en primer lugar, la <strong>función de probabilidad marginal</strong> de las variable <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> y <span class="math inline">\(X_3\)</span>. Empecemos con <span class="math inline">\(X_1\)</span>:</p>
+<div class="example-sol">
+<p><span class="math display">\[
 \begin{array}{rl}
-P_{X_1}(0) &amp; = P_{X_1X_2X_3}(0,0,0)+P_{X_1X_2X_3}(0,0,1)+P_{X_1X_2X_3}(0,0,2)+P_{X_1X_2X_3}(0,0,3)+P_{X_1X_2X_3}(0,1,0) \\ &amp; +P_{X_1X_2X_3}(0,1,1)+P_{X_1X_2X_3}(0,1,2)+P_{X_1X_2X_3}(0,1,3)+P_{X_1X_2X_3}(0,2,0)+P_{X_1X_2X_3}(0,2,1)\\ &amp;
-+P_{X_1X_2X_3}(0,2,2)+P_{X_1X_2X_3}(0,2,3)+P_{X_1X_2X_3}(0,3,0)+P_{X_1X_2X_3}(0,3,1)+P_{X_1X_2X_3}(0,3,2)\\ &amp;
-P_{X_1X_2X_3}(0,3,3)=0.5787,\\
-P_{X_1}(1) &amp; = P_{X_1X_2X_3}(1,0,0)+P_{X_1X_2X_3}(1,0,1)+P_{X_1X_2X_3}(1,0,2)+P_{X_1X_2X_3}(1,0,3)+P_{X_1X_2X_3}(1,1,0) \\ &amp; +P_{X_1X_2X_3}(1,1,1)+P_{X_1X_2X_3}(1,1,2)+P_{X_1X_2X_3}(1,1,3)+P_{X_1X_2X_3}(1,2,0)+P_{X_1X_2X_3}(1,2,1)\\ &amp;
-+P_{X_1X_2X_3}(1,2,2)+P_{X_1X_2X_3}(1,2,3)+P_{X_1X_2X_3}(1,3,0)+P_{X_1X_2X_3}(1,3,1)+P_{X_1X_2X_3}(1,3,2)\\ &amp;
-P_{X_1X_2X_3}(1,3,3)=0.3472,\\
+P_{X_1}(0) 
+&amp; = P_{X_1X_2X_3}(0,0,0)+P_{X_1X_2X_3}(0,0,1)+P_{X_1X_2X_3}(0,0,2)\\
+&amp; +P_{X_1X_2X_3}(0,0,3)+P_{X_1X_2X_3}(0,1,0)+P_{X_1X_2X_3}(0,1,1)\\
+&amp; +P_{X_1X_2X_3}(0,1,2)+P_{X_1X_2X_3}(0,1,3)+P_{X_1X_2X_3}(0,2,0)\\
+&amp; +P_{X_1X_2X_3}(0,2,1)+P_{X_1X_2X_3}(0,2,2)+P_{X_1X_2X_3}(0,2,3)\\
+&amp; +P_{X_1X_2X_3}(0,3,0)+P_{X_1X_2X_3}(0,3,1)+P_{X_1X_2X_3}(0,3,2)\\
+&amp; +P_{X_1X_2X_3}(0,3,3)=0.5787,\\
+P_{X_1}(1) 
+&amp; = P_{X_1X_2X_3}(1,0,0)+P_{X_1X_2X_3}(1,0,1)+P_{X_1X_2X_3}(1,0,2)\\
+&amp; +P_{X_1X_2X_3}(1,0,3)+P_{X_1X_2X_3}(1,1,0)+P_{X_1X_2X_3}(1,1,1)\\
+&amp; +P_{X_1X_2X_3}(1,1,2)+P_{X_1X_2X_3}(1,1,3)+P_{X_1X_2X_3}(1,2,0)\\
+&amp; +P_{X_1X_2X_3}(1,2,1)+P_{X_1X_2X_3}(1,2,2)+P_{X_1X_2X_3}(1,2,3)\\
+&amp; +P_{X_1X_2X_3}(1,3,0)+P_{X_1X_2X_3}(1,3,1)+P_{X_1X_2X_3}(1,3,2)\\ 
+&amp; + P_{X_1X_2X_3}(1,3,3)=0.3472,\\
 \end{array}
 \]</span></p>
 <p><span class="math display">\[
 \begin{array}{rl}
-P_{X_1}(2) &amp; = P_{X_1X_2X_3}(2,0,0)+P_{X_1X_2X_3}(2,0,1)+P_{X_1X_2X_3}(2,0,2)+P_{X_1X_2X_3}(2,0,3)+P_{X_1X_2X_3}(2,1,0) \\ &amp; +P_{X_1X_2X_3}(2,1,1)+P_{X_1X_2X_3}(2,1,2)+P_{X_1X_2X_3}(2,1,3)+P_{X_1X_2X_3}(2,2,0)+P_{X_1X_2X_3}(2,2,1)\\ &amp;
-+P_{X_1X_2X_3}(2,2,2)+P_{X_1X_2X_3}(2,2,3)+P_{X_1X_2X_3}(2,3,0)+P_{X_1X_2X_3}(2,3,1)+P_{X_1X_2X_3}(2,3,2)\\ &amp;
-P_{X_1X_2X_3}(2,3,3)=0.0694,\\
-P_{X_1}(3) &amp; = P_{X_1X_2X_3}(3,0,0)+P_{X_1X_2X_3}(3,0,1)+P_{X_1X_2X_3}(3,0,2)+P_{X_1X_2X_3}(3,0,3)+P_{X_1X_2X_3}(3,1,0) \\ &amp; +P_{X_1X_2X_3}(3,1,1)+P_{X_1X_2X_3}(3,1,2)+P_{X_1X_2X_3}(3,1,3)+P_{X_1X_2X_3}(3,2,0)+P_{X_1X_2X_3}(3,2,1)\\ &amp;
-+P_{X_1X_2X_3}(3,2,2)+P_{X_1X_2X_3}(3,2,3)+P_{X_1X_2X_3}(3,3,0)+P_{X_1X_2X_3}(3,3,1)+P_{X_1X_2X_3}(3,3,2)\\ &amp;
-P_{X_1X_2X_3}(3,3,3)=0.0046
+P_{X_1}(2) 
+&amp; = P_{X_1X_2X_3}(2,0,0)+P_{X_1X_2X_3}(2,0,1)+P_{X_1X_2X_3}(2,0,2)\\
+&amp; + P_{X_1X_2X_3}(2,0,3)+P_{X_1X_2X_3}(2,1,0)+P_{X_1X_2X_3}(2,1,1)\\
+&amp; + P_{X_1X_2X_3}(2,1,2)+P_{X_1X_2X_3}(2,1,3)+P_{X_1X_2X_3}(2,2,0)\\
+&amp; + P_{X_1X_2X_3}(2,2,1)+P_{X_1X_2X_3}(2,2,2)+P_{X_1X_2X_3}(2,2,3)\\
+&amp; + P_{X_1X_2X_3}(2,3,0)+P_{X_1X_2X_3}(2,3,1)+P_{X_1X_2X_3}(2,3,2)\\
+&amp; + P_{X_1X_2X_3}(2,3,3)=0.0694,\\
+P_{X_1}(3) 
+&amp; = P_{X_1X_2X_3}(3,0,0)+P_{X_1X_2X_3}(3,0,1)+P_{X_1X_2X_3}(3,0,2)\\
+&amp; + P_{X_1X_2X_3}(3,0,3)+P_{X_1X_2X_3}(3,1,0)+P_{X_1X_2X_3}(3,1,1)\\
+&amp; + P_{X_1X_2X_3}(3,1,2)+P_{X_1X_2X_3}(3,1,3)+P_{X_1X_2X_3}(3,2,0)\\
+&amp; + P_{X_1X_2X_3}(3,2,1)+P_{X_1X_2X_3}(3,2,2)+P_{X_1X_2X_3}(3,2,3)\\
+&amp; + P_{X_1X_2X_3}(3,3,0)+P_{X_1X_2X_3}(3,3,1)+P_{X_1X_2X_3}(3,3,2)\\ 
+&amp; + P_{X_1X_2X_3}(3,3,3)=0.0046
 \end{array}
 \]</span></p>
 <p>La distribución marginal de la variable <span class="math inline">\(X_1\)</span> es la siguiente:</p>
@@ -1089,26 +1141,40 @@ P_{X_1X_2X_3}(3,3,3)=0.0046
 <p>A continuación, calculemos la <strong>función de probabilidad marginal conjunta</strong> de la variable <span class="math inline">\((X_1,X_2)\)</span>:
 <span class="math display">\[
 \begin{array}{rl}
-P_{X_1X_2}(0,0) &amp; = P_{X_1X_2X_3}(0,0,0)+P_{X_1X_2X_3}(0,0,1)+P_{X_1X_2X_3}(0,0,2)+P_{X_1X_2X_3}(0,0,3)=0.2963, \\
-P_{X_1X_2}(0,1) &amp; = P_{X_1X_2X_3}(0,1,0)+P_{X_1X_2X_3}(0,1,1)+P_{X_1X_2X_3}(0,1,2)+P_{X_1X_2X_3}(0,1,3)=0.2222, \\
-P_{X_1X_2}(0,2) &amp; = P_{X_1X_2X_3}(0,2,0)+P_{X_1X_2X_3}(0,2,1)+P_{X_1X_2X_3}(0,2,2)+P_{X_1X_2X_3}(0,2,3)=0.0556, \\
-P_{X_1X_2}(0,3) &amp; = P_{X_1X_2X_3}(0,3,0)+P_{X_1X_2X_3}(0,3,1)+P_{X_1X_2X_3}(0,3,2)+P_{X_1X_2X_3}(0,3,3)=0.0046, \\
-P_{X_1X_2}(1,0) &amp; = P_{X_1X_2X_3}(1,0,0)+P_{X_1X_2X_3}(1,0,1)+P_{X_1X_2X_3}(1,0,2)+P_{X_1X_2X_3}(1,0,3)=0.2222, \\
-P_{X_1X_2}(1,1) &amp; = P_{X_1X_2X_3}(1,1,0)+P_{X_1X_2X_3}(1,1,1)+P_{X_1X_2X_3}(1,1,2)+P_{X_1X_2X_3}(1,1,3)=0.1111, \\
-P_{X_1X_2}(1,2) &amp; = P_{X_1X_2X_3}(1,2,0)+P_{X_1X_2X_3}(1,2,1)+P_{X_1X_2X_3}(1,2,2)+P_{X_1X_2X_3}(1,2,3)=0.0139, \\
-P_{X_1X_2}(1,3) &amp; = P_{X_1X_2X_3}(1,3,0)+P_{X_1X_2X_3}(1,3,1)+P_{X_1X_2X_3}(1,3,2)+P_{X_1X_2X_3}(1,3,3)=0, \\
-P_{X_1X_2}(2,0) &amp; = P_{X_1X_2X_3}(2,0,0)+P_{X_1X_2X_3}(2,0,1)+P_{X_1X_2X_3}(2,0,2)+P_{X_1X_2X_3}(2,0,3)=0.0556, \\
-P_{X_1X_2}(2,1) &amp; = P_{X_1X_2X_3}(2,1,0)+P_{X_1X_2X_3}(2,1,1)+P_{X_1X_2X_3}(2,1,2)+P_{X_1X_2X_3}(2,1,3)=0.0139, \\
-P_{X_1X_2}(2,2) &amp; = P_{X_1X_2X_3}(2,2,0)+P_{X_1X_2X_3}(2,2,1)+P_{X_1X_2X_3}(2,2,2)+P_{X_1X_2X_3}(2,2,3)=0, \\
-P_{X_1X_2}(2,3) &amp; = P_{X_1X_2X_3}(2,3,0)+P_{X_1X_2X_3}(2,3,1)+P_{X_1X_2X_3}(2,3,2)+P_{X_1X_2X_3}(2,3,3)=0, \\
-\end{array}
-\]</span></p>
-<p><span class="math display">\[
-\begin{array}{rl}
-P_{X_1X_2}(3,0) &amp; = P_{X_1X_2X_3}(3,0,0)+P_{X_1X_2X_3}(3,0,1)+P_{X_1X_2X_3}(3,0,2)+P_{X_1X_2X_3}(3,0,3)=0.0046, \\
-P_{X_1X_2}(3,1) &amp; = P_{X_1X_2X_3}(3,1,0)+P_{X_1X_2X_3}(3,1,1)+P_{X_1X_2X_3}(3,1,2)+P_{X_1X_2X_3}(3,1,3)=0, \\
-P_{X_1X_2}(3,2) &amp; = P_{X_1X_2X_3}(3,2,0)+P_{X_1X_2X_3}(3,2,1)+P_{X_1X_2X_3}(3,2,2)+P_{X_1X_2X_3}(3,2,3)=0, \\
-P_{X_1X_2}(3,3) &amp; = P_{X_1X_2X_3}(3,3,0)+P_{X_1X_2X_3}(3,3,1)+P_{X_1X_2X_3}(3,3,2)+P_{X_1X_2X_3}(3,3,3)=0, \\
+P_{X_1X_2}(0,0) 
+&amp; = P_{X_1X_2X_3}(0,0,0)+P_{X_1X_2X_3}(0,0,1)+P_{X_1X_2X_3}(0,0,2)\\
+&amp; +P_{X_1X_2X_3}(0,0,3)=0.2963, \\
+P_{X_1X_2}(0,1) &amp; = P_{X_1X_2X_3}(0,1,0)+P_{X_1X_2X_3}(0,1,1)+P_{X_1X_2X_3}(0,1,2)\\
+&amp; +P_{X_1X_2X_3}(0,1,3)=0.2222, \\
+P_{X_1X_2}(0,2) &amp; = P_{X_1X_2X_3}(0,2,0)+P_{X_1X_2X_3}(0,2,1)+P_{X_1X_2X_3}(0,2,2)\\
+&amp; +P_{X_1X_2X_3}(0,2,3)=0.0556, \\
+P_{X_1X_2}(0,3) &amp; = P_{X_1X_2X_3}(0,3,0)+P_{X_1X_2X_3}(0,3,1)+P_{X_1X_2X_3}(0,3,2)\\
+&amp; +P_{X_1X_2X_3}(0,3,3)=0.0046, \\
+P_{X_1X_2}(1,0) &amp; = P_{X_1X_2X_3}(1,0,0)+P_{X_1X_2X_3}(1,0,1)+P_{X_1X_2X_3}(1,0,2)\\
+&amp; +P_{X_1X_2X_3}(1,0,3)=0.2222, \\
+P_{X_1X_2}(1,1) &amp; = P_{X_1X_2X_3}(1,1,0)+P_{X_1X_2X_3}(1,1,1)\\
+&amp; +P_{X_1X_2X_3}(1,1,2)+P_{X_1X_2X_3}(1,1,3)=0.1111, \\
+P_{X_1X_2}(1,2) &amp; = P_{X_1X_2X_3}(1,2,0)+P_{X_1X_2X_3}(1,2,1)+P_{X_1X_2X_3}(1,2,2)\\
+&amp; +P_{X_1X_2X_3}(1,2,3)=0.0139, \\
+P_{X_1X_2}(1,3) &amp; = P_{X_1X_2X_3}(1,3,0)+P_{X_1X_2X_3}(1,3,1)+P_{X_1X_2X_3}(1,3,2)\\
+&amp; +P_{X_1X_2X_3}(1,3,3)=0, \\
+P_{X_1X_2}(2,0) &amp; = P_{X_1X_2X_3}(2,0,0)+P_{X_1X_2X_3}(2,0,1)+P_{X_1X_2X_3}(2,0,2)\\
+&amp; +P_{X_1X_2X_3}(2,0,3)=0.0556, \\
+P_{X_1X_2}(2,1) &amp; = P_{X_1X_2X_3}(2,1,0)+P_{X_1X_2X_3}(2,1,1)+P_{X_1X_2X_3}(2,1,2)\\
+&amp; +P_{X_1X_2X_3}(2,1,3)=0.0139, \\
+P_{X_1X_2}(2,2) &amp; = P_{X_1X_2X_3}(2,2,0)+P_{X_1X_2X_3}(2,2,1)+P_{X_1X_2X_3}(2,2,2)\\
+&amp; +P_{X_1X_2X_3}(2,2,3)=0, \\
+P_{X_1X_2}(2,3) &amp; = P_{X_1X_2X_3}(2,3,0)+P_{X_1X_2X_3}(2,3,1)+P_{X_1X_2X_3}(2,3,2)\\
+&amp; +P_{X_1X_2X_3}(2,3,3)=0, \\
+P_{X_1X_2}(3,0) 
+&amp; = P_{X_1X_2X_3}(3,0,0)+P_{X_1X_2X_3}(3,0,1)+P_{X_1X_2X_3}(3,0,2)\\
+&amp; +P_{X_1X_2X_3}(3,0,3)=0.0046, \\
+P_{X_1X_2}(3,1) &amp; = P_{X_1X_2X_3}(3,1,0)+P_{X_1X_2X_3}(3,1,1)\\
+&amp; +P_{X_1X_2X_3}(3,1,2)+P_{X_1X_2X_3}(3,1,3)=0, \\
+P_{X_1X_2}(3,2) &amp; = P_{X_1X_2X_3}(3,2,0)+P_{X_1X_2X_3}(3,2,1)\\
+&amp; + P_{X_1X_2X_3}(3,2,2)+P_{X_1X_2X_3}(3,2,3)=0, \\
+P_{X_1X_2}(3,3) &amp; = P_{X_1X_2X_3}(3,3,0)+P_{X_1X_2X_3}(3,3,1)\\
+&amp; + P_{X_1X_2X_3}(3,3,2)+P_{X_1X_2X_3}(3,3,3)=0, \\
 \end{array}
 \]</span></p>
 <p>La <strong>función de probabilidad marginal conjunta</strong> de la variable <span class="math inline">\((X_1,X_2)\)</span> queda resumida en la tabla siguiente:</p>
@@ -1157,15 +1223,15 @@ P_{X_1X_2}(3,3) &amp; = P_{X_1X_2X_3}(3,3,0)+P_{X_1X_2X_3}(3,3,1)+P_{X_1X_2X_3}(
 </div>
 <p>Las <strong>funciones de probabilidad marginales</strong> de las variables <span class="math inline">\((X_1,X_3)\)</span> y <span class="math inline">\((X_2,X_3)\)</span> dan el mismo resultado que la tabla anterior.</p>
 <p>La <strong>función de probabilidad marginal</strong> de la variable <span class="math inline">\(X_1\)</span> en <code>R</code> se halla de la forma siguiente:</p>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1">fun.marginal.X1 =<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb412-2" data-line-number="2">  suma=<span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb412-3" data-line-number="3">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){<span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){suma=suma<span class="op">+</span><span class="kw">fun.prob.con</span>(x,i,j)}}</a>
-<a class="sourceLine" id="cb412-4" data-line-number="4">  <span class="kw">return</span>(suma)</a>
-<a class="sourceLine" id="cb412-5" data-line-number="5">}</a>
-<a class="sourceLine" id="cb412-6" data-line-number="6">tabla.fun.marginal.X1=<span class="kw">data.frame</span>(<span class="kw">fun.marginal.X1</span>(<span class="dv">0</span>),<span class="kw">fun.marginal.X1</span>(<span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb412-7" data-line-number="7">                            <span class="kw">fun.marginal.X1</span>(<span class="dv">2</span>),<span class="kw">fun.marginal.X1</span>(<span class="dv">3</span>));</a>
-<a class="sourceLine" id="cb412-8" data-line-number="8"><span class="kw">colnames</span>(tabla.fun.marginal.X1)=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb412-9" data-line-number="9">knitr<span class="op">::</span><span class="kw">kable</span>(tabla.fun.marginal.X1)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">fun.marginal.X1 =<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">  suma=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){<span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){suma=suma<span class="op">+</span><span class="kw">fun.prob.con</span>(x,i,j)}}</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="kw">return</span>(suma)</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">tabla.fun.marginal.X1=<span class="kw">data.frame</span>(<span class="kw">fun.marginal.X1</span>(<span class="dv">0</span>),<span class="kw">fun.marginal.X1</span>(<span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">                            <span class="kw">fun.marginal.X1</span>(<span class="dv">2</span>),<span class="kw">fun.marginal.X1</span>(<span class="dv">3</span>));</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="kw">colnames</span>(tabla.fun.marginal.X1)=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">knitr<span class="op">::</span><span class="kw">kable</span>(tabla.fun.marginal.X1)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1185,21 +1251,23 @@ P_{X_1X_2}(3,3) &amp; = P_{X_1X_2X_3}(3,3,0)+P_{X_1X_2X_3}(3,3,1)+P_{X_1X_2X_3}(
 </tbody>
 </table>
 <p>La <strong>función de probabilidad marginal</strong> de la variable <span class="math inline">\((X_1,X_2)\)</span> en <code>R</code> se halla de la forma siguiente:</p>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1">fun.marginal.X1.X2 =<span class="st"> </span><span class="cf">function</span>(x,y){</a>
-<a class="sourceLine" id="cb413-2" data-line-number="2">  suma=<span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb413-3" data-line-number="3">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){suma=suma<span class="op">+</span><span class="kw">fun.prob.con</span>(x,y,i)}</a>
-<a class="sourceLine" id="cb413-4" data-line-number="4">  <span class="kw">return</span>(suma)</a>
-<a class="sourceLine" id="cb413-5" data-line-number="5">}</a>
-<a class="sourceLine" id="cb413-6" data-line-number="6">tabla.fun.marginal.X1.X2=<span class="kw">c</span>()</a>
-<a class="sourceLine" id="cb413-7" data-line-number="7"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb413-8" data-line-number="8">  tabla.fun.marginal.X1.X2=<span class="kw">cbind</span>(tabla.fun.marginal.X1.X2,<span class="kw">c</span>(<span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">0</span>),</a>
-<a class="sourceLine" id="cb413-9" data-line-number="9">                                                            <span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb413-10" data-line-number="10">                                                            <span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">2</span>),</a>
-<a class="sourceLine" id="cb413-11" data-line-number="11">                                                            <span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">3</span>)))}</a>
-<a class="sourceLine" id="cb413-12" data-line-number="12">tabla.fun.marginal.X1.X2=<span class="kw">as.data.frame</span>(tabla.fun.marginal.X1.X2)</a>
-<a class="sourceLine" id="cb413-13" data-line-number="13"><span class="kw">rownames</span>(tabla.fun.marginal.X1.X2)=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb413-14" data-line-number="14"><span class="kw">colnames</span>(tabla.fun.marginal.X1.X2)=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb413-15" data-line-number="15">knitr<span class="op">::</span><span class="kw">kable</span>(tabla.fun.marginal.X1.X2)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">fun.marginal.X1.X2 =<span class="st"> </span><span class="cf">function</span>(x,y){</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">  suma=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){suma=suma<span class="op">+</span><span class="kw">fun.prob.con</span>(x,y,i)}</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="kw">return</span>(suma)</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">tabla.fun.marginal.X1.X2=<span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">  tabla.fun.marginal.X1.X2=<span class="kw">cbind</span>(</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">    tabla.fun.marginal.X1.X2,</a>
+<a class="sourceLine" id="cb11-10" data-line-number="10">    <span class="kw">c</span>(<span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">0</span>),                                                            <span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">1</span>),                                                            <span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">2</span>),                                                            <span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb11-11" data-line-number="11">    )</a>
+<a class="sourceLine" id="cb11-12" data-line-number="12">  )</a>
+<a class="sourceLine" id="cb11-13" data-line-number="13">  }</a>
+<a class="sourceLine" id="cb11-14" data-line-number="14">tabla.fun.marginal.X1.X2=<span class="kw">as.data.frame</span>(tabla.fun.marginal.X1.X2)</a>
+<a class="sourceLine" id="cb11-15" data-line-number="15"><span class="kw">rownames</span>(tabla.fun.marginal.X1.X2)=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb11-16" data-line-number="16"><span class="kw">colnames</span>(tabla.fun.marginal.X1.X2)=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb11-17" data-line-number="17">knitr<span class="op">::</span><span class="kw">kable</span>(tabla.fun.marginal.X1.X2)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1246,6 +1314,7 @@ P_{X_1X_2}(3,3) &amp; = P_{X_1X_2X_3}(3,3,0)+P_{X_1X_2X_3}(3,3,1)+P_{X_1X_2X_3}(
 </div>
 </div>
 </div>
+</div>
 <div id="variables-aleatorias-n-dimensionales-continuas" class="section level2">
 <h2><span class="header-section-number">6.4</span> Variables aleatorias <span class="math inline">\(n\)</span>-dimensionales continuas</h2>
 <div id="definicion-5" class="section level3">
@@ -1254,7 +1323,7 @@ P_{X_1X_2}(3,3) &amp; = P_{X_1X_2X_3}(3,3,0)+P_{X_1X_2X_3}(3,3,1)+P_{X_1X_2X_3}(
 <span class="math display">\[
 P((X,Y)\in B)=\int\int_B f_{XY}(x,y)\,dx\, dy.
 \]</span></p>
-<p>La generalización natural será, entonces:</p>
+<p>La generalización natural es, entonces:</p>
 <p><l class="definition">Definición de variable aleatoria <span class="math inline">\(n\)</span>-dimensional continua. </l>
 Sea <span class="math inline">\((X_1\ldots,X_n)\)</span> una variable aleatoria <span class="math inline">\(n\)</span>-dimensional. Diremos que <span class="math inline">\((X_1\ldots,X_n)\)</span> es continua si existe una función
 <span class="math inline">\(f_{X_1\ldots X_n}:\mathbb{R}^n\longrightarrow \mathbb{R}\)</span> llamada <strong>función de densidad conjunta</strong> no negativa <span class="math inline">\(f_{X_1\ldots X_n}(x_1,\ldots,x_n)\geq 0\)</span> para todo <span class="math inline">\((x_1,\ldots,x_n)\in\mathbb{R}^n\)</span> tal que dado cualquier región <span class="math inline">\(B\)</span> del espacio <span class="math inline">\(n\)</span>-dimensional, la probabilidad de que <span class="math inline">\((X_1\ldots,X_n)\)</span> esté en <span class="math inline">\(B\)</span> se calcula de la forma siguiente:
@@ -1265,23 +1334,25 @@ P((X_1\ldots,X_n)\in B)=\int\cdots\int_B f_{X_1\ldots X_n}(x_1,\ldots,x_n)\,dx_1
 <h4><span class="header-section-number">6.4.1.1</span> Ejemplos</h4>
 <div class="example">
 <p><strong>Ejemplo</strong></p>
-<p>Consideremos una variable aleatoria <span class="math inline">\(3\)</span>-dimensional <span class="math inline">\((X_1,X_2,X_3)\)</span> con <strong>función de densidad conjunta</strong>:
+Consideremos una variable aleatoria <span class="math inline">\(3\)</span>-dimensional <span class="math inline">\((X_1,X_2,X_3)\)</span> con <strong>función de densidad conjunta</strong>:
 <span class="math display">\[
 f_{X_1X_2X_3}(x_1,x_2,x_3)=\begin{cases}
 8 x_1\cdot x_2\cdot x_3, &amp; \mbox{si }0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\ 0\leq x_3\leq 1, \\
 0, &amp; \mbox{en caso contrario.}\\
 \end{cases}
-\]</span></p>
-<p>En la figura siguiente hemos dibujado en rosa la región donde <span class="math inline">\(f_{X_1X_2X_3}\)</span> no es cero, o sea <span class="math inline">\([0,1]\times [0,1]\times [0,1]\)</span>.</p>
+\]</span>
+<div class="example-sol">
+<p>En la figura siguiente hemos dibujado en rosa la región donde <span class="math inline">\(f_{X_1X_2X_3}\)</span> no es cero, es decir <span class="math inline">\([0,1]\times [0,1]\times [0,1]\)</span>.</p>
 <div class="center">
 <p><img src="Images/Cubo3D2.png" width="142" /></p>
 </div>
 </div>
 </div>
 </div>
+</div>
 <div id="propiedades-de-la-funcion-de-densidad-1" class="section level3">
 <h3><span class="header-section-number">6.4.2</span> Propiedades de la función de densidad</h3>
-<p>Sea <span class="math inline">\((X_1\ldots,X_n)\)</span> una <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional continua</strong> con <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{X_1\ldots X_n}\)</span>. Entonces dicha función verifica las propiedades siguientes:</p>
+<p>Consideremos <span class="math inline">\((X_1\ldots,X_n)\)</span> una <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional continua</strong> con <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{X_1\ldots X_n}\)</span>. Esta función verifica las propiedades siguientes:</p>
 <ul>
 <li><p>La integral de dicha función sobre todo el espacio <span class="math inline">\(n\)</span>-dimensional vale 1:
 <span class="math display">\[
@@ -1310,32 +1381,34 @@ Dicha propiedad se deduce de la anterior, derivando primero respecto a <span cla
 <span class="math display">\[
 f_{X_{s_1}\ldots,X_{s_k}}(x_{s_1},\ldots,x_{s_k})=\int_{x_{t_1}=-\infty}^{x_{t_1}=\infty}\cdots \int_{x_{t_{n-k}}=-\infty}^{x_{t_{n-k}}=\infty} f_{X_1\ldots X_n}(x_1,\ldots,x_n)\, dx_{t_1}\cdots dx_{t_{n-k}},
 \]</span>
-con <span class="math inline">\(\{t_1,\ldots,t_{n-k}\}=\{1,\ldots,n\}\setminus \{s_1,\ldots,s_k\}.\)</span> O sea, las variables <span class="math inline">\(t\)</span>’s son las que no aparecen en la definición de la variable aleatoria <span class="math inline">\(k\)</span> dimensional <span class="math inline">\((X_{s_1},\ldots,X_{s_k})\)</span>.</p></li>
+con <span class="math inline">\(\{t_1,\ldots,t_{n-k}\}=\{1,\ldots,n\}\setminus \{s_1,\ldots,s_k\}.\)</span> Es decir, las variables <span class="math inline">\(t\)</span>’s son las que no aparecen en la definición de la variable aleatoria <span class="math inline">\(k\)</span> dimensional <span class="math inline">\((X_{s_1},\ldots,X_{s_k})\)</span>.</p></li>
 </ul>
 <div id="ejemplos-13" class="section level4">
 <h4><span class="header-section-number">6.4.2.1</span> Ejemplos</h4>
 <div class="example">
 <p><strong>Ejemplo anterior</strong></p>
-<p>Comprobemos las propiedades usando la <strong>función de densidad</strong> del ejemplo anterior:
-<span class="math display">\[
+<p>Comprobemos las propiedades usando la <strong>función de densidad</strong> del ejemplo anterior:</p>
+<p><span class="math display">\[
 f_{X_1X_2X_3}(x_1,x_2,x_3)=\begin{cases}
 8 x_1\cdot x_2\cdot x_3, &amp; \mbox{si }0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\ 0\leq x_3\leq 1, \\
 0, &amp; \mbox{en caso contrario.}\\
 \end{cases}
 \]</span></p>
-<p>La integral de <span class="math inline">\(f_{X_1X_2X_3}\)</span> sobre todo el espacio 3D vale 1:
-<span class="math display">\[
+<div class="example-sol">
+<p>La integral de <span class="math inline">\(f_{X_1X_2X_3}\)</span> sobre todo el espacio 3D vale 1:</p>
+<p><span class="math display">\[
 \begin{array}{rl}
-&amp; \int\int\int_{\mathbb{R}^3} f_{X_1X_2X_3}(x_1,x_2,x_3)\,dx\, dy=\int_0^1\int_0^1\int_0^1 8 x_1\cdot x_2\cdot x_3\, dx_1\,dx_2\,dx_3\\ &amp; \qquad=8\int_0^1 x_1\, dx_1\int_0^1 x_2\, dx_2\int_0^1 x_3\,dx_3=8\left[\frac{x_1^2}{2}\right]_0^1\cdot\left[\frac{x_2^2}{2}\right]_0^1\cdot \left[\frac{x_3^2}{2}\right]_0^1=8\cdot\left(\frac{1}{2}\right)^3 =1.
+&amp; \int\int\int_{\mathbb{R}^3} f_{X_1X_2X_3}(x_1,x_2,x_3)\,dx\, dy=\int_0^1\int_0^1\int_0^1 8 x_1\cdot x_2\cdot x_3\, dx_1\,dx_2\,dx_3\\ &amp; \qquad=8\int_0^1 x_1\, dx_1\int_0^1 x_2\, dx_2\int_0^1 x_3\,dx_3=8\left[\frac{x_1^2}{2}\right]_0^1\cdot\left[\frac{x_2^2}{2}\right]_0^1\cdot \left[\frac{x_3^2}{2}\right]_0^1\\
+&amp; \qquad = 8\cdot\left(\frac{1}{2}\right)^3 =1.
 \end{array}
 \]</span></p>
 <p>Vamos a calcular la función de distribución <span class="math inline">\(F_{X_1X_2X_3}\)</span>.</p>
-<p>Recordemos que la expresión de la función de distribución en función de la función de densidad era:
-<span class="math display">\[
+<p>Recordemos que la expresión de la función de distribución en función de la función de densidad era:</p>
+<p><span class="math display">\[
 F_{X_1X_2X_3}(x_1,x_2,x_3)=\int_{-\infty}^{x_1}\int_{-\infty}^{x_2}\int_{-\infty}^{x_3}f_{X_1X_2X_3}(u_1,u_2,u_3)\,du_1\, du_2\, du_3.
 \]</span>
-Como la región del espacio 3D donde <span class="math inline">\(f_{X_1X_2X_3}(x_1,x_2,x_3)\)</span> es no nula es el cubo unidad <span class="math inline">\([0,1]\times [0,1]\times [0,1]\)</span>, fijado un punto del espacio <span class="math inline">\((x_1,x_2,x_3)\)</span> será fundamental calcular la intersección de dicho cubo unidad con la región <span class="math inline">\((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3]\)</span>.</p>
-<p>Dicha intersección <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])\)</span> será la región donde tendremos que integrar la función de densidad para hallar la función de distribución en el punto <span class="math inline">\((x_1,x_2,x_3)\)</span>.</p>
+Como la región del espacio 3D donde <span class="math inline">\(f_{X_1X_2X_3}(x_1,x_2,x_3)\)</span> es no nula es el cubo unidad <span class="math inline">\([0,1]\times [0,1]\times [0,1]\)</span>, fijado un punto del espacio <span class="math inline">\((x_1,x_2,x_3)\)</span> es fundamental calcular la intersección de dicho cubo unidad con la región <span class="math inline">\((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3]\)</span>.</p>
+<p>Dicha intersección <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])\)</span> es la región donde tendremos que integrar la función de densidad para hallar la función de distribución en el punto <span class="math inline">\((x_1,x_2,x_3)\)</span>.</p>
 <p>Para hallar la región anterior, vamos a dividir el espacio 3D en tres “pisos”:</p>
 <ul>
 <li>“Sótano” o zona donde <span class="math inline">\(x_3&lt;0\)</span>.</li>
@@ -1345,37 +1418,43 @@ Como la región del espacio 3D donde <span class="math inline">\(f_{X_1X_2X_3}(x
 <li><p>Si <span class="math inline">\((x_1,x_2,x_3)\)</span> está en la planta baja o <span class="math inline">\(0\leq x_3\leq 1\)</span>, vamos a distinguir cuatro casos dependiendo de los valores de <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span>:</p>
 <ul>
 <li><span class="math inline">\(x_1 &lt;0\)</span> o <span class="math inline">\(x_2 &lt;0\)</span>. En este caso, <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])=\emptyset\)</span>. Por tanto, <span class="math inline">\(F_{X_1X_2X_3}(x_1,x_2,x_3)=0\)</span>.</li>
-<li><span class="math inline">\(0\leq x_1\leq 1\)</span> y <span class="math inline">\(0\leq x_2\leq 1\)</span>. En este caso: <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])=[0,x_1]\times [0,x_2]\times [0,x_3]\)</span>, ver figura adjunta.</li>
+<li><span class="math inline">\(0\leq x_1\leq 1\)</span> y <span class="math inline">\(0\leq x_2\leq 1\)</span>. En este caso:
+<span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])\)</span> que es igual a <span class="math inline">\([0,x_1]\times [0,x_2]\times [0,x_3]\)</span>, ver figura adjunta.</li>
 </ul></li>
 </ul>
 <p>Por tanto,
 <span class="math display">\[
-F_{X_1X_2X_3}(x_1,x_2,x_3)=\int_{0}^{x_1}\int_{0}^{x_2}\int_{0}^{x_3} 8 x_1 x_2 x_3 dx_1\, dx_2\ dx_3 = 
-8\left[\frac{x_1^2}{2}\right]_0^{x_1}\left[\frac{x_2^2}{2}\right]_0^{x_2}\left[\frac{x_3^2}{2}\right]_0^{x_3} = x_1^2 x_2^2 x_3^2.
+\begin{array}{rl}
+F_{X_1X_2X_3}(x_1,x_2,x_3) &amp; =\int_{0}^{x_1}\int_{0}^{x_2}\int_{0}^{x_3} 8 x_1 x_2 x_3 dx_1\, dx_2\ dx_3\\
+&amp; = 8\left[\frac{x_1^2}{2}\right]_0^{x_1}\left[\frac{x_2^2}{2}\right]_0^{x_2}\left[\frac{x_3^2}{2}\right]_0^{x_3} = x_1^2 x_2^2 x_3^2.
+\end{array}
 \]</span></p>
-<p><img src="Images/Fx1x2x3bajos.png" width="120" /></p>
+<p><img src="Images/Fx1x2x3bajos.png" width="120" style="display: block; margin: auto;" /></p>
 <p>Seguimos en la planta “baja”,</p>
 <ul>
-<li>Si <span class="math inline">\(x_1 &gt;1\)</span> y <span class="math inline">\(0\leq x_2\leq 1\)</span>, <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])=[0,1]\times [0,x_2]\times [0,x_3]\)</span>, ver figura adjunta. Hemos dibujado sólo la parte “positiva” de la región <span class="math inline">\((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3]\)</span> ya que la parte “negativa” claramente no interseca con <span class="math inline">\([0,1]\times [0,1]\times [0,1]\)</span> para no complicar demasiado la figura.</li>
+<li>Si <span class="math inline">\(x_1 &gt;1\)</span> y <span class="math inline">\(0\leq x_2\leq 1\)</span>, <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])\)</span> que es igual a <span class="math inline">\([0,1]\times [0,x_2]\times [0,x_3]\)</span>, ver figura adjunta. Hemos dibujado sólo la parte “positiva” de la región <span class="math inline">\((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3]\)</span> ya que la parte “negativa” claramente no interseca con <span class="math inline">\([0,1]\times [0,1]\times [0,1]\)</span> para no complicar demasiado la figura.</li>
 </ul>
-<p>En este caso,
-<span class="math display">\[
-F_{X_1X_2X_3}(x_1,x_2,x_3)=\int_{0}^{1}\int_{0}^{x_2}\int_{0}^{x_3} 8 x_1 x_2 x_3 dx_1\, dx_2\ dx_3 = 
+<p>En este caso,</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+F_{X_1X_2X_3}(x_1,x_2,x_3) &amp; =\int_{0}^{1}\int_{0}^{x_2}\int_{0}^{x_3} 8 x_1 x_2 x_3 dx_1\, dx_2\ dx_3 \\
+&amp; = 
 8\left[\frac{x_1^2}{2}\right]_0^{1}\left[\frac{x_2^2}{2}\right]_0^{x_2}\left[\frac{x_3^2}{2}\right]_0^{x_3} = x_2^2 x_3^2.
+\end{array}
 \]</span></p>
 <ul>
 <li>Si <span class="math inline">\(0\leq x_1\)</span> y <span class="math inline">\(x_2&gt;1\)</span>, sería un caso parecido al caso anterior pero “cambiando los papeles” de <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span>.
-Por tanto,
-<span class="math display">\[
-F_{X_1X_2X_3}(x_1,x_2,x_3)=x_1^2 x_3^2.
-\]</span></li>
+Por tanto,</li>
 </ul>
+<p><span class="math display">\[
+F_{X_1X_2X_3}(x_1,x_2,x_3)=x_1^2 x_3^2.
+\]</span></p>
 <div class="center">
-<p><img src="Images/Fx1x2x3bajosx1.png" width="120" /></p>
+<p><img src="Images/Fx1x2x3bajosx1.png" width="120" style="display: block; margin: auto;" /></p>
 </div>
 <p>Seguimos en la planta “baja”,</p>
 <ul>
-<li>Si <span class="math inline">\(x_1&gt;1\)</span> y <span class="math inline">\(x_2&gt;1\)</span>, <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])=[0,1]\times [0,1]\times [0,x_3]\)</span>, ver figura adjunta. También hemos dibujado sólo la parte “positiva” de la región <span class="math inline">\((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3]\)</span> ya que la parte “negativa” claramente no interseca con <span class="math inline">\([0,1]\times [0,1]\times [0,1]\)</span> para no complicar demasiado la figura.</li>
+<li>Si <span class="math inline">\(x_1&gt;1\)</span> y <span class="math inline">\(x_2&gt;1\)</span>, entonces <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])\)</span> que es igual a <span class="math inline">\([0,1]\times [0,1]\times [0,x_3]\)</span>, ver figura adjunta. También hemos dibujado sólo la parte “positiva” de la región <span class="math inline">\((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3]\)</span> ya que la parte “negativa” claramente no interseca con <span class="math inline">\([0,1]\times [0,1]\times [0,1]\)</span> para no complicar demasiado la figura.</li>
 </ul>
 <p>En este caso,
 <span class="math display">\[
@@ -1390,17 +1469,25 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)=\int_{0}^{1}\int_{0}^{1}\int_{0}^{x_3} 8 x_1 x_2 x_3 
 <li><p><span class="math inline">\(x_1 &lt;0\)</span> o <span class="math inline">\(x_2 &lt;0\)</span>. En este caso, <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])=\emptyset\)</span>. Por tanto, <span class="math inline">\(F_{X_1X_2X_3}(x_1,x_2,x_3)=0\)</span>.</p></li>
 <li><p><span class="math inline">\(0\leq x_1\leq 1\)</span> y <span class="math inline">\(0\leq x_2\leq 1\)</span>. En este caso: <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])=[0,x_1]\times [0,x_2]\times [0,1]\)</span>, ver figura adjunta.</p></li>
 </ul>
-<p>En este caso,
-<span class="math display">\[
-F_{X_1X_2X_3}(x_1,x_2,x_3)=\int_{0}^{x_1}\int_{0}^{x_2}\int_{0}^{1} 8 x_1 x_2 x_3 dx_1\, dx_2\ dx_3 = 
-8\left[\frac{x_1^2}{2}\right]_0^{x_1}\left[\frac{x_2^2}{2}\right]_0^{x_2}\left[\frac{x_3^2}{2}\right]_0^{1} = x_1^2 x_2^2.
+<p>En este caso,</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+F_{X_1X_2X_3}(x_1,x_2,x_3) &amp; =\int_{0}^{x_1}\int_{0}^{x_2}\int_{0}^{1} 8 x_1 x_2 x_3 dx_1\, dx_2\ dx_3\\
+&amp; = 8\left[\frac{x_1^2}{2}\right]_0^{x_1}\left[\frac{x_2^2}{2}\right]_0^{x_2}\left[\frac{x_3^2}{2}\right]_0^{1} = x_1^2 x_2^2.
+\end{array}
 \]</span></p>
 <div class="center">
-<p><img src="Images/Fx1x2x3piso.png" width="120" /></p>
+<div class="figure"><span id="fig:bid992"></span>
+<img src="Images/Fx1x2x3piso.png" alt="center" width="120" />
+<p class="caption">
+Figure 6.1: center
+</p>
+</div>
 </div>
 <p>Seguimos en el “primer piso”,</p>
 <ul>
-<li>Si <span class="math inline">\(x_1 &gt;1\)</span> y <span class="math inline">\(0\leq x_2\leq 1\)</span>, <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])=[0,1]\times [0,x_2]\times [0,1]\)</span>, ver figura adjunta.</li>
+<li>Si <span class="math inline">\(x_1 &gt;1\)</span> y <span class="math inline">\(0\leq x_2\leq 1\)</span>, <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])\)</span>
+que es igual a <span class="math inline">\([0,1]\times [0,x_2]\times [0,1]\)</span>, ver figura adjunta.</li>
 </ul>
 <p>En este caso,</p>
 <p><span class="math display">\[
@@ -1409,25 +1496,27 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)=\int_{0}^{1}\int_{0}^{x_2}\int_{0}^{1} 8 x_1 x_2 x_3 
 \]</span></p>
 <ul>
 <li>Si <span class="math inline">\(0\leq x_1 \leq 1\)</span> y $ x_2&gt; 1$. Este caso sería parecido al caso anterior pero “cambiando los papeles” de <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span>.
-Por tanto,
-<span class="math display">\[
-F_{X_1X_2X_3}(x_1,x_2,x_3)=x_1^2.
-\]</span></li>
+Por tanto,</li>
 </ul>
+<p><span class="math display">\[
+F_{X_1X_2X_3}(x_1,x_2,x_3)=x_1^2.
+\]</span></p>
 <div class="center">
-<p><img src="Images/Fx1x2x3pisox1.png" width="120" /></p>
+<p><img src="Images/Fx1x2x3pisox1.png" width="120" style="display: block; margin: auto;" /></p>
 </div>
 <p>Seguimos en el “primer piso”,</p>
 <ul>
-<li>Si <span class="math inline">\(x_1&gt;1\)</span> y <span class="math inline">\(x_2&gt;1\)</span>, <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])=[0,1]\times [0,1]\times [0,1]\)</span>, ver figura adjunta.</li>
+<li>Si <span class="math inline">\(x_1&gt;1\)</span> y <span class="math inline">\(x_2&gt;1\)</span>, <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])\)</span> que es iguala a <span class="math inline">\([0,1]\times [0,1]\times [0,1]\)</span>, ver figura adjunta.</li>
 </ul>
 <p>En este caso,
 <span class="math display">\[
-F_{X_1X_2X_3}(x_1,x_2,x_3)=\int_{0}^{1}\int_{0}^{1}\int_{0}^{1} 8 x_1 x_2 x_3 dx_1\, dx_2\ dx_3 = 
-8\left[\frac{x_1^2}{2}\right]_0^{1}\left[\frac{x_2^2}{2}\right]_0^{1}\left[\frac{x_3^2}{2}\right]_0^{1} = 1.
+\begin{array}{rl}
+F_{X_1X_2X_3}(x_1,x_2,x_3)&amp; =\int_{0}^{1}\int_{0}^{1}\int_{0}^{1} 8 x_1 x_2 x_3 dx_1\, dx_2\ dx_3 \\
+&amp; = 8\left[\frac{x_1^2}{2}\right]_0^{1}\left[\frac{x_2^2}{2}\right]_0^{1}\left[\frac{x_3^2}{2}\right]_0^{1} = 1.
+\end{array}
 \]</span></p>
 <div class="center">
-<p><img src="Images/Fx1x2x3pisox1x2.png" width="120" /></p>
+<p><img src="Images/Fx1x2x3pisox1x2.png" width="120" style="display: block; margin: auto;" /></p>
 </div>
 <p>En resumen:
 <span class="math display">\[
@@ -1489,12 +1578,12 @@ x_1^2\cdot x_2^2\cdot x_3^2, &amp; \mbox{si }0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\
 \]</span>
 expresión que coincide con la función de densidad <span class="math inline">\(f_{X_1X_2X_3}(x_1,x_2,x_3)\)</span>.</p>
 <p>Acabemos el ejemplo calculando las <strong>funciones de densidad marginales</strong> de las variables <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_3\)</span>, <span class="math inline">\((X_1,X_2)\)</span>, <span class="math inline">\((X_1,X_3)\)</span>, <span class="math inline">\((X_2,X_3)\)</span>.</p>
-<p>Debido a la simetría de la región donde <span class="math inline">\(f_{X_1X_2X_3}(x_1,x_2,x_3)\)</span> no se anula, es suficiente calcular la función de densidad marginal para las variables <span class="math inline">\(X_1\)</span> y <span class="math inline">\((X_1,X_2)\)</span>. Para ver las demás, basta cambiar los “papeles” de las variables correspondientes. Por ejemplo, la función de densidad de la variable <span class="math inline">\(X_2\)</span> será la misma que la de la variable <span class="math inline">\(X_1\)</span> cambiando <span class="math inline">\(x_1\)</span> por <span class="math inline">\(x_2\)</span>.</p>
+<p>Debido a la simetría de la región donde <span class="math inline">\(f_{X_1X_2X_3}(x_1,x_2,x_3)\)</span> no se anula, es suficiente calcular la función de densidad marginal para las variables <span class="math inline">\(X_1\)</span> y <span class="math inline">\((X_1,X_2)\)</span>. Para ver las demás, basta cambiar los “papeles” de las variables correspondientes. Por ejemplo, la función de densidad de la variable <span class="math inline">\(X_2\)</span> es la misma que la de la variable <span class="math inline">\(X_1\)</span> cambiando <span class="math inline">\(x_1\)</span> por <span class="math inline">\(x_2\)</span>.</p>
 <p>Para hallar la función de densidad de la variable <span class="math inline">\(X_1\)</span>, aplicamos la fórmula vista anteriormente:
 <span class="math display">\[
 f_{X_1}(x_1)=\int_{-\infty}^\infty\int_{-\infty}^\infty  f_{X_1X_2X_3}(x_1,x_2,x_3)\, dx_2\, dx_3.
 \]</span>
-Recordemos que la región donde no se anulaba la <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{X_1X_2X_3}\)</span> era el cubo <span class="math inline">\([0,1]\times [0,1]\times [0,1]\)</span>. Por tanto, fijado <span class="math inline">\(x_1\)</span>, el valor de <span class="math inline">\(f_{X_1}(x_1)\)</span> será no nulo si el plano “vertical” <span class="math inline">\(X_1=x_1\)</span> interseca dicho cubo. Y esto ocurre siempre que <span class="math inline">\(x_1\in (0,1)\)</span>. Por tanto,
+Recordemos que la región donde no se anulaba la <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{X_1X_2X_3}\)</span> era el cubo <span class="math inline">\([0,1]\times [0,1]\times [0,1]\)</span>. Por tanto, fijado <span class="math inline">\(x_1\)</span>, el valor de <span class="math inline">\(f_{X_1}(x_1)\)</span> es no nulo si el plano “vertical” <span class="math inline">\(X_1=x_1\)</span> interseca dicho cubo. Y esto ocurre siempre que <span class="math inline">\(x_1\in (0,1)\)</span>. Por tanto,
 <span class="math display">\[
 f_{X_1}(x_1)=\begin{cases}
 \int_{0}^1\int_0^1 8 x_1x_2 x_3  \, dx_2\, dx_3=8x_1\left[\frac{x_2^2}{2}\right]_0^1 \left[\frac{x_3^2}{2}\right]_0^1 =2 x_1, &amp; \mbox{ si }x_1\in (0,1),\\
@@ -1509,10 +1598,14 @@ En este caso, fijado <span class="math inline">\(x_1\)</span> y <span class="mat
 Por tanto,</p>
 <p><span class="math display">\[
 f_{X_1X_2}(x_1,x_2)=\begin{cases}
-\int_{0}^1 8 x_1x_2 x_3  \, dx_3=8x_1x_2 \left[\frac{x_3^2}{2}\right]_0^1 =4 x_1 x_2, &amp; \mbox{ si }(x_1,x_2)\in [0,1]\times [0,1],\\
+\begin{array}{rl}
+\int_{0}^1 8 x_1x_2 x_3  \, dx_3\\ &amp; =8x_1x_2 
+\left[\frac{x_3^2}{2}\right]_0^1 =4 x_1 x_2\end{array},
+&amp; \mbox{ si }(x_1,x_2)\in [0,1]\times [0,1],\\
 0, &amp; \mbox{en caso contrario.}
 \end{cases}
 \]</span></p>
+</div>
 </div>
 </div>
 </div>
@@ -1528,7 +1621,7 @@ Diremos que la distribución de la variable aleatoria <span class="math inline">
 \]</span>
 Se denota <span class="math inline">\(\mathbf{X}=(X_1,\ldots,X_n)\)</span> con <span class="math inline">\(\mathbf{X}={\cal N}(\mathbf{\mu},\mathbf{\Sigma})\)</span>, donde <span class="math inline">\(\mathbf{x}=\begin{pmatrix}x_1\\\vdots\\ x_n\end{pmatrix}\)</span>, <span class="math inline">\(\mathbf{\mu}=\begin{pmatrix}\mu_1\\\vdots\\ \mu_n\end{pmatrix}\)</span> es el <strong>vector de medias</strong> de cada variable aleatoria <span class="math inline">\(X_1,\ldots, X_n\)</span> y <span class="math inline">\(\mathbf{\Sigma}\)</span> es la denominada <strong>matriz de covarianzas</strong> que nos sirve para estudiar la relación lineal entre las variables <span class="math inline">\(X_i\)</span>, <span class="math inline">\(i=1,\ldots, n\)</span>.</p>
 <p>De hecho la componente <span class="math inline">\((i,j)\)</span> de la <strong>matriz de covarianzas</strong> <span class="math inline">\(\mathbf{\Sigma}\)</span>, <span class="math inline">\(\sigma_{ij}\)</span> es la <strong>covarianza</strong> entre las variables <span class="math inline">\(X_i\)</span> y <span class="math inline">\(X_j\)</span>.</p>
-<p>Por tanto, los elementos de la diagonal de la <strong>matriz de covarianzas</strong> <span class="math inline">\(\mathbf{\Sigma}\)</span>, <span class="math inline">\(\sigma_{ii}\)</span>, serán las varianzas de las variables <span class="math inline">\(X_i\)</span>, <span class="math inline">\(i=1,\ldots,n\)</span>.</p>
+<p>Por tanto, los elementos de la diagonal de la <strong>matriz de covarianzas</strong> <span class="math inline">\(\mathbf{\Sigma}\)</span>, <span class="math inline">\(\sigma_{ii}\)</span>, es las varianzas de las variables <span class="math inline">\(X_i\)</span>, <span class="math inline">\(i=1,\ldots,n\)</span>.</p>
 <p>Propiedades de la <strong>función de densidad de la variable gaussiana <span class="math inline">\(n\)</span>-dimensional</strong>:</p>
 <ul>
 <li><p>Para cualquier punto <span class="math inline">\((x_1,\ldots,x_n)\in\mathbb{R}^n\)</span>, la <strong>función de densidad</strong> es no nula: <span class="math inline">\(f_{X_1\ldots X_n}(x_1,\ldots,x_n)&gt;0\)</span>.</p></li>
@@ -1542,6 +1635,7 @@ Sea <span class="math inline">\(\mathbf{X}={\cal N}(\mathbf{\mu},\mathbf{\Sigma}
 Sea <span class="math inline">\(\mathbf{X}={\cal N}(\mathbf{\mu},\mathbf{\Sigma})\)</span> una distribución <strong>normal <span class="math inline">\(n\)</span>-dimensional</strong>. Sea <span class="math inline">\((X_{s_1},\ldots,X_{s_k})\)</span> la variable <span class="math inline">\(k\)</span> dimensional con las componentes <span class="math inline">\(s_1,\ldots,s_k\)</span>, con <span class="math inline">\(s_i\in\{1,\ldots,n\}\)</span>, entonces la variable <span class="math inline">\((X_{s_1},\ldots,X_{s_k})\)</span> se distribuye según una <strong>normal <span class="math inline">\(k\)</span>-dimensional</strong> de media <span class="math inline">\((\mu_{s_1},\ldots,\mu_{s_k})\)</span> y matriz de covarianzas <span class="math inline">\(\mathbf{\Sigma&#39;}\)</span> formada por las <span class="math inline">\(s_1,\ldots,s_k\)</span> filas y columnas de la matriz de covarianzas de la variable <span class="math inline">\(\mathbf{X}\)</span>, <span class="math inline">\(\mathbf{\Sigma}\)</span>.</p>
 <p>Para ver la proposición anterior a partir de la proposición de la transformación afín, hagamos un ejemplo concreto:</p>
 <div class="example">
+<p><strong>Ejemplo: normal multidemisional de dimensión 5</strong></p>
 <p>Consideremos una variable normal <span class="math inline">\(5\)</span>-dimensional de <strong>vector de medias</strong> general <span class="math inline">\(\mathbf{\mu}=(\mu_1,\mu_2,\mu_3,\mu_4,\mu_5)\)</span> y <strong>matriz de covarianzas</strong>
 <span class="math display">\[
 \mathbf{\Sigma}=\begin{pmatrix}
@@ -1552,7 +1646,9 @@ Sea <span class="math inline">\(\mathbf{X}={\cal N}(\mathbf{\mu},\mathbf{\Sigma}
 \sigma_{51} &amp; \sigma_{52} &amp; \sigma_{53} &amp; \sigma_{54} &amp; \sigma_{55} 
 \end{pmatrix}
 \]</span></p>
-<p>Queremos estudiar cuál es la distribución de la variable <span class="math inline">\(3\)</span>-dimensional <span class="math inline">\((X_2,X_4,X_5)\)</span>. Para ello consideramos el vector <span class="math inline">\(\mathbf{c}=0\)</span> y la matriz <span class="math inline">\(\mathbf{C}\)</span> siguiente:
+<p>Queremos estudiar cuál es la distribución de la variable <span class="math inline">\(3\)</span>-dimensional <span class="math inline">\((X_2,X_4,X_5)\)</span>.</p>
+<div class="example-sol">
+<p>Para ello consideramos el vector <span class="math inline">\(\mathbf{c}=0\)</span> y la matriz <span class="math inline">\(\mathbf{C}\)</span> siguiente:
 <span class="math display">\[
 \mathbf{C}=\begin{pmatrix}
 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
@@ -1560,13 +1656,14 @@ Sea <span class="math inline">\(\mathbf{X}={\cal N}(\mathbf{\mu},\mathbf{\Sigma}
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
 \end{pmatrix}
 \]</span>
-O sea, <span class="math inline">\(\mathbf{C}\)</span> es una matriz <span class="math inline">\(3\times 5\)</span> que vale 1 en los lugares <span class="math inline">\((1,2)\)</span>, <span class="math inline">\((2,4)\)</span> y <span class="math inline">\((3,5)\)</span>. Fijémonos que las segundas componentes de los lugares anteriores son precisamente las componentes elegidas de la variable <span class="math inline">\(\mathbf{X}\)</span>.</p>
-<p>La matriz <span class="math inline">\(\mathbf{Y}=\mathbf{C}\mathbf{X}=\begin{pmatrix}X_2\\X_4\\X_5\end{pmatrix}\)</span> vale precisamente la variable marginal que queremos estudiar.</p>
-<p>Aplicando la proposición de la transformación afín, podemos afirmar que la distribución de la variable <span class="math inline">\(\mathbf{Y}=\begin{pmatrix}X_2\\X_4\\X_5\end{pmatrix}\)</span> es una normal <span class="math inline">\(3\)</span> dimensional de <strong>vector de medias</strong> <span class="math inline">\(\mu_{\mathbf{Y}}=\mathbf{C}\mathbf{\mu}=\begin{pmatrix}\mu_2\\\mu_4\\\mu_5\end{pmatrix}\)</span> y vector de covarianzas
-<span class="math display">\[
+Esta matriz <span class="math inline">\(\mathbf{C}\)</span> es de dimensiones<span class="math inline">\(3\times 5\)</span> y vale 1 en los lugares <span class="math inline">\((1,2)\)</span>, <span class="math inline">\((2,4)\)</span> y <span class="math inline">\((3,5)\)</span>. Fijémonos que las segundas componentes de los lugares anteriores son precisamente las componentes elegidas de la variable <span class="math inline">\(\mathbf{X}\)</span>.</p>
+<p>La matriz <span class="math inline">\(\mathbf{Y}=\mathbf{C}\cdot \mathbf{X}=\begin{pmatrix}X_2\\X_4\\X_5\end{pmatrix}\)</span> vale precisamente la variable marginal que queremos estudiar.</p>
+<p>Aplicando la proposición de la transformación afín, podemos afirmar que la distribución de la variable <span class="math inline">\(\mathbf{Y}=\begin{pmatrix}X_2\\X_4\\X_5\end{pmatrix}\)</span> es una normal <span class="math inline">\(3\)</span> dimensional de <strong>vector de medias</strong> <span class="math inline">\(\mu_{\mathbf{Y}}=\mathbf{C}\mathbf{\mu}=\begin{pmatrix}\mu_2\\\mu_4\\\mu_5\end{pmatrix}\)</span> y vector de covarianzas</p>
+<p><span class="math display">\[
 \mathbf{\Sigma&#39;}=\mathbf{C}\mathbf{\Sigma}\mathbf{C}^\top = \begin{pmatrix}\sigma_{22} &amp; \sigma_{24} &amp; \sigma_{25}\\ \sigma_{42} &amp; \sigma_{44} &amp; \sigma_{45} \\  \sigma_{52} &amp; \sigma_{54} &amp; \sigma_{55}\end{pmatrix}, 
 \]</span>
 tal como indica la última proposición sobre distribuciones marginales.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1575,9 +1672,9 @@ tal como indica la última proposición sobre distribuciones marginales.</p>
 <div id="independencia-de-variables-aleatorias-discretas-1" class="section level3">
 <h3><span class="header-section-number">6.5.1</span> Independencia de variables aleatorias discretas</h3>
 <p>La generalización de <strong>independencia</strong> a variables aleatorias <span class="math inline">\(n\)</span>-dimensionales es clara:</p>
-<p><l class="definition">Definición de independencia para variables aleatorias <span class="math inline">\(n\)</span>-dimensionales discretas. </l>
-Sean <span class="math inline">\((X_1\ldots,X_n)\)</span> una <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional discreta</strong> con <span class="math inline">\((X_1\ldots,X_n)(\Omega)=\{(x_{i_1},\ldots,x_{i_n}),\ i_1=1,2,\ldots,i_n=1,2,\ldots\}\)</span> y <strong>función de probabilidad conjunta</strong> <span class="math inline">\(P_{X_1\ldots X_n}\)</span> y <strong>funciones de probabilidad marginales</strong> <span class="math inline">\(P_{X_1},\ldots P_{X_n}\)</span>. Entonces <span class="math inline">\(X_1,\ldots X_n\)</span> son independientes si:
-<span class="math display">\[
+<p><l class="definition">Definición de independencia para variables aleatorias multidimensionales discretas.</l></p>
+<p>Sean <span class="math inline">\((X_1\ldots,X_n)\)</span> una <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional discreta</strong> con <span class="math inline">\((X_1\ldots,X_n)(\Omega)=\{(x_{i_1},\ldots,x_{i_n}),\ i_1=1,2,\ldots,i_n=1,2,\ldots\}\)</span> y <strong>función de probabilidad conjunta</strong> <span class="math inline">\(P_{X_1\ldots X_n}\)</span> y <strong>funciones de probabilidad marginales</strong> <span class="math inline">\(P_{X_1},\ldots P_{X_n}\)</span>. Entonces <span class="math inline">\(X_1,\ldots X_n\)</span> son independientes si:</p>
+<p><span class="math display">\[
 P_{X_1\ldots X_n}(x_{i_1},\ldots,x_{i_n})=P_{X_1}(x_{i_1})\cdots P_{X_n}(x_{i_n}),\ i_1=1,2,\ldots,i_n=1,2,\ldots
 \]</span></p>
 <p>o dicho de otra forma:</p>
@@ -1588,10 +1685,13 @@ P(X_1=x_{i_1},\ X_n=x_{i_n})=P(X_1=x_{i_1})\cdots P(X_n=x_{i_n}),\ i_1=1,2,\ldot
 <p><strong>Ejemplo del lanzamiento de un dado tres veces</strong></p>
 <p>Consideremos el experimento aleatorio que consiste en lanzar un dado tres veces.</p>
 <p>Recordemos que hemos estudiado la variable aleatoria <span class="math inline">\((X_1,X_2,X_3)\)</span> donde <span class="math inline">\(X_1\)</span> nos daba el número de 1’s que han salido, <span class="math inline">\(X_2\)</span>, el número de 2’s y <span class="math inline">\(X_3\)</span>, el número de 3’s.</p>
+<div class="example-sol">
 <p>Las variables aleatorias anteriores no son independientes ya que, por ejemplo:
 <span class="math display">\[
-P_{X_1,X_2,X_3}(1,1,3)=0\neq P_{X_1}(1)\cdot P_{X_2}(1)\cdot P_{X_3}(3)=0.3472222\cdot 0.3472222\cdot 0.0046296=6\times 10^{-4}.
+\scriptsize{
+P_{X_1,X_2,X_3}(1,1,3)=0\neq P_{X_1}(1)\cdot P_{X_2}(1)\cdot P_{X_3}(3)=0.3472\cdot 0.3472\cdot 0.0046=6\times 10^{-4}.}
 \]</span></p>
+</div>
 </div>
 <p><l class="observ">Observación. </l>
 Al igual que pasaba con las variables bidimensionales, si la tabla de la <strong>función de probabilidad conjunta</strong> de <span class="math inline">\((X_1,\ldots,X_n)\)</span> contiene algún <span class="math inline">\(0\)</span>, las variables <span class="math inline">\(X_1,\ldots, X_n\)</span> no pueden ser independientes. ¿Podéis decir por qué?</p>
@@ -1601,13 +1701,13 @@ Si <span class="math inline">\(X_1,\ldots, X_n\)</span> son variables aleatorias
 <div id="independencia-de-variables-aleatorias-continuas-1" class="section level3">
 <h3><span class="header-section-number">6.5.2</span> Independencia de variables aleatorias continuas</h3>
 <p>La definición dada para <strong>variables aleatorias discretas</strong> se traslada de forma natural a las <strong>variables aleatorias continuas</strong>:</p>
-<p><l class="definition">Definición de independencia para variables aleatorias <span class="math inline">\(n\)</span>-dimensionales continuas. </l>
-Sean <span class="math inline">\((X_1\ldots,X_n)\)</span> una <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional continua</strong> con <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{X_1\ldots X_n}\)</span> y <strong>funciones de densidad marginales</strong> <span class="math inline">\(f_{X_1},\ldots,f_{X_n}\)</span>. Entonces <span class="math inline">\(X_1,\ldots, X_n\)</span> son independientes si:
-<span class="math display">\[
+<p><l class="definition">Definición de independencia para variables aleatorias multidimensionales continuas. </l></p>
+<p>Sean <span class="math inline">\((X_1\ldots,X_n)\)</span> una <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional continua</strong> con <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{X_1\ldots X_n}\)</span> y <strong>funciones de densidad marginales</strong> <span class="math inline">\(f_{X_1},\ldots,f_{X_n}\)</span>. Entonces <span class="math inline">\(X_1,\ldots, X_n\)</span> son independientes si:</p>
+<p><span class="math display">\[
 f_{X_1\ldots X_n}(x_1,\ldots,x_n)=f_{X_1}(x_1)\cdots f_{X_n}(x_n),\ \mbox{para todo $x_1,\ldots,x_n\in\mathbb{R}$.}
 \]</span></p>
 <div class="example">
-<p><strong>Ejemplo</strong></p>
+<p><strong>Ejemplo: variable aleatoria tridimensional continua</strong></p>
 <p>Recordemos el ejemplo siguiente visto donde teníamos una <strong>variable aleatoria <span class="math inline">\(3\)</span>-dimensional continua</strong> <span class="math inline">\((X_1,X_2,X_3)\)</span> con <strong>función de densidad conjunta</strong>:
 <span class="math display">\[
 f_{X_1X_2X_3}(x_1,x_2,x_3)=\begin{cases}
@@ -1630,7 +1730,8 @@ f_{X_1}(x_1) &amp; =\begin{cases}
 \end{cases}
 \end{array}
 \]</span></p>
-<p>Veamos que son independientes.</p>
+Veamos que son independientes.
+<div class="example-sol">
 <p>Consideremos dos casos:</p>
 <ul>
 <li><p><span class="math inline">\((x_1,x_2,x_3)\in [0,1]\times [0,1]\times [0,1]\)</span>. En este caso:
@@ -1643,6 +1744,7 @@ f_{X_1X_2X_3}(x_1,x_2,x_3)  =0 = f_{X_1}(x_1)\cdot f_{X_2}(x_2)\cdot f_{X_3}(x_3
 \]</span>
 ya que si <span class="math inline">\((x_1,x_2,x_3)\not\in [0,1]\times [0,1]\times [0,1]\)</span>, o <span class="math inline">\(x_1\not\in [0,1]\)</span> o <span class="math inline">\(x_2\not\in [0,1]\)</span>, o <span class="math inline">\(x_3\not\in [0,1]\)</span>. Por tanto <span class="math inline">\(f_{X_1}(x_1)=0\)</span> o <span class="math inline">\(f_{X_2}(x_2)=0\)</span> o <span class="math inline">\(f_{X_3}(x_3)=0\)</span>. En cualquier caso, <span class="math inline">\(f_{X_1}(x_1)\cdot f_{X_2}(x_2)\cdot f_{X_3}(x_3)=0\)</span>.</li>
 </ul>
+</div>
 </div>
 <div id="ejemplo-de-la-variable-gaussiana-n-dimensional" class="section level4">
 <h4><span class="header-section-number">6.5.2.1</span> Ejemplo de la variable gaussiana <span class="math inline">\(n\)</span>-dimensional</h4>
@@ -1664,7 +1766,7 @@ f_{X_i}(x_i)  =\frac{1}{\sqrt{2\pi\sigma_{ii}^2}}\mathrm{e}^{-\frac{(x_i-\mu_i)^
 f_{X_1}(x_1)\cdots f_{X_n}(x_n) &amp; =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}\sigma_{11}\cdots \sigma_{nn}}\mathrm{e}^{-\sum\limits_{i=1}^n\frac{(x_i-\mu_i)^2}{2\sigma_{ii}^2}}=f_{X_1\ldots X_n}(x_1,\ldots,x_n) \\ &amp; =\frac{1}{(2\pi)^{\frac{n}{2}}\sqrt{\mathbf{|\Sigma|}}}\mathrm{e}^{-\frac{1}{2}(\mathbf{x-\mu})^\top\mathbf{\Sigma}^{-1}(\mathbf{x-\mu})}.
 \end{array}
 \]</span></p>
-<p>La respuesta es claramente cuando la matriz de covarianzas <span class="math inline">\(\mathbf{\Sigma}\)</span> es diagonal, o sea, si <span class="math inline">\(\sigma_{ij}=0,\)</span> para <span class="math inline">\(i\neq j\)</span>, para todo <span class="math inline">\(i,j=1,\ldots,n\)</span>.</p>
+<p>La respuesta es claramente cuando la matriz de covarianzas <span class="math inline">\(\mathbf{\Sigma}\)</span> es diagonal, es decir, si <span class="math inline">\(\sigma_{ij}=0,\)</span> para <span class="math inline">\(i\neq j\)</span>, para todo <span class="math inline">\(i,j=1,\ldots,n\)</span>.</p>
 <p>En resumen, cuando la covarianza entre dos variables cualesquiera <span class="math inline">\(X_i\)</span> y <span class="math inline">\(X_j\)</span> distintas es cero, las variables normales <span class="math inline">\(X_1,\ldots,X_n\)</span> son independientes.</p>
 </div>
 </div>
@@ -1680,16 +1782,16 @@ F_{X_1\ldots X_n}(x_1,\ldots,x_n)=F_{X_1}(x_1)\cdots F_{X_n}(x_n),\ (x_1,\ldots,
 <div id="ejemplos-14" class="section level4">
 <h4><span class="header-section-number">6.5.3.1</span> Ejemplos</h4>
 <div class="example">
-<p><strong>Ejemplo</strong></p>
-<p>Recordemos la variable aleatoria <span class="math inline">\(3\)</span>-dimensional continua con <strong>función de densidad conjunta</strong>:
-<span class="math display">\[
+<p><strong>Ejemplo: densidad tridimensional continuación</strong></p>
+<p>Recordemos la variable aleatoria <span class="math inline">\(3\)</span>-dimensional continua con <strong>función de densidad conjunta</strong>:</p>
+<p><span class="math display">\[
 f_{X_1X_2X_3}(x_1,x_2,x_3)=\begin{cases}
 8 x_1\cdot x_2\cdot x_3, &amp; \mbox{si }0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\ 0\leq x_3\leq 1, \\
 0, &amp; \mbox{en caso contrario.}\\
 \end{cases}
 \]</span>
-Recordemos también <strong>función de distribución conjunta</strong> es:
-<span class="math display">\[
+Recordemos también <strong>función de distribución conjunta</strong> es:</p>
+<p><span class="math display">\[
 F_{X_1X_2X_3}(x_1,x_2,x_3)=\begin{cases}
 0, &amp; \mbox{si }x_1&lt;0,\mbox{ o }x_2&lt;0,\mbox{ o }x_3 &lt;0\\
 x_1^2\cdot x_2^2\cdot x_3^2, &amp; \mbox{si }0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\ 0\leq x_3\leq 1, \\
@@ -1717,8 +1819,9 @@ f_{X_2}(x_2)&amp;=\begin{cases}
 0, &amp; \mbox{en caso contrario.}
 \end{cases}
 \end{array}
-\]</span>
-Dejamos como ejercicio verificar que las expresiones siguientes correspondes a las <strong>funciones de distribución marginales</strong>:</p>
+\]</span></p>
+<div class="example-sol">
+<p>Dejamos como ejercicio verificar que las expresiones siguientes correspondes a las <strong>funciones de distribución marginales</strong>:</p>
 <p><span class="math display">\[
 \begin{array}{rl}
 F_{X_1}(x_1) &amp; =\begin{cases}
@@ -1781,6 +1884,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)=1=1\cdot 1\cdot 1= F_{X_1}(x_1)\cdot F_{X_2}(x_2)\cdo
 </div>
 </div>
 </div>
+</div>
 <div id="momentos-conjuntos-y-valores-esperados-conjuntos-1" class="section level2">
 <h2><span class="header-section-number">6.6</span> Momentos conjuntos y valores esperados conjuntos</h2>
 <div id="valor-esperado-de-una-funcion-de-n-variables-aleatorias" class="section level3">
@@ -1815,27 +1919,29 @@ E(Z)  = E(g(X_1\ldots,X_n))  =\sum_{x_{i_1}}\cdots\sum_{x_{i_n}}g(x_{i_1},\ldots
 <div class="example">
 <p><strong>Ejemplo del lanzamiento de un dado tres veces</strong></p>
 <p>Consideremos el ejemplo de la variable <span class="math inline">\((X_1,X_2,X_3)\)</span> que nos daba el número de 1’s, 2’s y 3’s en el lanzamiento de un dado tres veces.</p>
-<p>Vamos a calcular <span class="math inline">\(E\left(X_1\cdot X_2\cdot X_3\right)\)</span>.
-El valor esperado anterior se calcularía de la forma siguiente:
+Vamos a calcular <span class="math inline">\(E\left(X_1\cdot X_2\cdot X_3\right)\)</span>.
+<div class="example-sol">
+<p>El valor esperado anterior se calcula como sigue:
 <span class="math display">\[
-E\left(X_1\cdot X_2\cdot X_3\right)=\sum_{i_1=0}^3\sum_{i_2=0}^3
+E\left(X_1\cdot X_2\cdot X_3\right)\displaystyle =\sum_{i_1=0}^3\sum_{i_2=0}^3
 \sum_{i_3=0}^3 i_1\cdot i_2\cdot i_3\cdot P_{X_1X_2X_3}(i_1,i_2,i_3),
 \]</span>
 en total <span class="math inline">\(4^3=64\)</span> términos. Como el cálculo es tedioso, lo vamos a realizar con ayuda de <code>R</code>.</p>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" data-line-number="1">valor.esperado=<span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb414-2" data-line-number="2"><span class="cf">for</span> (i1 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb414-3" data-line-number="3">  <span class="cf">for</span> (i2 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb414-4" data-line-number="4">    <span class="cf">for</span> (i3 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb414-5" data-line-number="5">      valor.esperado=valor.esperado<span class="op">+</span>i1<span class="op">*</span>i2<span class="op">*</span>i3<span class="op">*</span><span class="kw">fun.prob.con</span>(i1,i2,i3)</a>
-<a class="sourceLine" id="cb414-6" data-line-number="6">    }</a>
-<a class="sourceLine" id="cb414-7" data-line-number="7">  }</a>
-<a class="sourceLine" id="cb414-8" data-line-number="8">}</a>
-<a class="sourceLine" id="cb414-9" data-line-number="9">valor.esperado</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">valor.esperado=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="cf">for</span> (i1 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="cf">for</span> (i2 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">    <span class="cf">for</span> (i3 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">      valor.esperado=valor.esperado<span class="op">+</span>i1<span class="op">*</span>i2<span class="op">*</span>i3<span class="op">*</span><span class="kw">fun.prob.con</span>(i1,i2,i3)</a>
+<a class="sourceLine" id="cb12-6" data-line-number="6">    }</a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">  }</a>
+<a class="sourceLine" id="cb12-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb12-9" data-line-number="9">valor.esperado</a></code></pre></div>
 <pre><code>## [1] 0.02777778</code></pre>
 </div>
+</div>
 <div class="example">
-<p><strong>Ejemplo</strong></p>
-<p>Recordemos la variable aleatoria <span class="math inline">\(3\)</span>-dimensional <span class="math inline">\((X_1,X_2,X_3)\)</span> con <strong>función de densidad conjunta</strong>:
+<p><strong>Ejemplo: densidad tridimensional (continuación)</strong></p>
+<p>Recordemos la variable aleatoria <span class="math inline">\(3\)</span>-dimensional <span class="math inline">\((X_1,X_2,X_3)\)</span> con <strong>función de densidad conjunta</strong>:</p>
 <span class="math display">\[
 f_{X_1X_2X_3}(x_1,x_2,x_3)=\begin{cases}
 8 x_1\cdot x_2\cdot x_3, &amp; \mbox{si }0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\ 0\leq x_3\leq 1, \\
@@ -1843,11 +1949,13 @@ f_{X_1X_2X_3}(x_1,x_2,x_3)=\begin{cases}
 \end{cases}
 \]</span>
 Calculemos <span class="math inline">\(E(X_1^2+X_2^2+X_3^2)\)</span>:
-<span class="math display">\[
+<div class="example-sol">
+<p><span class="math display">\[
+\scriptsize{
 \begin{array}{rl}
-E(X_1^2+X_2^2+X_3^2) &amp; =\int_{x_1=0}^{x_1=1} \int_{x_2=0}^{x_2=1}\int_{x_3=0}^{x_3=1} (x_1^2+x_2^2+x_3^2) 8 x_1 x_2 x_3 \,dx_1\, dx_2\, dx_3\\ &amp; =8\left(\int_{x_1=0}^{x_1=1} \int_{x_2=0}^{x_2=1}\int_{x_3=0}^{x_3=1}   x_1^3 x_2 x_3 \,dx_1\, dx_2\, dx_3 + \int_{x_1=0}^{x_1=1} \int_{x_2=0}^{x_2=1}\int_{x_3=0}^{x_3=1}   x_1 x_2^3 x_3 \,dx_1\, dx_2\, dx_3 \right.\\ &amp; \left. + \int_{x_1=0}^{x_1=1} \int_{x_2=0}^{x_2=1}\int_{x_3=0}^{x_3=1}   x_1 x_2 x_3^3 \,dx_1\, dx_2\, dx_3\right) \\ &amp; =
+E(X_1^2+X_2^2+X_3^2) &amp; \displaystyle=\int_{x_1=0}^{x_1=1} \int_{x_2=0}^{x_2=1}\int_{x_3=0}^{x_3=1} (x_1^2+x_2^2+x_3^2) 8\cdot x_1\cdot x_2\cdot  x_3 \,dx_1\, dx_2\, dx_3\\ &amp; =8\cdot \left(\int_{x_1=0}^{x_1=1} \int_{x_2=0}^{x_2=1}\int_{x_3=0}^{x_3=1}   x_1^3\cdot  x_2\cdot  x_3 \,dx_1\, dx_2\, dx_3 + \int_{x_1=0}^{x_1=1} \int_{x_2=0}^{x_2=1}\int_{x_3=0}^{x_3=1}   x_1 \cdot x_2^3 \cdot x_3 \,dx_1\, dx_2\, dx_3 \right.\\ &amp; \left. + \int_{x_1=0}^{x_1=1} \int_{x_2=0}^{x_2=1}\int_{x_3=0}^{x_3=1}   x_1\cdot  x_2\cdot  x_3^3 \,dx_1\, dx_2\, dx_3\right) \\ &amp; =
 8\left(\left[\frac{x_1^4}{4}\right]_0^1 \left[\frac{x_2^2}{2}\right]_0^1 \left[\frac{x_3^2}{2}\right]_0^1 + \left[\frac{x_1^2}{2}\right]_0^1 \left[\frac{x_2^4}{4}\right]_0^1 \left[\frac{x_3^2}{2}\right]_0^1 + \left[\frac{x_1^2}{2}\right]_0^1 \left[\frac{x_2^2}{2}\right]_0^1 \left[\frac{x_3^4}{4}\right]_0^1\right) \\ &amp; =8\cdot 3\cdot \frac{1}{16}=\frac{3}{2}=1.5.
-\end{array}
+\end{array}}
 \]</span></p>
 </div>
 </div>
@@ -1862,8 +1970,8 @@ E(X_1+\cdots + X_n)=E(X_1)+\cdots + E(X_n).
 <div class="dem">
 <p><strong>Demostración</strong></p>
 <p>Haremos la demostración para el caso continuo. Dejamos como ejercicio la demostración en el caso discreto.</p>
-<p>El valor esperado de la suma de variables será en función de la <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{X_1\ldots X_n}\)</span>:
-<span class="math display">\[
+<p>Para calcular valor esperado de la suma de variables necesitamos la <strong>función de densidad conjunta</strong> <span class="math inline">\(f_{X_1\ldots X_n}\)</span>:</p>
+<p><span class="math display">\[
 \begin{array}{rl}
 E(X_1+\cdots + X_n) &amp; = \int_{-\infty}^\infty\cdots\int_{-\infty}^\infty (x_1+\cdots + x_n)f_{X_1\ldots X_n}(x_1,\ldots,x_n)\,dx_1\ldots dx_n \\ &amp; = \int_{-\infty}^\infty\cdots\int_{-\infty}^\infty x_1f_{X_1\ldots X_n}(x_1,\ldots,x_n)\,dx_1\ldots dx_n+ \cdots \\ &amp; + \int_{-\infty}^\infty\cdots\int_{-\infty}^\infty x_n f_{X_1\ldots X_n}(x_1,\ldots,x_n)\,dx_1\ldots dx_n \\ &amp; = E(X_1)+\cdots + E(X_n).
 \end{array}
@@ -1876,15 +1984,15 @@ E(X_1+\cdots + X_n) &amp; = \int_{-\infty}^\infty\cdots\int_{-\infty}^\infty (x_
 <p>Consideremos el ejemplo de la variable <span class="math inline">\((X_1,X_2,X_3)\)</span> que nos daba el número de 1’s, 2’s y 3’s en el lanzamiento de un dado tres veces.</p>
 <p>Comprobemos en este caso que <span class="math inline">\(E(X_1+X_2+X_3)=E(X_1)+E(X_2)+E(X_3)\)</span>.</p>
 <p>Calculemos <span class="math inline">\(E(X_1+X_2+X_3)\)</span> con <code>R</code> usando la misma técnica que en el ejemplo donde calculábamos <span class="math inline">\(E(X_1\cdot X_2\cdot X_3)\)</span>:</p>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" data-line-number="1">valor.esperado=<span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb416-2" data-line-number="2"><span class="cf">for</span> (i1 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb416-3" data-line-number="3">  <span class="cf">for</span> (i2 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb416-4" data-line-number="4">    <span class="cf">for</span> (i3 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb416-5" data-line-number="5">      valor.esperado=valor.esperado<span class="op">+</span>(i1<span class="op">+</span>i2<span class="op">+</span>i3)<span class="op">*</span><span class="kw">fun.prob.con</span>(i1,i2,i3)</a>
-<a class="sourceLine" id="cb416-6" data-line-number="6">    }</a>
-<a class="sourceLine" id="cb416-7" data-line-number="7">  }</a>
-<a class="sourceLine" id="cb416-8" data-line-number="8">}</a>
-<a class="sourceLine" id="cb416-9" data-line-number="9">valor.esperado</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">valor.esperado=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="cf">for</span> (i1 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="cf">for</span> (i2 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">    <span class="cf">for</span> (i3 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">      valor.esperado=valor.esperado<span class="op">+</span>(i1<span class="op">+</span>i2<span class="op">+</span>i3)<span class="op">*</span><span class="kw">fun.prob.con</span>(i1,i2,i3)</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">    }</a>
+<a class="sourceLine" id="cb14-7" data-line-number="7">  }</a>
+<a class="sourceLine" id="cb14-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb14-9" data-line-number="9">valor.esperado</a></code></pre></div>
 <pre><code>## [1] 1.5</code></pre>
 <p>La distribución marginal de cada una de las variables <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> y <span class="math inline">\(X_3\)</span> recordemos que es la siguiente:</p>
 <div class="center">
@@ -1909,12 +2017,12 @@ E(X_1+\cdots + X_n) &amp; = \int_{-\infty}^\infty\cdots\int_{-\infty}^\infty (x_
 </tbody>
 </table>
 </div>
-<p>El valor de <span class="math inline">\(E(X_1)=E(X_2)=E(X_3)\)</span> será:</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb418-1" data-line-number="1">esperanza.X1=<span class="dv">0</span></a>
-<a class="sourceLine" id="cb418-2" data-line-number="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb418-3" data-line-number="3">  esperanza.X1=esperanza.X1<span class="op">+</span>i<span class="op">*</span><span class="kw">fun.marginal.X1</span>(i)</a>
-<a class="sourceLine" id="cb418-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb418-5" data-line-number="5">esperanza.X1</a></code></pre></div>
+<p>El valor de <span class="math inline">\(E(X_1)=E(X_2)=E(X_3)\)</span> es:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">esperanza.X1=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">  esperanza.X1=esperanza.X1<span class="op">+</span>i<span class="op">*</span><span class="kw">fun.marginal.X1</span>(i)</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">esperanza.X1</a></code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
 <p>Claramente:
 <span class="math display">\[
@@ -1928,12 +2036,12 @@ E(X_1+X_2+X_3)=1.5=E(X_1)+E(X_2)+E(X_3)=0.5+0.5+0.5.
 <p>El siguiente resultado nos simplifica el cálculo del <strong>valor esperado de una función de <span class="math inline">\(n\)</span> variables aleatorias</strong> en el caso en que sean <strong>independientes</strong>:</p>
 <p><l class="prop">Proposición: cálculo del valor esperado de una función de <span class="math inline">\(n\)</span> variables aleatorias en el caso de independencia. </l>
 Sea <span class="math inline">\((X_1,\ldots,X_n)\)</span> una variable aleatoria <span class="math inline">\(n\)</span>-dimensional donde suponemos que <span class="math inline">\(X_1,\ldots,X_n\)</span> son independientes.
-Sea <span class="math inline">\(Z=g(X_1,\ldots,X_n)\)</span> una variable aleatoria unidimensional función de <span class="math inline">\(X_1,\ldots,X_n\)</span> donde suponemos que podemos “separar” las variables <span class="math inline">\(x_1,\ldots, x_n\)</span> en la función <span class="math inline">\(g\)</span>. O sea, existen <span class="math inline">\(n\)</span> funciones <span class="math inline">\(g_1,\ldots, g_n\)</span> tal que <span class="math inline">\(g(x_1,\ldots,x_n)=g_1(x_1)\cdots g_n(x_n)\)</span> para todo valor <span class="math inline">\(x_1,\ldots,x_n\in\mathbb{R}\)</span>. En este caso, el valor esperado de <span class="math inline">\(Z\)</span> se puede calcular como:
+Sea <span class="math inline">\(Z=g(X_1,\ldots,X_n)\)</span> una variable aleatoria unidimensional función de <span class="math inline">\(X_1,\ldots,X_n\)</span> donde suponemos que podemos “separar” las variables <span class="math inline">\(x_1,\ldots, x_n\)</span> en la función <span class="math inline">\(g\)</span>. O lo que es lo mismo, existen <span class="math inline">\(n\)</span> funciones <span class="math inline">\(g_1,\ldots, g_n\)</span> tal que <span class="math inline">\(g(x_1,\ldots,x_n)=g_1(x_1)\cdots g_n(x_n)\)</span> para todo valor <span class="math inline">\(x_1,\ldots,x_n\in\mathbb{R}\)</span>. En este caso, el valor esperado de <span class="math inline">\(Z\)</span> se puede calcular como:
 <span class="math display">\[
 E(Z)=E(g(X_1\ldots,X_n))=E_{X_1}(g_1(X_1))\cdots E_{X_n}(g_n(X_n)).
 \]</span></p>
-<p>O sea, el cálculo de <span class="math inline">\(E(g(X_1\ldots,X_n))\)</span> que sería una suma múltiple en el caso de que <span class="math inline">\((X_1,\ldots,X_n)\)</span> sea <strong>discreta</strong> o una integral múltiple en el caso en que <span class="math inline">\((X_1,\ldots,X_n)\)</span> sea continua se transforma en el producto de <span class="math inline">\(n\)</span> sumas simples (caso <strong>discreto</strong>) o el producto de <span class="math inline">\(n\)</span> integrales simples (caso <strong>continuo</strong>):
-<span class="math display">\[
+<p>El cálculo de <span class="math inline">\(E(g(X_1\ldots,X_n))\)</span> que es una suma múltiple en el caso de que <span class="math inline">\((X_1,\ldots,X_n)\)</span> sea <strong>discreta</strong> o una integral múltiple en el caso en que <span class="math inline">\((X_1,\ldots,X_n)\)</span> sea continua se transforma en el producto de <span class="math inline">\(n\)</span> sumas simples (caso <strong>discreto</strong>) o el producto de <span class="math inline">\(n\)</span> integrales simples (caso <strong>continuo</strong>):</p>
+<p><span class="math display">\[
 \begin{array}{rl}
 E(Z) &amp; =E(g(X_1\ldots,X_n))\\ &amp; =\left(\sum_{x_{i_1}} g_1(x_{i_1})\cdot P_{X_1}(x_{i_1})\right)\cdots \left(\sum_{x_{i_n}} g_n(x_{i_n})\cdot P_{X_n}(x_{i_n})\right), \ \mbox{caso discreto},\\
 E(Z) &amp; =E(g(X_1\ldots,X_n)) \\ &amp; =\left(\int_{-\infty}^\infty g_1(x_1)\cdot f_{X_1}(x_1)\, dx_1\right)\cdots \left(\int_{-\infty}^\infty g_n(x_n)\cdot f_{X_n}(x_n)\right), \ \mbox{caso continuo}.
@@ -1948,23 +2056,27 @@ si <span class="math inline">\(X_1,\ldots,X_n\)</span> son independientes.</p>
 <div id="ejemplos-17" class="section level4">
 <h4><span class="header-section-number">6.6.4.1</span> Ejemplos</h4>
 <div class="example">
-<p>Recordemos el ejemplo con función de densidad conjunta:
-<span class="math display">\[
+<p><strong>Ejempo: densidad tridimensional (continuación)</strong></p>
+<p>Recordemos el ejemplo con función de densidad conjunta:</p>
+<p><span class="math display">\[
 f_{X_1X_2X_3}(x_1,x_2,x_3)=\begin{cases}
 8 x_1\cdot x_2\cdot x_3, &amp; \mbox{si }0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\ 0\leq x_3\leq 1, \\
 0, &amp; \mbox{en caso contrario.}\\
 \end{cases}
 \]</span>
-Recordemos que son independientes. Comprobemos que <span class="math inline">\(E(X_1\cdot X_2\cdot X_3)=E(X_1)\cdot E(X_2)\cdot E(X_3)\)</span>.</p>
-<p>Calculemos <span class="math inline">\(E(X_1\cdot X_2\cdot X_3)\)</span>:
-<span class="math display">\[
+del que ya sebemos que ls tres variables son independientes.
+Comprobemos que <span class="math inline">\(E(X_1\cdot X_2\cdot X_3)=E(X_1)\cdot E(X_2)\cdot E(X_3)\)</span>.</p>
+<p>Calculemos <span class="math inline">\(E(X_1\cdot X_2\cdot X_3)\)</span>:</p>
+<div class="example-sol">
+<p><span class="math display">\[
 \begin{array}{rl}
 E(X_1\cdot X_2\cdot X_3)  &amp; = \int_0^1\int_0^1\int_0^1 x_1\cdot x_2\cdot x_3\cdot 8 x_1\cdot x_2\cdot x_3\,dx_1\, dx_2\, dx_3 \\ &amp; = 8\int_0^1\int_0^1\int_0^1 x_1^2\cdot x_2^2\cdot x_3^2\,dx_1\, dx_2\, dx_3 =8\left[\frac{x_1^3}{3}\right]_0^1\left[\frac{x_2^3}{3}\right]_0^1
-\left[\frac{x_3^3}{3}\right]_0^1 = 8\cdot \frac{1}{3^3}=\frac{8}{27}=0.2963.
+\left[\frac{x_3^3}{3}\right]_0^1 \\
+&amp; = 8\cdot \frac{1}{3^3}=\frac{8}{27}=0.2963.
 \end{array}
 \]</span></p>
-<p>Recordemos que las <strong>densidades marginales</strong> eran:
-<span class="math display">\[
+<p>Recordemos que las <strong>densidades marginales</strong> son:</p>
+<p><span class="math display">\[
 \begin{array}{rl}
 f_{X_1}(x_1) &amp; =\begin{cases}
 2x_1, &amp; \mbox{ si }0\leq x\leq 1,\\
@@ -2003,9 +2115,11 @@ Entonces la <strong>covarianza</strong> de las variables <span class="math inlin
 <p><strong>Demostración</strong></p>
 <p>Usando la expresión de la <strong>covarianza</strong> podemos calcular la covarianza entre las variables <span class="math inline">\(U\)</span> y <span class="math inline">\(V\)</span> como:
 <span class="math display">\[
+\scriptsize{
 \begin{array}{rl}
-\mathrm{Cov}(U,V) &amp; =E(UV)-E(U)E(V)=E\left(\sum\limits_{i=1}^n a_i X_i\cdot \sum\limits_{j=1}^n b_j Y_j\right)- E\left(\sum\limits_{i=1}^n a_i X_i\right)E\left(\sum\limits_{j=1}^n b_j Y_j\right) \\ &amp; =\sum\limits_{i=1}^n \sum\limits_{j=1}^n a_i b_j E\left(X_i Y_j\right)-\sum\limits_{i=1}^n a_i E(X_i)\sum\limits_{j=1}^n b_j E(Y_j) = \sum\limits_{i=1}^n \sum\limits_{j=1}^n a_i b_j E\left(X_i Y_j\right)-\sum\limits_{i=1}^n\sum\limits_{j=1}^n a_i b_j E(X_i) E(Y_j) \\ &amp; = \sum\limits_{i=1}^n \sum\limits_{j=1}^n a_i b_j \left(E\left(X_i Y_j\right) - E(X_i) E(Y_j)\right) = \sum\limits_{i=1}^n \sum\limits_{j=1}^n a_i b_j \mathrm{Cov}(X_i,Y_j),
-\end{array}
+\mathrm{Cov}(U,V) &amp; =E(UV)-E(U)\cdot E(V)=E\left(\sum\limits_{i=1}^n a_i \cdot X_i\cdot \sum\limits_{j=1}^n b_j \cdot Y_j\right)- E\left(\sum\limits_{i=1}^n a_i \cdot X_i\right)E\left(\sum\limits_{j=1}^n b_j \cdot Y_j\right) \\ &amp; =\sum\limits_{i=1}^n \sum\limits_{j=1}^n a_i\cdot  b_j \cdot E\left(X_i Y_j\right)-\sum\limits_{i=1}^n a_i\cdot  E(X_i)\sum\limits_{j=1}^n b_j \cdot E(Y_j) \\
+&amp;= \sum\limits_{i=1}^n \sum\limits_{j=1}^n a_i\cdot  b_j\cdot E\left(X_i Y_j\right)-\sum\limits_{i=1}^n\sum\limits_{j=1}^n a_i\cdot  b_j\cdot  E(X_i)\cdot  E(Y_j) \\ &amp; = \sum\limits_{i=1}^n \sum\limits_{j=1}^n a_i b_j \left(E\left(X_i Y_j\right) - E(X_i)\cdot  E(Y_j)\right) = \sum\limits_{i=1}^n \sum\limits_{j=1}^n a_i\cdot  b_j\cdot  \mathrm{Cov}(X_i,Y_j),
+\end{array}}
 \]</span>
 tal como queríamos ver.</p>
 </div>
@@ -2022,7 +2136,8 @@ Entonces la <strong>covarianza</strong> de las variables <span class="math inlin
 <p>Usando la misma técnica de demostración que en la proposición anterior, podemos calcular la covarianza entre las variables <span class="math inline">\(U\)</span> y <span class="math inline">\(V\)</span> como:
 <span class="math display">\[
 \begin{array}{rl}
-\mathrm{Cov}(U,V) &amp; = \sum\limits_{i=1}^n \sum\limits_{j=1}^n a_i b_j \left(E\left(X_i X_j\right) - E(X_i) E(X_j)\right) = \sum\limits_{i=1}^n a_i b_i \left(E\left(X_i^2\right) - E(X_i)^2\right)+\sum\limits_{i=1}^n \sum\limits_{j=1,j\neq i}^n a_i b_j \mathrm{Cov}(X_i,X_j) \\ &amp; = \sum\limits_{i=1}^n a_i b_i \mathrm{Var}(X_i)+\sum\limits_{i=1}^n \sum\limits_{j=1,j\neq i}^n a_i b_j \mathrm{Cov}(X_i,X_j),
+\mathrm{Cov}(U,V) &amp; = \sum\limits_{i=1}^n \sum\limits_{j=1}^n a_i\cdot  b_j\cdot  \left(E\left(X_i \cdot X_j\right) - E(X_i)\cdot  E(X_j)\right) \\
+&amp;= \sum\limits_{i=1}^n a_i\cdot  b_i \cdot \left(E\left(X_i^2\right) - E(X_i)^2\right)+\sum\limits_{i=1}^n \sum\limits_{j=1,j\neq i}^n a_i \cdot b_j\cdot  \mathrm{Cov}(X_i,X_j) \\ &amp; = \sum\limits_{i=1}^n a_i\cdot  b_i\cdot  \mathrm{Var}(X_i)+\sum\limits_{i=1}^n \sum\limits_{j=1,j\neq i}^n a_i b_j \mathrm{Cov}(X_i,X_j),
 \end{array}
 \]</span>
 tal como queríamos ver.</p>
@@ -2030,7 +2145,7 @@ tal como queríamos ver.</p>
 <p><l class="observ"> Observación. </l>
 Una forma equivalente de escribir la covarianza anterior sería:
 <span class="math display">\[
-\mathrm{Cov}(U,V)=\sum_{i=1}^n a_i b_i \mathrm{Var}(X_i)+2\sum_{i=1}^n\sum_{j=1,j&gt;i}^n a_i b_j \mathrm{Cov}(X_i,X_j).
+\mathrm{Cov}(U,V)=\sum_{i=1}^n a_i\cdot  b_i\cdot  \mathrm{Var}(X_i)+2\sum_{i=1}^n\sum_{j=1,j&gt;i}^n a_i\cdot  b_j\cdot  \mathrm{Cov}(X_i,X_j).
 \]</span></p>
 <p>Como, en general <span class="math inline">\(\mathrm{Var}(U)=\mathrm{Cov}(U,U)\)</span>, una consecuencia directa de la proposición anterior es la expresión de la varianza de una combinación lineal de variables aleatorias:</p>
 <p><l class="prop">Proposición (varianza de una combinación lineal de variables aleatorias). </l>

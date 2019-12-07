@@ -283,8 +283,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#funcion-de-distribucion-conjunta-1"><i class="fa fa-check"></i><b>6.2</b> Función de distribución conjunta</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#definicion-4"><i class="fa fa-check"></i><b>6.2.1</b> Definición</a></li>
 <li class="chapter" data-level="6.2.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#propiedades-5"><i class="fa fa-check"></i><b>6.2.2</b> Propiedades</a></li>
-<li class="chapter" data-level="6.2.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplos-9"><i class="fa fa-check"></i><b>6.2.3</b> Ejemplos</a></li>
-<li class="chapter" data-level="6.2.4" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplo-con-r"><i class="fa fa-check"></i><b>6.2.4</b> Ejemplo con <code>R</code></a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#variables-aleatorias-n-dimensionales-discretas"><i class="fa fa-check"></i><b>6.3</b> Variables aleatorias <span class="math inline">\(n\)</span>-dimensionales discretas</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#funcion-de-probabilidad-conjunta-1"><i class="fa fa-check"></i><b>6.3.1</b> Función de probabilidad conjunta</a></li>
@@ -303,7 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#momentos-conjuntos-y-valores-esperados-conjuntos-1"><i class="fa fa-check"></i><b>6.6</b> Momentos conjuntos y valores esperados conjuntos</a><ul>
 <li class="chapter" data-level="6.6.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#valor-esperado-de-una-funcion-de-n-variables-aleatorias"><i class="fa fa-check"></i><b>6.6.1</b> Valor esperado de una función de <span class="math inline">\(n\)</span> variables aleatorias</a></li>
-<li class="chapter" data-level="6.6.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplos-15"><i class="fa fa-check"></i><b>6.6.2</b> Ejemplos</a></li>
+<li class="chapter" data-level="6.6.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplos-12"><i class="fa fa-check"></i><b>6.6.2</b> Ejemplos</a></li>
 <li class="chapter" data-level="6.6.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#propiedad-del-valor-esperado-de-la-suma-de-variables"><i class="fa fa-check"></i><b>6.6.3</b> Propiedad del valor esperado de la suma de variables</a></li>
 <li class="chapter" data-level="6.6.4" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#valor-esperado-de-una-funcion-de-n-variables-aleatorias-independientes"><i class="fa fa-check"></i><b>6.6.4</b> Valor esperado de una función de <span class="math inline">\(n\)</span> variables aleatorias independientes</a></li>
 <li class="chapter" data-level="6.6.5" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#propiedades-de-la-covarianza-1"><i class="fa fa-check"></i><b>6.6.5</b> Propiedades de la covarianza</a></li>
@@ -387,7 +385,7 @@ w &amp; \longrightarrow \mathbf{X}(w)=(X_1(w),X_2(w),\ldots,X_n(w)).
 <p>Los sucesos que se derivan de una <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional</strong> estan especificados por regiones del espacio <span class="math inline">\(n\)</span>-dimensional.</p>
 <p>Veamos algunos ejemplos:</p>
 <p>Suceso: <span class="math inline">\(\{X_1+X_2+X_3\leq 1\}\)</span>. En el gráfico siguiente, el plano <span class="math inline">\(x_1+x_2+x_3=1\)</span> separa el espacio en dos partes. Es la parte que corresponde al punto <span class="math inline">\((0,0,0)\)</span>.</p>
-<p>Si pensamos el plano anterior como un “espejo” sería la parte de atrás del mismo.</p>
+<p>Si pensamos el plano anterior como un “espejo” es la parte de atrás del mismo.</p>
 <div class="center">
 <p><img src="Images/EjPlano3D.png" width="142" /></p>
 </div>
@@ -395,7 +393,7 @@ w &amp; \longrightarrow \mathbf{X}(w)=(X_1(w),X_2(w),\ldots,X_n(w)).
 <div class="center">
 <p><img src="Images/EjEsfera3D.png" width="142" /></p>
 </div>
-<p>Suceso: <span class="math inline">\(\{0\leq X_1\leq 1,\ 0\leq X_2\leq 1,\ 0\leq X_3\leq 1\}\)</span>. Sería el interior del cubo del gráfico siguiente:</p>
+<p>Suceso: <span class="math inline">\(\{0\leq X_1\leq 1,\ 0\leq X_2\leq 1,\ 0\leq X_3\leq 1\}\)</span>. Es el interior del cubo del gráfico siguiente:</p>
 <div class="center">
 <p><img src="Images/Ej3DCubo.png" width="174" /></p>
 </div>
@@ -404,7 +402,7 @@ w &amp; \longrightarrow \mathbf{X}(w)=(X_1(w),X_2(w),\ldots,X_n(w)).
 P((X_1,X_2,\ldots,X_n)\in B)=P\{w\in \Omega,\ |\ (X_1(w),X_2(w),\ldots,X_n)\in B\},
 \]</span>
 dicho de otra manera, la probabilidad anterior es la probabilidad del suceso formado por los elementos de <span class="math inline">\(w\in\Omega\)</span> que cumplen que su <strong>imagen</strong> por la <strong>variable aleatoria <span class="math inline">\(n\)</span>-dimensional <span class="math inline">\((X_1,X_2,\ldots,X_n)\)</span></strong> esté en <span class="math inline">\(B\)</span>.</p>
-<p>Por ejemplo, si consideramos <span class="math inline">\(B=\{X_1+X_2+\cdots +X_n\leq 1\}\)</span>, <span class="math inline">\(P((X_1,X_2,\ldots,X_n)\in B)\)</span> sería la probabilidad del suceso formado por los elementos <span class="math inline">\(w\)</span> de <span class="math inline">\(\Omega\)</span> tal que la suma de las imágenes por <span class="math inline">\(X_i\)</span> desde <span class="math inline">\(i=1\)</span> hasta <span class="math inline">\(n\)</span> sea menor o igual que 1: <span class="math inline">\(X_1(w)+\cdots +X_n\leq 1\)</span>.</p>
+<p>Por ejemplo, si consideramos <span class="math inline">\(B=\{X_1+X_2+\cdots +X_n\leq 1\}\)</span>, <span class="math inline">\(P((X_1,X_2,\ldots,X_n)\in B)\)</span> es la probabilidad del suceso formado por los elementos <span class="math inline">\(w\)</span> de <span class="math inline">\(\Omega\)</span> tal que la suma de las imágenes por <span class="math inline">\(X_i\)</span> desde <span class="math inline">\(i=1\)</span> hasta <span class="math inline">\(n\)</span> sea menor o igual que 1: <span class="math inline">\(X_1(w)+\cdots +X_n\leq 1\)</span>.</p>
 </div>
 </div>
 <div id="funcion-de-distribucion-conjunta-1" class="section level2">
@@ -455,13 +453,10 @@ para todo <span class="math inline">\(x_1,\ldots,x_n\in\mathbb{R}\)</span> y par
 \]</span>
 para todo <span class="math inline">\(a\in\mathbb{R}\)</span> y para todo <span class="math inline">\(i=1,\ldots,n\)</span>.</p></li>
 </ul>
-</div>
-<div id="ejemplos-9" class="section level3">
-<h3><span class="header-section-number">6.2.3</span> Ejemplos</h3>
 <div class="example">
-<p><strong>Ejemplo</strong></p>
-<p>Consideremos una variable aleatoria <span class="math inline">\(3\)</span>-dimensional <span class="math inline">\((X_1,X_2,X_3)\)</span> con <strong>función de distribución conjunta</strong>:
-<span class="math display">\[
+<p><strong>Ejemplo: densidad tridimensional</strong></p>
+<p>Consideremos una variable aleatoria <span class="math inline">\(3\)</span>-dimensional <span class="math inline">\((X_1,X_2,X_3)\)</span> con <strong>función de distribución conjunta</strong>:</p>
+<p><span class="math display">\[
 F_{X_1X_2X_3}(x_1,x_2,x_3)=\begin{cases}
 0, &amp; \mbox{si }x_1&lt;0,\mbox{ o }x_2&lt;0,\mbox{ o }x_3 &lt;0\\
 x_1^2\cdot x_2^2\cdot x_3^2, &amp; \mbox{si }0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\ 0\leq x_3\leq 1, \\
@@ -497,7 +492,7 @@ Para ver la expresión anterior basta trazar el plano <span class="math inline">
 <p>¡Efectivamente!, <span class="math inline">\(X_1\)</span> es la uniforme en el intervalo <span class="math inline">\((0,1)\)</span>.</p>
 <p>Dejamos como ejercicio hallar la distribución marginal para las variables <span class="math inline">\(X_2\)</span> e <span class="math inline">\(X_3\)</span>.</p>
 <ul>
-<li>Comprobemos que <span class="math inline">\(F_{X_1X_2X_3}\)</span> es continua por la derecha para las variables <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> y <span class="math inline">\(x_3\)</span> en el punto <span class="math inline">\((1,1,1)\)</span> que sería un punto problemático:</li>
+<li>Comprobemos que <span class="math inline">\(F_{X_1X_2X_3}\)</span> es continua por la derecha para las variables <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> y <span class="math inline">\(x_3\)</span> en el punto <span class="math inline">\((1,1,1)\)</span> que es un punto problemático:</li>
 </ul>
 <p><span class="math display">\[
 \begin{array}{rl}
@@ -507,10 +502,8 @@ Para ver la expresión anterior basta trazar el plano <span class="math inline">
 \end{array}
 \]</span></p>
 </div>
-</div>
-<div id="ejemplo-con-r" class="section level3">
-<h3><span class="header-section-number">6.2.4</span> Ejemplo con <code>R</code></h3>
 <div class="example">
+<p><strong>Ejemplo: cálculo con <code>R</code> distribución conjunta</strong></p>
 <p>Realizar un gráfico 3D de la <strong>función de distribución conjunta</strong> no es posible ya que deberíamos pasar a <span class="math inline">\(\mathbb{R}^4\)</span>.</p>
 <p>Lo que sí es posible es dibujar las curvas de nivel de dicha función para un valor de <span class="math inline">\(x_3\)</span> fijado.</p>
 <p>El los gráficos siguientes dibujamos las curvas de nivel para <span class="math inline">\(x_3=0,0.5,1\)</span> i <span class="math inline">\(x_3=1.5\)</span>.</p>
@@ -605,8 +598,6 @@ P_{X_1\ldots X_n}: \mathbb{R}^n &amp; \longrightarrow \mathbb{R}\\
 Si <span class="math inline">\((x_{i_1},x_{i_2},\ldots,x_{i_n})\not\in (X_1\ldots,X_n)(\Omega)\)</span>, el valor de la <strong>función de probabilidad conjunta</strong> en <span class="math inline">\((x_{i_1},x_{i_2},\ldots,x_{i_n})\)</span> en nulo: <span class="math inline">\(P_{X_1\ldots X_n}(x_{i_1},x_{i_2},\ldots,x_{i_n})=0\)</span>, ya que, en este caso, el conjunto <span class="math inline">\(\{w\in\Omega,\ | (X_1(w),\ldots,X_n(w))=(x_{i_1},x_{i_2},\ldots,x_{i_n})\}=\emptyset\)</span> ya que recordemos <span class="math inline">\((x_{i_1},x_{i_2},\ldots,x_{i_n})\not\in (X_1\ldots,X_n)(\Omega)\)</span>.</p>
 <p>Por tanto, de cara a calcular <span class="math inline">\(P_{X_1\ldots X_n}\)</span> basta calcular <span class="math inline">\(P_{X_1\ldots X_n}(x_{i_1},\ldots,x_{i_n})\)</span> para <span class="math inline">\((x_{i_1},\ldots,x_{i_n})\in (X_1\ldots,X_n)(\Omega)\)</span>.</p>
 <p>Los valores de <span class="math inline">\(P_{X_1\ldots X_n}(x_{i_1},\ldots,x_{i_n})\)</span> estarían organizados en una tabla <span class="math inline">\(n\)</span>-dimensional.</p>
-<div id="ejemplo-1" class="section level4">
-<h4><span class="header-section-number">6.3.1.1</span> Ejemplo</h4>
 <div class="example">
 <p><strong>Ejemplo de la variable 3-dimensional que nos da el número de 1’s, 2’s y 3’s en el lanzamiento de un dado tres veces</strong></p>
 <p>Para mostrar la <strong>función de probabilidad conjunta</strong> haremos una tabla bidimensional para cada valor de <span class="math inline">\(X_3\)</span>.</p>
@@ -789,11 +780,6 @@ Si <span class="math inline">\((x_{i_1},x_{i_2},\ldots,x_{i_n})\not\in (X_1\ldot
 </table>
 </div>
 </div>
-</div>
-</div>
-<div id="ejemplo-con-r-1" class="section level4">
-<h4><span class="header-section-number">6.3.1.2</span> Ejemplo con <code>R</code></h4>
-<div class="example">
 <p>La función <code>fun.prod.con</code> nos da la <strong>función de probabilidad conjunta</strong> de la variable aleatoria <span class="math inline">\(\mathbf{X}\)</span> cuando lanzamos un dado tres veces:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">fun.prob.con=<span class="cf">function</span>(x1,x2,x3){</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">  n=<span class="dv">6</span></a>
@@ -1010,8 +996,6 @@ Es decir, la probabilidad de que la variable <span class="math inline">\(n\)</sp
 F_{X_1\ldots X_n}(x_1,\ldots,x_n)=\sum_{x_{i_1}\leq x_1,\ldots, x_{i_n}\leq x_n} P_{X_1\ldots X_n}(x_{i_1},\ldots,x_{i_n}).
 \]</span>
 Dicha expresión se deduce de la expresión anterior considerando <span class="math inline">\(B=(-\infty,x_1]\times\cdots\times (-\infty,x_n]\)</span>.</p>
-<div id="ejemplos-10" class="section level4">
-<h4><span class="header-section-number">6.3.2.1</span> Ejemplos</h4>
 <div class="example-sol">
 <p><strong>Ejemplo anterior del lanzamiento de un dado tres veces</strong></p>
 <div class="exercise">
@@ -1035,7 +1019,7 @@ F_{X_1X_2X_3}(1,2,2)
 &amp; \frac{11}{12}=0.9167.
 \end{array}
 \]</span></p>
-<p>La función de distribución conjunta sería en <code>R</code>:</p>
+<p>La función de distribución conjunta es con código <code>R</code>:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">fun.dis.con =<span class="st"> </span><span class="cf">function</span>(x1,x2,x3){</a>
 <a class="sourceLine" id="cb7-2" data-line-number="2">  suma=<span class="dv">0</span></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3">  i1=<span class="dv">0</span>; i2=<span class="dv">0</span>; i3=<span class="dv">0</span>;</a>
@@ -1056,7 +1040,6 @@ F_{X_1X_2X_3}(1,2,2)
 </div>
 </div>
 </div>
-</div>
 <div id="funciones-de-distribucion-marginales" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> Funciones de distribución marginales</h3>
 <p>Consideremos una variable aleatoria <strong><span class="math inline">\(n\)</span>-dimensional discreta <span class="math inline">\((X_1\ldots,X_n)\)</span></strong> con <strong>función de probabilidad conjunta</strong></p>
@@ -1072,8 +1055,6 @@ P_{X_{s_1}\ldots X_{s_k}}(x_{s_1},\ldots,x_{s_k})  &amp; = \sum_{x_t} P_{X_1\ldo
 \]</span></p>
 <p>donde <span class="math inline">\((\mathbf{x}_s,\mathbf{x}_t)\)</span> es un valor de <span class="math inline">\(\mathbf{X}(\Omega)\)</span> tal que tiene como componente <span class="math inline">\(s_i\)</span> el valor <span class="math inline">\(x_{s_i}\)</span> para <span class="math inline">\(i=1,\ldots, k\)</span> y con <span class="math inline">\(\mathbf{x}_t\)</span> queremos decir todas las demás componentes que no son las <span class="math inline">\(s_i\)</span>. La suma tiene todos los sumandos <span class="math inline">\(\mathbf{x}_t\)</span> para los que se cumpla que <span class="math inline">\((\mathbf{x}_s,\mathbf{x}_t)\in \mathbf{X}(\Omega)\)</span>.</p>
 <p>En el caso particular de <span class="math inline">\(n=3\)</span>, podemos calcular las <strong>funciones de probabilidad conjunta</strong> de las variables unidimensionales <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> y <span class="math inline">\(X_3\)</span> y de las variables bidimensionales <span class="math inline">\((X_1,X_2)\)</span>, <span class="math inline">\((X_1,X_3)\)</span> y <span class="math inline">\((X_2,X_3)\)</span>.</p>
-<div id="ejemplos-11" class="section level4">
-<h4><span class="header-section-number">6.3.3.1</span> Ejemplos</h4>
 <div class="example">
 <p><strong>Ejemplo de la variable 3-dimensional que nos da el número de 1’s, 2’s y 3’s en el lanzamiento de un dado tres veces</strong></p>
 <p>Hallemos, en primer lugar, la <strong>función de probabilidad marginal</strong> de las variable <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> y <span class="math inline">\(X_3\)</span>. Empecemos con <span class="math inline">\(X_1\)</span>:</p>
@@ -1138,8 +1119,8 @@ P_{X_1}(3)
 </table>
 </div>
 <p>Las distribuciones marginales de las variables <span class="math inline">\(X_2\)</span> y <span class="math inline">\(X_3\)</span> coinciden con la distribución marginal de la variable <span class="math inline">\(X_1\)</span>. Lo dejamos como ejercicio.</p>
-<p>A continuación, calculemos la <strong>función de probabilidad marginal conjunta</strong> de la variable <span class="math inline">\((X_1,X_2)\)</span>:
-<span class="math display">\[
+<p>A continuación, calculemos la <strong>función de probabilidad marginal conjunta</strong> de la variable <span class="math inline">\((X_1,X_2)\)</span>:</p>
+<p><span class="math display">\[
 \begin{array}{rl}
 P_{X_1X_2}(0,0) 
 &amp; = P_{X_1X_2X_3}(0,0,0)+P_{X_1X_2X_3}(0,0,1)+P_{X_1X_2X_3}(0,0,2)\\
@@ -1314,7 +1295,6 @@ P_{X_1X_2}(3,3) &amp; = P_{X_1X_2X_3}(3,3,0)+P_{X_1X_2X_3}(3,3,1)\\
 </div>
 </div>
 </div>
-</div>
 <div id="variables-aleatorias-n-dimensionales-continuas" class="section level2">
 <h2><span class="header-section-number">6.4</span> Variables aleatorias <span class="math inline">\(n\)</span>-dimensionales continuas</h2>
 <div id="definicion-5" class="section level3">
@@ -1330,7 +1310,7 @@ Sea <span class="math inline">\((X_1\ldots,X_n)\)</span> una variable aleatoria 
 <span class="math display">\[
 P((X_1\ldots,X_n)\in B)=\int\cdots\int_B f_{X_1\ldots X_n}(x_1,\ldots,x_n)\,dx_1\cdots\,dx_n.
 \]</span></p>
-<div id="ejemplos-12" class="section level4">
+<div id="ejemplos-9" class="section level4">
 <h4><span class="header-section-number">6.4.1.1</span> Ejemplos</h4>
 <div class="example">
 <p><strong>Ejemplo</strong></p>
@@ -1383,7 +1363,7 @@ f_{X_{s_1}\ldots,X_{s_k}}(x_{s_1},\ldots,x_{s_k})=\int_{x_{t_1}=-\infty}^{x_{t_1
 \]</span>
 con <span class="math inline">\(\{t_1,\ldots,t_{n-k}\}=\{1,\ldots,n\}\setminus \{s_1,\ldots,s_k\}.\)</span> Es decir, las variables <span class="math inline">\(t\)</span>’s son las que no aparecen en la definición de la variable aleatoria <span class="math inline">\(k\)</span> dimensional <span class="math inline">\((X_{s_1},\ldots,X_{s_k})\)</span>.</p></li>
 </ul>
-<div id="ejemplos-13" class="section level4">
+<div id="ejemplos-10" class="section level4">
 <h4><span class="header-section-number">6.4.2.1</span> Ejemplos</h4>
 <div class="example">
 <p><strong>Ejemplo anterior</strong></p>
@@ -1443,7 +1423,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3) &amp; =\int_{0}^{1}\int_{0}^{x_2}\int_{0}^{x_3} 8 x_1
 \end{array}
 \]</span></p>
 <ul>
-<li>Si <span class="math inline">\(0\leq x_1\)</span> y <span class="math inline">\(x_2&gt;1\)</span>, sería un caso parecido al caso anterior pero “cambiando los papeles” de <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span>.
+<li>Si <span class="math inline">\(0\leq x_1\)</span> y <span class="math inline">\(x_2&gt;1\)</span>, es un caso parecido al caso anterior pero “cambiando los papeles” de <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span>.
 Por tanto,</li>
 </ul>
 <p><span class="math display">\[
@@ -1495,7 +1475,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)=\int_{0}^{1}\int_{0}^{x_2}\int_{0}^{1} 8 x_1 x_2 x_3 
 8\left[\frac{x_1^2}{2}\right]_0^{1}\left[\frac{x_2^2}{2}\right]_0^{x_2}\left[\frac{x_3^2}{2}\right]_0^{1} = x_2^2.
 \]</span></p>
 <ul>
-<li>Si <span class="math inline">\(0\leq x_1 \leq 1\)</span> y $ x_2&gt; 1$. Este caso sería parecido al caso anterior pero “cambiando los papeles” de <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span>.
+<li>Si <span class="math inline">\(0\leq x_1 \leq 1\)</span> y $ x_2&gt; 1$. Este caso es parecido al caso anterior pero “cambiando los papeles” de <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span>.
 Por tanto,</li>
 </ul>
 <p><span class="math display">\[
@@ -1779,7 +1759,7 @@ Sea <span class="math inline">\((X_1\ldots,X_n)\)</span> una variable aleatoria 
 <span class="math display">\[
 F_{X_1\ldots X_n}(x_1,\ldots,x_n)=F_{X_1}(x_1)\cdots F_{X_n}(x_n),\ (x_1,\ldots,x_n)\in\mathbb{R}^n.
 \]</span></p>
-<div id="ejemplos-14" class="section level4">
+<div id="ejemplos-11" class="section level4">
 <h4><span class="header-section-number">6.5.3.1</span> Ejemplos</h4>
 <div class="example">
 <p><strong>Ejemplo: densidad tridimensional continuación</strong></p>
@@ -1914,7 +1894,7 @@ E(Z)  = E(g(X_1\ldots,X_n))  =\sum_{x_{i_1}}\cdots\sum_{x_{i_n}}g(x_{i_1},\ldots
 \]</span></p></li>
 </ul>
 </div>
-<div id="ejemplos-15" class="section level3">
+<div id="ejemplos-12" class="section level3">
 <h3><span class="header-section-number">6.6.2</span> Ejemplos</h3>
 <div class="example">
 <p><strong>Ejemplo del lanzamiento de un dado tres veces</strong></p>
@@ -1977,7 +1957,7 @@ E(X_1+\cdots + X_n) &amp; = \int_{-\infty}^\infty\cdots\int_{-\infty}^\infty (x_
 \end{array}
 \]</span></p>
 </div>
-<div id="ejemplos-16" class="section level4">
+<div id="ejemplos-13" class="section level4">
 <h4><span class="header-section-number">6.6.3.1</span> Ejemplos</h4>
 <div class="example">
 <p><strong>Ejemplo del lanzamiento de un dado tres veces</strong></p>
@@ -2047,13 +2027,13 @@ E(Z) &amp; =E(g(X_1\ldots,X_n))\\ &amp; =\left(\sum_{x_{i_1}} g_1(x_{i_1})\cdot 
 E(Z) &amp; =E(g(X_1\ldots,X_n)) \\ &amp; =\left(\int_{-\infty}^\infty g_1(x_1)\cdot f_{X_1}(x_1)\, dx_1\right)\cdots \left(\int_{-\infty}^\infty g_n(x_n)\cdot f_{X_n}(x_n)\right), \ \mbox{caso continuo}.
 \end{array}
 \]</span></p>
-<p>Un caso particular de aplicación de la proposición anterior sería cuando queramos calcular <span class="math inline">\(E(X_1\cdots X_n)\)</span>. En este caso <span class="math inline">\(g(x_1,\ldots,x_n)=x_1\cdots x_n\)</span>, <span class="math inline">\(g_1(x_1)=x_1\)</span>, y <span class="math inline">\(g_n(x_n)=x_n\)</span>.</p>
+<p>Un caso particular de aplicación de la proposición anterior se produce cuando queramos calcular <span class="math inline">\(E(X_1\cdots X_n)\)</span>. En este caso <span class="math inline">\(g(x_1,\ldots,x_n)=x_1\cdots x_n\)</span>, <span class="math inline">\(g_1(x_1)=x_1\)</span>, y <span class="math inline">\(g_n(x_n)=x_n\)</span>.</p>
 <p>Podemos escribir, por tanto:
 <span class="math display">\[
 E(X_1\cdots X_n)=E_{X_1}(X_1)\cdots E_{X_n}(X_n),
 \]</span>
 si <span class="math inline">\(X_1,\ldots,X_n\)</span> son independientes.</p>
-<div id="ejemplos-17" class="section level4">
+<div id="ejemplos-14" class="section level4">
 <h4><span class="header-section-number">6.6.4.1</span> Ejemplos</h4>
 <div class="example">
 <p><strong>Ejempo: densidad tridimensional (continuación)</strong></p>
@@ -2143,7 +2123,7 @@ Entonces la <strong>covarianza</strong> de las variables <span class="math inlin
 tal como queríamos ver.</p>
 </div>
 <p><l class="observ"> Observación. </l>
-Una forma equivalente de escribir la covarianza anterior sería:
+Una forma equivalente de escribir la covarianza anterior es:
 <span class="math display">\[
 \mathrm{Cov}(U,V)=\sum_{i=1}^n a_i\cdot  b_i\cdot  \mathrm{Var}(X_i)+2\sum_{i=1}^n\sum_{j=1,j&gt;i}^n a_i\cdot  b_j\cdot  \mathrm{Cov}(X_i,X_j).
 \]</span></p>

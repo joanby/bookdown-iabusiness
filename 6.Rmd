@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Vectores aleatorios
 
 ## Varias variables aleatorias
@@ -141,11 +146,12 @@ $$
 para todo $a\in\mathbb{R}$ y para todo $i=1,\ldots,n$.
 
 
-### Ejemplos
+
 <div class="example">
-**Ejemplo**
+**Ejemplo: densidad tridimensional**
 
 Consideremos una variable aleatoria $3$-dimensional $(X_1,X_2,X_3)$ con **función de distribución conjunta**:
+
 $$
 F_{X_1X_2X_3}(x_1,x_2,x_3)=\begin{cases}
 0, & \mbox{si }x_1<0,\mbox{ o }x_2<0,\mbox{ o }x_3 <0\\
@@ -209,8 +215,10 @@ $$
 
 </div>
 
-### Ejemplo con `R`
+
 <div class="example">
+
+**Ejemplo: cálculo  con `R` distribución conjunta**
 
 Realizar un gráfico 3D de la **función de distribución conjunta** no es posible ya que deberíamos pasar a $\mathbb{R}^4$. 
 
@@ -332,8 +340,6 @@ Por tanto, de cara a calcular $P_{X_1\ldots X_n}$ basta calcular $P_{X_1\ldots X
 
 Los valores de $P_{X_1\ldots X_n}(x_{i_1},\ldots,x_{i_n})$ estarían organizados en una tabla $n$-dimensional.
 
-
-#### Ejemplo
 <div class="example">
 **Ejemplo de la variable 3-dimensional que nos da el número de 1's, 2's y 3's en el lanzamiento de un dado tres veces**
 
@@ -393,12 +399,9 @@ Tabla para $X_3=3$:
 
 </div>
 
-</div>
 
 
-#### Ejemplo con `R`
 
-<div class="example">
 La función `fun.prod.con` nos da la **función de probabilidad conjunta** de la variable aleatoria $\mathbf{X}$ cuando lanzamos un dado tres veces:
 ```{r}
 
@@ -495,7 +498,7 @@ knitr::kable(tabla.3)
 ```
 
 </div>
-
+</div>
 
 
 ### Propiedades de la función de probabilidad conjunta
@@ -517,8 +520,6 @@ F_{X_1\ldots X_n}(x_1,\ldots,x_n)=\sum_{x_{i_1}\leq x_1,\ldots, x_{i_n}\leq x_n}
 $$
 Dicha expresión se deduce de la expresión anterior considerando $B=(-\infty,x_1]\times\cdots\times (-\infty,x_n]$.
 
-
-#### Ejemplos
 
 <div class="example-sol">
 **Ejemplo anterior del lanzamiento de un dado tres veces**
@@ -552,6 +553,7 @@ $$
 
 
 La función de distribución conjunta es con código  `R`:
+
 ```{r}
 fun.dis.con = function(x1,x2,x3){
   suma=0
@@ -602,8 +604,6 @@ donde $(\mathbf{x}_s,\mathbf{x}_t)$ es un valor de $\mathbf{X}(\Omega)$ tal que 
 
 En el caso particular de $n=3$, podemos calcular las **funciones de probabilidad conjunta** de las variables unidimensionales $X_1$, $X_2$ y $X_3$ y de las variables bidimensionales $(X_1,X_2)$, $(X_1,X_3)$ y $(X_2,X_3)$.
 
-
-#### Ejemplos
 
 <div class="example">
 **Ejemplo de la variable 3-dimensional que nos da el número de 1's, 2's y 3's en el lanzamiento de un dado tres veces**
@@ -665,6 +665,7 @@ La distribución marginal de la variable $X_1$ es la siguiente:
 Las distribuciones marginales de las variables $X_2$ y $X_3$ coinciden con la distribución marginal de la variable $X_1$. Lo dejamos como ejercicio.
 
 A continuación, calculemos la **función de probabilidad marginal conjunta** de la variable $(X_1,X_2)$:
+
 $$
 \begin{array}{rl}
 P_{X_1X_2}(0,0) 

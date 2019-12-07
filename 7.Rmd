@@ -38,16 +38,16 @@ $$
 
 Para hallar la variable  $\overline{X}$, realizamos la transformación afín siguiente:
 $$
-\overline{X}=\left(\frac{1}{n},\ldots,\frac{1}{n}\right)\begin{pmatrix} X_1 \\ X_2\\\vdots \\ X_n \end{pmatrix}.
+\overline{X}=\left(\frac{1}{n},\ldots,\frac{1}{n}\right)\cdot\begin{pmatrix} X_1 \\ X_2\\\vdots \\ X_n \end{pmatrix}.
 $$
 Aplicando la proposición sobre la transformación afín sobre una variable normal $n$-dimensional que vimos en el capítulo de distribuciones $n$-dimensionales con matriz de cambio $\mathbf{C}=\left(\frac{1}{n},\ldots,\frac{1}{n}\right)$ y $\mathbf{c}=0$, tenemos que la distribución de $\overline{X}$ será normal de media $\mathbf{c}+\mathbf{C}\mathbf{\mu} = \mu$ y varianza (o matriz de covarianzas $1\times 1$):
 $$
-\mathbf{C}\mathbf{\Sigma}\mathbf{C}^\top =\left(\frac{1}{n},\ldots,\frac{1}{n}\right)\begin{pmatrix}
+\mathbf{C}\cdot\mathbf{\Sigma}\cdot\mathbf{C}^\top =\left(\frac{1}{n},\ldots,\frac{1}{n}\right)\cdot\begin{pmatrix}
 \sigma^2 & 0 & \ldots & 0 \\
 0 & \sigma^2 & \ldots & 0 \\
 \vdots & \vdots & \vdots & \vdots \\
 0 & 0 & \ldots & \sigma^2
-\end{pmatrix} \begin{pmatrix}\frac{1}{n}\\\frac{1}{n}\\\vdots\\\frac{1}{n}\end{pmatrix} =\frac{\sigma^2}{n}.
+\end{pmatrix}\cdot \begin{pmatrix}\frac{1}{n}\\\frac{1}{n}\\\vdots\\\frac{1}{n}\end{pmatrix} =\frac{\sigma^2}{n}.
 $$
 </div>
 
@@ -68,22 +68,22 @@ Consideremos un experimento aleatorio sobre un **espacio muestral** $\Omega$. Se
 
 Consideremos el experimento aleatorio de ir lanzando un dado no trucado. Definimos la variable aleatoria $X_n$ como el resultado del dado el lanzamiento $n$-ésimo. 
 
-Entonces, la sucesión de variables aleatorias $X_1,\ldots,X_n,\ldots$ sería la asociada al lanzamiento del dado.
-
+Entonces, la sucesión de variables aleatorias $X_1,\ldots,X_n,\ldots$ es la asociada al lanzamiento del dado.
+<div class="example-sol">
 ¡Ojo! no confundir la sucesión de variables aleatorias $X_1,\ldots,X_n,\ldots$ con la sucesión de resultados de dichas variables aleatorias $x_1,\ldots, x_n,\ldots$. Lo primero correspondería a variables aleatorias con su función de probabilidad, esperanza, varianza, etc., y lo segundo sería simplemente una sucesión numérica de valores enteros entre 1 y 6.
 </div>
-
+</div>
 
 ### Convergencia casi segura
 <l class="definition"> Definición de convergencia casi segura. </l>
 Sea $X_1,\ldots,X_n,\ldots$ una sucesión de variables aleatorias y sea $X$ una variable aleatoria definida sobre el mismo espacio muestral $\Omega$ y con la misma probabilidad de sucesos. Diremos que la sucesión $\{X_n\}_{n=1}^\infty$ converge **casi seguramente** hacia $X$ si
 $$
-P(\{w\in \Omega\ |\ \lim_{n\to\infty} X_n(w)=X(w)\})=1.
+P\left(\{w\in \Omega\ |\ \lim_{n\to\infty} X_n(w)=X(w)\}\right)=1.
 $$
 Lo denotaremos por $X_n\stackrel{c.s.}{\longrightarrow}X$.
 
 
-O sea, si el conjunto de elementos $w$ del espacio muestral $\Omega$ que cumplen que el límite de la sucesión de números reales $(X_n(w))_n$ tiende a $X(w)$ tiene probabilidad $1$.
+Es decir, si el conjunto de elementos $w$ del espacio muestral $\Omega$ que cumplen que el límite de la sucesión de números reales $(X_n(w))_n$ tiende a $X(w)$ tiene probabilidad $1$.
 
 De ahí viene el nombre de **casi segura**: el conjunto de valores $w$ del espacio muestral tal que la sucesión numérica $(X_n(w))_n$ **no converge** a $X(w)$ tiene probabilidad 0.
 
@@ -97,7 +97,7 @@ $$
 $$
 es convergente.
 
-#### Ejemplo
+** Ejemplo: convergencia casi segura frecuencias de un dado**
 <div class="example">
 Veamos si la sucesión $\{X_n\}_{n=1}^\infty$ tiene convergencia **casi segura** hacia la variable $X$ cuya **función de probabilidad** es:
 <div class="center">
@@ -105,6 +105,7 @@ Veamos si la sucesión $\{X_n\}_{n=1}^\infty$ tiene convergencia **casi segura**
 |--|--|--|--|--|--|--|
 | $P_X$  | $\frac{1}{6}$ | $\frac{1}{6}$ | $\frac{1}{6}$ | $\frac{1}{6}$ | $\frac{1}{6}$ | $\frac{1}{6}$
 </div>
+<div class="example">
 
 En este caso el espacio muestral $\Omega$ es $\Omega=\{1,2,3,4,5,6\}$ y la **función de probabilidad** de cada $X_i$ corresponde con la tabla anterior. 
 
@@ -120,6 +121,7 @@ para todo $x_n=1,2,3,4,5,6$ y para todo $x=1,2,3,4,5,6$.
 
 La **función de probabilidad** de la variable $D_n$ será:
 $$
+\scriptsize{
 \begin{array}{rl}
 P_{D_n}(-5) & =P_{X_nX}(1,6)=\frac{1}{36}, \\
 P_{D_n}(-4) & =P_{X_nX}(2,6)+P_{X_nX}(1,5)=\frac{2}{36}, \\
@@ -133,6 +135,7 @@ P_{D_n}(3) & =P_{X_nX}(6,3)+P_{X_nX}(5,2)+P_{X_nX}(4,1)=\frac{3}{36}, \\
 P_{D_n}(4) & =P_{X_nX}(6,2)+P_{X_nX}(5,1)=\frac{2}{36}, \\
 P_{D_n}(5) & =P_{X_nX}(6,1)=\frac{1}{36}.
 \end{array}
+}
 $$
 
 Sea $\epsilon$ un valor real entre 0 y 1: $0<\epsilon <1$. Entonces el suceso $\{|D_n|>\epsilon\}$ será el complementario del suceso $\{D_n=0\}$ ya que el único valor entre $-5$ y $5$ que no cumple $|D_n|>\epsilon$ es el valor $D_n=0$. Por tanto:
@@ -141,6 +144,7 @@ P(|D_n|>\epsilon)=1-P(D_n=0)=1-P_{D_n}(0)=1-\frac{1}{6}=\frac{5}{6}.
 $$
 La serie $\sum\limits_{n=1}^\infty \frac{5}{6}$ no es convergente de forma obvia. Por tanto, deducimos que la sucesión $\{X_n\}_{n=1}^\infty$ no converge **casi seguramente** hacia la variable $X$.
 
+</div>
 </div>
 
 
@@ -152,7 +156,7 @@ $$
 $$
 Lo denotaremos por $X_n\stackrel{c.p.}{\longrightarrow}X$.
 
-O sea, límite de la probabilidad de los sucesos formados por los $w\in\Omega$ tal que $|X_n(w)-X(w)|>\epsilon$ vale 0.
+El límite de la probabilidad de los sucesos formados por los $w\in\Omega$ tal que $|X_n(w)-X(w)|>\epsilon$ vale 0.
 
 <l class="observ">Observación.</l>
 Una definición equivalente de **convergencia en probabilidad** es que para todo valor $\epsilon >0$,
@@ -184,40 +188,48 @@ $$
 de donde deducimos que $\lim_{n\to\infty} P(|X_n-X|>\epsilon \})=0$, tal como queríamos ver.
 </div>
 
-#### Ejemploa
 <div class="example">
-**Ejemplo del lanzamiento de un dado**
+**Ejemplo del lanzamiento de un dado (continuación)**
 
 En el ejemplo anterior del lanzamiento de un dado, no hay convergencia en probabilidad ya que comprobamos que para $0<\epsilon<1$,
+
+<div class="example-sol">
+
 $$
 P(|X_n-X|>\epsilon)=\frac{5}{6}.
 $$
 Por tanto, para $0<\epsilon<1$,  $\lim_{n\to\infty} P(|X_n-X|>\epsilon \})=\frac{5}{6}\neq 0.$
 </div>
+</div>
 
 <div class="example">
-**Ejemplo**
+**Ejemplo: covergencia en probabilidad distribucione exponenciales**
 
 Consideremos las variables aleatorias $X_n$ con función de densidad:
 $$
 f_{X_n}(x)=\begin{cases}
-\lambda n\mathrm{e}^{-\lambda n x}, & \mbox{si }x>0,\\
+\lambda\cdot  n\cdot\mathrm{e}^{-\lambda\cdot n\cdot  x}, & \mbox{si }x>0,\\
 0, & \mbox{en caso contrario.}
 \end{cases}
 $$
-O sea, $X_n$ son exponenciales de parámetro $\lambda n$.
+Estas  variables $X_n$ tienen distribución exponencial de parámetro $\lambda\cdot  n$.
 
 Veamos que $\{X_n\}_{n=1}^\infty\stackrel{c.p}{\longrightarrow} 0$.
 
+<div class="example-sol">
+
 Dado $\epsilon >0$, calculemos $P(|X_n|>\epsilon \})$:
 $$
-P(|X_n|>\epsilon \}) = \int_\epsilon^\infty \lambda n\mathrm{e}^{-\lambda n x}\, dx =\lambda n \left[\frac{1}{-\lambda n}\mathrm{e}^{-\lambda n x}\right]_\epsilon^\infty =\mathrm{e}^{-\lambda n \epsilon}\stackrel{n\to\infty}{\longrightarrow} 0,
+P(|X_n|>\epsilon \}) = \int_\epsilon^\infty \lambda\cdot  n\cdot \mathrm{e}^{-\lambda\cdot  n x}\, dx =\lambda\cdot  n\cdot  \left[\frac{1}{-\lambda \cdot n}\cdot\mathrm{e}^{-\lambda\cdot  n\cdot  x}\right]_\epsilon^\infty =\mathrm{e}^{-\lambda\cdot  n\cdot  \epsilon}\stackrel{n\to\infty}{\longrightarrow} 0,
 $$
 tal como queríamos ver.
 
 </div>
 
+</div>
+
 ### Convergencia en ley o en distribución 
+
 <l class="definition"> Definición de convergencia en ley o distribución. </l>
 Sea $X_1,\ldots,X_n,\ldots$ una sucesión de variables aleatorias y sea $X$ una variable aleatoria definida sobre el mismo espacio muestral $\Omega$ y con la misma probabilidad de sucesos. Sea $F_{X_n}$ y $F_X$ las funciones de distribución de la variable $X_n$ y $X$, respectivamente. Diremos que la sucesión $\{X_n\}_{n=1}^\infty$ converge **en ley, o en distribución** hacia $X$ si,
 $$
@@ -236,7 +248,7 @@ $$
 $$
 para cualquier número $t\in\mathbb{R}$.
 
-#### Ejemplo
+
 <div class="example">
 **Ejemplo de la distribución binomial $B(n,p)$**
 
@@ -244,7 +256,7 @@ Veamos que si $X_n=B(n,p_n)$ tiene distribución binomial de parámetros $n$ y $
 $$
 B(n,p)\stackrel{{\cal L}}{\longrightarrow}Poiss(\lambda).
 $$
-
+<div class="example-sol">
 En el tema de distribuciones notables demostramos que para todo $k\in\{0,\ldots,n\}$,
 $$
 P(X_n = k)=\binom{n}{k}\cdot p_n^k\cdot (1-p_n)^{n-k}\stackrel{n\to\infty}{\longrightarrow} P(X=k)=\frac{\lambda^k}{k!}\cdot\mathrm{e}^{-\lambda}.
@@ -252,7 +264,10 @@ $$
 Entonces tenemos que dado $x\in\mathbb{R}$, existe $k\in\{0,\ldots,n\}$, tal que $k\leq x< k+1$. Por tanto,
 $$
 \begin{array}{rl}
-\lim\limits_{n\to\infty} F_{X_n}(x) & = \lim\limits_{n\to\infty} F_{X_n}(k)=\lim\limits_{n\to\infty} P(X_n=0)+\cdots + P(X_n=k) \\  & =\lim\limits_{n\to\infty} P(X_n=0)+\cdots + \lim\limits_{n\to\infty} P(X_n=k) = P(X=0)+\cdots + P(X=k)\\ &  =F_X(k)=F_X(x),
+\lim\limits_{n\to\infty} F_{X_n}(x) 
+& = \lim\limits_{n\to\infty} F_{X_n}(k)=\lim\limits_{n\to\infty} P(X_n=0)+\cdots + P(X_n=k) \\ 
+& =\lim\limits_{n\to\infty} P(X_n=0)+\cdots + \lim\limits_{n\to\infty} P(X_n=k)\\
+& = P(X=0)+\cdots + P(X=k)\\ &  =F_X(k)=F_X(x),
 \end{array}
 $$
 tal como queríamos demostrar.
@@ -327,7 +342,7 @@ tal como queríamos ver.
 </div>
 
 
-Derivadas del teorema anterior tenemos las consecuencias siguientes:
+Del teorema anterior obtenemos las consecuencias siguientes:
 
 <l class="prop">Corolario. </l>
 Sea $\{X_n\}_{n=1}^\infty$ una sucesión de variables aleatorias independientes dos a dos tal que todas tienes la misma esperanza $\mu$ y la misma varianza $\sigma^2$. Entonces,
@@ -341,7 +356,7 @@ $$
 En este caso tenemos que $\mu_i=\mu$ y, por tanto, $\frac{1}{n}\sum\limits_{i=1}^n \mu_i =\frac{1}{n}\cdot n\mu=\mu$. Si aplicamos el teorema de la **ley débil de los grandes números** nos sale el resultado enunciado.
 </div>
 
-Derivadas del teorema anterior tenemos las consecuencias siguientes:
+
 
 <l class="prop">Corolario. </l>
 Sea $\{X_n\}_{n=1}^\infty$ una sucesión de variables aleatorias independientes dos a dos e idénticamente distribuidas tal que todas tienes la misma esperanza $\mu$. Entonces,
@@ -355,9 +370,9 @@ $$
 Trivial a partir del Corolario anterior.
 </div>
 
-#### Ejemplos
+
 <div class="example">
-**Ejemplo del lanzamiento de una moneda**
+**Ejemplo: lanzamiento de una moneda**
 
 Vamos a simular la **ley débil de los grandes números** en el caso en que el experimento aleatorio sea el lanzamiento de una moneda.
 
@@ -365,6 +380,7 @@ En este caso, tendremos que las variables aleatorias $X_n$ tendrán distribució
 
 La variable $\overline{X}_n$ representa la proporción de caras ($X_n=1$) en el lanzamiento de la moneda $n$ veces. Nos preguntamos si dicha proporción de caras tiende al parámetro $p$ en probabilidad.
 
+<div class="example-sol">
 Vamos a hallar una muestra para cada variable $\overline{X}_n=\frac{\sum\limits_{i=1}^n X_i}{n}$.
 
 Para ello, vamos a repetir el experimento de lanzar la moneda $N=100$ veces y lo repetimos $k=500$ ocasiones. 
@@ -388,14 +404,16 @@ Los resultados estarán en una matriz $k\times N =500\times 100$ donde cada fila
 ```{r}
 N=100
 k=500
-set.seed(2019) ## fijamos la semila de aleatoriedad para que a todos nos dé lo mismo
+set.seed(2019) 
+## fijamos la semila de aleatoriedad
+## por reproducibilidad
 valores.experimento=matrix(sample(c(0,1),N*k,replace=TRUE),k,N)
 ```
 
 Los primeros resultados son:
 
 ```{r,echo=FALSE}
-valores.experimento[1:5,1:13]
+valores.experimento[1:5,1:12]
 ```
 
 ...
@@ -410,8 +428,10 @@ cálculo.xnbarra = function(x){
 ```
 
 A partir de la matriz de los resultados, aplicamos la función anterior a cada fila y hallaremos una matriz con todas las $\overline{X}_n^{(i)}$:
+
 ```{r}
-matriz.medias.muestrales = t(apply(valores.experimento,1,cálculo.xnbarra))
+matriz.medias.muestrales = t(apply(valores.experimento,
+                                   1,cálculo.xnbarra))
 ```
 
 La columna $j$-ésima de la matriz `matriz.medias.muestrales` contiene una muestra de $k=500$ valores de la variable $\overline{X}_j$.
@@ -433,17 +453,21 @@ Para ver los resultados, dibujamos el gráfico $n$ vs. $p_n$:
 ```{r, echo=FALSE,fig=TRUE,fig.height=5.8}
 epsilon=0.1
 probabilidades.pn= colSums(abs(matriz.medias.muestrales-0.5) > epsilon)/k
-plot(1:N,probabilidades.pn,type="l",xlab=expression(N),ylab=expression(p[n]),main="Simulación de la convergencia en probabilidad",col="red")
+plot(1:N,probabilidades.pn,type="l",xlab=expression(N),
+     ylab=expression(p[n]),
+     main="Simulación de la convergencia en probabilidad",col="red")
 ```
 </div>
 
 Observamos que las probabilidades tienden a cero tal como nos dice el **Teorema de la ley débil de los grandes números**.
+</div>
 
 </div>
 
 
 ### Convergencia de los momentos muestrales
-Dada una sucesión de variables aleatorias, definimos los momentos muestrales de la forma siguiente:
+
+´Dada una sucesión de variables aleatorias, definimos los momentos muestrales de la forma siguiente:
 
 <l class="definition"> Definición de los momentos muestrales de una sucesión de variables aleatorias.</l>
 Sea $\{X_n\}_{n=1}^\infty$ una sucesión de variables aleatorias. Dado $k$ valor entero positivo, definimos el **momento muestral** de orden $k$ como la sucesión de variables aleatorias siguientes:
@@ -585,18 +609,20 @@ $$
 
 En este caso: 
 $$
-\frac{1}{n}\sum_{i=1}^n \mu_i = \frac{1}{n}\cdot np=p.
+\frac{1}{n}\sum_{i=1}^n \mu_i = \frac{1}{n}\cdot n\cdot p=p.
 $$
 También se verifica que $\sigma_n^2 =p(1-p)$. Por tanto, existe una constante $M$ ($M=p(1-p)$) tal que $\sigma_n^2\leq M$. Aplicando el Corolario anterior, obtenemos el resultado.
 
 </div>
 
-#### Ejemplos
+
 <div class="example">
-**Ejemplo**
+**Ejemplo: lanzamiento moneda (continuación)**
 
-Vamos a repetir el ejemplo de las variables aleatorias de Bernoulli $X_n$, todas de parámetro $p=\frac{1}{2}$ y comprobar que las proporciones de caras cuando lanzamos la moneda $n$ veces, o sea, las medias muestrales $\overline{X}_n$ tienden **casi seguramente** hacia $p=\frac{1}{2}$.
+Vamos a repetir el ejemplo de las variables aleatorias de Bernoulli $X_n$, todas de parámetro $p=\frac{1}{2}$ y comprobar que las proporciones de caras cuando lanzamos la moneda $n$ veces, es decir, las medias muestrales $\overline{X}_n$ tienden **casi seguramente** hacia $p=\frac{1}{2}$.
 
+
+<div class="example-sol">
 La comprobación anterior es equivalente a ver que la serie:
 $$
 \sum_{n=1}^\infty P(|\overline{X}_n-p|>\epsilon),
@@ -623,13 +649,15 @@ El gráfico de las sumas parciales se muestra a continuación:
 <div class="center">
 ```{r}
 N=1000
-plot(1:N,cumsum(probabilidades.pn),xlab=expression(n),ylab="Sumas parciales",col='red', type='l')
+plot(1:N,cumsum(probabilidades.pn),xlab=expression(n),
+     ylab="Sumas parciales",col='red', type='l')
 ```
 </div>
 
 Como se puede observar, la serie parece que converge.
 
 
+</div>
 </div>
 
 ## Teorema Central del Límite
@@ -638,7 +666,7 @@ Sabemos que si una sucesión $\{X_n\}$ está formada por variables normales, la 
 
 Para calcular la variable $\overline{X}_n$, es obvio que la transformación lineal es la siguiente:
 $$
-\overline{X}_n = \left(\frac{1}{n},\ldots,\frac{1}{n}\right)\begin{pmatrix}X_1 \\\vdots\\ X_n\end{pmatrix}.
+\overline{X}_n = \left(\frac{1}{n},\ldots,\frac{1}{n}\right)\cdot \begin{pmatrix}X_1 \\\vdots\\ X_n\end{pmatrix}.
 $$
 Si además la sucesión de variables $X_n$ son normales todas con media $\mu$ y varianza $\sigma^2$, la sucesión $\left\{\overline{X}_n\right\}_{n=1}^\infty$ serán normales de media $\mu$ y varianza $\frac{\sigma^2}{n}$.
 
@@ -678,7 +706,8 @@ donde $w$ es cualquier valor real.
 Por definición:
 $$
 \begin{array}{rl}
-\FunCar_{S_n}(w) & =E\left(\mathrm{e}^{\mathrm{i} w S_n}\right)=E\left(\mathrm{e}^{\mathrm{i} w \sum\limits_{i=1}^n Y_i}\right) = E\left(\mathrm{e}^{i w Y_1}\cdots \mathrm{e}^{i w Y_n}\right)\\ & \stackrel{\mbox{$Y_1,\ldots,Y_n$ son independientes}}{=} E\left(\mathrm{e}^{i w Y_1}\right)\cdots E\left(\mathrm{e}^{i w Y_n}\right) =\FunCar_{Y_1}(w)\cdots \FunCar_{Y_n}(w).
+\FunCar_{S_n}(w) & =E\left(\mathrm{e}^{\mathrm{i} w S_n}\right)=E\left(\mathrm{e}^{\mathrm{i} w \sum\limits_{i=1}^n Y_i}\right) = E\left(\mathrm{e}^{i w Y_1}\cdots \mathrm{e}^{i w Y_n}\right)\\ & \stackrel{\mbox{$Y_1,\ldots,Y_n$ son independientes}}{=} E\left(\mathrm{e}^{i w Y_1}\right)\cdots E\left(\mathrm{e}^{i w Y_n}\right) \\
+& =\FunCar_{Y_1}(w)\cdots \FunCar_{Y_n}(w).
 \end{array}
 $$
 </div>
@@ -703,8 +732,9 @@ $$
 <div class="dem">
 **Demostración del Teorema Central del Límite**
 
-Usando la proposición que vimos al introducir la **convergencia en ley** que dice que una sucesión $\{X_n\}$ converge **en ley** hacia $X$ si, y sólo si, $\lim\limits_{\FunCar_{X_n}(t)}=\FunCar_{X}(t)$, donde $\FunCar$ representa la función característica y la condición anterior tiene que verificarse para todo valor $t\in\mathbb{R}$, basta demostrar que, si llamamos $Z_n$ a
+Usando la proposición que vimos al introducir la **convergencia en ley** que dice que una sucesión $\{X_n\}$ converge **en ley** hacia $X$ si, y sólo si, $\lim\limits_{\FunCar_{X_n}(t)}=\FunCar_{X}(t)$, donde $\FunCar$ representa la función característica y la condición anterior tiene que verificarse para todo valor $t\in\mathbb{R}$, basta demostrar que, si tomamos
 $Z_n = \frac{\sum\limits_{i=1}^n X_i-n\mu}{\sigma\sqrt{n}},$
+
 $$
 \lim_{n\to \infty}\FunCar_{Z_n}(w)=\FunCar_Z(w),
 $$
@@ -724,13 +754,18 @@ $$
 
 Si desarrollamos por Taylor alrededor del valor $\hat{w}=0$ la función característica $\FunCar_{X-\mu}\left(\hat{w}\right)$ hasta segundo orden, obtenemos:
 $$
+\scriptsize{
 \FunCar_{X-\mu}\left(\hat{w}\right) = \FunCar_{X-\mu}\left(0\right)+ \FunCar_{X-\mu}'\left(0\right) \hat{w}+ \FunCar_{X-\mu}''\left(0\right)\frac{\hat{w}^2}{2}+O(\hat{w}^3),
+}
 $$
 donde $O(\hat{w}^3)$ simboliza los términos de orden $\hat{w}^3$ y superiores.
 
 Los valores $\FunCar_{X-\mu}\left(0\right)$, $\FunCar_{X-\mu}'\left(0\right)$ y $\FunCar_{X-\mu}''\left(0\right)$ valen: (ver tema de Complementos de variables aleatorias)
+
 $$
+\scriptsize{
 \FunCar_{X-\mu}\left(0\right)=1, \ \FunCar_{X-\mu}'\left(0\right)=\frac{1}{\mathrm{i}}E(X-\mu)=0,\ \FunCar_{X-\mu}''\left(0\right)=\frac{1}{\mathrm{i}^2}E\left((X-\mu)^2\right)=-\sigma^2.
+}
 $$
 El desarrollo anterior será:
 $$
@@ -740,12 +775,14 @@ $$
 Aplicando la expresión anterior para $\hat{w}=\frac{w}{\sigma\sqrt{n}}$, obtenemos:
 
 $$
+\scriptsize{
 \FunCar_{X-\mu}\left(\frac{w}{\sigma\sqrt{n}}\right) =1 - \frac{1}{2}\left(\frac{w}{\sigma\sqrt{n}}\right)^2\sigma^2+O\left(\frac{w}{\sigma\sqrt{n}}\right)^3= 1-\frac{w^2}{2n}+O\left(\frac{w^3}{n^{\frac{3}{2}}}\right),
+}
 $$
 
 La función característica de la variable $Z_n$ será usando la expresión anterior:
 $$
-\FunCar_{Z_n}(w)=\left(\FunCar_{X-\mu}\left(\frac{w}{\sigma\sqrt{n}}\right)\right)^n = \left(1-\frac{w^2}{2n}+O\left(\frac{w^3}{n^{\frac{3}{2}}}\right)\right)^n
+\scriptsize{\FunCar_{Z_n}(w)=\left(\FunCar_{X-\mu}\left(\frac{w}{\sigma\sqrt{n}}\right)\right)^n = \left(1-\frac{w^2}{2n}+O\left(\frac{w^3}{n^{\frac{3}{2}}}\right)\right)^n}
 $$
 El objetivo es calcular el límite de la expresión anterior:
 $$
@@ -821,7 +858,9 @@ Sea $\{X_n\}_{n=1}^\infty$ una sucesión de variables aleatorias independientes 
 
 En primer lugar, hallemos la función característica de la distribución de Poisson de parámetro $\lambda$. Sea $X=Poiss(\lambda)$. Su función característica en un valor $w$ será:
 $$
+\scriptsize{
 \FunCar_X(w)=E\left(\mathrm{e}^{\mathrm{i} w X}\right)=\sum_{k=0}^\infty \mathrm{e}^{i w k}\frac{\lambda^k}{k!}\mathrm{e}^{-\lambda}=\mathrm{e}^{-\lambda} \sum_{k=0}^\infty \frac{\left(\lambda\mathrm{e}^{iw}\right)^k}{k!}=\mathrm{e}^{-\lambda}\cdot \mathrm{e}^{\lambda\mathrm{e}^{iw}}=\mathrm{e}^{\lambda \left(\mathrm{e}^{iw}-1\right)}.
+}
 $$
 Sea ahora la variable $S_n=\sum\limits_{i=1}^n X_i$. Usando la proposición anterior que nos calcula la función característica de sumas de variables independientes, podemos escribir:
 $$
@@ -836,23 +875,33 @@ Poiss(n\lambda)\approx N(n\lambda,\sqrt{n\lambda}).
 $$
 
 
-#### Ejemplos
 <div class="example">
-**Ejemplo de aplicación del Teorema de Moivre-Laplace**
+**Ejemplo: aplicación del Teorema de Moivre-Laplace**
 
 Sea $X$ una distribución binomial de parámetros $n=50$ y $p=\frac{1}{3}$. 
 
-Imaginemos que nos piden $P(X < 15)$ y $P(10\leq X\leq 20)$.
+Queremos conocer $P(X < 15)$ y $P(10\leq X\leq 20)$.
 
 Vamos a calcular las probabilidades anteriores usando el **Teorema de Moivre-Laplace**. 
+
+<div class="example-sol">
 
 La variable $X$ es aproximadamente una distribución normal $X_N$ de parámetros $\mu = np=\frac{50}{3}=`r round(50/3,4)`$ y $\sigma=\sqrt{50\cdot\frac{1}{3}\cdot \frac{2}{3}}=`r round(sqrt(50*2/9),4)`$. 
 
 Por tanto:
 $$
 \begin{array}{rl}
-P(X< 15) & = P(X\leq 14) \approx P(X_N \leq 14)=P\left(Z\leq \frac{14-`r round(50/3,4)`}{`r round(sqrt(50*2/9),4)`}\right) =P(Z\leq `r round((14-50/3)/sqrt(50*2/9),4)`) = `r round(pnorm(14,50/3,sqrt(50*2/9)),4)`,\\
-P(10\leq X\leq 20) & \approx P(10\leq X_N \leq 20) = P\left(\frac{10-`r round(50/3,4)`}{`r round(sqrt(50*2/9),4)`}\leq  Z\leq \frac{20-`r round(50/3,4)`}{`r round(sqrt(50*2/9),4)`}\right) = P(`r round((10-50/3)/sqrt(50*2/9),4)`\leq Z\leq `r round((20-50/3)/sqrt(50*2/9),4)`) \\ & = P(Z\leq `r round((20-50/3)/sqrt(50*2/9),4)`)-P(Z\leq `r round((10-50/3)/sqrt(50*2/9),4)`)=`r pnorm(20,50/3,sqrt(50*2/9),4)`-`r pnorm(10,50/3,sqrt(50*2/9),4)` = `r round(pnorm(20,50/3,sqrt(50*2/9))-pnorm(10,50/3,sqrt(50*2/9)),4)`,
+P(X< 15) 
+& = P(X\leq 14) \approx P(X_N \leq 14)=P\left(Z\leq \frac{14-`r round(50/3,4)`}{`r round(sqrt(50*2/9),4)`}\right)\\& 
+=P(Z\leq `r round((14-50/3)/sqrt(50*2/9),4)`) = `r round(pnorm(14,50/3,sqrt(50*2/9)),4)`,\\
+\end{array}
+$$
+$$
+\begin{array}{rl}
+P(10\leq X\leq 20) 
+& \approx P(10\leq X_N \leq 20) = P\left(\frac{10-`r round(50/3,4)`}{`r round(sqrt(50*2/9),4)`}\leq  Z\leq \frac{20-`r round(50/3,4)`}{`r round(sqrt(50*2/9),4)`}\right) \\ 
+& = P(`r round((10-50/3)/sqrt(50*2/9),4)`\leq Z\leq `r round((20-50/3)/sqrt(50*2/9),4)`) \\ 
+& = P(Z\leq `r round((20-50/3)/sqrt(50*2/9),4)`)-P(Z\leq `r round((10-50/3)/sqrt(50*2/9),4)`)=`r pnorm(20,50/3,sqrt(50*2/9),4)`-`r pnorm(10,50/3,sqrt(50*2/9),4)` = `r round(pnorm(20,50/3,sqrt(50*2/9))-pnorm(10,50/3,sqrt(50*2/9)),4)`,
 \end{array}
 $$
 donde $Z=N(0,1)$.
@@ -880,18 +929,25 @@ Sea $X$ la variable discreta que queremos aproximar y $X_N$ la variable normal q
 $$
 P(X\leq k)\approx P(X_N\leq k+0.5).
 $$
-O sea, para tener en cuenta el valor $k$ en la aproximación $X_N$ hay que sumarle la mitad entre dos valores consecutivos (0.5 si los valores son enteros) de la variable $X$.
+
+Es decir, para tener en cuenta el valor $k$ en la aproximación $X_N$ hay que sumarle la mitad entre dos valores consecutivos (0.5 si los valores son enteros) de la variable $X$.
 
 Id con cuidado, si queremos calcular $P(X<k)$, hay que hacer $P(X<k) =P(X\leq k-1)\approx P(X_N \leq k-1+0.5)=P(X_N\leq k-0.5)$.
 
 <div class="example">
-**Ejemplo anterior** 
+**Ejemplo: continuación ejemplo anterior** 
 
 Si aplicamos la continuidad de Fisher en el ejemplo anterior, obtenemos:
+<div class="example-sol">
 $$
 \begin{array}{rl}
-P(X< 15) & = P(X\leq 14) \approx P(X_N \leq 14.5)=P\left(Z\leq \frac{14.5-`r round(50/3,4)`}{`r round(sqrt(50*2/9),4)`}\right) =P(Z\leq `r round((14.5-50/3)/sqrt(50*2/9),4)`) = `r round(pnorm(14.5,50/3,sqrt(50*2/9)),4)`,\\
-P(10\leq X\leq 20) & P(X\leq 20)-P(X\leq 9)\approx P(X_N \leq 20.5)-P(X_N\leq 9.5) \\ & = P\left(Z\leq \frac{20.5-`r round(50/3,4)`}{`r round(sqrt(50*2/9),4)`}\right) - P\left(Z\leq \frac{9.5-`r round(50/3,4)`}{`r round(sqrt(50*2/9),4)`}\right)=  P(Z\leq `r round((20.5-50/3)/sqrt(50*2/9),4)`)-P(Z\leq `r round((9.5-50/3)/sqrt(50*2/9),4)`)\\ & =`r pnorm(20.5,50/3,sqrt(50*2/9),4)`-`r pnorm(9.5,50/3,sqrt(50*2/9),4)` = `r round(pnorm(20.5,50/3,sqrt(50*2/9))-pnorm(9.5,50/3,sqrt(50*2/9)),4)`,
+P(X< 15) & = P(X\leq 14) \approx P(X_N \leq 14.5)=P\left(Z\leq \frac{14.5-`r round(50/3,4)`}{`r round(sqrt(50*2/9),4)`}\right) =P(Z\leq `r round((14.5-50/3)/sqrt(50*2/9),4)`) = `r round(pnorm(14.5,50/3,sqrt(50*2/9)),4)`,
+\end{array}
+$$
+
+$$
+\begin{array}{rl}
+P(10\leq X\leq 20) &= P(X\leq 20)-P(X\leq 9)\approx P(X_N \leq 20.5)-P(X_N\leq 9.5) \\ & = P\left(Z\leq \frac{20.5-`r round(50/3,4)`}{`r round(sqrt(50*2/9),4)`}\right) - P\left(Z\leq \frac{9.5-`r round(50/3,4)`}{`r round(sqrt(50*2/9),4)`}\right)=  P(Z\leq `r round((20.5-50/3)/sqrt(50*2/9),4)`)-P(Z\leq `r round((9.5-50/3)/sqrt(50*2/9),4)`)\\ & =`r pnorm(20.5,50/3,sqrt(50*2/9),4)`-`r pnorm(9.5,50/3,sqrt(50*2/9),4)` = `r round(pnorm(20.5,50/3,sqrt(50*2/9))-pnorm(9.5,50/3,sqrt(50*2/9)),4)`,
 \end{array}
 $$
 obteniendo unos errores de sólo `r round(abs(pbinom(14,50,1/3)-pnorm(14.5,50/3,sqrt(50*2/9))),5)` y `r round(pbinom(20,50,1/3)-pbinom(9,50,1/3)-(pnorm(20.5,50/3,sqrt(50*2/9))-pnorm(9.5,50/3,sqrt(50*2/9))),5)`, respectivamente.
@@ -923,7 +979,8 @@ Para ver si la aproximación funciona, dibujaremos en una misma gráfica el hist
 
 ```{r}
 hist(muestra.xnbarra,freq=FALSE,
-     breaks=seq(from=min(muestra.xnbarra)-0.1,to=max(muestra.xnbarra)+0.1,by=0.01),
+     breaks=seq(from=min(muestra.xnbarra)-0.1,
+                to=max(muestra.xnbarra)+0.1,by=0.01),
      main="Histograma de la distribución de las medias muestrales",
      xlab="valores variable",ylab="frecuencias relativas")
 mu=p

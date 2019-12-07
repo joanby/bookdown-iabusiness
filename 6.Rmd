@@ -1311,9 +1311,9 @@ $$
 $$
 donde $\mathbf{\mu}$ es el vector de medias y $\mathbf{\Sigma}$, la matriz de covarianzas.
 
-Recordemos también que las **funciones de densidad marginales** de $X_1,\ldots, X_n$ correspondían a $N(\mu_i,\sigma_{ii})$, con $i=1,\ldots, n$:
+Recordemos también que las **funciones de densidad marginales** de $X_1,\ldots, X_n$ correspondían a $N(\mu_i,\sqrt{\sigma_{ii}})$, con $i=1,\ldots, n$:
 $$
-f_{X_i}(x_i)  =\frac{1}{\sqrt{2\pi\sigma_{ii}^2}}\mathrm{e}^{-\frac{(x_i-\mu_i)^2}{2\sigma_{ii}^2}},\ -\infty <x_i<\infty,\ i=1,\ldots,n.
+f_{X_i}(x_i)  =\frac{1}{\sqrt{2\pi\sigma_{ii}}}\mathrm{e}^{-\frac{(x_i-\mu_i)^2}{2\sigma_{ii}}},\ -\infty <x_i<\infty,\ i=1,\ldots,n.
 $$
 
 ¿Cómo tiene que ser la matriz de covarianzas $\mathbf{\Sigma}$ para que las variables $X_1,\ldots,X_n$ sean independientes?
@@ -1321,7 +1321,7 @@ $$
 O, expresado matemáticamente,
 $$
 \begin{array}{rl}
-f_{X_1}(x_1)\cdots f_{X_n}(x_n) & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}\sigma_{11}\cdots \sigma_{nn}}\mathrm{e}^{-\sum\limits_{i=1}^n\frac{(x_i-\mu_i)^2}{2\sigma_{ii}^2}}=f_{X_1\ldots X_n}(x_1,\ldots,x_n) \\ & =\frac{1}{(2\pi)^{\frac{n}{2}}\sqrt{\mathbf{|\Sigma|}}}\mathrm{e}^{-\frac{1}{2}(\mathbf{x-\mu})^\top\mathbf{\Sigma}^{-1}(\mathbf{x-\mu})}.
+f_{X_1}(x_1)\cdots f_{X_n}(x_n) & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}\sqrt{\sigma_{11}\cdots \sigma_{nn}}}\mathrm{e}^{-\sum\limits_{i=1}^n\frac{(x_i-\mu_i)^2}{2\sigma_{ii}}}=f_{X_1\ldots X_n}(x_1,\ldots,x_n) \\ & =\frac{1}{(2\pi)^{\frac{n}{2}}\sqrt{\mathbf{|\Sigma|}}}\mathrm{e}^{-\frac{1}{2}(\mathbf{x-\mu})^\top\mathbf{\Sigma}^{-1}(\mathbf{x-\mu})}.
 \end{array}
 $$
 

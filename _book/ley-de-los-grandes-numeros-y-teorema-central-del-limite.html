@@ -24,7 +24,7 @@
 <meta name="author" content="Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir" />
 
 
-<meta name="date" content="2019-12-06" />
+<meta name="date" content="2019-12-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -283,8 +283,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#funcion-de-distribucion-conjunta-1"><i class="fa fa-check"></i><b>6.2</b> Función de distribución conjunta</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#definicion-4"><i class="fa fa-check"></i><b>6.2.1</b> Definición</a></li>
 <li class="chapter" data-level="6.2.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#propiedades-5"><i class="fa fa-check"></i><b>6.2.2</b> Propiedades</a></li>
-<li class="chapter" data-level="6.2.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplos-9"><i class="fa fa-check"></i><b>6.2.3</b> Ejemplos</a></li>
-<li class="chapter" data-level="6.2.4" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplo-con-r"><i class="fa fa-check"></i><b>6.2.4</b> Ejemplo con <code>R</code></a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#variables-aleatorias-n-dimensionales-discretas"><i class="fa fa-check"></i><b>6.3</b> Variables aleatorias <span class="math inline">\(n\)</span>-dimensionales discretas</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#funcion-de-probabilidad-conjunta-1"><i class="fa fa-check"></i><b>6.3.1</b> Función de probabilidad conjunta</a></li>
@@ -303,7 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#momentos-conjuntos-y-valores-esperados-conjuntos-1"><i class="fa fa-check"></i><b>6.6</b> Momentos conjuntos y valores esperados conjuntos</a><ul>
 <li class="chapter" data-level="6.6.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#valor-esperado-de-una-funcion-de-n-variables-aleatorias"><i class="fa fa-check"></i><b>6.6.1</b> Valor esperado de una función de <span class="math inline">\(n\)</span> variables aleatorias</a></li>
-<li class="chapter" data-level="6.6.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplos-15"><i class="fa fa-check"></i><b>6.6.2</b> Ejemplos</a></li>
+<li class="chapter" data-level="6.6.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplos-12"><i class="fa fa-check"></i><b>6.6.2</b> Ejemplos</a></li>
 <li class="chapter" data-level="6.6.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#propiedad-del-valor-esperado-de-la-suma-de-variables"><i class="fa fa-check"></i><b>6.6.3</b> Propiedad del valor esperado de la suma de variables</a></li>
 <li class="chapter" data-level="6.6.4" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#valor-esperado-de-una-funcion-de-n-variables-aleatorias-independientes"><i class="fa fa-check"></i><b>6.6.4</b> Valor esperado de una función de <span class="math inline">\(n\)</span> variables aleatorias independientes</a></li>
 <li class="chapter" data-level="6.6.5" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#propiedades-de-la-covarianza-1"><i class="fa fa-check"></i><b>6.6.5</b> Propiedades de la covarianza</a></li>
@@ -567,9 +565,9 @@ para todo valor <span class="math inline">\(x\in\mathbb{R}\)</span>.</p>
 <p>Lo denotaremos por <span class="math inline">\(X_n\stackrel{{\cal L}}{\longrightarrow}X\)</span>.</p>
 <p>El resultado siguiente simplifica algunas veces comprobar que la sucesión <span class="math inline">\(X_n\)</span> converge en ley hacia <span class="math inline">\(X\)</span>:</p>
 <p><l class="prop"> Proposición. </l>
-Sea <span class="math inline">\(\{X_n\}_{n=1}^\infty\)</span> una sucesión de variables aleatorias y sea <span class="math inline">\(X\)</span> una variable aleatoria definida sobre el mismo espacio muestral <span class="math inline">\(\Omega\)</span> y con la misma probabilidad de sucesos. Sean <span class="math inline">\(\FunCar_{X_n}\)</span> y <span class="math inline">\(\FunCar_X\)</span> las funciones características de <span class="math inline">\(X_n\)</span> y <span class="math inline">\(X\)</span>, respectivamente. Entonces, la sucesión converge <strong>en ley</strong> hacia <span class="math inline">\(X\)</span>, <span class="math inline">\(X_n\stackrel{{\cal L}}{\longrightarrow}X\)</span>, si, y sólo si,
+Sea <span class="math inline">\(\{X_n\}_{n=1}^\infty\)</span> una sucesión de variables aleatorias y sea <span class="math inline">\(X\)</span> una variable aleatoria definida sobre el mismo espacio muestral <span class="math inline">\(\Omega\)</span> y con la misma probabilidad de sucesos. Sean <span class="math inline">\(\phi_{X_n}\)</span> y <span class="math inline">\(\phi_X\)</span> las funciones características de <span class="math inline">\(X_n\)</span> y <span class="math inline">\(X\)</span>, respectivamente. Entonces, la sucesión converge <strong>en ley</strong> hacia <span class="math inline">\(X\)</span>, <span class="math inline">\(X_n\stackrel{{\cal L}}{\longrightarrow}X\)</span>, si, y sólo si,
 <span class="math display">\[
-\lim_{n} \FunCar_{X_n}(t) = \FunCar_X(t),
+\lim_{n} \phi_{X_n}(t) = \phi_X(t),
 \]</span>
 para cualquier número <span class="math inline">\(t\in\mathbb{R}\)</span>.</p>
 <div class="example">
@@ -689,12 +687,12 @@ p_n=P\left(\left|\overline{X}_n-\frac{1}{2}\right|&gt;\epsilon\right) \approx\fr
 <li>En primer lugar, simulamos la repetición del experimento de lanzar la moneda <span class="math inline">\(N=100\)</span> veces y lo repetimos <span class="math inline">\(k=500\)</span> ocasiones.
 Los resultados estarán en una matriz <span class="math inline">\(k\times N =500\times 100\)</span> donde cada fila de la matriz simulará una repetición del experimento de lanzar la moneda <span class="math inline">\(N=100\)</span> veces:</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">N=<span class="dv">100</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">k=<span class="dv">500</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">set.seed</span>(<span class="dv">2019</span>) </a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">## fijamos la semila de aleatoriedad</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">## por reproducibilidad</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">valores.experimento=<span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),N<span class="op">*</span>k,<span class="dt">replace=</span><span class="ot">TRUE</span>),k,N)</a></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb420-1" data-line-number="1">N=<span class="dv">100</span></a>
+<a class="sourceLine" id="cb420-2" data-line-number="2">k=<span class="dv">500</span></a>
+<a class="sourceLine" id="cb420-3" data-line-number="3"><span class="kw">set.seed</span>(<span class="dv">2019</span>) </a>
+<a class="sourceLine" id="cb420-4" data-line-number="4"><span class="co">## fijamos la semila de aleatoriedad</span></a>
+<a class="sourceLine" id="cb420-5" data-line-number="5"><span class="co">## por reproducibilidad</span></a>
+<a class="sourceLine" id="cb420-6" data-line-number="6">valores.experimento=<span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),N<span class="op">*</span>k,<span class="dt">replace=</span><span class="ot">TRUE</span>),k,N)</a></code></pre></div>
 <p>Los primeros resultados son:</p>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
 ## [1,]    1    0    0    1    1    0    1    1    0     0     1     0
@@ -707,12 +705,12 @@ Los resultados estarán en una matriz <span class="math inline">\(k\times N =500
 <li>En segundo lugar, dada la fila <span class="math inline">\(i\)</span>-ésima de la matriz anterior, iremos calculando <span class="math inline">\(\overline{X}_1^{(i)},\overline{X}_2^{(i)},\ldots,\overline{X}_{N=100}^{(i)}\)</span> guardando los resultados en una matriz de medias muestrales.
 Antes de nada, creamos la función que nos realizará la operación anterior dado un vector cualquiera <code>x</code>:</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">cálculo.xnbarra =<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="kw">return</span>(<span class="kw">cumsum</span>(x)<span class="op">/</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)))</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb422-1" data-line-number="1">cálculo.xnbarra =<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb422-2" data-line-number="2">  <span class="kw">return</span>(<span class="kw">cumsum</span>(x)<span class="op">/</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)))</a>
+<a class="sourceLine" id="cb422-3" data-line-number="3">}</a></code></pre></div>
 <p>A partir de la matriz de los resultados, aplicamos la función anterior a cada fila y hallaremos una matriz con todas las <span class="math inline">\(\overline{X}_n^{(i)}\)</span>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">matriz.medias.muestrales =<span class="st"> </span><span class="kw">t</span>(<span class="kw">apply</span>(valores.experimento,</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">                                   <span class="dv">1</span>,cálculo.xnbarra))</a></code></pre></div>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb423-1" data-line-number="1">matriz.medias.muestrales =<span class="st"> </span><span class="kw">t</span>(<span class="kw">apply</span>(valores.experimento,</a>
+<a class="sourceLine" id="cb423-2" data-line-number="2">                                   <span class="dv">1</span>,cálculo.xnbarra))</a></code></pre></div>
 <p>La columna <span class="math inline">\(j\)</span>-ésima de la matriz <code>matriz.medias.muestrales</code> contiene una muestra de <span class="math inline">\(k=500\)</span> valores de la variable <span class="math inline">\(\overline{X}_j\)</span>.</p>
 <ul>
 <li>En último lugar, fijado un <span class="math inline">\(\epsilon\)</span>, para cada <span class="math inline">\(n\)</span>, aproximaremos la probabilidad <span class="math inline">\(P\left(\left|\overline{X}_n-\frac{1}{2}\right|&gt;\epsilon\right)\)</span> usando la fórmula de Laplace:
@@ -721,11 +719,11 @@ p_n=P\left(\left|\overline{X}_n-\frac{1}{2}\right|&gt;\epsilon\right) \approx\fr
 \]</span>
 La columna <span class="math inline">\(j\)</span>-ésima de la matriz <code>matriz.medias.muestrales</code> es una muestra de la variable <span class="math inline">\(\overline{X}_j\)</span>. Por tanto, para hallar la aproximación de <span class="math inline">\(p_n\)</span>, miramos cuántos valores de la columna <span class="math inline">\(j\)</span>-ésima de la matriz anterior verifican <span class="math inline">\(\left|\overline{X}_j^{l}-\frac{1}{2}\right|&gt;\epsilon\)</span>, para <span class="math inline">\(l=1,\ldots, k\)</span>:</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">epsilon=<span class="fl">0.1</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">probabilidades.pn=<span class="st"> </span><span class="kw">colSums</span>(<span class="kw">abs</span>(matriz.medias.muestrales<span class="fl">-0.5</span>) <span class="op">&gt;</span><span class="st"> </span>epsilon)<span class="op">/</span>k</a></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb424-1" data-line-number="1">epsilon=<span class="fl">0.1</span></a>
+<a class="sourceLine" id="cb424-2" data-line-number="2">probabilidades.pn=<span class="st"> </span><span class="kw">colSums</span>(<span class="kw">abs</span>(matriz.medias.muestrales<span class="fl">-0.5</span>) <span class="op">&gt;</span><span class="st"> </span>epsilon)<span class="op">/</span>k</a></code></pre></div>
 <p>Para ver los resultados, dibujamos el gráfico <span class="math inline">\(n\)</span> vs. <span class="math inline">\(p_n\)</span>:</p>
 <div class="center">
-<p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-161-1.png" width="672" /></p>
 </div>
 <p>Observamos que las probabilidades tienden a cero tal como nos dice el <strong>Teorema de la ley débil de los grandes números</strong>.</p>
 </div>
@@ -737,14 +735,14 @@ La columna <span class="math inline">\(j\)</span>-ésima de la matriz <code>matr
 <p><l class="definition"> Definición de los momentos muestrales de una sucesión de variables aleatorias.</l>
 Sea <span class="math inline">\(\{X_n\}_{n=1}^\infty\)</span> una sucesión de variables aleatorias. Dado <span class="math inline">\(k\)</span> valor entero positivo, definimos el <strong>momento muestral</strong> de orden <span class="math inline">\(k\)</span> como la sucesión de variables aleatorias siguientes:
 <span class="math display">\[
-\Momk_k^{(n)} = \frac{1}{n}\sum_{i=1}^n X_i^k.
+M_k^{(n)} = \frac{1}{n}\sum_{i=1}^n X_i^k.
 \]</span></p>
 <p><l class="observ"> Observación: </l>
 el <strong>momento muestral</strong> de orden <span class="math inline">\(k=1\)</span> es la <strong>media muestral</strong> <span class="math inline">\(\overline{X}_n\)</span>.</p>
 <p><l class="definition"> Definición de los momentos muestrales centrados de una sucesión de variables aleatorias.</l>
 Sea <span class="math inline">\(\{X_n\}_{n=1}^\infty\)</span> una sucesión de variables aleatorias. Dado <span class="math inline">\(k\)</span> valor entero positivo, definimos el <strong>momento muestral centrado en la media</strong> de orden <span class="math inline">\(k\)</span> como la sucesión de variables aleatorias siguientes:
 <span class="math display">\[
-\MomCenk_k^{(n)} = \frac{1}{n}\sum_{i=1}^n (X_i-\overline{X}_n)^k.
+MC_k^{(n)} = \frac{1}{n}\sum_{i=1}^n (X_i-\overline{X}_n)^k.
 \]</span></p>
 <p><l class="observ"> Observación: </l>
 el <strong>momento muestral centrado en la media</strong> de orden <span class="math inline">\(k=2\)</span> es la <strong>varianza muestral</strong> <span class="math inline">\(S_{X_n}^2\)</span>.</p>
@@ -759,7 +757,7 @@ R_{X_n,Y_n}=\frac{S_{X_n,Y_n}}{\sqrt{S_{X_n}^2 S_{Y_n}^2}}.
 \]</span></p>
 <p>Dada <span class="math inline">\(\{X_n\}_{n=1}^\infty\)</span> una sucesión de variables aleatorias y <span class="math inline">\(k\)</span> un valor entero positivo, en el tema de Complementos de variables aleatorias, definimos los momentos y los momentos centrales de orden <span class="math inline">\(k\)</span> para cada de dichas variables como:
 <span class="math display">\[
-\momento_k^{(n)} = E\left(X_n^k\right),\quad\momentocentral_k^{(n)}=E\left(\left(X_n-\mu_n\right)^k\right),
+m_k^{(n)} = E\left(X_n^k\right),\quad\mu_k^{(n)}=E\left(\left(X_n-\mu_n\right)^k\right),
 \]</span>
 donde <span class="math inline">\(\mu_n\)</span> es el valor medio de la variable <span class="math inline">\(X_n\)</span>: <span class="math inline">\(\mu_n = E(X_n)\)</span>.</p>
 <p>Así mismo, dada <span class="math inline">\(\{(X_n,Y_n)\}_{n=1}^\infty\)</span> una sucesión de variables aleatorias bidimensionales, en el tema de variables aleatorias bidimensionales definimos para cada variable <span class="math inline">\((X_n,Y_n)\)</span> la covarianza <span class="math inline">\(\sigma_{X_nY_n}\)</span> y el coeficiente de correlación <span class="math inline">\(\rho_{X_nY_n}\)</span>:
@@ -768,26 +766,26 @@ donde <span class="math inline">\(\mu_n\)</span> es el valor medio de la variabl
 \]</span></p>
 <p>Dada una sucesión de variables aleatorias <span class="math inline">\(\{X_n\}_{n=1}^\infty\)</span>, el resultado siguiente nos relaciona los <strong>momentos muestrales</strong> y los <strong>momentos muestrales centrados en la media</strong> con los <strong>momentos</strong> y los <strong>momentos centrales</strong> de cada variable:</p>
 <p><l class="prop"> Teorema. Convergencia de los momentos muestrales y los momentos muestrales centrados en la media. </l>
-Sea <span class="math inline">\(\{X_n\}_{n=1}^\infty\)</span> una sucesión de variables aleatorias <strong>independientes dos a dos e idénticamente distribuidas</strong> y dado un entero positivo <span class="math inline">\(k\)</span>, supongamos que para cada <span class="math inline">\(n\)</span>, existe el <strong>momento de orden <span class="math inline">\(k\)</span></strong>, <span class="math inline">\(\momento_k\)</span> y el <strong>momento central de orden <span class="math inline">\(k\)</span></strong>, <span class="math inline">\(\momentocentral_k\)</span>, que no dependerán de <span class="math inline">\(n\)</span> al ser idénticamente distribuidas. Entonces las sucesiones de variables aleatorias <span class="math inline">\(\{\Momk_n^{(k)}\}_{n=1}^\infty\)</span> y <span class="math inline">\(\{\MomCenk_n^{(k)}\}_{n=1}^\infty\)</span> tienden a <span class="math inline">\(\momento_k\)</span> y <span class="math inline">\(\momentocentral_k\)</span>, respectivamente, en <strong>probabilidad</strong>
+Sea <span class="math inline">\(\{X_n\}_{n=1}^\infty\)</span> una sucesión de variables aleatorias <strong>independientes dos a dos e idénticamente distribuidas</strong> y dado un entero positivo <span class="math inline">\(k\)</span>, supongamos que para cada <span class="math inline">\(n\)</span>, existe el <strong>momento de orden <span class="math inline">\(k\)</span></strong>, <span class="math inline">\(m_k\)</span> y el <strong>momento central de orden <span class="math inline">\(k\)</span></strong>, <span class="math inline">\(\mu_k\)</span>, que no dependerán de <span class="math inline">\(n\)</span> al ser idénticamente distribuidas. Entonces las sucesiones de variables aleatorias <span class="math inline">\(\{M_n^{(k)}\}_{n=1}^\infty\)</span> y <span class="math inline">\(\{MC_n^{(k)}\}_{n=1}^\infty\)</span> tienden a <span class="math inline">\(m_k\)</span> y <span class="math inline">\(\mu_k\)</span>, respectivamente, en <strong>probabilidad</strong>
 <span class="math display">\[
-\Momk_n^{(k)}\stackrel{c.p.}{\longrightarrow} \momento_k,\quad \MomCenk_n^{(k)}\stackrel{c.p.}{\longrightarrow} \momentocentral_k.
+M_n^{(k)}\stackrel{c.p.}{\longrightarrow} m_k,\quad MC_n^{(k)}\stackrel{c.p.}{\longrightarrow} \mu_k.
 \]</span></p>
 <div class="dem">
 <p><strong>Demostración</strong></p>
 <p>Consideremos la sucesión de variables aleatorias <span class="math inline">\(\{X_n^k\}_{n=1}^\infty\)</span>. Como las variables aleatorias de la sucesión <span class="math inline">\(\{X_n\}_{n=1}^\infty\)</span> son independientes dos a dos e idénticamente distribuidas, las variables de la sucesión <span class="math inline">\(\{X_n^k\}_{n=1}^\infty\)</span> también lo serán.</p>
 <p>La idea es aplicar la <strong>ley débil de los grandes números</strong> a la sucesión anterior.</p>
-<p>El valor medio de cada variable de la sucesión <span class="math inline">\(\{X_n^k\}_{n=1}^\infty\)</span> será: <span class="math inline">\(\tilde{\mu}_n^{(k)}= E(X_n^{k})=\momento_k\)</span> el momento de orden <span class="math inline">\(k\)</span>.</p>
+<p>El valor medio de cada variable de la sucesión <span class="math inline">\(\{X_n^k\}_{n=1}^\infty\)</span> será: <span class="math inline">\(\tilde{\mu}_n^{(k)}= E(X_n^{k})=m_k\)</span> el momento de orden <span class="math inline">\(k\)</span>.</p>
 <p>Entonces, si hacemos <span class="math inline">\(\frac{1}{n}\sum\limits_{i=1}^n \tilde{\mu}_n^{(k)}\)</span> obtenemos:
-<span class="math inline">\(\frac{1}{n} n\cdot \momento_k=\momento_k.\)</span></p>
+<span class="math inline">\(\frac{1}{n} n\cdot m_k=m_k.\)</span></p>
 <p>Aplicando la <strong>ley débil de los grandes números</strong> a la sucesión <span class="math inline">\(\{X_n^k\}_{n=1}^\infty\)</span>, tendremos que
 <span class="math display">\[
-\overline{X^k}_n \stackrel{c.p.}{\longrightarrow}\momento_k,
+\overline{X^k}_n \stackrel{c.p.}{\longrightarrow}m_k,
 \]</span>
 pero <span class="math inline">\(\overline{X^k}_n\)</span> vale:
 <span class="math display">\[
 \overline{X^k}_n=\frac{1}{n}\sum_{i=1}^n X_i^k,
 \]</span>
-variable aleatoria que coincide con el momento muestral de orden <span class="math inline">\(k\)</span>, <span class="math inline">\(\Momk_n^{(k)}\)</span>, tal como queríamos demostrar.</p>
+variable aleatoria que coincide con el momento muestral de orden <span class="math inline">\(k\)</span>, <span class="math inline">\(M_n^{(k)}\)</span>, tal como queríamos demostrar.</p>
 <p>Dejamos como ejercicio la demostración de los momentos centrales. Razonando de la misma manera, no tiene dificultad alguna.</p>
 </div>
 <p>Enunciemos ahora el resultado para las covarianzas y las correlaciones muestrales:</p>
@@ -855,14 +853,14 @@ También se verifica que <span class="math inline">\(\sigma_n^2 =p(1-p)\)</span>
 es convergente fijado <span class="math inline">\(\epsilon &gt;0\)</span>.</p>
 <p>Recordemos que en la variable <code>probabilidades.pn</code> calculábamos las probabilidades <span class="math inline">\(P(|\overline{X}_n-p|&gt;\epsilon)\)</span> para un <span class="math inline">\(\epsilon =0.1\)</span>.</p>
 <p>Comprobar que la serie anterior es convergente es equivalente a comprobar que las sumas parciales convergen:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">cumsum</span>(probabilidades.pn)</a></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb425-1" data-line-number="1"><span class="kw">cumsum</span>(probabilidades.pn)</a></code></pre></div>
 <p>El problema es que la <code>n</code> y la <code>N</code> escogidas son demasiado pequeñas. Para realizar el experimento actual tenéis que considerar <code>n=1000</code> y <code>N=5000</code>. Id con cuidado que el programa os tardará un rato.</p>
 <p>El gráfico de las sumas parciales se muestra a continuación:</p>
 <div class="center">
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">N=<span class="dv">1000</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span>N,<span class="kw">cumsum</span>(probabilidades.pn),<span class="dt">xlab=</span><span class="kw">expression</span>(n),</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">     <span class="dt">ylab=</span><span class="st">&quot;Sumas parciales&quot;</span>,<span class="dt">col=</span><span class="st">&#39;red&#39;</span>, <span class="dt">type=</span><span class="st">&#39;l&#39;</span>)</a></code></pre></div>
-<p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb426-1" data-line-number="1">N=<span class="dv">1000</span></a>
+<a class="sourceLine" id="cb426-2" data-line-number="2"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span>N,<span class="kw">cumsum</span>(probabilidades.pn),<span class="dt">xlab=</span><span class="kw">expression</span>(n),</a>
+<a class="sourceLine" id="cb426-3" data-line-number="3">     <span class="dt">ylab=</span><span class="st">&quot;Sumas parciales&quot;</span>,<span class="dt">col=</span><span class="st">&#39;red&#39;</span>, <span class="dt">type=</span><span class="st">&#39;l&#39;</span>)</a></code></pre></div>
+<p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-164-1.png" width="672" /></p>
 </div>
 <p>Como se puede observar, la serie parece que converge.</p>
 </div>
@@ -895,9 +893,9 @@ Una condición equivalente a la tesis del <strong>Teorema Central del Límite</s
 Basta dividir por <span class="math inline">\(n\)</span> el numerador y el denominador de la tesis original del <strong>Teorema Central del Límite</strong>.</p>
 <p>Para la demostración, usaremos dos propiedades de la función característica:</p>
 <p><l class="prop"> Proposición. </l>
-Sea <span class="math inline">\(Y_1,\ldots, Y_n\)</span> <span class="math inline">\(n\)</span> variables aleatorias independientes. Sea <span class="math inline">\(S_n\)</span> la variable aleatoria suma de las variables anteriores, <span class="math inline">\(S_n=\sum\limits_{i=1}^n Y_i\)</span>. Entonces, para calcular <span class="math inline">\(\FunCar_{S_n}\)</span>, podemos usar la expresión siguiente::
+Sea <span class="math inline">\(Y_1,\ldots, Y_n\)</span> <span class="math inline">\(n\)</span> variables aleatorias independientes. Sea <span class="math inline">\(S_n\)</span> la variable aleatoria suma de las variables anteriores, <span class="math inline">\(S_n=\sum\limits_{i=1}^n Y_i\)</span>. Entonces, para calcular <span class="math inline">\(\phi_{S_n}\)</span>, podemos usar la expresión siguiente::
 <span class="math display">\[
-\FunCar_{S_n}(w)=\FunCar_{Y_1}(w)\cdots \FunCar_{Y_n}(w),
+\phi_{S_n}(w)=\phi_{Y_1}(w)\cdots \phi_{Y_n}(w),
 \]</span>
 donde <span class="math inline">\(w\)</span> es cualquier valor real.</p>
 <div class="dem">
@@ -905,80 +903,80 @@ donde <span class="math inline">\(w\)</span> es cualquier valor real.</p>
 <p>Por definición:
 <span class="math display">\[
 \begin{array}{rl}
-\FunCar_{S_n}(w) &amp; =E\left(\mathrm{e}^{\mathrm{i} w S_n}\right)=E\left(\mathrm{e}^{\mathrm{i} w \sum\limits_{i=1}^n Y_i}\right) = E\left(\mathrm{e}^{i w Y_1}\cdots \mathrm{e}^{i w Y_n}\right)\\ &amp; \stackrel{\mbox{$Y_1,\ldots,Y_n$ son independientes}}{=} E\left(\mathrm{e}^{i w Y_1}\right)\cdots E\left(\mathrm{e}^{i w Y_n}\right) \\
-&amp; =\FunCar_{Y_1}(w)\cdots \FunCar_{Y_n}(w).
+\phi_{S_n}(w) &amp; =E\left(\mathrm{e}^{\mathrm{i} w S_n}\right)=E\left(\mathrm{e}^{\mathrm{i} w \sum\limits_{i=1}^n Y_i}\right) = E\left(\mathrm{e}^{i w Y_1}\cdots \mathrm{e}^{i w Y_n}\right)\\ &amp; \stackrel{\mbox{$Y_1,\ldots,Y_n$ son independientes}}{=} E\left(\mathrm{e}^{i w Y_1}\right)\cdots E\left(\mathrm{e}^{i w Y_n}\right) \\
+&amp; =\phi_{Y_1}(w)\cdots \phi_{Y_n}(w).
 \end{array}
 \]</span></p>
 </div>
 <p><l class="prop"> Proposición. </l>
-Sea <span class="math inline">\(Y\)</span> una variable aleatoria. Sea <span class="math inline">\(U=kY\)</span> la variable aleatoria <span class="math inline">\(Y\)</span> multiplicada por un valor real <span class="math inline">\(k\)</span>. Entonces, para calcular <span class="math inline">\(\FunCar_{U}\)</span>, podemos usar la expresión siguiente:
+Sea <span class="math inline">\(Y\)</span> una variable aleatoria. Sea <span class="math inline">\(U=kY\)</span> la variable aleatoria <span class="math inline">\(Y\)</span> multiplicada por un valor real <span class="math inline">\(k\)</span>. Entonces, para calcular <span class="math inline">\(\phi_{U}\)</span>, podemos usar la expresión siguiente:
 <span class="math display">\[
-\FunCar_{U}(w)=\FunCar_Y(kw),
+\phi_{U}(w)=\phi_Y(kw),
 \]</span>
 donde <span class="math inline">\(w\)</span> es cualquier valor real.</p>
 <div class="dem">
 <p><strong>Demostración de la proposición</strong></p>
 <p>Por definición:
 <span class="math display">\[
-\FunCar_{U}(w)=E\left(\mathrm{e}^{\mathrm{i} w U}\right) = E\left(\mathrm{e}^{\mathrm{i} w k Y}\right)=\FunCar_Y(kw).
+\phi_{U}(w)=E\left(\mathrm{e}^{\mathrm{i} w U}\right) = E\left(\mathrm{e}^{\mathrm{i} w k Y}\right)=\phi_Y(kw).
 \]</span></p>
 </div>
 <div class="dem">
 <p><strong>Demostración del Teorema Central del Límite</strong></p>
-<p>Usando la proposición que vimos al introducir la <strong>convergencia en ley</strong> que dice que una sucesión <span class="math inline">\(\{X_n\}\)</span> converge <strong>en ley</strong> hacia <span class="math inline">\(X\)</span> si, y sólo si, <span class="math inline">\(\lim\limits_{\FunCar_{X_n}(t)}=\FunCar_{X}(t)\)</span>, donde <span class="math inline">\(\FunCar\)</span> representa la función característica y la condición anterior tiene que verificarse para todo valor <span class="math inline">\(t\in\mathbb{R}\)</span>, basta demostrar que, si tomamos
+<p>Usando la proposición que vimos al introducir la <strong>convergencia en ley</strong> que dice que una sucesión <span class="math inline">\(\{X_n\}\)</span> converge <strong>en ley</strong> hacia <span class="math inline">\(X\)</span> si, y sólo si, <span class="math inline">\(\lim\limits_{\phi_{X_n}(t)}=\phi_{X}(t)\)</span>, donde <span class="math inline">\(\phi\)</span> representa la función característica y la condición anterior tiene que verificarse para todo valor <span class="math inline">\(t\in\mathbb{R}\)</span>, basta demostrar que, si tomamos
 <span class="math inline">\(Z_n = \frac{\sum\limits_{i=1}^n X_i-n\mu}{\sigma\sqrt{n}},\)</span></p>
 <p><span class="math display">\[
-\lim_{n\to \infty}\FunCar_{Z_n}(w)=\FunCar_Z(w),
+\lim_{n\to \infty}\phi_{Z_n}(w)=\phi_Z(w),
 \]</span>
 para cualquier valor <span class="math inline">\(w\in\mathbb{R}\)</span>, siendo <span class="math inline">\(Z=N(0,1)\)</span>.</p>
-<p>Seguidamente, simplifiquemos la expresión <span class="math inline">\(\FunCar_{Z_n}(w)=\FunCar_{\frac{\sum\limits_{i=1}^n X_i-n\mu}{\sigma\sqrt{n}}}(w)\)</span> usando las dos proposiciones anteriores. En primer lugar, teniendo en cuenta que las variables <span class="math inline">\(\left\{\frac{X_i-\mu}{\sigma\sqrt{n}}\right\}\)</span> son independientes e idénticamente distribuidas, usando la primera proposición podemos escribir:
+<p>Seguidamente, simplifiquemos la expresión <span class="math inline">\(\phi_{Z_n}(w)=\phi_{\frac{\sum\limits_{i=1}^n X_i-n\mu}{\sigma\sqrt{n}}}(w)\)</span> usando las dos proposiciones anteriores. En primer lugar, teniendo en cuenta que las variables <span class="math inline">\(\left\{\frac{X_i-\mu}{\sigma\sqrt{n}}\right\}\)</span> son independientes e idénticamente distribuidas, usando la primera proposición podemos escribir:
 <span class="math display">\[
-\FunCar_{Z_n}(w) = \left(\FunCar_{\frac{X-\mu}{\sigma\sqrt{n}}}(w)\right)^n,
+\phi_{Z_n}(w) = \left(\phi_{\frac{X-\mu}{\sigma\sqrt{n}}}(w)\right)^n,
 \]</span>
 donde <span class="math inline">\(X\)</span> representa cualquiera de las variables <span class="math inline">\(X_i\)</span>.</p>
 <p>Usando la segunda proposición, podemos simplificar la expresión anterior aún más:
 <span class="math display">\[
-\FunCar_{Z_n}(w) = \left(\FunCar_{\frac{X-\mu}{\sigma\sqrt{n}}}(w)\right)^n = \left(\FunCar_{X-\mu}\left(\frac{w}{\sigma\sqrt{n}}\right)\right)^n.
+\phi_{Z_n}(w) = \left(\phi_{\frac{X-\mu}{\sigma\sqrt{n}}}(w)\right)^n = \left(\phi_{X-\mu}\left(\frac{w}{\sigma\sqrt{n}}\right)\right)^n.
 \]</span></p>
-<p>Si desarrollamos por Taylor alrededor del valor <span class="math inline">\(\hat{w}=0\)</span> la función característica <span class="math inline">\(\FunCar_{X-\mu}\left(\hat{w}\right)\)</span> hasta segundo orden, obtenemos:
+<p>Si desarrollamos por Taylor alrededor del valor <span class="math inline">\(\hat{w}=0\)</span> la función característica <span class="math inline">\(\phi_{X-\mu}\left(\hat{w}\right)\)</span> hasta segundo orden, obtenemos:
 <span class="math display">\[
 \scriptsize{
-\FunCar_{X-\mu}\left(\hat{w}\right) = \FunCar_{X-\mu}\left(0\right)+ \FunCar_{X-\mu}&#39;\left(0\right) \hat{w}+ \FunCar_{X-\mu}&#39;&#39;\left(0\right)\frac{\hat{w}^2}{2}+O(\hat{w}^3),
+\phi_{X-\mu}\left(\hat{w}\right) = \phi_{X-\mu}\left(0\right)+ \phi_{X-\mu}&#39;\left(0\right) \hat{w}+ \phi_{X-\mu}&#39;&#39;\left(0\right)\frac{\hat{w}^2}{2}+O(\hat{w}^3),
 }
 \]</span>
 donde <span class="math inline">\(O(\hat{w}^3)\)</span> simboliza los términos de orden <span class="math inline">\(\hat{w}^3\)</span> y superiores.</p>
-<p>Los valores <span class="math inline">\(\FunCar_{X-\mu}\left(0\right)\)</span>, <span class="math inline">\(\FunCar_{X-\mu}&#39;\left(0\right)\)</span> y <span class="math inline">\(\FunCar_{X-\mu}&#39;&#39;\left(0\right)\)</span> valen: (ver tema de Complementos de variables aleatorias)</p>
+<p>Los valores <span class="math inline">\(\phi_{X-\mu}\left(0\right)\)</span>, <span class="math inline">\(\phi_{X-\mu}&#39;\left(0\right)\)</span> y <span class="math inline">\(\phi_{X-\mu}&#39;&#39;\left(0\right)\)</span> valen: (ver tema de Complementos de variables aleatorias)</p>
 <p><span class="math display">\[
 \scriptsize{
-\FunCar_{X-\mu}\left(0\right)=1, \ \FunCar_{X-\mu}&#39;\left(0\right)=\frac{1}{\mathrm{i}}E(X-\mu)=0,\ \FunCar_{X-\mu}&#39;&#39;\left(0\right)=\frac{1}{\mathrm{i}^2}E\left((X-\mu)^2\right)=-\sigma^2.
+\phi_{X-\mu}\left(0\right)=1, \ \phi_{X-\mu}&#39;\left(0\right)=\frac{1}{\mathrm{i}}E(X-\mu)=0,\ \phi_{X-\mu}&#39;&#39;\left(0\right)=\frac{1}{\mathrm{i}^2}E\left((X-\mu)^2\right)=-\sigma^2.
 }
 \]</span>
 El desarrollo anterior será:
 <span class="math display">\[
-\FunCar_{X-\mu}\left(\hat{w}\right) =1 - \frac{1}{2}\hat{w}^2\sigma^2+O(\hat{w}^3),
+\phi_{X-\mu}\left(\hat{w}\right) =1 - \frac{1}{2}\hat{w}^2\sigma^2+O(\hat{w}^3),
 \]</span></p>
 <p>Aplicando la expresión anterior para <span class="math inline">\(\hat{w}=\frac{w}{\sigma\sqrt{n}}\)</span>, obtenemos:</p>
 <p><span class="math display">\[
 \scriptsize{
-\FunCar_{X-\mu}\left(\frac{w}{\sigma\sqrt{n}}\right) =1 - \frac{1}{2}\left(\frac{w}{\sigma\sqrt{n}}\right)^2\sigma^2+O\left(\frac{w}{\sigma\sqrt{n}}\right)^3= 1-\frac{w^2}{2n}+O\left(\frac{w^3}{n^{\frac{3}{2}}}\right),
+\phi_{X-\mu}\left(\frac{w}{\sigma\sqrt{n}}\right) =1 - \frac{1}{2}\left(\frac{w}{\sigma\sqrt{n}}\right)^2\sigma^2+O\left(\frac{w}{\sigma\sqrt{n}}\right)^3= 1-\frac{w^2}{2n}+O\left(\frac{w^3}{n^{\frac{3}{2}}}\right),
 }
 \]</span></p>
 <p>La función característica de la variable <span class="math inline">\(Z_n\)</span> será usando la expresión anterior:
 <span class="math display">\[
-\scriptsize{\FunCar_{Z_n}(w)=\left(\FunCar_{X-\mu}\left(\frac{w}{\sigma\sqrt{n}}\right)\right)^n = \left(1-\frac{w^2}{2n}+O\left(\frac{w^3}{n^{\frac{3}{2}}}\right)\right)^n}
+\scriptsize{\phi_{Z_n}(w)=\left(\phi_{X-\mu}\left(\frac{w}{\sigma\sqrt{n}}\right)\right)^n = \left(1-\frac{w^2}{2n}+O\left(\frac{w^3}{n^{\frac{3}{2}}}\right)\right)^n}
 \]</span>
 El objetivo es calcular el límite de la expresión anterior:
 <span class="math display">\[
-\lim_{n\to \infty}\FunCar_{Z_n}(w) = \lim_{n\to\infty} \left(1-\frac{w^2}{2n}+O\left(\frac{w^3}{n^{\frac{3}{2}}}\right)\right)^n = 
+\lim_{n\to \infty}\phi_{Z_n}(w) = \lim_{n\to\infty} \left(1-\frac{w^2}{2n}+O\left(\frac{w^3}{n^{\frac{3}{2}}}\right)\right)^n = 
 \lim_{n\to \infty}\mathrm{e}^{n\cdot \ln \left(1-\frac{w^2}{2n}+O\left(\frac{w^3}{n^{\frac{3}{2}}}\right)\right)}.
 \]</span></p>
 <p>Usando que para <span class="math inline">\(z\approx 0\)</span>, <span class="math inline">\(\ln(1-z)=z+O(z^2)\)</span>, el límite anterior será:
 <span class="math display">\[
-\lim_{n\to \infty}\FunCar_{Z_n}(w) = 
+\lim_{n\to \infty}\phi_{Z_n}(w) = 
 \lim_{n\to \infty}\mathrm{e}^{n\cdot \left(-\frac{w^2}{2n}+O\left(\frac{w^4}{n^{2}}\right)\right)} = \lim_{n\to \infty}\mathrm{e}^{ \left(-\frac{w^2}{2}+O\left(\frac{w^4}{n}\right)\right)} = \mathrm{e}^{-\frac{w^2}{2}},
 \]</span>
-y dicha expresión coincide con la función característica de la variable <span class="math inline">\(N(0,1)\)</span>, <span class="math inline">\(\FunCar_{Z}(w)\)</span>.</p>
-<p>Recordad que en el tema de Complementos de variables aleatorias vimos que si la variable <span class="math inline">\(U\)</span> era <span class="math inline">\(N(\mu,\sigma)\)</span>, <span class="math inline">\(\FunCar_{U}(w)=\mathrm{e}^{\mathrm{i}w\mu-\frac{w^2\sigma^2}{2}}\)</span>. Aplicando la fórmula anterior para <span class="math inline">\(\mu=0\)</span> y <span class="math inline">\(\sigma=1\)</span>, obtenemos <span class="math inline">\(\FunCar_{Z}(w)=\mathrm{e}^{-\frac{w^2}{2}}.\)</span></p>
+y dicha expresión coincide con la función característica de la variable <span class="math inline">\(N(0,1)\)</span>, <span class="math inline">\(\phi_{Z}(w)\)</span>.</p>
+<p>Recordad que en el tema de Complementos de variables aleatorias vimos que si la variable <span class="math inline">\(U\)</span> era <span class="math inline">\(N(\mu,\sigma)\)</span>, <span class="math inline">\(\phi_{U}(w)=\mathrm{e}^{\mathrm{i}w\mu-\frac{w^2\sigma^2}{2}}\)</span>. Aplicando la fórmula anterior para <span class="math inline">\(\mu=0\)</span> y <span class="math inline">\(\sigma=1\)</span>, obtenemos <span class="math inline">\(\phi_{Z}(w)=\mathrm{e}^{-\frac{w^2}{2}}.\)</span></p>
 </div>
 </div>
 <div id="teorema-central-del-limite-en-la-practica" class="section level3">
@@ -1031,12 +1029,12 @@ Sea <span class="math inline">\(\{X_n\}_{n=1}^\infty\)</span> una sucesión de v
 <p>En primer lugar, hallemos la función característica de la distribución de Poisson de parámetro <span class="math inline">\(\lambda\)</span>. Sea <span class="math inline">\(X=Poiss(\lambda)\)</span>. Su función característica en un valor <span class="math inline">\(w\)</span> será:
 <span class="math display">\[
 \scriptsize{
-\FunCar_X(w)=E\left(\mathrm{e}^{\mathrm{i} w X}\right)=\sum_{k=0}^\infty \mathrm{e}^{i w k}\frac{\lambda^k}{k!}\mathrm{e}^{-\lambda}=\mathrm{e}^{-\lambda} \sum_{k=0}^\infty \frac{\left(\lambda\mathrm{e}^{iw}\right)^k}{k!}=\mathrm{e}^{-\lambda}\cdot \mathrm{e}^{\lambda\mathrm{e}^{iw}}=\mathrm{e}^{\lambda \left(\mathrm{e}^{iw}-1\right)}.
+\phi_X(w)=E\left(\mathrm{e}^{\mathrm{i} w X}\right)=\sum_{k=0}^\infty \mathrm{e}^{i w k}\frac{\lambda^k}{k!}\mathrm{e}^{-\lambda}=\mathrm{e}^{-\lambda} \sum_{k=0}^\infty \frac{\left(\lambda\mathrm{e}^{iw}\right)^k}{k!}=\mathrm{e}^{-\lambda}\cdot \mathrm{e}^{\lambda\mathrm{e}^{iw}}=\mathrm{e}^{\lambda \left(\mathrm{e}^{iw}-1\right)}.
 }
 \]</span>
 Sea ahora la variable <span class="math inline">\(S_n=\sum\limits_{i=1}^n X_i\)</span>. Usando la proposición anterior que nos calcula la función característica de sumas de variables independientes, podemos escribir:
 <span class="math display">\[
-\FunCar_{S_n}(w)=\FunCar_{X_1}(w)\cdots \FunCar_{X_n}(w)=\left(\mathrm{e}^{\lambda \left(\mathrm{e}^{iw}-1\right)}\right)^n =\mathrm{e}^{n\lambda \left(\mathrm{e}^{iw}-1\right)},
+\phi_{S_n}(w)=\phi_{X_1}(w)\cdots \phi_{X_n}(w)=\left(\mathrm{e}^{\lambda \left(\mathrm{e}^{iw}-1\right)}\right)^n =\mathrm{e}^{n\lambda \left(\mathrm{e}^{iw}-1\right)},
 \]</span>
 función característica que corresponde a una variable de Poisson de parámetro <span class="math inline">\(n\lambda\)</span>, <span class="math inline">\(Poiss(n\lambda)\)</span>.</p>
 </div>
@@ -1069,9 +1067,9 @@ P(10\leq X\leq 20)
 \]</span>
 donde <span class="math inline">\(Z=N(0,1)\)</span>.</p>
 <p>Comparemos los valores aproximados anteriores con los valores “exactos” proporcionados por <code>R</code>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">pbinom</span>(<span class="dv">14</span>,<span class="dv">50</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb427-1" data-line-number="1"><span class="kw">pbinom</span>(<span class="dv">14</span>,<span class="dv">50</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 0.2612386</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">pbinom</span>(<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)<span class="op">-</span><span class="kw">pbinom</span>(<span class="dv">9</span>,<span class="dv">50</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb429-1" data-line-number="1"><span class="kw">pbinom</span>(<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)<span class="op">-</span><span class="kw">pbinom</span>(<span class="dv">9</span>,<span class="dv">50</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 0.8613685</code></pre>
 <p>Tenemos errores de 0.04938 y 0.04277, respectivamente.</p>
 <p>Aunque <span class="math inline">\(n\)</span> no es pequeño, <span class="math inline">\(n=50\)</span>, los errores anteriores no son demasiado pequeños.</p>
@@ -1115,23 +1113,23 @@ obteniendo unos errores de sólo 0.00339 y 0.00222, respectivamente.</p>
 \overline{X}_n=\frac{1}{n}B\left(n=100,p=\frac{1}{2}\right)\approx N\left(\mu = p=\frac{1}{2}=0.5,\sigma=\sqrt{\frac{\frac{1}{2}\cdot \frac{1}{2}}{100}}=0.05\right).
 \]</span></p>
 <p>Para ver dicha aproximación, en primer lugar vamos a generar una muestra de <span class="math inline">\(N=1000\)</span> valores de una binomial de parámetros <span class="math inline">\(n=100\)</span> y <span class="math inline">\(p=\frac{1}{2}\)</span> y dividiendo por <span class="math inline">\(n=100\)</span>, tenemos una muestra de <span class="math inline">\(\overline{X}_n\)</span>:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">n=<span class="dv">100</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">p=<span class="dv">1</span><span class="op">/</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">sigma=p<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p)</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="kw">set.seed</span>(<span class="dv">2019</span>)</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">muestra.binomial =<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">1000</span>,n,p)</a>
-<a class="sourceLine" id="cb12-6" data-line-number="6">muestra.xnbarra =<span class="st"> </span>muestra.binomial<span class="op">/</span>n</a></code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb431-1" data-line-number="1">n=<span class="dv">100</span></a>
+<a class="sourceLine" id="cb431-2" data-line-number="2">p=<span class="dv">1</span><span class="op">/</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb431-3" data-line-number="3">sigma=p<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p)</a>
+<a class="sourceLine" id="cb431-4" data-line-number="4"><span class="kw">set.seed</span>(<span class="dv">2019</span>)</a>
+<a class="sourceLine" id="cb431-5" data-line-number="5">muestra.binomial =<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">1000</span>,n,p)</a>
+<a class="sourceLine" id="cb431-6" data-line-number="6">muestra.xnbarra =<span class="st"> </span>muestra.binomial<span class="op">/</span>n</a></code></pre></div>
 <p>Para ver si la aproximación funciona, dibujaremos en una misma gráfica el histograma de frecuencias relativas de la muestra anterior y la curva de la función de densidad de la distribución normal de parámetros <span class="math inline">\(\mu =\frac{1}{2}\)</span> y <span class="math inline">\(\sigma = 0.05\)</span>:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">hist</span>(muestra.xnbarra,<span class="dt">freq=</span><span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">     <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dt">from=</span><span class="kw">min</span>(muestra.xnbarra)<span class="op">-</span><span class="fl">0.1</span>,</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">                <span class="dt">to=</span><span class="kw">max</span>(muestra.xnbarra)<span class="op">+</span><span class="fl">0.1</span>,<span class="dt">by=</span><span class="fl">0.01</span>),</a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">     <span class="dt">main=</span><span class="st">&quot;Histograma de la distribución de las medias muestrales&quot;</span>,</a>
-<a class="sourceLine" id="cb13-5" data-line-number="5">     <span class="dt">xlab=</span><span class="st">&quot;valores variable&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;frecuencias relativas&quot;</span>)</a>
-<a class="sourceLine" id="cb13-6" data-line-number="6">mu=p</a>
-<a class="sourceLine" id="cb13-7" data-line-number="7">sigma.xnbarra=<span class="kw">sqrt</span>(p<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p)<span class="op">/</span>n)</a>
-<a class="sourceLine" id="cb13-8" data-line-number="8">x=<span class="kw">seq</span>(<span class="dt">from=</span><span class="kw">min</span>(muestra.xnbarra),<span class="dt">to=</span><span class="kw">max</span>(muestra.xnbarra),<span class="dt">by=</span><span class="fl">0.01</span>)</a>
-<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="kw">lines</span>(x,<span class="kw">dnorm</span>(x,mu,sigma.xnbarra),<span class="dt">col=</span><span class="st">&#39;red&#39;</span>)</a></code></pre></div>
-<p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb432-1" data-line-number="1"><span class="kw">hist</span>(muestra.xnbarra,<span class="dt">freq=</span><span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb432-2" data-line-number="2">     <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dt">from=</span><span class="kw">min</span>(muestra.xnbarra)<span class="op">-</span><span class="fl">0.1</span>,</a>
+<a class="sourceLine" id="cb432-3" data-line-number="3">                <span class="dt">to=</span><span class="kw">max</span>(muestra.xnbarra)<span class="op">+</span><span class="fl">0.1</span>,<span class="dt">by=</span><span class="fl">0.01</span>),</a>
+<a class="sourceLine" id="cb432-4" data-line-number="4">     <span class="dt">main=</span><span class="st">&quot;Histograma de la distribución de las medias muestrales&quot;</span>,</a>
+<a class="sourceLine" id="cb432-5" data-line-number="5">     <span class="dt">xlab=</span><span class="st">&quot;valores variable&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;frecuencias relativas&quot;</span>)</a>
+<a class="sourceLine" id="cb432-6" data-line-number="6">mu=p</a>
+<a class="sourceLine" id="cb432-7" data-line-number="7">sigma.xnbarra=<span class="kw">sqrt</span>(p<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p)<span class="op">/</span>n)</a>
+<a class="sourceLine" id="cb432-8" data-line-number="8">x=<span class="kw">seq</span>(<span class="dt">from=</span><span class="kw">min</span>(muestra.xnbarra),<span class="dt">to=</span><span class="kw">max</span>(muestra.xnbarra),<span class="dt">by=</span><span class="fl">0.01</span>)</a>
+<a class="sourceLine" id="cb432-9" data-line-number="9"><span class="kw">lines</span>(x,<span class="kw">dnorm</span>(x,mu,sigma.xnbarra),<span class="dt">col=</span><span class="st">&#39;red&#39;</span>)</a></code></pre></div>
+<p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-167-1.png" width="672" /></p>
 <p>Observamos que la aproximación es bastante buena.</p>
 </div>
 

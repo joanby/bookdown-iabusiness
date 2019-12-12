@@ -476,7 +476,7 @@ Dicha expresión se deduce de la expresión anterior considerando $B=(-\infty,x]
 
 
 <div class="exercise">
-** Ejercicio**
+**Ejercicio**
 
 En el  ejemplo del lanzamiento de  los dos dados. Comprobad usando la tabla de la función de probabilidad conjunta que la suma de todos sus valores suma 1.
 </div>

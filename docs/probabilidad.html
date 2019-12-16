@@ -24,7 +24,7 @@
 <meta name="author" content="Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir" />
 
 
-<meta name="date" content="2019-12-04" />
+<meta name="date" content="2019-12-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -69,7 +69,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -278,18 +278,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html"><i class="fa fa-check"></i><b>6</b> Vectores aleatorios</a><ul>
 <li class="chapter" data-level="6.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#varias-variables-aleatorias"><i class="fa fa-check"></i><b>6.1</b> Varias variables aleatorias</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#definición-3"><i class="fa fa-check"></i><b>6.1.1</b> Definición</a></li>
-<li class="chapter" data-level="6.1.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#representar-el-dominio-de-una-variable-aleatoria-n-dimensional"><i class="fa fa-check"></i><b>6.1.2</b> Representar el dominio de una variable aleatoria <span class="math inline">\(n\)</span>-dimensional</a></li>
+<li class="chapter" data-level="6.1.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#representación-del-dominio-de-una-variable-aleatoria-n-dimensional"><i class="fa fa-check"></i><b>6.1.2</b> Representación del dominio de una variable aleatoria <span class="math inline">\(n\)</span>-dimensional</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#función-de-distribución-conjunta-1"><i class="fa fa-check"></i><b>6.2</b> Función de distribución conjunta</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#definición-4"><i class="fa fa-check"></i><b>6.2.1</b> Definición</a></li>
 <li class="chapter" data-level="6.2.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#propiedades-5"><i class="fa fa-check"></i><b>6.2.2</b> Propiedades</a></li>
-<li class="chapter" data-level="6.2.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplos-9"><i class="fa fa-check"></i><b>6.2.3</b> Ejemplos</a></li>
-<li class="chapter" data-level="6.2.4" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplo-con-r"><i class="fa fa-check"></i><b>6.2.4</b> Ejemplo con <code>R</code></a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#variables-aleatorias-n-dimensionales-discretas"><i class="fa fa-check"></i><b>6.3</b> Variables aleatorias <span class="math inline">\(n\)</span>-dimensionales discretas</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#función-de-probabilidad-conjunta-1"><i class="fa fa-check"></i><b>6.3.1</b> Función de probabilidad conjunta</a></li>
 <li class="chapter" data-level="6.3.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#propiedades-de-la-función-de-probabilidad-conjunta-1"><i class="fa fa-check"></i><b>6.3.2</b> Propiedades de la función de probabilidad conjunta</a></li>
-<li class="chapter" data-level="6.3.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#variables-aleatorias-marginales"><i class="fa fa-check"></i><b>6.3.3</b> Variables aleatorias marginales</a></li>
+<li class="chapter" data-level="6.3.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#funciones-de-distribución-marginales"><i class="fa fa-check"></i><b>6.3.3</b> Funciones de distribución marginales</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#variables-aleatorias-n-dimensionales-continuas"><i class="fa fa-check"></i><b>6.4</b> Variables aleatorias <span class="math inline">\(n\)</span>-dimensionales continuas</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#definición-5"><i class="fa fa-check"></i><b>6.4.1</b> Definición</a></li>
@@ -303,7 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#momentos-conjuntos-y-valores-esperados-conjuntos-1"><i class="fa fa-check"></i><b>6.6</b> Momentos conjuntos y valores esperados conjuntos</a><ul>
 <li class="chapter" data-level="6.6.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#valor-esperado-de-una-función-de-n-variables-aleatorias"><i class="fa fa-check"></i><b>6.6.1</b> Valor esperado de una función de <span class="math inline">\(n\)</span> variables aleatorias</a></li>
-<li class="chapter" data-level="6.6.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplos-15"><i class="fa fa-check"></i><b>6.6.2</b> Ejemplos</a></li>
+<li class="chapter" data-level="6.6.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplos-12"><i class="fa fa-check"></i><b>6.6.2</b> Ejemplos</a></li>
 <li class="chapter" data-level="6.6.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#propiedad-del-valor-esperado-de-la-suma-de-variables"><i class="fa fa-check"></i><b>6.6.3</b> Propiedad del valor esperado de la suma de variables</a></li>
 <li class="chapter" data-level="6.6.4" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#valor-esperado-de-una-función-de-n-variables-aleatorias-independientes"><i class="fa fa-check"></i><b>6.6.4</b> Valor esperado de una función de <span class="math inline">\(n\)</span> variables aleatorias independientes</a></li>
 <li class="chapter" data-level="6.6.5" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#propiedades-de-la-covarianza-1"><i class="fa fa-check"></i><b>6.6.5</b> Propiedades de la covarianza</a></li>
@@ -367,7 +365,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Ejemplo</strong></p>
 <p>Los sucesos elementales del ejemplo anterior serían:</p>
 <div class="center">
-<p><img src="Images/proba1dibujos/dice/1.png" /><!-- --><img src="Images/proba1dibujos/dice/2.png" /><!-- --><img src="Images/proba1dibujos/dice/3.png" /><!-- --><img src="Images/proba1dibujos/dice/4.png" /><!-- --><img src="Images/proba1dibujos/dice/5.png" /><!-- --><img src="Images/proba1dibujos/dice/6.png" /><!-- --></p>
+<p><img src="Images/proba1dibujos/dice/1.png" width="15" /><img src="Images/proba1dibujos/dice/2.png" width="15" /><img src="Images/proba1dibujos/dice/3.png" width="15" /><img src="Images/proba1dibujos/dice/4.png" width="15" /><img src="Images/proba1dibujos/dice/5.png" width="15" /><img src="Images/proba1dibujos/dice/6.png" width="15" /></p>
 </div>
 </div>
 <p><l class="definition"> <strong>Espacio muestral</strong></l>: el conjunto <span class="math inline">\(\Omega\)</span> formado por todos los sucesos elementales del experimento aleatorio</p>
@@ -375,12 +373,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Ejemplo</strong></p>
 El espacio muestral del ejemplo anterior del dado es
 <div class="center">
-<p><span class="math inline">\(\Omega=\Big\{\)</span><img src="Images/proba1dibujos/dice/1.png" /><!-- -->,
-<img src="Images/proba1dibujos/dice/2.png" /><!-- -->,
-<img src="Images/proba1dibujos/dice/3.png" /><!-- -->,
-<img src="Images/proba1dibujos/dice/4.png" /><!-- -->,
-<img src="Images/proba1dibujos/dice/5.png" /><!-- -->,
-<img src="Images/proba1dibujos/dice/6.png" /><!-- --><span class="math inline">\(\Big\}\)</span></p>
+<p><span class="math inline">\(\Omega=\Big\{\)</span><img src="Images/proba1dibujos/dice/1.png" width="30" />,
+<img src="Images/proba1dibujos/dice/2.png" width="30" />,
+<img src="Images/proba1dibujos/dice/3.png" width="30" />,
+<img src="Images/proba1dibujos/dice/4.png" width="30" />,
+<img src="Images/proba1dibujos/dice/5.png" width="30" />,
+<img src="Images/proba1dibujos/dice/6.png" width="30" /><span class="math inline">\(\Big\}\)</span></p>
 </div>
 <p>pero por comodidad, a partir de ahora pondremos
 <span class="math display">\[\Omega = \{1,2,3,4,5,6\}\]</span></p>

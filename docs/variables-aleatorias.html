@@ -24,7 +24,7 @@
 <meta name="author" content="Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir" />
 
 
-<meta name="date" content="2019-12-04" />
+<meta name="date" content="2019-12-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -69,7 +69,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -278,18 +278,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html"><i class="fa fa-check"></i><b>6</b> Vectores aleatorios</a><ul>
 <li class="chapter" data-level="6.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#varias-variables-aleatorias"><i class="fa fa-check"></i><b>6.1</b> Varias variables aleatorias</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#definición-3"><i class="fa fa-check"></i><b>6.1.1</b> Definición</a></li>
-<li class="chapter" data-level="6.1.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#representar-el-dominio-de-una-variable-aleatoria-n-dimensional"><i class="fa fa-check"></i><b>6.1.2</b> Representar el dominio de una variable aleatoria <span class="math inline">\(n\)</span>-dimensional</a></li>
+<li class="chapter" data-level="6.1.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#representación-del-dominio-de-una-variable-aleatoria-n-dimensional"><i class="fa fa-check"></i><b>6.1.2</b> Representación del dominio de una variable aleatoria <span class="math inline">\(n\)</span>-dimensional</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#función-de-distribución-conjunta-1"><i class="fa fa-check"></i><b>6.2</b> Función de distribución conjunta</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#definición-4"><i class="fa fa-check"></i><b>6.2.1</b> Definición</a></li>
 <li class="chapter" data-level="6.2.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#propiedades-5"><i class="fa fa-check"></i><b>6.2.2</b> Propiedades</a></li>
-<li class="chapter" data-level="6.2.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplos-9"><i class="fa fa-check"></i><b>6.2.3</b> Ejemplos</a></li>
-<li class="chapter" data-level="6.2.4" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplo-con-r"><i class="fa fa-check"></i><b>6.2.4</b> Ejemplo con <code>R</code></a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#variables-aleatorias-n-dimensionales-discretas"><i class="fa fa-check"></i><b>6.3</b> Variables aleatorias <span class="math inline">\(n\)</span>-dimensionales discretas</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#función-de-probabilidad-conjunta-1"><i class="fa fa-check"></i><b>6.3.1</b> Función de probabilidad conjunta</a></li>
 <li class="chapter" data-level="6.3.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#propiedades-de-la-función-de-probabilidad-conjunta-1"><i class="fa fa-check"></i><b>6.3.2</b> Propiedades de la función de probabilidad conjunta</a></li>
-<li class="chapter" data-level="6.3.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#variables-aleatorias-marginales"><i class="fa fa-check"></i><b>6.3.3</b> Variables aleatorias marginales</a></li>
+<li class="chapter" data-level="6.3.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#funciones-de-distribución-marginales"><i class="fa fa-check"></i><b>6.3.3</b> Funciones de distribución marginales</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#variables-aleatorias-n-dimensionales-continuas"><i class="fa fa-check"></i><b>6.4</b> Variables aleatorias <span class="math inline">\(n\)</span>-dimensionales continuas</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#definición-5"><i class="fa fa-check"></i><b>6.4.1</b> Definición</a></li>
@@ -303,7 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#momentos-conjuntos-y-valores-esperados-conjuntos-1"><i class="fa fa-check"></i><b>6.6</b> Momentos conjuntos y valores esperados conjuntos</a><ul>
 <li class="chapter" data-level="6.6.1" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#valor-esperado-de-una-función-de-n-variables-aleatorias"><i class="fa fa-check"></i><b>6.6.1</b> Valor esperado de una función de <span class="math inline">\(n\)</span> variables aleatorias</a></li>
-<li class="chapter" data-level="6.6.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplos-15"><i class="fa fa-check"></i><b>6.6.2</b> Ejemplos</a></li>
+<li class="chapter" data-level="6.6.2" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#ejemplos-12"><i class="fa fa-check"></i><b>6.6.2</b> Ejemplos</a></li>
 <li class="chapter" data-level="6.6.3" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#propiedad-del-valor-esperado-de-la-suma-de-variables"><i class="fa fa-check"></i><b>6.6.3</b> Propiedad del valor esperado de la suma de variables</a></li>
 <li class="chapter" data-level="6.6.4" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#valor-esperado-de-una-función-de-n-variables-aleatorias-independientes"><i class="fa fa-check"></i><b>6.6.4</b> Valor esperado de una función de <span class="math inline">\(n\)</span> variables aleatorias independientes</a></li>
 <li class="chapter" data-level="6.6.5" data-path="vectores-aleatorios.html"><a href="vectores-aleatorios.html#propiedades-de-la-covarianza-1"><i class="fa fa-check"></i><b>6.6.5</b> Propiedades de la covarianza</a></li>
@@ -920,7 +918,7 @@ x, &amp; \mbox{si } 0&lt;x&lt;1,\\
 </ul>
 </div>
 </div>
-<p><img src="curso-probabilidad-udemy_files/figure-html/figUNIF-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="curso-probabilidad-udemy_files/figure-html/figUNIF-7.png" width="672" style="display: block; margin: auto;" /></p>
 <div id="propiedades-3" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> Propiedades</h3>
 <p>En las variables continuas los sucesos del tipo <span class="math inline">\(\{X\leq x \}\)</span> y <span class="math inline">\(\{X&lt; x \}\)</span> tendrán la
@@ -1004,9 +1002,9 @@ que es la densidad de <span class="math inline">\(X\)</span>. En efecto:</p>
 <li><p>Si <span class="math inline">\(x\geq 1\)</span>, entonces <span class="math inline">\(\displaystyle\int_{-\infty}^x f_X(t) dt = \int_0^1 1\, dt = 1.\)</span></p></li>
 </ul>
 <p>Por lo tanto, <span class="math inline">\(F_X(x)=\displaystyle\int_{-\infty}^x f_X(t) dt\)</span> para todo <span class="math inline">\(x\in\mathbb{R}.\)</span></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">curve</span>(<span class="kw">dunif</span>(x,<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.5</span>,<span class="fl">1.5</span>),<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">      <span class="dt">main=</span><span class="st">&quot;Densidad de la distribución uniforme en [0,1]&quot;</span>)</a></code></pre></div>
-<p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="kw">curve</span>(<span class="kw">dunif</span>(x,<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.5</span>,<span class="fl">1.5</span>),<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,</a>
+<a class="sourceLine" id="cb35-2" title="2">      <span class="dt">main=</span><span class="st">&quot;Densidad de la distribución uniforme en [0,1]&quot;</span>)</a></code></pre></div>
+<p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="utilidad-de-la-función-de-densidad" class="section level3">
@@ -1348,45 +1346,45 @@ F_X(x)= P(X\leq x)=
 \right.
 \]</span></p>
 <p>La función siguiente llamada <code>ddado</code> nos define la función de probabilidad de <span class="math inline">\(X\)</span> para un dado de <span class="math inline">\(n\)</span> caras:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">ddado=<span class="cf">function</span>(x,<span class="dt">n=</span><span class="dv">6</span>) {</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="kw">sapply</span>(x,<span class="dt">FUN=</span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">    <span class="cf">if</span>( x <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span>n)){<span class="kw">return</span>(<span class="dv">1</span><span class="op">/</span>n)} <span class="cf">else</span> {<span class="kw">return</span>(<span class="dv">0</span>)}})</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">  }</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1">ddado=<span class="cf">function</span>(x,<span class="dt">n=</span><span class="dv">6</span>) {</a>
+<a class="sourceLine" id="cb36-2" title="2">  <span class="kw">sapply</span>(x,<span class="dt">FUN=</span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb36-3" title="3">    <span class="cf">if</span>( x <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span>n)){<span class="kw">return</span>(<span class="dv">1</span><span class="op">/</span>n)} <span class="cf">else</span> {<span class="kw">return</span>(<span class="dv">0</span>)}})</a>
+<a class="sourceLine" id="cb36-4" title="4">  }</a></code></pre></div>
 <p>Por ejemplo, el valor de <span class="math inline">\(P_X(0.5)\)</span> sería:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">ddado</span>(<span class="fl">1.5</span>,<span class="dt">n=</span><span class="dv">6</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="kw">ddado</span>(<span class="fl">1.5</span>,<span class="dt">n=</span><span class="dv">6</span>)</a></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p>y los valores de <span class="math inline">\(P_X(i)\)</span> para <span class="math inline">\(i=1,\ldots 10\)</span> sería:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">ddado</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dt">n=</span><span class="dv">6</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">ddado</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dt">n=</span><span class="dv">6</span>)</a></code></pre></div>
 <pre><code>##  [1] 0.1666667 0.1666667 0.1666667 0.1666667 0.1666667 0.1666667 0.0000000
 ##  [8] 0.0000000 0.0000000 0.0000000</code></pre>
 <p>La función <code>pdado</code> nos da la función de distribución de <span class="math inline">\(X\)</span>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">pdado=<span class="cf">function</span>(x,<span class="dt">n=</span><span class="dv">6</span>) </a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">  {</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">  <span class="kw">sapply</span>(x,<span class="dt">FUN=</span><span class="cf">function</span>(y){ <span class="cf">if</span> (y<span class="op">&lt;</span><span class="dv">1</span>){ <span class="kw">return</span>(<span class="dv">0</span>)}<span class="cf">else</span>{<span class="cf">if</span>(y<span class="op">&gt;=</span>n){<span class="kw">return</span>(<span class="dv">1</span>)} <span class="cf">else</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">  {<span class="kw">return</span>(<span class="kw">sum</span>(<span class="kw">ddado</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span>(<span class="kw">floor</span>(y))),<span class="dt">n=</span>n)))}}})</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">  }</a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1">pdado=<span class="cf">function</span>(x,<span class="dt">n=</span><span class="dv">6</span>) </a>
+<a class="sourceLine" id="cb41-2" title="2">  {</a>
+<a class="sourceLine" id="cb41-3" title="3">  <span class="kw">sapply</span>(x,<span class="dt">FUN=</span><span class="cf">function</span>(y){ <span class="cf">if</span> (y<span class="op">&lt;</span><span class="dv">1</span>){ <span class="kw">return</span>(<span class="dv">0</span>)}<span class="cf">else</span>{<span class="cf">if</span>(y<span class="op">&gt;=</span>n){<span class="kw">return</span>(<span class="dv">1</span>)} <span class="cf">else</span></a>
+<a class="sourceLine" id="cb41-4" title="4">  {<span class="kw">return</span>(<span class="kw">sum</span>(<span class="kw">ddado</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span>(<span class="kw">floor</span>(y))),<span class="dt">n=</span>n)))}}})</a>
+<a class="sourceLine" id="cb41-5" title="5">  }</a></code></pre></div>
 <p>Los valores de <span class="math inline">\(F_X(i)\)</span> para <span class="math inline">\(i=0,\ldots, 11\)</span> serían:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">pdado</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">11</span>,<span class="dv">6</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="kw">pdado</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">11</span>,<span class="dv">6</span>)</a></code></pre></div>
 <pre><code>##  [1] 0.0000000 0.1666667 0.3333333 0.5000000 0.6666667 0.8333333 1.0000000
 ##  [8] 1.0000000 1.0000000 1.0000000 1.0000000 1.0000000</code></pre>
 <p>A continuación, construímos la función <code>qdado</code> que nos calcula el cuantil <span class="math inline">\(p\)</span>, para <span class="math inline">\(0\leq p\leq 1\)</span>, de la variable <span class="math inline">\(X\)</span> como el mínimo del conjunto <span class="math inline">\(A_p\)</span>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">qdado=<span class="cf">function</span>(p,<span class="dt">n=</span><span class="dv">6</span>){</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">sapply</span>(p,<span class="dt">FUN=</span><span class="cf">function</span>(<span class="dt">pp=</span>p,<span class="dt">nn=</span>n) </a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">  {</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="cf">if</span>(pp<span class="op">&lt;</span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>pp<span class="op">&gt;</span><span class="dv">1</span>) {<span class="kw">return</span>(<span class="ot">NA</span>)}</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5">  <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb10-6" data-line-number="6">  aux=pp<span class="op">&gt;=</span><span class="kw">pdado</span>(<span class="dv">1</span><span class="op">:</span>n,nn)</a>
-<a class="sourceLine" id="cb10-7" data-line-number="7">  aux</a>
-<a class="sourceLine" id="cb10-8" data-line-number="8">  <span class="kw">ifelse</span>(<span class="kw">all</span>(<span class="op">!</span>aux),<span class="kw">return</span>(<span class="dv">1</span>),<span class="kw">return</span>(<span class="kw">max</span>(<span class="kw">which</span>(pp<span class="op">&gt;=</span><span class="kw">pdado</span>(<span class="dv">1</span><span class="op">:</span>n,nn)))))}}</a>
-<a class="sourceLine" id="cb10-9" data-line-number="9">)</a>
-<a class="sourceLine" id="cb10-10" data-line-number="10">}</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1">qdado=<span class="cf">function</span>(p,<span class="dt">n=</span><span class="dv">6</span>){</a>
+<a class="sourceLine" id="cb44-2" title="2"><span class="kw">sapply</span>(p,<span class="dt">FUN=</span><span class="cf">function</span>(<span class="dt">pp=</span>p,<span class="dt">nn=</span>n) </a>
+<a class="sourceLine" id="cb44-3" title="3">  {</a>
+<a class="sourceLine" id="cb44-4" title="4">  <span class="cf">if</span>(pp<span class="op">&lt;</span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>pp<span class="op">&gt;</span><span class="dv">1</span>) {<span class="kw">return</span>(<span class="ot">NA</span>)}</a>
+<a class="sourceLine" id="cb44-5" title="5">  <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb44-6" title="6">  aux=pp<span class="op">&gt;=</span><span class="kw">pdado</span>(<span class="dv">1</span><span class="op">:</span>n,nn)</a>
+<a class="sourceLine" id="cb44-7" title="7">  aux</a>
+<a class="sourceLine" id="cb44-8" title="8">  <span class="kw">ifelse</span>(<span class="kw">all</span>(<span class="op">!</span>aux),<span class="kw">return</span>(<span class="dv">1</span>),<span class="kw">return</span>(<span class="kw">max</span>(<span class="kw">which</span>(pp<span class="op">&gt;=</span><span class="kw">pdado</span>(<span class="dv">1</span><span class="op">:</span>n,nn)))))}}</a>
+<a class="sourceLine" id="cb44-9" title="9">)</a>
+<a class="sourceLine" id="cb44-10" title="10">}</a></code></pre></div>
 <p>Si <span class="math inline">\(p=1.5\)</span> o <span class="math inline">\(p=-1\)</span>, la función anterior nos devuelve <code>NA</code> ya que ni 1.5 ni -1 están entre 0 y 1:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">qdado</span>(<span class="fl">1.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1"><span class="kw">qdado</span>(<span class="fl">1.5</span>)</a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">qdado</span>(<span class="op">-</span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1"><span class="kw">qdado</span>(<span class="op">-</span><span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>Los cuantiles <span class="math inline">\(x_{0.1}\)</span>, <span class="math inline">\(x_{0.5}\)</span> <span class="math inline">\(x_{0.6}\)</span> y <span class="math inline">\(x_1\)</span> son:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">qdado</span>(<span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.5</span>,<span class="fl">0.6</span>,<span class="dv">1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw">qdado</span>(<span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.5</span>,<span class="fl">0.6</span>,<span class="dv">1</span>))</a></code></pre></div>
 <pre><code>## [1] 1 3 3 6</code></pre>
 </div>
 

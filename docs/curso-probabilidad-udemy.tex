@@ -71,7 +71,11 @@
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
-\usepackage{graphicx,grffile}
+\usepackage{graphicx}
+% grffile has become a legacy package: https://ctan.org/pkg/grffile
+\IfFileExists{grffile.sty}{%
+\usepackage{grffile}
+}{}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -124,7 +128,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-12-12}
+    \date{2019-12-16}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -269,7 +273,7 @@ Pero muchos tienen una falta de conocimientos en teoría básica de conjuntos y 
 \hypertarget{teoruxeda-de-conjuntos}{%
 \section{Teoría de conjuntos}\label{teoruxeda-de-conjuntos}}
 
-\textbf{Definición de conjunto}
+ \textbf{Definición de conjunto}
 
 La definición de conjunto es una \href{https://es.wikipedia.org/wiki/Concepto_primitivo}{idea o noción primitiva}. Es decir es una idea básica del pensamiento humano: un conjunto es una colección de objetos: números, imágenes\ldots{} cualquier cosa, jugadores de fútbol, palabras, colores \ldots{}.
 
@@ -355,7 +359,7 @@ Tomemos como conjunto base \(\Omega=\{1,2,3\}\)
 
 Dado un conjunto \(\Omega\) podemos construir el \textbf{conjunto de todas sus partes} (todos sus subconjuntos) al que denotamos por \(\mathcal{P}(\Omega)\). También se denomina de forma directa partes de \(\Omega\).
 
-\textbf{Cardinal de las partes de un conjunto}
+ \textbf{Cardinal de las partes de un conjunto}
 
 El cardinal de la partes de un conjunto es \(\#(\mathcal{P}(\Omega))=2^{\#(\Omega)}.\)
 
@@ -788,7 +792,7 @@ Puedes repasar todos esos conceptos con ejercicios y más en el \href{https://ww
 \hypertarget{probabilidades-buxe1sicas}{%
 \section{Probabilidades Básicas}\label{probabilidades-buxe1sicas}}
 
-\textbf{Experimento aleatorio}: experimento que repetido en las mismas condiciones puede dar resultados diferentes, pero que a largo plazo son predecibles
+ \textbf{Experimento aleatorio}: experimento que repetido en las mismas condiciones puede dar resultados diferentes, pero que a largo plazo son predecibles
 
 \textbf{Ejemplo}
 
@@ -800,36 +804,25 @@ Tirar un dado de 6 caras y anotar el número de puntos de la cara superior.
 
 Los sucesos elementales del ejemplo anterior serían:
 
-\includegraphics[width=0.42in]{Images/proba1dibujos/dice/1}
-\includegraphics[width=0.42in]{Images/proba1dibujos/dice/2}
-\includegraphics[width=0.42in]{Images/proba1dibujos/dice/3}
-\includegraphics[width=0.42in]{Images/proba1dibujos/dice/4}
-\includegraphics[width=0.42in]{Images/proba1dibujos/dice/5}
-\includegraphics[width=0.42in]{Images/proba1dibujos/dice/6}
+\includegraphics{Images/proba1dibujos/dice/1.png} \includegraphics{Images/proba1dibujos/dice/2.png} \includegraphics{Images/proba1dibujos/dice/3.png} \includegraphics{Images/proba1dibujos/dice/4.png} \includegraphics{Images/proba1dibujos/dice/5.png} \includegraphics{Images/proba1dibujos/dice/6.png}
 
-\textbf{Espacio muestral}: el conjunto \(\Omega\) formado por todos los sucesos elementales del experimento aleatorio
+ \textbf{Espacio muestral}: el conjunto \(\Omega\) formado por todos los sucesos elementales del experimento aleatorio
 
 \textbf{Ejemplo}
 
 El espacio muestral del ejemplo anterior del dado es
 
-\(\Omega=\Big\{\)
-\includegraphics[width=0.42in]{Images/proba1dibujos/dice/1} ,
-
-\includegraphics[width=0.42in]{Images/proba1dibujos/dice/2} ,
-
-\includegraphics[width=0.42in]{Images/proba1dibujos/dice/3} ,
-
-\includegraphics[width=0.42in]{Images/proba1dibujos/dice/4} ,
-
-\includegraphics[width=0.42in]{Images/proba1dibujos/dice/5} ,
-
-\includegraphics[width=0.42in]{Images/proba1dibujos/dice/6} \(\Big\}\)
+\(\Omega=\Big\{\)\includegraphics{Images/proba1dibujos/dice/1.png} ,
+\includegraphics{Images/proba1dibujos/dice/2.png} ,
+\includegraphics{Images/proba1dibujos/dice/3.png} ,
+\includegraphics{Images/proba1dibujos/dice/4.png} ,
+\includegraphics{Images/proba1dibujos/dice/5.png} ,
+\includegraphics{Images/proba1dibujos/dice/6.png} \(\Big\}\)
 
 pero por comodidad, a partir de ahora pondremos
 \[\Omega = \{1,2,3,4,5,6\}\]
 
-\textbf{Suceso} : Cualquier subconjunto del espacio muestral.
+ \textbf{Suceso} : Cualquier subconjunto del espacio muestral.
 
 Alguno sucesos notables que merece la pena nombrar son:
 
@@ -890,7 +883,7 @@ Si tenemos dos sucesos \(A,B\subseteq \Omega\), podemos definir:
   \(A- B=A\cap B^c\): suceso \emph{diferencia}, que acontece si sucede \(A\) y NO sucede \(B\).
 \end{itemize}
 
-\textbf{Sucesos incompatibles}: \(A\) y \(B\) son \emph{incompatibles} (o \emph{disjuntos}) cuando \(A\cap B=\emptyset\).
+ \textbf{Sucesos incompatibles}: \(A\) y \(B\) son \emph{incompatibles} (o \emph{disjuntos}) cuando \(A\cap B=\emptyset\).
 
 \textbf{Ejemplo género}
 
@@ -957,7 +950,7 @@ Algunas operaciones entre los conjuntos:
 \bottomrule
 \end{longtable}
 
-Complementario del complementario
+ Complementario del complementario
 \[(A^c)^c=A\]
 
 \begin{longtable}[]{@{}ccc@{}}
@@ -1236,7 +1229,7 @@ de donde, por tanto:
 \hypertarget{probabilidad-condicionada}{%
 \section{Probabilidad condicionada}\label{probabilidad-condicionada}}
 
-\textbf{Probabilidad condicionada}: Dados dos sucesos \(A\) y \(B\), con \(P(A)>0\), la probabilidad \(P(B|A)\) de \(B\) condicionado a \(A\) es la probabilidad
+ \textbf{Probabilidad condicionada}: Dados dos sucesos \(A\) y \(B\), con \(P(A)>0\), la probabilidad \(P(B|A)\) de \(B\) condicionado a \(A\) es la probabilidad
 
 \begin{itemize}
 \tightlist
@@ -1593,7 +1586,7 @@ Así el resultado del clasificador o del diagnóstico puede ser:
   \textbf{un resultado discreto} que indica directamente una de las clases (esto es necesario si es un algoritmo que debe decidir qué hacer con el objeto.
 \end{itemize}
 
-\textbf{Positivos y Negativos en Clasificación}
+ \textbf{Positivos y Negativos en Clasificación}
 Consideremos un problema de predicción de clases binario, en la que los resultados se etiquetan positivos (P) o negativos (N). Hay cuatro posibles resultados a partir de un clasificador binario como el propuesto.
 
 \begin{itemize}
@@ -1685,7 +1678,7 @@ P(M) & =\dfrac{0.11}{0.9}\approx 0.1222.
 \hypertarget{fuxf3rmula-de-bayes}{%
 \subsection{Fórmula de Bayes}\label{fuxf3rmula-de-bayes}}
 
-\textbf{Teorema de Bayes}
+ \textbf{Teorema de Bayes}
 
 Sean \(A\) y \(B\) dos sucesos. Si \(P(B)>0\), entonces
 
@@ -1700,7 +1693,7 @@ Demostrar el teorema de Bayes utilizando que
 
 \[P(A|B) =\frac{P(A\cap B)}{P(B)}=\cdots\]
 
-\textbf{Teorema de Bayes generalizado}
+ \textbf{Teorema de Bayes generalizado}
 
 Sea \(A_1,A_2,\ldots,A_n\) una partición de \(\Omega\). Sea \(B\) un suceso tal que \(P(B)>0\). entonces(para cualquier \(i=1,2,\ldots,n\)):
 
@@ -1835,7 +1828,7 @@ P(T^c|B)&=&1-P(T|B)=0.025,\\ P(T^c|B^c)&=&1-P(T|B^c)=0.88.
 \hypertarget{sucesos-independientes}{%
 \subsection{Sucesos independientes}\label{sucesos-independientes}}
 
-\textbf{Sucesos Independientes}
+ \textbf{Sucesos Independientes}
 
 Diremos que los sucesos \(A\) y \(B\) son \textbf{independientes} si \(P(A\cap B)=P(A)\cdot P(B)\).
 
@@ -1845,7 +1838,7 @@ subfamilia \(A_{i_1},\ldots,A_{i_k}\),
 P(A_{i_1}\cap \cdots\cap A_{i_k})=P(A_{i_1})\cdots P(A_{i_k}).
 \]
 
-\textbf{Proposición:}
+ \textbf{Proposición:}
 
 Dados dos sucesos \(A\) y \(B\) con \(P(A),P(B)>0\), las siguientes afirmaciones son equivalentes:
 
@@ -1860,7 +1853,7 @@ Dados dos sucesos \(A\) y \(B\) con \(P(A),P(B)>0\), las siguientes afirmaciones
   \(P(B|A)=P(B)\).
 \end{enumerate}
 
-\textbf{Proposición:}
+ \textbf{Proposición:}
 
 Las siguientes afirmaciones son equivalentes:
 
@@ -1950,7 +1943,7 @@ Por tanto, concluimos que son dependientes, ya que \(P(A\cap B)\neq P(A)\cdot P(
 
 Comenzaremos dando una definición poco rigurosa, pero suficiente, de variable aleatoria.
 
-\textbf{Variable Aleatoria (definición práctica)}
+ \textbf{Variable Aleatoria (definición práctica)}
 
 Una variable aleatoria (v.a.) es una aplicación que toma valores numéricos determinados por el resultado de un experimento aleatorio
 
@@ -2071,7 +2064,7 @@ Son \textbf{variables aleatorias continuas}:
   En el caso discreto la función de probabilidad es la que nos da las probabilidades de los sucesos elementales de la v.a. que definimos a continuación.
 \end{itemize}
 
-\textbf{Función de Probabilidad}
+ \textbf{Función de Probabilidad}
 
 La \textbf{función de probabilidad} (\emph{probability mass function} o incluso abusando de notación \emph{probability density function}) de una variable aleatoria discreta \(X\) a la que denotaremos por \(P_{X}(x)\) está definida por
 \[P_{X}(x)=P(X=x),\]
@@ -2079,7 +2072,7 @@ es decir la probabilidad de que \(X\) tome el valor \(x\).
 
 Si \(X\) no asume ese valor \(x\), entonces \(P_{X}(x)=0\).
 
-\textbf{Dominio de una variable aleatoria discreta}
+ \textbf{Dominio de una variable aleatoria discreta}
 
 El conjunto \[D_X=\{ x\in\mathbb{R} \mid P_X(x)>0\}\] recibe el nombre de
 \textbf{dominio} de la v.a. y son los valores posibles de esta variable.
@@ -2142,7 +2135,7 @@ caso.}\end{array}\right.\]
 
 El dominio de la v.a. \(X\) es \(D_X=\{1,2,3\}.\)
 
-\textbf{Propiedades básicas de la función de probabilidad}
+ \textbf{Propiedades básicas de la función de probabilidad}
 
 Sea \(X\) una v.a. discreta \(X:\Omega:\to\mathbb{R}\) con dominio \(D_X\). Su función de probabilidad \(P_{X}\) verifica las siguientes propiedades:
 
@@ -2184,7 +2177,7 @@ Efectivamente los valores de la función de distribución suman 1:
 
 \[\sum_{x=0}^3 P_X(x)= \frac18+\frac38+\frac38+\frac18=1.\]
 
-\textbf{Distribución de Probabilidad}
+ \textbf{Distribución de Probabilidad}
 
 La función de \emph{distribución de probabilidad} (acumulada) de la v.a. \(X\) (de cualquier tipo; discreta o continua) \(F_{X}(x)\) representa la probabilidad de que \(X\) tome un menor o igual que \(x\), es decir,
 
@@ -2194,7 +2187,7 @@ Esta función también se denomina función de \emph{distribución de
 probabilidad o simplemente función de distribución} de una v.a., y en inglés
 \emph{cumulative distribution function} por lo que se abrevia con el acrónimo \texttt{cdf}.
 
-\textbf{Propiedades de la Función de Distribución}
+ \textbf{Propiedades de la Función de Distribución}
 
 Sea \(X\) una v.a. y \(F_{X}\) su función de distribución:
 
@@ -2223,7 +2216,7 @@ P(a<X\leq b)&=&P(\left\{X\leq b\right\}-\left\{X\leq a\right\})\\
 &=& F_{X}(b)-F_{X}(a).
 \end{eqnarray*}
 
-\textbf{Más propiedades de la Función de Distribución}
+ \textbf{Más propiedades de la Función de Distribución}
 
 Sea \(F_{X}\) la función de distribución de una v.a. \(X\) entonces:
 
@@ -2403,7 +2396,7 @@ páginas correctas) ¿Cuánto \emph{esperamos} cobrar si analizamos una página?
 
 \[0\cdot 0.42 + 2\cdot 0.4 + 3\cdot 0.18=1.34.\]
 
-\textbf{Esperanzas de funciones de variables aleatorias discretas}
+ \textbf{Esperanzas de funciones de variables aleatorias discretas}
 
 Sea \(X\) una v.a. discreta con función de probabilidad \(P_{X}\) y de distribución
 \(F_{X}\). Entonces el \textbf{valor esperado de una función} \(g(x)\) es :
@@ -2520,7 +2513,7 @@ Calculad el valor esperado de la variable
 Y=\mbox{número de intentos para conseguir el color azul.}
 \]
 
-\textbf{Momentos de orden \(m\)}
+ \textbf{Momentos de orden \(m\)}
 
 Llamaremos \textbf{momento de orden \(m\)} respecto al punto \(C\) a
 \[E\left((X-C)^m\right).\]
@@ -2548,7 +2541,7 @@ Llamaremos \textbf{momento de orden \(m\)} respecto al punto \(C\) a
 \hypertarget{medidas-de-la-variabilidad}{%
 \subsection{Medidas de la variabilidad}\label{medidas-de-la-variabilidad}}
 
-\textbf{Varianza}
+ \textbf{Varianza}
 
 Sea \(X\) una v.a. Llamaremos \textbf{varianza} de \(X\) a
 
@@ -2563,7 +2556,7 @@ A la raíz cuadrada positiva de la varianza
 
 se la denomina desviación típica o estándar de \(X\).
 
-\textbf{Propiedad}
+ \textbf{Propiedad}
 
 \begin{itemize}
 \tightlist
@@ -2630,11 +2623,11 @@ Se deja como ejercicio la demostración de estas propiedades.
 \hypertarget{transformaciones-lineales.}{%
 \subsection{Transformaciones lineales.}\label{transformaciones-lineales.}}
 
-\textbf{Transformación lineal}
+ \textbf{Transformación lineal}
 
 Un \textbf{cambio de variable lineal} o \textbf{transformación lineal} de una v.a. \(X\) es otra v.a. \(Y= a+ b X\) donde \(a,b\in\mathbb{R}\).
 
-\textbf{Esperanza de una transformación lineal}
+ \textbf{Esperanza de una transformación lineal}
 
 Sea \(X\) una v.a. con \(E(X)=\mu_{X}\) y \(Var(X)=\sigma_{X}^2\) y \(a,b\in\mathbb{R}\).
 Entonces si \(Y=a+b X\):
@@ -2763,7 +2756,7 @@ La demostración de la tercera propiedad es similar a la segunda pero aplicando 
 Las propiedades anteriores y combinaciones de ellas se pueden
 escribir utilizando la función de distribución de \(X\):
 
-\textbf{Propiedades de la Función de Distribución}
+ \textbf{Propiedades de la Función de Distribución}
 
 Dada una variable aleatoria continua se tiene que:
 
@@ -2789,7 +2782,7 @@ En el ejemplo de la diana:
 \hypertarget{funciuxf3n-de-densidad}{%
 \subsection{Función de densidad}\label{funciuxf3n-de-densidad}}
 
-\textbf{Función de densidad}
+ \textbf{Función de densidad}
 
 Una función \(f:\mathbb{R}\to\mathbb{R}\) es una función de densidad sobre \(\mathbb{R}\) si cumple que
 
@@ -2804,7 +2797,7 @@ Una función \(f:\mathbb{R}\to\mathbb{R}\) es una función de densidad sobre \(\
   \(\displaystyle\int\limits_{-\infty}^{+\infty} f_{X}(x) dx=1.\)
 \end{itemize}
 
-\textbf{Función de distribución de una variable aleatoria}
+ \textbf{Función de distribución de una variable aleatoria}
 
 Sea \(X\) una v.a. con función de distribución \(F_X\). Sea \(f:\mathbb{R}\to\mathbb{R}\) una función de densidad tal que
 
@@ -2947,7 +2940,7 @@ Así que sólo daremos las definiciones, la forma de cálculo y algunos ejemplos
 
 En lo que sigue, salvo que diagamos lo contrario, \(X\) es una v.a. continua con función de densidad \(f_{X}(x)\)
 
-\textbf{Esperanza v.a. continuas}
+ \textbf{Esperanza v.a. continuas}
 
 \begin{itemize}
 \tightlist
@@ -2959,7 +2952,7 @@ En lo que sigue, salvo que diagamos lo contrario, \(X\) es una v.a. continua con
   \[E(g(X))=\displaystyle\int\limits_{-\infty}^{+\infty} g(x)\cdot f_{X}(x)dx.\]
 \end{itemize}
 
-\textbf{Varianza v.a. continuas}
+ \textbf{Varianza v.a. continuas}
 
 \begin{itemize}
 \tightlist
@@ -2973,7 +2966,7 @@ En lo que sigue, salvo que diagamos lo contrario, \(X\) es una v.a. continua con
   Su desviación típica es: \[\sigma_{X}=+\sqrt{\sigma_{X}^2}.\]
 \end{itemize}
 
-\textbf{Propiedades}
+ \textbf{Propiedades}
 
 \begin{itemize}
 \tightlist
@@ -3138,7 +3131,7 @@ f_{X}(x) dx = a \cdot  P(X\geq a),
 de donde se sigue que
 \[P(X\geq a)\leq \frac{E(X)}{a}.\]
 
-\textbf{Corolario}
+ \textbf{Corolario}
 
 Sea \(X\) una v.a. con \(E(X)\) finita entonces para todo \(a>0\)
 
@@ -3178,7 +3171,7 @@ P(Y^2\geq a^2)=P(|Y|\geq a)= P(|X-\mu|\geq a),
 \]
 hecho que, junto con la desigualdad anterior, demuestra el resultado.
 
-\textbf{Utilidad básica de la desigualdad de Chebychev}
+ \textbf{Utilidad básica de la desigualdad de Chebychev}
 
 Supongamos que \(X\) es una v.a. con \(Var(X)=0\). Entonces, aplicando la desigualdad anterior,
 \[P(|X-E(X)|\geq a )=0,\mbox{ para todo }a>0,\]
@@ -3531,7 +3524,7 @@ Veamos los cálculos básicos usando la distribución \(Ber(p=0.25)\) en \texttt
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 1 0 0 0 0 0 0 0 1 0 0 0 1 0 0 1 1 0 1 1
+##  [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
 \end{verbatim}
 
 El siguiente código dibuja las función de probabilidad y la de distribución de una \(Ber(p=0.25)\)
@@ -3831,11 +3824,10 @@ Generaremos una muestra aleatoria de 100 valores de una población con distribuc
 \end{Shaded}
 
 \begin{verbatim}
-##   [1] 12 11  9 11  6  6 12  5  7 11 12 11  8  8 11 11  7 11  9 10  9 10 14
-##  [24]  8  8  5 11 14 11 10 11  5 12  8  6  7  9 10  5 12 11  9 12 11 12 10
-##  [47] 13 13  8  8  9  7  6  9 10  9 16 13  6  6  8  8 11  9 12 15  9  7 12
-##  [70] 11  9  8  9  8 11 15  7 10  9 12  6 13 14  8 10  8 10 11 11  9 10 11
-##  [93] 12  8 10 12  9 13  9 13
+##   [1] 12 11  9 11  6  6 12  5  7 11 12 11  8  8 11 11  7 11  9 10  9 10 14  8  8
+##  [26]  5 11 14 11 10 11  5 12  8  6  7  9 10  5 12 11  9 12 11 12 10 13 13  8  8
+##  [51]  9  7  6  9 10  9 16 13  6  6  8  8 11  9 12 15  9  7 12 11  9  8  9  8 11
+##  [76] 15  7 10  9 12  6 13 14  8 10  8 10 11 11  9 10 11 12  8 10 12  9 13  9 13
 \end{verbatim}
 
 \textbf{Ejemplo}
@@ -3881,7 +3873,7 @@ Para calcular los valores de la función de distribución como por ejemplo \(F_X
 \end{Shaded}
 
 \begin{verbatim}
-## 0.9218730926513672
+## 0.92187309265136719
 \end{verbatim}
 
 Notemos que al no indicar el valor de \texttt{loc}, se le asume que toma el valor 0.
@@ -3919,14 +3911,14 @@ Si queremos generar una muestras aleatorias que siga una distribución binomial,
 \end{Shaded}
 
 \begin{verbatim}
-## array([9, 5, 6, 6, 8, 1, 3, 5, 5, 4, 5, 1, 2, 2, 5, 5, 3, 4, 2, 3, 5, 1,
-##        3, 4, 7, 5, 3, 7, 1, 3, 6, 9, 4, 7, 6, 6, 7, 8, 2, 7, 3, 7, 6, 5,
-##        5, 5, 5, 6, 3, 6, 7, 6, 3, 5, 6, 2, 8, 3, 4, 3, 5, 6, 4, 5, 7, 4,
-##        7, 5, 2, 4, 8, 2, 4, 4, 6, 5, 4, 6, 7, 7, 9, 3, 6, 8, 6, 6, 4, 4,
-##        3, 7, 2, 3, 4, 3, 2, 6, 4, 4, 5, 3])
+## array([4, 5, 5, 8, 5, 2, 2, 5, 5, 5, 4, 7, 8, 7, 6, 4, 3, 3, 4, 3, 8, 4, 6,
+##        8, 6, 3, 4, 7, 8, 3, 6, 6, 7, 7, 6, 7, 2, 5, 4, 2, 7, 6, 2, 6, 3, 8,
+##        7, 5, 5, 4, 6, 3, 3, 3, 2, 4, 3, 3, 6, 8, 3, 0, 7, 4, 6, 2, 5, 6, 7,
+##        6, 6, 5, 3, 6, 6, 6, 6, 6, 5, 8, 7, 2, 5, 7, 7, 4, 4, 6, 5, 7, 4, 7,
+##        6, 3, 7, 3, 5, 6, 6, 7])
 \end{verbatim}
 
-\textbf{Observación}
+ \textbf{Observación}
 
 Notemos que la secuencia aleatoria generada no es la misma que con \texttt{R}. De hecho, si volvemos a ejecutar esta función obtendremos una muestra aleatoria distinta.
 
@@ -3937,12 +3929,12 @@ Notemos que la secuencia aleatoria generada no es la misma que con \texttt{R}. D
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 5,  3,  8,  6,  5,  7,  6,  7,  5,  5,  5,  8,  6,  2,  4,  2,  6,
-##         2,  4,  6,  5,  5,  6,  3,  8,  4,  5,  4,  2,  7,  8,  7,  6,  4,
-##         6,  5,  8,  8,  6,  6,  8,  4,  6,  6,  3,  5,  5,  6,  5,  7,  3,
-##         4,  2,  8,  6,  5,  3,  3,  7,  3,  4,  7,  6,  6,  7,  5,  5,  6,
-##         5,  6,  4,  2,  7,  7,  7,  6,  8,  8,  5,  2,  5,  6,  7,  4,  8,
-##         4,  6, 10,  5, 10,  4,  5,  5,  3,  4,  7,  7,  7,  5,  3])
+## array([ 1,  6,  7,  5,  6,  4,  4,  4,  3, 10,  5,  4,  6,  3,  9,  4,  5,
+##         5,  2,  6,  5,  6,  5,  2,  7,  2,  6,  3,  6,  5,  4,  3,  4,  7,
+##         5,  6,  3,  5,  5,  5,  7,  5,  6,  6,  8,  5,  5,  4,  7,  5,  4,
+##         6,  6,  1,  6,  7,  6,  7,  3,  9,  3,  5,  4,  5,  7,  3,  5,  3,
+##         2,  8,  6,  4,  9,  5,  3,  4,  3,  3,  4,  5,  3,  3,  6,  5,  6,
+##         4,  7,  3,  5,  4,  4,  3,  1,  7,  5,  5,  8,  8,  4,  3])
 \end{verbatim}
 
 Veamos algunos cálculos básicos con funciones de python para la binomial \(B(n=10,p=0.25)\).
@@ -3954,7 +3946,7 @@ Veamos algunos cálculos básicos con funciones de python para la binomial \(B(n
 \end{Shaded}
 
 \begin{verbatim}
-## 0.9802722930908203
+## 0.98027229309082031
 \end{verbatim}
 
 \begin{Shaded}
@@ -3974,7 +3966,7 @@ Veamos algunos cálculos básicos con funciones de python para la binomial \(B(n
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 6,  4,  7,  4,  3,  3,  6, 12,  4,  5])
+## array([5, 4, 4, 9, 5, 4, 5, 8, 5, 8])
 \end{verbatim}
 
 \textbf{Gráficas de la distribución binomial con \texttt{R}}
@@ -4272,7 +4264,7 @@ O también el número de veces que un cajero automático nos da dinero hasta que
 
 La \textbf{modelización de este tipo de problemas se consigue con la llamada distribución geométrica}.
 
-\textbf{Distribución geométrica}
+ \textbf{Distribución geométrica}
 
 Repitamos un experimento Bernoulli, de parámetro \(p\), de forma independiente hasta obtener el primer éxito.
 
@@ -4581,7 +4573,7 @@ P(X=k)&=P(X=(k-1)+1)= (1-p)\cdot P(X=k-1)=(1-p)\cdot (1-p)^{k-1}\cdot p \\
 \]
 lo que demuestra el recíproco, es decir, que \(X\) es \(Geom(p)\).
 
-\textbf{Observación: Interpretación de la propiedad de la falta de memoria}
+ \textbf{Observación: Interpretación de la propiedad de la falta de memoria}
 
 La propiedad de la falta de memoria
 \[
@@ -4696,8 +4688,7 @@ Una muestra aleatoria de tamaño 25 de una \(Ge(0.25)\):
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  5  4  1  6 10  0  0 10  7  0  6  2  1  3  0  2  5  0  0  5  5  3  3
-## [24]  2  2
+##  [1]  5  4  1  6 10  0  0 10  7  0  6  2  1  3  0  2  5  0  0  5  5  3  3  2  2
 \end{verbatim}
 
 \textbf{Gráficos con \texttt{R}}
@@ -4791,7 +4782,7 @@ Veamos pues los cálculos para la \(Ge(p)\) que empieza en \(0\).
 \end{Shaded}
 
 \begin{verbatim}
-## 0.24999999999999997
+## 0.25
 \end{verbatim}
 
 \(P(X\leq 4)=1-(1-0.25)^{4+1}=1-0.75=1-0.75^5=0.7626953\):
@@ -4815,8 +4806,8 @@ Una muestra aleatoria de tamaño 25 de una \(Ge(0.25)\):
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 0,  3,  2,  0,  0,  4,  0,  3,  3,  0,  8,  0,  0,  7, 11,  0,  1,
-##         2,  7,  2])
+## array([ 0,  1,  4,  5,  1,  5,  1, 11,  6,  6,  7,  1,  2,  0,  1,  3,  1,
+##        13,  3,  0])
 \end{verbatim}
 
 \textbf{Ejercicio}
@@ -4830,7 +4821,7 @@ Una muestra aleatoria de tamaño 25 de una \(Ge(0.25)\):
 \end{Shaded}
 
 \begin{verbatim}
-## array([0.    , 0.3   , 0.51  , 0.657 , 0.7599])
+## array([ 0.    ,  0.3   ,  0.51  ,  0.657 ,  0.7599])
 \end{verbatim}
 
 \begin{Shaded}
@@ -4840,7 +4831,7 @@ Una muestra aleatoria de tamaño 25 de una \(Ge(0.25)\):
 \end{Shaded}
 
 \begin{verbatim}
-## array([0.3    , 0.51   , 0.657  , 0.7599 , 0.83193])
+## array([ 0.3    ,  0.51   ,  0.657  ,  0.7599 ,  0.83193])
 \end{verbatim}
 
 \textbf{Cálculos con python de la esperanza y varianza}
@@ -4854,7 +4845,7 @@ Con python también podemos calcular directamente algunos parámetros asociados 
 \end{Shaded}
 
 \begin{verbatim}
-## (array(4.), array(12.))
+## (array(4.0), array(12.0))
 \end{verbatim}
 
 \begin{Shaded}
@@ -4864,7 +4855,7 @@ Con python también podemos calcular directamente algunos parámetros asociados 
 \end{Shaded}
 
 \begin{verbatim}
-## (array(3.), array(12.))
+## (array(3.0), array(12.0))
 \end{verbatim}
 
 \textbf{Ejercicio}
@@ -5244,7 +5235,7 @@ Recordemos que de nuevo se cumple que
 \end{Shaded}
 
 \begin{verbatim}
-## 0.03542940000000002
+## 0.035429400000000041
 \end{verbatim}
 
 \begin{Shaded}
@@ -5254,7 +5245,7 @@ Recordemos que de nuevo se cumple que
 \end{Shaded}
 
 \begin{verbatim}
-## 0.03542940000000002
+## 0.035429400000000041
 \end{verbatim}
 
 \begin{Shaded}
@@ -5274,7 +5265,7 @@ Recordemos que de nuevo se cumple que
 \end{Shaded}
 
 \begin{verbatim}
-## 0.8857349999999999
+## 0.88573499999999994
 \end{verbatim}
 
 Generemos 100 observaciones aleatorias de una \(BN(n=2,0.1)\). Es decir serán las veces que hemos fallado hasta abrir la puerta 100 veces.
@@ -5286,12 +5277,12 @@ Generemos 100 observaciones aleatorias de una \(BN(n=2,0.1)\). Es decir serán l
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 1, 29, 21, 22, 18, 20, 41,  2, 19,  3, 70, 11, 29, 19, 18, 10,  2,
-##        16, 17, 39, 72, 33, 13, 16, 28,  0,  5, 12,  0,  9, 13, 22, 20, 10,
-##        22,  6, 59, 14,  3, 25,  7, 19, 30,  0,  4,  4, 23, 29, 14, 43,  2,
-##         7,  4, 18, 16,  4,  7,  5, 28, 13,  5, 19, 26,  9, 28,  8, 20, 10,
-##        14, 39, 14, 18, 10, 23, 14, 24, 15,  6, 12,  4, 27, 30, 16,  8, 36,
-##        14,  2, 11, 65, 25, 28,  6, 15,  3,  4, 11, 25,  4, 29,  2])
+## array([ 1,  4, 18, 23,  2,  1, 45,  4,  9,  4,  7,  5, 20, 14, 14, 28, 34,
+##        54, 23, 40,  3, 19, 11, 20, 24, 13, 37, 14,  7, 26, 10,  6,  3,  9,
+##        18, 12, 16, 33, 25, 10, 22, 19, 20,  8,  2,  1, 12, 16, 11, 29,  9,
+##        25, 11, 23, 14,  3, 47,  3, 13, 37, 30,  9, 36, 18, 35, 23, 10, 73,
+##        41,  5,  1, 12,  5, 15, 11, 23, 54, 24, 13,  3, 46, 12, 26, 30, 53,
+##        43, 15, 10, 13, 25, 24, 22, 19, 35, 20, 26, 37, 85, 40, 16])
 \end{verbatim}
 
 La \textbf{esperanza} y la \textbf{varianza}de una \(BN(n=2,0.1)\) valen:
@@ -5517,7 +5508,7 @@ Si queremos calcular la probabilidad anterior con python, tenemos que hacer:
 \end{Shaded}
 
 \begin{verbatim}
-## 9.876743459670526e-06
+## 9.8767434596705257e-06
 \end{verbatim}
 
 \begin{Shaded}
@@ -5527,7 +5518,7 @@ Si queremos calcular la probabilidad anterior con python, tenemos que hacer:
 \end{Shaded}
 
 \begin{verbatim}
-## 9.876743459670217e-06
+## 9.8767434596702174e-06
 \end{verbatim}
 
 Vemos que es muy improbable fallar 150 veces antes de acceder al sistema.
@@ -5564,7 +5555,7 @@ Si lo hacemos en python, obtenemos el mismo resultado:
 \end{Shaded}
 
 \begin{verbatim}
-## 0.0005232003490824058
+## 0.00052320034908240592
 \end{verbatim}
 
 El valor pedido será pues:
@@ -5729,7 +5720,7 @@ En general, podemos afirmar si la variable es Poisson en \((0,t]\), también lo 
 
 De esta forma, podremos definir una serie de variables \(X_t\) de distribución \(Po(\lambda\cdot t)\).
 
-\textbf{Definición de procesos de Poisson}
+ \textbf{Definición de procesos de Poisson}
 
 Consideremos un experimento \emph{Poisson} con \(\lambda\) igual
 al promedio de eventos en una unidad de tiempo (u.t.).
@@ -6109,9 +6100,9 @@ Si quisiéramos generar una secuencia de \(100\) observaciones para una distribu
 \end{Shaded}
 
 \begin{verbatim}
-##   [1] 2 5 3 3 2 2 5 2 4 4 2 3 2 2 2 2 2 3 3 5 3 3 2 4 2 3 2 1 1 3 4 6 2 5 3
-##  [36] 4 1 1 6 3 4 1 4 3 4 3 0 2 1 4 3 0 2 4 2 3 5 2 1 3 3 4 2 5 0 3 1 1 4 6
-##  [71] 4 5 0 4 0 3 3 3 4 1 2 6 2 2 2 2 1 2 5 2 5 3 7 3 5 2 3 2 1 3
+##   [1] 2 5 3 3 2 2 5 2 4 4 2 3 2 2 2 2 2 3 3 5 3 3 2 4 2 3 2 1 1 3 4 6 2 5 3 4 1
+##  [38] 1 6 3 4 1 4 3 4 3 0 2 1 4 3 0 2 4 2 3 5 2 1 3 3 4 2 5 0 3 1 1 4 6 4 5 0 4
+##  [75] 0 3 3 3 4 1 2 6 2 2 2 2 1 2 5 2 5 3 7 3 5 2 3 2 1 3
 \end{verbatim}
 
 \textbf{Ejercicio de la trampa para insectos (continuación)}
@@ -6252,7 +6243,7 @@ Si quisiéramos hallar las funciones de distribución en los mismos valores ante
 \end{Shaded}
 
 \begin{verbatim}
-## 0.04978706836786395
+## 0.049787068367863951
 \end{verbatim}
 
 \begin{Shaded}
@@ -6262,7 +6253,7 @@ Si quisiéramos hallar las funciones de distribución en los mismos valores ante
 \end{Shaded}
 
 \begin{verbatim}
-## 0.1991482734714558
+## 0.19914827347145581
 \end{verbatim}
 
 \begin{Shaded}
@@ -6272,7 +6263,7 @@ Si quisiéramos hallar las funciones de distribución en los mismos valores ante
 \end{Shaded}
 
 \begin{verbatim}
-## 0.1991482734714558
+## 0.19914827347145581
 \end{verbatim}
 
 La comprobación de que \(F_X(10)=\displaystyle\sum_{0}^{10} P_X(x)\) en python se realiza de la forma siguiente:
@@ -6294,8 +6285,8 @@ La comprobación de que \(F_X(10)=\displaystyle\sum_{0}^{10} P_X(x)\) en python 
 \end{Shaded}
 
 \begin{verbatim}
-## array([0.04978707, 0.14936121, 0.22404181, 0.22404181, 0.16803136,
-##        0.10081881, 0.05040941, 0.02160403, 0.00810151, 0.0027005 ])
+## array([ 0.04978707,  0.14936121,  0.22404181,  0.22404181,  0.16803136,
+##         0.10081881,  0.05040941,  0.02160403,  0.00810151,  0.0027005 ])
 \end{verbatim}
 
 \begin{Shaded}
@@ -6305,7 +6296,7 @@ La comprobación de que \(F_X(10)=\displaystyle\sum_{0}^{10} P_X(x)\) en python 
 \end{Shaded}
 
 \begin{verbatim}
-## 0.9988975118698846
+## 0.99889751186988462
 \end{verbatim}
 
 \begin{Shaded}
@@ -6315,7 +6306,7 @@ La comprobación de que \(F_X(10)=\displaystyle\sum_{0}^{10} P_X(x)\) en python 
 \end{Shaded}
 
 \begin{verbatim}
-## 0.9997076630493527
+## 0.99970766304935266
 \end{verbatim}
 
 \textbf{Ejercicio de la trampa para insectos (continuación)}
@@ -6334,7 +6325,7 @@ Recordemos que la probabilidad pedida es \(P(X=21)\):
 \end{Shaded}
 
 \begin{verbatim}
-## 0.08460506418293791
+## 0.084605064182937909
 \end{verbatim}
 
 \textbf{Pregunta 4.} Calculad la probabilidad de que en una hora caigan en la trampa al menos 6 insectos.
@@ -6349,7 +6340,7 @@ La probabilidad pedida es \(P(X\geq 6)=1-P(X\leq 5)\):
 \end{Shaded}
 
 \begin{verbatim}
-## 0.9999280911594716
+## 0.99992809115947157
 \end{verbatim}
 
 Como ya hemos visto con \texttt{scipy.stats}, podemos pedir los momentos de una variable aleatoria
@@ -6362,7 +6353,7 @@ Como ya hemos visto con \texttt{scipy.stats}, podemos pedir los momentos de una 
 \end{Shaded}
 
 \begin{verbatim}
-## (array(3.), array(3.))
+## (array(3.0), array(3.0))
 \end{verbatim}
 
 Y también generar secuencias de observaciones aleatorias de una población \(Po(3)\):
@@ -6374,8 +6365,9 @@ Y también generar secuencias de observaciones aleatorias de una población \(Po
 \end{Shaded}
 
 \begin{verbatim}
-## array([3, 6, 3, 4, 6, 3, 4, 1, 5, 1, 2, 5, 6, 3, 2, 2, 1, 3, 4, 1, 4, 2,
-##        2, 0, 6, 5, 3, 2, 1, 3, 2, 2, 3, 2, 0, 2, 5, 4, 4, 2])
+## array([ 4,  3,  1,  4,  3, 10,  4,  3,  3,  4,  1,  7,  4,  5,  8,  4,  3,
+##         1,  1,  1,  2,  3,  1,  4,  2,  3,  4,  3,  3,  2,  1,  5,  3,  2,
+##         2,  2,  2,  3,  3,  4])
 \end{verbatim}
 
 \textbf{Gráficos con python}
@@ -6549,7 +6541,7 @@ Sea \(X\) es la v.a. que cuenta el número de bolas blancas extraídas.
   En el segundo caso, \(X\) sigue una distribución hipergeométrica que estudiaremos en esta sección.
 \end{itemize}
 
-\textbf{Distribución hipergeométrica}
+ \textbf{Distribución hipergeométrica}
 
 Sean \(n\), \(m\) y \(k\) tres número enteros positivos y tales que \(k<m+n\).
 
@@ -6606,7 +6598,7 @@ P_{X}(x)=\left\{
 0,  & \mbox{en otro caso.}\end{array}\right.
 \]
 
-\textbf{Observación: otras parametrizaciones}
+ \textbf{Observación: otras parametrizaciones}
 
 En ocasiones se parametriza una v.a. hipergeométrica mediante \(N=m+n\), número total de bolas,
 \(k\), número de extracciones y \(p\), probabilidad de extraer una bola blanca.
@@ -6795,12 +6787,12 @@ Una muestra aleatoria de este experimento de tamaño 200 sería:
 \end{Shaded}
 
 \begin{verbatim}
-##   [1] 2 3 1 3 1 2 2 3 2 2 1 2 1 2 2 3 3 1 1 1 1 0 2 3 2 1 3 2 2 2 2 3 2 3 3
-##  [36] 2 0 1 2 1 3 2 2 3 2 3 2 2 3 2 3 1 2 2 2 2 3 2 2 1 3 2 2 3 1 2 2 2 2 2
-##  [71] 3 0 2 0 3 2 2 2 1 2 2 3 1 1 1 2 2 2 2 1 1 3 2 2 3 2 2 1 1 1 3 3 2 2 2
-## [106] 1 3 2 2 2 1 1 2 3 2 2 1 2 2 2 2 2 2 3 1 2 3 3 1 1 2 2 1 1 3 2 1 1 2 2
-## [141] 3 1 1 1 2 1 1 3 1 2 2 3 3 2 3 1 2 1 2 2 2 1 2 3 1 3 3 3 2 2 1 3 3 1 1
-## [176] 2 2 2 2 2 3 2 1 2 1 1 1 1 2 1 1 2 2 2 2 3 3 1 0 2
+##   [1] 2 3 1 3 1 2 2 3 2 2 1 2 1 2 2 3 3 1 1 1 1 0 2 3 2 1 3 2 2 2 2 3 2 3 3 2 0
+##  [38] 1 2 1 3 2 2 3 2 3 2 2 3 2 3 1 2 2 2 2 3 2 2 1 3 2 2 3 1 2 2 2 2 2 3 0 2 0
+##  [75] 3 2 2 2 1 2 2 3 1 1 1 2 2 2 2 1 1 3 2 2 3 2 2 1 1 1 3 3 2 2 2 1 3 2 2 2 1
+## [112] 1 2 3 2 2 1 2 2 2 2 2 2 3 1 2 3 3 1 1 2 2 1 1 3 2 1 1 2 2 3 1 1 1 2 1 1 3
+## [149] 1 2 2 3 3 2 3 1 2 1 2 2 2 1 2 3 1 3 3 3 2 2 1 3 3 1 1 2 2 2 2 2 3 2 1 2 1
+## [186] 1 1 1 2 1 1 2 2 2 2 3 3 1 0 2
 \end{verbatim}
 
 \textbf{Gráficas con R}
@@ -6973,7 +6965,7 @@ Los cálculos realizados anteriormente en \texttt{R} serían:
 \end{Shaded}
 
 \begin{verbatim}
-## 0.29347826086956585
+## 0.29347826086956635
 \end{verbatim}
 
 \begin{Shaded}
@@ -6983,7 +6975,7 @@ Los cálculos realizados anteriormente en \texttt{R} serían:
 \end{Shaded}
 
 \begin{verbatim}
-## 0.3456521739130442
+## 0.34565217391304481
 \end{verbatim}
 
 \begin{Shaded}
@@ -6993,7 +6985,7 @@ Los cálculos realizados anteriormente en \texttt{R} serían:
 \end{Shaded}
 
 \begin{verbatim}
-## 0.6543478260869557
+## 0.65434782608695519
 \end{verbatim}
 
 Una muestra aleatoria de este experimento sería:
@@ -7005,11 +6997,11 @@ Una muestra aleatoria de este experimento sería:
 \end{Shaded}
 
 \begin{verbatim}
-## array([2, 3, 2, 1, 1, 2, 3, 2, 3, 1, 3, 1, 2, 2, 2, 2, 2, 1, 1, 2, 1, 1,
-##        1, 2, 2, 2, 1, 3, 2, 3, 2, 1, 0, 1, 2, 0, 1, 2, 2, 3, 1, 2, 1, 2,
-##        1, 2, 3, 1, 2, 2, 3, 2, 3, 2, 1, 2, 2, 0, 1, 1, 0, 2, 2, 1, 3, 2,
-##        1, 2, 3, 2, 1, 2, 1, 2, 1, 1, 2, 3, 2, 2, 2, 3, 2, 2, 1, 2, 3, 1,
-##        2, 1, 2, 2, 3, 1, 1, 1, 1, 3, 1, 2])
+## array([2, 2, 1, 2, 3, 1, 2, 2, 2, 2, 3, 2, 2, 2, 1, 3, 0, 1, 2, 1, 3, 1, 2,
+##        2, 3, 3, 2, 2, 2, 0, 3, 2, 1, 0, 1, 1, 2, 2, 2, 3, 1, 1, 2, 2, 2, 3,
+##        1, 1, 2, 1, 2, 3, 0, 1, 2, 1, 1, 1, 2, 1, 2, 1, 0, 3, 2, 1, 1, 3, 1,
+##        2, 2, 2, 1, 3, 3, 3, 2, 2, 3, 3, 2, 1, 2, 2, 2, 2, 2, 0, 3, 2, 1, 1,
+##        1, 3, 3, 2, 2, 2, 2, 2])
 \end{verbatim}
 
 Los gráficos de la función de probabilidad y de la función de distribución en python se realizan de la forma siguiente:
@@ -7523,12 +7515,12 @@ Para generar una muestra de valores aleatorios, hay que usar la función \texttt
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 0.72784823,  0.30116193,  0.32748129, -0.37858535,  0.79185451,
-##         0.33653684,  0.10347454, -0.89597832, -0.19638899,  0.19330443,
-##         0.54932437, -0.26014835, -0.69933682, -0.21775822, -0.02591751,
-##        -0.2943697 ,  0.76514942, -0.96956717,  0.31090528,  0.52769525,
-##         0.27152825, -0.30482709,  0.79355073,  0.0385325 ,  0.62986759,
-##         0.25931362,  0.1997455 ,  0.74222593,  0.60715146, -0.48242224])
+## array([ 0.13204784,  0.19536854,  0.81515978, -0.6327014 , -0.4838161 ,
+##        -0.13128593,  0.02245493,  0.63258419, -0.42340672,  0.05950862,
+##        -0.01098743, -0.04109027, -0.92301732,  0.23883902, -0.34905819,
+##         0.28315645,  0.12008857, -0.09174538,  0.30926668, -0.55690314,
+##         0.86509005, -0.75672956,  0.25069037, -0.59454303, -0.98424121,
+##        -0.90980358,  0.64924727, -0.17370523, -0.90100936,  0.83866046])
 \end{verbatim}
 
 Los valores de los parámetros por defecto son \texttt{loc=0,\ scale=1}:
@@ -7560,7 +7552,7 @@ Los valores de los parámetros por defecto son \texttt{loc=0,\ scale=1}:
 \end{Shaded}
 
 \begin{verbatim}
-## array([0.4907328 , 0.14014922, 0.7157996 , 0.77154673, 0.92196453])
+## array([ 0.82439953,  0.00297727,  0.4430159 ,  0.7215953 ,  0.08536215])
 \end{verbatim}
 
 \hypertarget{distribuciuxf3n-exponencial}{%
@@ -7745,7 +7737,7 @@ Las funciones de densidad y de distribución de una variable exponencial de par�
 \end{Shaded}
 
 \begin{verbatim}
-## 0.7768698398515702
+## 0.77686983985157021
 \end{verbatim}
 
 \begin{Shaded}
@@ -7755,8 +7747,8 @@ Las funciones de densidad y de distribución de una variable exponencial de par�
 \end{Shaded}
 
 \begin{verbatim}
-## array([0.1449247 , 0.67370467, 0.4513953 , 0.02101459, 0.35756037,
-##        0.32546221, 0.29554792, 0.05699998, 0.05523682, 0.01515194])
+## array([ 0.50364119,  0.05299546,  0.22626778,  0.36782539,  0.36742364,
+##         0.03589439,  0.05530053,  0.4974299 ,  0.62315958,  0.13041724])
 \end{verbatim}
 
 \textbf{Resumen v.a con distribución exponencial, \(Exp(\lambda)\)}
@@ -7889,7 +7881,7 @@ Supongamos que compramos una bombilla led que promete un \textbf{valor esperado}
 
 Una de las variables aleatorias continua más populares es la llamada distribución normal o \href{https://es.wikipedia.org/wiki/Distribuci\%C3\%B3n_normal}{Gaussiana}.
 
-\textbf{Distribución normal o de Gauss}
+ \textbf{Distribución normal o de Gauss}
 Diremos que una v.a. \(X\) sigue una ley normal de parámetros
 \(\mu\) y \(\sigma\) y la denotaremos por \(N(\mu,\sigma)\)
 si tiene por función de densidad:
@@ -7913,7 +7905,7 @@ normal estándar y se suele denotar por la letra \(Z\) normal \(N(0,1)\).
 
 \begin{center}\includegraphics{curso-probabilidad-udemy_files/figure-latex/normaldensidad1-1} \end{center}
 
-\textbf{Propiedades de la función de densidad de la distribución normal}
+ \textbf{Propiedades de la función de densidad de la distribución normal}
 
 Sea \(X\) una v.a. \(N(\mu,\sigma)\) y sean \(f_{X}\) su función de densidad y \(F_X(x)=\displaystyle\int_{-\infty}^x f_X(t)\, dt\) su función de distribución. Entonces:
 
@@ -8072,7 +8064,7 @@ y la función de distribución \(F_X(2) = P(X\leq 2)\), de la forma siguiente:
 \end{Shaded}
 
 \begin{verbatim}
-## 0.6914624612740131
+## 0.69146246127401312
 \end{verbatim}
 
 Si queremos calcular el cuantil \(x_{q}\) de una distribución normal \(N(\mu,\sigma)\), tenemos que usar la función \texttt{norm.ppf(q,loc=mu,scale=sigma)}:
@@ -8084,7 +8076,7 @@ Si queremos calcular el cuantil \(x_{q}\) de una distribución normal \(N(\mu,\s
 \end{Shaded}
 
 \begin{verbatim}
-## 4.289707253902945
+## 4.2897072539029448
 \end{verbatim}
 
 Para generar \texttt{n} valores aleatorios de una distribución normal \(N(\mu,\sigma)\), hay que usar la función \texttt{norm.rvs(loc=mu,scale=sigma,size=n)}:
@@ -8096,7 +8088,7 @@ Para generar \texttt{n} valores aleatorios de una distribución normal \(N(\mu,\
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 0.95126933,  0.00757511,  0.80456037,  1.0093829 , -0.38669476])
+## array([-2.32119979,  1.01309962,  1.21567313,  1.00105056,  2.78953618])
 \end{verbatim}
 
 \textbf{Ejercicio}
@@ -8150,7 +8142,7 @@ Para ejecutar el siguiente gráfico interactivo, solamente tienes que cargar el 
 
 \textbf{Transformaciones lineales de variables aleatorias normales}
 
-\textbf{Propiedad: transformación lineal la distribución normal}
+ \textbf{Propiedad: transformación lineal la distribución normal}
 
 Sea \(X\) una variable \(N(\mu,\sigma)\) entonces la variable \(Y=a X+b\) con
 \(a\not=0,b\in\mathbb{R}\) tiene distribución \(N(a\mu+b, |a| \sigma)\)
@@ -8337,7 +8329,7 @@ Sea \(X\) una normal con media \(2\) y varianza \(4\). Calcular usando \texttt{R
 \end{Shaded}
 
 \begin{verbatim}
-## 0.3085375387259869
+## 0.30853753872598688
 \end{verbatim}
 
 \textbf{La distribución normal aproxima otras distribuciones}
@@ -8363,11 +8355,11 @@ En los temas que siguen veremos como, bajo determinadas condiciones,
 \hypertarget{momento-de-orden-n}{%
 \subsection{\texorpdfstring{Momento de orden \(n\)}{Momento de orden n}}\label{momento-de-orden-n}}
 
-\textbf{Definición.}
+ \textbf{Definición.}
 Sea \(X\) una variable aleatoria. Definimos el \textbf{momento de orden \(n\)} como
 \(m_n = E\left(X^n\right)\).
 
-\textbf{Observación.}
+ \textbf{Observación.}
 El momento de orden \(1\) de una variable aleatoria es su valor medio o \(E(X)\).
 
 Los momentos de orden \(n\) caracterizan una variable \(X\). O sea, que si conocemos todos los momentos de orden \(n\), podemos deducir cuál es la distribución de \(X\).
@@ -8423,17 +8415,17 @@ Si intentamos calcular el momento de orden 4, obtenemos:
 \hypertarget{momento-central-de-orden-n}{%
 \subsection{\texorpdfstring{Momento central de orden \(n\)}{Momento central de orden n}}\label{momento-central-de-orden-n}}
 
-\textbf{Definición.}
+ \textbf{Definición.}
 Sea \(X\) una variable aleatoria. Definimos el \textbf{momento central de orden \(n\)} como
 \(\mu_n = E\left((X-\mu)^n\right)\), donde \(\mu =E(X)\) es la media o la esperanza de la variable aleatoria \(X\).
 
-\textbf{Observación.}
+ \textbf{Observación.}
 El momento central de orden \(1\) de una variable aleatoria es siempre 0:
 \[
 \mu_1 = E\left((X-\mu)\right)=E(X)-E(\mu)=E(X)-E(X)=0.
 \]
 
-Observación.
+ Observación.
 El momento central de orden \(2\) de una variable aleatoria es la varianza:
 \[
 \mu_2 = E\left((X-\mu)^2\right):= \mathrm{Var}(X).
@@ -8441,7 +8433,7 @@ El momento central de orden \(2\) de una variable aleatoria es la varianza:
 
 Los momentos centrales de orden \(n\) caracterizan también una variable \(X\). O sea, que si conocemos todos los momentos centrales de orden \(n\), podemos deducir cuál es la distribución de \(X\).
 
-\textbf{Proposición.}
+ \textbf{Proposición.}
 La relación que hay entre los momentos centrales y los momentos de una variable aleatoria es la siguiente:
 \[
 \mu_n = \sum_{k=0}^n (-1)^{n-k} \binom{n}{k} \mu^{n-k} m_k = \sum_{k=0}^n (-1)^{k} \binom{n}{k} \mu^{k} m_{n-k},
@@ -8689,7 +8681,7 @@ La integral del último paréntesis se resuelve haciento el cambio de variable \
 
 La razón del nombre que lleva la \textbf{función generatriz de momentos} es que podemos obtener todos los momentos de la variable a partir de ella:
 
-\textbf{Proposición.}
+ \textbf{Proposición.}
 Sean \(X\) una variable aleatoria con \textbf{función generatriz de momentos} \(m_X(t)\). Entonces, el momento de orden \(n\) de \(X\) se puede obtener de la forma siguiente:
 \[
 m_n =E\left(X^n\right)=\frac{d}{d t^n}m_X(t)|_{t=0} =m_X^{(n)}(0).
@@ -8842,7 +8834,7 @@ función que coincide con la densidad de la distribución \(N(\mu,\sigma)\).
 
 La relación entre la \textbf{función característica} y los \textbf{momentos} es la siguiente:
 
-\textbf{Proposición.}
+ \textbf{Proposición.}
 Sean \(X\) una variable aleatoria con \textbf{función característica} \(\phi_X(w)\). Entonces, el momento de orden \(n\) de \(X\) se puede obtener de la forma siguiente:
 \[
 m_n =E\left(X^n\right)=\frac{1}{\mathrm{i}^n}\frac{d}{d w^n}\phi_X(w)|_{w=0} =\frac{1}{\mathrm{i}^n}\phi_X^{(n)}(0).
@@ -9193,14 +9185,13 @@ Veamos algunos ejemplos:
 
 Suceso: \(\{X+Y\leq 1\}\). Es la zona sombreada del gráfico siguiente:
 
-\begin{figure}
-\includegraphics[width=2.5in]{Images/Bidim1} \end{figure}
+\includegraphics{Images/Bidim1.png}
 
 Suceso: \(\{X^2+Y^2\leq 4\}\). Es la zona sombreada del gráfico siguiente:
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.5in]{Images/Bidim2} 
+{\centering \includegraphics{Images/Bidim2} 
 
 }
 
@@ -9209,7 +9200,9 @@ Suceso: \(\{X^2+Y^2\leq 4\}\). Es la zona sombreada del gráfico siguiente:
 Suceso: \(\{\max\{X,Y\}\geq 1\}\). Esta zona es la sombreada del gráfico siguiente:
 
 \begin{figure}
-\includegraphics[width=2.5in]{Images/Bidim3} \caption{Representación suceso}\label{fig:bid3}
+\centering
+\includegraphics{Images/Bidim3.png}
+\caption{\label{fig:bid3}Representación suceso}
 \end{figure}
 
 La probabilidad de que la \textbf{variable bidimensional} pertenezca a una cierta \textbf{región del plano \(B\)} se define de la forma siguiente:
@@ -9241,8 +9234,7 @@ F_{XY}: \mathbb{R}^2 & \longrightarrow \mathbb{R}\\
 
 Por lo tanto, dado un valor \((x,y)\in \mathbb{R}^2\), consideramos la región del plano \((-\infty,x]\times (-\infty,y]\):
 
-\begin{figure}
-\includegraphics[width=2.5in]{Images/Fxy} \end{figure}
+\includegraphics{Images/Fxy.png}
 
 Entonces la \textbf{función de distribución conjunta} en el valor \((x,y)\) es la probabilidad del suceso formado por aquellos elementos tal que la imagen por la \textbf{variable aleatoria bidimensional} \((X,Y)\) caen dentro de la región sombreada en el gráfico anterior:
 
@@ -9284,7 +9276,9 @@ Sea \((X,Y)\) una variable bidimensional. y sea \(F_{XY}\) su \textbf{función d
 \end{itemize}
 
 \begin{figure}
-\includegraphics[width=2.5in]{Images/Fxy2} \caption{Función de distribución conjunta}\label{fig:bid5}
+\centering
+\includegraphics{Images/Fxy2.png}
+\caption{\label{fig:bid5}Función de distribución conjunta}
 \end{figure}
 
 \begin{itemize}
@@ -9298,8 +9292,7 @@ Sea \((X,Y)\) una variable bidimensional. y sea \(F_{XY}\) su \textbf{función d
   \]
 \end{itemize}
 
-\begin{figure}
-\includegraphics[width=2.5in]{Images/Fxy3} \end{figure}
+\includegraphics{Images/Fxy3.png}
 
 \textbf{Ejemplo: Función de distribución uniforme}
 
@@ -9316,7 +9309,9 @@ y, & \mbox{si }0\leq y\leq 1,\ x> 1, \\
 En la figura siguiente, hemos representado por zonas cómo está definida \(F_{XY}\).
 
 \begin{figure}
-\includegraphics[width=2.5in]{Images/FxyEx} \caption{Funciń de distribución uniforme bidimensional.}\label{fig:bid7}
+\centering
+\includegraphics{Images/FxyEx.png}
+\caption{\label{fig:bid7}Funciń de distribución uniforme bidimensional.}
 \end{figure}
 
 Comprobemos algunas de las propiedades que hemos enunciado anteriormente:
@@ -9827,10 +9822,10 @@ Para hallar la \textbf{función de probabilidad marginal} de la suma basta sumar
 \end{Shaded}
 
 \begin{verbatim}
-##          2          3          4          5          6          7 
-## 0.02777778 0.05555556 0.08333333 0.11111111 0.13888889 0.16666667 
-##          8          9         10         11         12 
-## 0.13888889 0.11111111 0.08333333 0.05555556 0.02777778
+##          2          3          4          5          6          7          8 
+## 0.02777778 0.05555556 0.08333333 0.11111111 0.13888889 0.16666667 0.13888889 
+##          9         10         11         12 
+## 0.11111111 0.08333333 0.05555556 0.02777778
 \end{verbatim}
 
 De la misma manera, para hallar la \textbf{función de probabilidad marginal} del producto basta sumar las columnas de la tabla anterior:
@@ -9843,12 +9838,12 @@ De la misma manera, para hallar la \textbf{función de probabilidad marginal} de
 \end{Shaded}
 
 \begin{verbatim}
-##          1          2          3          4          5          6 
-## 0.02777778 0.05555556 0.05555556 0.08333333 0.05555556 0.11111111 
-##          8          9         10         12         15         16 
-## 0.05555556 0.02777778 0.05555556 0.11111111 0.05555556 0.02777778 
-##         18         20         24         25         30         36 
-## 0.05555556 0.05555556 0.05555556 0.02777778 0.05555556 0.02777778
+##          1          2          3          4          5          6          8 
+## 0.02777778 0.05555556 0.05555556 0.08333333 0.05555556 0.11111111 0.05555556 
+##          9         10         12         15         16         18         20 
+## 0.02777778 0.05555556 0.11111111 0.05555556 0.02777778 0.05555556 0.05555556 
+##         24         25         30         36 
+## 0.05555556 0.02777778 0.05555556 0.02777778
 \end{verbatim}
 
 \hypertarget{variables-aleatorias-bidimensionales-continuas}{%
@@ -9895,8 +9890,7 @@ P((X,Y)\in B)&=\int\int_{B} f_{XY}(x,y)\, dx\, dy=\int_{-1}^{\frac{1}{2}}\int_{-
 
 En la figura siguiente hemos dibujado en morado la región donde \(f_{XY}\) no es cero, es decir \([0,1]\times [0,1]\), la región \(B\) en verde y la región intersección de las dos anteriores que es donde tenemos que integrar la \textbf{función de densidad} dada.
 
-\begin{figure}
-\includegraphics[width=2.5in]{Images/VaUniformeBidi} \end{figure}
+\includegraphics{Images/VaUniformeBidi.png}
 
 \hypertarget{propiedades-de-la-funciuxf3n-de-densidad}{%
 \subsection{Propiedades de la función de densidad}\label{propiedades-de-la-funciuxf3n-de-densidad}}
@@ -9984,8 +9978,7 @@ Comprobemos las propiedades usando la \textbf{función de densidad} del ejemplo 
   Vamos a calcular la función de distribución \(F_{XY}\). Para ello dividimos el plano en 5 zonas tal como muestra la figura siguiente:
 \end{itemize}
 
-\begin{figure}
-\includegraphics[width=2.5in]{Images/VaUniformeBidi2} \end{figure}
+\includegraphics{Images/VaUniformeBidi2.png}
 
 Sea \((x,y)\) un punto cualquiera de \(\mathbb{R}^2\). De cara a calcular \(F_{XY}(x,y)\) tenemos que averiguar el conjunto intersección siguiente: \(([0,1]\times [0,1])\cap ((-\infty,x]\times (-\infty,y])\) ya que el dominio donde \(f_{XY}\) es no nula es \([0,1]\times [0,1]\) y la función de distribución \(F_{XY}(x,y)\) valdrá:
 
@@ -10004,8 +9997,7 @@ F_{XY}(x,y)&=\int_{-\infty}^x\int_{-\infty}^y f_{XY}(u,v)\,du\,dv\\ &=
 
 Por tanto en este caso, \(F_{XY}(x,y)=0\).
 
-\begin{figure}
-\includegraphics[width=2.5in]{Images/VaUniformeBidi3} \end{figure}
+\includegraphics{Images/VaUniformeBidi3.png}
 
 \begin{itemize}
 \tightlist
@@ -10020,8 +10012,7 @@ Por tanto en este caso,
 F_{XY}(x,y)=\int_0^x \int_0^y 1\,du\,dv =\int_0^x 1\, du\int_0^y 1\, dy =x\cdot y.
 \]
 
-\begin{figure}
-\includegraphics[width=2.5in]{Images/VaUniformeBidi4} \end{figure}
+\includegraphics{Images/VaUniformeBidi4.png}
 
 Dejamos como ejercicio los otros casos. En resumen:
 \[
@@ -10094,8 +10085,7 @@ Para hallar \(c\), hemos de imponer que la integral de la función anterior debe
 
 Primero fijémonos en como es la región de integración (zona morada de la figura). Fijado un valor \(x\geq 0\), el valor \(y\) va desde \(y=0\) hasta \(y=x\). Por tanto, para calcular el valor de \(c\), hay que hacer lo siguiente:
 
-\begin{figure}
-\includegraphics[width=2.5in]{Images/Ejemplo2Bidi} \end{figure}
+\includegraphics{Images/Ejemplo2Bidi.png}
 
 \[
 \begin{array}{rl}
@@ -10123,8 +10113,7 @@ Vamos a considerar dos casos:
   \(x\geq y\). Ver zona morada del gráfico siguiente.
 \end{itemize}
 
-\begin{figure}
-\includegraphics[width=2.5in]{Images/Ejemplo2Bidi2} \end{figure}
+\includegraphics{Images/Ejemplo2Bidi2.png}
 
 \begin{itemize}
 \tightlist
@@ -10142,8 +10131,7 @@ F_{XY}(x,y) & = & \int_{u=0}^{u=x}\int_{v=0}^{v=u} f_{XY}(u,v)\,dv\,du= 2 \cdot\
 \end{array}
 \]
 
-\begin{figure}
-\includegraphics[width=2.5in]{Images/Ejemplo2Bidi3} \end{figure}
+\includegraphics{Images/Ejemplo2Bidi3.png}
 
 \begin{itemize}
 \tightlist
@@ -10162,8 +10150,7 @@ F_{XY}(x,y) &=  \int_{v=0}^{v=y}\int_{u=v}^{u=x} f_{XY}(u,v)\,dv\,du= 2\cdot\int
 \end{array}
 \]
 
-\begin{figure}
-\includegraphics[width=2.5in]{Images/Ejemplo2Bidi4} \end{figure}
+\includegraphics{Images/Ejemplo2Bidi4.png}
 
 En resumen:
 \[
@@ -11588,7 +11575,7 @@ f_{Y|X=x}(y) & =  \frac{f_{XY}(x,y)}{f_X(x)}=\frac{\frac{1}{2\cdot \pi\cdot \sqr
 \]
 Concluimos que la \textbf{variable aleatoria condicional \(Y|X=x\)} es una normal de parámetros \(\mu_{Y|X=x}=\rho x\) y \(\sigma_{Y|X=x}^2 =1-\rho^2\).
 
-Observaciones
+ Observaciones
 
 Tenemos dos observaciones con respecto al resultado obtenido:
 
@@ -11861,15 +11848,12 @@ La \textbf{función de probabilidad} de \(Z\) es:
 \end{Shaded}
 
 \begin{verbatim}
-##        X1    X2    X3     X4     X5     X6     X7     X8     X9    X10
-## Z   2.000 5.000 8.000 10.000 13.000 17.000 18.000 20.000 25.000 26.000
-## P_Z 0.028 0.056 0.028  0.056  0.056  0.056  0.028  0.056  0.056  0.056
-##        X11    X12    X13    X14    X15    X16    X17    X18    X19    X20
-## Z   29.000 32.000 34.000 37.000 40.000 41.000 45.000 50.000 52.000 61.000
-## P_Z  0.056  0.028  0.056  0.056  0.056  0.056  0.056  0.028  0.056  0.056
-##        X21
-## Z   72.000
-## P_Z  0.028
+##        X1    X2    X3     X4     X5     X6     X7     X8     X9    X10    X11
+## Z   2.000 5.000 8.000 10.000 13.000 17.000 18.000 20.000 25.000 26.000 29.000
+## P_Z 0.028 0.056 0.028  0.056  0.056  0.056  0.028  0.056  0.056  0.056  0.056
+##        X12    X13    X14    X15    X16    X17    X18    X19    X20    X21
+## Z   32.000 34.000 37.000 40.000 41.000 45.000 50.000 52.000 61.000 72.000
+## P_Z  0.028  0.056  0.056  0.056  0.056  0.056  0.028  0.056  0.056  0.028
 \end{verbatim}
 
 \textbf{Ejemplo variables aleatorias continuas}
@@ -11896,8 +11880,7 @@ F_Z(z) & =  P(Z\leq z)=P(X+Y\leq z)\\
 
 El gráfico siguiente muestra en color violeta la región de integración para hallar \(F_Z(z)\) dado un \(z\geq 0\).
 
-\begin{figure}
-\includegraphics[width=2.5in]{Images/EjSumaXY} \end{figure}
+\includegraphics{Images/EjSumaXY.png}
 
 El valor de \(F_Z(z)\) es: (fijémonos que primero fijamos la \(y\) y para cada \(y\) la \(x\) va desde la recta \(x=y\) hasta la recta \(x=z-y\))
 
@@ -12026,8 +12009,7 @@ f_{XY}(x,y)=\begin{cases}
 \]
 Dejamos como ejercicio al lector comprobar que la función anterior es una \textbf{función de densidad}.
 
-\begin{figure}
-\includegraphics[width=2.5in]{Images/EjTranLineal} \end{figure}
+\includegraphics{Images/EjTranLineal.png}
 
 Consideramos la variable aleatoria bidimensional \((U,V)\) definida a partir de la variable \((X,Y)\):
 
@@ -12050,8 +12032,7 @@ Para hallar la \textbf{función de densidad} \(f_{UV}\) necesitamos escribir \(X
 \begin{pmatrix}X\\ Y\end{pmatrix}=\begin{pmatrix}1 & -1\\ 1& 1\end{pmatrix}^{-1}\cdot\begin{pmatrix}U\\ V\end{pmatrix}=\begin{pmatrix}\frac{1}{2} & \frac{1}{2}\\ -\frac{1}{2}& \frac{1}{2}\end{pmatrix}\cdot\begin{pmatrix}U\\ V\end{pmatrix},\ \Rightarrow \left.\begin{array}{rl}X & = \frac{1}{2}(U+V),\\ Y & =\frac{1}{2}(-U+V).\end{array}\right\}
 \]
 
-\begin{figure}
-\includegraphics[width=2.5in]{Images/EjTranLineal2} \end{figure}
+\includegraphics{Images/EjTranLineal2.png}
 
 La \textbf{función de densidad} \(f_{UV}\) es,
 \[
@@ -12146,8 +12127,7 @@ El cambio a polares consiste en considerar las coordenadas polares \((r,\alpha)\
 x=h_1(r,\alpha)=r\cdot \cos\alpha,\quad y=h_2(r,\alpha)=r\cdot \sin\alpha.
 \]
 
-\begin{figure}
-\includegraphics[width=2.5in]{Images/Polares} \end{figure}
+\includegraphics{Images/Polares.png}
 
 Fijémonos que, con el cambio a polares, el disco unidad \(D_1\) se transforma en el rectángulo \([0,1]\times [0,2\pi]\).
 
@@ -12229,18 +12209,15 @@ Suceso: \(\{X_1+X_2+X_3\leq 1\}\). En el gráfico siguiente, el plano \(x_1+x_2+
 
 Si pensamos el plano anterior como un ``espejo'' es la parte de atrás del mismo.
 
-\begin{figure}
-\includegraphics[width=1.48in]{Images/EjPlano3D} \end{figure}
+\includegraphics{Images/EjPlano3D.png}
 
 Suceso: \(\{X_1^2+X_2^2+X_3^2\leq 1\}\). Es el interior de la esfera del gráfico siguiente:
 
-\begin{figure}
-\includegraphics[width=1.48in]{Images/EjEsfera3D} \end{figure}
+\includegraphics{Images/EjEsfera3D.png}
 
 Suceso: \(\{0\leq X_1\leq 1,\ 0\leq X_2\leq 1,\ 0\leq X_3\leq 1\}\). Es el interior del cubo del gráfico siguiente:
 
-\begin{figure}
-\includegraphics[width=1.81in]{Images/Ej3DCubo} \end{figure}
+\includegraphics{Images/Ej3DCubo.png}
 
 La probabilidad de que la \textbf{variable \(n\)-dimensional} pertenezca a una cierta \textbf{región del \(n\)-espacio \(B\subset \mathbb{R}^n\)} se define de la forma siguiente:
 \[
@@ -12281,8 +12258,7 @@ F_{X_1\ldots X_n}(x_1,\ldots,x_n) & =P\{w\in\Omega,\ |\ (X_1(w),\ldots,X_n(w)) \
 
 El gráfico siguiente muestra el conjunto \((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3]\) en \(\mathbb{R}^3\) para un valor \((x,y,z)\):
 
-\begin{figure}
-\includegraphics[width=0.94in]{Images/Fx1x2x3} \end{figure}
+\includegraphics{Images/Fx1x2x3.png}
 
 \hypertarget{propiedades-5}{%
 \subsection{Propiedades}\label{propiedades-5}}
@@ -12340,14 +12316,14 @@ La segunda figura muestra las zonas del ``primer piso'' o para \(x_3>1\). Los co
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.94in]{Images/Ej3DFxyz} 
+{\centering \includegraphics{Images/Ej3DFxyz} 
 
 }
 
 \end{figure}
 \begin{figure}
 
-{\centering \includegraphics[width=1.08in]{Images/Ej3DFxy2pis} 
+{\centering \includegraphics{Images/Ej3DFxy2pis} 
 
 }
 
@@ -13005,8 +12981,7 @@ f_{X_1X_2X_3}(x_1,x_2,x_3)=\begin{cases}
 
 En la figura siguiente hemos dibujado en rosa la región donde \(f_{X_1X_2X_3}\) no es cero, es decir \([0,1]\times [0,1]\times [0,1]\).
 
-\begin{figure}
-\includegraphics[width=1.48in]{Images/Cubo3D2} \end{figure}
+\includegraphics{Images/Cubo3D2.png}
 
 \hypertarget{propiedades-de-la-funciuxf3n-de-densidad-1}{%
 \subsection{Propiedades de la función de densidad}\label{propiedades-de-la-funciuxf3n-de-densidad-1}}
@@ -13116,7 +13091,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3) & =\int_{0}^{x_1}\int_{0}^{x_2}\int_{0}^{x_3} 8 x_1 x
 
 \begin{figure}
 
-{\centering \includegraphics[width=1.25in]{Images/Fx1x2x3bajos} 
+{\centering \includegraphics{Images/Fx1x2x3bajos} 
 
 }
 
@@ -13153,7 +13128,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)=x_1^2 x_3^2.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1.25in]{Images/Fx1x2x3bajosx1} 
+{\centering \includegraphics{Images/Fx1x2x3bajosx1} 
 
 }
 
@@ -13173,8 +13148,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)=\int_{0}^{1}\int_{0}^{1}\int_{0}^{x_3} 8 x_1 x_2 x_3 
 8\left[\frac{x_1^2}{2}\right]_0^{1}\left[\frac{x_2^2}{2}\right]_0^{1}\left[\frac{x_3^2}{2}\right]_0^{x_3} = x_3^2.
 \]
 
-\begin{figure}
-\includegraphics[width=1.25in]{Images/Fx1x2x3bajosx1x2} \end{figure}
+\includegraphics{Images/Fx1x2x3bajosx1x2.png}
 
 Supongamos ahora que \((x_1,x_2,x_3)\) está en el ``primer piso'' o \(x_3>1\). Aquí también vamos a distinguir 4 casos:
 
@@ -13195,7 +13169,9 @@ F_{X_1X_2X_3}(x_1,x_2,x_3) & =\int_{0}^{x_1}\int_{0}^{x_2}\int_{0}^{1} 8 x_1 x_2
 \]
 
 \begin{figure}
-\includegraphics[width=1.25in]{Images/Fx1x2x3piso} \caption{center}\label{fig:bid992}
+\centering
+\includegraphics{Images/Fx1x2x3piso.png}
+\caption{\label{fig:bid992}center}
 \end{figure}
 
 Seguimos en el ``primer piso'',
@@ -13227,7 +13203,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)=x_1^2.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1.25in]{Images/Fx1x2x3pisox1} 
+{\centering \includegraphics{Images/Fx1x2x3pisox1} 
 
 }
 
@@ -13251,7 +13227,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)& =\int_{0}^{1}\int_{0}^{1}\int_{0}^{1} 8 x_1 x_2 x_3 
 
 \begin{figure}
 
-{\centering \includegraphics[width=1.25in]{Images/Fx1x2x3pisox1x2} 
+{\centering \includegraphics{Images/Fx1x2x3pisox1x2} 
 
 }
 
@@ -13465,7 +13441,7 @@ P_{X_1,X_2,X_3}(1,1,3)=0\neq P_{X_1}(1)\cdot P_{X_2}(1)\cdot P_{X_3}(3)=0.3472\c
 Observación.
 Al igual que pasaba con las variables bidimensionales, si la tabla de la \textbf{función de probabilidad conjunta} de \((X_1,\ldots,X_n)\) contiene algún \(0\), las variables \(X_1,\ldots, X_n\) no pueden ser independientes. ¿Podéis decir por qué?
 
-Observación.
+ Observación.
 Si \(X_1,\ldots, X_n\) son variables aleatorias independientes, y consideramos una distribución marginal, por ejemplo \((X_{s_1},\ldots,X_{s_k})\), entonces las variables \(X_{s_1},\ldots,X_{s_k}\) también son independientes.
 
 \hypertarget{independencia-de-variables-aleatorias-continuas-1}{%
@@ -13994,7 +13970,7 @@ Usando la misma técnica de demostración que en la proposición anterior, podem
 \]
 tal como queríamos ver.
 
-Observación.
+ Observación.
 Una forma equivalente de escribir la covarianza anterior es:
 \[
 \mathrm{Cov}(U,V)=\sum_{i=1}^n a_i\cdot  b_i\cdot  \mathrm{Var}(X_i)+2\sum_{i=1}^n\sum_{j=1,j>i}^n a_i\cdot  b_j\cdot  \mathrm{Cov}(X_i,X_j).
@@ -14014,7 +13990,7 @@ Entonces la \textbf{varianza} de la variable \(U\) se calcula usando la expresi�
 
 Para la demostración, basta tener en cuenta que \(\mathrm{Var}(U)=\mathrm{Cov}(U,U)\) y aplicar la expresión de la covariancia entre \(U\) y \(V\) en la proposición que nos da la covarianza de una combinación lineal de variables aleatorias.
 
-Observación.
+ Observación.
 En este caso, también existe una forma equivalente de escribir la varianza anterior:
 \[
 \mathrm{Var}(U)=\sum_{i=1}^n a_i^2 \mathrm{Var}(X_i)+2\sum_{i=1}^n\sum_{j=1,j>i}^n a_i a_j \mathrm{Cov}(X_i,X_j).
@@ -14094,7 +14070,7 @@ Para ello, necesitamos introducir un conjunto de conceptos relacionados con la c
 
 En primer lugar, introduciremos el concepto de \textbf{sucesión de variables aleatorias}:
 
-Definición de sucesión de variables aleatorias.
+ Definición de sucesión de variables aleatorias.
 Consideremos un experimento aleatorio sobre un \textbf{espacio muestral} \(\Omega\). Sea \(P\) una probabilidad definida sobre el conjunto de sucesos de \(\Omega\). Entonces, si \(X_1,X_2,\ldots,X_n,\ldots\) son variables aleatorias definidas sobre \(\Omega,P\), diremos que forman una \textbf{sucesión de variables aleatorias} y lo denotaremos por \(\{X_n\}_{n=1}^\infty\).
 
 \textbf{Ejemplo: lanzamiento de un dado}
@@ -14108,7 +14084,7 @@ Entonces, la sucesión de variables aleatorias \(X_1,\ldots,X_n,\ldots\) es la a
 \hypertarget{convergencia-casi-segura}{%
 \subsection{Convergencia casi segura}\label{convergencia-casi-segura}}
 
-Definición de convergencia casi segura.
+ Definición de convergencia casi segura.
 Sea \(X_1,\ldots,X_n,\ldots\) una sucesión de variables aleatorias y sea \(X\) una variable aleatoria definida sobre el mismo espacio muestral \(\Omega\) y con la misma probabilidad de sucesos. Diremos que la sucesión \(\{X_n\}_{n=1}^\infty\) converge \textbf{casi seguramente} hacia \(X\) si
 \[
 P\left(\{w\in \Omega\ |\ \lim_{n\to\infty} X_n(w)=X(w)\}\right)=1.
@@ -14121,7 +14097,7 @@ De ahí viene el nombre de \textbf{casi segura}: el conjunto de valores \(w\) de
 
 Comprobar la \textbf{convergencia casi segura} a partir de la definición puede ser muy complicado. Por suerte, existe la proposición siguiente que nos hace la vida más fácil:
 
-Proposición.
+ Proposición.
 Sea \(X_1,\ldots,X_n,\ldots\) una sucesión de variables aleatorias y sea \(X\) una variable aleatoria definida sobre el mismo espacio muestral \(\Omega\) y con la misma probabilidad de sucesos.
 Entonces \(X_n\stackrel{c.s.}{\longrightarrow}X\) si, y sólo si, para todo valor \(\epsilon >0\), la serie siguiente
 \[
@@ -14181,7 +14157,7 @@ La serie \(\sum\limits_{n=1}^\infty \frac{5}{6}\) no es convergente de forma obv
 \hypertarget{convergencia-en-probabilidad}{%
 \subsection{Convergencia en probabilidad}\label{convergencia-en-probabilidad}}
 
-Definición de convergencia en probabilidad.
+ Definición de convergencia en probabilidad.
 Sea \(X_1,\ldots,X_n,\ldots\) una sucesión de variables aleatorias y sea \(X\) una variable aleatoria definida sobre el mismo espacio muestral \(\Omega\) y con la misma probabilidad de sucesos. Diremos que la sucesión \(\{X_n\}_{n=1}^\infty\) converge \textbf{en probabilidad} hacia \(X\) si para cualquier valor \(\epsilon >0\),
 \[
 \lim_{n\to\infty} P(|X_n-X|>\epsilon \})=0.
@@ -14249,7 +14225,7 @@ tal como queríamos ver.
 \hypertarget{convergencia-en-ley-o-en-distribuciuxf3n}{%
 \subsection{Convergencia en ley o en distribución}\label{convergencia-en-ley-o-en-distribuciuxf3n}}
 
-Definición de convergencia en ley o distribución.
+ Definición de convergencia en ley o distribución.
 Sea \(X_1,\ldots,X_n,\ldots\) una sucesión de variables aleatorias y sea \(X\) una variable aleatoria definida sobre el mismo espacio muestral \(\Omega\) y con la misma probabilidad de sucesos. Sea \(F_{X_n}\) y \(F_X\) las funciones de distribución de la variable \(X_n\) y \(X\), respectivamente. Diremos que la sucesión \(\{X_n\}_{n=1}^\infty\) converge \textbf{en ley, o en distribución} hacia \(X\) si,
 \[
 \lim_{n\to\infty} F_{X_n}(x)=F(x),
@@ -14260,7 +14236,7 @@ Lo denotaremos por \(X_n\stackrel{{\cal L}}{\longrightarrow}X\).
 
 El resultado siguiente simplifica algunas veces comprobar que la sucesión \(X_n\) converge en ley hacia \(X\):
 
-Proposición.
+ Proposición.
 Sea \(\{X_n\}_{n=1}^\infty\) una sucesión de variables aleatorias y sea \(X\) una variable aleatoria definida sobre el mismo espacio muestral \(\Omega\) y con la misma probabilidad de sucesos. Sean \(\phi_{X_n}\) y \(\phi_X\) las funciones características de \(X_n\) y \(X\), respectivamente. Entonces, la sucesión converge \textbf{en ley} hacia \(X\), \(X_n\stackrel{{\cal L}}{\longrightarrow}X\), si, y sólo si,
 \[
 \lim_{n} \phi_{X_n}(t) = \phi_X(t),
@@ -14294,7 +14270,7 @@ tal como queríamos demostrar.
 
 El resultado siguiente nos dice cuando un tipo de convergencia implica la otra:
 
-Proposición.
+ Proposición.
 Sea \(\{X_n\}_{n=1}^\infty\) una sucesión de variables aleatorias y sea \(X\) una variable aleatoria definida sobre el mismo espacio muestral \(\Omega\) y con la misma probabilidad de sucesos. Entonces:
 
 \begin{itemize}
@@ -14324,7 +14300,7 @@ En cambio, si la convergencia es \textbf{en probabilidad}, tendremos la \textbf{
 \hypertarget{leyes-duxe9biles-de-los-grandes-nuxfameros}{%
 \subsection{Leyes débiles de los grandes números}\label{leyes-duxe9biles-de-los-grandes-nuxfameros}}
 
-Teorema. Ley débil de los grandes números.
+ Teorema. Ley débil de los grandes números.
 Sea \(\{X_n\}_{n=1}^\infty\) una sucesión de variables aleatorias independientes dos a dos tal que sus varianzas existen y están acotadas por una constante independiente de \(n\). Entonces,
 \[
 \overline{X}_n-\frac{1}{n}\sum_{i=1}^n \mu_i\stackrel{c.p.}{\longrightarrow} 0,
@@ -14481,7 +14457,7 @@ La columna \(j\)-ésima de la matriz \texttt{matriz.medias.muestrales} contiene 
 \end{Highlighting}
 \end{Shaded}
 
-Para ver los resultados, dibujamos el gráfico \(n\) vs.~\(p_n\):
+Para ver los resultados, dibujamos el gráfico \(n\) vs. \(p_n\):
 
 \includegraphics{curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-161-1.pdf}
 
@@ -14492,25 +14468,25 @@ Observamos que las probabilidades tienden a cero tal como nos dice el \textbf{Te
 
 ´Dada una sucesión de variables aleatorias, definimos los momentos muestrales de la forma siguiente:
 
-Definición de los momentos muestrales de una sucesión de variables aleatorias.
+ Definición de los momentos muestrales de una sucesión de variables aleatorias.
 Sea \(\{X_n\}_{n=1}^\infty\) una sucesión de variables aleatorias. Dado \(k\) valor entero positivo, definimos el \textbf{momento muestral} de orden \(k\) como la sucesión de variables aleatorias siguientes:
 \[
 M_k^{(n)} = \frac{1}{n}\sum_{i=1}^n X_i^k.
 \]
 
-Observación:
+ Observación:
 el \textbf{momento muestral} de orden \(k=1\) es la \textbf{media muestral} \(\overline{X}_n\).
 
-Definición de los momentos muestrales centrados de una sucesión de variables aleatorias.
+ Definición de los momentos muestrales centrados de una sucesión de variables aleatorias.
 Sea \(\{X_n\}_{n=1}^\infty\) una sucesión de variables aleatorias. Dado \(k\) valor entero positivo, definimos el \textbf{momento muestral centrado en la media} de orden \(k\) como la sucesión de variables aleatorias siguientes:
 \[
 MC_k^{(n)} = \frac{1}{n}\sum_{i=1}^n (X_i-\overline{X}_n)^k.
 \]
 
-Observación:
+ Observación:
 el \textbf{momento muestral centrado en la media} de orden \(k=2\) es la \textbf{varianza muestral} \(S_{X_n}^2\).
 
-Definición de la covarianza y el coeficiente de correlación muestral de una sucesión de variables aleatorias.
+ Definición de la covarianza y el coeficiente de correlación muestral de una sucesión de variables aleatorias.
 Sea \(\{(X_n,Y_n)\}_{n=1}^\infty\) una sucesión de variables aleatorias bidimensionales. Definimos la \textbf{covarianza muestral} como la sucesión de variables aleatorias siguientes:
 \[
 S_{X_n,Y_n} = \frac{1}{n}\sum_{i=1}^n (X_i-\overline{X}_n)(Y_i-\overline{Y}_n),
@@ -14533,7 +14509,7 @@ Así mismo, dada \(\{(X_n,Y_n)\}_{n=1}^\infty\) una sucesión de variables aleat
 
 Dada una sucesión de variables aleatorias \(\{X_n\}_{n=1}^\infty\), el resultado siguiente nos relaciona los \textbf{momentos muestrales} y los \textbf{momentos muestrales centrados en la media} con los \textbf{momentos} y los \textbf{momentos centrales} de cada variable:
 
-Teorema. Convergencia de los momentos muestrales y los momentos muestrales centrados en la media.
+ Teorema. Convergencia de los momentos muestrales y los momentos muestrales centrados en la media.
 Sea \(\{X_n\}_{n=1}^\infty\) una sucesión de variables aleatorias \textbf{independientes dos a dos e idénticamente distribuidas} y dado un entero positivo \(k\), supongamos que para cada \(n\), existe el \textbf{momento de orden \(k\)}, \(m_k\) y el \textbf{momento central de orden \(k\)}, \(\mu_k\), que no dependerán de \(n\) al ser idénticamente distribuidas. Entonces las sucesiones de variables aleatorias \(\{M_n^{(k)}\}_{n=1}^\infty\) y \(\{MC_n^{(k)}\}_{n=1}^\infty\) tienden a \(m_k\) y \(\mu_k\), respectivamente, en \textbf{probabilidad}
 \[
 M_n^{(k)}\stackrel{c.p.}{\longrightarrow} m_k,\quad MC_n^{(k)}\stackrel{c.p.}{\longrightarrow} \mu_k.
@@ -14564,7 +14540,7 @@ Dejamos como ejercicio la demostración de los momentos centrales. Razonando de 
 
 Enunciemos ahora el resultado para las covarianzas y las correlaciones muestrales:
 
-Teorema: convergencia de la covarianza y el coeficiente de correlación muestrales.
+ Teorema: convergencia de la covarianza y el coeficiente de correlación muestrales.
 Sea \(\{(X_n,Y_n)\}_{n=1}^\infty\) una sucesión de variables aleatorias bidimensionales independientes dos a dos e idénticamente distribuidas.
 Sea \(\sigma_{X,Y}, \rho_{XY}\) la covarianza y el coeficiente de correlación de cada par de variables que, al ser idénticamente distribuidas, no dependen de \(n\). Entonces las sucesiones de las covarianzas muestrales \(\{S_{X_n,Y_n}\}_{n=1}^\infty\) y los coeficientes de correlación muestrales \(\{R_{X_nY_n}\}_{n=1}^\infty\) tienden en probabilidad hacia \(\sigma_{XY}\) y \(\rho_{XY}\), respectivamente:
 \[
@@ -14580,7 +14556,7 @@ Para la demostración basta aplicar la \textbf{ley débil de los grandes número
 
 Vamos a dar una versión de la ley débil de los grandes números pero en lugar de tener convergencia \textbf{en probabilidad}, tendremos convergencia \textbf{casi segura}.
 
-Teorema de Kolmogorov. Ley fuerte de los grandes números.
+ Teorema de Kolmogorov. Ley fuerte de los grandes números.
 Sea \(\{X_n\}_{n=1}^\infty\) una sucesión de variables aleatorias independientes y con varianza \(\sigma_n^2\). Supongamos que la serie
 \(\sum\limits_{n=1}^\infty \frac{\sigma_n^2}{n^2},\)
 es convergente. Entonces la sucesión de las medias muestrales \(\{\overline{X}_n\}_{n=1}^\infty\) cumplen la
@@ -14591,7 +14567,7 @@ llamada \textbf{ley fuerte de los grandes números}:
 
 Asociados al resultado anterior tenemos los corolarios siguientes:
 
-Corolario.
+ Corolario.
 Sea \(\{X_n\}_{n=1}^\infty\) una sucesión de variables aleatorias independientes y con varianza \(\sigma_n^2\). Supongamos que existe una constante \(M\) tal que todas las varianzas están acotadas por \(M\): \(\sigma_n^2\leq M\), para todo \(n\).
 Entonces la sucesión de las medias muestrales \(\{\overline{X}_n\}_{n=1}^\infty\) cumplen la
 llamada \textbf{ley fuerte de los grandes números}:
@@ -14609,7 +14585,7 @@ que es convergente.
 
 Entonces aplicando el \textbf{Teorema de Kolmogorov} o la \textbf{ley fuerte de los grandes números}, tenemos el resultado.
 
-Corolario.
+ Corolario.
 Sea \(\{X_n\}_{n=1}^\infty\) una sucesión de variables aleatorias independientes de Bernoulli con el mismo parámetro \(p\) que es lo mismo que decir que son idénticamente distribuidas.
 Entonces la sucesión de las medias muestrales convergen \textbf{casi seguramente} hacia \(p\):
 \[
@@ -14680,13 +14656,13 @@ En general, se dice que los valores medios de cualquier secuencia de números ap
 \hypertarget{teorema-central-del-luxedmite-1}{%
 \subsection{Teorema Central del Límite}\label{teorema-central-del-luxedmite-1}}
 
-Teorema Central del Límite
+ Teorema Central del Límite
 Sea \(\{X_n\}_{n=1}^\infty\) una sucesión de variables aleatorias independientes e idénticamente distribuidas con \(E(X_n)=\mu\) y \(\mathrm{Var}(X_n)=\sigma^2\) para todo \(n\). Entonces:
 \[
 \frac{\sum\limits_{i=1}^n X_i-n\mu}{\sigma\sqrt{n}}\stackrel{{\cal L}}{\longrightarrow} N(0,1).
 \]
 
-Observación.
+ Observación.
 Una condición equivalente a la tesis del \textbf{Teorema Central del Límite} es:
 \[
 \frac{\overline{X}_n-\mu}{\frac{\sigma}{\sqrt{n}}}\stackrel{{\cal L}}{\longrightarrow} N(0,1).
@@ -14695,7 +14671,7 @@ Basta dividir por \(n\) el numerador y el denominador de la tesis original del \
 
 Para la demostración, usaremos dos propiedades de la función característica:
 
-Proposición.
+ Proposición.
 Sea \(Y_1,\ldots, Y_n\) \(n\) variables aleatorias independientes. Sea \(S_n\) la variable aleatoria suma de las variables anteriores, \(S_n=\sum\limits_{i=1}^n Y_i\). Entonces, para calcular \(\phi_{S_n}\), podemos usar la expresión siguiente::
 \[
 \phi_{S_n}(w)=\phi_{Y_1}(w)\cdots \phi_{Y_n}(w),
@@ -14712,7 +14688,7 @@ Por definición:
 \end{array}
 \]
 
-Proposición.
+ Proposición.
 Sea \(Y\) una variable aleatoria. Sea \(U=kY\) la variable aleatoria \(Y\) multiplicada por un valor real \(k\). Entonces, para calcular \(\phi_{U}\), podemos usar la expresión siguiente:
 \[
 \phi_{U}(w)=\phi_Y(kw),
@@ -14824,7 +14800,7 @@ Dividiendo por \(n\) la aproximación anterior, obtenemos:
 
 Si aplicamos el \textbf{Teorema Central del Límite} en el caso en que las variables \(X_n\) son de Bernoulli de parámetro \(p\), obtenemos el llamado \textbf{Teorema de Moivre-Laplace}:
 
-Teorema de Moivre-Laplace
+ Teorema de Moivre-Laplace
 Sea \(\{X_n\}_{n=1}^\infty\) una sucesión de variables aleatorias independientes Bernoulli de parámetro \(p\). La variable \(\sum\limits_{i=1}^n X_i\) será binomial de parámetros \(n\) y \(p\), \(B(n,p)\). Entonces:
 \[
 \frac{B(n,p)-np}{\sqrt{n\cdot p\cdot (1-p)}}\stackrel{{\cal L}}{\longrightarrow} N(0,1).
@@ -14840,7 +14816,7 @@ B(n,p)\approx N(np,\sqrt{n\cdot p\cdot (1-p)}).
 
 Si aplicamos el \textbf{Teorema Central del Límite} en el caso en que las variables \(X_n\) son de Poisson de parámetro \(\lambda\), obtenemos el resultado siguiente:
 
-Proposición.
+ Proposición.
 Sea \(\{X_n\}_{n=1}^\infty\) una sucesión de variables aleatorias independientes Poisson de parámetro \(\lambda\). Entonces:
 \[
 \frac{\sum\limits_{i=1}^n X_i -n\lambda}{\sqrt{n\cdot \lambda}}\stackrel{{\cal L}}{\longrightarrow} N(0,1).
@@ -14848,7 +14824,7 @@ Sea \(\{X_n\}_{n=1}^\infty\) una sucesión de variables aleatorias independiente
 
 Antes de ver la aplicación práctica del resultado anterior, veamos que suma de variables Poisson independientes de parámetro \(\lambda\) es una variable Poisson de parámetro \(n\lambda\):
 
-Proposición.
+ Proposición.
 Sea \(\{X_n\}_{n=1}^\infty\) una sucesión de variables aleatorias independientes Poisson de parámetro \(\lambda\). Entonces la variable \(\sum\limits_{i=1}^n X_i\) sigue la distribución de Poisson de parámetro \(n\lambda\).
 
 \textbf{Demostración}

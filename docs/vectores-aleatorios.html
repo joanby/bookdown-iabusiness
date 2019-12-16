@@ -69,7 +69,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -387,15 +387,15 @@ w &amp; \longrightarrow \mathbf{X}(w)=(X_1(w),X_2(w),\ldots,X_n(w)).
 <p>Suceso: <span class="math inline">\(\{X_1+X_2+X_3\leq 1\}\)</span>. En el gráfico siguiente, el plano <span class="math inline">\(x_1+x_2+x_3=1\)</span> separa el espacio en dos partes. Es la parte que corresponde al punto <span class="math inline">\((0,0,0)\)</span>.</p>
 <p>Si pensamos el plano anterior como un “espejo” es la parte de atrás del mismo.</p>
 <div class="center">
-<p><img src="Images/EjPlano3D.png" width="142" /></p>
+<p><img src="Images/EjPlano3D.png" /><!-- --></p>
 </div>
 <p>Suceso: <span class="math inline">\(\{X_1^2+X_2^2+X_3^2\leq 1\}\)</span>. Es el interior de la esfera del gráfico siguiente:</p>
 <div class="center">
-<p><img src="Images/EjEsfera3D.png" width="142" /></p>
+<p><img src="Images/EjEsfera3D.png" /><!-- --></p>
 </div>
 <p>Suceso: <span class="math inline">\(\{0\leq X_1\leq 1,\ 0\leq X_2\leq 1,\ 0\leq X_3\leq 1\}\)</span>. Es el interior del cubo del gráfico siguiente:</p>
 <div class="center">
-<p><img src="Images/Ej3DCubo.png" width="174" /></p>
+<p><img src="Images/Ej3DCubo.png" /><!-- --></p>
 </div>
 <p>La probabilidad de que la <strong>variable <span class="math inline">\(n\)</span>-dimensional</strong> pertenezca a una cierta <strong>región del <span class="math inline">\(n\)</span>-espacio <span class="math inline">\(B\subset \mathbb{R}^n\)</span></strong> se define de la forma siguiente:
 <span class="math display">\[
@@ -428,7 +428,7 @@ F_{X_1\ldots X_n}(x_1,\ldots,x_n) &amp; =P\{w\in\Omega,\ |\ (X_1(w),\ldots,X_n(w
 \]</span></p>
 <p>El gráfico siguiente muestra el conjunto <span class="math inline">\((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3]\)</span> en <span class="math inline">\(\mathbb{R}^3\)</span> para un valor <span class="math inline">\((x,y,z)\)</span>:</p>
 <div class="center">
-<p><img src="Images/Fx1x2x3.png" width="91" /></p>
+<p><img src="Images/Fx1x2x3.png" /><!-- --></p>
 </div>
 </div>
 <div id="propiedades-5" class="section level3">
@@ -473,7 +473,7 @@ x_1^2\cdot x_2^2\cdot x_3^2, &amp; \mbox{si }0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\
 <p>La primera figura muestra las zonas en la “planta baja” o para <span class="math inline">\(0\leq x_3\leq 1\)</span>.
 En color marrón, está representada la región <span class="math inline">\(0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\ 0\leq x_3\leq 1\)</span>, en color amarillo, la región <span class="math inline">\(x_1&gt; 1,\ 0\leq x_2\leq 1,\ 0\leq x_3\leq 1\)</span>, en color verde, la región <span class="math inline">\(x_1&gt;1,\ x_2&gt;1,\ 0\leq x_3\leq 1\)</span> y en color violeta, la región <span class="math inline">\(0\leq x_1\leq 1,\ x_2&gt;1,\ 0\leq x_3\leq 1\)</span>.</p>
 <p>La segunda figura muestra las zonas del “primer piso” o para <span class="math inline">\(x_3&gt;1\)</span>. Los colores tienen un significado similar a los de la primera figura: en color marrón, está representada la región <span class="math inline">\(0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\  x_3&gt; 1\)</span>, en color amarillo u ocre, la región <span class="math inline">\(x_1&gt; 1,\ 0\leq x_2\leq 1,\ x_3&gt; 1\)</span>, en color verde, la región <span class="math inline">\(x_1&gt;1,\ x_2&gt;1,\ x_3&gt; 1\)</span> y en color violeta, la región <span class="math inline">\(0\leq x_1\leq 1,\ x_2&gt;1,\ x_3&gt; 1\)</span>.</p>
-<p><img src="Images/Ej3DFxyz.png" width="91" style="display: block; margin: auto;" /><img src="Images/Ej3DFxy2pis.png" width="103" style="display: block; margin: auto;" /></p>
+<p><img src="Images/Ej3DFxyz.png" style="display: block; margin: auto;" /><img src="Images/Ej3DFxy2pis.png" style="display: block; margin: auto;" /></p>
 <p>Comprobemos algunas de las propiedades que hemos enunciado anteriormente:</p>
 <ul>
 <li><p>Claramente <span class="math inline">\(F_{X_1X_2X_3}(x_1,x_2,-\infty)=F_{X_1X_2X_3}(x_1,-\infty,x_3)=F_{X_1X_2X_3}(-\infty,x_2,x_3)=0\)</span> ya que <span class="math inline">\(F_{X_1X_2X_3}(x_1,x_2,x_3)=0\)</span> si <span class="math inline">\(x_1&lt;0\)</span> o <span class="math inline">\(x_2&lt;0\)</span> o <span class="math inline">\(x_3&lt;0\)</span>. Por tanto, si hacemos tender <span class="math inline">\(x_1\)</span> o <span class="math inline">\(x_2\)</span> o <span class="math inline">\(x_3\)</span> hacia <span class="math inline">\(-\infty\)</span>, obtendremos que <span class="math inline">\(F_{X_1X_2X_3}(x_1,x_2,-\infty)=F_{X_1X_2X_3}(x_1,-\infty,x_3)=F_{X_1X_2X_3}(-\infty,x_2,x_3)=0\)</span>.</p></li>
@@ -509,32 +509,32 @@ Para ver la expresión anterior basta trazar el plano <span class="math inline">
 <p>El los gráficos siguientes dibujamos las curvas de nivel para <span class="math inline">\(x_3=0,0.5,1\)</span> i <span class="math inline">\(x_3=1.5\)</span>.</p>
 <div class="example-sol">
 <p>Primero definimos la <strong>función</strong> y luego la dibujamos para <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span> entre <span class="math inline">\(-1\)</span> y <span class="math inline">\(3\)</span>:</p>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" title="1">f.dist.con =<span class="st"> </span><span class="cf">function</span>(x1,x2,x3){<span class="kw">ifelse</span>(x1<span class="op">&lt;</span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>x2<span class="op">&lt;</span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>x3 <span class="op">&lt;</span><span class="dv">0</span>,<span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb403-2" title="2">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&lt;=</span><span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb403-3" title="3">                 x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x2<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb403-4" title="4">          <span class="kw">ifelse</span>(x1<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&lt;=</span><span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb403-5" title="5">                 x2<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb403-6" title="6">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&lt;=</span><span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb403-7" title="7">                 x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb403-8" title="8">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;</span><span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb403-9" title="9">                 x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x2<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb403-10" title="10">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2 <span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3 <span class="op">&gt;</span><span class="dv">1</span>,x1<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb403-11" title="11">          <span class="kw">ifelse</span>(x1<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2 <span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3 <span class="op">&gt;</span><span class="dv">1</span>,x2<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb403-12" title="12">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3 <span class="op">&gt;</span><span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb403-13" title="13">                 x3<span class="op">^</span><span class="dv">2</span>,<span class="dv">1</span>))))))))}</a>
-<a class="sourceLine" id="cb403-14" title="14">x1=<span class="kw">seq</span>(<span class="dt">from=</span><span class="op">-</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">3</span>,<span class="dt">by=</span><span class="fl">0.05</span>)</a>
-<a class="sourceLine" id="cb403-15" title="15">x2=<span class="kw">seq</span>(<span class="dt">from=</span><span class="op">-</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">3</span>,<span class="dt">by=</span><span class="fl">0.05</span>)</a>
-<a class="sourceLine" id="cb403-16" title="16">curva.nivel<span class="fl">.0</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb403-17" title="17">curva.nivel.<span class="fl">0.5</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="fl">0.5</span>)</a>
-<a class="sourceLine" id="cb403-18" title="18">curva.nivel<span class="fl">.1</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb403-19" title="19">curva.nivel.<span class="fl">1.5</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="fl">1.5</span>)</a>
-<a class="sourceLine" id="cb403-20" title="20"><span class="kw">image</span>(x1,x2,curva.nivel<span class="fl">.0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" data-line-number="1">f.dist.con =<span class="st"> </span><span class="cf">function</span>(x1,x2,x3){<span class="kw">ifelse</span>(x1<span class="op">&lt;</span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>x2<span class="op">&lt;</span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>x3 <span class="op">&lt;</span><span class="dv">0</span>,<span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb403-2" data-line-number="2">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&lt;=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb403-3" data-line-number="3">                 x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x2<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb403-4" data-line-number="4">          <span class="kw">ifelse</span>(x1<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&lt;=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb403-5" data-line-number="5">                 x2<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb403-6" data-line-number="6">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&lt;=</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb403-7" data-line-number="7">                 x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb403-8" data-line-number="8">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3<span class="op">&gt;</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb403-9" data-line-number="9">                 x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x2<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb403-10" data-line-number="10">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2 <span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3 <span class="op">&gt;</span><span class="dv">1</span>,x1<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb403-11" data-line-number="11">          <span class="kw">ifelse</span>(x1<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2 <span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3 <span class="op">&gt;</span><span class="dv">1</span>,x2<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb403-12" data-line-number="12">          <span class="kw">ifelse</span>(x1<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x1<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x2<span class="op">&lt;=</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>x3 <span class="op">&gt;</span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb403-13" data-line-number="13">                 x3<span class="op">^</span><span class="dv">2</span>,<span class="dv">1</span>))))))))}</a>
+<a class="sourceLine" id="cb403-14" data-line-number="14">x1=<span class="kw">seq</span>(<span class="dt">from=</span><span class="op">-</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">3</span>,<span class="dt">by=</span><span class="fl">0.05</span>)</a>
+<a class="sourceLine" id="cb403-15" data-line-number="15">x2=<span class="kw">seq</span>(<span class="dt">from=</span><span class="op">-</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">3</span>,<span class="dt">by=</span><span class="fl">0.05</span>)</a>
+<a class="sourceLine" id="cb403-16" data-line-number="16">curva.nivel<span class="fl">.0</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb403-17" data-line-number="17">curva.nivel.<span class="fl">0.5</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb403-18" data-line-number="18">curva.nivel<span class="fl">.1</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb403-19" data-line-number="19">curva.nivel.<span class="fl">1.5</span>=<span class="kw">outer</span>(x1,x2,f.dist.con,<span class="dt">x3=</span><span class="fl">1.5</span>)</a>
+<a class="sourceLine" id="cb403-20" data-line-number="20"><span class="kw">image</span>(x1,x2,curva.nivel<span class="fl">.0</span>)</a></code></pre></div>
 <p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-142-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb404-1" title="1"><span class="kw">image</span>(x1,x2,curva.nivel.<span class="fl">0.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb404-1" data-line-number="1"><span class="kw">image</span>(x1,x2,curva.nivel.<span class="fl">0.5</span>)</a></code></pre></div>
 <p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-142-2.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" title="1"><span class="kw">image</span>(x1,x2,curva.nivel<span class="fl">.1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" data-line-number="1"><span class="kw">image</span>(x1,x2,curva.nivel<span class="fl">.1</span>)</a></code></pre></div>
 <p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-142-3.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb406-1" title="1"><span class="kw">image</span>(x1,x2,curva.nivel.<span class="fl">1.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb406-1" data-line-number="1"><span class="kw">image</span>(x1,x2,curva.nivel.<span class="fl">1.5</span>)</a></code></pre></div>
 </div>
 </div>
 <div class="example">
@@ -781,35 +781,35 @@ Si <span class="math inline">\((x_{i_1},x_{i_2},\ldots,x_{i_n})\not\in (X_1\ldot
 </div>
 </div>
 <p>La función <code>fun.prod.con</code> nos da la <strong>función de probabilidad conjunta</strong> de la variable aleatoria <span class="math inline">\(\mathbf{X}\)</span> cuando lanzamos un dado tres veces:</p>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" title="1">fun.prob.con=<span class="cf">function</span>(x1,x2,x3){</a>
-<a class="sourceLine" id="cb407-2" title="2">  n=<span class="dv">6</span></a>
-<a class="sourceLine" id="cb407-3" title="3">  cuenta<span class="fl">.1</span> =<span class="cf">function</span>(x){<span class="kw">length</span>(x[x<span class="op">==</span><span class="dv">1</span>])}</a>
-<a class="sourceLine" id="cb407-4" title="4">  cuenta<span class="fl">.2</span> =<span class="cf">function</span>(x){<span class="kw">length</span>(x[x<span class="op">==</span><span class="dv">2</span>])}</a>
-<a class="sourceLine" id="cb407-5" title="5">  cuenta<span class="fl">.3</span> =<span class="cf">function</span>(x){<span class="kw">length</span>(x[x<span class="op">==</span><span class="dv">3</span>])}</a>
-<a class="sourceLine" id="cb407-6" title="6">  Dxyz=<span class="kw">data.frame</span>(<span class="dt">d1=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n,<span class="dt">each=</span>n),<span class="dt">d2=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n,<span class="dt">times=</span>n),</a>
-<a class="sourceLine" id="cb407-7" title="7">                  <span class="dt">d3=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n,<span class="dt">each=</span>n<span class="op">*</span>n))</a>
-<a class="sourceLine" id="cb407-8" title="8">  X1=<span class="kw">apply</span>(Dxyz,<span class="dv">1</span>,cuenta<span class="fl">.1</span>)</a>
-<a class="sourceLine" id="cb407-9" title="9">  X2=<span class="kw">apply</span>(Dxyz,<span class="dv">1</span>,cuenta<span class="fl">.2</span>)</a>
-<a class="sourceLine" id="cb407-10" title="10">  X3=<span class="kw">apply</span>(Dxyz,<span class="dv">1</span>,cuenta<span class="fl">.3</span>)</a>
-<a class="sourceLine" id="cb407-11" title="11">  frecuencia =<span class="st"> </span><span class="kw">table</span>(X1<span class="op">==</span>x1 <span class="op">&amp;</span><span class="st"> </span>X2<span class="op">==</span>x2 <span class="op">&amp;</span><span class="st"> </span>X3<span class="op">==</span>x3)</a>
-<a class="sourceLine" id="cb407-12" title="12">  res=<span class="kw">ifelse</span>(<span class="kw">length</span>(frecuencia)<span class="op">==</span><span class="dv">2</span>,frecuencia[<span class="dv">2</span>],<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb407-13" title="13">  <span class="kw">return</span>(res<span class="op">/</span><span class="dv">6</span><span class="op">^</span><span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb407-14" title="14">}</a></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" data-line-number="1">fun.prob.con=<span class="cf">function</span>(x1,x2,x3){</a>
+<a class="sourceLine" id="cb407-2" data-line-number="2">  n=<span class="dv">6</span></a>
+<a class="sourceLine" id="cb407-3" data-line-number="3">  cuenta<span class="fl">.1</span> =<span class="cf">function</span>(x){<span class="kw">length</span>(x[x<span class="op">==</span><span class="dv">1</span>])}</a>
+<a class="sourceLine" id="cb407-4" data-line-number="4">  cuenta<span class="fl">.2</span> =<span class="cf">function</span>(x){<span class="kw">length</span>(x[x<span class="op">==</span><span class="dv">2</span>])}</a>
+<a class="sourceLine" id="cb407-5" data-line-number="5">  cuenta<span class="fl">.3</span> =<span class="cf">function</span>(x){<span class="kw">length</span>(x[x<span class="op">==</span><span class="dv">3</span>])}</a>
+<a class="sourceLine" id="cb407-6" data-line-number="6">  Dxyz=<span class="kw">data.frame</span>(<span class="dt">d1=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n,<span class="dt">each=</span>n),<span class="dt">d2=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n,<span class="dt">times=</span>n),</a>
+<a class="sourceLine" id="cb407-7" data-line-number="7">                  <span class="dt">d3=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n,<span class="dt">each=</span>n<span class="op">*</span>n))</a>
+<a class="sourceLine" id="cb407-8" data-line-number="8">  X1=<span class="kw">apply</span>(Dxyz,<span class="dv">1</span>,cuenta<span class="fl">.1</span>)</a>
+<a class="sourceLine" id="cb407-9" data-line-number="9">  X2=<span class="kw">apply</span>(Dxyz,<span class="dv">1</span>,cuenta<span class="fl">.2</span>)</a>
+<a class="sourceLine" id="cb407-10" data-line-number="10">  X3=<span class="kw">apply</span>(Dxyz,<span class="dv">1</span>,cuenta<span class="fl">.3</span>)</a>
+<a class="sourceLine" id="cb407-11" data-line-number="11">  frecuencia =<span class="st"> </span><span class="kw">table</span>(X1<span class="op">==</span>x1 <span class="op">&amp;</span><span class="st"> </span>X2<span class="op">==</span>x2 <span class="op">&amp;</span><span class="st"> </span>X3<span class="op">==</span>x3)</a>
+<a class="sourceLine" id="cb407-12" data-line-number="12">  res=<span class="kw">ifelse</span>(<span class="kw">length</span>(frecuencia)<span class="op">==</span><span class="dv">2</span>,frecuencia[<span class="dv">2</span>],<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb407-13" data-line-number="13">  <span class="kw">return</span>(res<span class="op">/</span><span class="dv">6</span><span class="op">^</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb407-14" data-line-number="14">}</a></code></pre></div>
 <p>Para construir la tabla de la <strong>función de probabilidad conjunta</strong> para la variable <span class="math inline">\(\mathbf{X}=(X_1,X_2,X_3)\)</span> con <span class="math inline">\(X_3=0\)</span> hacemos lo siguiente:</p>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" title="1">valores.variables=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb408-2" title="2">tabla<span class="fl">.0</span> =<span class="st"> </span><span class="kw">c</span>()</a>
-<a class="sourceLine" id="cb408-3" title="3"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(valores.variables)){</a>
-<a class="sourceLine" id="cb408-4" title="4">  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(valores.variables)){</a>
-<a class="sourceLine" id="cb408-5" title="5">  tabla<span class="fl">.0</span>=<span class="kw">c</span>(tabla<span class="fl">.0</span>,</a>
-<a class="sourceLine" id="cb408-6" title="6">            <span class="kw">fun.prob.con</span>(valores.variables[i],</a>
-<a class="sourceLine" id="cb408-7" title="7">                         valores.variables[j],<span class="dv">0</span>));</a>
-<a class="sourceLine" id="cb408-8" title="8">  }</a>
-<a class="sourceLine" id="cb408-9" title="9">  }</a>
-<a class="sourceLine" id="cb408-10" title="10">tabla<span class="fl">.0</span> =<span class="st"> </span><span class="kw">matrix</span>(tabla<span class="fl">.0</span>,<span class="kw">length</span>(valores.variables),</a>
-<a class="sourceLine" id="cb408-11" title="11">                 <span class="kw">length</span>(valores.variables))</a>
-<a class="sourceLine" id="cb408-12" title="12"><span class="kw">rownames</span>(tabla<span class="fl">.0</span>)=valores.variables</a>
-<a class="sourceLine" id="cb408-13" title="13"><span class="kw">colnames</span>(tabla<span class="fl">.0</span>)=valores.variables</a>
-<a class="sourceLine" id="cb408-14" title="14">knitr<span class="op">::</span><span class="kw">kable</span>(tabla<span class="fl">.0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1">valores.variables=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb408-2" data-line-number="2">tabla<span class="fl">.0</span> =<span class="st"> </span><span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb408-3" data-line-number="3"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(valores.variables)){</a>
+<a class="sourceLine" id="cb408-4" data-line-number="4">  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(valores.variables)){</a>
+<a class="sourceLine" id="cb408-5" data-line-number="5">  tabla<span class="fl">.0</span>=<span class="kw">c</span>(tabla<span class="fl">.0</span>,</a>
+<a class="sourceLine" id="cb408-6" data-line-number="6">            <span class="kw">fun.prob.con</span>(valores.variables[i],</a>
+<a class="sourceLine" id="cb408-7" data-line-number="7">                         valores.variables[j],<span class="dv">0</span>));</a>
+<a class="sourceLine" id="cb408-8" data-line-number="8">  }</a>
+<a class="sourceLine" id="cb408-9" data-line-number="9">  }</a>
+<a class="sourceLine" id="cb408-10" data-line-number="10">tabla<span class="fl">.0</span> =<span class="st"> </span><span class="kw">matrix</span>(tabla<span class="fl">.0</span>,<span class="kw">length</span>(valores.variables),</a>
+<a class="sourceLine" id="cb408-11" data-line-number="11">                 <span class="kw">length</span>(valores.variables))</a>
+<a class="sourceLine" id="cb408-12" data-line-number="12"><span class="kw">rownames</span>(tabla<span class="fl">.0</span>)=valores.variables</a>
+<a class="sourceLine" id="cb408-13" data-line-number="13"><span class="kw">colnames</span>(tabla<span class="fl">.0</span>)=valores.variables</a>
+<a class="sourceLine" id="cb408-14" data-line-number="14">knitr<span class="op">::</span><span class="kw">kable</span>(tabla<span class="fl">.0</span>)</a></code></pre></div>
 <p>Con los demás valores de <span class="math inline">\(X_3\)</span>, lo haríamos de forma similar.</p>
 <p>Tabla con <span class="math inline">\(X_3=0\)</span>:</p>
 <table>
@@ -1020,22 +1020,22 @@ F_{X_1X_2X_3}(1,2,2)
 \end{array}
 \]</span></p>
 <p>La función de distribución conjunta es con código <code>R</code>:</p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" title="1">fun.dis.con =<span class="st"> </span><span class="cf">function</span>(x1,x2,x3){</a>
-<a class="sourceLine" id="cb409-2" title="2">  suma=<span class="dv">0</span></a>
-<a class="sourceLine" id="cb409-3" title="3">  i1=<span class="dv">0</span>; i2=<span class="dv">0</span>; i3=<span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb409-4" title="4">  <span class="cf">while</span>(i1 <span class="op">&lt;=</span>x1 <span class="op">&amp;</span><span class="st"> </span>i1<span class="op">&lt;=</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb409-5" title="5">    <span class="cf">while</span>(i2 <span class="op">&lt;=</span><span class="st"> </span>x2 <span class="op">&amp;</span><span class="st"> </span>i2<span class="op">&lt;=</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb409-6" title="6">      <span class="cf">while</span>(i3<span class="op">&lt;=</span><span class="st"> </span>x3 <span class="op">&amp;</span><span class="st"> </span>i3 <span class="op">&lt;=</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb409-7" title="7">        suma=suma<span class="op">+</span><span class="kw">fun.prob.con</span>(i1,i2,i3); i3=i3<span class="op">+</span><span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb409-8" title="8">      }</a>
-<a class="sourceLine" id="cb409-9" title="9">      i3=<span class="dv">0</span>; i2=i2<span class="op">+</span><span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb409-10" title="10">    }</a>
-<a class="sourceLine" id="cb409-11" title="11">    i2=<span class="dv">0</span>; i3=<span class="dv">0</span>; i1=i1<span class="op">+</span><span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb409-12" title="12">  }</a>
-<a class="sourceLine" id="cb409-13" title="13">  <span class="kw">return</span>(suma)</a>
-<a class="sourceLine" id="cb409-14" title="14">}</a></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" data-line-number="1">fun.dis.con =<span class="st"> </span><span class="cf">function</span>(x1,x2,x3){</a>
+<a class="sourceLine" id="cb409-2" data-line-number="2">  suma=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb409-3" data-line-number="3">  i1=<span class="dv">0</span>; i2=<span class="dv">0</span>; i3=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb409-4" data-line-number="4">  <span class="cf">while</span>(i1 <span class="op">&lt;=</span>x1 <span class="op">&amp;</span><span class="st"> </span>i1<span class="op">&lt;=</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb409-5" data-line-number="5">    <span class="cf">while</span>(i2 <span class="op">&lt;=</span><span class="st"> </span>x2 <span class="op">&amp;</span><span class="st"> </span>i2<span class="op">&lt;=</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb409-6" data-line-number="6">      <span class="cf">while</span>(i3<span class="op">&lt;=</span><span class="st"> </span>x3 <span class="op">&amp;</span><span class="st"> </span>i3 <span class="op">&lt;=</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb409-7" data-line-number="7">        suma=suma<span class="op">+</span><span class="kw">fun.prob.con</span>(i1,i2,i3); i3=i3<span class="op">+</span><span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb409-8" data-line-number="8">      }</a>
+<a class="sourceLine" id="cb409-9" data-line-number="9">      i3=<span class="dv">0</span>; i2=i2<span class="op">+</span><span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb409-10" data-line-number="10">    }</a>
+<a class="sourceLine" id="cb409-11" data-line-number="11">    i2=<span class="dv">0</span>; i3=<span class="dv">0</span>; i1=i1<span class="op">+</span><span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb409-12" data-line-number="12">  }</a>
+<a class="sourceLine" id="cb409-13" data-line-number="13">  <span class="kw">return</span>(suma)</a>
+<a class="sourceLine" id="cb409-14" data-line-number="14">}</a></code></pre></div>
 <p>Comprobemos que la <strong>función de distribución conjunta</strong> en el valor <span class="math inline">\((1,2,2)\)</span> nos da el mismo resultado que vimos anteriormente:</p>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" title="1"><span class="kw">fun.dis.con</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1"><span class="kw">fun.dis.con</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 0.9166667</code></pre>
 </div>
 </div>
@@ -1204,15 +1204,15 @@ P_{X_1X_2}(3,3) &amp; = P_{X_1X_2X_3}(3,3,0)+P_{X_1X_2X_3}(3,3,1)\\
 </div>
 <p>Las <strong>funciones de probabilidad marginales</strong> de las variables <span class="math inline">\((X_1,X_3)\)</span> y <span class="math inline">\((X_2,X_3)\)</span> dan el mismo resultado que la tabla anterior.</p>
 <p>La <strong>función de probabilidad marginal</strong> de la variable <span class="math inline">\(X_1\)</span> en <code>R</code> se halla de la forma siguiente:</p>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" title="1">fun.marginal.X1 =<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb412-2" title="2">  suma=<span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb412-3" title="3">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){<span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){suma=suma<span class="op">+</span><span class="kw">fun.prob.con</span>(x,i,j)}}</a>
-<a class="sourceLine" id="cb412-4" title="4">  <span class="kw">return</span>(suma)</a>
-<a class="sourceLine" id="cb412-5" title="5">}</a>
-<a class="sourceLine" id="cb412-6" title="6">tabla.fun.marginal.X1=<span class="kw">data.frame</span>(<span class="kw">fun.marginal.X1</span>(<span class="dv">0</span>),<span class="kw">fun.marginal.X1</span>(<span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb412-7" title="7">                            <span class="kw">fun.marginal.X1</span>(<span class="dv">2</span>),<span class="kw">fun.marginal.X1</span>(<span class="dv">3</span>));</a>
-<a class="sourceLine" id="cb412-8" title="8"><span class="kw">colnames</span>(tabla.fun.marginal.X1)=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb412-9" title="9">knitr<span class="op">::</span><span class="kw">kable</span>(tabla.fun.marginal.X1)</a></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1">fun.marginal.X1 =<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb412-2" data-line-number="2">  suma=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb412-3" data-line-number="3">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){<span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){suma=suma<span class="op">+</span><span class="kw">fun.prob.con</span>(x,i,j)}}</a>
+<a class="sourceLine" id="cb412-4" data-line-number="4">  <span class="kw">return</span>(suma)</a>
+<a class="sourceLine" id="cb412-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb412-6" data-line-number="6">tabla.fun.marginal.X1=<span class="kw">data.frame</span>(<span class="kw">fun.marginal.X1</span>(<span class="dv">0</span>),<span class="kw">fun.marginal.X1</span>(<span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb412-7" data-line-number="7">                            <span class="kw">fun.marginal.X1</span>(<span class="dv">2</span>),<span class="kw">fun.marginal.X1</span>(<span class="dv">3</span>));</a>
+<a class="sourceLine" id="cb412-8" data-line-number="8"><span class="kw">colnames</span>(tabla.fun.marginal.X1)=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb412-9" data-line-number="9">knitr<span class="op">::</span><span class="kw">kable</span>(tabla.fun.marginal.X1)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1232,23 +1232,23 @@ P_{X_1X_2}(3,3) &amp; = P_{X_1X_2X_3}(3,3,0)+P_{X_1X_2X_3}(3,3,1)\\
 </tbody>
 </table>
 <p>La <strong>función de probabilidad marginal</strong> de la variable <span class="math inline">\((X_1,X_2)\)</span> en <code>R</code> se halla de la forma siguiente:</p>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" title="1">fun.marginal.X1.X2 =<span class="st"> </span><span class="cf">function</span>(x,y){</a>
-<a class="sourceLine" id="cb413-2" title="2">  suma=<span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb413-3" title="3">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){suma=suma<span class="op">+</span><span class="kw">fun.prob.con</span>(x,y,i)}</a>
-<a class="sourceLine" id="cb413-4" title="4">  <span class="kw">return</span>(suma)</a>
-<a class="sourceLine" id="cb413-5" title="5">}</a>
-<a class="sourceLine" id="cb413-6" title="6">tabla.fun.marginal.X1.X2=<span class="kw">c</span>()</a>
-<a class="sourceLine" id="cb413-7" title="7"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb413-8" title="8">  tabla.fun.marginal.X1.X2=<span class="kw">cbind</span>(</a>
-<a class="sourceLine" id="cb413-9" title="9">    tabla.fun.marginal.X1.X2,</a>
-<a class="sourceLine" id="cb413-10" title="10">    <span class="kw">c</span>(<span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">0</span>),                                                            <span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">1</span>),                                                            <span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">2</span>),                                                            <span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb413-11" title="11">    )</a>
-<a class="sourceLine" id="cb413-12" title="12">  )</a>
-<a class="sourceLine" id="cb413-13" title="13">  }</a>
-<a class="sourceLine" id="cb413-14" title="14">tabla.fun.marginal.X1.X2=<span class="kw">as.data.frame</span>(tabla.fun.marginal.X1.X2)</a>
-<a class="sourceLine" id="cb413-15" title="15"><span class="kw">rownames</span>(tabla.fun.marginal.X1.X2)=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb413-16" title="16"><span class="kw">colnames</span>(tabla.fun.marginal.X1.X2)=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb413-17" title="17">knitr<span class="op">::</span><span class="kw">kable</span>(tabla.fun.marginal.X1.X2)</a></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1">fun.marginal.X1.X2 =<span class="st"> </span><span class="cf">function</span>(x,y){</a>
+<a class="sourceLine" id="cb413-2" data-line-number="2">  suma=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb413-3" data-line-number="3">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){suma=suma<span class="op">+</span><span class="kw">fun.prob.con</span>(x,y,i)}</a>
+<a class="sourceLine" id="cb413-4" data-line-number="4">  <span class="kw">return</span>(suma)</a>
+<a class="sourceLine" id="cb413-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb413-6" data-line-number="6">tabla.fun.marginal.X1.X2=<span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb413-7" data-line-number="7"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb413-8" data-line-number="8">  tabla.fun.marginal.X1.X2=<span class="kw">cbind</span>(</a>
+<a class="sourceLine" id="cb413-9" data-line-number="9">    tabla.fun.marginal.X1.X2,</a>
+<a class="sourceLine" id="cb413-10" data-line-number="10">    <span class="kw">c</span>(<span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">0</span>),                                                            <span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">1</span>),                                                            <span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">2</span>),                                                            <span class="kw">fun.marginal.X1.X2</span>(i,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb413-11" data-line-number="11">    )</a>
+<a class="sourceLine" id="cb413-12" data-line-number="12">  )</a>
+<a class="sourceLine" id="cb413-13" data-line-number="13">  }</a>
+<a class="sourceLine" id="cb413-14" data-line-number="14">tabla.fun.marginal.X1.X2=<span class="kw">as.data.frame</span>(tabla.fun.marginal.X1.X2)</a>
+<a class="sourceLine" id="cb413-15" data-line-number="15"><span class="kw">rownames</span>(tabla.fun.marginal.X1.X2)=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb413-16" data-line-number="16"><span class="kw">colnames</span>(tabla.fun.marginal.X1.X2)=<span class="dv">0</span><span class="op">:</span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb413-17" data-line-number="17">knitr<span class="op">::</span><span class="kw">kable</span>(tabla.fun.marginal.X1.X2)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1324,7 +1324,7 @@ f_{X_1X_2X_3}(x_1,x_2,x_3)=\begin{cases}
 <div class="example-sol">
 <p>En la figura siguiente hemos dibujado en rosa la región donde <span class="math inline">\(f_{X_1X_2X_3}\)</span> no es cero, es decir <span class="math inline">\([0,1]\times [0,1]\times [0,1]\)</span>.</p>
 <div class="center">
-<p><img src="Images/Cubo3D2.png" width="142" /></p>
+<p><img src="Images/Cubo3D2.png" /><!-- --></p>
 </div>
 </div>
 </div>
@@ -1409,7 +1409,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3) &amp; =\int_{0}^{x_1}\int_{0}^{x_2}\int_{0}^{x_3} 8 x
 &amp; = 8\left[\frac{x_1^2}{2}\right]_0^{x_1}\left[\frac{x_2^2}{2}\right]_0^{x_2}\left[\frac{x_3^2}{2}\right]_0^{x_3} = x_1^2 x_2^2 x_3^2.
 \end{array}
 \]</span></p>
-<p><img src="Images/Fx1x2x3bajos.png" width="120" style="display: block; margin: auto;" /></p>
+<p><img src="Images/Fx1x2x3bajos.png" style="display: block; margin: auto;" /></p>
 <p>Seguimos en la planta “baja”,</p>
 <ul>
 <li>Si <span class="math inline">\(x_1 &gt;1\)</span> y <span class="math inline">\(0\leq x_2\leq 1\)</span>, <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])\)</span> que es igual a <span class="math inline">\([0,1]\times [0,x_2]\times [0,x_3]\)</span>, ver figura adjunta. Hemos dibujado sólo la parte “positiva” de la región <span class="math inline">\((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3]\)</span> ya que la parte “negativa” claramente no interseca con <span class="math inline">\([0,1]\times [0,1]\times [0,1]\)</span> para no complicar demasiado la figura.</li>
@@ -1430,7 +1430,7 @@ Por tanto,</li>
 F_{X_1X_2X_3}(x_1,x_2,x_3)=x_1^2 x_3^2.
 \]</span></p>
 <div class="center">
-<p><img src="Images/Fx1x2x3bajosx1.png" width="120" style="display: block; margin: auto;" /></p>
+<p><img src="Images/Fx1x2x3bajosx1.png" style="display: block; margin: auto;" /></p>
 </div>
 <p>Seguimos en la planta “baja”,</p>
 <ul>
@@ -1442,7 +1442,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)=\int_{0}^{1}\int_{0}^{1}\int_{0}^{x_3} 8 x_1 x_2 x_3 
 8\left[\frac{x_1^2}{2}\right]_0^{1}\left[\frac{x_2^2}{2}\right]_0^{1}\left[\frac{x_3^2}{2}\right]_0^{x_3} = x_3^2.
 \]</span></p>
 <div class="center">
-<p><img src="Images/Fx1x2x3bajosx1x2.png" width="120" /></p>
+<p><img src="Images/Fx1x2x3bajosx1x2.png" /><!-- --></p>
 </div>
 <p>Supongamos ahora que <span class="math inline">\((x_1,x_2,x_3)\)</span> está en el “primer piso” o <span class="math inline">\(x_3&gt;1\)</span>. Aquí también vamos a distinguir 4 casos:</p>
 <ul>
@@ -1458,7 +1458,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3) &amp; =\int_{0}^{x_1}\int_{0}^{x_2}\int_{0}^{1} 8 x_1
 \]</span></p>
 <div class="center">
 <div class="figure"><span id="fig:bid992"></span>
-<img src="Images/Fx1x2x3piso.png" alt="center" width="120" />
+<img src="Images/Fx1x2x3piso.png" alt="center"  />
 <p class="caption">
 Figure 6.1: center
 </p>
@@ -1482,7 +1482,7 @@ Por tanto,</li>
 F_{X_1X_2X_3}(x_1,x_2,x_3)=x_1^2.
 \]</span></p>
 <div class="center">
-<p><img src="Images/Fx1x2x3pisox1.png" width="120" style="display: block; margin: auto;" /></p>
+<p><img src="Images/Fx1x2x3pisox1.png" style="display: block; margin: auto;" /></p>
 </div>
 <p>Seguimos en el “primer piso”,</p>
 <ul>
@@ -1496,7 +1496,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)&amp; =\int_{0}^{1}\int_{0}^{1}\int_{0}^{1} 8 x_1 x_2 
 \end{array}
 \]</span></p>
 <div class="center">
-<p><img src="Images/Fx1x2x3pisox1x2.png" width="120" style="display: block; margin: auto;" /></p>
+<p><img src="Images/Fx1x2x3pisox1x2.png" style="display: block; margin: auto;" /></p>
 </div>
 <p>En resumen:
 <span class="math display">\[
@@ -1907,15 +1907,15 @@ E\left(X_1\cdot X_2\cdot X_3\right)\displaystyle =\sum_{i_1=0}^3\sum_{i_2=0}^3
 \sum_{i_3=0}^3 i_1\cdot i_2\cdot i_3\cdot P_{X_1X_2X_3}(i_1,i_2,i_3),
 \]</span>
 en total <span class="math inline">\(4^3=64\)</span> términos. Como el cálculo es tedioso, lo vamos a realizar con ayuda de <code>R</code>.</p>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" title="1">valor.esperado=<span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb414-2" title="2"><span class="cf">for</span> (i1 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb414-3" title="3">  <span class="cf">for</span> (i2 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb414-4" title="4">    <span class="cf">for</span> (i3 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb414-5" title="5">      valor.esperado=valor.esperado<span class="op">+</span>i1<span class="op">*</span>i2<span class="op">*</span>i3<span class="op">*</span><span class="kw">fun.prob.con</span>(i1,i2,i3)</a>
-<a class="sourceLine" id="cb414-6" title="6">    }</a>
-<a class="sourceLine" id="cb414-7" title="7">  }</a>
-<a class="sourceLine" id="cb414-8" title="8">}</a>
-<a class="sourceLine" id="cb414-9" title="9">valor.esperado</a></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" data-line-number="1">valor.esperado=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb414-2" data-line-number="2"><span class="cf">for</span> (i1 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb414-3" data-line-number="3">  <span class="cf">for</span> (i2 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb414-4" data-line-number="4">    <span class="cf">for</span> (i3 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb414-5" data-line-number="5">      valor.esperado=valor.esperado<span class="op">+</span>i1<span class="op">*</span>i2<span class="op">*</span>i3<span class="op">*</span><span class="kw">fun.prob.con</span>(i1,i2,i3)</a>
+<a class="sourceLine" id="cb414-6" data-line-number="6">    }</a>
+<a class="sourceLine" id="cb414-7" data-line-number="7">  }</a>
+<a class="sourceLine" id="cb414-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb414-9" data-line-number="9">valor.esperado</a></code></pre></div>
 <pre><code>## [1] 0.02777778</code></pre>
 </div>
 </div>
@@ -1964,15 +1964,15 @@ E(X_1+\cdots + X_n) &amp; = \int_{-\infty}^\infty\cdots\int_{-\infty}^\infty (x_
 <p>Consideremos el ejemplo de la variable <span class="math inline">\((X_1,X_2,X_3)\)</span> que nos daba el número de 1’s, 2’s y 3’s en el lanzamiento de un dado tres veces.</p>
 <p>Comprobemos en este caso que <span class="math inline">\(E(X_1+X_2+X_3)=E(X_1)+E(X_2)+E(X_3)\)</span>.</p>
 <p>Calculemos <span class="math inline">\(E(X_1+X_2+X_3)\)</span> con <code>R</code> usando la misma técnica que en el ejemplo donde calculábamos <span class="math inline">\(E(X_1\cdot X_2\cdot X_3)\)</span>:</p>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" title="1">valor.esperado=<span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb416-2" title="2"><span class="cf">for</span> (i1 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb416-3" title="3">  <span class="cf">for</span> (i2 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb416-4" title="4">    <span class="cf">for</span> (i3 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb416-5" title="5">      valor.esperado=valor.esperado<span class="op">+</span>(i1<span class="op">+</span>i2<span class="op">+</span>i3)<span class="op">*</span><span class="kw">fun.prob.con</span>(i1,i2,i3)</a>
-<a class="sourceLine" id="cb416-6" title="6">    }</a>
-<a class="sourceLine" id="cb416-7" title="7">  }</a>
-<a class="sourceLine" id="cb416-8" title="8">}</a>
-<a class="sourceLine" id="cb416-9" title="9">valor.esperado</a></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" data-line-number="1">valor.esperado=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb416-2" data-line-number="2"><span class="cf">for</span> (i1 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb416-3" data-line-number="3">  <span class="cf">for</span> (i2 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb416-4" data-line-number="4">    <span class="cf">for</span> (i3 <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb416-5" data-line-number="5">      valor.esperado=valor.esperado<span class="op">+</span>(i1<span class="op">+</span>i2<span class="op">+</span>i3)<span class="op">*</span><span class="kw">fun.prob.con</span>(i1,i2,i3)</a>
+<a class="sourceLine" id="cb416-6" data-line-number="6">    }</a>
+<a class="sourceLine" id="cb416-7" data-line-number="7">  }</a>
+<a class="sourceLine" id="cb416-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb416-9" data-line-number="9">valor.esperado</a></code></pre></div>
 <pre><code>## [1] 1.5</code></pre>
 <p>La distribución marginal de cada una de las variables <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> y <span class="math inline">\(X_3\)</span> recordemos que es la siguiente:</p>
 <div class="center">
@@ -1998,11 +1998,11 @@ E(X_1+\cdots + X_n) &amp; = \int_{-\infty}^\infty\cdots\int_{-\infty}^\infty (x_
 </table>
 </div>
 <p>El valor de <span class="math inline">\(E(X_1)=E(X_2)=E(X_3)\)</span> es:</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb418-1" title="1">esperanza.X1=<span class="dv">0</span></a>
-<a class="sourceLine" id="cb418-2" title="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb418-3" title="3">  esperanza.X1=esperanza.X1<span class="op">+</span>i<span class="op">*</span><span class="kw">fun.marginal.X1</span>(i)</a>
-<a class="sourceLine" id="cb418-4" title="4">}</a>
-<a class="sourceLine" id="cb418-5" title="5">esperanza.X1</a></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb418-1" data-line-number="1">esperanza.X1=<span class="dv">0</span></a>
+<a class="sourceLine" id="cb418-2" data-line-number="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb418-3" data-line-number="3">  esperanza.X1=esperanza.X1<span class="op">+</span>i<span class="op">*</span><span class="kw">fun.marginal.X1</span>(i)</a>
+<a class="sourceLine" id="cb418-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb418-5" data-line-number="5">esperanza.X1</a></code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
 <p>Claramente:
 <span class="math display">\[

@@ -69,7 +69,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -687,12 +687,12 @@ p_n=P\left(\left|\overline{X}_n-\frac{1}{2}\right|&gt;\epsilon\right) \approx\fr
 <li>En primer lugar, simulamos la repetición del experimento de lanzar la moneda <span class="math inline">\(N=100\)</span> veces y lo repetimos <span class="math inline">\(k=500\)</span> ocasiones.
 Los resultados estarán en una matriz <span class="math inline">\(k\times N =500\times 100\)</span> donde cada fila de la matriz simulará una repetición del experimento de lanzar la moneda <span class="math inline">\(N=100\)</span> veces:</li>
 </ul>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb420-1" title="1">N=<span class="dv">100</span></a>
-<a class="sourceLine" id="cb420-2" title="2">k=<span class="dv">500</span></a>
-<a class="sourceLine" id="cb420-3" title="3"><span class="kw">set.seed</span>(<span class="dv">2019</span>) </a>
-<a class="sourceLine" id="cb420-4" title="4"><span class="co">## fijamos la semila de aleatoriedad</span></a>
-<a class="sourceLine" id="cb420-5" title="5"><span class="co">## por reproducibilidad</span></a>
-<a class="sourceLine" id="cb420-6" title="6">valores.experimento=<span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),N<span class="op">*</span>k,<span class="dt">replace=</span><span class="ot">TRUE</span>),k,N)</a></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb420-1" data-line-number="1">N=<span class="dv">100</span></a>
+<a class="sourceLine" id="cb420-2" data-line-number="2">k=<span class="dv">500</span></a>
+<a class="sourceLine" id="cb420-3" data-line-number="3"><span class="kw">set.seed</span>(<span class="dv">2019</span>) </a>
+<a class="sourceLine" id="cb420-4" data-line-number="4"><span class="co">## fijamos la semila de aleatoriedad</span></a>
+<a class="sourceLine" id="cb420-5" data-line-number="5"><span class="co">## por reproducibilidad</span></a>
+<a class="sourceLine" id="cb420-6" data-line-number="6">valores.experimento=<span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),N<span class="op">*</span>k,<span class="dt">replace=</span><span class="ot">TRUE</span>),k,N)</a></code></pre></div>
 <p>Los primeros resultados son:</p>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
 ## [1,]    0    1    1    1    1    1    1    0    1     1     0     0
@@ -705,12 +705,12 @@ Los resultados estarán en una matriz <span class="math inline">\(k\times N =500
 <li>En segundo lugar, dada la fila <span class="math inline">\(i\)</span>-ésima de la matriz anterior, iremos calculando <span class="math inline">\(\overline{X}_1^{(i)},\overline{X}_2^{(i)},\ldots,\overline{X}_{N=100}^{(i)}\)</span> guardando los resultados en una matriz de medias muestrales.
 Antes de nada, creamos la función que nos realizará la operación anterior dado un vector cualquiera <code>x</code>:</li>
 </ul>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb422-1" title="1">cálculo.xnbarra =<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb422-2" title="2">  <span class="kw">return</span>(<span class="kw">cumsum</span>(x)<span class="op">/</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)))</a>
-<a class="sourceLine" id="cb422-3" title="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb422-1" data-line-number="1">cálculo.xnbarra =<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb422-2" data-line-number="2">  <span class="kw">return</span>(<span class="kw">cumsum</span>(x)<span class="op">/</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)))</a>
+<a class="sourceLine" id="cb422-3" data-line-number="3">}</a></code></pre></div>
 <p>A partir de la matriz de los resultados, aplicamos la función anterior a cada fila y hallaremos una matriz con todas las <span class="math inline">\(\overline{X}_n^{(i)}\)</span>:</p>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb423-1" title="1">matriz.medias.muestrales =<span class="st"> </span><span class="kw">t</span>(<span class="kw">apply</span>(valores.experimento,</a>
-<a class="sourceLine" id="cb423-2" title="2">                                   <span class="dv">1</span>,cálculo.xnbarra))</a></code></pre></div>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb423-1" data-line-number="1">matriz.medias.muestrales =<span class="st"> </span><span class="kw">t</span>(<span class="kw">apply</span>(valores.experimento,</a>
+<a class="sourceLine" id="cb423-2" data-line-number="2">                                   <span class="dv">1</span>,cálculo.xnbarra))</a></code></pre></div>
 <p>La columna <span class="math inline">\(j\)</span>-ésima de la matriz <code>matriz.medias.muestrales</code> contiene una muestra de <span class="math inline">\(k=500\)</span> valores de la variable <span class="math inline">\(\overline{X}_j\)</span>.</p>
 <ul>
 <li>En último lugar, fijado un <span class="math inline">\(\epsilon\)</span>, para cada <span class="math inline">\(n\)</span>, aproximaremos la probabilidad <span class="math inline">\(P\left(\left|\overline{X}_n-\frac{1}{2}\right|&gt;\epsilon\right)\)</span> usando la fórmula de Laplace:
@@ -719,9 +719,9 @@ p_n=P\left(\left|\overline{X}_n-\frac{1}{2}\right|&gt;\epsilon\right) \approx\fr
 \]</span>
 La columna <span class="math inline">\(j\)</span>-ésima de la matriz <code>matriz.medias.muestrales</code> es una muestra de la variable <span class="math inline">\(\overline{X}_j\)</span>. Por tanto, para hallar la aproximación de <span class="math inline">\(p_n\)</span>, miramos cuántos valores de la columna <span class="math inline">\(j\)</span>-ésima de la matriz anterior verifican <span class="math inline">\(\left|\overline{X}_j^{l}-\frac{1}{2}\right|&gt;\epsilon\)</span>, para <span class="math inline">\(l=1,\ldots, k\)</span>:</li>
 </ul>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb424-1" title="1">epsilon=<span class="fl">0.1</span></a>
-<a class="sourceLine" id="cb424-2" title="2">probabilidades.pn=<span class="st"> </span><span class="kw">colSums</span>(<span class="kw">abs</span>(matriz.medias.muestrales<span class="fl">-0.5</span>) <span class="op">&gt;</span><span class="st"> </span>epsilon)<span class="op">/</span>k</a></code></pre></div>
-<p>Para ver los resultados, dibujamos el gráfico <span class="math inline">\(n\)</span> vs. <span class="math inline">\(p_n\)</span>:</p>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb424-1" data-line-number="1">epsilon=<span class="fl">0.1</span></a>
+<a class="sourceLine" id="cb424-2" data-line-number="2">probabilidades.pn=<span class="st"> </span><span class="kw">colSums</span>(<span class="kw">abs</span>(matriz.medias.muestrales<span class="fl">-0.5</span>) <span class="op">&gt;</span><span class="st"> </span>epsilon)<span class="op">/</span>k</a></code></pre></div>
+<p>Para ver los resultados, dibujamos el gráfico <span class="math inline">\(n\)</span> vs. <span class="math inline">\(p_n\)</span>:</p>
 <div class="center">
 <p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-161-1.png" width="672" /></p>
 </div>
@@ -853,13 +853,13 @@ También se verifica que <span class="math inline">\(\sigma_n^2 =p(1-p)\)</span>
 es convergente fijado <span class="math inline">\(\epsilon &gt;0\)</span>.</p>
 <p>Recordemos que en la variable <code>probabilidades.pn</code> calculábamos las probabilidades <span class="math inline">\(P(|\overline{X}_n-p|&gt;\epsilon)\)</span> para un <span class="math inline">\(\epsilon =0.1\)</span>.</p>
 <p>Comprobar que la serie anterior es convergente es equivalente a comprobar que las sumas parciales convergen:</p>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb425-1" title="1"><span class="kw">cumsum</span>(probabilidades.pn)</a></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb425-1" data-line-number="1"><span class="kw">cumsum</span>(probabilidades.pn)</a></code></pre></div>
 <p>El problema es que la <code>n</code> y la <code>N</code> escogidas son demasiado pequeñas. Para realizar el experimento actual tenéis que considerar <code>n=1000</code> y <code>N=5000</code>. Id con cuidado que el programa os tardará un rato.</p>
 <p>El gráfico de las sumas parciales se muestra a continuación:</p>
 <div class="center">
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb426-1" title="1">N=<span class="dv">1000</span></a>
-<a class="sourceLine" id="cb426-2" title="2"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span>N,<span class="kw">cumsum</span>(probabilidades.pn),<span class="dt">xlab=</span><span class="kw">expression</span>(n),</a>
-<a class="sourceLine" id="cb426-3" title="3">     <span class="dt">ylab=</span><span class="st">&quot;Sumas parciales&quot;</span>,<span class="dt">col=</span><span class="st">&#39;red&#39;</span>, <span class="dt">type=</span><span class="st">&#39;l&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb426-1" data-line-number="1">N=<span class="dv">1000</span></a>
+<a class="sourceLine" id="cb426-2" data-line-number="2"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span>N,<span class="kw">cumsum</span>(probabilidades.pn),<span class="dt">xlab=</span><span class="kw">expression</span>(n),</a>
+<a class="sourceLine" id="cb426-3" data-line-number="3">     <span class="dt">ylab=</span><span class="st">&quot;Sumas parciales&quot;</span>,<span class="dt">col=</span><span class="st">&#39;red&#39;</span>, <span class="dt">type=</span><span class="st">&#39;l&#39;</span>)</a></code></pre></div>
 <p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-164-1.png" width="672" /></p>
 </div>
 <p>Como se puede observar, la serie parece que converge.</p>
@@ -1067,9 +1067,9 @@ P(10\leq X\leq 20)
 \]</span>
 donde <span class="math inline">\(Z=N(0,1)\)</span>.</p>
 <p>Comparemos los valores aproximados anteriores con los valores “exactos” proporcionados por <code>R</code>:</p>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb427-1" title="1"><span class="kw">pbinom</span>(<span class="dv">14</span>,<span class="dv">50</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb427-1" data-line-number="1"><span class="kw">pbinom</span>(<span class="dv">14</span>,<span class="dv">50</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 0.2612386</code></pre>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb429-1" title="1"><span class="kw">pbinom</span>(<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)<span class="op">-</span><span class="kw">pbinom</span>(<span class="dv">9</span>,<span class="dv">50</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb429-1" data-line-number="1"><span class="kw">pbinom</span>(<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)<span class="op">-</span><span class="kw">pbinom</span>(<span class="dv">9</span>,<span class="dv">50</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 0.8613685</code></pre>
 <p>Tenemos errores de 0.04938 y 0.04277, respectivamente.</p>
 <p>Aunque <span class="math inline">\(n\)</span> no es pequeño, <span class="math inline">\(n=50\)</span>, los errores anteriores no son demasiado pequeños.</p>
@@ -1113,22 +1113,22 @@ obteniendo unos errores de sólo 0.00339 y 0.00222, respectivamente.</p>
 \overline{X}_n=\frac{1}{n}B\left(n=100,p=\frac{1}{2}\right)\approx N\left(\mu = p=\frac{1}{2}=0.5,\sigma=\sqrt{\frac{\frac{1}{2}\cdot \frac{1}{2}}{100}}=0.05\right).
 \]</span></p>
 <p>Para ver dicha aproximación, en primer lugar vamos a generar una muestra de <span class="math inline">\(N=1000\)</span> valores de una binomial de parámetros <span class="math inline">\(n=100\)</span> y <span class="math inline">\(p=\frac{1}{2}\)</span> y dividiendo por <span class="math inline">\(n=100\)</span>, tenemos una muestra de <span class="math inline">\(\overline{X}_n\)</span>:</p>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb431-1" title="1">n=<span class="dv">100</span></a>
-<a class="sourceLine" id="cb431-2" title="2">p=<span class="dv">1</span><span class="op">/</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb431-3" title="3">sigma=p<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p)</a>
-<a class="sourceLine" id="cb431-4" title="4"><span class="kw">set.seed</span>(<span class="dv">2019</span>)</a>
-<a class="sourceLine" id="cb431-5" title="5">muestra.binomial =<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">1000</span>,n,p)</a>
-<a class="sourceLine" id="cb431-6" title="6">muestra.xnbarra =<span class="st"> </span>muestra.binomial<span class="op">/</span>n</a></code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb431-1" data-line-number="1">n=<span class="dv">100</span></a>
+<a class="sourceLine" id="cb431-2" data-line-number="2">p=<span class="dv">1</span><span class="op">/</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb431-3" data-line-number="3">sigma=p<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p)</a>
+<a class="sourceLine" id="cb431-4" data-line-number="4"><span class="kw">set.seed</span>(<span class="dv">2019</span>)</a>
+<a class="sourceLine" id="cb431-5" data-line-number="5">muestra.binomial =<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">1000</span>,n,p)</a>
+<a class="sourceLine" id="cb431-6" data-line-number="6">muestra.xnbarra =<span class="st"> </span>muestra.binomial<span class="op">/</span>n</a></code></pre></div>
 <p>Para ver si la aproximación funciona, dibujaremos en una misma gráfica el histograma de frecuencias relativas de la muestra anterior y la curva de la función de densidad de la distribución normal de parámetros <span class="math inline">\(\mu =\frac{1}{2}\)</span> y <span class="math inline">\(\sigma = 0.05\)</span>:</p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb432-1" title="1"><span class="kw">hist</span>(muestra.xnbarra,<span class="dt">freq=</span><span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb432-2" title="2">     <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dt">from=</span><span class="kw">min</span>(muestra.xnbarra)<span class="op">-</span><span class="fl">0.1</span>,</a>
-<a class="sourceLine" id="cb432-3" title="3">                <span class="dt">to=</span><span class="kw">max</span>(muestra.xnbarra)<span class="op">+</span><span class="fl">0.1</span>,<span class="dt">by=</span><span class="fl">0.01</span>),</a>
-<a class="sourceLine" id="cb432-4" title="4">     <span class="dt">main=</span><span class="st">&quot;Histograma de la distribución de las medias muestrales&quot;</span>,</a>
-<a class="sourceLine" id="cb432-5" title="5">     <span class="dt">xlab=</span><span class="st">&quot;valores variable&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;frecuencias relativas&quot;</span>)</a>
-<a class="sourceLine" id="cb432-6" title="6">mu=p</a>
-<a class="sourceLine" id="cb432-7" title="7">sigma.xnbarra=<span class="kw">sqrt</span>(p<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p)<span class="op">/</span>n)</a>
-<a class="sourceLine" id="cb432-8" title="8">x=<span class="kw">seq</span>(<span class="dt">from=</span><span class="kw">min</span>(muestra.xnbarra),<span class="dt">to=</span><span class="kw">max</span>(muestra.xnbarra),<span class="dt">by=</span><span class="fl">0.01</span>)</a>
-<a class="sourceLine" id="cb432-9" title="9"><span class="kw">lines</span>(x,<span class="kw">dnorm</span>(x,mu,sigma.xnbarra),<span class="dt">col=</span><span class="st">&#39;red&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb432-1" data-line-number="1"><span class="kw">hist</span>(muestra.xnbarra,<span class="dt">freq=</span><span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb432-2" data-line-number="2">     <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dt">from=</span><span class="kw">min</span>(muestra.xnbarra)<span class="op">-</span><span class="fl">0.1</span>,</a>
+<a class="sourceLine" id="cb432-3" data-line-number="3">                <span class="dt">to=</span><span class="kw">max</span>(muestra.xnbarra)<span class="op">+</span><span class="fl">0.1</span>,<span class="dt">by=</span><span class="fl">0.01</span>),</a>
+<a class="sourceLine" id="cb432-4" data-line-number="4">     <span class="dt">main=</span><span class="st">&quot;Histograma de la distribución de las medias muestrales&quot;</span>,</a>
+<a class="sourceLine" id="cb432-5" data-line-number="5">     <span class="dt">xlab=</span><span class="st">&quot;valores variable&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;frecuencias relativas&quot;</span>)</a>
+<a class="sourceLine" id="cb432-6" data-line-number="6">mu=p</a>
+<a class="sourceLine" id="cb432-7" data-line-number="7">sigma.xnbarra=<span class="kw">sqrt</span>(p<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p)<span class="op">/</span>n)</a>
+<a class="sourceLine" id="cb432-8" data-line-number="8">x=<span class="kw">seq</span>(<span class="dt">from=</span><span class="kw">min</span>(muestra.xnbarra),<span class="dt">to=</span><span class="kw">max</span>(muestra.xnbarra),<span class="dt">by=</span><span class="fl">0.01</span>)</a>
+<a class="sourceLine" id="cb432-9" data-line-number="9"><span class="kw">lines</span>(x,<span class="kw">dnorm</span>(x,mu,sigma.xnbarra),<span class="dt">col=</span><span class="st">&#39;red&#39;</span>)</a></code></pre></div>
 <p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-167-1.png" width="672" /></p>
 <p>Observamos que la aproximación es bastante buena.</p>
 </div>

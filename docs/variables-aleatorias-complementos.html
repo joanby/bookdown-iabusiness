@@ -69,7 +69,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -837,11 +837,11 @@ y=1-\mathrm{e}^{-\lambda x},\ \Leftrightarrow 1-y=\mathrm{e}^{-\lambda x},\ \Lef
 \]</span>
 Por tanto, <span class="math inline">\(F_X^{-1}(y)=-\frac{1}{\lambda}\ln(1-y)\)</span>.</p>
 <p>Generemos una muestra con <code>R</code> de 25 valores de una variable exponencial de parámetro <span class="math inline">\(\lambda=2\)</span> usando el método anterior:</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" title="1">n=<span class="dv">25</span></a>
-<a class="sourceLine" id="cb358-2" title="2">lambda=<span class="dv">2</span></a>
-<a class="sourceLine" id="cb358-3" title="3">muestra.y =<span class="st"> </span><span class="kw">runif</span>(n)</a>
-<a class="sourceLine" id="cb358-4" title="4">muestra.x =<span class="st"> </span><span class="op">-</span>(<span class="dv">1</span><span class="op">/</span>lambda)<span class="op">*</span><span class="kw">log</span>(<span class="dv">1</span><span class="op">-</span>muestra.y)</a>
-<a class="sourceLine" id="cb358-5" title="5">muestra.x</a></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" data-line-number="1">n=<span class="dv">25</span></a>
+<a class="sourceLine" id="cb358-2" data-line-number="2">lambda=<span class="dv">2</span></a>
+<a class="sourceLine" id="cb358-3" data-line-number="3">muestra.y =<span class="st"> </span><span class="kw">runif</span>(n)</a>
+<a class="sourceLine" id="cb358-4" data-line-number="4">muestra.x =<span class="st"> </span><span class="op">-</span>(<span class="dv">1</span><span class="op">/</span>lambda)<span class="op">*</span><span class="kw">log</span>(<span class="dv">1</span><span class="op">-</span>muestra.y)</a>
+<a class="sourceLine" id="cb358-5" data-line-number="5">muestra.x</a></code></pre></div>
 <pre><code>##  [1] 0.35877893 0.25280668 0.11355513 0.71885498 1.19013394 0.49444154
 ##  [7] 0.23443983 0.07049329 1.48215515 0.09206527 0.14783308 2.35604428
 ## [13] 0.41728297 0.43470135 0.02910931 0.36337987 0.08532398 0.27981457
@@ -850,13 +850,13 @@ Por tanto, <span class="math inline">\(F_X^{-1}(y)=-\frac{1}{\lambda}\ln(1-y)\)<
 <p>Vamos a testear si nuestro método funciona.</p>
 <p>Para ello generaremos una muestra de 500 valores usando el método de transformación y dibujaremos su <strong>histograma de frecuencias relativas</strong>.</p>
 <p>Seguidamente dibujaremos la <strong>función de densidad de la variable exponencial de parámetro <span class="math inline">\(\lambda\)</span></strong> y compararemos los resultados:</p>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" title="1">n=<span class="dv">500</span></a>
-<a class="sourceLine" id="cb360-2" title="2">lambda=<span class="dv">2</span></a>
-<a class="sourceLine" id="cb360-3" title="3">muestra.y =<span class="st"> </span><span class="kw">runif</span>(n)</a>
-<a class="sourceLine" id="cb360-4" title="4">muestra.x =<span class="st"> </span><span class="op">-</span>(<span class="dv">1</span><span class="op">/</span>lambda)<span class="op">*</span><span class="kw">log</span>(<span class="dv">1</span><span class="op">-</span>muestra.y)</a>
-<a class="sourceLine" id="cb360-5" title="5"><span class="kw">hist</span>(muestra.x,<span class="dt">freq=</span><span class="ot">FALSE</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de la muestra&quot;</span>)</a>
-<a class="sourceLine" id="cb360-6" title="6">x2=<span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="fl">2.5</span>,<span class="dt">by=</span><span class="fl">0.01</span>)</a>
-<a class="sourceLine" id="cb360-7" title="7"><span class="kw">lines</span>(x2,<span class="kw">dexp</span>(x2,lambda),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" data-line-number="1">n=<span class="dv">500</span></a>
+<a class="sourceLine" id="cb360-2" data-line-number="2">lambda=<span class="dv">2</span></a>
+<a class="sourceLine" id="cb360-3" data-line-number="3">muestra.y =<span class="st"> </span><span class="kw">runif</span>(n)</a>
+<a class="sourceLine" id="cb360-4" data-line-number="4">muestra.x =<span class="st"> </span><span class="op">-</span>(<span class="dv">1</span><span class="op">/</span>lambda)<span class="op">*</span><span class="kw">log</span>(<span class="dv">1</span><span class="op">-</span>muestra.y)</a>
+<a class="sourceLine" id="cb360-5" data-line-number="5"><span class="kw">hist</span>(muestra.x,<span class="dt">freq=</span><span class="ot">FALSE</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de la muestra&quot;</span>)</a>
+<a class="sourceLine" id="cb360-6" data-line-number="6">x2=<span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="fl">2.5</span>,<span class="dt">by=</span><span class="fl">0.01</span>)</a>
+<a class="sourceLine" id="cb360-7" data-line-number="7"><span class="kw">lines</span>(x2,<span class="kw">dexp</span>(x2,lambda),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</a></code></pre></div>
 <div class="center">
 <p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
 </div>
@@ -891,31 +891,31 @@ x, &amp; \mbox{ si }0\leq x\leq 1,\\
 \end{cases}
 \]</span></p>
 <p>Vamos a generar una muestra de <span class="math inline">\(25\)</span> valores usando el <strong>método del rechazo</strong>:</p>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb361-1" title="1">a=<span class="dv">0</span>; b=<span class="dv">2</span>; c=<span class="dv">0</span>; d=<span class="dv">1</span>; n=<span class="dv">25</span>; i=<span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb361-2" title="2">f =<span class="st"> </span><span class="cf">function</span>(x){<span class="kw">ifelse</span>(x<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x<span class="op">&lt;=</span><span class="dv">1</span>,x,<span class="kw">ifelse</span>(x<span class="op">&gt;=</span><span class="dv">1</span><span class="op">&amp;</span>x<span class="op">&lt;=</span><span class="dv">2</span>,<span class="dv">2</span><span class="op">-</span>x,<span class="dv">0</span>))}</a>
-<a class="sourceLine" id="cb361-3" title="3">muestra=<span class="kw">c</span>()</a>
-<a class="sourceLine" id="cb361-4" title="4"><span class="cf">while</span>(i <span class="op">&lt;=</span>n){</a>
-<a class="sourceLine" id="cb361-5" title="5">  x=<span class="kw">runif</span>(<span class="dv">1</span>,a,b)</a>
-<a class="sourceLine" id="cb361-6" title="6">  y=<span class="kw">runif</span>(<span class="dv">1</span>,c,d)</a>
-<a class="sourceLine" id="cb361-7" title="7">  <span class="cf">if</span>(y <span class="op">&lt;=</span><span class="st"> </span><span class="kw">f</span>(x)){muestra=<span class="kw">c</span>(muestra,x); i=i<span class="op">+</span><span class="dv">1</span>}</a>
-<a class="sourceLine" id="cb361-8" title="8">}</a>
-<a class="sourceLine" id="cb361-9" title="9">muestra</a></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb361-1" data-line-number="1">a=<span class="dv">0</span>; b=<span class="dv">2</span>; c=<span class="dv">0</span>; d=<span class="dv">1</span>; n=<span class="dv">25</span>; i=<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb361-2" data-line-number="2">f =<span class="st"> </span><span class="cf">function</span>(x){<span class="kw">ifelse</span>(x<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x<span class="op">&lt;=</span><span class="dv">1</span>,x,<span class="kw">ifelse</span>(x<span class="op">&gt;=</span><span class="dv">1</span><span class="op">&amp;</span>x<span class="op">&lt;=</span><span class="dv">2</span>,<span class="dv">2</span><span class="op">-</span>x,<span class="dv">0</span>))}</a>
+<a class="sourceLine" id="cb361-3" data-line-number="3">muestra=<span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb361-4" data-line-number="4"><span class="cf">while</span>(i <span class="op">&lt;=</span>n){</a>
+<a class="sourceLine" id="cb361-5" data-line-number="5">  x=<span class="kw">runif</span>(<span class="dv">1</span>,a,b)</a>
+<a class="sourceLine" id="cb361-6" data-line-number="6">  y=<span class="kw">runif</span>(<span class="dv">1</span>,c,d)</a>
+<a class="sourceLine" id="cb361-7" data-line-number="7">  <span class="cf">if</span>(y <span class="op">&lt;=</span><span class="st"> </span><span class="kw">f</span>(x)){muestra=<span class="kw">c</span>(muestra,x); i=i<span class="op">+</span><span class="dv">1</span>}</a>
+<a class="sourceLine" id="cb361-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb361-9" data-line-number="9">muestra</a></code></pre></div>
 <pre><code>##  [1] 0.8934245 1.0241151 0.7485943 1.1318743 1.1174486 0.8956145 1.6270601
 ##  [8] 0.6737312 0.9584882 0.5762514 0.7390811 0.4276671 1.5210227 0.8506008
 ## [15] 0.4126257 0.9897587 1.2166050 1.6098125 0.8727734 0.8756381 1.4853939
 ## [22] 1.1539542 1.2353779 0.5157756 1.2873756</code></pre>
 <p>Como hicimos con el ejemplo del <strong>método de transformación</strong>, vamos a generar una muestra de 500 valores de la variable <span class="math inline">\(X\)</span>, vamos a dibujar el <strong>histograma de frecuencias relativas</strong> junto con la función de densidad para ver si ésta se aproxima a dicho histograma:</p>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb363-1" title="1">a=<span class="dv">0</span>; b=<span class="dv">2</span>; c=<span class="dv">0</span>; d=<span class="dv">1</span>; n=<span class="dv">500</span>; i=<span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb363-2" title="2">f =<span class="st"> </span><span class="cf">function</span>(x){<span class="kw">ifelse</span>(x<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x<span class="op">&lt;=</span><span class="dv">1</span>,x,<span class="kw">ifelse</span>(x<span class="op">&gt;=</span><span class="dv">1</span><span class="op">&amp;</span>x<span class="op">&lt;=</span><span class="dv">2</span>,<span class="dv">2</span><span class="op">-</span>x,<span class="dv">0</span>))}</a>
-<a class="sourceLine" id="cb363-3" title="3">muestra=<span class="kw">c</span>()</a>
-<a class="sourceLine" id="cb363-4" title="4"><span class="cf">while</span>(i <span class="op">&lt;=</span>n){</a>
-<a class="sourceLine" id="cb363-5" title="5">  x=<span class="kw">runif</span>(<span class="dv">1</span>,a,b)</a>
-<a class="sourceLine" id="cb363-6" title="6">  y=<span class="kw">runif</span>(<span class="dv">1</span>,c,d)</a>
-<a class="sourceLine" id="cb363-7" title="7">  <span class="cf">if</span>(y <span class="op">&lt;=</span><span class="st"> </span><span class="kw">f</span>(x)){muestra=<span class="kw">c</span>(muestra,x); i=i<span class="op">+</span><span class="dv">1</span>}</a>
-<a class="sourceLine" id="cb363-8" title="8">}</a>
-<a class="sourceLine" id="cb363-9" title="9"><span class="kw">hist</span>(muestra,<span class="dt">freq=</span><span class="ot">FALSE</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de la muestra&quot;</span>)</a>
-<a class="sourceLine" id="cb363-10" title="10">x2=<span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="dv">2</span>,<span class="dt">by=</span><span class="fl">0.01</span>)</a>
-<a class="sourceLine" id="cb363-11" title="11"><span class="kw">lines</span>(x2,<span class="kw">f</span>(x2),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb363-1" data-line-number="1">a=<span class="dv">0</span>; b=<span class="dv">2</span>; c=<span class="dv">0</span>; d=<span class="dv">1</span>; n=<span class="dv">500</span>; i=<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb363-2" data-line-number="2">f =<span class="st"> </span><span class="cf">function</span>(x){<span class="kw">ifelse</span>(x<span class="op">&gt;=</span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>x<span class="op">&lt;=</span><span class="dv">1</span>,x,<span class="kw">ifelse</span>(x<span class="op">&gt;=</span><span class="dv">1</span><span class="op">&amp;</span>x<span class="op">&lt;=</span><span class="dv">2</span>,<span class="dv">2</span><span class="op">-</span>x,<span class="dv">0</span>))}</a>
+<a class="sourceLine" id="cb363-3" data-line-number="3">muestra=<span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb363-4" data-line-number="4"><span class="cf">while</span>(i <span class="op">&lt;=</span>n){</a>
+<a class="sourceLine" id="cb363-5" data-line-number="5">  x=<span class="kw">runif</span>(<span class="dv">1</span>,a,b)</a>
+<a class="sourceLine" id="cb363-6" data-line-number="6">  y=<span class="kw">runif</span>(<span class="dv">1</span>,c,d)</a>
+<a class="sourceLine" id="cb363-7" data-line-number="7">  <span class="cf">if</span>(y <span class="op">&lt;=</span><span class="st"> </span><span class="kw">f</span>(x)){muestra=<span class="kw">c</span>(muestra,x); i=i<span class="op">+</span><span class="dv">1</span>}</a>
+<a class="sourceLine" id="cb363-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb363-9" data-line-number="9"><span class="kw">hist</span>(muestra,<span class="dt">freq=</span><span class="ot">FALSE</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de la muestra&quot;</span>)</a>
+<a class="sourceLine" id="cb363-10" data-line-number="10">x2=<span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="dv">2</span>,<span class="dt">by=</span><span class="fl">0.01</span>)</a>
+<a class="sourceLine" id="cb363-11" data-line-number="11"><span class="kw">lines</span>(x2,<span class="kw">f</span>(x2),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</a></code></pre></div>
 <div class="center">
 <p><img src="curso-probabilidad-udemy_files/figure-html/unnamed-chunk-114-1.png" width="672" /></p>
 </div>

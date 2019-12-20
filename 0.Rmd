@@ -6,23 +6,19 @@ Para aprender cálculo de probabilidades son necesarios conocimientos de:
 
 1. Cálculo: Derivadas, integrales, límites, sumas de series...
 2. Geometría básica y álgebra lineal : rectas, hiperplanos, volúmenes... Matrices, valores propios...
-3. Teoría de conjuntos y combinatoria.....
+3. Teoría de conjuntos y combinatoria.
 
-Por experiencia sabemos que  la mayoría de estudiantes tienen más conocimientos de  cálculo, geometría y matrices.
-
-Pero muchos  tienen  una falta de conocimientos  en teoría básica de conjuntos y combinatoria (matemática discreta).
+Por experiencia sabemos que  la mayoría de estudiantes tienen más conocimientos de  cálculo, geometría y matrices. Sin embargo, muchos tienen  una falta de conocimientos  en teoría básica de conjuntos y combinatoria (matemática discreta).
 
 
 ##  Teoría de conjuntos
 
 <l class="definition"> **Definición de conjunto** </l>
 
-La definición de conjunto es una [idea o noción primitiva](https://es.wikipedia.org/wiki/Concepto_primitivo). Es decir es una idea básica del pensamiento humano: un conjunto es una colección de objetos: números, imágenes... cualquier cosa, jugadores de fútbol, palabras, colores ....
+La definición de conjunto es una [idea o noción primitiva](https://es.wikipedia.org/wiki/Concepto_primitivo). Es decir, es una idea básica del pensamiento humano: un conjunto es una colección de objetos (números, imágenes, jugadores de fútbol, palabras, colores ...).
 
 
-La teoría de conjuntos básicas es simple y natural y es la que necesitamos para este curso.
-
-La teoría de conjuntos matemática es más complejas y presenta varias paradojas como la [paradoja de Russell](https://es.wikipedia.org/wiki/Paradoja_de_Russell).
+La teoría de conjuntos básica es simple y natural y es la que necesitamos para este curso. Por otro lado, la teoría de conjuntos matemática es más compleja y presenta varias paradojas como la [paradoja de Russell](https://es.wikipedia.org/wiki/Paradoja_de_Russell).
 
 
 La idea o noción práctica de conjunto es la de una  colección de objetos de un cierto tipo.
@@ -38,31 +34,31 @@ Estas colecciones o  conjuntos se pueden definir por:
 
 Los  conjuntos suelen tener un conjunto madre como por ejemplo 
 
-* \(\mathbb{N}=\{0,1,2,\ldots\}\)
+* $\mathbb{N}=\{0,1,2,\ldots\}$
 * $\mathbb{Z}=\{\ldots,-2,-1,0,1,2,\ldots\}$
-* $\mathbb{Q}=\left\{\frac{p}{q}\quad\Big|\quad p,q\in \mathbb{Z} \mbox{ y } q \not= 0.\right\}$
-* $\mathbb{R}=\{\mbox{Todos los puntos de una recta.}\}$
-* $\mathbb{C}= \left\{a+b\cdot i\quad \big|\quad a,b\in \mathbb{R}\right\}.\mbox{ Los números complejos}\quad a+b\cdot i.$
-* Alfabeto = $\{a,b,c,\ldots, A,B,C,\ldots\}.$
-* Palabras = $\{paz, guerra, amor, probabilidad,\ldots\}.$
+* $\mathbb{Q}=\left\{\frac{p}{q}\ \Big|\ p,q\in \mathbb{Z} \mbox{ y } q \not= 0\right\}$
+* $\mathbb{R}=\{\mbox{Todos los puntos de una recta}\}$
+* $\mathbb{C}= \left\{a+b\cdot i\  \big|\  a,b\in \mathbb{R}\right\}$. Los números complejos  $a+b\cdot i$
+* Alfabeto = $\{a,b,c,\ldots, A,B,C,\ldots\}$
+* Palabras = $\{$paz, guerra, amor, probabilidad,\ldots$\}$
 
-Recordemos que $i$ es la unidad imaginaria que cumple que $\sqrt{i}=-1$.
+Recordemos que $i$ es la unidad imaginaria que cumple que $\sqrt{-1}=i$.
 
 
 ### Características y propiedades básicas de los conjuntos
 
-* Si a cada objeto  $x$ de  $\Omega$ le llamaremos **elemento del conjunto** $\Omega$ y diremos que $x$ pertenece a $\Omega$.  Lo denotaremos por $x\in \Omega$.
-* Un **conjunto de un elemento**, por ejemplo $\{1\}$ recibe el nombre de **conjunto elemental** (o **singleton** del inglés).
-* Sea $A$ otro conjunto diremos que $A$ **es igual a** $B$  si todos los elementos $A$ están en $B$ y todos los elementos de $B$ están en $A$. Por ejemplo $A=\{1,2,3\}$ es igual a $B=\{3,1,2\}$.
-* Si $A$ es otro conjunto tal que  si $x\in A$ entonces $x\in B$ diremos que $A$ es un subconjunto de o que está contenido en $B$. Lo denotaremos por $A\subseteq B.$
+* A cada objeto  $x$ de  $\Omega$ lo llamaremos **elemento del conjunto** $\Omega$ y diremos que $x$ pertenece a $\Omega$.  Lo denotaremos por $x\in \Omega$.
+* Un **conjunto de un elemento**, por ejemplo $\{1\}$, recibe el nombre de **conjunto elemental** (o **singleton** del inglés).
+* Sea $A$ otro conjunto diremos que $A$ **es igual a** $B$  si todos los elementos $A$ están en $B$ y todos los elementos de $B$ están en $A$. Por ejemplo, $A=\{1,2,3\}$ es igual a $B=\{3,1,2\}$.
+* Si $A$ es otro conjunto tal que  si $x\in A$ entonces $x\in B$, diremos que $A$ es un subconjunto de o que está contenido en $B$. Lo denotaremos por $A\subseteq B.$
 * El conjunto  que no tiene elementos se denomina conjunto vacío y se denota por el símbolo $\emptyset$.
-* Dado $A$ un conjunto cualquiera  obviamente $\emptyset\subseteq A.$
+* Dado $A$ un conjunto cualquiera,  obviamente $\emptyset\subseteq A.$
 
 Tomemos como conjunto base $\Omega=\{1,2,3\}$
 
 * $\Omega$ es un conjunto de cardinal 3, se denota por $\#(\Omega)=3$  o por $|\Omega|=3$ 
 *  El conjunto $\Omega$ tiene  $2^3=8$ subconjuntos.
-   + El vacio $\emptyset$ y los elementales $\{1\},\{3\},\{3\}$.
+   + El vacio $\emptyset$ y los elementales $\{1\},\{2\},\{3\}$.
    + Los subconjuntos de dos elementos: $\{1,2\},\{1,3\},\{2,3\}$.
    + El conjunto total de tres elementos $\Omega=\{1,2,3\}.$
 
@@ -84,7 +80,7 @@ $$\mathcal{P}(\{1,2,3\})=\{\emptyset,\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\
 Dado un subconjunto $A$ de  $\Omega$ podemos construir la función característica de $A$ 
 $$\chi_A:\Omega \to \{0,1\}$$
 
-dado un $\omega\in \Omega$ 
+donde dado un $\omega\in \Omega$ 
 
 $$
 \chi_A(\omega)=
@@ -104,7 +100,7 @@ $$
 
 Sea $\Omega$ un conjunto y $A$ y $B$ dos subconjuntos de $\Omega$.
 
-El conjunto **intersección** de $A$ $B$ es el formado por todos los elementos que perteneces a $A$ **y** $B$, se denota por $A\cap B$.
+El conjunto **intersección** de $A$ y $B$ es el formado por todos los elementos que pertenecen a $A$ **y** $B$, se denota por $A\cap B$.
 
 Más formalmente
 
@@ -114,7 +110,7 @@ $$
 
 **Unión.**
 
-El conjunto **unión** de $A$ y $B$ es el formado por todos los elementos que perteneces a $A$ **o** que pertenecen a $B$, se denota por $A\cup B$.
+El conjunto **unión** de $A$ y $B$ es el formado por todos los elementos que pertenecen a $A$ **o** que pertenecen a $B$, se denota por $A\cup B$.
 
 
 Más formalmente
@@ -125,7 +121,7 @@ $$
 
 **Diferencia.**
 
-El conjunto **diferencia** de $A$ y $B$ es el formado por todos los elementos que perteneces a $A$ **y no** pertenecen a $B$, se denota por $A-B=A-(A\cap B)$.
+El conjunto **diferencia** de $A$ y $B$ es el formado por todos los elementos que pertenecen a $A$ **y no** pertenecen a $B$, se denota por $A-B=A-(A\cap B)$.
 
 Más formalmente
 
@@ -136,7 +132,7 @@ $$
 
 **Complementario**
 
-El **complementario** de un  subconjunto  $A$ de $\Omega$ es $\Omega-A$ y se denota por $A^c$ o $\overline{A}$.
+El **complementario** de un  subconjunto  $A$ de $\Omega$ es $\Omega-A$ y se denota por $A^c$ o $\bar{A}$.
 
 Más formalmente
 

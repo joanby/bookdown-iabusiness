@@ -148,10 +148,10 @@ Sea $\Omega$ un conjunto y $A$, $B$, $C$ tres subconjuntos de $\Omega$
 * Se dice que dos conjuntos $A$ y $B$ **son disjuntos** si $A\cap B=\emptyset.$
 * $\Omega^c=\emptyset$.
 * $\emptyset^c=\Omega$.
-* $A\cup B=B \cup A$ , $A\cap B=B\cap A$ conmutativas.
-* $(A\cup B) \cup C = A \cup( B \cup C)$ , $(A\cap B) \cap C = A \cap( B \cap C)$ asociativas.
-* $A\cup (B\cap C)=(A\cup B) \cap (A\cup C)$ , $A\cap (B\cup C)=(A\cap B) \cup (A\cap C)$ distributivas.
-* $\left(A^c\right)^c=A$ doble complementario.
+* $A\cup B=B \cup A$ , $A\cap B=B\cap A$ (conmutativas).
+* $(A\cup B) \cup C = A \cup( B \cup C)$ , $(A\cap B) \cap C = A \cap( B \cap C)$ (asociativas).
+* $A\cup (B\cap C)=(A\cup B) \cap (A\cup C)$ , $A\cap (B\cup C)=(A\cap B) \cup (A\cap C)$ (distributivas).
+* $\left(A^c\right)^c=A$ (doble complementario).
 * $\left(A\cup B\right)^c=A^c \cap B^c$, $\left(A\cap B\right)^c=A^c \cup B^c$ [leyes de De Morgan](https://es.wikipedia.org/wiki/Leyes_de_De_Morgan).
 
 

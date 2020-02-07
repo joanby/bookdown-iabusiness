@@ -217,7 +217,7 @@ Si $a\in \Omega$ es un suceso elemental cometeremos el abuso de notación de pon
 
 
 <div class="example">
-**Ejemplo: grupos sangíneos**
+**Ejemplo: grupos sanguíneos**
 
 En la página de la [Fundación Banco de Sangre y Tejidos de las Islas Baleares](http://www.donasang.org/que-es-la-sang/es_frequencies-dels-diferents-grups.html) podemos encontrar información sobre los porcentajes de tipos de sangre de los donantes de las Islas Baleares: 
 
@@ -687,13 +687,6 @@ Así  el resultado del clasificador o del diagnóstico  puede ser:
 
 * **un número real**, en cuyo caso debe clasificador entre cada clase debe determinarse por un valor umbral  (*threshold*) por ejemplo para determinar si una persona está estresado podemos dar un *scores* entre 0 y 1 (1 máximo estrés 0 estrés nulo),
 * **un resultado discreto** que indica directamente una de las clases (esto es necesario si es un algoritmo que debe decidir  qué hacer con el objeto.
-
-
-<!--<div class="center">
-[![SiliconValley]](https://www.youtube.com/watch?v=pqTntG1RXSY "SiliconValley")
-</div>-->
-
-
 
 <l class="definition"> **Positivos y Negativos en Clasificación**</l>
 Consideremos un problema de predicción de clases binario, en la que los resultados se etiquetan positivos (P) o negativos (N). Hay cuatro posibles resultados a partir de un clasificador binario como el propuesto. 

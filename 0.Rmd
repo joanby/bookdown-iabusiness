@@ -1,7 +1,5 @@
 # Pre requisitos: Teoría de conjuntos y combinatoria{-}
 
-
-
 Para aprender cálculo de probabilidades son necesarios conocimientos de:
 
 1. Cálculo: Derivadas, integrales, límites, sumas de series...
@@ -15,7 +13,7 @@ Por experiencia sabemos que  la mayoría de estudiantes tienen más conocimiento
 
 <l class="definition"> **Definición de conjunto** </l>
 
-La definición de conjunto es una [idea o noción primitiva](https://es.wikipedia.org/wiki/Concepto_primitivo). Es decir, es una idea básica del pensamiento humano: un conjunto es una colección de objetos (números, imágenes, jugadores de fútbol, palabras, colores ...).
+La definición de conjunto es una [idea o noción primitiva](https://es.wikipedia.org/wiki/Concepto_primitivo). Es decir, es una idea básica del pensamiento humano: un conjunto es una colección de objetos (números, imágenes, jugadores de fútbol, palabras, colores...).
 
 
 La teoría de conjuntos básica es simple y natural y es la que necesitamos para este curso. Por otro lado, la teoría de conjuntos matemática es más compleja y presenta varias paradojas como la [paradoja de Russell](https://es.wikipedia.org/wiki/Paradoja_de_Russell).
@@ -42,16 +40,16 @@ Los  conjuntos suelen tener un conjunto madre como por ejemplo
 * Alfabeto = $\{a,b,c,\ldots, A,B,C,\ldots\}$
 * Palabras = $\{$paz, guerra, amor, probabilidad,\ldots$\}$
 
-Recordemos que $i$ es la unidad imaginaria que cumple que $\sqrt{-1}=i$.
+Recordemos que $i$ es la unidad imaginaria que cumple que $i = \sqrt{-1}$.
 
 
 ### Características y propiedades básicas de los conjuntos
 
 * A cada objeto  $x$ de  $\Omega$ lo llamaremos **elemento del conjunto** $\Omega$ y diremos que $x$ pertenece a $\Omega$.  Lo denotaremos por $x\in \Omega$.
 * Un **conjunto de un elemento**, por ejemplo $\{1\}$, recibe el nombre de **conjunto elemental** (o **singleton** del inglés).
-* Sea $A$ otro conjunto diremos que $A$ **es igual a** $B$  si todos los elementos $A$ están en $B$ y todos los elementos de $B$ están en $A$. Por ejemplo, $A=\{1,2,3\}$ es igual a $B=\{3,1,2\}$.
-* Si $A$ es otro conjunto tal que  si $x\in A$ entonces $x\in B$, diremos que $A$ es un subconjunto de o que está contenido en $B$. Lo denotaremos por $A\subseteq B.$
-* El conjunto  que no tiene elementos se denomina conjunto vacío y se denota por el símbolo $\emptyset$.
+* Sea $A$ otro conjunto, diremos que $A$ **es igual a** $B$  si todos los elementos $A$ están en $B$ y todos los elementos de $B$ están en $A$. Por ejemplo, $A=\{1,2,3\}$ es igual a $B=\{3,1,2\}$.
+* Si $A$ es otro conjunto tal que  si $x\in A$ entonces $x\in B$, diremos que $A$ **es un subconjunto de** o que **está contenido en** $B$. Lo denotaremos por $A\subseteq B.$
+* El conjunto  que no tiene elementos se denomina **conjunto vacío** y se denota por el símbolo $\emptyset$.
 * Dado $A$ un conjunto cualquiera,  obviamente $\emptyset\subseteq A.$
 
 Tomemos como conjunto base $\Omega=\{1,2,3\}$
@@ -73,7 +71,7 @@ El cardinal de la partes de un conjunto  es $\#(\mathcal{P}(\Omega))=2^{\#(\Omeg
 Por ejemplo $\#\left(\mathcal{P}(\{1,2,3\})\right)=2^{\#(\{1,2,3\})}=2^3=8.$
 
 
-Efectivamente
+Efectivamente,
 
 $$\mathcal{P}(\{1,2,3\})=\{\emptyset,\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}.$$
 
@@ -105,7 +103,7 @@ El conjunto **intersección** de $A$ y $B$ es el formado por todos los elementos
 Más formalmente
 
 $$
-A\cap B=\left\{x\in\Omega \big| x\in A \mbox{ y } x\in B\right\}.
+A\cap B=\left\{x\in\Omega \ \big|\  x\in A \mbox{ y } x\in B\right\}.
 $$
 
 **Unión.**
@@ -116,7 +114,7 @@ El conjunto **unión** de $A$ y $B$ es el formado por todos los elementos que pe
 Más formalmente
 
 $$
-A\cup B=\left\{x\in\Omega \big| x\in A \mbox{ o } x\in B\right\}.
+A\cup B=\left\{x\in\Omega\ \big|\  x\in A \mbox{ o } x\in B\right\}.
 $$
 
 **Diferencia.**
@@ -126,7 +124,7 @@ El conjunto **diferencia** de $A$ y $B$ es el formado por todos los elementos qu
 Más formalmente
 
 $$
-A- B=\left\{x\in\Omega \big| x\in A \mbox{ y } x\notin B\right\}.
+A- B=\left\{x\in\Omega \ \big|\ x\in A \mbox{ y } x\notin B\right\}.
 $$
 
 
@@ -137,7 +135,7 @@ El **complementario** de un  subconjunto  $A$ de $\Omega$ es $\Omega-A$ y se den
 Más formalmente
 
 $$
-A^c=\left\{x\in\Omega \big| x\not\in A\right\}.
+A^c=\left\{x\in\Omega \ \big|\  x\not\in A\right\}.
 $$
 
 
@@ -155,9 +153,9 @@ Sea $\Omega$ un conjunto y $A$, $B$, $C$ tres subconjuntos de $\Omega$
 * $\left(A\cup B\right)^c=A^c \cap B^c$, $\left(A\cap B\right)^c=A^c \cup B^c$ [leyes de De Morgan](https://es.wikipedia.org/wiki/Leyes_de_De_Morgan).
 
 
-**Con R, ejemplos.**
+### Con `R`, ejemplos
 
-Con R los conjuntos de pueden definir como vectores
+Con `R` los conjuntos de pueden definir como vectores
 
 ```{r}
 (Omega=c(1,2,3,4,5,6,7,8,9,10))
@@ -190,7 +188,7 @@ setdiff(Omega,A)
 ```
 
 
-**Con python**
+### Con `Python`, ejemplos
 
 ```{python}
 Omega=set([1,2,3,4,5,6,7,8,9,10])
@@ -211,9 +209,9 @@ Omega-C ## complementario.
 
 ## Combinatoria
 
-La combinatoria es una rama de la matemática discreta que entre otras cosas cuenta distintas configuraciones de objetos de un conjunto.
+La combinatoria es una rama de la matemática discreta que, entre otras cosas, cuenta distintas configuraciones de objetos de un conjunto.
 
-Por ejemplo si tenemos un equipo  de baloncesto con  7 jugadores ¿cuántos equipos de 5 jugadores distintos podemos formar?
+Por ejemplo, si tenemos un equipo  de baloncesto con  7 jugadores ¿cuántos equipos de 5 jugadores distintos podemos formar?
 
 ### Número binomial.
 
@@ -222,7 +220,7 @@ Por ejemplo si tenemos un equipo  de baloncesto con  7 jugadores ¿cuántos equi
 Nos da el número de subconjuntos de tamaño $k$ de un conjunto de tamaño $n$. Este número es
 
 $$
-{n\choose k} = \frac{n!}{k!\cdot (n-k)!}.
+{ n \choose k } = \frac{n!}{k!\cdot (n-k)!}.
 $$
 
 Recordemos que 
@@ -238,21 +236,21 @@ $$
 $$
 
 
-Puedo formar 21 equipos distintos.
+Podemos formar 21 equipos distintos.
 
 <div class="exercise">
 **Ejercicio**
 
-Carga el paquete `gtools` de R y investiga la función `combinations(n, r, v, set, repeats.allowed)` para calcular todas las combinaciones anteriores.
+Carga el paquete `gtools` de `R` e investiga la función `combinations(n, r, v, set, repeats.allowed)` para calcular todas las combinaciones anteriores.
 </div>
 
 ### Variaciones.
 
 **Variaciones**
 
-Con los número $\{1,2,3\}$ ¿cuántos números de dos cifras distintas  podemos  formar sin repetir ninguna cifra? 
+Con los números $\{1,2,3\}$ ¿cuántos números de dos cifras distintas  podemos  formar sin repetir ninguna cifra? 
 
-La podemos escribir
+Los podemos escribir
 
 $$12,13,21,23,31,32$$
 
@@ -265,7 +263,7 @@ $$
 V^n_k=\frac{n!}{(n-k)!}=(n-k+1)\cdot (n-k+2)\cdots n.
 $$
 
-En nuestro ejemplo  con  $n=3$ dígitos  podemos escribir las siguientes variaciones de orden $k=2$
+En nuestro ejemplo,  con  $n=3$ dígitos  podemos escribir las siguientes variaciones de orden $k=2$
 
 $$
 V_{k=2}^{n=3}=\frac{3!}{(3-2)!}=\frac{1\cdot 2\cdot 3}{1}=6.
@@ -274,7 +272,7 @@ $$
 <div class="exercise">
 **Ejercicio**
 
-Carga el paquete `gtools` de R y investiga la función `permutations(n, r, v, set, repeats.allowed)` para calcular todas las variaciones anteriores.
+Carga el paquete `gtools` de `R` e investiga la función `permutations(n, r, v, set, repeats.allowed)` para calcular todas las variaciones anteriores.
 </div>
 
 ### Variaciones con repetición.
@@ -285,32 +283,32 @@ Carga el paquete `gtools` de R y investiga la función `permutations(n, r, v, se
 
 $$VR^n_k=n^k$$
 
-Efectivamente en nuestro caso
+Efectivamente, en nuestro caso
 
 $$11,12,13,21,22,23,31,32,33$$
 
 $$
-VR_{k=2}^{n=3}=n^k.
+VR_{k=2}^{n=3}=3^2 = 9.
 $$
 
 
 ### Permutaciones
 
-Las permutaciones de un conjunto de cardinal $n$ son todas las variaciones de orden máximo $n$.
+Las permutaciones de un conjunto de cardinal $n$ son todas las variaciones de orden máximo, $n$.
 Las denotamos y valen:
 
 $$
 P_n=V_n^n=n!
 $$
 
-Por ejemplo todos los números que se pueden escribir ordenando todos los dígitos $\{1,2,3\}$ sin repetir ninguno
+Por ejemplo, todos los números que se pueden escribir ordenando todos los dígitos $\{1,2,3\}$ sin repetir ninguno
 
 ```{r,warning=FALSE,message=FALSE}
 library(combinat)
 for(permutacion in permn(3)) print(permutacion)
 ```
 
-Efectivamente 
+Efectivamente, 
 $$
 P_3=3!=1\cdot  2\cdot 3.
 $$
@@ -318,13 +316,13 @@ $$
 <div class="exercise">
 **Ejercicio**
 
-Carga el paquete `combinat` de R e investiga la funcion  `permn` para calcular todas las permutaciones anteriores.
+Carga el paquete `combinat` de `R` e investiga la funcion  `permn` para calcular todas las permutaciones anteriores.
 </div>
 
 <div class="exercise">
 **Ejercicio**
 
-Investiga el paquete `itertools` y la función `comb` de `scipy.misc` de Python e investiga sus funciones para todas las formas de contar que hemos visto en este tema.
+Investiga el paquete `itertools` y la función `comb` de `scipy.misc` de `Python` e investiga sus funciones para todas las formas de contar que hemos visto en este tema.
 </div>
 
 
@@ -332,7 +330,7 @@ Investiga el paquete `itertools` y la función `comb` de `scipy.misc` de Python 
 <div class="exercise">
 **Ejercicio**
 
-La función gamma de Euler, cobrará mucha importancia en el curso de estadística. Comprueba que la función `gamma(x+1)` da el mismo valor que la función `factorial(x)` en `R` para todo $x = \{1,2,3\cdots,10\}$.
+La función gamma de Euler cobrará mucha importancia en el curso de estadística. Comprueba que la función `gamma(x+1)` da el mismo valor que la función `factorial(x)` en `R` para todo $x = \{1,2,3\cdots,10\}$.
 </div>
 
 ## Para acabar

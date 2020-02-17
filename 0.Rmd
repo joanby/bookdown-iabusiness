@@ -220,11 +220,7 @@ Por ejemplo, si tenemos un equipo  de baloncesto con  7 jugadores ¿cuántos equ
 Nos da el número de subconjuntos de tamaño $k$ de un conjunto de tamaño $n$. Este número es
 
 $$
-<<<<<<< HEAD
 C_n^k={n\choose k} = \frac{n!}{k!\cdot (n-k)!}.
-=======
-{ n \choose k } = \frac{n!}{k!\cdot (n-k)!}.
->>>>>>> 6cf0320298fd19ca85414dffa5b8715b8e24aa20
 $$
 
 Recordemos que 
@@ -301,12 +297,8 @@ $$
 V_n^k=\frac{n!}{(n-k)!}=(n-k+1)\cdot (n-k+2)\cdots n.
 $$
 
-<<<<<<< HEAD
 
 En nuestro ejemplo  con  $n=3$ dígitos  podemos escribir las siguientes variaciones de orden $k=2$
-=======
-En nuestro ejemplo,  con  $n=3$ dígitos  podemos escribir las siguientes variaciones de orden $k=2$
->>>>>>> 6cf0320298fd19ca85414dffa5b8715b8e24aa20
 
 $$
 V^{k=2}_{n=3}=\frac{3!}{(3-2)!}=\frac{1\cdot 2\cdot 3}{1}=6.
@@ -329,11 +321,7 @@ Efectivamente, en nuestro caso
 $$11,12,13,21,22,23,31,32,33$$
 
 $$
-<<<<<<< HEAD
 VR^{k=2}_{n=3}=n^k.
-=======
-VR_{k=2}^{n=3}=3^2 = 9.
->>>>>>> 6cf0320298fd19ca85414dffa5b8715b8e24aa20
 $$
 
 

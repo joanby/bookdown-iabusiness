@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Tema 5 Vectores aleatorios bidimensionales | Probabilidad y variables aleatorias para ML con R y Python</title>
   <meta name="description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Tema 5 Vectores aleatorios bidimensionales | Probabilidad y variables aleatorias para ML con R y Python" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir" />
 
 
-<meta name="date" content="2019-12-16" />
+<meta name="date" content="2020-02-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,12 +140,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="0.1.4" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#más-propiedades-y-definiciones"><i class="fa fa-check"></i><b>0.1.4</b> Más propiedades y definiciones</a></li>
 </ul></li>
 <li class="chapter" data-level="0.2" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#combinatoria"><i class="fa fa-check"></i><b>0.2</b> Combinatoria</a><ul>
-<li class="chapter" data-level="0.2.1" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#número-binomial."><i class="fa fa-check"></i><b>0.2.1</b> Número binomial.</a></li>
-<li class="chapter" data-level="0.2.2" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#variaciones."><i class="fa fa-check"></i><b>0.2.2</b> Variaciones.</a></li>
-<li class="chapter" data-level="0.2.3" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#variaciones-con-repetición."><i class="fa fa-check"></i><b>0.2.3</b> Variaciones con repetición.</a></li>
-<li class="chapter" data-level="0.2.4" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#permutaciones"><i class="fa fa-check"></i><b>0.2.4</b> Permutaciones</a></li>
+<li class="chapter" data-level="0.2.1" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#combinaciones"><i class="fa fa-check"></i><b>0.2.1</b> Combinaciones</a></li>
+<li class="chapter" data-level="0.2.2" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#combinaciones-con-repetición"><i class="fa fa-check"></i><b>0.2.2</b> Combinaciones con repetición</a></li>
+<li class="chapter" data-level="0.2.3" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#variaciones."><i class="fa fa-check"></i><b>0.2.3</b> Variaciones.</a></li>
+<li class="chapter" data-level="0.2.4" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#variaciones-sin-repetición."><i class="fa fa-check"></i><b>0.2.4</b> Variaciones (sin repetición).</a></li>
+<li class="chapter" data-level="0.2.5" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#permutaciones"><i class="fa fa-check"></i><b>0.2.5</b> Permutaciones</a></li>
+<li class="chapter" data-level="0.2.6" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#números-multinomiales.-permutaciones-con-repetición."><i class="fa fa-check"></i><b>0.2.6</b> Números multinomiales. Permutaciones con repetición.</a></li>
 </ul></li>
-<li class="chapter" data-level="0.3" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#para-acabar"><i class="fa fa-check"></i><b>0.3</b> Para acabar</a></li>
+<li class="chapter" data-level="0.3" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#para-acabar"><i class="fa fa-check"></i><b>0.3</b> Para acabar</a><ul>
+<li class="chapter" data-level="0.3.1" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#principios-básicos-para-contar-cardinales-de-conjuntos"><i class="fa fa-check"></i><b>0.3.1</b> Principios básicos para contar cardinales de conjuntos</a></li>
+</ul></li>
+<li class="chapter" data-level="0.4" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#otros-aspectos-a-tener-en-cuenta"><i class="fa fa-check"></i><b>0.4</b> Otros aspectos a tener en cuenta</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="probabilidad.html"><a href="probabilidad.html"><i class="fa fa-check"></i><b>1</b> Probabilidad</a><ul>
 <li class="chapter" data-level="1.1" data-path="probabilidad.html"><a href="probabilidad.html#probabilidades-básicas"><i class="fa fa-check"></i><b>1.1</b> Probabilidades Básicas</a><ul>
@@ -403,16 +408,16 @@ Consideremos el experimento aleatorio de elegir al azar un estudiante de primer 
 Veamos algunos ejemplos:</p>
 <p>Suceso: <span class="math inline">\(\{X+Y\leq 1\}\)</span>. Es la zona sombreada del gráfico siguiente:</p>
 <div class="center">
-<p><img src="Images/Bidim1.png" /><!-- --></p>
+<p><img src="Images/Bidim1.png" width="240" /></p>
 </div>
 <p>Suceso: <span class="math inline">\(\{X^2+Y^2\leq 4\}\)</span>. Es la zona sombreada del gráfico siguiente:</p>
 <div class="center">
-<p><img src="Images/Bidim2.png" style="display: block; margin: auto;" /></p>
+<p><img src="Images/Bidim2.png" width="240" style="display: block; margin: auto;" /></p>
 </div>
 <p>Suceso: <span class="math inline">\(\{\max\{X,Y\}\geq 1\}\)</span>. Esta zona es la sombreada del gráfico siguiente:</p>
 <div class="center">
 <div class="figure"><span id="fig:bid3"></span>
-<img src="Images/Bidim3.png" alt="Representación suceso"  />
+<img src="Images/Bidim3.png" alt="Representación suceso" width="240" />
 <p class="caption">
 Figure 5.1: Representación suceso
 </p>
@@ -442,7 +447,7 @@ F_{XY}: \mathbb{R}^2 &amp; \longrightarrow \mathbb{R}\\
 \]</span></p>
 Por lo tanto, dado un valor <span class="math inline">\((x,y)\in \mathbb{R}^2\)</span>, consideramos la región del plano <span class="math inline">\((-\infty,x]\times (-\infty,y]\)</span>:
 <div class="center">
-<p><img src="Images/Fxy.png" /><!-- --></p>
+<p><img src="Images/Fxy.png" width="240" /></p>
 </div>
 <p>Entonces la <strong>función de distribución conjunta</strong> en el valor <span class="math inline">\((x,y)\)</span> es la probabilidad del suceso formado por aquellos elementos tal que la imagen por la <strong>variable aleatoria bidimensional</strong> <span class="math inline">\((X,Y)\)</span> caen dentro de la región sombreada en el gráfico anterior:</p>
 <p><span class="math display">\[
@@ -479,7 +484,7 @@ para todo <span class="math inline">\(a,b\in\mathbb{R}\)</span>. Ver la siguient
 </li>
 </ul>
 <div class="figure"><span id="fig:bid5"></span>
-<img src="Images/Fxy2.png" alt="Función de distribución conjunta"  />
+<img src="Images/Fxy2.png" alt="Función de distribución conjunta" width="240" />
 <p class="caption">
 Figure 5.2: Función de distribución conjunta
 </p>
@@ -494,7 +499,7 @@ P((X,Y)\in B)  = &amp; F_{XY}(x_2,y_2)-F_{XY}(x_2,y_1)-F_{XY}(x_1,y_2)\\ &amp; +
 \]</span></li>
 </ul>
 <div class="center">
-<p><img src="Images/Fxy3.png" /><!-- --></p>
+<p><img src="Images/Fxy3.png" width="240" /></p>
 </div>
 <div class="example">
 <p><strong>Ejemplo: Función de distribución uniforme</strong></p>
@@ -511,7 +516,7 @@ y, &amp; \mbox{si }0\leq y\leq 1,\ x&gt; 1, \\
 En la figura siguiente, hemos representado por zonas cómo está definida <span class="math inline">\(F_{XY}\)</span>.</p>
 <div class="center">
 <div class="figure"><span id="fig:bid7"></span>
-<img src="Images/FxyEx.png" alt="Funciń de distribución uniforme bidimensional."  />
+<img src="Images/FxyEx.png" alt="Funciń de distribución uniforme bidimensional." width="240" />
 <p class="caption">
 Figure 5.3: Funciń de distribución uniforme bidimensional.
 </p>
@@ -1531,7 +1536,7 @@ P((X,Y)\in B)&amp;=\int\int_{B} f_{XY}(x,y)\, dx\, dy=\int_{-1}^{\frac{1}{2}}\in
 \]</span></p>
 <p>En la figura siguiente hemos dibujado en morado la región donde <span class="math inline">\(f_{XY}\)</span> no es cero, es decir <span class="math inline">\([0,1]\times [0,1]\)</span>, la región <span class="math inline">\(B\)</span> en verde y la región intersección de las dos anteriores que es donde tenemos que integrar la <strong>función de densidad</strong> dada.</p>
 <div class="center">
-<p><img src="Images/VaUniformeBidi.png" /><!-- --></p>
+<p><img src="Images/VaUniformeBidi.png" width="240" /></p>
 </div>
 </div>
 </div>
@@ -1593,7 +1598,7 @@ f_X(x)=\int_{-\infty}^\infty f_{XY}(x,y)\, dy,\ f_Y(y)=\int_{-\infty}^\infty f_{
 <li>Vamos a calcular la función de distribución <span class="math inline">\(F_{XY}\)</span>. Para ello dividimos el plano en 5 zonas tal como muestra la figura siguiente:</li>
 </ul>
 <div class="center">
-<p><img src="Images/VaUniformeBidi2.png" /><!-- --></p>
+<p><img src="Images/VaUniformeBidi2.png" width="240" /></p>
 </div>
 <p>Sea <span class="math inline">\((x,y)\)</span> un punto cualquiera de <span class="math inline">\(\mathbb{R}^2\)</span>. De cara a calcular <span class="math inline">\(F_{XY}(x,y)\)</span> tenemos que averiguar el conjunto intersección siguiente: <span class="math inline">\(([0,1]\times [0,1])\cap ((-\infty,x]\times (-\infty,y])\)</span> ya que el dominio donde <span class="math inline">\(f_{XY}\)</span> es no nula es <span class="math inline">\([0,1]\times [0,1]\)</span> y la función de distribución <span class="math inline">\(F_{XY}(x,y)\)</span> valdrá:</p>
 <p><span class="math display">\[
@@ -1607,7 +1612,7 @@ F_{XY}(x,y)&amp;=\int_{-\infty}^x\int_{-\infty}^y f_{XY}(u,v)\,du\,dv\\ &amp;=
 </ul>
 <p>Por tanto en este caso, <span class="math inline">\(F_{XY}(x,y)=0\)</span>.</p>
 <div class="center">
-<p><img src="Images/VaUniformeBidi3.png" /><!-- --></p>
+<p><img src="Images/VaUniformeBidi3.png" width="240" /></p>
 </div>
 <ul>
 <li>Caso <span class="math inline">\((x,y)\in \mbox{Zona B}\)</span>, o <span class="math inline">\((x,y)\in [0,1]\times [0,1]\)</span>. En este caso: <span class="math inline">\(([0,1]\times [0,1])\cap ((-\infty,x]\times (-\infty,y])=[0,x]\times [0,y].\)</span> Ver figura siguiente.</li>
@@ -1618,7 +1623,7 @@ F_{XY}(x,y)&amp;=\int_{-\infty}^x\int_{-\infty}^y f_{XY}(u,v)\,du\,dv\\ &amp;=
 F_{XY}(x,y)=\int_0^x \int_0^y 1\,du\,dv =\int_0^x 1\, du\int_0^y 1\, dy =x\cdot y.
 \]</span></p>
 <div class="center">
-<p><img src="Images/VaUniformeBidi4.png" /><!-- --></p>
+<p><img src="Images/VaUniformeBidi4.png" width="240" /></p>
 </div>
 <p>Dejamos como ejercicio los otros casos. En resumen:
 <span class="math display">\[
@@ -1684,7 +1689,7 @@ donde <span class="math inline">\(c\)</span> es un valor que se tiene que hallar
 <p>Para hallar <span class="math inline">\(c\)</span>, hemos de imponer que la integral de la función anterior debe ser 1 sobre todo el plano <span class="math inline">\(\mathbb{R}^2\)</span>.</p>
 <p>Primero fijémonos en como es la región de integración (zona morada de la figura). Fijado un valor <span class="math inline">\(x\geq 0\)</span>, el valor <span class="math inline">\(y\)</span> va desde <span class="math inline">\(y=0\)</span> hasta <span class="math inline">\(y=x\)</span>. Por tanto, para calcular el valor de <span class="math inline">\(c\)</span>, hay que hacer lo siguiente:</p>
 <div class="center">
-<p><img src="Images/Ejemplo2Bidi.png" /><!-- --></p>
+<p><img src="Images/Ejemplo2Bidi.png" width="240" /></p>
 </div>
 <p><span class="math display">\[
 \begin{array}{rl}
@@ -1704,7 +1709,7 @@ donde <span class="math inline">\(c\)</span> es un valor que se tiene que hallar
 <li><p><span class="math inline">\(x\geq y\)</span>. Ver zona morada del gráfico siguiente.</p></li>
 </ul>
 <div class="center">
-<p><img src="Images/Ejemplo2Bidi2.png" /><!-- --></p>
+<p><img src="Images/Ejemplo2Bidi2.png" width="240" /></p>
 </div>
 <ul>
 <li>Caso <span class="math inline">\(x\leq y\)</span> (zona verde de la figura adjunta). En este caso, si hacemos la intersección de la región <span class="math inline">\(B=(-\infty,x]\times (-\infty,y]\)</span> (zona azul) con la zona morada o región donde <span class="math inline">\(f_{XY}(x,y)\neq 0\)</span> obtenemos el triángulo <span class="math inline">\(T_{x,y}=\{(u,v)\in\mathbb{R}^2,\ 0\leq u\leq x,\ 0\leq v\leq u\}.\)</span> Ver figura adjunta.</li>
@@ -1719,7 +1724,7 @@ F_{XY}(x,y) &amp; = &amp; \int_{u=0}^{u=x}\int_{v=0}^{v=u} f_{XY}(u,v)\,dv\,du= 
 \end{array}
 \]</span></p>
 <div class="center">
-<p><img src="Images/Ejemplo2Bidi3.png" /><!-- --></p>
+<p><img src="Images/Ejemplo2Bidi3.png" width="240" /></p>
 </div>
 <ul>
 <li>Caso <span class="math inline">\(x\geq y\)</span> (zona morada de la figura adjunta). En este caso, si hacemos la intersección de la región <span class="math inline">\(B=(-\infty,x]\times (-\infty,y]\)</span> (zona azul) con la zona morada o región donde <span class="math inline">\(f_{XY}(x,y)\neq 0\)</span> obtenemos el trapecio <span class="math inline">\(T_{x,y}=\{(u,v)\in\mathbb{R}^2,\ 0\leq v\leq y,\ v\leq u\leq x\}.\)</span> Ver figura adjunta.</li>
@@ -1734,7 +1739,7 @@ F_{XY}(x,y) &amp;=  \int_{v=0}^{v=y}\int_{u=v}^{u=x} f_{XY}(u,v)\,dv\,du= 2\cdot
 \end{array}
 \]</span></p>
 <div class="center">
-<p><img src="Images/Ejemplo2Bidi4.png" /><!-- --></p>
+<p><img src="Images/Ejemplo2Bidi4.png" width="240" /></p>
 </div>
 <p>En resumen:
 <span class="math display">\[
@@ -3407,7 +3412,7 @@ F_Z(z) &amp; =  P(Z\leq z)=P(X+Y\leq z)\\
 \]</span></p>
 El gráfico siguiente muestra en color violeta la región de integración para hallar <span class="math inline">\(F_Z(z)\)</span> dado un <span class="math inline">\(z\geq 0\)</span>.
 <div class="center">
-<p><img src="Images/EjSumaXY.png" /><!-- --></p>
+<p><img src="Images/EjSumaXY.png" width="240" /></p>
 </div>
 <p>El valor de <span class="math inline">\(F_Z(z)\)</span> es: (fijémonos que primero fijamos la <span class="math inline">\(y\)</span> y para cada <span class="math inline">\(y\)</span> la <span class="math inline">\(x\)</span> va desde la recta <span class="math inline">\(x=y\)</span> hasta la recta <span class="math inline">\(x=z-y\)</span>)</p>
 <p><span class="math display">\[
@@ -3516,7 +3521,7 @@ f_{XY}(x,y)=\begin{cases}
 \]</span>
 Dejamos como ejercicio al lector comprobar que la función anterior es una <strong>función de densidad</strong>.</p>
 <div class="center">
-<p><img src="Images/EjTranLineal.png" /><!-- --></p>
+<p><img src="Images/EjTranLineal.png" width="240" /></p>
 </div>
 <div class="example-sol">
 <p>Consideramos la variable aleatoria bidimensional <span class="math inline">\((U,V)\)</span> definida a partir de la variable <span class="math inline">\((X,Y)\)</span>:</p>
@@ -3538,7 +3543,7 @@ Ver la figura adjunta.</p>
 \begin{pmatrix}X\\ Y\end{pmatrix}=\begin{pmatrix}1 &amp; -1\\ 1&amp; 1\end{pmatrix}^{-1}\cdot\begin{pmatrix}U\\ V\end{pmatrix}=\begin{pmatrix}\frac{1}{2} &amp; \frac{1}{2}\\ -\frac{1}{2}&amp; \frac{1}{2}\end{pmatrix}\cdot\begin{pmatrix}U\\ V\end{pmatrix},\ \Rightarrow \left.\begin{array}{rl}X &amp; = \frac{1}{2}(U+V),\\ Y &amp; =\frac{1}{2}(-U+V).\end{array}\right\}
 \]</span></p>
 <div class="center">
-<p><img src="Images/EjTranLineal2.png" /><!-- --></p>
+<p><img src="Images/EjTranLineal2.png" width="240" /></p>
 </div>
 <p>La <strong>función de densidad</strong> <span class="math inline">\(f_{UV}\)</span> es,
 <span class="math display">\[
@@ -3620,7 +3625,7 @@ El cambio a polares consiste en considerar las coordenadas polares <span class="
 x=h_1(r,\alpha)=r\cdot \cos\alpha,\quad y=h_2(r,\alpha)=r\cdot \sin\alpha.
 \]</span></p>
 <div class="center">
-<p><img src="Images/Polares.png" /><!-- --></p>
+<p><img src="Images/Polares.png" width="240" /></p>
 </div>
 <div class="example-sol">
 <p>Fijémonos que, con el cambio a polares, el disco unidad <span class="math inline">\(D_1\)</span> se transforma en el rectángulo <span class="math inline">\([0,1]\times [0,2\pi]\)</span>.</p>

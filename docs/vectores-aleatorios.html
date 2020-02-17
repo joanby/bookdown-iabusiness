@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Tema 6 Vectores aleatorios | Probabilidad y variables aleatorias para ML con R y Python</title>
   <meta name="description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Tema 6 Vectores aleatorios | Probabilidad y variables aleatorias para ML con R y Python" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir" />
 
 
-<meta name="date" content="2019-12-16" />
+<meta name="date" content="2020-02-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,12 +140,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="0.1.4" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#más-propiedades-y-definiciones"><i class="fa fa-check"></i><b>0.1.4</b> Más propiedades y definiciones</a></li>
 </ul></li>
 <li class="chapter" data-level="0.2" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#combinatoria"><i class="fa fa-check"></i><b>0.2</b> Combinatoria</a><ul>
-<li class="chapter" data-level="0.2.1" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#número-binomial."><i class="fa fa-check"></i><b>0.2.1</b> Número binomial.</a></li>
-<li class="chapter" data-level="0.2.2" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#variaciones."><i class="fa fa-check"></i><b>0.2.2</b> Variaciones.</a></li>
-<li class="chapter" data-level="0.2.3" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#variaciones-con-repetición."><i class="fa fa-check"></i><b>0.2.3</b> Variaciones con repetición.</a></li>
-<li class="chapter" data-level="0.2.4" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#permutaciones"><i class="fa fa-check"></i><b>0.2.4</b> Permutaciones</a></li>
+<li class="chapter" data-level="0.2.1" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#combinaciones"><i class="fa fa-check"></i><b>0.2.1</b> Combinaciones</a></li>
+<li class="chapter" data-level="0.2.2" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#combinaciones-con-repetición"><i class="fa fa-check"></i><b>0.2.2</b> Combinaciones con repetición</a></li>
+<li class="chapter" data-level="0.2.3" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#variaciones."><i class="fa fa-check"></i><b>0.2.3</b> Variaciones.</a></li>
+<li class="chapter" data-level="0.2.4" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#variaciones-sin-repetición."><i class="fa fa-check"></i><b>0.2.4</b> Variaciones (sin repetición).</a></li>
+<li class="chapter" data-level="0.2.5" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#permutaciones"><i class="fa fa-check"></i><b>0.2.5</b> Permutaciones</a></li>
+<li class="chapter" data-level="0.2.6" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#números-multinomiales.-permutaciones-con-repetición."><i class="fa fa-check"></i><b>0.2.6</b> Números multinomiales. Permutaciones con repetición.</a></li>
 </ul></li>
-<li class="chapter" data-level="0.3" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#para-acabar"><i class="fa fa-check"></i><b>0.3</b> Para acabar</a></li>
+<li class="chapter" data-level="0.3" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#para-acabar"><i class="fa fa-check"></i><b>0.3</b> Para acabar</a><ul>
+<li class="chapter" data-level="0.3.1" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#principios-básicos-para-contar-cardinales-de-conjuntos"><i class="fa fa-check"></i><b>0.3.1</b> Principios básicos para contar cardinales de conjuntos</a></li>
+</ul></li>
+<li class="chapter" data-level="0.4" data-path="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html"><a href="pre-requisitos-teoría-de-conjuntos-y-combinatoria.html#otros-aspectos-a-tener-en-cuenta"><i class="fa fa-check"></i><b>0.4</b> Otros aspectos a tener en cuenta</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="probabilidad.html"><a href="probabilidad.html"><i class="fa fa-check"></i><b>1</b> Probabilidad</a><ul>
 <li class="chapter" data-level="1.1" data-path="probabilidad.html"><a href="probabilidad.html#probabilidades-básicas"><i class="fa fa-check"></i><b>1.1</b> Probabilidades Básicas</a><ul>
@@ -387,15 +392,15 @@ w &amp; \longrightarrow \mathbf{X}(w)=(X_1(w),X_2(w),\ldots,X_n(w)).
 <p>Suceso: <span class="math inline">\(\{X_1+X_2+X_3\leq 1\}\)</span>. En el gráfico siguiente, el plano <span class="math inline">\(x_1+x_2+x_3=1\)</span> separa el espacio en dos partes. Es la parte que corresponde al punto <span class="math inline">\((0,0,0)\)</span>.</p>
 <p>Si pensamos el plano anterior como un “espejo” es la parte de atrás del mismo.</p>
 <div class="center">
-<p><img src="Images/EjPlano3D.png" /><!-- --></p>
+<p><img src="Images/EjPlano3D.png" width="142" /></p>
 </div>
 <p>Suceso: <span class="math inline">\(\{X_1^2+X_2^2+X_3^2\leq 1\}\)</span>. Es el interior de la esfera del gráfico siguiente:</p>
 <div class="center">
-<p><img src="Images/EjEsfera3D.png" /><!-- --></p>
+<p><img src="Images/EjEsfera3D.png" width="142" /></p>
 </div>
 <p>Suceso: <span class="math inline">\(\{0\leq X_1\leq 1,\ 0\leq X_2\leq 1,\ 0\leq X_3\leq 1\}\)</span>. Es el interior del cubo del gráfico siguiente:</p>
 <div class="center">
-<p><img src="Images/Ej3DCubo.png" /><!-- --></p>
+<p><img src="Images/Ej3DCubo.png" width="174" /></p>
 </div>
 <p>La probabilidad de que la <strong>variable <span class="math inline">\(n\)</span>-dimensional</strong> pertenezca a una cierta <strong>región del <span class="math inline">\(n\)</span>-espacio <span class="math inline">\(B\subset \mathbb{R}^n\)</span></strong> se define de la forma siguiente:
 <span class="math display">\[
@@ -428,7 +433,7 @@ F_{X_1\ldots X_n}(x_1,\ldots,x_n) &amp; =P\{w\in\Omega,\ |\ (X_1(w),\ldots,X_n(w
 \]</span></p>
 <p>El gráfico siguiente muestra el conjunto <span class="math inline">\((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3]\)</span> en <span class="math inline">\(\mathbb{R}^3\)</span> para un valor <span class="math inline">\((x,y,z)\)</span>:</p>
 <div class="center">
-<p><img src="Images/Fx1x2x3.png" /><!-- --></p>
+<p><img src="Images/Fx1x2x3.png" width="91" /></p>
 </div>
 </div>
 <div id="propiedades-5" class="section level3">
@@ -473,7 +478,7 @@ x_1^2\cdot x_2^2\cdot x_3^2, &amp; \mbox{si }0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\
 <p>La primera figura muestra las zonas en la “planta baja” o para <span class="math inline">\(0\leq x_3\leq 1\)</span>.
 En color marrón, está representada la región <span class="math inline">\(0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\ 0\leq x_3\leq 1\)</span>, en color amarillo, la región <span class="math inline">\(x_1&gt; 1,\ 0\leq x_2\leq 1,\ 0\leq x_3\leq 1\)</span>, en color verde, la región <span class="math inline">\(x_1&gt;1,\ x_2&gt;1,\ 0\leq x_3\leq 1\)</span> y en color violeta, la región <span class="math inline">\(0\leq x_1\leq 1,\ x_2&gt;1,\ 0\leq x_3\leq 1\)</span>.</p>
 <p>La segunda figura muestra las zonas del “primer piso” o para <span class="math inline">\(x_3&gt;1\)</span>. Los colores tienen un significado similar a los de la primera figura: en color marrón, está representada la región <span class="math inline">\(0\leq x_1\leq 1,\ 0\leq x_2\leq 1,\  x_3&gt; 1\)</span>, en color amarillo u ocre, la región <span class="math inline">\(x_1&gt; 1,\ 0\leq x_2\leq 1,\ x_3&gt; 1\)</span>, en color verde, la región <span class="math inline">\(x_1&gt;1,\ x_2&gt;1,\ x_3&gt; 1\)</span> y en color violeta, la región <span class="math inline">\(0\leq x_1\leq 1,\ x_2&gt;1,\ x_3&gt; 1\)</span>.</p>
-<p><img src="Images/Ej3DFxyz.png" style="display: block; margin: auto;" /><img src="Images/Ej3DFxy2pis.png" style="display: block; margin: auto;" /></p>
+<p><img src="Images/Ej3DFxyz.png" width="91" style="display: block; margin: auto;" /><img src="Images/Ej3DFxy2pis.png" width="103" style="display: block; margin: auto;" /></p>
 <p>Comprobemos algunas de las propiedades que hemos enunciado anteriormente:</p>
 <ul>
 <li><p>Claramente <span class="math inline">\(F_{X_1X_2X_3}(x_1,x_2,-\infty)=F_{X_1X_2X_3}(x_1,-\infty,x_3)=F_{X_1X_2X_3}(-\infty,x_2,x_3)=0\)</span> ya que <span class="math inline">\(F_{X_1X_2X_3}(x_1,x_2,x_3)=0\)</span> si <span class="math inline">\(x_1&lt;0\)</span> o <span class="math inline">\(x_2&lt;0\)</span> o <span class="math inline">\(x_3&lt;0\)</span>. Por tanto, si hacemos tender <span class="math inline">\(x_1\)</span> o <span class="math inline">\(x_2\)</span> o <span class="math inline">\(x_3\)</span> hacia <span class="math inline">\(-\infty\)</span>, obtendremos que <span class="math inline">\(F_{X_1X_2X_3}(x_1,x_2,-\infty)=F_{X_1X_2X_3}(x_1,-\infty,x_3)=F_{X_1X_2X_3}(-\infty,x_2,x_3)=0\)</span>.</p></li>
@@ -1324,7 +1329,7 @@ f_{X_1X_2X_3}(x_1,x_2,x_3)=\begin{cases}
 <div class="example-sol">
 <p>En la figura siguiente hemos dibujado en rosa la región donde <span class="math inline">\(f_{X_1X_2X_3}\)</span> no es cero, es decir <span class="math inline">\([0,1]\times [0,1]\times [0,1]\)</span>.</p>
 <div class="center">
-<p><img src="Images/Cubo3D2.png" /><!-- --></p>
+<p><img src="Images/Cubo3D2.png" width="142" /></p>
 </div>
 </div>
 </div>
@@ -1409,7 +1414,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3) &amp; =\int_{0}^{x_1}\int_{0}^{x_2}\int_{0}^{x_3} 8 x
 &amp; = 8\left[\frac{x_1^2}{2}\right]_0^{x_1}\left[\frac{x_2^2}{2}\right]_0^{x_2}\left[\frac{x_3^2}{2}\right]_0^{x_3} = x_1^2 x_2^2 x_3^2.
 \end{array}
 \]</span></p>
-<p><img src="Images/Fx1x2x3bajos.png" style="display: block; margin: auto;" /></p>
+<p><img src="Images/Fx1x2x3bajos.png" width="120" style="display: block; margin: auto;" /></p>
 <p>Seguimos en la planta “baja”,</p>
 <ul>
 <li>Si <span class="math inline">\(x_1 &gt;1\)</span> y <span class="math inline">\(0\leq x_2\leq 1\)</span>, <span class="math inline">\(([0,1]\times [0,1]\times [0,1])\cap ((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3])\)</span> que es igual a <span class="math inline">\([0,1]\times [0,x_2]\times [0,x_3]\)</span>, ver figura adjunta. Hemos dibujado sólo la parte “positiva” de la región <span class="math inline">\((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3]\)</span> ya que la parte “negativa” claramente no interseca con <span class="math inline">\([0,1]\times [0,1]\times [0,1]\)</span> para no complicar demasiado la figura.</li>
@@ -1430,7 +1435,7 @@ Por tanto,</li>
 F_{X_1X_2X_3}(x_1,x_2,x_3)=x_1^2 x_3^2.
 \]</span></p>
 <div class="center">
-<p><img src="Images/Fx1x2x3bajosx1.png" style="display: block; margin: auto;" /></p>
+<p><img src="Images/Fx1x2x3bajosx1.png" width="120" style="display: block; margin: auto;" /></p>
 </div>
 <p>Seguimos en la planta “baja”,</p>
 <ul>
@@ -1442,7 +1447,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)=\int_{0}^{1}\int_{0}^{1}\int_{0}^{x_3} 8 x_1 x_2 x_3 
 8\left[\frac{x_1^2}{2}\right]_0^{1}\left[\frac{x_2^2}{2}\right]_0^{1}\left[\frac{x_3^2}{2}\right]_0^{x_3} = x_3^2.
 \]</span></p>
 <div class="center">
-<p><img src="Images/Fx1x2x3bajosx1x2.png" /><!-- --></p>
+<p><img src="Images/Fx1x2x3bajosx1x2.png" width="120" /></p>
 </div>
 <p>Supongamos ahora que <span class="math inline">\((x_1,x_2,x_3)\)</span> está en el “primer piso” o <span class="math inline">\(x_3&gt;1\)</span>. Aquí también vamos a distinguir 4 casos:</p>
 <ul>
@@ -1458,7 +1463,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3) &amp; =\int_{0}^{x_1}\int_{0}^{x_2}\int_{0}^{1} 8 x_1
 \]</span></p>
 <div class="center">
 <div class="figure"><span id="fig:bid992"></span>
-<img src="Images/Fx1x2x3piso.png" alt="center"  />
+<img src="Images/Fx1x2x3piso.png" alt="center" width="120" />
 <p class="caption">
 Figure 6.1: center
 </p>
@@ -1482,7 +1487,7 @@ Por tanto,</li>
 F_{X_1X_2X_3}(x_1,x_2,x_3)=x_1^2.
 \]</span></p>
 <div class="center">
-<p><img src="Images/Fx1x2x3pisox1.png" style="display: block; margin: auto;" /></p>
+<p><img src="Images/Fx1x2x3pisox1.png" width="120" style="display: block; margin: auto;" /></p>
 </div>
 <p>Seguimos en el “primer piso”,</p>
 <ul>
@@ -1496,7 +1501,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)&amp; =\int_{0}^{1}\int_{0}^{1}\int_{0}^{1} 8 x_1 x_2 
 \end{array}
 \]</span></p>
 <div class="center">
-<p><img src="Images/Fx1x2x3pisox1x2.png" style="display: block; margin: auto;" /></p>
+<p><img src="Images/Fx1x2x3pisox1x2.png" width="120" style="display: block; margin: auto;" /></p>
 </div>
 <p>En resumen:
 <span class="math display">\[

@@ -1,3 +1,6 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
 \documentclass[]{book}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
@@ -6,30 +9,31 @@
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
 \else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
+  \usepackage{unicode-math}
   \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
 \IfFileExists{microtype.sty}{%
-\usepackage{microtype}
+\usepackage[]{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
 \usepackage{hyperref}
-\hypersetup{unicode=true,
+\hypersetup{
             pdftitle={Probabilidad y variables aleatorias para ML con R y Python},
             pdfauthor={Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage{natbib}
-\bibliographystyle{apalike}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -71,11 +75,9 @@
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
-\usepackage{graphicx}
-% grffile has become a legacy package: https://ctan.org/pkg/grffile
-\IfFileExists{grffile.sty}{%
-\usepackage{grffile}
-}{}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+\usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -84,12 +86,6 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -104,31 +100,10 @@
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-%%% Change title format to be more compact
-\usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\providecommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
-}
-
-\setlength{\droptitle}{-2em}
-
-  \title{Probabilidad y variables aleatorias para ML con R y Python}
-    \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-    \author{Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir}
-    \preauthor{\centering\large\emph}
-  \postauthor{\par}
-      \predate{\centering\large\emph}
-  \postdate{\par}
-    \date{2019-12-16}
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -153,6 +128,12 @@
 
 \usepackage{hyperref}
 \hypersetup{colorlinks=false, linkbordercolor=grey, linkcolor=grey,pdfborderstyle={/S/U/W 1}}
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{Probabilidad y variables aleatorias para ML con R y Python}
+\author{Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir}
+\date{2020-02-17}
 
 \begin{document}
 \maketitle
@@ -220,11 +201,11 @@
 \chapter*{}\label{section}}
 \addcontentsline{toc}{chapter}{}
 
-Consulta el curso completo creado por Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir solamente en \href{https://www.udemy.com/course/probabilidad-y-variables-aleatorias-para-ml-con-r-y-python/?couponCode=B85F8D52148DF5AAD8F7}{Udemy}
+Consulta el curso completo creado por Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir solamente en \href{https://www.udemy.com/course/probabilidad-y-variables-aleatorias-para-ml-con-r-y-python/?couponCode=B85F8D52148DF5AAD8F7}{Udemy}.
 
-Puedes consultar todas las transparecias del curso en formato HTML desde nuestro \href{https://joanby.github.io/bookdown-probabilidad/}{Gihub.io}
+Puedes consultar todas las transparecias del curso en formato HTML desde nuestro \href{https://joanby.github.io/bookdown-probabilidad/}{Gihub.io}.
 
-También tienes todas las distribuciones de probabilidad en nuestro \href{https://joanby.shinyapps.io/DistribucionesNotables/}{Shiny interactivo}
+También tienes todas las distribuciones de probabilidad en nuestro \href{https://joanby.shinyapps.io/DistribucionesNotables/}{Shiny interactivo}.
 
 Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos.
 
@@ -263,23 +244,19 @@ Para aprender cálculo de probabilidades son necesarios conocimientos de:
 \item
   Geometría básica y álgebra lineal : rectas, hiperplanos, volúmenes\ldots{} Matrices, valores propios\ldots{}
 \item
-  Teoría de conjuntos y combinatoria\ldots{}..
+  Teoría de conjuntos y combinatoria.
 \end{enumerate}
 
-Por experiencia sabemos que la mayoría de estudiantes tienen más conocimientos de cálculo, geometría y matrices.
-
-Pero muchos tienen una falta de conocimientos en teoría básica de conjuntos y combinatoria (matemática discreta).
+Por experiencia sabemos que la mayoría de estudiantes tienen más conocimientos de cálculo, geometría y matrices. Sin embargo, muchos tienen una falta de conocimientos en teoría básica de conjuntos y combinatoria (matemática discreta).
 
 \hypertarget{teoruxeda-de-conjuntos}{%
 \section{Teoría de conjuntos}\label{teoruxeda-de-conjuntos}}
 
  \textbf{Definición de conjunto}
 
-La definición de conjunto es una \href{https://es.wikipedia.org/wiki/Concepto_primitivo}{idea o noción primitiva}. Es decir es una idea básica del pensamiento humano: un conjunto es una colección de objetos: números, imágenes\ldots{} cualquier cosa, jugadores de fútbol, palabras, colores \ldots{}.
+La definición de conjunto es una \href{https://es.wikipedia.org/wiki/Concepto_primitivo}{idea o noción primitiva}. Es decir, es una idea básica del pensamiento humano: un conjunto es una colección de objetos (números, imágenes, jugadores de fútbol, palabras, colores \ldots{}).
 
-La teoría de conjuntos básicas es simple y natural y es la que necesitamos para este curso.
-
-La teoría de conjuntos matemática es más complejas y presenta varias paradojas como la \href{https://es.wikipedia.org/wiki/Paradoja_de_Russell}{paradoja de Russell}.
+La teoría de conjuntos básica es simple y natural y es la que necesitamos para este curso. Por otro lado, la teoría de conjuntos matemática es más compleja y presenta varias paradojas como la \href{https://es.wikipedia.org/wiki/Paradoja_de_Russell}{paradoja de Russell}.
 
 La idea o noción práctica de conjunto es la de una colección de objetos de un cierto tipo.
 
@@ -305,18 +282,18 @@ Los conjuntos suelen tener un conjunto madre como por ejemplo
 \item
   \(\mathbb{Z}=\{\ldots,-2,-1,0,1,2,\ldots\}\)
 \item
-  \(\mathbb{Q}=\left\{\frac{p}{q}\quad\Big|\quad p,q\in \mathbb{Z} \mbox{ y } q \not= 0.\right\}\)
+  \(\mathbb{Q}=\left\{\frac{p}{q}\ \Big|\ p,q\in \mathbb{Z} \mbox{ y } q \not= 0\right\}\)
 \item
-  \(\mathbb{R}=\{\mbox{Todos los puntos de una recta.}\}\)
+  \(\mathbb{R}=\{\mbox{Todos los puntos de una recta}\}\)
 \item
-  \(\mathbb{C}= \left\{a+b\cdot i\quad \big|\quad a,b\in \mathbb{R}\right\}.\mbox{ Los números complejos}\quad a+b\cdot i.\)
+  \(\mathbb{C}= \left\{a+b\cdot i\  \big|\  a,b\in \mathbb{R}\right\}\). Los números complejos \(a+b\cdot i\)
 \item
-  Alfabeto = \(\{a,b,c,\ldots, A,B,C,\ldots\}.\)
+  Alfabeto = \(\{a,b,c,\ldots, A,B,C,\ldots\}\)
 \item
-  Palabras = \(\{paz, guerra, amor, probabilidad,\ldots\}.\)
+  Palabras = \(\{\)paz, guerra, amor, probabilidad,\ldots\(\}\)
 \end{itemize}
 
-Recordemos que \(i\) es la unidad imaginaria que cumple que \(\sqrt{i}=-1\).
+Recordemos que \(i\) es la unidad imaginaria que cumple que \(\sqrt{-1}=i\).
 
 \hypertarget{caracteruxedsticas-y-propiedades-buxe1sicas-de-los-conjuntos}{%
 \subsection{Características y propiedades básicas de los conjuntos}\label{caracteruxedsticas-y-propiedades-buxe1sicas-de-los-conjuntos}}
@@ -324,17 +301,17 @@ Recordemos que \(i\) es la unidad imaginaria que cumple que \(\sqrt{i}=-1\).
 \begin{itemize}
 \tightlist
 \item
-  Si a cada objeto \(x\) de \(\Omega\) le llamaremos \textbf{elemento del conjunto} \(\Omega\) y diremos que \(x\) pertenece a \(\Omega\). Lo denotaremos por \(x\in \Omega\).
+  A cada objeto \(x\) de \(\Omega\) lo llamaremos \textbf{elemento del conjunto} \(\Omega\) y diremos que \(x\) pertenece a \(\Omega\). Lo denotaremos por \(x\in \Omega\).
 \item
-  Un \textbf{conjunto de un elemento}, por ejemplo \(\{1\}\) recibe el nombre de \textbf{conjunto elemental} (o \textbf{singleton} del inglés).
+  Un \textbf{conjunto de un elemento}, por ejemplo \(\{1\}\), recibe el nombre de \textbf{conjunto elemental} (o \textbf{singleton} del inglés).
 \item
-  Sea \(A\) otro conjunto diremos que \(A\) \textbf{es igual a} \(B\) si todos los elementos \(A\) están en \(B\) y todos los elementos de \(B\) están en \(A\). Por ejemplo \(A=\{1,2,3\}\) es igual a \(B=\{3,1,2\}\).
+  Sea \(A\) otro conjunto diremos que \(A\) \textbf{es igual a} \(B\) si todos los elementos \(A\) están en \(B\) y todos los elementos de \(B\) están en \(A\). Por ejemplo, \(A=\{1,2,3\}\) es igual a \(B=\{3,1,2\}\).
 \item
-  Si \(A\) es otro conjunto tal que si \(x\in A\) entonces \(x\in B\) diremos que \(A\) es un subconjunto de o que está contenido en \(B\). Lo denotaremos por \(A\subseteq B.\)
+  Si \(A\) es otro conjunto tal que si \(x\in A\) entonces \(x\in B\), diremos que \(A\) es un subconjunto de o que está contenido en \(B\). Lo denotaremos por \(A\subseteq B.\)
 \item
   El conjunto que no tiene elementos se denomina conjunto vacío y se denota por el símbolo \(\emptyset\).
 \item
-  Dado \(A\) un conjunto cualquiera obviamente \(\emptyset\subseteq A.\)
+  Dado \(A\) un conjunto cualquiera, obviamente \(\emptyset\subseteq A.\)
 \end{itemize}
 
 Tomemos como conjunto base \(\Omega=\{1,2,3\}\)
@@ -349,7 +326,7 @@ Tomemos como conjunto base \(\Omega=\{1,2,3\}\)
   \begin{itemize}
   \tightlist
   \item
-    El vacio \(\emptyset\) y los elementales \(\{1\},\{3\},\{3\}\).
+    El vacio \(\emptyset\) y los elementales \(\{1\},\{2\},\{3\}\).
   \item
     Los subconjuntos de dos elementos: \(\{1,2\},\{1,3\},\{2,3\}\).
   \item
@@ -372,7 +349,7 @@ Efectivamente
 Dado un subconjunto \(A\) de \(\Omega\) podemos construir la función característica de \(A\)
 \[\chi_A:\Omega \to \{0,1\}\]
 
-dado un \(\omega\in \Omega\)
+donde dado un \(\omega\in \Omega\)
 
 \[
 \chi_A(\omega)=
@@ -391,7 +368,7 @@ dado un \(\omega\in \Omega\)
 
 Sea \(\Omega\) un conjunto y \(A\) y \(B\) dos subconjuntos de \(\Omega\).
 
-El conjunto \textbf{intersección} de \(A\) \(B\) es el formado por todos los elementos que perteneces a \(A\) \textbf{y} \(B\), se denota por \(A\cap B\).
+El conjunto \textbf{intersección} de \(A\) y \(B\) es el formado por todos los elementos que pertenecen a \(A\) \textbf{y} \(B\), se denota por \(A\cap B\).
 
 Más formalmente
 
@@ -401,7 +378,7 @@ A\cap B=\left\{x\in\Omega \big| x\in A \mbox{ y } x\in B\right\}.
 
 \textbf{Unión.}
 
-El conjunto \textbf{unión} de \(A\) y \(B\) es el formado por todos los elementos que perteneces a \(A\) \textbf{o} que pertenecen a \(B\), se denota por \(A\cup B\).
+El conjunto \textbf{unión} de \(A\) y \(B\) es el formado por todos los elementos que pertenecen a \(A\) \textbf{o} que pertenecen a \(B\), se denota por \(A\cup B\).
 
 Más formalmente
 
@@ -411,7 +388,7 @@ A\cup B=\left\{x\in\Omega \big| x\in A \mbox{ o } x\in B\right\}.
 
 \textbf{Diferencia.}
 
-El conjunto \textbf{diferencia} de \(A\) y \(B\) es el formado por todos los elementos que perteneces a \(A\) \textbf{y no} pertenecen a \(B\), se denota por \(A-B=A-(A\cap B)\).
+El conjunto \textbf{diferencia} de \(A\) y \(B\) es el formado por todos los elementos que pertenecen a \(A\) \textbf{y no} pertenecen a \(B\), se denota por \(A-B=A-(A\cap B)\).
 
 Más formalmente
 
@@ -421,7 +398,7 @@ A- B=\left\{x\in\Omega \big| x\in A \mbox{ y } x\notin B\right\}.
 
 \textbf{Complementario}
 
-El \textbf{complementario} de un subconjunto \(A\) de \(\Omega\) es \(\Omega-A\) y se denota por \(A^c\) o \(\overline{A}\).
+El \textbf{complementario} de un subconjunto \(A\) de \(\Omega\) es \(\Omega-A\) y se denota por \(A^c\) o \(\bar{A}\).
 
 Más formalmente
 
@@ -443,13 +420,13 @@ Sea \(\Omega\) un conjunto y \(A\), \(B\), \(C\) tres subconjuntos de \(\Omega\)
 \item
   \(\emptyset^c=\Omega\).
 \item
-  \(A\cup B=B \cup A\) , \(A\cap B=B\cap A\) conmutativas.
+  \(A\cup B=B \cup A\) , \(A\cap B=B\cap A\) (conmutativas).
 \item
-  \((A\cup B) \cup C = A \cup( B \cup C)\) , \((A\cap B) \cap C = A \cap( B \cap C)\) asociativas.
+  \((A\cup B) \cup C = A \cup( B \cup C)\) , \((A\cap B) \cap C = A \cap( B \cap C)\) (asociativas).
 \item
-  \(A\cup (B\cap C)=(A\cup B) \cap (A\cup C)\) , \(A\cap (B\cup C)=(A\cap B) \cup (A\cap C)\) distributivas.
+  \(A\cup (B\cap C)=(A\cup B) \cap (A\cup C)\) , \(A\cap (B\cup C)=(A\cap B) \cup (A\cap C)\) (distributivas).
 \item
-  \(\left(A^c\right)^c=A\) doble complementario.
+  \(\left(A^c\right)^c=A\) (doble complementario).
 \item
   \(\left(A\cup B\right)^c=A^c \cap B^c\), \(\left(A\cap B\right)^c=A^c \cup B^c\) \href{https://es.wikipedia.org/wiki/Leyes_de_De_Morgan}{leyes de De Morgan}.
 \end{itemize}
@@ -556,7 +533,7 @@ Con R los conjuntos de pueden definir como vectores
 \end{Shaded}
 
 \begin{verbatim}
-## set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+## {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 \end{verbatim}
 
 \begin{Shaded}
@@ -567,7 +544,7 @@ Con R los conjuntos de pueden definir como vectores
 \end{Shaded}
 
 \begin{verbatim}
-## set([1, 2, 3, 4, 5])
+## {1, 2, 3, 4, 5}
 \end{verbatim}
 
 \begin{Shaded}
@@ -578,7 +555,7 @@ Con R los conjuntos de pueden definir como vectores
 \end{Shaded}
 
 \begin{verbatim}
-## set([1, 4, 5])
+## {1, 4, 5}
 \end{verbatim}
 
 \begin{Shaded}
@@ -589,7 +566,7 @@ Con R los conjuntos de pueden definir como vectores
 \end{Shaded}
 
 \begin{verbatim}
-## set([8, 4, 6, 7])
+## {8, 4, 6, 7}
 \end{verbatim}
 
 \begin{Shaded}
@@ -599,7 +576,7 @@ Con R los conjuntos de pueden definir como vectores
 \end{Shaded}
 
 \begin{verbatim}
-## set([1, 4, 5])
+## {1, 4, 5}
 \end{verbatim}
 
 \begin{Shaded}
@@ -609,7 +586,7 @@ Con R los conjuntos de pueden definir como vectores
 \end{Shaded}
 
 \begin{verbatim}
-## set([1, 2, 3, 4, 5])
+## {1, 2, 3, 4, 5}
 \end{verbatim}
 
 \begin{Shaded}
@@ -619,7 +596,7 @@ Con R los conjuntos de pueden definir como vectores
 \end{Shaded}
 
 \begin{verbatim}
-## set([1, 2, 3, 5])
+## {1, 2, 3, 5}
 \end{verbatim}
 
 \begin{Shaded}
@@ -629,7 +606,7 @@ Con R los conjuntos de pueden definir como vectores
 \end{Shaded}
 
 \begin{verbatim}
-## set([1, 2, 3, 5, 9, 10])
+## {1, 2, 3, 5, 9, 10}
 \end{verbatim}
 
 \hypertarget{combinatoria}{%
@@ -639,15 +616,15 @@ La combinatoria es una rama de la matemática discreta que entre otras cosas cue
 
 Por ejemplo si tenemos un equipo de baloncesto con 7 jugadores ¿cuántos equipos de 5 jugadores distintos podemos formar?
 
-\hypertarget{nuxfamero-binomial.}{%
-\subsection{Número binomial.}\label{nuxfamero-binomial.}}
+\hypertarget{combinaciones}{%
+\subsection{Combinaciones}\label{combinaciones}}
 
 \textbf{Número combinatorio o número binomial}
 
 Nos da el número de subconjuntos de tamaño \(k\) de un conjunto de tamaño \(n\). Este número es
 
 \[
-{n\choose k} = \frac{n!}{k!\cdot (n-k)!}.
+C_n^k={n\choose k} = \frac{n!}{k!\cdot (n-k)!}.
 \]
 
 Recordemos que
@@ -658,8 +635,10 @@ n!=1\cdot 2\cdot 3\cdots n.
 En nuestro caso con 7 jugadores \(n=7\) el número de equipos distintos de \(k=5\) es
 
 \[
-{7\choose 5} = \frac{7!}{5!\cdot (7-5)!}=\frac{7!}{5!\cdot 2!}=
-\frac{1\cdot 2\cdot 3 \cdot 4\cdot 5\cdot 6\cdot 7}{1\cdot 2\cdot 3 \cdot 4\cdot 5\cdot 1\cdot 2}=\frac{6\cdot 7}{2}=\frac{42}{2}=21.
+\begin{array}{rl}
+C_7^5&={7\choose 5} = \frac{7!}{5!\cdot (7-5)!}=\frac{7!}{5!\cdot 2!} \\
+&=\frac{1\cdot 2\cdot 3 \cdot 4\cdot 5\cdot 6\cdot 7}{1\cdot 2\cdot 3 \cdot 4\cdot 5\cdot 1\cdot 2}=\frac{6\cdot 7}{2}=\frac{42}{2}=21.
+\end{array}
 \]
 
 Puedo formar 21 equipos distintos.
@@ -667,6 +646,38 @@ Puedo formar 21 equipos distintos.
 \textbf{Ejercicio}
 
 Carga el paquete \texttt{gtools} de R y investiga la función \texttt{combinations(n,\ r,\ v,\ set,\ repeats.allowed)} para calcular todas las combinaciones anteriores.
+
+\hypertarget{combinaciones-con-repeticiuxf3n}{%
+\subsection{Combinaciones con repetición}\label{combinaciones-con-repeticiuxf3n}}
+
+En combinatoria, las combinaciones con repetición de un conjunto son las distintas formas en que se puede hacer una selección de elementos de un conjunto dado, permitiendo que las selecciones puedan repetirse.
+
+El número \(CR_n^k\) de multiconjuntos con \(k\) elementos escogidos de un conjunto con \(n\) elementos satisface:
+
+\begin{itemize}
+\tightlist
+\item
+  Es igual al número de combinaciones con repetición de \(k\) elementos escogidos de un conjunto con \(n\) elementos.
+\item
+  Es igual al número de formas de repartir \(k\) objetos en \(n\) grupos.
+\end{itemize}
+
+\[CR^k_n = \binom{n+k-1}{k} = \frac{(n+k-1)!}{k!(n-1)!}.\]
+
+\textbf{Ejemplo}
+
+Vamos a imaginar que vamos a repartir 12 caramelos entre Antonio, Beatriz, Carlos y Dionisio (que representaremos como A, B, C, D).
+Una posible forma de repartir los caramelos sería: dar 4 caramelos a Antonio, 3 a Beatriz, 2 a Carlos y 3 a Dionisio. Dado que no importa el orden en que se reparten, podemos representar esta selección como `AAAABBBCCDDD'.
+
+Otra forma posible de repartir los caramelos podría ser: dar 1 caramelo a Antonio, ninguno a Beatriz y Carlos, los 11 restantes se los damos a Dionisio. Esta repartición la representamos como
+`ADDDDDDDDDDD'.
+
+Recíprocamente, cualquier serie de 12 letras A, B, C, D se corresponde a una forma de repartir los caramelos. Por ejemplo, la serie `AAAABBBBBDDD' corresponde a:
+Dar 4 caramelos a Antonio, 5 caramelos a Beatriz, ninguno a Carlos y 3 a Dionisio.
+
+De esta forma, el número de formas de repartir los caramelos es:
+
+\[CR_{12}^4 = \binom{12+4-1}{4}\]
 
 \hypertarget{variaciones.}{%
 \subsection{Variaciones.}\label{variaciones.}}
@@ -679,39 +690,39 @@ La podemos escribir
 
 \[12,13,21,23,31,32\]
 
-Luego hay seis casos.
+Luego hay seis casos
+
+\hypertarget{variaciones-sin-repeticiuxf3n.}{%
+\subsection{Variaciones (sin repetición).}\label{variaciones-sin-repeticiuxf3n.}}
 
 Denotaremos las variaciones (sin repetición) de \(k\) elementos (de orden \(k\)) de un conjunto de \(n\) elementos por \(V^n_k\) su valor es
 
 \[
-V^n_k=\frac{n!}{(n-k)!}=(n-k+1)\cdot (n-k+2)\cdots n.
+V_n^k=\frac{n!}{(n-k)!}=(n-k+1)\cdot (n-k+2)\cdots n.
 \]
 
 En nuestro ejemplo con \(n=3\) dígitos podemos escribir las siguientes variaciones de orden \(k=2\)
 
 \[
-V_{k=2}^{n=3}=\frac{3!}{(3-2)!}=\frac{1\cdot 2\cdot 3}{1}=6.
+V^{k=2}_{n=3}=\frac{3!}{(3-2)!}=\frac{1\cdot 2\cdot 3}{1}=6.
 \]
 
 \textbf{Ejercicio}
 
 Carga el paquete \texttt{gtools} de R y investiga la función \texttt{permutations(n,\ r,\ v,\ set,\ repeats.allowed)} para calcular todas las variaciones anteriores.
 
-\hypertarget{variaciones-con-repeticiuxf3n.}{%
-\subsection{Variaciones con repetición.}\label{variaciones-con-repeticiuxf3n.}}
-
 \textbf{Variaciones con repetición}
 
 ¿Y repitiendo algún dígito?
 
-\[VR^n_k=n^k\]
+\[VR_n^k=n^k\]
 
 Efectivamente en nuestro caso
 
 \[11,12,13,21,22,23,31,32,33\]
 
 \[
-VR_{k=2}^{n=3}=n^k.
+VR^{k=2}_{n=3}=n^k.
 \]
 
 \hypertarget{permutaciones}{%
@@ -759,10 +770,58 @@ Investiga el paquete \texttt{itertools} y la función \texttt{comb} de \texttt{s
 
 La función gamma de Euler, cobrará mucha importancia en el curso de estadística. Comprueba que la función \texttt{gamma(x+1)} da el mismo valor que la función \texttt{factorial(x)} en \texttt{R} para todo \(x = \{1,2,3\cdots,10\}\).
 
+\hypertarget{nuxfameros-multinomiales.-permutaciones-con-repeticiuxf3n.}{%
+\subsection{Números multinomiales. Permutaciones con repetición.}\label{nuxfameros-multinomiales.-permutaciones-con-repeticiuxf3n.}}
+
+Consideremos un conjunto de elementos \(\{a_1, a_2, \ldots, a_k\}\).
+
+Entoces, si cada uno de los objetos \(a_i\) de un conjunto, aparece repetido \(n_i\) veces para cada \(i\) desde 1 hasta \(k\), entonces el número de permutaciones con elementos repetidos es:
+
+\[PR_n^{n_1,n_2,\ldots,n_k} = {{n}\choose {n_1\quad n_2 \quad\ldots \quad n_k}}=\frac{n!}{n_1!\cdot n_2!\cdot \ldots \cdot n_k!},\]
+donde \(n=n_1+n_2+\cdots+n_k\).
+
+\textbf{Ejemplo}
+
+¿Cuantas palabras diferentes se pueden formar con las letras de la palabra \texttt{PROBABILIDAD}?
+
+El conjunto de letras de la palabra considerada es el siguiente:
+\(\{A, B, D, I, L, O, P, R\}\) con las repeticiones siguientes: las letras A, B, D, e I, aparecen 2 veces cada una; y las letras L, O, P, R una vez cada una de ellas.
+
+Por tanto, utilizando la fórmula anterior, tenemos que el número de palabras (permutaciones con elementos repetidos) que podemos formar es
+
+\[PR^{2,2,2,2,1,1,1,1}_{12} = \frac{12!}{(2!)^4(1!)^4} = 29937600.\]
+
 \hypertarget{para-acabar}{%
 \section{Para acabar}\label{para-acabar}}
 
-\textbf{Otros asuntos}
+\hypertarget{principios-buxe1sicos-para-contar-cardinales-de-conjuntos}{%
+\subsection{Principios básicos para contar cardinales de conjuntos}\label{principios-buxe1sicos-para-contar-cardinales-de-conjuntos}}
+
+\textbf{El principio de la suma}
+
+Sean \(A_1, A_2,\ldots, A_n\) conjuntos disjuntos dos a dos, es decir \(A_i\cap A_j=\emptyset\) para todo \(i\not= j\), \(i,j=1,2,\ldots n\). Entonces
+
+\[\#(\cup_{i=1}^n A_i)=\sum_{i=1}^n \#(A_i).\]
+
+\textbf{Principio de unión exclusión}
+
+Consideremos dos conjuntos cualesquiera \(A_1, A_2\) entonces el cardinal de su unión es
+
+\[\#(A_1\cup A_2)=\#(A_1)+\#(A_2)-\#(A_1\cap A_2).\]
+
+\textbf{El principio del producto}
+
+Sean \(A_1,A_2,\ldots A_n\)
+
+\[
+\begin{array}{ll}
+\#(A_1\times A_2\times \cdots A_n)=&\#\left(\{(a_1,a_2,\ldots a_n)| a_i\in A_i, i=1,2,\ldots n\}\right)\\
+&=\prod_{i=1}^n \#(A_i).
+\end{array}
+\]
+
+\hypertarget{otros-aspectos-a-tener-en-cuenta}{%
+\section{Otros aspectos a tener en cuenta}\label{otros-aspectos-a-tener-en-cuenta}}
 
 Evidentemente nos hemos dejado muchas otras propiedades básicas de teoría de conjuntos y de combinatoria como:
 
@@ -770,8 +829,6 @@ Evidentemente nos hemos dejado muchas otras propiedades básicas de teoría de c
 \tightlist
 \item
   Números multinomiales.
-\item
-  Combinaciones con repetición
 \item
   Propiedades de los números combinatorios.
 \item
@@ -804,7 +861,12 @@ Tirar un dado de 6 caras y anotar el número de puntos de la cara superior.
 
 Los sucesos elementales del ejemplo anterior serían:
 
-\includegraphics{Images/proba1dibujos/dice/1.png} \includegraphics{Images/proba1dibujos/dice/2.png} \includegraphics{Images/proba1dibujos/dice/3.png} \includegraphics{Images/proba1dibujos/dice/4.png} \includegraphics{Images/proba1dibujos/dice/5.png} \includegraphics{Images/proba1dibujos/dice/6.png}
+\includegraphics[width=0.42in]{Images/proba1dibujos/dice/1}
+\includegraphics[width=0.42in]{Images/proba1dibujos/dice/2}
+\includegraphics[width=0.42in]{Images/proba1dibujos/dice/3}
+\includegraphics[width=0.42in]{Images/proba1dibujos/dice/4}
+\includegraphics[width=0.42in]{Images/proba1dibujos/dice/5}
+\includegraphics[width=0.42in]{Images/proba1dibujos/dice/6}
 
  \textbf{Espacio muestral}: el conjunto \(\Omega\) formado por todos los sucesos elementales del experimento aleatorio
 
@@ -812,12 +874,18 @@ Los sucesos elementales del ejemplo anterior serían:
 
 El espacio muestral del ejemplo anterior del dado es
 
-\(\Omega=\Big\{\)\includegraphics{Images/proba1dibujos/dice/1.png} ,
-\includegraphics{Images/proba1dibujos/dice/2.png} ,
-\includegraphics{Images/proba1dibujos/dice/3.png} ,
-\includegraphics{Images/proba1dibujos/dice/4.png} ,
-\includegraphics{Images/proba1dibujos/dice/5.png} ,
-\includegraphics{Images/proba1dibujos/dice/6.png} \(\Big\}\)
+\(\Omega=\Big\{\)
+\includegraphics[width=0.42in]{Images/proba1dibujos/dice/1} ,
+
+\includegraphics[width=0.42in]{Images/proba1dibujos/dice/2} ,
+
+\includegraphics[width=0.42in]{Images/proba1dibujos/dice/3} ,
+
+\includegraphics[width=0.42in]{Images/proba1dibujos/dice/4} ,
+
+\includegraphics[width=0.42in]{Images/proba1dibujos/dice/5} ,
+
+\includegraphics[width=0.42in]{Images/proba1dibujos/dice/6} \(\Big\}\)
 
 pero por comodidad, a partir de ahora pondremos
 \[\Omega = \{1,2,3,4,5,6\}\]
@@ -1047,7 +1115,7 @@ P(A_1\cup A_2\cup \cdots \cup A_n)=P(A_1)+P(A_2)+\cdots +P(A_n).
 
 Si \(a\in \Omega\) es un suceso elemental cometeremos el abuso de notación de poner \(P(a)\) en lugar de \(P(\{a\})\).
 
-\textbf{Ejemplo: grupos sangíneos}
+\textbf{Ejemplo: grupos sanguíneos}
 
 En la página de la \href{http://www.donasang.org/que-es-la-sang/es_frequencies-dels-diferents-grups.html}{Fundación Banco de Sangre y Tejidos de las Islas Baleares} podemos encontrar información sobre los porcentajes de tipos de sangre de los donantes de las Islas Baleares:
 
@@ -3524,7 +3592,7 @@ Veamos los cálculos básicos usando la distribución \(Ber(p=0.25)\) en \texttt
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+##  [1] 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0
 \end{verbatim}
 
 El siguiente código dibuja las función de probabilidad y la de distribución de una \(Ber(p=0.25)\)
@@ -3873,7 +3941,7 @@ Para calcular los valores de la función de distribución como por ejemplo \(F_X
 \end{Shaded}
 
 \begin{verbatim}
-## 0.92187309265136719
+## 0.9218730926513672
 \end{verbatim}
 
 Notemos que al no indicar el valor de \texttt{loc}, se le asume que toma el valor 0.
@@ -3911,11 +3979,12 @@ Si queremos generar una muestras aleatorias que siga una distribución binomial,
 \end{Shaded}
 
 \begin{verbatim}
-## array([4, 5, 5, 8, 5, 2, 2, 5, 5, 5, 4, 7, 8, 7, 6, 4, 3, 3, 4, 3, 8, 4, 6,
-##        8, 6, 3, 4, 7, 8, 3, 6, 6, 7, 7, 6, 7, 2, 5, 4, 2, 7, 6, 2, 6, 3, 8,
-##        7, 5, 5, 4, 6, 3, 3, 3, 2, 4, 3, 3, 6, 8, 3, 0, 7, 4, 6, 2, 5, 6, 7,
-##        6, 6, 5, 3, 6, 6, 6, 6, 6, 5, 8, 7, 2, 5, 7, 7, 4, 4, 6, 5, 7, 4, 7,
-##        6, 3, 7, 3, 5, 6, 6, 7])
+## array([ 4,  7,  7,  3,  4,  5,  5,  5,  3,  6,  6,  8,  5,  5,  2,  3,  4,
+##         5,  3,  6,  5,  7,  5,  5,  4,  4, 10,  6,  8,  5,  9,  5,  6,  5,
+##         9,  5,  6,  4,  8,  8,  4,  5,  2,  5,  5,  4,  6,  7,  4,  6,  6,
+##         5,  1,  7,  6,  4,  3,  4,  5,  2,  2,  4,  5,  4,  7,  4,  4,  8,
+##         6,  5,  8,  3,  2,  8,  3,  5,  7,  4,  5,  4,  9,  7,  5,  5,  2,
+##         3,  3,  8,  5,  5, 11,  3,  5,  5,  5,  6,  3,  4,  8,  3])
 \end{verbatim}
 
  \textbf{Observación}
@@ -3929,12 +3998,12 @@ Notemos que la secuencia aleatoria generada no es la misma que con \texttt{R}. D
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 1,  6,  7,  5,  6,  4,  4,  4,  3, 10,  5,  4,  6,  3,  9,  4,  5,
-##         5,  2,  6,  5,  6,  5,  2,  7,  2,  6,  3,  6,  5,  4,  3,  4,  7,
-##         5,  6,  3,  5,  5,  5,  7,  5,  6,  6,  8,  5,  5,  4,  7,  5,  4,
-##         6,  6,  1,  6,  7,  6,  7,  3,  9,  3,  5,  4,  5,  7,  3,  5,  3,
-##         2,  8,  6,  4,  9,  5,  3,  4,  3,  3,  4,  5,  3,  3,  6,  5,  6,
-##         4,  7,  3,  5,  4,  4,  3,  1,  7,  5,  5,  8,  8,  4,  3])
+## array([ 6,  3,  1,  3,  5,  4,  6,  5,  5,  3,  4,  5,  3,  6,  3,  4,  5,
+##         3,  4,  4,  3,  6,  8,  4,  5,  4,  7,  6,  3,  5,  6,  5,  7,  7,
+##         3,  7,  4,  7,  6,  5, 10,  3,  7,  2,  4,  7,  3,  7,  5,  3,  8,
+##         5,  4,  6,  7,  6,  4,  3,  5,  3,  4,  6,  4,  4,  4,  3,  5,  5,
+##         7,  3,  4,  2,  5,  7,  2,  5,  5,  7,  6,  4,  5,  8,  6,  7,  3,
+##         5,  3,  6,  1,  6,  5,  5,  8,  5,  4,  6,  7,  8,  4,  6])
 \end{verbatim}
 
 Veamos algunos cálculos básicos con funciones de python para la binomial \(B(n=10,p=0.25)\).
@@ -3946,7 +4015,7 @@ Veamos algunos cálculos básicos con funciones de python para la binomial \(B(n
 \end{Shaded}
 
 \begin{verbatim}
-## 0.98027229309082031
+## 0.9802722930908203
 \end{verbatim}
 
 \begin{Shaded}
@@ -3966,7 +4035,7 @@ Veamos algunos cálculos básicos con funciones de python para la binomial \(B(n
 \end{Shaded}
 
 \begin{verbatim}
-## array([5, 4, 4, 9, 5, 4, 5, 8, 5, 8])
+## array([8, 5, 6, 6, 5, 7, 3, 8, 6, 4])
 \end{verbatim}
 
 \textbf{Gráficas de la distribución binomial con \texttt{R}}
@@ -4068,7 +4137,7 @@ Pista: Necesitaremos investigar más librerías:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{curso-probabilidad-udemy_files/figure-latex/dibu_python2-1.pdf}
+\includegraphics{/Users/juangabriel/Developer/Projects/Matematicas/bookdown-probabilidad/curso-probabilidad-udemy_files/figure-latex/dibu_python2-1.pdf}
 
 \textbf{Ejemplo: número de bolas rojas extraídas de una urna con reposición}
 
@@ -4782,7 +4851,7 @@ Veamos pues los cálculos para la \(Ge(p)\) que empieza en \(0\).
 \end{Shaded}
 
 \begin{verbatim}
-## 0.25
+## 0.24999999999999997
 \end{verbatim}
 
 \(P(X\leq 4)=1-(1-0.25)^{4+1}=1-0.75=1-0.75^5=0.7626953\):
@@ -4794,7 +4863,7 @@ Veamos pues los cálculos para la \(Ge(p)\) que empieza en \(0\).
 \end{Shaded}
 
 \begin{verbatim}
-## 0.7626953125
+## 0.7626953124999999
 \end{verbatim}
 
 Una muestra aleatoria de tamaño 25 de una \(Ge(0.25)\):
@@ -4806,8 +4875,8 @@ Una muestra aleatoria de tamaño 25 de una \(Ge(0.25)\):
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 0,  1,  4,  5,  1,  5,  1, 11,  6,  6,  7,  1,  2,  0,  1,  3,  1,
-##        13,  3,  0])
+## array([ 5, 12,  4,  7,  0,  5,  7,  6,  4,  0,  2,  2,  1,  0, 13,  5,  2,
+##         1,  9,  0])
 \end{verbatim}
 
 \textbf{Ejercicio}
@@ -4821,7 +4890,7 @@ Una muestra aleatoria de tamaño 25 de una \(Ge(0.25)\):
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 0.    ,  0.3   ,  0.51  ,  0.657 ,  0.7599])
+## array([0.    , 0.3   , 0.51  , 0.657 , 0.7599])
 \end{verbatim}
 
 \begin{Shaded}
@@ -4831,7 +4900,7 @@ Una muestra aleatoria de tamaño 25 de una \(Ge(0.25)\):
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 0.3    ,  0.51   ,  0.657  ,  0.7599 ,  0.83193])
+## array([0.3    , 0.51   , 0.657  , 0.7599 , 0.83193])
 \end{verbatim}
 
 \textbf{Cálculos con python de la esperanza y varianza}
@@ -4845,7 +4914,7 @@ Con python también podemos calcular directamente algunos parámetros asociados 
 \end{Shaded}
 
 \begin{verbatim}
-## (array(4.0), array(12.0))
+## (array(4.), array(12.))
 \end{verbatim}
 
 \begin{Shaded}
@@ -4855,7 +4924,7 @@ Con python también podemos calcular directamente algunos parámetros asociados 
 \end{Shaded}
 
 \begin{verbatim}
-## (array(3.0), array(12.0))
+## (array(3.), array(12.))
 \end{verbatim}
 
 \textbf{Ejercicio}
@@ -4890,7 +4959,7 @@ Comprobad que las medias y las varianzas calculadas en el código anterior, corr
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-43-1.pdf}
+\includegraphics{/Users/juangabriel/Developer/Projects/Matematicas/bookdown-probabilidad/curso-probabilidad-udemy_files/figure-latex/unnamed-chunk-43-1.pdf}
 
 \hypertarget{distribuciuxf3n-binomial-negativa}{%
 \subsection{Distribución binomial negativa}\label{distribuciuxf3n-binomial-negativa}}
@@ -5235,7 +5304,7 @@ Recordemos que de nuevo se cumple que
 \end{Shaded}
 
 \begin{verbatim}
-## 0.035429400000000041
+## 0.03542940000000002
 \end{verbatim}
 
 \begin{Shaded}
@@ -5245,7 +5314,7 @@ Recordemos que de nuevo se cumple que
 \end{Shaded}
 
 \begin{verbatim}
-## 0.035429400000000041
+## 0.03542940000000002
 \end{verbatim}
 
 \begin{Shaded}
@@ -5265,7 +5334,7 @@ Recordemos que de nuevo se cumple que
 \end{Shaded}
 
 \begin{verbatim}
-## 0.88573499999999994
+## 0.8857349999999999
 \end{verbatim}
 
 Generemos 100 observaciones aleatorias de una \(BN(n=2,0.1)\). Es decir serán las veces que hemos fallado hasta abrir la puerta 100 veces.
@@ -5277,12 +5346,12 @@ Generemos 100 observaciones aleatorias de una \(BN(n=2,0.1)\). Es decir serán l
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 1,  4, 18, 23,  2,  1, 45,  4,  9,  4,  7,  5, 20, 14, 14, 28, 34,
-##        54, 23, 40,  3, 19, 11, 20, 24, 13, 37, 14,  7, 26, 10,  6,  3,  9,
-##        18, 12, 16, 33, 25, 10, 22, 19, 20,  8,  2,  1, 12, 16, 11, 29,  9,
-##        25, 11, 23, 14,  3, 47,  3, 13, 37, 30,  9, 36, 18, 35, 23, 10, 73,
-##        41,  5,  1, 12,  5, 15, 11, 23, 54, 24, 13,  3, 46, 12, 26, 30, 53,
-##        43, 15, 10, 13, 25, 24, 22, 19, 35, 20, 26, 37, 85, 40, 16])
+## array([17, 28, 23, 17, 35, 10,  7, 19,  5,  1, 17,  7, 12,  8,  5, 24, 28,
+##        17, 29,  9, 32,  6, 33, 14,  7, 70, 11, 29, 22, 19, 15,  8, 13, 31,
+##        35, 17,  7, 43,  3, 20, 64,  4, 11, 18, 17, 22,  9,  5, 13, 10, 22,
+##         8, 15, 14, 17, 42,  7, 22, 13, 29, 11, 16,  6, 12, 38, 21,  5, 37,
+##        26, 27,  4, 27,  3,  3, 46, 13, 30, 16, 10, 19,  7, 16,  9,  0, 15,
+##         3, 14,  9,  3,  3, 21, 17,  8, 20, 25,  2, 24, 13, 39, 10])
 \end{verbatim}
 
 La \textbf{esperanza} y la \textbf{varianza}de una \(BN(n=2,0.1)\) valen:
@@ -5408,7 +5477,7 @@ Necesitamos de nuevo más librerías
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{curso-probabilidad-udemy_files/figure-latex/negativa_py_show-1.pdf}
+\includegraphics{/Users/juangabriel/Developer/Projects/Matematicas/bookdown-probabilidad/curso-probabilidad-udemy_files/figure-latex/negativa_py_show-1.pdf}
 
 \textbf{Ejercicio: acceso aleatorio a un sistema con triple clave}
 
@@ -5508,7 +5577,7 @@ Si queremos calcular la probabilidad anterior con python, tenemos que hacer:
 \end{Shaded}
 
 \begin{verbatim}
-## 9.8767434596705257e-06
+## 9.876743459670526e-06
 \end{verbatim}
 
 \begin{Shaded}
@@ -5518,7 +5587,7 @@ Si queremos calcular la probabilidad anterior con python, tenemos que hacer:
 \end{Shaded}
 
 \begin{verbatim}
-## 9.8767434596702174e-06
+## 9.876743459670217e-06
 \end{verbatim}
 
 Vemos que es muy improbable fallar 150 veces antes de acceder al sistema.
@@ -5555,7 +5624,7 @@ Si lo hacemos en python, obtenemos el mismo resultado:
 \end{Shaded}
 
 \begin{verbatim}
-## 0.00052320034908240592
+## 0.0005232003490824058
 \end{verbatim}
 
 El valor pedido será pues:
@@ -6243,7 +6312,7 @@ Si quisiéramos hallar las funciones de distribución en los mismos valores ante
 \end{Shaded}
 
 \begin{verbatim}
-## 0.049787068367863951
+## 0.04978706836786395
 \end{verbatim}
 
 \begin{Shaded}
@@ -6253,7 +6322,7 @@ Si quisiéramos hallar las funciones de distribución en los mismos valores ante
 \end{Shaded}
 
 \begin{verbatim}
-## 0.19914827347145581
+## 0.1991482734714558
 \end{verbatim}
 
 \begin{Shaded}
@@ -6263,7 +6332,7 @@ Si quisiéramos hallar las funciones de distribución en los mismos valores ante
 \end{Shaded}
 
 \begin{verbatim}
-## 0.19914827347145581
+## 0.1991482734714558
 \end{verbatim}
 
 La comprobación de que \(F_X(10)=\displaystyle\sum_{0}^{10} P_X(x)\) en python se realiza de la forma siguiente:
@@ -6275,7 +6344,7 @@ La comprobación de que \(F_X(10)=\displaystyle\sum_{0}^{10} P_X(x)\) en python 
 \end{Shaded}
 
 \begin{verbatim}
-## [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+## range(0, 10)
 \end{verbatim}
 
 \begin{Shaded}
@@ -6285,8 +6354,8 @@ La comprobación de que \(F_X(10)=\displaystyle\sum_{0}^{10} P_X(x)\) en python 
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 0.04978707,  0.14936121,  0.22404181,  0.22404181,  0.16803136,
-##         0.10081881,  0.05040941,  0.02160403,  0.00810151,  0.0027005 ])
+## array([0.04978707, 0.14936121, 0.22404181, 0.22404181, 0.16803136,
+##        0.10081881, 0.05040941, 0.02160403, 0.00810151, 0.0027005 ])
 \end{verbatim}
 
 \begin{Shaded}
@@ -6296,7 +6365,7 @@ La comprobación de que \(F_X(10)=\displaystyle\sum_{0}^{10} P_X(x)\) en python 
 \end{Shaded}
 
 \begin{verbatim}
-## 0.99889751186988462
+## 0.9988975118698846
 \end{verbatim}
 
 \begin{Shaded}
@@ -6306,7 +6375,7 @@ La comprobación de que \(F_X(10)=\displaystyle\sum_{0}^{10} P_X(x)\) en python 
 \end{Shaded}
 
 \begin{verbatim}
-## 0.99970766304935266
+## 0.9997076630493527
 \end{verbatim}
 
 \textbf{Ejercicio de la trampa para insectos (continuación)}
@@ -6325,7 +6394,7 @@ Recordemos que la probabilidad pedida es \(P(X=21)\):
 \end{Shaded}
 
 \begin{verbatim}
-## 0.084605064182937909
+## 0.08460506418293791
 \end{verbatim}
 
 \textbf{Pregunta 4.} Calculad la probabilidad de que en una hora caigan en la trampa al menos 6 insectos.
@@ -6340,7 +6409,7 @@ La probabilidad pedida es \(P(X\geq 6)=1-P(X\leq 5)\):
 \end{Shaded}
 
 \begin{verbatim}
-## 0.99992809115947157
+## 0.9999280911594716
 \end{verbatim}
 
 Como ya hemos visto con \texttt{scipy.stats}, podemos pedir los momentos de una variable aleatoria
@@ -6353,7 +6422,7 @@ Como ya hemos visto con \texttt{scipy.stats}, podemos pedir los momentos de una 
 \end{Shaded}
 
 \begin{verbatim}
-## (array(3.0), array(3.0))
+## (array(3.), array(3.))
 \end{verbatim}
 
 Y también generar secuencias de observaciones aleatorias de una población \(Po(3)\):
@@ -6365,9 +6434,8 @@ Y también generar secuencias de observaciones aleatorias de una población \(Po
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 4,  3,  1,  4,  3, 10,  4,  3,  3,  4,  1,  7,  4,  5,  8,  4,  3,
-##         1,  1,  1,  2,  3,  1,  4,  2,  3,  4,  3,  3,  2,  1,  5,  3,  2,
-##         2,  2,  2,  3,  3,  4])
+## array([2, 5, 2, 3, 6, 3, 3, 3, 9, 1, 1, 3, 0, 1, 2, 0, 3, 3, 2, 1, 4, 0,
+##        4, 4, 2, 5, 6, 4, 2, 4, 2, 3, 2, 7, 5, 4, 4, 4, 2, 4])
 \end{verbatim}
 
 \textbf{Gráficos con python}
@@ -6397,7 +6465,7 @@ Y también generar secuencias de observaciones aleatorias de una población \(Po
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{curso-probabilidad-udemy_files/figure-latex/py_poiss2-1.pdf}
+\includegraphics{/Users/juangabriel/Developer/Projects/Matematicas/bookdown-probabilidad/curso-probabilidad-udemy_files/figure-latex/py_poiss2-1.pdf}
 
 \textbf{Gráficos interactivos para un proceso de Poisson \(Po(\lambda\cdot t\))}
 
@@ -6965,7 +7033,7 @@ Los cálculos realizados anteriormente en \texttt{R} serían:
 \end{Shaded}
 
 \begin{verbatim}
-## 0.29347826086956635
+## 0.29347826086956585
 \end{verbatim}
 
 \begin{Shaded}
@@ -6975,7 +7043,7 @@ Los cálculos realizados anteriormente en \texttt{R} serían:
 \end{Shaded}
 
 \begin{verbatim}
-## 0.34565217391304481
+## 0.3456521739130442
 \end{verbatim}
 
 \begin{Shaded}
@@ -6985,7 +7053,7 @@ Los cálculos realizados anteriormente en \texttt{R} serían:
 \end{Shaded}
 
 \begin{verbatim}
-## 0.65434782608695519
+## 0.6543478260869557
 \end{verbatim}
 
 Una muestra aleatoria de este experimento sería:
@@ -6997,11 +7065,11 @@ Una muestra aleatoria de este experimento sería:
 \end{Shaded}
 
 \begin{verbatim}
-## array([2, 2, 1, 2, 3, 1, 2, 2, 2, 2, 3, 2, 2, 2, 1, 3, 0, 1, 2, 1, 3, 1, 2,
-##        2, 3, 3, 2, 2, 2, 0, 3, 2, 1, 0, 1, 1, 2, 2, 2, 3, 1, 1, 2, 2, 2, 3,
-##        1, 1, 2, 1, 2, 3, 0, 1, 2, 1, 1, 1, 2, 1, 2, 1, 0, 3, 2, 1, 1, 3, 1,
-##        2, 2, 2, 1, 3, 3, 3, 2, 2, 3, 3, 2, 1, 2, 2, 2, 2, 2, 0, 3, 2, 1, 1,
-##        1, 3, 3, 2, 2, 2, 2, 2])
+## array([1, 3, 3, 3, 1, 2, 2, 2, 3, 2, 2, 2, 2, 3, 2, 3, 1, 2, 3, 2, 1, 3,
+##        1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 1, 3, 2, 2, 3, 1, 0, 0,
+##        1, 2, 2, 2, 3, 2, 2, 2, 3, 2, 1, 2, 2, 2, 1, 3, 2, 1, 1, 1, 2, 2,
+##        2, 3, 3, 1, 1, 1, 3, 2, 2, 1, 0, 2, 1, 3, 2, 2, 1, 3, 1, 2, 2, 1,
+##        3, 2, 2, 2, 2, 3, 2, 1, 2, 2, 1, 3])
 \end{verbatim}
 
 Los gráficos de la función de probabilidad y de la función de distribución en python se realizan de la forma siguiente:
@@ -7032,7 +7100,7 @@ Los gráficos de la función de probabilidad y de la función de distribución e
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{curso-probabilidad-udemy_files/figure-latex/py_hyper2-1.pdf}
+\includegraphics{/Users/juangabriel/Developer/Projects/Matematicas/bookdown-probabilidad/curso-probabilidad-udemy_files/figure-latex/py_hyper2-1.pdf}
 
 \hypertarget{cuantiles-de-distribuciones-notables-discretas}{%
 \section{Cuantiles de distribuciones notables discretas}\label{cuantiles-de-distribuciones-notables-discretas}}
@@ -7515,12 +7583,12 @@ Para generar una muestra de valores aleatorios, hay que usar la función \texttt
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 0.13204784,  0.19536854,  0.81515978, -0.6327014 , -0.4838161 ,
-##        -0.13128593,  0.02245493,  0.63258419, -0.42340672,  0.05950862,
-##        -0.01098743, -0.04109027, -0.92301732,  0.23883902, -0.34905819,
-##         0.28315645,  0.12008857, -0.09174538,  0.30926668, -0.55690314,
-##         0.86509005, -0.75672956,  0.25069037, -0.59454303, -0.98424121,
-##        -0.90980358,  0.64924727, -0.17370523, -0.90100936,  0.83866046])
+## array([ 0.64906432, -0.38900887,  0.92445827,  0.86680696,  0.13969328,
+##         0.23690563,  0.91097689, -0.01390772, -0.29071708,  0.35700326,
+##         0.99008895,  0.82997944, -0.66409714,  0.02855229, -0.87964898,
+##        -0.35783797,  0.70219976,  0.47300926, -0.33859039,  0.93086693,
+##        -0.06798231, -0.64914274, -0.73001313,  0.25000064, -0.86997239,
+##        -0.84957916,  0.76743108, -0.05425713,  0.35968151,  0.62241391])
 \end{verbatim}
 
 Los valores de los parámetros por defecto son \texttt{loc=0,\ scale=1}:
@@ -7552,7 +7620,7 @@ Los valores de los parámetros por defecto son \texttt{loc=0,\ scale=1}:
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 0.82439953,  0.00297727,  0.4430159 ,  0.7215953 ,  0.08536215])
+## array([0.663849  , 0.33189641, 0.97035164, 0.94423667, 0.44405832])
 \end{verbatim}
 
 \hypertarget{distribuciuxf3n-exponencial}{%
@@ -7737,7 +7805,7 @@ Las funciones de densidad y de distribución de una variable exponencial de par�
 \end{Shaded}
 
 \begin{verbatim}
-## 0.77686983985157021
+## 0.7768698398515702
 \end{verbatim}
 
 \begin{Shaded}
@@ -7747,8 +7815,8 @@ Las funciones de densidad y de distribución de una variable exponencial de par�
 \end{Shaded}
 
 \begin{verbatim}
-## array([ 0.50364119,  0.05299546,  0.22626778,  0.36782539,  0.36742364,
-##         0.03589439,  0.05530053,  0.4974299 ,  0.62315958,  0.13041724])
+## array([0.30022342, 0.44047215, 0.27798981, 0.31153803, 0.16517572,
+##        0.22200836, 0.17702237, 0.35346901, 0.05840173, 0.06362799])
 \end{verbatim}
 
 \textbf{Resumen v.a con distribución exponencial, \(Exp(\lambda)\)}
@@ -8064,7 +8132,7 @@ y la función de distribución \(F_X(2) = P(X\leq 2)\), de la forma siguiente:
 \end{Shaded}
 
 \begin{verbatim}
-## 0.69146246127401312
+## 0.6914624612740131
 \end{verbatim}
 
 Si queremos calcular el cuantil \(x_{q}\) de una distribución normal \(N(\mu,\sigma)\), tenemos que usar la función \texttt{norm.ppf(q,loc=mu,scale=sigma)}:
@@ -8076,7 +8144,7 @@ Si queremos calcular el cuantil \(x_{q}\) de una distribución normal \(N(\mu,\s
 \end{Shaded}
 
 \begin{verbatim}
-## 4.2897072539029448
+## 4.289707253902945
 \end{verbatim}
 
 Para generar \texttt{n} valores aleatorios de una distribución normal \(N(\mu,\sigma)\), hay que usar la función \texttt{norm.rvs(loc=mu,scale=sigma,size=n)}:
@@ -8088,7 +8156,7 @@ Para generar \texttt{n} valores aleatorios de una distribución normal \(N(\mu,\
 \end{Shaded}
 
 \begin{verbatim}
-## array([-2.32119979,  1.01309962,  1.21567313,  1.00105056,  2.78953618])
+## array([ 0.68181151,  2.76713572,  2.020615  , -2.08652828,  5.13367031])
 \end{verbatim}
 
 \textbf{Ejercicio}
@@ -8329,7 +8397,7 @@ Sea \(X\) una normal con media \(2\) y varianza \(4\). Calcular usando \texttt{R
 \end{Shaded}
 
 \begin{verbatim}
-## 0.30853753872598688
+## 0.3085375387259869
 \end{verbatim}
 
 \textbf{La distribución normal aproxima otras distribuciones}
@@ -9185,13 +9253,14 @@ Veamos algunos ejemplos:
 
 Suceso: \(\{X+Y\leq 1\}\). Es la zona sombreada del gráfico siguiente:
 
-\includegraphics{Images/Bidim1.png}
+\begin{figure}
+\includegraphics[width=2.5in]{Images/Bidim1} \end{figure}
 
 Suceso: \(\{X^2+Y^2\leq 4\}\). Es la zona sombreada del gráfico siguiente:
 
 \begin{figure}
 
-{\centering \includegraphics{Images/Bidim2} 
+{\centering \includegraphics[width=2.5in]{Images/Bidim2} 
 
 }
 
@@ -9200,9 +9269,7 @@ Suceso: \(\{X^2+Y^2\leq 4\}\). Es la zona sombreada del gráfico siguiente:
 Suceso: \(\{\max\{X,Y\}\geq 1\}\). Esta zona es la sombreada del gráfico siguiente:
 
 \begin{figure}
-\centering
-\includegraphics{Images/Bidim3.png}
-\caption{\label{fig:bid3}Representación suceso}
+\includegraphics[width=2.5in]{Images/Bidim3} \caption{Representación suceso}\label{fig:bid3}
 \end{figure}
 
 La probabilidad de que la \textbf{variable bidimensional} pertenezca a una cierta \textbf{región del plano \(B\)} se define de la forma siguiente:
@@ -9234,7 +9301,8 @@ F_{XY}: \mathbb{R}^2 & \longrightarrow \mathbb{R}\\
 
 Por lo tanto, dado un valor \((x,y)\in \mathbb{R}^2\), consideramos la región del plano \((-\infty,x]\times (-\infty,y]\):
 
-\includegraphics{Images/Fxy.png}
+\begin{figure}
+\includegraphics[width=2.5in]{Images/Fxy} \end{figure}
 
 Entonces la \textbf{función de distribución conjunta} en el valor \((x,y)\) es la probabilidad del suceso formado por aquellos elementos tal que la imagen por la \textbf{variable aleatoria bidimensional} \((X,Y)\) caen dentro de la región sombreada en el gráfico anterior:
 
@@ -9276,9 +9344,7 @@ Sea \((X,Y)\) una variable bidimensional. y sea \(F_{XY}\) su \textbf{función d
 \end{itemize}
 
 \begin{figure}
-\centering
-\includegraphics{Images/Fxy2.png}
-\caption{\label{fig:bid5}Función de distribución conjunta}
+\includegraphics[width=2.5in]{Images/Fxy2} \caption{Función de distribución conjunta}\label{fig:bid5}
 \end{figure}
 
 \begin{itemize}
@@ -9292,7 +9358,8 @@ Sea \((X,Y)\) una variable bidimensional. y sea \(F_{XY}\) su \textbf{función d
   \]
 \end{itemize}
 
-\includegraphics{Images/Fxy3.png}
+\begin{figure}
+\includegraphics[width=2.5in]{Images/Fxy3} \end{figure}
 
 \textbf{Ejemplo: Función de distribución uniforme}
 
@@ -9309,9 +9376,7 @@ y, & \mbox{si }0\leq y\leq 1,\ x> 1, \\
 En la figura siguiente, hemos representado por zonas cómo está definida \(F_{XY}\).
 
 \begin{figure}
-\centering
-\includegraphics{Images/FxyEx.png}
-\caption{\label{fig:bid7}Funciń de distribución uniforme bidimensional.}
+\includegraphics[width=2.5in]{Images/FxyEx} \caption{Funciń de distribución uniforme bidimensional.}\label{fig:bid7}
 \end{figure}
 
 Comprobemos algunas de las propiedades que hemos enunciado anteriormente:
@@ -9890,7 +9955,8 @@ P((X,Y)\in B)&=\int\int_{B} f_{XY}(x,y)\, dx\, dy=\int_{-1}^{\frac{1}{2}}\int_{-
 
 En la figura siguiente hemos dibujado en morado la región donde \(f_{XY}\) no es cero, es decir \([0,1]\times [0,1]\), la región \(B\) en verde y la región intersección de las dos anteriores que es donde tenemos que integrar la \textbf{función de densidad} dada.
 
-\includegraphics{Images/VaUniformeBidi.png}
+\begin{figure}
+\includegraphics[width=2.5in]{Images/VaUniformeBidi} \end{figure}
 
 \hypertarget{propiedades-de-la-funciuxf3n-de-densidad}{%
 \subsection{Propiedades de la función de densidad}\label{propiedades-de-la-funciuxf3n-de-densidad}}
@@ -9978,7 +10044,8 @@ Comprobemos las propiedades usando la \textbf{función de densidad} del ejemplo 
   Vamos a calcular la función de distribución \(F_{XY}\). Para ello dividimos el plano en 5 zonas tal como muestra la figura siguiente:
 \end{itemize}
 
-\includegraphics{Images/VaUniformeBidi2.png}
+\begin{figure}
+\includegraphics[width=2.5in]{Images/VaUniformeBidi2} \end{figure}
 
 Sea \((x,y)\) un punto cualquiera de \(\mathbb{R}^2\). De cara a calcular \(F_{XY}(x,y)\) tenemos que averiguar el conjunto intersección siguiente: \(([0,1]\times [0,1])\cap ((-\infty,x]\times (-\infty,y])\) ya que el dominio donde \(f_{XY}\) es no nula es \([0,1]\times [0,1]\) y la función de distribución \(F_{XY}(x,y)\) valdrá:
 
@@ -9997,7 +10064,8 @@ F_{XY}(x,y)&=\int_{-\infty}^x\int_{-\infty}^y f_{XY}(u,v)\,du\,dv\\ &=
 
 Por tanto en este caso, \(F_{XY}(x,y)=0\).
 
-\includegraphics{Images/VaUniformeBidi3.png}
+\begin{figure}
+\includegraphics[width=2.5in]{Images/VaUniformeBidi3} \end{figure}
 
 \begin{itemize}
 \tightlist
@@ -10012,7 +10080,8 @@ Por tanto en este caso,
 F_{XY}(x,y)=\int_0^x \int_0^y 1\,du\,dv =\int_0^x 1\, du\int_0^y 1\, dy =x\cdot y.
 \]
 
-\includegraphics{Images/VaUniformeBidi4.png}
+\begin{figure}
+\includegraphics[width=2.5in]{Images/VaUniformeBidi4} \end{figure}
 
 Dejamos como ejercicio los otros casos. En resumen:
 \[
@@ -10085,7 +10154,8 @@ Para hallar \(c\), hemos de imponer que la integral de la función anterior debe
 
 Primero fijémonos en como es la región de integración (zona morada de la figura). Fijado un valor \(x\geq 0\), el valor \(y\) va desde \(y=0\) hasta \(y=x\). Por tanto, para calcular el valor de \(c\), hay que hacer lo siguiente:
 
-\includegraphics{Images/Ejemplo2Bidi.png}
+\begin{figure}
+\includegraphics[width=2.5in]{Images/Ejemplo2Bidi} \end{figure}
 
 \[
 \begin{array}{rl}
@@ -10113,7 +10183,8 @@ Vamos a considerar dos casos:
   \(x\geq y\). Ver zona morada del gráfico siguiente.
 \end{itemize}
 
-\includegraphics{Images/Ejemplo2Bidi2.png}
+\begin{figure}
+\includegraphics[width=2.5in]{Images/Ejemplo2Bidi2} \end{figure}
 
 \begin{itemize}
 \tightlist
@@ -10131,7 +10202,8 @@ F_{XY}(x,y) & = & \int_{u=0}^{u=x}\int_{v=0}^{v=u} f_{XY}(u,v)\,dv\,du= 2 \cdot\
 \end{array}
 \]
 
-\includegraphics{Images/Ejemplo2Bidi3.png}
+\begin{figure}
+\includegraphics[width=2.5in]{Images/Ejemplo2Bidi3} \end{figure}
 
 \begin{itemize}
 \tightlist
@@ -10150,7 +10222,8 @@ F_{XY}(x,y) &=  \int_{v=0}^{v=y}\int_{u=v}^{u=x} f_{XY}(u,v)\,dv\,du= 2\cdot\int
 \end{array}
 \]
 
-\includegraphics{Images/Ejemplo2Bidi4.png}
+\begin{figure}
+\includegraphics[width=2.5in]{Images/Ejemplo2Bidi4} \end{figure}
 
 En resumen:
 \[
@@ -11880,7 +11953,8 @@ F_Z(z) & =  P(Z\leq z)=P(X+Y\leq z)\\
 
 El gráfico siguiente muestra en color violeta la región de integración para hallar \(F_Z(z)\) dado un \(z\geq 0\).
 
-\includegraphics{Images/EjSumaXY.png}
+\begin{figure}
+\includegraphics[width=2.5in]{Images/EjSumaXY} \end{figure}
 
 El valor de \(F_Z(z)\) es: (fijémonos que primero fijamos la \(y\) y para cada \(y\) la \(x\) va desde la recta \(x=y\) hasta la recta \(x=z-y\))
 
@@ -12009,7 +12083,8 @@ f_{XY}(x,y)=\begin{cases}
 \]
 Dejamos como ejercicio al lector comprobar que la función anterior es una \textbf{función de densidad}.
 
-\includegraphics{Images/EjTranLineal.png}
+\begin{figure}
+\includegraphics[width=2.5in]{Images/EjTranLineal} \end{figure}
 
 Consideramos la variable aleatoria bidimensional \((U,V)\) definida a partir de la variable \((X,Y)\):
 
@@ -12032,7 +12107,8 @@ Para hallar la \textbf{función de densidad} \(f_{UV}\) necesitamos escribir \(X
 \begin{pmatrix}X\\ Y\end{pmatrix}=\begin{pmatrix}1 & -1\\ 1& 1\end{pmatrix}^{-1}\cdot\begin{pmatrix}U\\ V\end{pmatrix}=\begin{pmatrix}\frac{1}{2} & \frac{1}{2}\\ -\frac{1}{2}& \frac{1}{2}\end{pmatrix}\cdot\begin{pmatrix}U\\ V\end{pmatrix},\ \Rightarrow \left.\begin{array}{rl}X & = \frac{1}{2}(U+V),\\ Y & =\frac{1}{2}(-U+V).\end{array}\right\}
 \]
 
-\includegraphics{Images/EjTranLineal2.png}
+\begin{figure}
+\includegraphics[width=2.5in]{Images/EjTranLineal2} \end{figure}
 
 La \textbf{función de densidad} \(f_{UV}\) es,
 \[
@@ -12127,7 +12203,8 @@ El cambio a polares consiste en considerar las coordenadas polares \((r,\alpha)\
 x=h_1(r,\alpha)=r\cdot \cos\alpha,\quad y=h_2(r,\alpha)=r\cdot \sin\alpha.
 \]
 
-\includegraphics{Images/Polares.png}
+\begin{figure}
+\includegraphics[width=2.5in]{Images/Polares} \end{figure}
 
 Fijémonos que, con el cambio a polares, el disco unidad \(D_1\) se transforma en el rectángulo \([0,1]\times [0,2\pi]\).
 
@@ -12209,15 +12286,18 @@ Suceso: \(\{X_1+X_2+X_3\leq 1\}\). En el gráfico siguiente, el plano \(x_1+x_2+
 
 Si pensamos el plano anterior como un ``espejo'' es la parte de atrás del mismo.
 
-\includegraphics{Images/EjPlano3D.png}
+\begin{figure}
+\includegraphics[width=1.48in]{Images/EjPlano3D} \end{figure}
 
 Suceso: \(\{X_1^2+X_2^2+X_3^2\leq 1\}\). Es el interior de la esfera del gráfico siguiente:
 
-\includegraphics{Images/EjEsfera3D.png}
+\begin{figure}
+\includegraphics[width=1.48in]{Images/EjEsfera3D} \end{figure}
 
 Suceso: \(\{0\leq X_1\leq 1,\ 0\leq X_2\leq 1,\ 0\leq X_3\leq 1\}\). Es el interior del cubo del gráfico siguiente:
 
-\includegraphics{Images/Ej3DCubo.png}
+\begin{figure}
+\includegraphics[width=1.81in]{Images/Ej3DCubo} \end{figure}
 
 La probabilidad de que la \textbf{variable \(n\)-dimensional} pertenezca a una cierta \textbf{región del \(n\)-espacio \(B\subset \mathbb{R}^n\)} se define de la forma siguiente:
 \[
@@ -12258,7 +12338,8 @@ F_{X_1\ldots X_n}(x_1,\ldots,x_n) & =P\{w\in\Omega,\ |\ (X_1(w),\ldots,X_n(w)) \
 
 El gráfico siguiente muestra el conjunto \((-\infty,x_1]\times (-\infty,x_2]\times (-\infty,x_3]\) en \(\mathbb{R}^3\) para un valor \((x,y,z)\):
 
-\includegraphics{Images/Fx1x2x3.png}
+\begin{figure}
+\includegraphics[width=0.94in]{Images/Fx1x2x3} \end{figure}
 
 \hypertarget{propiedades-5}{%
 \subsection{Propiedades}\label{propiedades-5}}
@@ -12316,14 +12397,14 @@ La segunda figura muestra las zonas del ``primer piso'' o para \(x_3>1\). Los co
 
 \begin{figure}
 
-{\centering \includegraphics{Images/Ej3DFxyz} 
+{\centering \includegraphics[width=0.94in]{Images/Ej3DFxyz} 
 
 }
 
 \end{figure}
 \begin{figure}
 
-{\centering \includegraphics{Images/Ej3DFxy2pis} 
+{\centering \includegraphics[width=1.08in]{Images/Ej3DFxy2pis} 
 
 }
 
@@ -12981,7 +13062,8 @@ f_{X_1X_2X_3}(x_1,x_2,x_3)=\begin{cases}
 
 En la figura siguiente hemos dibujado en rosa la región donde \(f_{X_1X_2X_3}\) no es cero, es decir \([0,1]\times [0,1]\times [0,1]\).
 
-\includegraphics{Images/Cubo3D2.png}
+\begin{figure}
+\includegraphics[width=1.48in]{Images/Cubo3D2} \end{figure}
 
 \hypertarget{propiedades-de-la-funciuxf3n-de-densidad-1}{%
 \subsection{Propiedades de la función de densidad}\label{propiedades-de-la-funciuxf3n-de-densidad-1}}
@@ -13091,7 +13173,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3) & =\int_{0}^{x_1}\int_{0}^{x_2}\int_{0}^{x_3} 8 x_1 x
 
 \begin{figure}
 
-{\centering \includegraphics{Images/Fx1x2x3bajos} 
+{\centering \includegraphics[width=1.25in]{Images/Fx1x2x3bajos} 
 
 }
 
@@ -13128,7 +13210,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)=x_1^2 x_3^2.
 
 \begin{figure}
 
-{\centering \includegraphics{Images/Fx1x2x3bajosx1} 
+{\centering \includegraphics[width=1.25in]{Images/Fx1x2x3bajosx1} 
 
 }
 
@@ -13148,7 +13230,8 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)=\int_{0}^{1}\int_{0}^{1}\int_{0}^{x_3} 8 x_1 x_2 x_3 
 8\left[\frac{x_1^2}{2}\right]_0^{1}\left[\frac{x_2^2}{2}\right]_0^{1}\left[\frac{x_3^2}{2}\right]_0^{x_3} = x_3^2.
 \]
 
-\includegraphics{Images/Fx1x2x3bajosx1x2.png}
+\begin{figure}
+\includegraphics[width=1.25in]{Images/Fx1x2x3bajosx1x2} \end{figure}
 
 Supongamos ahora que \((x_1,x_2,x_3)\) está en el ``primer piso'' o \(x_3>1\). Aquí también vamos a distinguir 4 casos:
 
@@ -13169,9 +13252,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3) & =\int_{0}^{x_1}\int_{0}^{x_2}\int_{0}^{1} 8 x_1 x_2
 \]
 
 \begin{figure}
-\centering
-\includegraphics{Images/Fx1x2x3piso.png}
-\caption{\label{fig:bid992}center}
+\includegraphics[width=1.25in]{Images/Fx1x2x3piso} \caption{center}\label{fig:bid992}
 \end{figure}
 
 Seguimos en el ``primer piso'',
@@ -13203,7 +13284,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)=x_1^2.
 
 \begin{figure}
 
-{\centering \includegraphics{Images/Fx1x2x3pisox1} 
+{\centering \includegraphics[width=1.25in]{Images/Fx1x2x3pisox1} 
 
 }
 
@@ -13227,7 +13308,7 @@ F_{X_1X_2X_3}(x_1,x_2,x_3)& =\int_{0}^{1}\int_{0}^{1}\int_{0}^{1} 8 x_1 x_2 x_3 
 
 \begin{figure}
 
-{\centering \includegraphics{Images/Fx1x2x3pisox1x2} 
+{\centering \includegraphics[width=1.25in]{Images/Fx1x2x3pisox1x2} 
 
 }
 
@@ -14981,6 +15062,5 @@ Para ver si la aproximación funciona, dibujaremos en una misma gráfica el hist
 Observamos que la aproximación es bastante buena.
 
 \bibliography{book.bib,packages.bib}
-
 
 \end{document}

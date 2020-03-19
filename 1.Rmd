@@ -8,16 +8,16 @@ Aquí vamos con nuestro primer caso práctico y nuestro primer modelo de IA. ¡E
 
 El problema a resolver será optimizar los flujos dentro del siguiente almacén:
 
-![](Warehouse_1.png){width=100%}
+![](Images/Warehouse_1.png){width=100%}
 
 El almacén pertenece a una empresa online minorista que vende productos a una variedad de clientes. Dentro de este almacén, los productos se almacenan en 12 ubicaciones diferentes, etiquetadas con las siguientes letras de la A a la L:
 
-![](Warehouse_2.png){width=100%}
+![](Images/Warehouse_2.png){width=100%}
 
 
 A medida que los clientes hacen los pedidos online, un robot de almacén autónomo se mueve por el almacén para recoger los productos para futuras entregas. Así es como se ve:
 
-![Autonomous Warehouse Robot](Autonomous_Warehouse_Robot.jpg){width=100%}
+![Autonomous Warehouse Robot](Images/Autonomous_Warehouse_Robot.jpg){width=100%}
 
 Las 12 ubicaciones están conectadas a un sistema informático, que clasifica en tiempo real las prioridades de recolección de productos para estas 12 ubicaciones. Por ejemplo, en un momento específico $t$, devolverá la siguiente clasificación:
 
@@ -101,32 +101,32 @@ Por lo tanto, lo único que tenemos que hacer ahora para definir nuestra funció
 
 Cuando se encuentra en la ubicación A, el robot solo puede ir a la ubicación B. Por lo tanto, dado que la ubicación A tiene el índice 0 (primera fila de la matriz) y la ubicación B tiene el índice 1 (segunda columna de la matriz), la primera fila de la matriz de las recompensas obtendrá un 1 en la segunda columna y un 0 en todas las otras columnas, así:
 
-![](Rewards_Matrix_1.png)
+![](Images/Rewards_Matrix_1.png)
 
 *Ubicación B.*
 
 Al estar en la ubicación B, el robot solo puede ir a tres ubicaciones diferentes: A, C y F. Dado que B tiene el índice 1 (segunda fila), y A, C, F tienen los índices respectivos 0, 2, 5 (1ra, 3ra. , y sexta columna), entonces la segunda fila de la matriz de recompensas obtendrá un 1 en las columnas 1a, 3a y 6a, y 0 en todas las otras columnas. Por lo tanto obtenemos:
 
-![](Rewards_Matrix_2.png)
+![](Images/Rewards_Matrix_2.png)
 
 *Ubicación C.*
 
 Ocurre lo mismo, la ubicación C (de índice 2) solo está conectada a B y G (de índices 1 y 6), por lo que la tercera fila de la matriz de recompensas es:
 
-![](Rewards_Matrix_3.png)
+![](Images/Rewards_Matrix_3.png)
 
 *En el resto de ubicaciones...*
 
 Al hacer lo mismo para todas las demás ubicaciones, finalmente obtenemos nuestra matriz final de recompensas:
 
-![](Rewards_Matrix_4.png)
+![](Images/Rewards_Matrix_4.png)
 
 Felicidades, acabamos de definir las recompensas. Lo hicimos simplemente construyendo esta matriz de recompensas. Es importante entender que esta es la forma en que definimos el sistema de recompensas cuando hacemos Q-Learning con un número finito de entradas y acciones. En el Caso Práctico 2, veremos que procederemos de manera muy diferente.
 
 
 Ya casi hemos terminado, lo único que tenemos que hacer es atribuir grandes recompensas a las ubicaciones de mayor prioridad. Esto lo hará el sistema informático que devuelve las prioridades de recolección de productos para cada una de las 12 ubicaciones. Por lo tanto, dado que la ubicación G es la máxima prioridad, el sistema informático actualizará la matriz de recompensas atribuyendo una alta recompensa en la celda $(G, G)$:
 
-![](Rewards_Matrix_5.png)
+![](Images/Rewards_Matrix_5.png)
 
 Y así es como el sistema de recompensas funcionará con Q-Learning. Atribuimos la recompensa más alta (aquí 1000) a la ubicación de máxima prioridad G. Luego puedes ver en las clases de vídeo del curso cómo podemos atribuir una recompensa más alta a la segunda ubicación de mayor prioridad (ubicación K), para hacer que nuestro robot pase por esto ubicación intermedia de máxima prioridad, optimizando así los flujos de movimiento por el almacén.
 
@@ -506,11 +506,11 @@ print(Q.astype(int))
 
 And we obtain the following matrix of final Q-Values:
 
-![](Q_Values_Console.png)
+![](Images/Q_Values_Console.png)
 
 For more visual clarity, you can even check the matrix of Q-Values directly in Variable Explorer, by double clicking on Q. Then to get the Q-Values as integers you can click on "Format" and inside enter a float formatting of "\%.0f". You will obtain this, which is a bit more clear since you can see the indexes of the rows and columns in your matrix Q:
 
-![](Q_Values_Variable_Explorer.png)
+![](Images/Q_Values_Variable_Explorer.png)
 
 Good, now that we have our matrix of Q-Values, we are ready to go into production! Hence we can move on to the third part of the implementation, Part 3 - Going into Production, inside which we will compute the optimal path from any starting location to any ending top priority location. The idea here will be to implement a "route" function, that will take as inputs the starting location where our autonomous warehouse robot is located at a specific time and the ending location where it has to go in top priority, and that will return as output the shortest route inside a list. However since we want to input the locations with there names (in letters), as opposed to their states (in indexes), we will need a dictionary that maps the locations states (in indexes) to the locations names (in letters). And that is the first thing we will do here in this third part, using a trick to inverse our previous dictionary "location\_to\_state", since indeed we simply want to get the exact inverse mapping from this dictionary:
 

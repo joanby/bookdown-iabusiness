@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Parte 3 Part 3 - Maximizing Revenues | Inteligencia Artificial aplicada a Negocios y Empresas</title>
+  <meta name="description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Parte 3 Part 3 - Maximizing Revenues | Inteligencia Artificial aplicada a Negocios y Empresas" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7" />
+  <meta property="og:image" content="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7Images/cover.jpg" />
+  <meta property="og:description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
+  <meta name="github-repo" content="https://github.com/joanby/ia4business" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Parte 3 Part 3 - Maximizing Revenues | Inteligencia Artificial aplicada a Negocios y Empresas" />
+  
+  <meta name="twitter:description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
+  <meta name="twitter:image" content="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7Images/cover.jpg" />
+
+<meta name="author" content="Hadelin de Ponteves y Kirill Ermenko" />
+
+
+<meta name="date" content="2020-03-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="Images/apple-icon-120x120.png" />
+  <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="part-2-minimizing-costs.html"/>
+<link rel="next" href="conclusion.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Inteligencia Artificial aplicada Negocios y Empresas</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introducción</a></li>
+<li class="chapter" data-level="1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html"><i class="fa fa-check"></i><b>1</b> Optimización de Procesos</a><ul>
+<li class="chapter" data-level="1.1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#caso-práctico-optimización-de-tareas-en-un-almacén-de-comercio-electrónico"><i class="fa fa-check"></i><b>1.1</b> Caso Práctico: Optimización de tareas en un almacén de comercio electrónico</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#problema-a-resolver"><i class="fa fa-check"></i><b>1.1.1</b> Problema a resolver</a></li>
+<li class="chapter" data-level="1.1.2" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#entorno-a-definir"><i class="fa fa-check"></i><b>1.1.2</b> Entorno a definir</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#solución-de-inteligencia-artificial"><i class="fa fa-check"></i><b>1.2</b> Solución de Inteligencia Artificial</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#proceso-de-decisión-de-markov"><i class="fa fa-check"></i><b>1.2.1</b> Proceso de Decisión de Markov</a></li>
+<li class="chapter" data-level="1.2.2" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#q-learning"><i class="fa fa-check"></i><b>1.2.2</b> Q-Learning</a></li>
+<li class="chapter" data-level="1.2.3" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#el-algoritmo-de-q-learning-al-completo"><i class="fa fa-check"></i><b>1.2.3</b> El algoritmo de Q-Learning al completo</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#implementación"><i class="fa fa-check"></i><b>1.3</b> Implementación</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="part-2-minimizing-costs.html"><a href="part-2-minimizing-costs.html"><i class="fa fa-check"></i><b>2</b> Part 2 - Minimizing Costs</a><ul>
+<li class="chapter" data-level="2.1" data-path="part-2-minimizing-costs.html"><a href="part-2-minimizing-costs.html#case-study-minimizing-costs-in-energy-consumption-of-a-data-center"><i class="fa fa-check"></i><b>2.1</b> Case Study: Minimizing Costs in Energy Consumption of a Data Center</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="part-2-minimizing-costs.html"><a href="part-2-minimizing-costs.html#problem-to-solve"><i class="fa fa-check"></i><b>2.1.1</b> Problem to solve</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="part-3-maximizing-revenues.html"><a href="part-3-maximizing-revenues.html"><i class="fa fa-check"></i><b>3</b> Part 3 - Maximizing Revenues</a><ul>
+<li class="chapter" data-level="3.1" data-path="part-3-maximizing-revenues.html"><a href="part-3-maximizing-revenues.html#case-study-maximizing-revenue-of-an-online-retail-business"><i class="fa fa-check"></i><b>3.1</b> Case Study: Maximizing Revenue of an Online Retail Business</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="part-3-maximizing-revenues.html"><a href="part-3-maximizing-revenues.html#problem-to-solve-1"><i class="fa fa-check"></i><b>3.1.1</b> Problem to solve</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="4" data-path="annex-1-artificial-neural-networks.html"><a href="annex-1-artificial-neural-networks.html"><i class="fa fa-check"></i><b>4</b> Annex 1: Artificial Neural Networks</a></li>
+<li class="chapter" data-level="5" data-path="annex-2-three-extra-ai-models.html"><a href="annex-2-three-extra-ai-models.html"><i class="fa fa-check"></i><b>5</b> Annex 2: Three Extra AI Models</a></li>
+<li class="chapter" data-level="6" data-path="annex-3-questions-and-answers.html"><a href="annex-3-questions-and-answers.html"><i class="fa fa-check"></i><b>6</b> Annex 3: Questions and Answers</a></li>
+<li class="divider"></li>
+<li><a href="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7" target="blank">Curso en Udemy</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Inteligencia Artificial aplicada a Negocios y Empresas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="part-3---maximizing-revenues" class="section level1">
+<h1><span class="header-section-number">Parte 3</span> Part 3 - Maximizing Revenues</h1>
+<p>Congratulations for smashing the first and second case studies! Now let’s move on to a very different kind of Artificial Intelligence, that has tremendous efficiency for businesses, and that you must absolutely know about.</p>
+<div id="case-study-maximizing-revenue-of-an-online-retail-business" class="section level2">
+<h2><span class="header-section-number">3.1</span> Case Study: Maximizing Revenue of an Online Retail Business</h2>
+<div id="problem-to-solve-1" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Problem to solve</h3>
+<p>Imagine an Online Retail Business that has million of customers. These customers are only people buying some products on the website from time to time, getting them delivered at home. The business is doing good, but the board of executives has decided to take some action plan to maximize revenue even more. This plan consists of offering to the customers the option to subscribe to a premium plan, which will give them some benefits like reduced prices, special deals, etc. This premium plan is offered at a yearly price of $ 100, and the goal of this online retail business is of course to get the maximum customers to subscribe to this premium plan. Let’s do some quick maths to give us some motivation for building an AI to maximize the revenues of this business. Let’s say that this online retail business has 100 million customers. Now consider two conversion strategies trying to convert the customers to the premium plan: a bad one, with a conversion rate of 1%, and a good one, with a conversion rate of 11%. If the business deploys the bad strategy, it will make in one year a total extra revenue coming from the premium plan subscription of: <span class="math inline">\(100,000,000 \times 0.01 \times 100 = \$ 100,000,000\)</span>. On the other hand, if the business deploys the good strategy, it will make in one year a total extra revenue coming from the premium plan subscription of <span class="math inline">\(100,000,000 \times 0.11 \times 100 = \$ 1,100,000,000\)</span>. Thus, by figuring out the good strategy to deploy, the business maximized its extra revenues by making 1 Billion extra dollars.</p>
+<p><br />
+</p>
+<p>In this previous Utopian example, we only had two strategies, and besides we knew their conversion rates. However in our case study we will be facing 9 different strategies, and our AI will have no idea of which is the best one, and absolutely no prior information on any of their conversion rates. However we will make the assumption that each of these 9 strategies does have a fixed conversion rate. These strategies were carefully and smartly elaborated by the marketing team, and each of them has the same goal: convert the maximum clients to the premium plan. However, these 9 strategies are all different. They have different forms, different packages, different ads, and different special deals to convince and persuade the clients to subscribe to the premium plan. Of course, the marketing team has no idea of which of these 9 strategies is the best one. But they want to figure it out as soon as possible, and by saving the maximum costs, which one has the highest conversion rate, because they know how finding and deploying that best strategy can significantly maximize the revenues. Also, the marketing experts choose not to send an email to their 100 million customers, because that would be costly and they would risk spamming too many customers. Instead they will subtly look for that best strategy through online learning. What is online learning? It will consist of deploying a strategy each time a customer browses the online retail business website to hang out inside or buy some products. Then as the customer navigates the website, he or she will suddenly get a pop-up ad, suggesting him or her to subscribe to the premium plan. And for each customer browsing the website, only one of the 9 strategies will be deployed. Then the user will choose, or not, to take action and subscribe to the premium plan. If the customer subscribes, it is a success, otherwise, it is a failure. The more customers we do this with, the more feed-backs we get, and the better we could get an idea of what is the best strategy. But of course, we will not figure that out manually, visually, or with some simple maths. Instead we want to implement the smartest algorithm that will figure out what is the best strategy in the least amount of time. And that’s for the same two reasons: first because deploying each strategy has a cost (e.g. coming from the pop-up ad), and second because the company wants to annoy the least customers with their ad.</p>
+<div style="page-break-after: always;"></div>
+<p>Let’s sum up the differences in features of these 9 strategies simply this way:</p>
+
+<p></p>
+<p><br />
+</p>
+<p>In order to simulate this case study, we will assume these strategies have the following conversion rates:</p>
+
+<p>However, please make sure to understand that in a real life situation we would have no idea of what would be these conversion rates. We only know them here for simulation purposes, just so that we can check in the end that our AI manages to figure out the best strategy, which according to the table above, is strategy number 7 (highest conversion rate).</p>
+
+<p>Online Learning is a special branch of Artificial Intelligence, where there is not much need of defining the states and actions. Here, a state would simply be a specific customer onto whom we deploy a strategy, and the action would simply be the strategy selected. But you will see further in the AI algorithm that we don’t have the states as inputs and the actions as outputs like in our two previous case studies, because this time we are not doing Q-Learning or Deep Q-Learning. Here we are doing online learning. However we do have to define the rewards, since again we will have to make a rewards matrix, where each row corresponds to a user being deployed a strategy, and each column corresponds to one of the 9 strategies. Therefore, since we will actually run this online learning experiment on 10,000 customers, this rewards matrix will have 10,000 rows and 9 columns. Then, each cell will get either a 0 if the customer doesn’t subscribe to the premium plan after being approached by the selected strategy, and a 1 if the customer does subscribe after being approached by the selected strategy. And the values in the cell are exactly, the rewards.</p>
+<p><br />
+</p>
+<p>Now a very important thing to understand is that the rewards matrix is only here for the simulation, and in real life we would have no such thing as a rewards matrix. We will just simulate 10,000 customers successively being approached by one of the 9 strategies, and thanks to the rewards matrix we will simulate the decision of the customer to subscribe yes or no to the premium plan. If the cell corresponding to a specific customer and a specific selected strategy has a 1, that will simulate a conversion by the customer to the premium plan, and if the cell has a 0, that will simulate a rejection. Here is below as an example the first rows of a simulated rewards matrix:</p>
+
+<p>According to this simulation, all given in the above rewards matrix:</p>
+
+<p>Thompson Sampling will collect the feed-backs of whether or not each of these customers subscribe to the premium plan one after the other, and thanks to its powerful algorithm, will quickly figure out the strategy with the highest conversion rate, that is the best one to be deployed on the millions of customers, thus maximizing the company’s income from this new revenue stream.</p>
+
+<p>The AI solution that will figure out the best strategy is called “Thompson Sampling”. It is by far the best model for that kind of problems in this Online Learning branch of Artificial Intelligence. To recap, each time a new customer connects to the online retail business website, that’s a new round <span class="math inline">\(n\)</span> and we select one of our 9 strategies to attempt a conversion (subscription to the premium plan). The goal is to select the best strategy at each round, over many rounds. Here is how Thompson Sampling will do that:</p>
+<p><br />
+</p>
+<p></p>
+
+<p> Each strategy has its own beta distribution. Over the rounds, the beta distribution of the strategy with the highest conversion rate will be progressively shifted to the right, and the beta distributions of the strategies with lower conversion rates will be progressively shifted to the left (Steps 1 and 3). Therefore, because of Step 2, the strategy with the highest conversion rate will be more and more selected. Below is a graph displaying three beta distributions of three strategies, that will help you visualize this:</p>
+
+<div style="page-break-after: always;"></div>
+
+<p>Let’s provide the whole implementation of Thompson Sampling for this specific case study, following the same simulation given above.</p>
+<p><br />
+</p>
+<p>While implementing Thompson Sampling, we will also implement the Random Selection algorithm, which will simply select a random strategy at each round. This will be our benchmark to evaluate the performance of our Thompson Sampling model. Of course, Thompson Sampling and the Random Selection algorithm will be competing on the same simulation, that is on the same rewards matrix. And in the end, after the whole simulation is done, we will assess the performance of Thompson Sampling by computing the relative return, defined by the following formula:</p>
+<p><span class="math display">\[\begin{equation*}
+    \textrm{Relative Return} = \frac{\textrm{(Total Reward of Thompson Sampling)} - (\textrm{Total Reward of Random Selection})}{\textrm{Total Reward of Random Selection}} \times 100
+\end{equation*}\]</span></p>
+<p>We will also plot the histogram of selected ads, just to check that the strategy with the highest conversion rate (Strategy 7) was the one selected the most.</p>
+<p><br />
+</p>
+<p>So if you are ready, here we go:</p>
+<p><br />
+</p>
+<p>First, we import the required libraries and we set the parameters (<span class="math inline">\(N = 10000\)</span> customers and <span class="math inline">\(d = 9\)</span> strategies):</p>
+<p><br />
+</p>
+
+<p><br />
+</p>
+<p>Then, we create the simulation, by building the rewards matrix of 10000 rows corresponding to the customers, and 9 columns corresponding to the strategies. At each round and for each strategy, we draw a random number between 0 and 1, and if this random number is lower than the conversion rate of the strategy, the reward will be 1. Otherwise, it will be 0. That way we simulate the conversion rates listed above for our 9 strategies:</p>
+<p><br />
+</p>
+
+<p><br />
+</p>
+<p>Then, we will loop over the 10000 rows (or rounds) of this rewards matrix, and at each round we will get two separate strategy selections: one from the Random Selection algorithm, and one from Thompson Sampling. We keep track of the strategies selected by each of these two algorithms, and we compute the total reward accumulated over the rounds by each of them. Thompson Sampling is implemented following exactly the Steps 1, 2 and 3 provided above:</p>
+<p><br />
+</p>
+
+<p><br />
+</p>
+<p>Then we compute the final score, which is the relative return of Thompson Sampling with respect to our benchmark that is the Random Selection:</p>
+<p><br />
+</p>
+
+<p>And buckle up, by executing this code we obtain a final relative return, of…:</p>
+<p><span class="math display">\[\begin{equation*}
+    \textrm{Relative Return} = 91 \ \% \ !
+\end{equation*}\]</span></p>
+<p>In other words, Thompson Sampling almost doubled the performance of our Random Selection benchmark.</p>
+<div style="page-break-after: always;"></div>
+<p>And finally, we plot the Histogram of the selected strategies, to check that indeed Strategy 7 (of index 6) was the one most selected, since it is the one having the highest conversion rate:</p>
+<p><br />
+</p>
+
+<p><br />
+</p>
+<p>By executing this final code, we obtain the following histogram:</p>
+
+<p>And indeed, it is well the strategy of index 6, that is Strategy 7, that was, by far, selected the most. Thompson Sampling was quickly able to identify it. And in fact, if we re-run the same code but with only 1000 customers, we realize that Thompson Sampling is still able to identify Strategy 7 as the best one.</p>
+<p><br />
+</p>
+<p>Accordingly, Thompson Sampling surely did an amazing job for this Online Retail Business. Because not only it was able to identify the best strategy quickly in a few number of rounds, that is with a few customers, which saved a lot on the advertising and operating related costs. But also because of course, it was able to clearly figure out the strategy with the highest conversion rate. And indeed, if this Online Retail Business has 100 million customers, and if the premium plan has a price of $ 100 per year, then deploying this best strategy that has a conversion rate of 20 % would lead to generate an extra revenue of…:</p>
+<p><span class="math display">\[\begin{equation*}
+    \textrm{Extra Revenues generated} = 100000000 \times 0.2 \times 100 = \textrm{\$ $2$ Billion !!}
+\end{equation*}\]</span></p>
+<p>In other words, Thompson Sampling clearly and quickly maximized the revenues of this online retail business, while also saving a lot on the costs, therefore maximizing as well the profitability of the business.</p>
+<p></p>
+<p><br />
+</p>
+<p>The regret curve of a model (Random Strategy or Thompson Sampling) is the plot of the difference between the best strategy and the deployed model, with respect to the rounds.</p>
+<p><br />
+</p>
+<p>The best strategy is computed by simply getting, at each round, the maximum of the accumulated rewards over all the different strategies. Therefore in our implementation, we will get the best strategy the following way:</p>
+<p><br />
+</p>
+
+<p>Then, the regret of Thompson Sampling is simply computed as the difference between the best strategy and the Thompson Sampling model:</p>
+<p><br />
+</p>
+
+<p><br />
+</p>
+<p>And same, the regret of the Random Strategy is simply computed as the difference between the best strategy and the random selection algorithm:</p>
+<p><br />
+</p>
+
+<p><br />
+</p>
+<p>And finally of course, we plot the regret over the rounds with this simple code (we don’t have to specify the x-coordinates in the plt.plot() function because the rounds are already indexes from 0 to N):</p>
+<p><br />
+</p>
+
+<p><br />
+</p>
+<p>Let’s look at the results in the next page, for both the Random Strategy and Thompson Sampling.</p>
+<div style="page-break-after: always;"></div>
+<p>If we plot the Regret Curve of the Random Strategy, we thus obtain the following:</p>
+
+<p>And of course, we observe absolutely no convergence of the Random Strategy towards the Best Strategy.</p>
+<div style="page-break-after: always;"></div>
+<p>However if now we plot the Regret Curve of the Thompson Sampling model, we get the following beautiful curve:</p>
+
+<p>And obviously, Thompson Sampling is converging very well towards the best strategy.</p>
+<div style="page-break-after: always;"></div>
+<p>Eventually, here is the final code including that Regret Curve of Thompson Sampling:</p>
+<p><br />
+</p>
+
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="part-2-minimizing-costs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/joanby/ia4business/edit/master/3.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["curso-ia-business-udemy.pdf", "curso-ia-business-udemy.epub"],
+"toc": {
+"collapse": "subsection"
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

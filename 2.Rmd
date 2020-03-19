@@ -1,1454 +1,1295 @@
-# Variables Aleatorias
+# Part 2 - Minimizing Costs
 
-## Introducción a las variables aleatorias
+Congratulations for smashing the first case study! Let's move on to a brand new and more advanced AI.
 
-* Hasta ahora nuestros sucesos han sido de varios tipos: $\{C,+\}$ en
-la moneda, nombres de periódicos, ángulos en una ruleta, número de
-veces que sale cara en el lanzamiento de una moneda etc\ldots.
-* Necesitamos estandarizar de alguna manera todos estos sucesos. Una
-solución es asignar a cada suceso un cierto conjunto de
-números reales, es decir, convertir todos los sucesos en
-*sucesos de números reales* para trabajar con ellos de forma
-unificada.
-* Para conseguirlo utilizaremos  unas funciones que
-transformen los elementos del espacio muestral en números; esta funciones son las
-variables aleatorias.
+## Case Study: Minimizing Costs in Energy Consumption of a Data Center
 
+### Problem to solve
 
-### Definición de variable aleatoria
- Comenzaremos dando una definición poco rigurosa, pero suficiente, de  variable aleatoria.
+In 2016, \href{https://deepmind.com/blog/deepmind-ai-reduces-google-data-centre-cooling-bill-40/}{DeepMind AI minimized a big part of Google's cost by reducing Google Data Centre Cooling Bill by 40\%} using their DQN AI model (Deep Q-Learning). In this case study, we will do something very similar. We will set up our own server environment, and we will build an AI that will be controlling the cooling/heating of the server so that it stays in an optimal range of temperatures while saving the maximum energy, therefore minimizing the costs. And just as DeepMind AI did, our goal will be to achieve at least 40\% energy saving.
 
-<l class="definition"> **Variable Aleatoria (definición práctica)** </l>
+\subsubsection{Environment to define}
 
+Before we define the states, actions and rewards, we need to explain how the server operates. We will do that in several steps. First, we will list all the environment parameters and variables by which the server is controlled. After that we will set the essential assumption of the problem, on which our AI will rely to provide a solution. Then we will specify how we will simulate the whole process. And eventually we will explain the overall functioning of the server, and how the AI plays its role.
 
-Una variable aleatoria (v.a.) es una aplicación que toma valores numéricos determinados por el resultado de un experimento aleatorio
+\
 
-<l class="observ">**Notación**:</l>
+\textbf{Parameters:}
 
-* Normalmente representaremos las v.a. por letras mayúsculas $X,Y,Z\ldots$
-* Los valores que "*toman*" las v.a. los representaremos por letras minúsculas (las mismas en principio) $x,y,z\ldots$
+\begin{itemize}
+    \item the average atmospheric temperature over a month
+    \item the optimal range of temperatures of the server, which will be $[18 \degree \textrm{C}, 24 \degree \textrm{C}]$
+    \item the minimum temperature of the server below which it fails to operate, which will be $-20 \degree \textrm{C}$
+    \item the maximum temperature of the server above which it fails to operate, which will be $80 \degree \textrm{C}$
+    \item the minimum number of users in the server, which will be 10
+    \item the maximum number of users in the server, which will be 100
+    \item the maximum number of users in the server that can go up or down per minute, which will be 5
+    \item the minimum rate of data transmission in the server, which will be 20
+    \item the maximum rate of data transmission in the server, which will be 300
+    \item the maximum rate of data transmission that can go up or down per minute, which will be 10
+\end{itemize}
 
+\textbf{Variables:}
 
+\begin{itemize}
+    \item the temperature of the server at any minute
+    \item the number of users in the server at any minute
+    \item the rate of data transmission at any minute
+    \item the energy spent by the AI onto the server (to cool it down or heat it up) at any minute
+    \item the energy spent by the server's integrated cooling system that automatically brings the server's temperature back to the optimal range whenever the server's temperature goes outside this optimal range
+\end{itemize}
 
-<div class="example">
-**Ejemplo: Dado seis caras**
+All these parameters and variables will be part of our server environment and will influence the actions of the AI on the server.
 
-Lanzamos un dado convencional de parchís el espacio muestral del experimento es
+\
 
-$$\Omega=\{1,2, 3, 4,  5, 6\}.$$
+Then let's give and explain below the two core assumptions of the environment. It is important to understand that these assumptions are not AI related, but just used to simplify the environment so that we can focus the maximum on the AI solution.
 
+\
 
+\textbf{Assumptions:}
 
+\
 
-<div class="example-sol">
-Una v.a $X:\Omega\to\mathbb{R}$
-sobre este espacio queda definida por 
+We will rely on the following two essential assumptions:
+
+\
+
+\textbf{Assumption 1: The temperature of the server can be approximated through Multiple Linear Regression, by a linear function of the atmospheric temperature, the number of users and the rate of data transmission}:
 
 \begin{equation*}
-\begin{split}
-X(1)&=1,X(2)=2,X(3)=3,\\
-X(4)&=4,X(5)=5,X(6)=6.
-\end{split}
+    \textrm{server temperature} = b_0 + b_1 \times \textrm{atmospheric temperature} + b_2 \times \textrm{number of users} + b_3 \times \textrm{data transmission rate} 
 \end{equation*}
 
-* Ahora el suceso $A=\{2, 4, 6\}$, es decir "salir
-número par", es equivalente a $\{X=2,X=4,X=6\}$.
-* El suceso $B=\{1,2,3\}$, es decir "salir un número
-inferior o igual a $3$" es  en términos de la v.a. $\{X=1,X=2,X=3\}$ o también $\{X\leq 3\}$.
+where $b_0 \in \mathbb{R}$, $b_1>0$, $b_2>0$ and $b_3>0$.
 
-</div>
-</div>
+\
 
+The raison d'être of this assumption and the reason why $b_1>0$, $b_2>0$ and $b_3>0$ are intuitive to understand. Indeed, it makes sense that when the atmospheric temperature increases, the temperature of the server increases. Also, the more users are active in the server, the more the server has to spend energy to handle them and therefore the higher the temperature of the server will be. And finally of course, the more data is transmitted inside the server, the more the server has to spend energy to process it, and therefore the higher temperature of the server will be. And for simplicity purposes, we just suppose that these correlations are linear. However you could totally run the same simulation by assuming they are quadratic or logarithmic. Feel free to tweak around.
 
-<div class="example">
-**Ejemplo: Juego lanzamiento anilla**
+\
 
-Consideremos el experimento lanzar una anilla al cuello de una botella. Si acertamos a
-ensartar la anilla en la botella el resultado del experimento es *éxito* y
-*fracaso* en caso contrario. 
+Eventually, let's assume further that after performing this Multiple Linear Regression, we obtained the following values of the coefficients: $b_0 = 0$, $b_1 = 1$, $b_2 = 1.25$ and $b_3 = 1.25$. Accordingly:
 
-<div class="example-sol">
-El espacio muestral asociado a este experimento será
-$\Omega=\{\mbox{éxito, fracaso}\}$. Construyamos la siguiente variable aleatoria:
+\begin{equation*}
+    \textrm{server temperature} = \textrm{atmospheric temperature} + 1.25 \times \textrm{number of users} + 1.25 \times \textrm{data transmission rate}
+\end{equation*}
 
-$$X:\{\mbox{éxito, fracaso}\}\to\mathbb{R}$$
+\
 
-definida por 
+\textbf{Assumption 2: The energy spent by a system (our AI or the server's integrated cooling system) that changes the server's temperature from $T_t$ to $T_{t+1}$ within 1 unit of time (here 1 minute), can be approximated again through regression by a linear function of the server's absolute temperature change:}
 
-$$X(\mbox{éxito})=1 \mbox{ y } X(\mbox{fracaso})=0.$$
+\begin{equation*}
+    E_t = \alpha |\Delta T_t| + \beta = \alpha |T_{t+1} - T_t| + \beta
+\end{equation*}
 
-</div>
-</div>
+where:
 
-### Tipos de variables aleatorias
+\begin{equation*}
+\begin{cases}
+\textrm{$E_t$ is the energy spent by the system onto the server between times $t$ and $t$ + 1 minute} \\
+\textrm{$\Delta T_t$ is the change of the server's temperature caused by the system between times $t$ and $t$ + 1 minute} \\
+\textrm{$T_t$ is the temperature of the server at time $t$} \\
+\textrm{$T_{t+1}$ is the temperature of the server at time $t$ + 1 minute} \\
+\alpha > 0 \\
+\beta \in \mathbb{R}
+\end{cases}
+\end{equation*}
 
-Hay dos tipos fundamentales de variables aleatorias, las discretas y las continuas.
+Again, let's explain why it intuitively makes sense to make this assumption with $\alpha > 0$. That's simply because the more the AI heats up or cools down the server, the more it spends energy to do that heat transfer. Indeed for example, imagine the server suddenly has overheating issues and just reached $80 \degree$C, then within one unit of time (1 minute) the AI will need much more energy to bring the server's temperature back to its optimal temperature $24 \degree$C than to bring it back to $50 \degree$C for example. And again for simplicity purposes, we just suppose that these correlations are linear. Also (in case you are wondering), why do we take the absolute value? That's simply because when the AI cools down the server, $T_{t+1} < T_t$, so $\Delta T < 0$. And of course an energy is always positive so we have to take the absolute value of $\Delta T$.
 
-Damos a continuación una definición informal.
+\
 
-<l class="definition">**Variables Aleatorias Discretas y Continuas** </l>
+Eventually, for further simplicity purposes we will also assume that the results of the regression are $\alpha = 1$ and $\beta = 0$, so that we get, the following final equation based on Assumption 2:
 
-* Una variable aleatoria es **discreta** si sólo puede tomar una cantidad numerable de valores con probabilidad positiva.
-* Las variables aleatorias **continuas**  toman  valores en intervalos.
-* También existen las variables aleatorias **mixtas**; con una parte discreta y otra continua.
+\begin{equation*}
+E_t = |\Delta T_t| = |T_{t+1} - T_t| =
+\begin{cases}
+T_{t+1} - T_t & \textrm{if $T_{t+1} > T_t$, that is if the server is heated up} \\
+T_t - T_{t+1} & \textrm{if $T_{t+1} < T_t$, that is if the server is cooled down}
+\end{cases}
+\end{equation*}
 
+\
 
-<div class="example">
-**Ejemplo: Tipos de variables aleatorias**
+Now let's explain how we will simulate the server operating with the users and data coming in and out.
 
-Son **variables aleatorias discretas**:
-      
-*  Número de artículos defectuosos en un cargamento.
-*  Número de clientes que llegan a una ventanilla de un banco en una hora.
-*  Número de errores detectados en las cuentas de una compañía.
-*  Número de reclamaciones de una póliza de un seguro médico.
-      
-Son **variables aleatorias continuas**:
-      
-* Renta anual de una familia.
-* Cantidad de petróleo importado por un país.
-* Variación del precio de las acciones de una compañía de telecomunicaciones.
-* Porcentaje de impurezas en un lote de productos químicos.
-      
-</div>
+\
 
-## Variables aleatorias discretas
+\textbf{Simulation:}
 
-### Distribuciones de probabilidad para v.a. discretas.
+\
 
-* Pasamos ahora a describir el comportamiento  de la v.a. 
-Para ello utilizaremos distintas funciones que nos darán algunas probabilidades de la variable aleatoria.
-* En el caso discreto estas funciones son la de probabilidad, y  la función de distribución o de probabilidad acumulada.
-* En el caso discreto la función de probabilidad es la que nos da las probabilidades de los sucesos elementales de la v.a. que definimos a continuación.
+The number of users and the rate of data transmission will be randomly fluctuating to simulate an actual server. This leads to randomness in the temperature and the AI has to understand how much cooling or heating power it has to transfer to the server so as to not deteriorate the server performance and at the same time, expend the least energy by optimizing its heat transfer.
 
+\
 
-<l class="definition"> **Función de Probabilidad**</l>
+Now that we have the full picture, let's explain the overall functioning of the server and the AI inside this environment.
 
-La **función de probabilidad** (*probability mass function* o incluso abusando de notación *probability density function*) de una variable aleatoria discreta $X$ a la que denotaremos por $P_{X}(x)$ está definida por
-$$P_{X}(x)=P(X=x),$$
-es decir la probabilidad de que $X$ tome el valor $x$.
+\
 
-Si $X$ no asume ese valor $x$, entonces $P_{X}(x)=0$.
+\textbf{Overall functioning:}
 
-<l class="definition"> **Dominio de una variable aleatoria discreta** </l> 
+\
 
-El conjunto $$D_X=\{ x\in\mathbb{R} \mid P_X(x)>0\}$$ recibe el nombre de
-**dominio** de la v.a. y son los valores posibles de esta variable. 
+Inside a data center, we are dealing with a specific server that is controlled by the parameters and variables listed above. Every minute, some new users log on to the server and some current users log off, therefore updating the number of active users in the server. Same, every minute some new data is transmitted into the server, and some existing data is transmitted outside the server, therefore updating the rate of data transmission happening inside the server. Hence, based on Assumption 1 given above, the temperature of the server is updated every minute. Now please focus, because this is where you will understand the huge role the AI has to play on the server. Two possible systems can regulate the temperature of the server: the AI, or the server's integrated cooling system. The server's integrated cooling system is an unintelligent system that will automatically bring back the server's temperature to its optimal temperature. Let's explain this in more details: when the server's temperature is updated every minute, it can either stay within the range of optimal temperatures ($[18 \degree \textrm{C}, 24 \degree \textrm{C}]$), or go outside this range. If it goes outside the optimal range, like say $30 \degree$C, the server's integrated cooling system will automatically bring the temperature back to the closest bound of the optimal range, that is $24 \degree$C. However this server's integrated cooling system will do that only when the AI is not activated. If the AI is activated, then in that case the server's integrated cooling system is deactivated and it is the AI itself that updates the temperature of the server to regulate it the best way. But the AI does that after some prior predictions, not in a deterministic way as with the unintelligent server's integrated cooling system. Before there is an update of the number of users and the rate of data transmission causing to change the temperature of the server, the AI predicts if it should cool down the server, do nothing, or heat up the server. Then the temperature change happens and the AI reiterates. And since these two systems are complementary, we will evaluate them separately to compare their performance.
 
-En el caso discreto lo más habitual es que $X(\Omega)=D_X$.
+And that brings us to the energy. Indeed remember that one primary goal of the AI is to save some energy spent on this server. Accordingly, our AI has to spend less energy than the energy spent by the unintelligent cooling system onto the server. And since, based on Assumption 2 given above, the energy spent on the server (by any system) is proportional to the change of temperature within one unit of time:
 
+\begin{equation*}
+E_t = |\Delta T_t| = \alpha |T_{t+1} - T_t| =
+\begin{cases}
+T_{t+1} - T_t & \textrm{if $T_{t+1} > T_t$, that is if the server is heated up} \\
+T_t - T_{t+1} & \textrm{if $T_{t+1} < T_t$, that is if the server is cooled down}
+\end{cases}
+\end{equation*}
 
-<div class="example">
-**Ejemplo: Juego del parchís**
+\
 
-Lanzamos un dado de parchís una vez, en esta ocasión representaremos los
-sucesos elementales por el número de puntos de la cara obtenida, tenemos que
-$$\Omega=\{\mbox{1-puntos,2-puntos,3-puntos,4-puntos,5-puntos,6-puntos}\},$$ 
-y la variable aleatoria $X:\Omega\to \mathbb{R}$ viene definida por
+then that means that the energy saved by the AI at each iteration $t$ (each minute) is in fact the difference in absolute changes of temperatures caused on the server between the unintelligent server's integrated cooling system and the AI from $t$ and $t+1$:
 
-$$X(\mbox{i-puntos})=i\mbox{ para } i=1,2,3,4,5,6.$$
-  
-<div class="example-sol ">
+\begin{align*}
+        \textrm{Energy saved by the AI between $t$ and $t+1$}
+        & = |\Delta T_t^{\textrm{Server's Integrated Cooling System}}| - |\Delta T_t^{\textrm{AI}}| \\
+        & = |\Delta T_t^{\textrm{noAI}}| - |\Delta T_t^{\textrm{AI}}|
+\end{align*}
 
-Supongamos que el dado está bien balanceado. Entonces
-$$P_{X}(1)=P_{X}(2)=P_{X}(3)=P_{X}(4)=P_{X}(5)=P_{X}(6)=\frac16.$$
-Concretamente:
-$$
-P_{X}(x)=
-  \left\{
-  \begin{array}{ll}
-   \frac16 & \mbox{si } x=1,2,3,4,5,6\\
-  0 & \mbox{en otro caso. }
-  \end{array}
-  \right.
-$$
-  
-Su dominio es $$D_X=\{1,2,3,4,5,6\}.$$
-</div>
-</div>
+where:
 
-<div class="example">
-**Ejemplo: Lanzamiento moneda**
+\begin{equation*}
+\begin{cases}
+\textrm{$\Delta T_t^{\textrm{noAI}}$ is the change of temperature that the server's integrated cooling system would cause} \\
+\textrm{without the AI onto the server during the iteration $t$, that is from $t$ to $t+1$ minute} \\
+\textrm{$\Delta T_t^{\textrm{AI}}$ is the change of temperature caused by the AI onto the server during the iteration $t$,} \\
+\textrm{that is from $t$ to $t+1$ minute}
+\end{cases}
+\end{equation*}
 
+\
 
-Sea $X$ la v.a. asociada al lanzamiento de una moneda. Su espacio muestral es  $\Omega=\{c,+\}$, la v.a. queda definida por:
+Our goal will be to save the maximum energy each minute, therefore saving the maximum total energy over 1 full year of simulation, and eventually saving the maximum costs in the cooling/heating electricity bill.
 
-$$X(\omega)=\left\{\begin{array}{ll} 1 & \mbox{si } \omega=c, \\
-0 & \mbox{si }\omega=+.\end{array}\right.$$
+\
 
+Are you ready?
 
-<div class="example-sol">
+\
 
-Su función de probabilidad es:
+Great! Now that we fully understand how our server environment works and how it is simulated, it is time to proceed with what must be absolutely done when defining an AI environment:
 
-$$P_{X}(x)=P(X=x)=\left\{\begin{array}{ll} \frac12, & \mbox{si } x=0,1,\\
-0, & \mbox{en otro caso.}\end{array}\right.$$
+\
 
+\begin{itemize}
+    \item Defining the states
+    \item Defining the actions
+    \item Defining the rewards
+\end{itemize}
 
-Finalmente su dominio es $D_X=\{0,1\}.$
-</div>
-</div>
+\
 
-<div class="example">
-**Ejemplo:  Urna con bolas**
+\textbf{Defining the states.}
 
-Tenemos una urna con tres bolas rojas, una negra y dos blancas. Realizamos una extracción y observamos el color de la bola entonces un espacio muestral es
-$$\Omega=\{roja, blanca, negra\}.$$ 
+\
 
-<div class="example-sol">
+The input state $s_t$ at time $t$ is composed of the following three elements:
 
-Una variable aleatoria asociada al experimento es:
+\begin{enumerate}
+    \item The temperature of the server at time $t$.
+    \item The number of users in the server at time $t$.
+    \item The rate of data transmission in the server at time $t$.
+\end{enumerate}
 
-$$X(\omega)=\left\{\begin{array}{ll} 1, & \mbox{si } \omega=roja,  \\
-2, & \mbox{si }\omega=negra, \\ 3, & \mbox{si } \omega=blanca. \end{array}\right.$$
+Thus the input state will be an input vector of these three elements. Our future AI will take this vector as input, and will return the action to play at each time $t$.
 
-La función de probabilidad es 
+\
 
-$$P_{X}(x)=\left\{\begin{array}{ll} \frac36, & \mbox{si } x=1,\\[1ex]
-\frac16, & \mbox{si } x=2,\\[1ex] \frac26, & \mbox{si } x=3,\\[1ex] 0, & \mbox{en otro
-caso.}\end{array}\right.$$
+\textbf{Defining the actions.}
 
-El dominio de la v.a.  $X$ es $D_X=\{1,2,3\}.$
+\
 
-</div>
-</div>
+The actions are simply the temperature changes that the AI can cause inside the server, in order to heat it up or cool it down. In order to make our actions discrete, we will consider 5 possible temperature changes from $-3 \degree$C to $+3 \degree$C, so that we end up with the 5 following possible actions that the AI can play to regulate the temperature of the server:
 
-<l class="prop"> **Propiedades básicas de la función de probabilidad** </l>
+\begin{table}[h!]
+  \begin{center}
+    \begin{tabular}{c|l}
+      \textbf{Action} & \textbf{What it does} \\
+      \hline
+      0 & The AI cools down the server by $3 \degree$C \\
+      1 & The AI cools down the server by $1.5 \degree$C \\
+      2 & The AI does not transfer any heat to the server (no temperature change) \\
+      3 & The AI heats up the server by $1.5 \degree$C \\
+      4 & The AI heats up the server by $3 \degree$C \\
+    \end{tabular}
+  \end{center}
+\end{table}
 
-Sea $X$ una v.a. discreta $X:\Omega:\to\mathbb{R}$ con dominio $D_X$. Su función de probabilidad $P_{X}$ verifica las siguientes propiedades:
+\textbf{Defining the rewards.}
 
-* $0\leq P_{X}(x)\leq 1$, para todo $x\in\mathbb{R}$.
-* $\sum\limits_{x\in D_X} P_{X}(x)=1$.
+\
 
+After reading the "Overall functioning" paragraph above you might guess what the reward is going to be. Of course, the reward at iteration $t$ is the energy spent on the server that the AI is saving with respect to the server's integrated cooling system, that is, the difference between the energy that the unintelligent cooling system would spend if the AI was deactivated and the energy that the AI spends onto the server:
 
+\begin{equation*}
+    \textrm{Reward}_t = E_t^{\textrm{noAI}} - E_t^{\textrm{AI}}
+\end{equation*}
 
-<div class="example">
+And since (Assumption 2), the energy spent is equal to the change of the temperature caused on the server (by any system, including the AI or the unintelligent cooling system):
 
-**Ejemplo: Lanzamiento moneda** 
+\begin{equation*}
+E_t = |\Delta T_t| = \alpha |T_{t+1} - T_t| =
+\begin{cases}
+T_{t+1} - T_t & \textrm{if $T_{t+1} > T_t$, that is if the server is heated up} \\
+T_t - T_{t+1} & \textrm{if $T_{t+1} < T_t$, that is if the server is cooled down}
+\end{cases}
+\end{equation*}
 
-Lanzamos al aire tres veces, de forma independiente, una moneda perfecta. El espacio muestral de este experimento es
-$$\Omega=\{ccc,cc+,c+c,+cc,c++,+c+,++c,+++\}$$ (expresados en orden de aparición).
+then we get that the reward received at time $t$ is in fact the difference in change of temperatures caused on the server between unintelligent cooling system (that is when there is no AI) and the AI:
 
-<div class="example-sol">
+\begin{align*}
+    \textrm{Reward}_t
+    & = \textrm{Energy saved by the AI between $t$ and $t+1$} \\
+    & = E_t^{\textrm{noAI}} - E_t^{\textrm{AI}} \\
+    & = |\Delta T_t^{\textrm{noAI}}| - |\Delta T_t^{\textrm{AI}}|
+\end{align*}
 
-Este espacio tiene todos los sucesos elementales equiprobables. 
+where:
 
-Consideremos la variable aleatoria asociada a este experimento:
+\begin{equation*}
+\begin{cases}
+\textrm{$\Delta T_t^{\textrm{noAI}}$ is the change of temperature that the server's integrated cooling system would cause} \\
+\textrm{without the AI onto the server during the iteration $t$, that is from $t$ to $t+1$ minute} \\
+\textrm{$\Delta T_t^{\textrm{AI}}$ is the change of temperature caused by the AI onto the server during the iteration $t$,} \\
+\textrm{that is from $t$ to $t+1$ minute}
+\end{cases}
+\end{equation*}
 
-$$X=\mbox{ número de caras en los tres lanzamientos}.$$ 
+\
 
-Su función de probabilidad es:
+\textbf{Important note:} it is important to understand that the systems (our AI and the server's cooling system) will be evaluated separately, in order to compute the rewards. And since each time their actions lead to different temperatures, we will have to keep track separately of the two temperatures $T_t^{\textrm{AI}}$ and $T_t^{\textrm{noAI}}$.
 
-$$
-\begin{array}{l}
-P(X=0)=P(\{+++\})=\frac18,\\ P(X=1)=P(\{c++,+c+,++c\})=\frac38,\\
-    P(X=2)=P(\{cc+,c+c,+cc\})=\frac38,\\
-    P(X=3)=P(\{ccc\})=\frac18.
-\end{array}
-$$
+\
 
-Podemos reescribir la función de probabilidad de $X$ de forma simplificada:
+Now to finish this section we are going to do a small simulation of 2 iterations (i.e. 2 minutes), as an example that will make everything crystal clear.
+
+\textbf{Final Simulation Example.}
+
+\
+
+Let's say that we are at time $t = 4:00$ pm and that the temperature of the server is $T_t = 28 \degree$C, both with the AI and without the AI. At this exact time, the AI predicts the action 0, 1, 2, 3 or 4. Since right now the server's temperature is outside the optimal temperature range $[18 \degree \textrm{C}, 24 \degree \textrm{C}]$, the AI will probably predict actions 0, 1 or 2. Let's say that it predicts 1, which corresponds to cooling the server down by $1.5 \degree$C. Therefore, between $t = 4:00$ pm and $t+1 = 4:01$ pm, the AI makes the server's temperature go from $T_t^{\textrm{AI}} = 28 \degree \textrm{C}$ to $T_{t+1}^{\textrm{AI}} = 26.5 \degree \textrm{C}$:
+
+\begin{align*}
+    \Delta T_t^{\textrm{AI}}
+    & = T_{t+1}^{\textrm{AI}} - T_t^{\textrm{AI}} \\
+    & = 26.5 - 27 \\
+    & = -1.5 \degree \textrm{C}
+\end{align*}
+
+Thus, based on Assumption 2, the energy spent by the AI onto the server is:
+
+\begin{align*}
+    E_t^{\textrm{AI}}
+    & = |\Delta T_t^{\textrm{AI}}| \\
+    & = 1.5 \ \textrm{Joules}
+\end{align*}
+
+Good, now only one info is missing to compute the reward: it is the energy that the server's integrated cooling system would have spent if the AI was deactivated between 4:00pm and 4:01pm. Remember that this unintelligent cooling system is automatically bringing the server's temperature back to the closest bound of the optimal temperature range $[18 \degree \textrm{C}, 24 \degree \textrm{C}]$. So since at $t = 4:00$ pm the temperature was $T_t = 28 \degree$C, then the closest bound of the optimal temperature range at that time was $24 \degree$C. Thus the server's integrated cooling system would have changed the temperature from $T_t = 28 \degree \textrm{C}$ to $T_{t+1} = 24 \degree \textrm{C}$, and therefore  the server's temperature change that would have occurred if there was no AI is:
+
+\begin{align*}
+    \Delta T_t^{\textrm{noAI}}
+    & = T_{t+1}^{\textrm{noAI}} - T_t^{\textrm{noAI}} \\
+    & = 24 - 28 \\
+    & = -4 \degree C
+\end{align*}
+
+\
+
+Thus, based on Assumption 2, the energy that the unintelligent cooling system would have spent if there was no AI is:
+
+\begin{align*}
+    E_t^{\textrm{noAI}}
+    & = |\Delta T_t^{\textrm{noAI}}| \\
+    & = 4 \ \textrm{Joules}
+\end{align*}
+
+\
+
+Hence in conclusion, the reward we get after playing this action at time $t = 4:00$ pm is:
+
+\begin{align*}
+    \textrm{Reward}
+    & = E_t^{\textrm{noAI}} - E_t^{\textrm{AI}} \\
+    & = 4 - 1.5 \\
+    & = 2.5
+\end{align*}
+
+\
+
+Then, between $t = 4:00$ pm and $t+1 = 4:01$ pm, other things happen: some new users are logging on to the server, some existing users are logging off the server, some new data is transmitting inside the server, and some existing data is transmitting outside the server. Based on Assumption 1, these factors make the server's temperature change. Let's say they increase the server's temperature by $5 \degree$C:
+
+\begin{equation*}
+    \Delta_t \ \textrm{Intrinsic Temperature} = 5 \degree C
+\end{equation*}
+
+\
+
+Now remember that we are evaluating two systems separately: our AI, and the server's integrated cooling system. Therefore we must compute separately the two temperatures we would get with these two systems at $t+1 = 4:01$ pm. Let's start with the AI.
+
+\
+
+The temperature we get at $t+1 = 4:01$ pm when the AI is activated is:
+
+\begin{align*}
+    T_{t+1}^{\textrm{AI}}
+    & = T_t^{\textrm{AI}} + \Delta T_t^{\textrm{AI}} + \Delta_t \ \textrm{Intrinsic Temperature} \\
+    & = 28 + (-1.5) + 5 \\
+    & = 31.5 \degree C
+\end{align*}
+
+And the temperature we get at $t+1 = 4:01$ pm when the AI is not activated is:
+
+\begin{align*}
+    T_{t+1}^{\textrm{noAI}}
+    & = T_t^{\textrm{noAI}} + \Delta T_t^{\textrm{noAI}} + \Delta_t \ \textrm{Intrinsic Temperature} \\
+    & = 28 + (-4) + 5 \\
+    & = 29 \degree C
+\end{align*}
+
+Perfect, we have our two separate temperatures, which are $T_{t+1}^{\textrm{AI}} = 29.5 \degree C$ when the AI is activated, and $T_{t+1}^{\textrm{noAI}} = 27 \degree C$ when the AI is not activated.
+
+\
+
+Now let's simulate what happens between $t+1 = 4:01$ pm and $t+2 = 4:02$ pm. Again, our AI will make a prediction, and since the server is heating up, let's say it predicts action 0, which corresponds to cooling down the server by $3 \degree C$, bringing it down to $T_{t+2}^{\textrm{AI}} = 28.5 \degree C$. Therefore, the energy spent by the AI between $t+1 = 4:01$ pm and $t+2 = 4:02$ pm, is:
+
+\begin{align*}
+    E_{t+1}^{\textrm{AI}}
+    & = |\Delta T_{t+1}^{\textrm{AI}}| \\
+    & = |28.5 - 31.5| \\
+    & = 3 \ \textrm{Joules}
+\end{align*}
+
+Now regarding the server's integrated cooling system (i.e. when there is no AI), since at $t+1 = 4:01$ pm we had $T_{t+1}^{\textrm{noAI}} = 29 \degree C$, then the closest bound of the optimal range of temperatures is still $24 \degree C$, and so the energy that the server's unintelligent cooling system would spend between $t+1 = 4:01$ pm and $t+2 = 4:02$ pm, is:
+
+\begin{align*}
+    E_{t+1}^{\textrm{noAI}}
+    & = |\Delta T_{t+1}^{\textrm{noAI}}| \\
+    & = |24 - 29| \\
+    & = 5 \ \textrm{Joules}
+\end{align*}
+
+Hence the reward obtained between $t+1 = 4:01$ pm and $t+2 = 4:02$ pm, is:
+
+\begin{align*}
+    \textrm{Reward}
+    & = E_{t+1}^{\textrm{noAI}} - E_{t+1}^{\textrm{AI}} \\
+    & = 5 - 3 \\
+    & = 2
+\end{align*}
+
+And finally, the total reward obtained between $t = 4:00$ pm and $t+2 = 4:02$ pm, is:
+
+\begin{align*}
+    \textrm{Total Reward}
+    & = (\textrm{Reward obtained between $t$ and $t+1$}) + (\textrm{Reward obtained between $t+1$ and $t+2$}) \\
+    &  = 2.5 + 2 \\
+    & = 4.5
+\end{align*}
+
+That was an example of the whole process happening in two minutes. In our implementation we will run the same process over 1000 epochs of 5-months period for the training, and then, once our AI is trained, we will run the same process over 1 full year of simulation for the testing. The training will be done with Deep Q-Learning, and this is where the next section comes into play.
+
+\subsection{AI Solution}
+
+The AI Solution that will solve the problem described above is a Deep Q-Learning model. Let's give the intuition and the maths equations behind it.
+
+\subsubsection{Q-Learning into Deep Learning}
+
+Deep Q-Learning consists of combining Q-Learning to an Artificial Neural Network. Inputs are encoded vectors, each one defining a state of the environment. These inputs go into an Artificial Neural Network, where the output is the action to play. More precisely, let's say the game has n possible actions, the output layer of the neural network is comprised of n output neurons, each one corresponding to the Q-values of each action played in the current state. Then the action played is the one associated with the output neuron that has the highest Q-value (argmax), or the one returned by the softmax method. In our case we will use argmax. And since Q-values are real numbers, that makes our neural network an ANN for Regression.
+
+\
+
+Hence, in each state $s_t$:
+
+\begin{itemize}
+
+\item the prediction is the Q-value $Q(s_t, a_t)$ where $a_t$ is chosen by argmax or softmax
+\item the target is $r_t + \gamma \underset{a}{\max}(Q(s_{t+1}, a))$
+\item the loss error between the prediction and the target is the squared of the Temporal Difference:
+
+\begin{equation*}
+\textrm{Loss} = \frac{1}{2} \left( r_t + \gamma \underset{a}{\max}(Q(s_{t+1}, a)) - Q(s_t, a_t) \right)^2 = \frac{1}{2} TD_t(s_t, a_t)^2
+\end{equation*}
+
+\end{itemize}
+
+Then this loss error is backpropagated into the network, and the weights are updated according to how much they contributed to the error.
+
+\subsubsection{Experience Replay}
+
+We notice that so far we have only considered transitions from one state $s_t$ to the next state $s_{t+1}$. The problem with this is that $s_t$ is most of the time very correlated with $s_{t+1}$. Therefore the network is not learning much. This could be way improved if, instead of considering only this one previous transition, we considered the last m transitions where m is a large number. This pack of the last m transitions is what is called the Experience Replay. Then from this Experience Replay we take some random batches of transitions to make our updates.
+
+\subsubsection{The Brain}
+
+The brain, or more precisely the deep neural network of our AI, will be a fully connected neural network, composed of two hidden layers, the first one having 64 neurons, and the second one having 32 neurons. And as a reminder, this neural network takes as inputs the states of the environment, and returns as outputs the Q-Values for each of the 5 actions. This artificial brain will be trained with a "Mean Squared Error" loss, and an Adam optimizer.
+
+\
+
+Here is what this artificial brain looks like:
+
+\begin{figure}[!htbp]
+		\begin{center}
+			\includegraphics[scale=0.18]{Brain.png}
+			\caption{The Artificial Brain: A Fully Connected Neural Network}
+		\end{center}
+\end{figure}
+
+This artificial brain looks complex to create, but we will build it very easily thanks to the amazing Keras library. Here is actually a preview of the full implementation containing the part that builds this brain all by itself:
+
+\
+
+\begin{lstlisting}
+# Building the Brain
+
+class Brain(object):
+
+    def __init__(self, learning_rate = 0.001, number_actions = 11):
+        self.learning_rate = learning_rate
+        states = Input(shape = (3,))
+        x = Dense(units = 64, activation = 'sigmoid')(states)
+        y = Dense(units = 32, activation = 'sigmoid')(x)
+        q_values = Dense(units = number_actions, activation = 'softmax')(y)
+        self.model = Model(inputs = states, outputs = q_values)
+        self.model.compile(loss = 'mse', optimizer = Adam(lr = self.learning_rate))
+\end{lstlisting}
+
+\
+
+As we can see gladly, it only took a couple lines of code.
+
+\subsubsection{The whole Deep Q-Learning algorithm}
+
+\
+
+Let's summarize the different steps of the whole Deep Q-Learning process:
+
+\
+
+\textbf{Initialization}:
+
+\
+
+The memory of the Experience Replay is initialized to an empty list $M$.
+
+\
+
+We choose a maximum size of the memory. In our case study we choose a maximum size of 100 transitions.
+
+\
+
+We start in a first state, corresponding to a specific time within the year.
+
+\
+
+\textbf{At each time $t$, we repeat the following process, until the end of the epoch (5 months in our implementation)}:
+
+\begin{enumerate}
+
+\item We predict the Q-Values of the current state $s_t$.
+
+\item We play the action that corresponds to the maximum of these predicted Q-Values (argmax method):
+
+\begin{equation*}
+    a_t = \underset{a}{\textrm{argmax}} Q(s_t, a)
+\end{equation*}
+
+\item We get the reward:
+
+\begin{equation*}
+    r_t = E_t^{\textrm{noAI}} - E_t^{\textrm{AI}}
+\end{equation*}
+
+\item We reach the next state $s_{t+1}$.
+
+\item We append the transition $(s_t, a_t, r_t, s_{t+1})$ in $M$.
+
+\item We take a random batch $B \subset M$ of transitions. For all the transitions $(s_{t_B}, a_{t_B}, r_{t_B}, s_{t_B+1})$ of the random batch $B$:
+
+\begin{itemize}
+
+\item We get the predictions:
+
+\begin{equation*}
+Q(s_{t_B}, a_{t_B})
+\end{equation*}
+
+\item We get the targets:
+
+\begin{equation*}
+r_{t_B} + \gamma \underset{a}{\max}(Q(s_{t_B+1}, a))
+\end{equation*}
+
+\item We compute the loss between the predictions and the targets over the whole batch $B$:
+
+\begin{equation*}
+\textrm{Loss} = \frac{1}{2} \sum_B \left( r_{t_B} + \gamma \underset{a}{\max}(Q(s_{t_B+1}, a)) - Q(s_{t_B}, a_{t_B}) \right)^2 = \frac{1}{2} \sum_B TD_{t_B}(s_{t_B}, a_{t_B})^2
+\end{equation*}
+
+\item We backpropagate this loss error back into the neural network, and through stochastic gradient descent we update the weights according to how much they contributed to the error.
+
+\end{itemize}
+
+\end{enumerate}
+
+\newpage
+
+\subsection{Implementation}
+
+\
+
+This implementation will be divided in 5 parts, each part having its own python file. These 5 parts constitute the general AI Framework, or AI Blueprint, that should be followed whenever we build an environment to solve any business problem with Deep Reinforcement Learning.
+
+\
+
+Here they are, from Step 1 to Step 5:
+
+\
+
+\begin{enumerate}
+    \item \textbf{Step 1:} Building the Environment.
+    \
+    \item \textbf{Step 2:} Building the Brain.
+    \
+    \item \textbf{Step 3:} Implementing the Deep Reinforcement Learning algorithm (in our case it will be the DQN model).
+    \
+    \item \textbf{Step 4:} Training the AI.
+    \
+    \item \textbf{Step 5:} Testing the AI.
+\end{enumerate}
+
+\
+
+These are the main steps (in that same order) of the general AI Framework. Let's thus implement our AI for our specific case study, following this AI Blueprint, in the following five sections corresponding to these five main steps. Besides in each step, we will distinguish the sub-steps that are still part of the general AI Framework, from the sub-steps that are specific to our case study, by writing the titles of the code sections in capital letters for all the sub-steps of the general AI Framework, and in minimal letters for all the sub-steps specific to our case study. That means that anytime you see a new code section of which the title is written in capital letters, then it is the next sub-step of the general AI Framework, which you should also follow when building an AI for your own business problem.
+
+\
+
+So now here we go with the beginning of the journey: Step 1 - Building the Environment.
+
+\
+
+This is the largest Python implementation file of this case study, and of the course. So please make sure to rest before, recharge your batteries to get a good energy level, and as soon as you are ready, let's tackle this together!
+
+\
+
+We begin in the next page.
+
+\newpage
+
+\subsubsection{Step 1: Building the Environment}
+
+In this first step, we are going to build the environment inside a class. Why a class? Because we would like to have our environment as an object which we can create easily with any values of some parameters we choose. For example, we can create one environment object for one server that has a certain number of connected users and a certain rate of data at a specific time, and one other environment object for another server that has a different number of connected users and a different rate of data at some other time. And thanks to this advanced structure of the class, we can easily plug-and-play the environment objects we create on different servers which have their own parameters, hence regulating their temperatures with several different AIs, so that we end up minimizing the energy consumption of a whole data center, just as Google DeepMind for Google's data centers did with their DQN algorithm.
+
+\
+
+This class follows the below sub-steps, which are part of the general AI Framework inside Step 1 - Building the environment:
+
+\begin{enumerate}
+    \item \textbf{Step 1-1:} Introducing and initializing all the parameters and variables of the environment.
+    \item \textbf{Step 1-2:} Making a method that updates the environment right after the AI plays an action.
+    \item \textbf{Step 1-3:} Making a method that resets the environment.
+    \item \textbf{Step 1-4:} Making a method that gives us at any time the current state, the last reward obtained, and whether the game is over.
+\end{enumerate}
+
+You will find the whole implementation of this Environment class in the next four pages. Remember the most important: all the code sections having their titles written in capital letters are the steps of the general AI Framework / Blueprint, and all the code sections having their titles written in minimal letters are specific to our case study.
+
+\
+
+Below is the whole implementation of our first python file. The code sections titles and the chosen variables names are clear enough to understand what is being coded, but if you need any more explanation, I encourage to watch our video tutorials where we code everything from scratch, step by step, while explaining every single line of code in terms of why, what and how. Here we go:
+
+\
+
+\begin{lstlisting}
+# Artificial Intelligence for Business - Case Study 2
+# Building the Environment
+
+# Importing the libraries
+import numpy as np
+
+# BUILDING THE ENVIRONMENT IN A CLASS
+
+class Environment(object):
     
-$$P_{X}(x)=\left\{\begin{array}{ll} \frac18, & \mbox{si } x=0, 3,\\[1ex]
-\frac38, & \mbox{si } x=1,2,\\[1ex] 0, & \mbox{en otro caso.}\end{array}\right.$$
-
-
-
-Efectivamente los valores de la función de distribución suman 1:
-
-$$\sum_{x=0}^3 P_X(x)= \frac18+\frac38+\frac38+\frac18=1.$$
-
-</div>
-</div>
-
-<l class="definition"> **Distribución de Probabilidad**</l>
-
-La función de *distribución de probabilidad* (acumulada) de la v.a. $X$ (de cualquier tipo; discreta o continua) $F_{X}(x)$ representa la probabilidad de que $X$  tome un menor o igual que  $x$, es decir,
-
-$$F_{X}(x)=P(X\leq x).$$
-
-Esta función también se denomina función de *distribución de
-probabilidad o simplemente función de distribución* de una v.a., y en inglés
-*cumulative distribution function* por lo que se abrevia con el acrónimo `cdf`.
-
-
-<l class="definition"> **Propiedades de la Función de Distribución**</l>
-
-Sea $X$ una v.a. y $F_{X}$ su función de distribución:
-
-1. $P(X>x)=1-P(X\leq x)=1-F_{X}(x).$
-2. Sea a y b tales que $a<b$, $P(a<X\leq b)=P(X\leq b)-P(X\leq a)=F_{X}(b)-F_{X}(a).$
-
-
-
-<div class="dem"> 
-
-**Demostración**:
-
-Tenemos que el complementario de $X$ mayor que $x$ es:  $\overline{\left\{X>x\right\}}=\left\{X>x\right\}^c=\left\{X\leq x\right\}$. Además,
-
-$$P(X>x)=1-P(\overline{\left\{X>x\right\}})=1-P(X\leq x)=1-F_{X}(x),$$
+    # INTRODUCING AND INITIALIZING ALL THE PARAMETERS AND VARIABLES OF THE ENVIRONMENT
     
-lo que demuestra la primera propiedad.
+    def __init__(self,
+                optimal_temperature = (18.0, 24.0),
+                initial_month = 0,
+                initial_number_users = 10,
+                initial_rate_data = 60):
+        self.monthly_atmospheric_temperatures = [1.0, 5.0, 7.0, 10.0, 11.0, 20.0,
+                                                23.0, 24.0, 22.0, 10.0, 5.0, 1.0]
+        self.initial_month = initial_month
+        self.atmospheric_temperature = \
+                                self.monthly_atmospheric_temperatures[initial_month]
+        self.optimal_temperature = optimal_temperature
+        self.min_temperature = -20
+        self.max_temperature = 80
+        self.min_number_users = 10
+        self.max_number_users = 100
+        self.max_update_users = 5
+        self.min_rate_data = 20
+        self.max_rate_data = 300
+        self.max_update_data = 10
+        self.initial_number_users = initial_number_users
+        self.current_number_users = initial_number_users
+        self.initial_rate_data = initial_rate_data
+        self.current_rate_data = initial_rate_data
+        self.intrinsic_temperature = self.atmospheric_temperature
+                                     + 1.25 * self.current_number_users
+                                     + 1.25 * self.current_rate_data
+        self.temperature_ai = self.intrinsic_temperature
+        self.temperature_noai = (self.optimal_temperature[0]
+                                + self.optimal_temperature[1]) / 2.0
+        self.total_energy_ai = 0.0
+        self.total_energy_noai = 0.0
+        self.reward = 0.0
+        self.game_over = 0
+        self.train = 1
 
-Por otro lado, que $X$ se encuentre entre dos valores $a$ y $b$ es  $\left\{a< X \leq b\right\}= \left\{X\leq b\right\}-\left\{X\leq  a\right\}$. Ahora podemos hacer 
+
+    # MAKING A METHOD THAT UPDATES THE ENVIRONMENT RIGHT AFTER THE AI PLAYS AN ACTION
     
-\begin{eqnarray*}
-P(a<X\leq b)&=&P(\left\{X\leq b\right\}-\left\{X\leq a\right\})\\
-&=& P(\left\{X\leq b\right\})-P(\left\{X\leq a\right\})\\
-&=& F_{X}(b)-F_{X}(a).
-\end{eqnarray*}
+    def update_env(self, direction, energy_ai, month):
+        
+        # GETTING THE REWARD
+        
+        # Computing the energy spent by the server's cooling system when there is no AI
+        energy_noai = 0
+        if (self.temperature_noai < self.optimal_temperature[0]):
+            energy_noai = self.optimal_temperature[0] - self.temperature_noai
+            self.temperature_noai = self.optimal_temperature[0]
+        elif (self.temperature_noai > self.optimal_temperature[1]):
+            energy_noai = self.temperature_noai - self.optimal_temperature[1]
+            self.temperature_noai = self.optimal_temperature[1]
+        # Computing the Reward
+        self.reward = energy_noai - energy_ai
+        # Scaling the Reward
+        self.reward = 1e-3 * self.reward
+        
+        # GETTING THE NEXT STATE
+        
+        # Updating the atmospheric temperature
+        self.atmospheric_temperature = self.monthly_atmospheric_temperatures[month]
+        # Updating the number of users
+        self.current_number_users += np.random.randint(-self.max_update_users,
+                                                       self.max_update_users)
+        if (self.current_number_users > self.max_number_users):
+            self.current_number_users = self.max_number_users
+        elif (self.current_number_users < self.min_number_users):
+            self.current_number_users = self.min_number_users
+        # Updating the rate of data
+        self.current_rate_data += np.random.randint(-self.max_update_data,
+                                                    self.max_update_data)
+        if (self.current_rate_data > self.max_rate_data):
+            self.current_rate_data = self.max_rate_data
+        elif (self.current_rate_data < self.min_rate_data):
+            self.current_rate_data = self.min_rate_data
+        # Computing the Delta of Intrinsic Temperature
+        past_intrinsic_temperature = self.intrinsic_temperature
+        self.intrinsic_temperature = self.atmospheric_temperature
+                                     + 1.25 * self.current_number_users
+                                     + 1.25 * self.current_rate_data
+        delta_intrinsic_temperature = self.intrinsic_temperature
+                                      - past_intrinsic_temperature
+        # Computing the Delta of Temperature caused by the AI
+        if (direction == -1):
+            delta_temperature_ai = -energy_ai
+        elif (direction == 1):
+            delta_temperature_ai = energy_ai
+        # Updating the new Server's Temperature when there is the AI
+        self.temperature_ai += delta_intrinsic_temperature + delta_temperature_ai
+        # Updating the new Server's Temperature when there is no AI
+        self.temperature_noai += delta_intrinsic_temperature
+        
+        # GETTING GAME OVER
+        
+        if (self.temperature_ai < self.min_temperature):
+            if (self.train == 1):
+                self.game_over = 1
+            else:
+                self.total_energy_ai += self.optimal_temperature[0]
+                                        - self.temperature_ai
+                self.temperature_ai = self.optimal_temperature[0]
+        elif (self.temperature_ai > self.max_temperature):
+            if (self.train == 1):
+                self.game_over = 1
+            else:
+                self.total_energy_ai += self.temperature_ai
+                                        - self.optimal_temperature[1]
+                self.temperature_ai = self.optimal_temperature[1]
+        
+        # UPDATING THE SCORES
+        
+        # Updating the Total Energy spent by the AI
+        self.total_energy_ai += energy_ai
+        # Updating the Total Energy spent by the alternative system when there is no AI
+        self.total_energy_noai += energy_noai
+        
+        # SCALING THE NEXT STATE
+        
+        scaled_temperature_ai = (self.temperature_ai - self.min_temperature)
+                                / (self.max_temperature - self.min_temperature)
+        scaled_number_users = (self.current_number_users - self.min_number_users)
+                              / (self.max_number_users - self.min_number_users)
+        scaled_rate_data = (self.current_rate_data - self.min_rate_data)
+                           / (self.max_rate_data - self.min_rate_data)
+        next_state = np.matrix([scaled_temperature_ai,
+                                scaled_number_users,
+                                scaled_rate_data])
+        
+        # RETURNING THE NEXT STATE, THE REWARD, AND GAME OVER
+        
+        return next_state, self.reward, self.game_over
 
-</div>
-
-
-
-<l class="definition"> **Más propiedades de la Función de Distribución**</l>
-
-Sea $F_{X}$ la función de distribución  de una  v.a. $X$ entonces:
- 
-* $0\leq F_{X}(x)\leq 1$.
-* La función $F_{X}$ es no decreciente.
-* La función $F_{X}$ es continua por la derecha.
-* Si denotamos por $F_X(x_0^{-})=\displaystyle \lim_{x\to x_0^{-}} F(x)$,
-entonces se cumple que $P(X< x_0)=F_X(x_0^{-})$ y que $P(X=x_0)=F_X(x_0)-F_X(x_0^{-})$.
-* Se cumple que $\displaystyle \lim_{x\to\infty} F_{X}(x)=1$; $\displaystyle \lim_{x\to-\infty}F_{X}(x)=0$.
-*  Toda función $F$ verificando las propiedades anteriores es función de distribución de alguna v.a. $X$.
-* $P(X>x)=1-F_{X}(x)$.
-* Dados $a,b\in \mathbb{R}$ con $a<b$, $$P(a<X\leq b)=F_{X}(b)-F_{X}(a).$$
-
-**Advertencia desigualdades estrictas**
-
-En las propiedades anteriores no se pueden cambiar en general las desigualdades de
-estrictas o no estrictas.
-
-Veamos que propiedades tenemos cuando se cambian estas
-desigualdades.
-
-
-Dada una $F_{X}$ una función de distribución de la v.a. $X$ y denotamos por $$F_{X}(x_0^{-})=\displaystyle \lim_{x\to x_0^{-}} F_{X}(x),$$
-entonces  se cumplen las siguientes igualdades:
-
-* $P(X=x)=F_{X}(x)-F_{X}(x^{-})$.
-* $P(a< X< b)=F_{X}(b^{-})-F_{X}(a)$.
-* $P(a\leq X< b)=F_{X}(b^{-})-F_{X}(a^{-})$.
-* $P(X<a)=F_{X}(a^{-})$.
-* $P(a\leq X\leq b)=F_{X}(b)-F_{X}(a^{-})$.
-* $P(X\geq a)=1-F_{X}(a^{-})$.
-* Si  $F_X$ es continua en $x$ se tiene que $P(X=x)=0$.
-Así que si la v.a. es continua $P(X\leq a)=P(X< a)+P(X=a)=P(X<a)$ y propiedades similares.
-* Sea $X$ una variable aleatoria discreta que con dominio $D_X$ y
-que tiene por función de probabilidad $P_{X}(x)$ entonces su función de distribución
-$F_{X}(x_0)$ es
-$$F_{X}(x_0)=\sum_{x\leq x_0} P_{X}(x),$$
-donde $\sum\limits_{x\leq x_0}$ indica que sumamos todos los $x \in D_X$ tales que $x\leq
-x_0$.
-
-<div class="dem"> 
-
-**Demostración**:
-
-
-Si $X$ es continua $$P(X=a)=F(a)-F(a^{-})=F(a)-F(a)=0,$$
-por lo tanto
-$$P(X\leq a)=P(X<a)+P(X=a)= P(X<a)+0= P(X<a),$$
-lo que demuestra la primera propiedad.
-
-Para demostrar la segunda basta hacer
-$$ 
-F_{X}(x_0)= P(X\leq x_0)=P\left(\bigcup_{x\leq
-x_0; x\in D_X} \{x\}\right)= \sum_{x\leq x_0}P(X=x)= \sum_{x\leq x_0}P_{X}(x).
-$$
-  
-</div>
-
-
-<div class="example">
-**Ejemplo: dado (continuación)**
-
-En el experimento del dado se tiene que:
-
-$$P_{X}(x)=\left\{\begin{array}{ll} \frac16, & \mbox{si } x=1,2,3,4,5,6,\\ 0, & \mbox{en el resto de casos.}\end{array}\right.,$$
-
-por lo tanto,
-$$F_{X}(x)=P(X\leq x)=\left\{\begin{array}{ll}
-   0, & \mbox{si } x<1,\\[1ex]
-   \frac16, &\mbox{si } 1\leq x<2,\\[1ex]
-   \frac26, &\mbox{si } 2\leq x<3,\\[1ex]
-   \frac36, &\mbox{si } 3\leq x<4,\\[1ex]
-   \frac46, &\mbox{si } 4\leq x<5,\\[1ex]
-   \frac56, &\mbox{si } 5\leq x<6,\\[1ex]
-   1, &\mbox{si } 6\leq x.\end{array}\right.$$
-
-Calculemos más detalladamente algún valor de $F_{X}$, por ejemplo:
-
-\begin{eqnarray*}
-F_{X}(3.5) & = & P(X\leq 3.5)=  P(\{X=1\}\cup\{X=2\}\cup \{X=3\})\\
-&=& P(\{X=1\})+P(\{X=2\})+P(\{X=3\})\\
-&=& \frac16+\frac16+\frac16=\frac36 =\frac12,
-\end{eqnarray*}
-o de otra forma,
-\begin{eqnarray*}
-F_{X}(3.5)&=&\sum_{x\leq 3.5} P_X(x)=\sum_{x=1}^3 P(X=x)\\&=&\sum_{x=1}^3 \frac16= 3 \cdot
-   \frac16=\frac12.
-\end{eqnarray*}
-</div>
-
-
-**Propiedades de la función de distribución**
-
-Sea $X$ una variable con función de distribución $F_{X}$ entonces:
- 
-* $0\leq F_{X}(x)\leq 1$, para todo $x$.
-* Si $x<x'$, entonces $F_{X}(x)\leq F_{X}(x'),$ es decir, es una función creciente, no necesariamente estrictamente creciente.
-* $\displaystyle \lim_{x\to -\infty}F_{X}(x)=0$ y $\displaystyle \lim_{x\to +\infty}F_{X}(x)=1$.
-* Es continua por la derecha: $\displaystyle \lim_{x\to x_0^{+}}F_{X}(x)=F_{X}(x_0)$.
-  
-
-
-
-### Valores esperados  o esperanza
-
-
-Al igual que en  la estadística descriptiva  se utilizan  distintas medidas para
-resumir los valores centrales y para medir la dispersión de una muestra, podemos definir
-las correspondiente medidas para variables aleatorias.
-
-A estas medidas se les suele añadir el adjetivo **poblacionales** mientras que a las que provienen de la muestra se las adjetiva como **muestrales**.
-
-
-Por ejemplo  podemos buscar un valor que resuma toda la variable. Este valor es el que "*esperamos*" que se resuma la v.a. o esperamos que las realizaciones de la v.a. queden cerca de él. Veamos su definición formal.
-
-<l class="definition">**Esperanza de una variable aleatoria discreta **</l>
-
-El valor **esperado o esperanza** (*expected value* en inglés) $E(X)$ de una v.a. discreta $X$, se define como
-
-$$
-E(X)=\sum_{x\in X(\Omega)} x P_{X}(x).
-$$
-
-
-En ocasiones se denomina **media** (*mean* en inglés) poblacional o simplemente media y muy frecuentemente se la denota $\mu_{X}=E(X)$ o simplemente $\mu=E(X)$.
-
-
-<div class="example">
-**Ejemplo: lanzamiento de un dado $n$ veces**
-
-Supongamos que lanzamos un dado $n$ veces y obtenemos unas frecuencias absolutas $n_{i}$ para el resultado $i$ con $i=1,\ldots,6$. Sea $X$ la v.a. que nos representa el valor de una tirada del dado.
-
-Calculemos la media aritmética (o media muestral) de los datos
-
-$$
-\overline{x}=\frac{1\cdot n_1+2\cdot  n_2+3\cdot  n_3+4\cdot  n_4+5\cdot  n_5+6 \cdot 
-n_6}{n}=\sum_{x=1}^6 x\cdot \frac{n_{x}}{n}.
-$$
-Si $n\to \infty$ se tiene que $\displaystyle\lim_{n\to \infty} \frac{n_{x}}{n}=P_{X}(x).$
-
-Por lo tanto $E(X)=\displaystyle \lim_{n\to\infty}\sum_{x=1}^6 x\cdot \frac{n_{x}}{n}.$
-
-Entonces el valor esperado en una v.a. discreta puede entenderse como el valor promedio que tomaría una v.a. en un número grande de repeticiones.
-
-</div>
-
-
-<div class="example">
-
-**Ejemplo: Erratas en un texto**
-
-Sea $X$ el número  de erratas en una página de un texto, con dominio $D_X=\{0,1,2\}$.
-
-Resulta que
-
-$$
-P(X=0)=0.42,\ P(X=1)=0.4,\ P(X=2)=0.18.
-$$
+    # MAKING A METHOD THAT RESETS THE ENVIRONMENT
     
-entonces
+    def reset(self, new_month):
+        self.atmospheric_temperature = self.monthly_atmospheric_temperatures[new_month]
+        self.initial_month = new_month
+        self.current_number_users = self.initial_number_users
+        self.current_rate_data = self.initial_rate_data
+        self.intrinsic_temperature = self.atmospheric_temperature
+                                     + 1.25 * self.current_number_users
+                                     + 1.25 * self.current_rate_data
+        self.temperature_ai = self.intrinsic_temperature
+        self.temperature_noai = (self.optimal_temperature[0]
+                                + self.optimal_temperature[1]) / 2.0
+        self.total_energy_ai = 0.0
+        self.total_energy_noai = 0.0
+        self.reward = 0.0
+        self.game_over = 0
+        self.train = 1
+
+    # MAKING A METHOD THAT GIVES US AT ANY TIME THE STATE, THE REWARD AND GAMEOVER
     
-$$
-E(X)=0\cdot 0.42+ 1\cdot 0.4 + 2 \cdot 0.18=0.76.
-$$
+    def observe(self):
+        scaled_temperature_ai = (self.temperature_ai - self.min_temperature)
+                                / (self.max_temperature - self.min_temperature)
+        scaled_number_users = (self.current_number_users - self.min_number_users)
+                              / (self.max_number_users - self.min_number_users)
+        scaled_rate_data = (self.current_rate_data - self.min_rate_data)
+                           / (self.max_rate_data - self.min_rate_data)
+        current_state = np.matrix([scaled_temperature_ai,
+                                   scaled_number_users,
+                                   scaled_rate_data])
+        return current_state, self.reward, self.game_over
+\end{lstlisting}
 
-Elegida una página del texto al azar esperamos encontrar $0.76$ errores por página.
+\
 
-Supongamos que el editor nos paga $2$ euros por cada página que
-encontremos con $1$ error y $3$ euros por cada página con  dos errores (y nada por las
-páginas correctas) ¿Cuánto *esperamos* cobrar si analizamos una página?
+Congratulations for implementing Step 1 - Building the Environment. Now let's move on to Step 2 - Building the Brain.
 
-$$0\cdot 0.42 + 2\cdot 0.4 + 3\cdot 0.18=1.34.$$
-</div>
+\newpage
 
-<l class="definition"> **Esperanzas de funciones de variables aleatorias discretas** </l>
+\subsubsection{Step 2: Building the Brain}
 
-Sea $X$ una v.a. discreta con función de probabilidad $P_{X}$ y de distribución
-$F_{X}$. Entonces el **valor esperado de una función** $g(x)$ es :
+In this Step 2, we are going to build the artificial brain of our AI, which is nothing else than a fully connected neural network. Here it is again:
 
-$$E(g(X))=\sum_{x}g(x)\cdot P_{X}(x).$$
+\begin{figure}[!htbp]
+		\begin{center}
+			\includegraphics[scale=0.18]{Brain.png}
+			\caption{The Artificial Brain: A Fully Connected Neural Network}
+		\end{center}
+\end{figure}
 
+Again, we will build this artificial brain inside a class, for the same reason as before which is to allow us to create several artificial brains for different servers inside a data center. Indeed, maybe some servers will need different artificial brains with different hyper-parameters than other servers. That's why thanks to this class / object Python advanced structure, we can easily switch from one brain to another to regulate the temperature of a new server that requires an AI with different neural networks parameters.
 
-**Propiedades de los valores esperados**
- 
-* $E(k)=k$ para cualquier constante $k$.
-* Si $a\leq X\leq b$ entonces $a\leq E(X)\leq b$.
-* Si $X$ es una v.a. discreta que toma valores enteros no negativos entonces
-$E(X)=\sum_{x=0}^{+\infty}(1- F_X(x)).$
-  
-<div class="exercise">
-**Ejercicio**
+\
 
-La demostración de las propiedades anteriores se deja como ejercicio.
-</div>
+We build this artificial brain thanks to the amazing Keras library. From this library we use the Dense() class to create our two fully connected hidden layers, the first one having 64 hidden neurons, and the second one having 32 neurons. And we use the Dense() class again to return Q-Values, which keep in mind are the outputs of the artificial neural networks. Then later on in the training and the testing files, we will use the argmax method to select the action that has the maximum Q-Value. Then, we assemble all the components of the brain, including the inputs and the outputs, by creating it as an object of the Model() class (very useful to then save and load a model with specific weights). End eventually, we compile it with a Mean-Squared Error loss and an Adam optimizer. Thus here are the new steps of the general AI Framework:
 
+\begin{enumerate}
+    \item \textbf{Step 2-1:} Building the input layer composed of the input states.
+    \item \textbf{Step 2-2:} Building the hidden layers with a chosen number of these layers and neurons inside each, fully connected to the input layer and between each other.
+    \item \textbf{Step 2-3:} Building the output layer, fully connected to the last hidden layer.
+    \item \textbf{Step 2-4:} Assembling the full architecture inside a model object.
+    \item \textbf{Step 2-5:} Compiling the model with a Mean-Squared Error loss function and a chosen optimizer.
+\end{enumerate}
 
-<div class="example"> 
-**Ejemplo: paleta de colores aleatoria**
+Here we go with the implementation:
 
-Supongamos que estamos sentados delante de nuestro ordenador con un amigo y
-le decimos que en dos minutos podemos programar una paleta  para poner colores a unos
-gráficos. 
+\
 
-Queremos que la paleta tenga dos botones con las opciones color rojo y color azul.
-Como hemos programado a gran velocidad resulta que el programa tiene un error; cada vez que se abre la paleta los colores se colocan al azar (con igual probabilidad) en cada botón, así que no sabemos en qué color hemos de pinchar. 
+\begin{lstlisting}
+# Artificial Intelligence for Business - Case Study 2
+# Building the Brain
 
-Además, como nos sobraron $15$ segundos
-para hacer el programa y pensando en la  comodidad del usuario, la paleta se cierra después de haber seleccionado  un color y hay que volverla a abrir de nuevo.
+# Importing the libraries
+from keras.layers import Input, Dense
+from keras.models import Model
+from keras.optimizers import Adam
 
-La pregunta es: ¿cuál es el valor esperado del
-número de veces que hemos pinchar el botón de color azul antes de obtener este color?
+# BUILDING THE BRAIN
 
-
-<div class="example-sol"> 
-Llamemos $X$ al número de veces que pinchamos en el botón azul (y nos sale rojo) hasta
-obtener el primer azul. La variable $X$ toma valores en los enteros no negativos. Su
-función de probabilidad queda determinada por
-
-$$
-P_X(x)=P(X=x)=P(\stackrel{x \mbox{ veces}}{\overbrace{rojo, rojo,\ldots,rojo},azul})
-=\left(\frac12\right)^{x+1}.
-$$
-
-</div>
-</div>
-
-**Series geométricas**
-
-Una **progresión geométrica** de razón $r$ es una sucesión de la  forma  
-$$
-r^0, r^1,\ldots,r^n,\ldots.
-$$
-La serie geométrica es la suma de todos los
-valores de la progresión geométrica $\displaystyle\sum_{k=0}^{+\infty} r^k$.
-
-<l class="prop">**Propiedades**</l>
-
-* Las sumas parciales desde el término $n_0$ al $n$ de una progresión geométrica valen 
-$$
-\sum_{k=n_0}^n r^k=\frac{r^{n_0}- r^n r}{1-r}.
-$$
-
-* Si $|r|<1$ la serie geométrica es convergente y $$\sum_{k=0}^{+\infty }
-r^k=\frac1{1-r}$$. 
-* En el caso en que se comience en $n_0$ se tiene que
-$$\sum_{k=n_0}^{+\infty} r^k=\frac{r^{n_0}}{1-r}.$$
-
-* Si $|r|<1$  también son convergentes las derivadas, respecto de $r$, de la serie geométrica y convergen a la derivada correspondiente. Así tenemos que
-
-
-\begin{eqnarray*}
-\left(\sum_{k=0}^{+\infty} r^k\right)'= & \sum_{k=1}^{+\infty}k
-r^{k-1} \left(\frac1{1-r}\right)'=\frac1{(1-r)^2}\\
-\left(\sum_{k=0}^{+\infty} r^k\right)^{''}=& \sum_{k=2}^{+\infty}k (k-1)
-r^{k-2}\left(\frac1{1-r}\right)^{''}=\frac2{(1-r)^3}.
-\end{eqnarray*}
-
-
-
-<div class="example">
-
-**Ejemplo: paleta de colores (continuación)**
-
-Si seguimos con el ejemplo de la paleta de colores, su esperanza es:
-
-\begin{eqnarray*}
-E(X)&=&\sum_{x=0}^{+\infty} x\cdot P(X=x)=\sum_{x=0}^{+\infty} x\cdot
-\left(\frac12\right)^{x+1}\\
-&= & \left(\frac12\right)^2\sum_{x=1}^{+\infty} x\cdot
-\left(\frac12\right)^{x-1}=\left(\frac12\right)^2
-\frac1{\left(1-\frac12\right)^2}=1.
-\end{eqnarray*}
-
-Ahora calculemos su función de distribución
-
-\begin{eqnarray*}
-F_X(x)&=& P(X\leq x)=\sum_{k=0}^x P(X=k)=\sum_{k=0}^x
-\left(\frac12\right)^{k+1}\\
-&=& \frac{\frac12-\frac12^{x+1}\cdot
-\frac12}{1-\frac12}=1-\left(\frac12\right)^{x+1}.
-\end{eqnarray*}
-
-Como la variable toma valores enteros positivos, podemos calcular su valor esperado
-de esta otra manera
-
-$$E(X)=\sum_{x=0}^{+\infty} (1-F_X(x))=\sum_{x=0}^{+\infty}\left(\frac12\right)^{x+1}=\frac12\cdot
-\frac1{1-\frac12}=1.$$
-
-</div>
-
-<div class="exercise">
-
-**Ejercicio**
-
-Calculad el valor esperado de la variable
-
-$$
-Y=\mbox{número de intentos para conseguir el color azul.}
-$$
-</div>
-
-<l class="definition"> **Momentos de orden $m$**</l>
-
-Llamaremos  **momento de orden $m$** respecto al punto $C$ a 
-$$E\left((X-C)^m\right).$$
-
-* Cuando $C=0$ los momentos reciben el nombre de **momentos respecto al origen**.
-* Cuando $C=E(X)$ reciben el nombre de **momentos centrales o respecto de la media**. Luego la esperanza es el momento de orden $1$ respecto al origen. Estos momentos son la versión poblacional de los momentos que vimos en el curso de estadística descriptiva, recibiendo estos último el nombre de momentos muestrales.
-
-
-**Resumen de conceptos**
-
-* Hemos descrito el comportamiento aleatorio de una v.a. discreta mediante sus funciones  de probabilidad $P_{X}$ y de distribución $F_{X}$.
-* También tenemos un valor central; el valor esperado $E(X)$. 
-* Como medida básica nos queda definir una medida de lo lejos que están los datos del valor central $E(X)$ una de estas medidas es la varianza de $X$.
-
-### Medidas de la variabilidad
-
-<l class="definition"> **Varianza** </l>
-
-Sea $X$ una v.a. Llamaremos **varianza** de $X$ a
-
-$$Var(X)=E((X-E(X))^2).$$
-
-Por lo tanto, la varianza es el momento central de orden $2$.
-
-De forma frecuente se utiliza la notación $$\sigma_{X}^2=Var(X).$$
+class Brain(object):
     
-A la raíz cuadrada positiva de la varianza
-$$\sigma_{X}=+\sqrt{Var(X)},$$
-   
-se la denomina desviación típica o estándar de $X$.
-
-<l class="prop"> **Propiedad** </l>
-
-* Si $X$ es una v.a. discreta con función de probabilidad $P_X$ su varianza es 
- $$\sigma_{X}^2=Var(X)=E((X-E(X))^2)=\sum_{x}(x-E(X))^2 \cdot P_{X}(x).$$
-* Sea $X$ una v.a.
- $$Var(X)=E(X^2)-(E(X))^2=\sum_{x} x^2\cdot  P_{X}(X)-(E(X))^2$$
-  
-
-
-
-<div class="dem"> 
-
-**Demostración de b)**
-
-
-\begin{eqnarray*}
-Var(X)&= & \sum_{x}(x-E(X))^2 \cdot P_{X}(x) = \sum_{x}(x^2 -2 x E(X)+(E(X)^2)\cdot  P_{X}(x)\\
-&=& \sum_{x}x^2 \cdot  P_{X}(x) -  E(X)\sum_{x}2 x\cdot  P_{X}(x) + (E(X)^2)\sum_{x} P_{X}(x)\\
-&=& E(X^2)- 2 E(X)\cdot  E(X) + (E(X))^2=E(X^2)-(E(X))^2.
-\end{eqnarray*}
-
-
-
-</div>
-
-
-<div class="example"> 
-**Ejemplo: número de errores (continuación)**
-
-Calculemos en  el ejemplo anterior la varianza del número de errores.
-
-
-<div class="example-sol"> 
-
-Recordemos que:
-   
-$$
-P(X=0)=0.42,\  P(X=1)=0.4, \  P(X=2)=0.18,
-$$
-y que
-$$
-E(X)=0.76.
-$$
-Entonces:
+    # BUILDING A FULLY CONNECTED NEURAL NETWORK DIRECTLY INSIDE THE INIT METHOD
     
-$$
-Var(X)=E(X^2)-(E(X))^2 = E(X^2)-(0.76)^2.
-$$
-Ahora necesitamos calcular 
-  
-  $$E(X^2)= 0^2 (0.41)+ 1^2 (0.4)+ 2^2 (0.18)=0.4+0.72=1.12,$$
-y por lo tanto
-  
-  $$Var(X)= E(X^2)-(0.76)^2=1.12-0.5776=0.542,$$
-  y $$\sqrt{Var(X)}=\sqrt{0.542}.$$
+    def __init__(self, learning_rate = 0.001, number_actions = 5):
+        self.learning_rate = learning_rate
+        
+        # BUILDIND THE INPUT LAYER COMPOSED OF THE INPUT STATE
+        states = Input(shape = (3,))
+        
+        # BUILDING THE FULLY CONNECTED HIDDEN LAYERS
+        x = Dense(units = 64, activation = 'sigmoid')(states)
+        y = Dense(units = 32, activation = 'sigmoid')(x)
+        
+        # BUILDING THE OUTPUT LAYER, FULLY CONNECTED TO THE LAST HIDDEN LAYER
+        q_values = Dense(units = number_actions, activation = 'softmax')(y)
+        
+        # ASSEMBLING THE FULL ARCHITECTURE INSIDE A MODEL OBJECT
+        self.model = Model(inputs = states, outputs = q_values)
+        
+        # COMPILING THE MODEL WITH A MEAN-SQUARED ERROR LOSS AND A CHOSEN OPTIMIZER
+        self.model.compile(loss = 'mse', optimizer = Adam(lr = learning_rate))
+\end{lstlisting}
 
-  En resumen $\sigma_{X}^2=0.542$ y $\sigma_{X}=\sqrt{0.542}.$
-     
+\
 
-</div>
-</div>
+\textbf{Dropout.}
 
+\
 
-**Más propiedades de la varianza**
+I thought it would be valuable for you to even add one more powerful technique in your toolkit: \textbf{Dropout}.
 
-* $Var(X)\geq 0$.
-* $Var(cte)=E(cte^2)-(E(cte))^2= cte^2 - cte^2=0$.
-* El mínimo de $E((X-C)^2)$ se alcanza cuando $C=E(X)$ y es $Var(X)$. Esta propiedad es una de las que hace útil a la varianza como medida de dispersión.
-  
+\
 
-<div class="exercise">
-**Ejercicio**
+Dropout is a regularization technique that prevents overfitting. It simply consists of deactivating a certain rate of random neurones during each step of forward \& back propagation. That way, not all the neurones learn the same way, thus preventing the neural network from overfitting the training data.
 
-Se deja como ejercicio la demostración de estas propiedades.
+\
 
-</div>
+Here is how you implement Dropout:
 
+\begin{enumerate}
+    \item First, import Dropout:
+    \begin{lstlisting}
+    from keras.layers:from keras.layers import Input, Dense, Dropout
+    \end{lstlisting}
+    \
+    \item Then, activate Dropout in the first hidden layer x, with a rate of 0.1, meaning that 10\% of the neurones will be randomly deactivated:
+    \begin{lstlisting}
+    x = Dense(units = 64, activation = 'sigmoid')(states)
+    x = Dropout(rate = 0.1)(x)
+    \end{lstlisting}
+    \
+    \item And finally, activate Dropout in the second hidden layer y, with a rate of 0.1, meaning that 10\% of the neurones will be randomly deactivated:
+    \begin{lstlisting}
+    y = Dense(units = 32, activation = 'sigmoid')(x)
+    y = Dropout(rate = 0.1)(y)
+    \end{lstlisting}
+\end{enumerate}
 
-### Transformaciones lineales. 
+\
 
-<l class="definition"> **Transformación lineal** </l>
+Congratulations! You have implemented Dropout. It was very simple, once again thanks to Keras.
 
-Un **cambio de variable lineal** o **transformación lineal** de una v.a. $X$ es otra v.a. $Y= a+ b X$  donde $a,b\in\mathbb{R}$.
+Below it the whole new brain.py implementation with Dropout:
 
-<l class="prop"> **Esperanza de una transformación lineal**</l>
+\
 
-Sea $X$ una v.a. con $E(X)=\mu_{X}$ y $Var(X)=\sigma_{X}^2$ y $a,b\in\mathbb{R}$.
-Entonces si $Y=a+b X$:
- 
-* $E(Y)=E(a + b X)=a+ b\cdot E(X)= a + b\cdot \mu_{X}$.
-* $Var(Y)=Var(a+bX)=b^2\cdot Var(X)= b^2 \cdot \sigma_{X}^2$.
-* $\sigma_{Y}=\sqrt{Var(Y)}=\sqrt{b^2\cdot Var(X)}=|b|\cdot \sigma_{X}$.
-  
+\begin{lstlisting}
+# Artificial Intelligence for Business - Case Study 2
+# Building the Brain
+
+# Importing the libraries
+from keras.layers import Input, Dense, Dropout
+from keras.models import Model
+from keras.optimizers import Adam
+
+# BUILDING THE BRAIN
+
+class Brain(object):
     
+    # BUILDING A FULLY CONNECTED NEURAL NETWORK DIRECTLY INSIDE THE INIT METHOD
+    
+    def __init__(self, learning_rate = 0.001, number_actions = 5):
+        self.learning_rate = learning_rate
+        
+        # BUILDIND THE INPUT LAYER COMPOSED OF THE INPUT STATE
+        states = Input(shape = (3,))
+        
+        # BUILDING THE FIRST FULLY CONNECTED HIDDEN LAYER WITH DROPOUT ACTIVATED
+        x = Dense(units = 64, activation = 'sigmoid')(states)
+        x = Dropout(rate = 0.1)(x)
+        
+        # BUILDING THE SECOND FULLY CONNECTED HIDDEN LAYER WITH DROPOUT ACTIVATED
+        y = Dense(units = 32, activation = 'sigmoid')(x)
+        y = Dropout(rate = 0.1)(y)
+        
+        # BUILDING THE OUTPUT LAYER, FULLY CONNECTED TO THE LAST HIDDEN LAYER
+        q_values = Dense(units = number_actions, activation = 'softmax')(y)
+        
+        # ASSEMBLING THE FULL ARCHITECTURE INSIDE A MODEL OBJECT
+        self.model = Model(inputs = states, outputs = q_values)
+        
+        # COMPILING THE MODEL WITH A MEAN-SQUARED ERROR LOSS AND A CHOSEN OPTIMIZER
+        self.model.compile(loss = 'mse', optimizer = Adam(lr = learning_rate))
+\end{lstlisting}
+
+\
+
+Now let's move on to next step of our general AI Framework: Step 3 - Implementing the DQN algorithm.
+
+\newpage
+
+\subsubsection{Step 3: Implementing the Deep Reinforcement Learning algorithm}
+
+In this new Python file, we simply have to follow the Deep Q-Learning algorithm provided before. Hence, this implementation follows the following sub-steps, which are part of the general AI Framework:
+
+\begin{enumerate}
+    \item \textbf{Step 3-1:} Introducing and initializing all the parameters and variables of the DQN model.
+    \item \textbf{Step 3-2:} Making a method that builds the memory in Experience Replay.
+    \item \textbf{Step 3-3:} Making a method that builds and returns two batches of 10 inputs and 10 targets
+\end{enumerate}
+
+Below is the code following this new part of the AI Blueprint:
+
+\
+
+\begin{lstlisting}
+# Artificial Intelligence for Business - Case Study 2
+# Implementing Deep Q-Learning with Experience Replay
+
+# Importing the libraries
+import numpy as np
+
+# IMPLEMENTING DEEP Q-LEARNING WITH EXPERIENCE REPLAY
+
+class DQN(object):
+    
+    # INTRODUCING AND INITIALIZING ALL THE PARAMETERS AND VARIABLES OF THE DQN
+    def __init__(self, max_memory = 100, discount = 0.9):
+        self.memory = list()
+        self.max_memory = max_memory
+        self.discount = discount
+
+    # MAKING A METHOD THAT BUILDS THE MEMORY IN EXPERIENCE REPLAY
+    def remember(self, transition, game_over):
+        self.memory.append([transition, game_over])
+        if len(self.memory) > self.max_memory:
+            del self.memory[0]
+
+    # MAKING A METHOD THAT BUILDS TWO BATCHES OF INPUTS AND TARGETS
+    def get_batch(self, model, batch_size = 10):
+        len_memory = len(self.memory)
+        num_inputs = self.memory[0][0][0].shape[1]
+        num_outputs = model.output_shape[-1]
+        inputs = np.zeros((min(len_memory, batch_size), num_inputs))
+        targets = np.zeros((min(len_memory, batch_size), num_outputs))
+        for i, idx in enumerate(np.random.randint(0, len_memory,
+                                                  size = min(len_memory, batch_size))):
+            current_state, action, reward, next_state = self.memory[idx][0]
+            game_over = self.memory[idx][1]
+            inputs[i] = current_state
+            targets[i] = model.predict(current_state)[0]
+            Q_sa = np.max(model.predict(next_state)[0])
+            if game_over:
+                targets[i, action] = reward
+            else:
+                targets[i, action] = reward + self.discount * Q_sa
+        return inputs, targets
+\end{lstlisting}
+
+\newpage
+
+\subsubsection{Step 4: Training the AI}
+
+Now that our AI has a fully functional brain, time to train it. And this is exactly what we do in this fourth Python file. The process is long, but very easy: we start by setting all the parameters, then we build the environment by creating an object of the Environment() class, then we build the brain of the AI by creating an object of the Brain() class, then we build the Deep Q-Learning model by creating an object of the DQN() class, and finally we launch the training connecting all these objects together, over 1000 epochs of 5-months period. You will notice in the training loop that we also do some exploration when playing the actions. This consists of playing some random actions from time to time. In our case study this will be done 30\% of the time, since we use an exploration parameter $\epsilon = 0.3$, and then we force to play a random action when drawing a random value between 0 and 1 that is below $\epsilon = 0.3$). The reason why we do some exploration is because it improves the Deep Reinforcement Learning process. This trick is called: "Exploration vs. Exploitation". Then, besides you will also notice that we use an early stopping technique, which will make sure to stop the training if there is performance improvement.
+
+\
+
+Let's highlight these new steps that still belong to our general AI Framework / Blueprint:
+
+\begin{enumerate}
+    \item \textbf{Step 4-1:} Building the environment by creating an object of the Environment class.
+    \item \textbf{Step 4-2:} Building the artificial brain by creating an object of the brain class.
+    \item \textbf{Step 4-3:} Building the DQN model by creating an object of the DQN class.
+    \item \textbf{Step 4-4:} Choosing the training mode.
+    \item \textbf{Step 4-5:} Starting the training with a for loop over 100 epochs of 5-months periods.
+    \item \textbf{Step 4-6:} During each epoch we repeat the whole Deep Q-Learning process, while also doing some exploration 30\% of the time.
+\end{enumerate}
+
+And now let's implement this new part, Step 4 - Training the AI, of our general Blueprint. Below is the whole implementation of this fourth python file. Again, the code sections titles and the chosen variables names are clear enough to understand what is being coded. Here we go:
+
+\
+
+\begin{lstlisting}
+# Artificial Intelligence for Business - Case Study 2
+# Training the AI
+
+# Installing Keras
+# conda install -c conda-forge keras
+
+# Importing the libraries and the other python files
+import os
+import numpy as np
+import random as rn
+import environment
+import brain
+import dqn
+
+# Setting seeds for reproducibility
+os.environ['PYTHONHASHSEED'] = '0'
+np.random.seed(42)
+rn.seed(12345)
+
+# SETTING THE PARAMETERS
+epsilon = .3
+number_actions = 5
+direction_boundary = (number_actions - 1) / 2
+number_epochs = 100
+max_memory = 3000
+batch_size = 512
+temperature_step = 1.5
+
+# BUILDING THE ENVIRONMENT BY SIMPLY CREATING AN OBJECT OF THE ENVIRONMENT CLASS
+env = environment.Environment(optimal_temperature = (18.0, 24.0),
+                              initial_month = 0,
+                              initial_number_users = 20,
+                              initial_rate_data = 30)
+
+# BUILDING THE BRAIN BY SIMPLY CREATING AN OBJECT OF THE BRAIN CLASS
+brain = brain.Brain(learning_rate = 0.00001, number_actions = number_actions)
+
+# BUILDING THE DQN MODEL BY SIMPLY CREATING AN OBJECT OF THE DQN CLASS
+dqn = dqn.DQN(max_memory = max_memory, discount = 0.9)
+
+# CHOOSING THE MODE
+train = True
+
+# TRAINING THE AI
+env.train = train
+model = brain.model
+early_stopping = True
+patience = 10
+best_total_reward = -np.inf
+patience_count = 0
+if (env.train):
+    # STARTING THE LOOP OVER ALL THE EPOCHS (1 Epoch = 5 Months)
+    for epoch in range(1, number_epochs):
+        # INITIALIAZING ALL THE VARIABLES OF BOTH THE ENVIRONMENT AND THE TRAINING LOOP
+        total_reward = 0
+        loss = 0.
+        new_month = np.random.randint(0, 12)
+        env.reset(new_month = new_month)
+        game_over = False
+        current_state, _, _ = env.observe()
+        timestep = 0
+        # STARTING THE LOOP OVER ALL THE TIMESTEPS (1 Timestep = 1 Minute) IN ONE EPOCH
+        while ((not game_over) and timestep <= 5 * 30 * 24 * 60):
+            # PLAYING THE NEXT ACTION BY EXPLORATION
+            if np.random.rand() <= epsilon:
+                action = np.random.randint(0, number_actions)
+                if (action - direction_boundary < 0):
+                    direction = -1
+                else:
+                    direction = 1
+                energy_ai = abs(action - direction_boundary) * temperature_step
+            
+            # PLAYING THE NEXT ACTION BY INFERENCE
+            else:
+                q_values = model.predict(current_state)
+                action = np.argmax(q_values[0])
+                if (action - direction_boundary < 0):
+                    direction = -1
+                else:
+                    direction = 1
+                energy_ai = abs(action - direction_boundary) * temperature_step
+            # UPDATING THE ENVIRONMENT AND REACHING THE NEXT STATE
+            next_state, reward, game_over = env.update_env(direction,
+                                                           energy_ai,
+                                                           int(timestep / (30*24*60)))
+            total_reward += reward
+            # STORING THIS NEW TRANSITION INTO THE MEMORY
+            dqn.remember([current_state, action, reward, next_state], game_over)
+            # GATHERING IN TWO SEPARATE BATCHES THE INPUTS AND THE TARGETS
+            inputs, targets = dqn.get_batch(model, batch_size = batch_size)
+            # COMPUTING THE LOSS OVER THE TWO WHOLE BATCHES OF INPUTS AND TARGETS
+            loss += model.train_on_batch(inputs, targets)
+            timestep += 1
+            current_state = next_state
+        # PRINTING THE TRAINING RESULTS FOR EACH EPOCH
+        print("\n")
+        print("Epoch: {:03d}/{:03d}".format(epoch, number_epochs))
+        print("Total Energy spent with an AI: {:.0f}".format(env.total_energy_ai))
+        print("Total Energy spent with no AI: {:.0f}".format(env.total_energy_noai))
+        # EARLY STOPPING
+        if (early_stopping):
+            if (total_reward <= best_total_reward):
+                patience_count += 1
+            elif (total_reward > best_total_reward):
+                best_total_reward = total_reward
+                patience_count = 0
+            if (patience_count >= patience):
+                print("Early Stopping")
+                break
+        # SAVING THE MODEL
+        model.save("model.h5")
+\end{lstlisting}
+
+\
+
+After executing the code, we already see some good performance of our AI during the training, spending most of the time less energy than the alternative system, i.e. the server's integrated cooling system. But that is only the training, now we need to see if we also obtain some good performance on a new 1-year simulation. That's where our next, and final Python file, comes into play. 
+
+\newpage
+
+\subsubsection{Step 5: Testing the AI}
+
+Now indeed, we need to test the performance of our AI on a brand new situation. To do so, we will run a 1-year simulation, only in inference mode, meaning that there will be no training happening at any time. Our AI will only return predictions over a one full year of simulation. Then thanks to our environment object we will get in the end the total energy spent by the AI over this one full year, as well as the total energy spent by the server's integrated cooling system. Eventually we will compare these two total energy spent, by simply computing their relative difference (in \%), which will exactly give us the total energy saved by the AI. Buckle up for the final results, we will reveal them at the end of this Part 2!
+
+\
+
+In terms of the AI Blueprint, here for the testing implementation we almost have the same as before, except that this time, we don't have to create a brain object nor a DQN model object, and of course we must not run the Deep Q-Learning process over some training epochs. However we do have to create a new environment object, and instead of creating a brain, we will load our artificial brain with its pre-trained weights from the previous training that we executed in Step 4 - Training the AI. Hence, let's give the final sub-steps of this final part of the AI Framework / Blueprint:
+
+\begin{enumerate}
+    \item \textbf{Step 5-1:} Building a new environment by creating an object of the Environment class.
+    \item \textbf{Step 5-2:} Loading the artificial brain with its pre-trained weights from the previous training.
+    \item \textbf{Step 5-3:} Choosing the inference mode.
+    \item \textbf{Step 5-4:} Starting the 1-year simulation.
+    \item \textbf{Step 5-5:} At each iteration (each minute), our AI only plays the action that results from its prediction, and no exploration or Deep Q-Learning training is happening whatsoever.
+\end{enumerate}
+
+And now let's implement this fifth and final part, Step 5 - Testing the AI. Again, below is the whole implementation of our first python file. The code sections titles and the chosen variables names are clear enough to understand what is being coded, but if you need any more explanation, I encourage to watch our video tutorials where we code everything from scratch, step by step, while explaining every single line of code in terms of why, what and how. Here we go:
+
+\
+
+\begin{lstlisting}
+# Artificial Intelligence for Business - Case Study 2
+# Testing the AI
+
+# Installing Keras
+# conda install -c conda-forge keras
+
+# Importing the libraries and the other python files
+import os
+import numpy as np
+import random as rn
+from keras.models import load_model
+import environment
+
+# Setting seeds for reproducibility
+os.environ['PYTHONHASHSEED'] = '0'
+np.random.seed(42)
+rn.seed(12345)
+
+# SETTING THE PARAMETERS
+number_actions = 5
+direction_boundary = (number_actions - 1) / 2
+temperature_step = 1.5
+
+# BUILDING THE ENVIRONMENT BY SIMPLY CREATING AN OBJECT OF THE ENVIRONMENT CLASS
+env = environment.Environment(optimal_temperature = (18.0, 24.0),
+                              initial_month = 0,
+                              initial_number_users = 20,
+                              initial_rate_data = 30)
+
+# LOADING A PRE-TRAINED BRAIN
+model = load_model("model.h5")
+
+# CHOOSING THE MODE
+train = False
+
+# RUNNING A 1 YEAR SIMULATION IN INFERENCE MODE
+env.train = train
+current_state, _, _ = env.observe()
+for timestep in range(0, 12 * 30 * 24 * 60):
+    q_values = model.predict(current_state)
+    action = np.argmax(q_values[0])
+    if (action - direction_boundary < 0):
+        direction = -1
+    else:
+        direction = 1
+    energy_ai = abs(action - direction_boundary) * temperature_step
+    next_state, reward, game_over = env.update_env(direction,
+                                                   energy_ai,
+                                                   int(timestep / (30*24*60)))
+    current_state = next_state
+
+# PRINTING THE TRAINING RESULTS FOR EACH EPOCH
+print("\n")
+print("Total Energy spent with an AI: {:.0f}".format(env.total_energy_ai))
+print("Total Energy spent with no AI: {:.0f}".format(env.total_energy_noai))
+print("ENERGY SAVED: {:.0f} %".format((env.total_energy_noai - env.total_energy_ai)
+                                     / env.total_energy_noai * 100))
+\end{lstlisting}
+
+\
+
+And finally, we obtain in the printed results that the total energy consumption saved by the AI is...: 
+
+\begin{equation*}
+    \textrm{Total Energy saved by the AI} = 39 \ \% \ !
+\end{equation*}
+
+Exactly like what Google DeepMind achieved in 2016! Indeed, if on Google you type: "DeepMind reduces Google cooling bill", you will see that the result they achieved is 40 \%. Very close to ours!
+
+\
+
+Hence what we have built is surely excellent for our business client, as our AI will save them a lot of costs! Indeed, remember that thanks to our object oriented structure (working with classes and objects), we can very easily take our objects created in this implementation that we did for one server, and then plug them into other servers, so that in the end we end up saving the total energy consumption of a whole data center! That's how Google saved billions of dollars in energy related costs, thanks to their DQN model built by DeepMind AI.
+
+\newpage
+
+\subsubsection{Recap: The General AI Framework / Blueprint}
+
+Let's recap and provide the whole AI Blueprint, so that you can print it out and put it on your wall.
+
+\
+
+\textbf{Step 1: Building the Environment}
+
+\begin{enumerate}
+    \item \textbf{Step 1-1:} Introducing and initializing all the parameters and variables of the environment.
+    \item \textbf{Step 1-2:} Making a method that updates the environment right after the AI plays an action.
+    \item \textbf{Step 1-3:} Making a method that resets the environment.
+    \item \textbf{Step 1-4:} Making a method that gives us at any time the current state, the last reward obtained, and whether the game is over.
+\end{enumerate}
+
+\textbf{Step 2: Building the Brain}
+
+\begin{enumerate}
+    \item \textbf{Step 2-1:} Building the input layer composed of the input states.
+    \item \textbf{Step 2-2:} Building the hidden layers with a chosen number of these layers and neurons inside each, fully connected to the input layer and between each other.
+    \item \textbf{Step 2-3:} Building the output layer, fully connected to the last hidden layer.
+    \item \textbf{Step 2-4:} Assembling the full architecture inside a model object.
+    \item \textbf{Step 2-5:} Compiling the model with a Mean-Squared Error loss function and a chosen optimizer.
+\end{enumerate}
+
+\textbf{Step 3: Implementing the Deep Reinforcement Learning Algorithm}
+
+\begin{enumerate}
+    \item \textbf{Step 3-1:} Introducing and initializing all the parameters and variables of the DQN model.
+    \item \textbf{Step 3-2:} Making a method that builds the memory in Experience Replay.
+    \item \textbf{Step 3-3:} Making a method that builds and returns two batches of 10 inputs and 10 targets
+\end{enumerate}
+
+\textbf{Step 4: Training the AI}
+
+\begin{enumerate}
+    \item \textbf{Step 4-1:} Building the environment by creating an object of the Environment class built in Step 1.
+    \item \textbf{Step 4-2:} Building the artificial brain by creating an object of the Brain class built in Step 2.
+    \item \textbf{Step 4-3:} Building the DQN model by creating an object of the DQN class built in Step 3.
+    \item \textbf{Step 4-4:} Choosing the training mode.
+    \item \textbf{Step 4-5:} Starting the training with a for loop over a chosen number of epochs.
+    \item \textbf{Step 4-6:} During each epoch we repeat the whole Deep Q-Learning process, while also doing some exploration 30\% of the time.
+\end{enumerate}
+
+\textbf{Step 5: Testing the AI}
+
+\begin{enumerate}
+    \item \textbf{Step 5-1:} Building a new environment by creating an object of the Environment class built in Step 1.
+    \item \textbf{Step 5-2:} Loading the artificial brain with its pre-trained weights from the previous training.
+    \item \textbf{Step 5-3:} Choosing the inference mode.
+    \item \textbf{Step 5-4:} Starting the simulation.
+    \item \textbf{Step 5-5:} At each iteration (each minute), our AI only plays the action that results from its prediction, and no exploration or Deep Q-Learning training is happening whatsoever.
+\end{enumerate}
 
-<div class="dem">
-**Demostración**:
-
-\begin{eqnarray*}
-E(Y)&=& E(a+bX)=\sum_{x}(a+b\cdot X)\cdot P_{X}(x)\\
-&=& a \sum_{x} P_{X}(x) + b \sum_{x} x\cdot P_{X}(x)\\ 
-&=& a + b\cdot E(X)=a + b \mu_{X}.
-\end{eqnarray*}
-
-</div>
-
-<div class="exercise">
-**Ejercicio**
-
-Las demostración de las demás propiedades se dejan como ejercicio.
-</div>
-
-
-## Variables aleatorias continuas
-
-
-Como ya hemos dicho las variables aleatorias continuas toman valores en
-intervalos o áreas.
-
-Lo más habitual es que estas variables tengan función de distribución continua y
-derivable (salvo a los más en una cantidad finita o numerable de puntos).
-
-En lo que sigue supondremos que la función de distribución de variables
-aleatorias continuas cumplen estas propiedades.
-
-Notemos que si $X$ es una v.a. con función de distribución continua se tiene que
-$P(X=x_0)=F_X(x_0)-F(x_0^{-})=0$. Por lo que no tiene sentido definir *función de probabilidad*.
-
-En general tendremos que $P(X<x_0)=P(X\leq x_0)$.
-
-Por otra parte podemos utilizar una regla parecida del
-cociente entre casos favorables y casos posibles de Laplace  pero en
-este caso el conteo se hace por la *medida*  de los casos
-posibles partida por la *medida* de los casos favorables.
-
-Veamos un ejemplo de v.a. continua, que ampliaremos en el tema siguiente, en el que se utilizan todos estos conceptos.
-
-
-<div class="example"> 
-
-**Ejemplo: distancia de un dardo al centro de la diana** 
-
-Supongamos que lanzamos un dardo a una diana de radio $1$, de forma que sea *equiprobable* cualquier distancia al centro (¡Cuidado! esto no es equivalente
-a que cualquier punto de la diana sea *equiprobable*).
-
-Consideremos la v.a. continua $X=$ distancia del dardo al centro de la diana.
-
-
-<div class="example-sol">
-
-Su función de distribución es 
-
-$$
-F_{X}(x)=
-\left\{
-\begin{array}{ll}
-0, & \mbox{si } x\leq 0,\\
-x, & \mbox{si } 0<x<1,\\
-1, & \mbox{si } x\geq 1.
-\end{array}
-\right.
-$$
-
-* C.F. *longitud favorable* es $x-0$.
-* C.P. *longitud posible* es $1-0$.
-* Luego 
-$$P(X\leq x)=\frac{C.F.}{C.P.}=\frac{x-0}{1-0}=x.$$
-</div>
-</div>
-
-```{r figUNIF, fig.align='center',echo=FALSE}
-curve(punif(x,0,1),xlim=c(-1,2),col="blue",
-      main="Función de distribución de una v.a. uniforme en el intervalo unidad.")
-```
-
-### Propiedades
-
-En las variables continuas los sucesos del tipo $\{X\leq x \}$ y $\{X< x \}$ tendrán la
-misma probabilidad, y otros tipos de sucesos similares también, algunas de estas
-propiedades se explicitan en la siguiente proposición.
-
-<l class="prop">**Propiedades**</l>
-
-Dada una v.a. continua $X$ se tiene que:
- 
-* $P(X\leq b)=P(X<b)$.
-* $P(X<b)=P(X<a)+P(a<X<b)$.
-* $P(a<X<b)=P(X<b)-P(X<a)$.
-  
-  
-<div class="dem">
-**Demostración:**
-
-La primera es evidente  $P(X\leq b)=P(X<b)+P(X=b)=P(X<b)$.
-
-Para demostrar la segunda, tenemos
-
-$$\{X\leq a\}\cap \{a<X<b\}=\emptyset,$$ 
-$$\{X\leq a\}\cup \{a<X<b\}=\{X<b\},$$ 
-entonces
-\begin{eqnarray*}
-P(X< b) & = & P(\{X\leq a\}\cup \{a<X<b\})\\
-& = & P(X\leq a)+P(a<X<b) \\
-& = & P(X< a)+P(a<X<b).
-\end{eqnarray*}
-
-
-</div>
-
-<div class="exercise">
-**Ejercicio**
-
-La demostración de la tercera propiedad es similar a la segunda pero aplicando la primera. La dejamos como ejercicio.
-</div>
-
-
-**Propiedades de la función de distribución**
-
-Las propiedades anteriores  y combinaciones de ellas se pueden
-escribir utilizando la función de distribución de $X$:
-
-
-<l class="prop"> **Propiedades de la Función de Distribución** </l>
-
-Dada una variable aleatoria continua se tiene que:
-
-* $F_{X}(b)=F_{X}(a)+P(a<X<b)$.
-* $P(a<X<b)=F_{X}(b)-F_{X}(a)$.
-* $P(a\leq X\leq b)=F_{X}(b)-F_{X}(a)$.
-
-
-
-<div class="exercise"> 
-
-**Ejercicio**
-Se deja la demostración como ejercicio. 
-</div>
-
-
-
-
-<div class="example"> 
-**Ejemplo: diana (continuación)**
-
-
-En el ejemplo de la diana:
-
-$$P(0.25<X<0.3)=F_{X}(0.3)-F_{X}(0.25)=0.3-0.25=0.05.$$
-</div>
-
-### Función de densidad
-
-<l class="definition"> **Función de densidad** </l> 
-
-Una función $f:\mathbb{R}\to\mathbb{R}$ es una función de densidad sobre $\mathbb{R}$ si cumple que
-
-
-* $f_{X}(x)\geq 0$ para todo $x \in\mathbb{R}.$
-* $f$ es continua salvo a lo sumo en una cantidad finita de puntos sobre
-cada intervalo acotado de $\mathbb{R}$.
-* $\displaystyle\int\limits_{-\infty}^{+\infty} f_{X}(x) dx=1.$
-
-
-
-<l class="definition"> **Función de distribución de una variable aleatoria** </l>
-
-Sea $X$ una v.a. con función de distribución $F_X$. Sea $f:\mathbb{R}\to\mathbb{R}$ una función de densidad tal que
-
-$$F_X(x)=\displaystyle\int_{-\infty}^{x} f_X(t)\,dt,\mbox{ para todo } x\in\mathbb{R}.$$
-
-Entonces $X$ es una variable aleatoria continua y $f_X$ es la densidad de la v.a.  $X$.
-
-
-
-El conjunto $D_X=\{x\in\mathbb{R}| f_x(x)>0\}$ recibe el nombre de <l class="definition"> soporte o dominio de la
-variable aleatoria continua</l> y se interpreta como su conjunto de resultados posibles.
-
-
-<div class="example-sol">
-**Ejemplo: diana (continuación)**
-
-En nuestro ejemplo, la función $f$ es una densidad
-
-$$
-f_{X}(x)=\left\{
-\begin{array}{ll}
-0, & \mbox{si } x\leq 0,\\
-1, & \mbox{si } 0 < x < 1,\\
-0, & \mbox{si } 1\leq x,
-\end{array}\right.
-$$
-que es la densidad de $X$. En efecto:
-
-* Si $x \leq 0$, entonces $\displaystyle\int_{-\infty}^x f_X(t) dt = 0.$
-
-* Si $0\leq x\leq 1$, entonces $\displaystyle\int_{-\infty}^x f_X(t) dt = \int_0^x 1\, dt = x.$
-
-* Si $x\geq 1$,  entonces $\displaystyle\int_{-\infty}^x f_X(t) dt = \int_0^1 1\, dt = 1.$
-
-
-Por lo tanto,  $F_X(x)=\displaystyle\int_{-\infty}^x f_X(t) dt$ para todo $x\in\mathbb{R}.$
-
-
-```{r fig.align="center",  fig_caption="Función de densidad de una v.a. uniforme en el intervalo$(0,1)$"}
-curve(dunif(x,0,1),xlim=c(-0.5,1.5),col="blue",
-      main="Densidad de la distribución uniforme en [0,1]")
-```
-</div>
-
-### Utilidad de la función de densidad
-
-La función de densidad nos permite calcular diversas probabilidades.
-
-<l class="prop">**Propiedades de la función de densidad** </l> 
-
-* Sea $X$ una v.a. continua con función de distribución $F_X$ y de
-densidad $f_X$, entonces
-\begin{eqnarray*}
-P(a< X< b) &=&  P(a<X\leq b)= P(a\leq X< b)=\\
- & & P(a\leq X\leq b)= \displaystyle\int_{a}^b f_X(x) dx.
-\end{eqnarray*}
-
-* Si $A$ es un subconjunto de $\mathbb{R}$ entonces 
-
-$$
-P(X\in A)=\displaystyle\int_{A} f(x) dx=\displaystyle\int_{A\cap D_X} f(x) dx.
-$$
-
-<l class="prop">**Propiedades de la función de densidad** </l> 
-
-Sea $X$ una v.a. continua con función de distribución $F_X$ y de densidad $f_X$, entonces:
-
-* Si $f_x$ es continua en un punto $x$, $F_X$ es derivable en ese punto y
-$F_X'(x)=f_X(x).$
-* $P(X=x)=0$ para todo $x\in\mathbb{R}.$
-  
-
-<div  class="exercise"> **Ejercicio**
-
-Comprobar estas propiedades en el ejemplo de la diana. 
-</div>
-
-
-
-<div  class="example">
-**Ejemplo: tiempo ejecución de un proceso.**
-
-Sea $X=$ tiempo de ejecución de un proceso. Se supone que $X$ sigue una distribución uniforme en dos unidades de tiempo, si tarda más el proceso se cancela.
-
-Calculemos la función de densidad y de distribución de la v.a $X$.
-
-
-<div  class="example-sol">
-
-Entonces
-
-$$
-F_{X}(x)=P(X\leq x)=\frac{\mbox{Casos Favorables}}{\mbox{Casos Posibles}}=\frac{x}2.
-$$
-
-
-Luego su función de distribución es:
-
-$$
-F_{X}(x)=\left\{\begin{array}{ll}
-0, & \mbox{si } x\leq 0,\\[1ex]
-\frac{x}2, & \mbox{si } 0<x<2,\\[1ex]
-1, & \mbox{si } 2\leq x.
-\end{array}\right.
-$$
-
-Su función de densidad por su lado es:
-$$
-f_{X}(x)=F_{X}'(x)=\left\{\begin{array}{ll}
-0, & \mbox{si } x\leq 0,\\[1ex]
-\frac12, & \mbox{si } 0<x\leq 2,\\[1ex]
-0, & \mbox{si } 2\leq x.
-\end{array}\right.
-$$
-
-Efectivamente
-
-* $f_{X}(x)\geq 0,$ y tiene un conjunto finito de discontinuidades: $\{0,2\}$.
-* $F_X(x)=\int_{-\infty}^x f_X(t) dt,$ para todo $x\in \mathbb{R}$. (Ejercicio: resolverlo gráficamente.)
-
-* $\displaystyle\int\limits_{-\infty}^{+\infty}f_{X}(x)dx=
-\int\limits_0^2\frac12dx=\left[\frac{x}2\right]_0^2=\frac22-\frac02=1.$
-
-</div>
-</div>
-
-
-<div  class="exercise">
-**Ejercicio: tiempo de un proceso**
-
-Calcular la probabilidad de que uno de nuestros procesos tarde
-más de una unidad de tiempo en ser procesado. Calcular también la  probabilidad de
-que dure entre $0.5$ y $1.5$ unidades de tiempo.
-</div>
-
-
-
-### Esperanza y varianza para variables aleatorias continuas
-
-Los mismos comentarios y definiciones que se dieron en la sección correspondiente del tema
-de estadística descriptiva son aplicables aquí.
-
-Así que sólo daremos las definiciones, la forma de cálculo y algunos ejemplos.
-
-En lo que sigue, salvo que diagamos lo contrario,  $X$  es una v.a. continua con función de densidad $f_{X}(x)$
-
-
-
-<l class="definition"> **Esperanza v.a. continuas** </l>
-
-* Su esperanza es:
-$$E(X)=\displaystyle\int\limits_{-\infty}^{+\infty} x\cdot f_{X}(x)dx.$$
-* Si $g(x)$ es una función de la variable $X$ entonces:
-$$E(g(X))=\displaystyle\int\limits_{-\infty}^{+\infty} g(x)\cdot f_{X}(x)dx.$$
-
-<l class="definition"> **Varianza v.a. continuas** </l>
-
-
-* Su varianza es:
-$$
-Var(X)=\sigma_{X}^2=E((X-\mu_{X})^2)=
-\displaystyle\int\limits_{-\infty}^{+\infty} (x-\mu_{X})^2 f_{X}(x)dx.
-$$
-* Su desviación típica es:  $$\sigma_{X}=+\sqrt{\sigma_{X}^2}.$$
-
-<l class="prop"> **Propiedades** </l>
-
-* $\sigma_{X}^2\geq 0$.
-* $Var(cte)=E(cte^2)-(E(cte))^2= cte^2 - cte^2=0$.
-* $\displaystyle Var(x)=E(X^2)-\mu_{X}^2=\int\limits_{-\infty}^{+\infty}x^2 f_{X}(x)dx - \mu_{X}^2.$
-* El mínimo de $E((X-C)^2)$ se alcanza cuando $C=E(X)$ y es $Var(X)$.
-
-
-
-
-<div  class="example">
-
-**Ejemplo: diana (continuación)**
-
-Calcular $\mu_{X}$ y $\sigma_{X}^2$ en el ejemplo de la diana.
-
-<div  class="example-sol">
-Resultado 
-$$\mu_{X}=\frac12,\ E(X^2)=\frac13,\ Var(X)=\frac1{12}.$$
-
-</div>
-</div>
-
-
-<l class="prop">**Proposición**</l>
-
-Sea $X$ una v.a. continua con $E(X)=\mu_{X}$ y $Var(X)=\sigma_{X}^2$ sea $Y=a+b\cdot X$, donde
-$a,b\in\mathbb{R}$, es una nueva v.a. continua obtenida mediante una transformación lineal de $X$.
-Se verifican las mismas propiedades que en el caso discreto:
-
-* $E(Y)=E(a+b\cdot X)=a+b\cdot E(X)$.
-* $Var(Y)=Var(a+b\cdot X)=b^2\cdot Var(X)$.
-* $\sigma_{Y}=|b|\cdot \sigma_{X}$.
-* $Z=\frac{X-\mu_{X}}{\sigma_{X}}$ es una transformación
-lineal de $X$ de forma que
-$$E(Z)=0 \mbox{ y } Var(Z)=1.$$
-
-
-<div class="example"> 
-**Ejemplo: venta de vinos**
-
-En una empresa de venta de vinos por internet, sea
-$X$ el número de  litros de vino del país vendidos en un año.
-Supongamos que sabemos que $E(X)=10000$ y que $Var(X)=100$.
-Supongamos que los gastos fijos de distribución son
-50.000 &euro; y el beneficio por litro es de 10 &euro; por botella.
-Definimos $T=10 X-50000$ que será el beneficio después de gastos.
-
-<div class="example-sol"> 
-
-Entonces la esperanza del beneficio es 
-$$E(T)=10 E(X)-50000 = 50000,$$
-y
-$$Var(T)=10^2 Var(X)= 10000.$$
-</div>
-</div>
-
-
-## Transformaciones de variables aleatorias
-
-Muchas variables aleatorias son funciones de otras v.a. En lo que sigue resumiremos diversas técnicas para dada una v.a. $X$ y una
-transformación $Y=h(X)$  encontrar $F_{Y}$ a
-partir de $F_{X}$.
-
-<l class="prop">**Tranformaciones de v.a. discretas** </l>
-
-Sea $X$ una v.a. discreta con $X(\Omega)=\{x_1,x_2,\ldots,x_{n},..\}$ y sea $h:\mathbb{R}\to\mathbb{R}$ una aplicación.
-Entonces $Y=h(X)$ es también una v.a. discreta. Además si $P_X$
-y $F_{X}$ son las funciones de probabilidad y de distribución de
-$X$ entonces
-
- 
-* $\displaystyle P_{Y}(y)=\sum_{x_{i}|h(x_{i})=y}P_X(x_{i}).$
-* $\displaystyle F_{Y}(y)=\sum_{x_{i}|h(x_{i})\leq y} P_X(x_{i}).$
-
-
-Desafortunadamente para variables no discretas, el resultado  no es tan sencillo como la expresión anterior, pues la transformación de, por ejemplo, una v.a. continua puede ser continua, discreta, mixta, $\ldots$
-
-<l class="prop">**Transformación de v.a. continuas en continuas**</l>
-
-Sea $X$ una v.a. continua cuya función de densidad es $f_{X}$. Sea
-$h:\mathbb{R}\to\mathbb{R}$ una aplicación estrictamente monótona y derivable; por lo tanto, $h'(x)\not=0$ para todo $x\in\mathbb{R}$. Sea $Y=h(X)$ la transformación de $X$ por $h$. Entonces $Y$ es una v.a. continua con función de densidad
-
-$$f_{Y}(y)=\left.\frac{f_{X}(x)}
-{\left|h'(x)\right|}\right|_{x=h^{-1}(y)}.$$
-
-
-<l class="prop">**Densidad de una transformación de una v.a. continua**</l>
-
-Sea $X$ una v.a. continua cuya función de densidad es $f_{X}$.  Sea 
-$$h:\mathbb{R}\to\mathbb{R},$$ 
-una aplicación, no necesariamente monótona tal que :
-
-* sea derivable con derivada no nula,
-* la ecuación $h(x)=y$ tiene un número finito de soluciones
-$x_1,x_2,..,x_{n}$,
-
-entonces:
-
-$$
-\displaystyle f_{Y}(y)=\left.\sum_{k=1}^{n} \frac{f_{X}(x)}
-{\left|h'(x)\right|}\right|_{x=x_{k}}.
-$$
-
-
-**Método general de transformación de v.a.**
-
-Cuando no podamos aplicar las propiedades anteriores intentaremos
-calcular primero la función de distribución de la transformación
-y luego su densidad.
-
-Notemos que en general si $Y=g(X)$ es una v.a. transformación  de la
-v.a. $X$ entonces
-
-$$
-F_{Y}(y)=P(Y\leq y)=P(g(X)\leq y).
-$$
-
-
-
-Por ejemplo, si $g$ es estrictamente creciente y continua,
-
-$$
-F_{Y}(y)=P(g(X)\leq y)=P(X\leq g^{-1}(y))=F_{X}(g^{-1}(y)),
-$$
-y si $g$ es estrictamente decreciente y continua,
-$$
-F_{Y}(y)=P(g(X)\leq y)=P(X\geq g^{-1}(y))=1-F_{X}(g^{-1}(y)).
-$$
-
-
-
-## Desigualdades de Markov y de Chebychev
-
-En esta sección distintas desigualdades que acotan determinadas probabilidades de
-una variable aleatoria.
-
-Estas desigualdades sirven en algunos casos para acotar probabilidades de determinados sucesos.
-
-También son útiles desde el punto de vista teórico, por ejemplo para justificar que la varianza es una medida de la dispersión de
-los datos.
-
-### Desigualdad de Markov
-
-<l class="prop">**Desigualdad de Markov**</l>
-
-Sea $X$ una v.a. positiva con $E(X)$ finita. Entonces 
-
-$$P(X\geq a)\leq \frac{E(X)}{a},\mbox{ para todo }a>0.$$
-
-<div class="dem">
-**Demostración**:
-
-Si $X$ es continua  y solo toma valores positivos
-
-\begin{eqnarray*}
-E(X) &=& \int_{-\infty}^{+\infty} x\cdot  f_{X}(x) dx=  \int_0^{+\infty} x\cdot f_{X}(x) dx=  \int_0^{a} x\cdot  f_{X}(x) dx +\int_{a}^{+\infty} x\cdot f_{X}(x) dx \\
-& &\geq   \int_{a}^{+\infty} x\cdot
-f_{X}(x) dx \geq a \int_{a}^{+\infty}
-f_{X}(x) dx = a \cdot  P(X\geq a),
-\end{eqnarray*}
-de donde se sigue que 
-$$P(X\geq a)\leq \frac{E(X)}{a}.$$
-
-</div> 
-
-
-<l class="prop"> **Corolario**</l>
-
-Sea $X$ una v.a. con $E(X)$ finita entonces  para todo $a>0$
-
-$$P(|X|\geq a )\leq \frac{E(|X|)}{a}.$$
-<div class="exercise">
-**Ejercicio**
-
-Demuestra el corolario anterior a partir de la desigualdad de Markov.
-</div>
-
-La desigualdad de Chebychev también se denomina  de Chebyshov y en inglés Chebyshev.
-
-### Desigualdad de Chebychev
-
-<l class="prop">**Desigualdad de Chebychev**</l>
-
-La desigualdad de Chebychev también se denomina  de Chebyshov y en inglés Chebyshev.
-
-Sea  $X$ una v.a.con $E(X)=\mu$ y $Var(X)=\sigma^2$  entonces para todo $a>0$,
-
-$$P(|X-\mu|\geq a)\leq \frac{\sigma^2}{a^2}.$$ 
-
-
-
-<div class="dem"> 
-**Demostración**
-
-Apliquemos la consecuencia de la desigualdad de Markov a la v.a.
-no negativa $Y^2=(X-\mu)^2$. Entonces
-
-$$
-P(Y^2\geq a^2) \leq 
-\frac{E(Y^2)}{a^2}=\frac{E((X-\mu)^2)}{a^2}
-= \frac{Var(X)}{a^2}=\frac{\sigma^2}{a^2}.
-$$
-Por otra parte
-
-$$
-P(Y^2\geq a^2)=P(|Y|\geq a)= P(|X-\mu|\geq a),
-$$
-hecho que, junto con la desigualdad anterior, demuestra el resultado.
-
-</div>
-
-
-<l class="observ"> **Utilidad básica de la desigualdad de Chebychev**</l>
-
-Supongamos que $X$ es una v.a. con $Var(X)=0$. Entonces, aplicando la desigualdad anterior,
-$$P(|X-E(X)|\geq a )=0,\mbox{ para todo }a>0,$$ 
-lo que implica que
-$$P(X=E(X))=1,$$
-por lo que  probabilidad de que $X$ sea
-constantemente $E(X)$ es 1, hecho que nos confirma la utilidad de la varianza como una
-medida de la dispersión de los datos.
-
-
-<div class="example">
-**Ejemplo: tiempo de respuesta**
-
-Se sabe que el tiempo de respuesta medio y la desviación típica de un sistema multiusuario  son 15 y 3 unidades de tiempo, respectivamente. Entonces:
-$$
-P(|X-15|\geq 5)\leq \frac9{25}=0.36.
-$$
-
-</div>
-
-Si substituimos $a$ por $a\cdot \sigma$ en la
-desigualdad de Chebychev, nos queda:
-
-$$
-P(|X-\mu|\geq a \sigma)\leq
-\frac{\sigma^2}{(a\sigma)^2}=\frac1{a^2},
-$$
-que es otra manera de expresar la desigualdad de Chebychev.
-
-
-**Más formas de la desgualdad de Chebychev**
-
-La desigualdad de Chebychev también se puede escribir de al menos dos maneras más:
-
-$$
-P(\mu-a\leq X\leq \mu+a)\geq 1-\frac{\sigma^2}{a^2},
-$$
-y tomado como $a=k\cdot \sigma$,
-$$
-P(\mu-k\cdot \sigma\leq X\leq \mu+ k \cdot \sigma)\geq 1-\frac1{k^2}.
-$$
-
-Tomando la segunda expresión que hemos visto para la desigualdad de
-Chebychev para distintos valores de $k>0$, tenemos la siguiente tabla:
-
-| k | $P(|X-E(X)|\geq k  \cdot \sigma)$|
-|---|---|
-| 1 | $\leq 1$ |
-| 2 | $\leq 0.25$ |
-| 3 | $\leq 0.111$ |
-| 4 | $\leq 0.0025$ |
-
-
-
-Por ejemplo para $k=2$, esta desigualdad se puede interpretar como que, dada una v.a. $X$ con cualquier distribución que tenga $E(X)$ y $Var(X)$ finitos, *la  probabilidad de que un valor se aleje de la media $\mu$ más de $a=2$ desviaciones típicas es menor o igual que $0.25$*.
-
-Es decir sólo el 25\% de los valores estarán alejados de la media
-más de $2\sigma$, ¡*sea cual sea la distribución de la v.a.*!
-
-## Cuantiles de variables aleatorias
-
-Si  $X$ es una v.a. con dominio $D_X$ y  $0<p<1$, llamaremos cuantil de orden $p$ al menor valor  perteneciente al dominio $x_p\in D_X$ tal que:
-$$P(X\leq x_p)\geq p.$$
-
-En `R`, cada distribución $X$ tiene la función `qX(p,...)` que devuelve precisamente el cuantil $x_p$ tal que $P(X\leq x_p)\geq p.$
-
-
-
-Dada una variable aleatoria $X$, si existe la inversa de la función de distribución de $X$, $F_X^{-1}$, el cuantil de orden $p$ sería el valor que tiene la función $F_X^{-1}$ en $p$: $x_p=F^{-1}(p)$.
-
-En caso de no existir la inversa, dado $p$, definimos el conjunto $A_p$ como:
-
-$$
-A_p =\{x\in\mathbb{R},\ |\ F_X(x)\geq p\}.
-$$
-
-Entonces el cuantil $p$ es el mínimo del conjunto $A_p$ considerando sólo valores del dominio de la variable: $x_p =\displaystyle\min_{x\in D_X}(A_p)$. Este mínimo siempre existirá y nos da una fórmula explícita para calcular los cuantiles de cualquier variable aleatoria.
-
-
-<div class="example">
-
-**Ejemplo: variable aleatoria que nos da el resultado del lanzamiento de un dado**
-
-Sea  $X$ la variable aleatoria uniforme discreta que nos da el número de puntos obtenidos en el lanzamiento de un dado (seis caras numeradas del 1 al 6).
-
-Su dominio  es $D_X=\{1,2,3,4,5,6\}$ y su función de probabilidad es 
-$$
-P_X(x)=P(X=x)=
-\left\{
-\begin{array}{ll}
- \frac{1}{6}, & \mbox{ si } x=1,2,3,4,5,6, \\
-0, & \mbox{ en otro caso. }.
-\end{array}
-\right.
-$$
-Su función de distribución es:
-$$
-F_X(x)= P(X\leq x)=
-\left\{
-\begin{array}{ll}
-0, & \mbox{ si } x<1, \\
-\frac{k}{6} & \mbox{ si } k\leq x< k+1 \mbox{ para } x= 1,2,3,4,6, \\
- 1, & \mbox{si  } x \geq 6.
-\end{array}
-\right.
-$$
-
-La función siguiente llamada `ddado` nos define la función de probabilidad de $X$ para un dado de $n$ caras:
-```{r}
-ddado=function(x,n=6) {
-  sapply(x,FUN=function(x) {
-    if( x %in% c(1:n)){return(1/n)} else {return(0)}})
-  }
-```
-
-Por ejemplo, el valor de $P_X(0.5)$ sería:
-```{r}
-ddado(1.5,n=6)
-```
-y los valores de $P_X(i)$ para $i=1,\ldots 10$ sería:
-```{r}
-ddado(1:10,n=6)
-```
-
-
-La función `pdado` nos da la función de distribución de $X$:
-
-```{r}
-pdado=function(x,n=6) 
-  {
-  sapply(x,FUN=function(y){ if (y<1){ return(0)}else{if(y>=n){return(1)} else
-  {return(sum(ddado(c(1:(floor(y))),n=n)))}}})
-  }
-```
-
-Los valores de $F_X(i)$ para $i=0,\ldots, 11$ serían:
-```{r}
-pdado(0:11,6)
-```
-
-A continuación, construímos la función `qdado` que nos calcula el cuantil $p$, para $0\leq p\leq 1$, de la variable $X$ como el mínimo del conjunto $A_p$:
-
-```{r}
-qdado=function(p,n=6){
-sapply(p,FUN=function(pp=p,nn=n) 
-  {
-  if(pp<0 | pp>1) {return(NA)}
-  else {
-  aux=pp>=pdado(1:n,nn)
-  aux
-  ifelse(all(!aux),return(1),return(max(which(pp>=pdado(1:n,nn)))))}}
-)
-}
-```
-
-
-Si $p=1.5$ o $p=-1$, la función anterior nos devuelve `NA` ya que ni 1.5 ni -1 están entre 0 y 1:
-
-```{r}
-qdado(1.5)
-qdado(-1)
-```
-
-Los cuantiles $x_{0.1}$, $x_{0.5}$ $x_{0.6}$ y $x_1$ son:
-```{r}
-qdado(c(0.1,0.5,0.6,1))
-```
-
-</div>
 
 

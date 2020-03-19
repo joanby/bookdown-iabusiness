@@ -1,6 +1,8 @@
 --- 
-title: "Probabilidad y variables aleatorias para ML con R y Python"
-author: "Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir"
+title: "Inteligencia Artificial aplicada a Negocios y Empresas"
+subtitle: "Traducido al castellano por Juan Gabriel Gomila"
+author: "Hadelin de Ponteves y Kirill Ermenko"
+
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -8,47 +10,45 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: https://github.com/joanby/probabilidad
+github-repo: https://github.com/joanby/ia4business
 description: "Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos."
-url: 'https://www.udemy.com/course/probabilidad-y-variables-aleatorias-para-ml-con-r-y-python/?couponCode=B85F8D52148DF5AAD8F7'
+url: 'https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7'
 cover-image: "Images/cover.jpg"
 apple-touch-icon: "Images/apple-icon-120x120.png"
 apple-touch-icon-size: 120
 favicon: "Images/favicon.ico"
 ---
 
-\newcommand{\FunCar}{\phi}
-\newcommand{\FunGenMom}{m}
-\newcommand{\Momk}{M}
-\newcommand{\MomCenk}{MC}
-\newcommand\momento{m}
-\newcommand{\momentocentral}{\mu}
-\newcommand{\Entropia}{H}
+
+\begin{titlepage}
 
 
-# {-}
+\setcounter{tocdepth}{4}
+\renewcommand{\contentsname}{Tabla de Contenidos}
+\tableofcontents
 
-Consulta el curso completo creado por Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir solamente en [Udemy](https://www.udemy.com/course/probabilidad-y-variables-aleatorias-para-ml-con-r-y-python/?couponCode=B85F8D52148DF5AAD8F7).
+\newpage
 
-Puedes consultar todas las transparecias del curso en formato HTML desde nuestro [Gihub.io](https://joanby.github.io/bookdown-probabilidad/).
+# Introducción {-}
 
-También tienes todas las distribuciones de probabilidad en nuestro [Shiny interactivo](https://joanby.shinyapps.io/DistribucionesNotables/).
+Este libro es el complemento de nuestro curso online *Inteligencia Artificial aplicada a Negocios y Empresas^* disponible en [Udemy](https://www.udemy.com/ia4business/?couponCode=THEBOOK). Cubre los tres casos prácticos de empresa reales que se resuelven, cada uno de ellos, con una técnica diferente del mundo de la inteligencia artificial:
 
-Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos. 
+|**Part** | **Case Study** | **AI Solution**  |
+|:-------:|:--------------:|:----------------:|
+1 - Optimización de Procesos | Optimizar el flujo en los almacenes de un ecommerce | Q-Learning 
+2 - Minimización de Costes | Minimizar los gastos de energía del servidor de un centro de datos | Deep Q-Learning
+3 - Maximización de Beneficios | Mazimizar los beneficios de un negocio online de venta al por menor | Muestreo Thompson
 
-1. Probabilidad
-2. Variables aleatorias
-3. Distribuciones notables
-4. Complementos avanzados
-5. Variables bidimensionales
-6. Variables multidimensionales
-7. Convergencia y Teorema Central del límite
+En cada una de esas partes, seguiremos el mismo esquema de tres pasos:
 
-Y todo con más de 30 horas de vídeo a demanda, cientos de ejercicios, tareas, talleres y trucos de los profesores para que te conviertas en un experto de la materia.
+* **Caso Práctico** Comenzaremos explicando el problema que tenemos que resolver y construiremos desde cero el entorno en el que trabajaremos.
+* **AI Solution.** Te daremos no solo la teoría general sino también todos los detalles matemáticos del modelo de IA que resolverán el caso práctico
+* **Implementation.** Implementaremos toda la solución de inteligencia artificial en Python, lo pondremos en producción y mejoraremos la inteligencia artificial al completar tareas adicionales al final.
 
+¡Muchas gracias a todos por unirte a nosotros en este curso, te deseo sin duda un emocionante viaje al mundo de la IA aplicada a Negocios y Empresas con nosotros!
 
-```{r, echo = FALSE}
+```{r, echo=FALSE}
 library(reticulate)
-``` 
-
+use_python("/usr/bin/python")
+```
 

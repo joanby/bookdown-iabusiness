@@ -31,7 +31,7 @@ favicon: "Images/favicon.ico"
 
 # Introducción {-}
 
-Este libro es el complemento de nuestro curso online *Inteligencia Artificial aplicada a Negocios y Empresas^* disponible en [Udemy](https://www.udemy.com/ia4business/?couponCode=THEBOOK). Cubre los tres casos prácticos de empresa reales que se resuelven, cada uno de ellos, con una técnica diferente del mundo de la inteligencia artificial:
+Este libro es el complemento de nuestro curso online *Inteligencia Artificial aplicada a Negocios y Empresas* disponible en [Udemy](https://www.udemy.com/ia4business/?couponCode=THEBOOK). Cubre los tres casos prácticos de empresa reales que se resuelven, cada uno de ellos, con una técnica diferente del mundo de la inteligencia artificial:
 
 |**Part** | **Case Study** | **AI Solution**  |
 |:-------:|:--------------:|:----------------:|

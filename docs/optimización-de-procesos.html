@@ -156,6 +156,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
 <li class="chapter" data-level="4" data-path="annex-1-artificial-neural-networks.html"><a href="annex-1-artificial-neural-networks.html"><i class="fa fa-check"></i><b>4</b> Annex 1: Artificial Neural Networks</a></li>
+<li class="chapter" data-level="5" data-path="annex-2-three-extra-ai-models.html"><a href="annex-2-three-extra-ai-models.html"><i class="fa fa-check"></i><b>5</b> Annex 2: Three Extra AI Models</a></li>
+<li class="chapter" data-level="6" data-path="annex-3-questions-and-answers.html"><a href="annex-3-questions-and-answers.html"><i class="fa fa-check"></i><b>6</b> Annex 3: Questions and Answers</a></li>
 <li class="divider"></li>
 <li><a href="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7" target="blank">Curso en Udemy</a></li>
 
@@ -357,164 +359,131 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The AI Solution that will solve the problem described above is a Q-Learning model. Since the latter is based on Markov Decision Processes, or MDPs, we will start by explaining what they are, and then we will move on to the intuition and maths details behind the Q-Learning model.</p>
 <div id="proceso-de-decisión-de-markov" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> Proceso de Decisión de Markov</h3>
-<p>A Markov Decision Process is a tuple <span class="math inline">\((S, A, T, R)\)</span> where:</p>
-
-<p><br />
-</p>
-<p>After defining the MDP, it is now important to remind that it relies on the following assumption: the probability of the future state <span class="math inline">\(s_{t+1}\)</span> only depends on the current state <span class="math inline">\(s_t\)</span> and action <span class="math inline">\(a_t\)</span>, and doesn’t depend on any of the previous states and actions. That is:</p>
-<p><span class="math display">\[\begin{equation*}
-\mathbb{P}(s_{t+1}|s_0,a_0,s_1,a_1,...,s_t,a_t) = \mathbb{P}(s_{t+1}|s_t,a_t)
-\end{equation*}\]</span></p>
-<p><br />
-</p>
-<p>Hence in other words, a Markov Decision Process has no memory.</p>
+<p>Un Proceso de Decisión de Markov es una tupla <span class="math inline">\((S, A, T, R)\)</span> donde:</p>
+<ul>
+<li><span class="math inline">\(S\)</span> es el conjunto de los diferentes estados. Por lo tanto, en nuestro caso de estudio: <span class="math display">\[S = \{0,1,2,3,4,5,6,7,8,9,10,11\}\]</span></li>
+<li><span class="math inline">\(A\)</span> es el conjunto de las diferentes acciones que se pueden llevar a cabo en cada momento <span class="math inline">\(t\)</span>. Por lo tanto, en nuestro caso de estudio: <span class="math display">\[A = \{0,1,2,3,4,5,6,7,8,9,10,11\}\]</span></li>
+<li><span class="math inline">\(T\)</span> es la llamada regla de transición:</li>
+</ul>
+<p><span class="math display">\[T : (s_t \in S, s_{t+1} \in S, a_t \in A) \mapsto \mathbb{P}(s_{t+1}|s_t,a_t)\]</span></p>
+<p>donde <span class="math inline">\(\mathbb {P} (s_{t + 1} | s_t, a_t)\)</span> es la probabilidad de alcanzar el estado futuro <span class="math inline">\(s_{t + 1}\)</span> cuando se lleva a cabo la acción <span class="math inline">\(a_t\)</span> en el estado <span class="math inline">\(s_t\)</span>. Por lo tanto, <span class="math inline">\(T\)</span> es la distribución de probabilidad de los estados futuros en el tiempo <span class="math inline">\(t + 1\)</span> dado el estado actual y la acción ejecutada en el tiempo <span class="math inline">\(t\)</span>. En consecuencia, podemos predecir el estado futuro <span class="math inline">\(s_{t + 1}\)</span> tomando un valor aleatorio de esa distribución <span class="math inline">\(T\)</span>:</p>
+<p><span class="math display">\[s_{t+1} \sim T(s_t,.,a_t)\]</span></p>
+<p>En nuestro estudio de caso, verás a través de nuestra implementación que esta distribución <span class="math inline">\(T\)</span> de nuestra IA simplemente será la distribución uniforme, que es una opción clásica de distribución que funciona muy bien en el marco del Q-Learning.</p>
+<ul>
+<li><span class="math inline">\(R\)</span> es la función de recompensas:</li>
+</ul>
+<p><span class="math display">\[R : (s_t \in S, a_t \in A) \mapsto r_t \in \mathbb{R}\]</span></p>
+<p>donde <span class="math inline">\(r_t\)</span> es la recompensa obtenida después de ejecutar la acción <span class="math inline">\(a_t\)</span> en el estado <span class="math inline">\(s_t\)</span>. En nuestro caso práctico, esta función de recompensa es exactamente la matriz que definimos previamente.</p>
+<p>Después de definir el proceso de decisión de Markov, ahora es importante recordar que se basa en el siguiente supuesto: la probabilidad del estado futuro <span class="math inline">\(s_{t + 1}\)</span> solamente depende del estado actual <span class="math inline">\(s_t\)</span> y la acción ejecutada <span class="math inline">\(a_t\)</span>, y bajo ningun concepto no depende de ninguno de los estados y acciones anteriores. Es decir:</p>
+<p><span class="math display">\[\mathbb{P}(s_{t+1}|s_0,a_0,s_1,a_1,...,s_t,a_t) = \mathbb{P}(s_{t+1}|s_t,a_t)\]</span></p>
+<p>En otras palabras, un proceso de decisión de Markov no tiene memoria.</p>
 <div style="page-break-after: always;"></div>
-<p>Now let’s recap what is going on in terms of MDPs. At every time <span class="math inline">\(t\)</span>:</p>
-
-<p>So now the question is:</p>
-<p><span class="math display">\[\begin{equation*}
-\textbf{How does the AI know which action to play at each time $t$?}
-\end{equation*}\]</span></p>
-<p>To answer this question, we need to introduce the policy function. The policy function <span class="math inline">\(\pi\)</span> is exactly the function that, given a state <span class="math inline">\(s_t\)</span>, returns the action <span class="math inline">\(a_t\)</span>:</p>
-<p><span class="math display">\[\begin{equation*}
-\pi: s_t \in S \mapsto a_t \in A
-\end{equation*}\]</span></p>
-<p>Let’s denote by <span class="math inline">\(\Pi\)</span> the set of all possible policy functions. Then the choice of the best actions to play becomes an optimization problem. Indeed, it comes down to finding the optimal policy <span class="math inline">\(\pi^*\)</span> that maximizes the accumulated reward:</p>
-<p><span class="math display">\[\begin{equation*}
-\pi^* = \underset{\pi \in \Pi}{\textrm{argmax}} \sum_{t \ge 0} R(s_t,\pi(s_t))
-\end{equation*}\]</span></p>
-<p>Therefore of course the question becomes:</p>
-<p><span class="math display">\[\begin{equation*}
-\textbf{How to find this optimal policy $\pi^*$ ?}
-\end{equation*}\]</span></p>
-<p>This is where Q-Learning comes into play.</p>
+<p>Ahora repasemos lo que va a ocurrir en términos de un proceso de decisión de Markov. En cada instante <span class="math inline">\(t\)</span>:</p>
+<ul>
+<li>La IA observa el estado actual <span class="math inline">\(s_t\)</span>.</li>
+<li>La IA ejecuta la acción <span class="math inline">\(a_t\)</span>.</li>
+<li>La IA recibe la recompensa <span class="math inline">\(r_t = R(s_t, a_t)\)</span>.</li>
+<li>La IA entra en el siguiente estado <span class="math inline">\(s_{t+1}\)</span>.</li>
+</ul>
+<p>Así que la pregunta clave es:</p>
+<blockquote>
+<p><strong>¿Cómo sabe la IA qué acción llevar a cabo en cada instante <span class="math inline">\(t\)</span>?</strong></p>
+</blockquote>
+<p>Para responder a esta pregunta, necesitamos introducir la función de política. La función de política <span class="math inline">\(\pi\)</span> es exactamente la función que, dado un estado <span class="math inline">\(s_t\)</span>, devuelve la acción <span class="math inline">\(a_t\)</span>:</p>
+<p><span class="math display">\[\pi: s_t \in S \mapsto a_t \in A\]</span></p>
+<p>Denotemos por <span class="math inline">\(\Pi\)</span> el conjunto de todas las funciones de política posibles. Entonces, la elección de las mejores acciones para jugar se convierte en un problema de optimización. De hecho, se trata de encontrar la política óptima <span class="math inline">\(\pi^*\)</span> que maximice la recompensa acumulada:</p>
+<p><span class="math display">\[\pi^* = \underset{\pi \in \Pi}{\textrm{argmax}} \sum_{t \ge 0} R(s_t,\pi(s_t))\]</span></p>
+<p>Por lo tanto, la pregunta anterior se convierte en:</p>
+<blockquote>
+<p><strong>¿Cómo encontrar esta política óptima <span class="math inline">\(\pi^*\)</span>?</strong></p>
+</blockquote>
+<p>Aquí es donde entra en juego el Q-Learning.</p>
 </div>
 <div id="q-learning" class="section level3">
 <h3><span class="header-section-number">1.2.2</span> Q-Learning</h3>
-<p>Before we start getting into the details of Q-Learning, we need to explain the concept of the Q-Value.</p>
-<p><br />
-</p>
-<p></p>
-<p><br />
-</p>
-<p>To each couple of state and action <span class="math inline">\((s,a)\)</span>, we are going to associate a numeric value <span class="math inline">\(Q(s,a)\)</span>:</p>
-<p><span class="math display">\[\begin{equation*}
-Q: (s \in S, a \in A) \mapsto Q(s,a) \in \mathbb{R}
-\end{equation*}\]</span></p>
-<p>We will say that <span class="math inline">\(Q(s,a)\)</span> is “the Q-value of the action <span class="math inline">\(a\)</span> played in the state <span class="math inline">\(s\)</span>”.</p>
-<p><br />
-</p>
-<p>To understand the purpose of this “Q-Value”, we need to introduce the Temporal Difference.</p>
-<p><br />
-</p>
-<p></p>
-<p><br />
-</p>
-<p>At the beginning <span class="math inline">\(t=0\)</span>, all the Q-values are initialized to 0:</p>
-<p><span class="math display">\[\begin{equation*}
-\forall s \in S, a \in A, Q(s,a) = 0
-\end{equation*}\]</span></p>
-<p><br />
-</p>
-<p>Now let’s suppose we are at time <span class="math inline">\(t\)</span>, in a certain state <span class="math inline">\(s_t\)</span>. We play a random action <span class="math inline">\(a_t\)</span>, which brings us to the state <span class="math inline">\(s_{t+1}\)</span> and we get the reward <span class="math inline">\(R(s_t,a_t)\)</span>.</p>
-<p><br />
-</p>
-<p>We can now introduce the Temporal Difference, which is at the heart of Q-Learning. The Temporal Difference at time <span class="math inline">\(t\)</span>, denoted by <span class="math inline">\(TD_t(s_t,a_t)\)</span>, is the difference between:</p>
-
-<p>thus leading to:</p>
-<p><span class="math display">\[\begin{equation*}
-TD_t(s_t,a_t) = R(s_t,a_t) + \gamma \underset{a}{\max}(Q(s_{t+1},a)) - Q(s_t,a_t)
-\end{equation*}\]</span></p>
-<p><span class="math display">\[\begin{equation*}
-\textbf{OK great, but what exactly is the purpose of this Temporal Difference $TD_t(s_t,a_t)$?}
-\end{equation*}\]</span></p>
-<p><br />
-</p>
-<p>Let’s answer this question to give us some better AI intuition. <span class="math inline">\(TD_t(s_t,a_t)\)</span> is like an intrinsic reward. The AI will learn the Q-values in such a way that:</p>
-
-<p><br />
-</p>
-<p>To that extent, the AI will iterate some updates of the Q-Values (through an equation called the Bellman equation) towards higher temporal differences.</p>
-<p><br />
-</p>
-<p>Accordingly, in the final next step of the Q-Learning algorithm, we use the Temporal Difference to reinforce the couples (state, action) from time <span class="math inline">\(t-1\)</span> to time <span class="math inline">\(t\)</span>, according to the following equation:</p>
-<p><br />
-</p>
-<p><span class="math display">\[\begin{equation*}
-Q_t(s_t,a_t) = Q_{t-1}(s_t,a_t) + \alpha TD_t(s_t,a_t)
-\end{equation*}\]</span></p>
-<p><br />
-</p>
-<p>where <span class="math inline">\(\alpha \in \mathbb{R}\)</span> is the learning rate, which dictates how fast the learning of the Q-Values goes, or how big the updates of the Q-Values are. Its value is usually a real number chosen between 0 and 1, like for example 0.01, 0.05, 0.1 or 0.5. The lower is its value, the smaller will be the updates of the Q-Values and the longer will be the Q-Learning. The higher is its value, the bigger will be the updates of the Q-Values and the faster will be the Q-Learning.</p>
-<p><br />
-</p>
-<p>This equation above is the Bellman equation. It is the pillar of Q-Learning.</p>
-<p><br />
-</p>
-<p>With this point of view, the Q-Values measure the accumulation of surprise or frustration associated with the couple of action and state <span class="math inline">\((s_t,a_t)\)</span>. In the surprise case, the AI is reinforced, and in the frustration case, the AI is weakened. Hence we want to learn the Q-Values that will give the AI the maximum “good surprise”.</p>
-<p><br />
-</p>
-<p>Accordingly, the decision of which action to play mostly depends on the Q-value <span class="math inline">\(Q(s_t, a_t)\)</span>. If the action <span class="math inline">\(a_t\)</span> played in the state <span class="math inline">\(s_t\)</span> is associated with a high Q-Value <span class="math inline">\(Q(s_t,a_t)\)</span>, the AI will have a higher tendency to choose <span class="math inline">\(a_t\)</span>. On the other hand if the action <span class="math inline">\(a_t\)</span> played in the state <span class="math inline">\(s_t\)</span> is associated with a small Q-value <span class="math inline">\(Q(s_t, a_t)\)</span>, the AI will have a smaller tendency to choose <span class="math inline">\(a_t\)</span>.</p>
-<p><br />
-</p>
-<p>There are several ways of choosing the best action to play. First, when being in a certain state <span class="math inline">\(s_t\)</span>, we could simply take the action <span class="math inline">\(a_t\)</span> that maximizes the Q-Value <span class="math inline">\(Q(s_t,a_t)\)</span>:</p>
-<p><span class="math display">\[\begin{equation*}
-a_t = \underset{a}{\textrm{argmax}}(Q(s_t,a))
-\end{equation*}\]</span></p>
-<p>This solution is the Argmax method.</p>
-<p><br />
-</p>
-<p>Another great solution, which turns out to be an even better solution for complex problems, is the Softmax method.</p>
-<p><br />
-</p>
-<p>The Softmax method consists of considering for each state <span class="math inline">\(s\)</span> the following distribution:</p>
-<p><span class="math display">\[\begin{equation*}
-W_s: a \in A \mapsto \frac{\exp(Q(s,a))^{\tau}}{\sum_{a&#39;}\exp(Q(s,a&#39;))^{\tau}} \textrm{ with } \tau \ge 0
-\end{equation*}\]</span></p>
-<p>Then we choose which action <span class="math inline">\(a\)</span> to play by taking a random draw from that distribution:</p>
-<p><span class="math display">\[\begin{equation*}
-a \sim W_s(.)
-\end{equation*}\]</span></p>
-<p>However the problem we will solve in Case Study 1 will be simple enough to use the Argmax method, so this is what we will choose.</p>
+<p>Antes de comenzar a entrar en los detalles de Q-Learning, necesitamos explicar el concepto del valor Q.</p>
+<p><strong>El valor Q</strong></p>
+<p>Para cada par de estado y acción <span class="math inline">\((s, a)\)</span>, vamos a asociar un valor numérico llamado <span class="math inline">\(Q (s, a)\)</span>:</p>
+<p><span class="math display">\[Q: (s \in S, a \in A) \mapsto Q(s,a) \in \mathbb{R}\]</span></p>
+<p>Diremos que <span class="math inline">\(Q (s, a)\)</span> es <em>el valor Q de la acción <span class="math inline">\(a\)</span> llevada a cabo en el estado <span class="math inline">\(s\)</span></em>.</p>
+<p>Para comprender el propósito de este <em>Valor Q</em>, necesitamos introducir la Diferencia Temporal.</p>
+<p><strong>La Diferencia Temporal</strong></p>
+<p>Al principio <span class="math inline">\(t = 0\)</span>, todos los valores Q se inicializan a 0:</p>
+<p><span class="math display">\[\forall s \in S, a \in A, Q(s,a) = 0\]</span></p>
+<p>Ahora supongamos que estamos en el instante <span class="math inline">\(t\)</span>, en cierto estado <span class="math inline">\(s_t\)</span>. Llevamos a cabo una acción aleatoria <span class="math inline">\(a_t\)</span>, que nos lleva al estado <span class="math inline">\(s_{t + 1}\)</span> y obtenemos la recompensa <span class="math inline">\(R(s_t, a_t)\)</span>.</p>
+<p>Ahora podemos presentar la diferencia temporal, que básicamente es el corazón de Q-Learning. La diferencia temporal en el tiempo <span class="math inline">\(t\)</span>, denotada por <span class="math inline">\(TD_t(s_t, a_t)\)</span>, es la diferencia entre:</p>
+<ul>
+<li><p><span class="math inline">\(R(s_t,a_t) + \gamma \underset{a}{\max}(Q(s_{t+1},a))\)</span>, es decir la recompensa <span class="math inline">\(R (s_t, a_t)\)</span> obtenida al llevar a cabo la acción <span class="math inline">\(a_t\)</span> en el estado <span class="math inline">\(s_t\)</span>, más el valor Q de la mejor acción jugada en el estado futuro <span class="math inline">\(s_{t + 1}\)</span>, descontado por un factor $$, llamado factor de descuento.</p></li>
+<li><p>y <span class="math inline">\(Q(s_t, a_t)\)</span>, es decir el valor Q de la acción <span class="math inline">\(a_t\)</span> llevada a cabo en el estado $ s_t $,</p></li>
+</ul>
+<p>que nos lleva a:</p>
+<p><span class="math display">\[TD_t(s_t,a_t) = R(s_t,a_t) + \gamma \underset{a}{\max}(Q(s_{t+1},a)) - Q(s_t,a_t)\]</span></p>
+<blockquote>
+<p><strong>Bien, genial, pero ¿cuál es exactamente el propósito de esta diferencia temporal <span class="math inline">\(TD_t(s_t,a_t)\)</span>?</strong></p>
+</blockquote>
+<p>Respondamos esta pregunta para darnos una mejor idea de la IA. <span class="math inline">\(TD_t (s_t, a_t)\)</span> es como una recompensa intrínseca. La IA aprenderá los valores Q de tal manera que:</p>
+<ul>
+<li>Si <span class="math inline">\(TD_t(s_t,a_t)\)</span> es alta, la IA recibe una <em>buena sorpresa</em>.</li>
+<li>Si <span class="math inline">\(TD_t(s_t,a_t)\)</span> es alta, la IA recibe <em>frustración</em>.</li>
+</ul>
+<p>En ese sentido, la IA repetirá algunas actualizaciones de los valores Q (a través de una ecuación llamada la ecuación de Bellman) hacia diferencias temporales más altas.</p>
+<p>En consecuencia, en el siguiente paso final del algoritmo Q-Learning, usamos la diferencia temporal para reforzar los pares (estado, acción) desde el tiempo <span class="math inline">\(t-1\)</span> hasta el tiempo <span class="math inline">\(t\)</span>, de acuerdo con la siguiente ecuación:</p>
+<p><span class="math display">\[Q_t(s_t,a_t) = Q_{t-1}(s_t,a_t) + \alpha TD_t(s_t,a_t)\]</span></p>
+<p>donde <span class="math inline">\(\alpha \in \mathbb{R}\)</span> es la tasa de aprendizaje, que determina qué tan rápido va el aprendizaje de los valores Q o qué tan grandes son las actualizaciones de los mismos. Su valor suele ser un número real elegido entre 0 y 1, como por ejemplo 0.01, 0.05, 0.1 o 0.5. Cuanto menor sea su valor, más pequeñas serán las actualizaciones de los valores Q y más larga será la ejecución del algoritmo de Q-Learning. Cuanto mayor sea su valor, mayores serán las actualizaciones de los valores Q y más rápido será el algoritmo de Q-Learning.</p>
+<p>Esta ecuación anterior es la ecuación de Bellman. Es el pilar fundamental del Q-Learning.</p>
+<p>Con este punto de vista, los valores Q miden la acumulación de sorpresa o frustración asociada con el par de acciones y estados <span class="math inline">\((s_t, a_t)\)</span>. En el caso de recibir sorpresa, la IA se refuerza, y en el caso de recibir frustración, la IA se debilita. Por lo tanto, queremos aprender los valores Q que le darán a la IA la máxima <em>buena sorpresa</em>.</p>
+<p>En consecuencia, la decisión de qué acción ejecutar depende principalmente del valor Q <span class="math inline">\(Q(s_t, a_t)\)</span>. Si la acción <span class="math inline">\(a_t\)</span> ejecutada en el estado <span class="math inline">\(s_t\)</span> está asociada con un valor Q alto <span class="math inline">\(Q (s_t, a_t)\)</span>, la IA tendrá una mayor tendencia a elegir la acción <span class="math inline">\(a_t\)</span>. Por otro lado, si la acción <span class="math inline">\(a_t\)</span> que se ha llevado a cabo en el estado <span class="math inline">\(s_t\)</span> está asociada con un valor Q pequeño <span class="math inline">\(Q(s_t, a_t)\)</span>, la IA tendrá una tendencia menor a elegir la acción <span class="math inline">\(a_t\)</span>.</p>
+<p>Hay varias formas de elegir la mejor acción para ejecutar en cada esstado. Primero, cuando estamos en cierto estado <span class="math inline">\(s_t\)</span>, simplemente podríamos tomar la acción <span class="math inline">\(a_t\)</span> que maximiza el valor Q $ Q(s_t, a_t)$:</p>
+<p><span class="math display">\[a_t = \underset{a}{\textrm{argmax}}(Q(s_t,a))\]</span></p>
+<p>Esta solución es el método <strong>Argmax</strong>.</p>
+<p>Otra gran solución, que resulta ser una solución aún mejor para problemas complejos, es el método <strong>Softmax</strong>.</p>
+<p>El método Softmax consiste en considerar para cada estado <span class="math inline">\(s\)</span> la siguiente distribución:</p>
+<p><span class="math display">\[W_s: a \in A \mapsto \frac{\exp(Q(s,a))^{\tau}}{\sum_{a&#39;}\exp(Q(s,a&#39;))^{\tau}} \textrm{ with } \tau \ge 0\]</span></p>
+<p>Luego, elegimos qué acción <span class="math inline">\(a\)</span> llevar a cabo mediante una muestra de un valor aleatorio de esa distribución:</p>
+<p><span class="math display">\[a \sim W_s(.)\]</span></p>
+<p>Sin embargo, el problema que resolveremos en el Caso Práctico 1 será lo suficientemente simple como para usar el método Argmax, así que esto es lo que elegiremos.</p>
 </div>
 <div id="el-algoritmo-de-q-learning-al-completo" class="section level3">
 <h3><span class="header-section-number">1.2.3</span> El algoritmo de Q-Learning al completo</h3>
-<p>Let’s summarize the different steps of the whole Q-Learning process:</p>
-<p><br />
-</p>
-<p>:</p>
-<p><br />
-</p>
-<p>For all couples of states <span class="math inline">\(s\)</span> and actions <span class="math inline">\(a\)</span>, the Q-Values are initialized to 0:</p>
-<p><span class="math display">\[\begin{equation*}
-\forall s \in S, a \in A, Q_0(s,a) = 0
-\end{equation*}\]</span></p>
-<p>We start in the initial state <span class="math inline">\(s_0\)</span>. We play a random possible action and we reach the first state <span class="math inline">\(s_1\)</span>.</p>
-<p><br />
-</p>
-<p>, we will repeat for a certain number of times (1000 times in our code) the following:</p>
-
-<div style="page-break-after: always;"></div>
+<p>Resumamos los diferentes pasos de todo el proceso de Q-Learning:</p>
+<p><strong>Inicialización</strong></p>
+<p>Para todas las parejas de estados <span class="math inline">\(s\)</span> y acciones <span class="math inline">\(a\)</span>, los valores Q se inicializan a 0:</p>
+<p><span class="math display">\[\forall s \in S, a \in A, Q_0(s,a) = 0\]</span></p>
+<p>Comenzamos en el estado inicial <span class="math inline">\(s_0\)</span>. Llevamos a cabo una acción aleatoria posible y llegamos al primer estado <span class="math inline">\(s_1\)</span>.</p>
+<p><strong>Para cada instante <span class="math inline">\(t \ge 1\)</span></strong>, repetiremos un cierto número de veces (1000 veces en nuestro código) lo siguiente:</p>
+<ul>
+<li>Seleccionamos un estado aleatorio <span class="math inline">\(s_t\)</span> de nuestros 12 estados posibles:</li>
+</ul>
+<p><span class="math display">\[s_t = \textrm{random}(0,1,2,3,4,5,6,7,8,9,10,11)\]</span></p>
+<ul>
+<li>Llevamos a cabo una acción aleatoria <span class="math inline">\(a_t\)</span> que puede conducir al siguiente estado posible, es decir, de modo que <span class="math inline">\(R(s_t,a_t) &gt; 0\)</span>:</li>
+</ul>
+<p><span class="math display">\[a_t = \textrm{random}(0,1,2,3,4,5,6,7,8,9,10,11) \textrm{ t.q. } R(s_t,a_t) &gt; 0\]</span></p>
+<ul>
+<li><p>Llegamos al siguiente estado <span class="math inline">\(s_{t + 1}\)</span> y obtenemos la recompensa <span class="math inline">\(R(s_t,a_t)\)</span></p></li>
+<li><p>Calculamos la Diferencia Temporal <span class="math inline">\(TD_t(s_t,a_t)\)</span>:</p></li>
+</ul>
+<p><span class="math display">\[TD_t(s_t,a_t) = R(s_t,a_t) + \gamma \underset{a}{\max}(Q(s_{t+1},a)) - Q(s_t, a_t)\]</span></p>
+<ul>
+<li>Actualizamos el valor Q aplicando la ecuación de Bellman:</li>
+</ul>
+<p><span class="math display">\[Q_t(s_t,a_t) = Q_{t-1}(s_t,a_t) + \alpha TD_t(s_t,a_t)\]</span></p>
 </div>
 </div>
 <div id="implementación" class="section level2">
 <h2><span class="header-section-number">1.3</span> Implementación</h2>
-<p>Now let’s provide and explain the whole implementation of this Q-Learning model, the solution of our warehouse flows optimization problem.</p>
-<p><br />
-</p>
-<p>First, we start by importing the libraries that will be used in this implementation. These only include the numpy library, which offers a practical way of working with arrays and mathematical operations:</p>
+<p>Ahora proporcionemos y expliquemos la implementación completa de este modelo de Q-Learning, la solución de nuestro problema de optimización de flujos de almacén.</p>
+<p>Primero, comenzamos importando las librerías que se usarán en esta implementación. Estos solo incluyen la biblioteca <code>numpy</code>, que ofrece una forma práctica de trabajar con matrices y operaciones matemáticas:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Importar las librerías</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="im">import</span> numpy <span class="im">as</span> np</a></code></pre></div>
-<p>Then we set the parameters of our model. These include the discount factor <span class="math inline">\(\gamma\)</span> and the learning rate <span class="math inline">\(\alpha\)</span>, which as we saw in Section 1.2, are the only parameters of the Q-Learning algorithm:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Setting the parameters gamma and alpha for the Q-Learning</span></a>
+<p>Luego establecemos los parámetros de nuestro modelo. Estos incluyen el factor de descuento <span class="math inline">\(\gamma\)</span> y la tasa de aprendizaje $$, que como vimos en la Sección 1.2, son los únicos parámetros del algoritmo Q-Learning:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Configuración de los parámetros gamma y alfa para el Q-Learning</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">gamma <span class="op">=</span> <span class="fl">0.75</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">alpha <span class="op">=</span> <span class="fl">0.9</span></a></code></pre></div>
-<p>The two previous code sections were simply the introductory sections, before really starting to build our AI model. Now the next step is to start the first part of our implementation: Part 1 - Defining the Environment. And for that of course, we begin by defining the states, with a dictionary mapping the locations names (in letters from A to L) into the states (in indexes from 0 to 11):</p>
-<p><br />
-</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># PART 1 - DEFINING THE ENVIRONMENT</span></a>
+<p>Las dos secciones de código anteriores eran simplemente las secciones introductorias, antes de comenzar realmente a construir nuestro modelo de IA. Ahora el siguiente paso es comenzar la primera parte de nuestra implementación: Parte 1 - Definición del entorno. Y para eso, por supuesto, comenzamos definiendo los estados, con un diccionario que asigna los nombres de las ubicaciones (en letras de la A a la L) en los estados (en índices del 0 al 11):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># PARTE 1 - DEFINICIÓN DEL ENTORNO</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co"># Defining the states</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co"># Definición de los estados</span></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">location_to_state <span class="op">=</span> {<span class="st">&#39;A&#39;</span>: <span class="dv">0</span>,</a>
 <a class="sourceLine" id="cb3-5" data-line-number="5">                     <span class="st">&#39;B&#39;</span>: <span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb3-6" data-line-number="6">                     <span class="st">&#39;C&#39;</span>: <span class="dv">2</span>,</a>
@@ -527,11 +496,11 @@ a \sim W_s(.)
 <a class="sourceLine" id="cb3-13" data-line-number="13">                     <span class="st">&#39;J&#39;</span>: <span class="dv">9</span>,</a>
 <a class="sourceLine" id="cb3-14" data-line-number="14">                     <span class="st">&#39;K&#39;</span>: <span class="dv">10</span>,</a>
 <a class="sourceLine" id="cb3-15" data-line-number="15">                     <span class="st">&#39;L&#39;</span>: <span class="dv">11</span>}</a></code></pre></div>
-<p>Then we define the actions, with a simple list of indexes from 0 to 11. Remember that each action index corresponds to the next state (next location) where that action leads to:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Defining the actions</span></a>
+<p>Luego definimos las acciones, con una simple lista de índices del 0 al 11. Recuerda que cada índice de acción corresponde al siguiente estado (siguiente ubicación) al que conduce dicha acción:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Definición de las acciones</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2">actions <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>]</a></code></pre></div>
-<p>And eventually, we define the rewards, by creating a matrix of rewards, where the rows correspond to the current states <span class="math inline">\(s_t\)</span>, the columns correspond to the actions <span class="math inline">\(a_t\)</span> leading to the next state <span class="math inline">\(s_{t+1}\)</span>, and the cells contain the rewards <span class="math inline">\(R(s_t,a_t)\)</span>. If a cell <span class="math inline">\((s_t,a_t)\)</span> has a 1, that means that we can play the action <span class="math inline">\(a_t\)</span> from the current state <span class="math inline">\(s_t\)</span> to reach the next state <span class="math inline">\(s_{t+1}\)</span>. If a cell <span class="math inline">\((s_t,a_t)\)</span> has a 0, that means that we cannot play the action <span class="math inline">\(a_t\)</span> from the current state <span class="math inline">\(s_t\)</span> to reach any next state <span class="math inline">\(s_{t+1}\)</span>. And for now we will manually put a high reward (1000) inside the cell corresponding to location G, because it is the top priority location where the autonomous warehouse has to go to collect the products. Since location G has encoded index state 6, we put a 1000 reward on the cell of row 6 and column 6. Then later on we will improve our solution by implementing an automatic way of going to the top priority location, without having to manually update the matrix of rewards and leaving it initialized with 0s and 1s just as it should be. But in the meantime, here is below our matrix of rewards including the manual update:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># Defining the rewards</span></a>
+<p>Y eventualmente, definimos las recompensas, creando una matriz de recompensas, donde las filas corresponden a los estados actuales <span class="math inline">\(s_t\)</span>, las columnas corresponden a las acciones <span class="math inline">\(a_t\)</span> que conducen al siguiente estado <span class="math inline">\(s_{t + 1}\)</span>, y las celdas contienen las recompensas <span class="math inline">\(R(s_t, a_t)\)</span>. Si una celda <span class="math inline">\((s_t, a_t)\)</span> tiene un 1, eso significa que podemos llevar a cabo la acción <span class="math inline">\(a_t\)</span> del estado actual <span class="math inline">\(s_t\)</span> para llegar al siguiente estado <span class="math inline">\(s_{t + 1}\)</span>. Si una celda <span class="math inline">\((s_t, a_t)\)</span> tiene un 0, eso significa que no podemos llevar a cabo la acción <span class="math inline">\(a_t\)</span> del estado actual <span class="math inline">\(s_t\)</span> para llegar a cualquier estado siguiente <span class="math inline">\(s_{t + 1}\)</span>. Y por ahora colocaremos manualmente una alta recompensa (1000) dentro de la celda correspondiente a la ubicación G, porque es la ubicación de máxima prioridad donde el almacén autónomo tiene que ir a recoger los productos. Como la ubicación G ha codificado el estado como índice 6, colocamos una recompensa de 1000 en la celda de la fila 6 y la columna 6. Luego, mejoraremos nuestra solución al implementar una forma automática de ir a la ubicación de máxima prioridad, sin tener que actualizar manualmente la matriz de recompensas y dejándola inicializada con 0s y 1s como debería ser. Pero mientras tanto, aquí está debajo de nuestra matriz de recompensas, incluida la actualización manual:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># Definición de las recompensas</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">R <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3">              [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">              [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
@@ -544,13 +513,13 @@ a \sim W_s(.)
 <a class="sourceLine" id="cb5-11" data-line-number="11">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>],</a>
 <a class="sourceLine" id="cb5-12" data-line-number="12">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
 <a class="sourceLine" id="cb5-13" data-line-number="13">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>]])</a></code></pre></div>
-<p>That closes this first part. Now let’s begin the second part of our implementation: Part 2 - Building the AI Solution with Q-Learning. To that extent, we are going to follow the Q-Learning algorithm exactly as it was provided in Section 1.2. Hence we first initialize all the Q-Values, by creating our matrix of Q-Values full of zeros (in which same, the rows correspond to the current states <span class="math inline">\(s_t\)</span>, the columns correspond to the actions <span class="math inline">\(a_t\)</span> leading to the next state <span class="math inline">\(s_{t+1}\)</span>, and the cells contain the Q-Values <span class="math inline">\(Q(s_t,a_t))\)</span>:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># PART 2 - BUILDING THE AI SOLUTION WITH Q-LEARNING</span></a>
+<p>Eso finaliza esta primera parte. Ahora comencemos la segunda parte de nuestra implementación: Parte 2 - Construcción la solución de IA con Q-Learning. En ese sentido, vamos a seguir el algoritmo de Q-Learning exactamente como lo vimos en la Sección 1.2. Por lo tanto, primero inicializamos todos los valores Q, creando nuestra matriz de valores Q llena de ceros (en los cuales, las filas corresponden a los estados actuales <span class="math inline">\(s_t\)</span>, las columnas corresponden a las acciones <span class="math inline">\(a_t\)</span> que conducen al siguiente estado $s_{t + 1} $, y las celdas contienen los valores Q, $Q (s_t, a_t)) $:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># PARTE 2 - CONSTRUCCIÓN DE LA SOLUCIÓN DE IA CON Q-LEARNING</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># Initializing the Q-Values</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># Inicialización de los valores Q</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4">Q <span class="op">=</span> np.array(np.zeros([<span class="dv">12</span>,<span class="dv">12</span>]))</a></code></pre></div>
-<p>Then of course we implement the Q-Learning process, with a for loop over 1000 iterations, repeating 1000 times the steps of the Q-Learning process provided at the end of Section 1.2:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># Implementing the Q-Learning process</span></a>
+<p>Luego, por supuesto, implementamos el proceso de Q-Learning, con un bucle <code>for</code> que llevará a cabo un total de 1000 iteraciones, repitiendo 1000 veces los pasos del proceso de Q-Learning que analizamos a fondo al final de la Sección 1.2:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># Implementación del proceso de Q-Learning</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</a>
 <a class="sourceLine" id="cb7-3" data-line-number="3">    current_state <span class="op">=</span> np.random.randint(<span class="dv">0</span>,<span class="dv">12</span>)</a>
 <a class="sourceLine" id="cb7-4" data-line-number="4">    playable_actions <span class="op">=</span> []</a>
@@ -561,29 +530,29 @@ a \sim W_s(.)
 <a class="sourceLine" id="cb7-9" data-line-number="9">    TD <span class="op">=</span> R[current_state, next_state] <span class="op">+</span> gamma<span class="op">*</span>Q[next_state, np.argmax(Q[next_state,])]</a>
 <a class="sourceLine" id="cb7-10" data-line-number="10">         <span class="op">-</span> Q[current_state, next_state]</a>
 <a class="sourceLine" id="cb7-11" data-line-number="11">    Q[current_state, next_state] <span class="op">=</span> Q[current_state, next_state] <span class="op">+</span> alpha<span class="op">*</span>TD</a></code></pre></div>
-<p>Optional: at this stage of the code, our matrix of Q-Values is ready. We can have a look at it by executing the whole code we have implemented so far, and by entering the following print in the console:</p>
+<p>Opcional: en esta etapa del código, nuestra matriz de valores Q está lista. Podemos echarle un vistazo ejecutando todo el código que hemos implementado hasta ahora e ingresando las siguientes dos instrucciones en la consola:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;Q-Values:&quot;</span>)</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="bu">print</span>(Q.astype(<span class="bu">int</span>))</a></code></pre></div>
-<p>And we obtain the following matrix of final Q-Values:</p>
+<p>Y obtenemos la siguiente matriz de valores Q finales:</p>
 <p><img src="Images/Q_Values_Console.png" /></p>
-<p>For more visual clarity, you can even check the matrix of Q-Values directly in Variable Explorer, by double clicking on Q. Then to get the Q-Values as integers you can click on “Format” and inside enter a float formatting of “%.0f”. You will obtain this, which is a bit more clear since you can see the indexes of the rows and columns in your matrix Q:</p>
+<p>Para una mayor claridad visual, incluso puede verificarse la matriz de valores Q directamente en el Explorador de variables, haciendo doble clic en la variable Q. Luego, para obtener los valores Q como enteros, es conveniente hacer clic en <code>Formato</code> e ingresar un formato de como floante como <code>%.0f</code>. Se obtiene en este caso el siguiente resultado, que es un poco más claro ya que se pueden ver en la matriz Q los índices de las filas y columnas de la misma:</p>
 <p><img src="Images/Q_Values_Variable_Explorer.png" /></p>
-<p>Good, now that we have our matrix of Q-Values, we are ready to go into production! Hence we can move on to the third part of the implementation, Part 3 - Going into Production, inside which we will compute the optimal path from any starting location to any ending top priority location. The idea here will be to implement a “route” function, that will take as inputs the starting location where our autonomous warehouse robot is located at a specific time and the ending location where it has to go in top priority, and that will return as output the shortest route inside a list. However since we want to input the locations with there names (in letters), as opposed to their states (in indexes), we will need a dictionary that maps the locations states (in indexes) to the locations names (in letters). And that is the first thing we will do here in this third part, using a trick to inverse our previous dictionary “location_to_state”, since indeed we simply want to get the exact inverse mapping from this dictionary:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># PART 3 - GOING INTO PRODUCTION</span></a>
+<p>Bien, ahora que tenemos nuestra matriz de valores Q, ¡estamos listos para llevarlo a producción! Por lo tanto, podemos pasar a la tercera parte de la implementación, Parte 3: Poner el modelo en producción, dentro de la cual calcularemos la ruta óptima desde cualquier ubicación inicial a cualquier ubicación final de máxima prioridad. La idea aquí será implementar una función de <em>ruta</em>, que tomará como entradas la ubicación de inicio donde se encuentra nuestro robot de almacén autónomo en un momento específico y la ubicación de finalización donde tiene que ir con la máxima prioridad, y eso volverá como genera la ruta más corta dentro de una lista. Sin embargo, dado que queremos indicar las ubicaciones con sus nombres (en letras), a diferencia de sus estados (en índices), necesitaremos un diccionario que asigne los estados de ubicaciones (en índices) a los nombres de ubicaciones (en letras). Y eso es lo primero que haremos aquí en esta tercera parte, usando un truco para invertir nuestro diccionario anterior <code>location\_to\_state</code>, ya que de hecho simplemente queremos obtener el mapeo inverso exacto de este diccionario:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># PARTE 3 - PONER EL MODELO EN PRODUCCIÓN</span></a>
 <a class="sourceLine" id="cb9-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co"># Making a mapping from the states to the locations</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co"># Hacer un mapeo de los estados a las ubicaciones</span></a>
 <a class="sourceLine" id="cb9-4" data-line-number="4">state_to_location <span class="op">=</span> {state: location <span class="cf">for</span> location, state <span class="kw">in</span> location_to_state.items()}</a></code></pre></div>
-<p>This is when the most important code section comes into play. We are about to implement the final “route()” function that will take as inputs the starting and ending locations, and that will return the optimal path between these two locations. To explain exactly what this route function will do, let’s enumerate the different steps of the process, when going from location E to location G:</p>
+<p>Aquí es cuando entra en juego la sección de código más importante. Estamos a punto de implementar la función final <code>route ()</code> que tomará como entradas las ubicaciones de inicio y finalización, y que devolverá la ruta óptima entre estas dos ubicaciones. Para explicar exactamente qué hará esta función de ruta, enumeremos los diferentes pasos del proceso, al pasar de la ubicación E a la ubicación G:</p>
 <ol style="list-style-type: decimal">
-<li>We start at our starting location E.</li>
-<li>We get the state of location E, which according to our location_to_state mapping is <span class="math inline">\(s_0 = 4\)</span>.</li>
-<li>On the row of index <span class="math inline">\(s_0 = 4\)</span> in our matrix of Q-Values, we find the column that has the maximum Q-Value (703).</li>
-<li>This column has index 8, so we play the action of index 8 which leads us to the next state <span class="math inline">\(s_{t+1} = 8\)</span>.</li>
-<li>We get the location of state 8, which according to our state_to_location mapping is location I. Hence our next location is location I, which is appended to our list containing the optimal path.</li>
-<li>We repeat the same previous 5-steps from our new starting location I, until we reach our final destination, location G.</li>
+<li>Comenzamos en nuestra ubicación inicial E.</li>
+<li>Obtenemos el estado de ubicación E, que según nuestro mapeo <code>location_to_state</code> es <span class="math inline">\(s_0 = 4\)</span>.</li>
+<li>En la fila del estado <span class="math inline">\(s_0 = 4\)</span> de nuestra matriz de valores Q, hallamos la columna con el mayor valor Q (703).</li>
+<li>Esta columna tiene el índice 8, por lo que ejecutamos la acción del índice 8 que nos lleva al siguiente estado <span class="math inline">\(s_{t+1} = 8\)</span>.</li>
+<li>Obtenemos la ubicación del estado 8, que según nuestro mapeo <code>state_to_location</code> es la ubicación I. Por lo tanto, nuestra próxima ubicación es la ubicación I, que se adjunta a nuestra lista que contiene la ruta óptima global.</li>
+<li>Repetimos los mismos 5 pasos anteriores desde nuestra nueva ubicación inicial I, hasta llegar a nuestro destino final, la ubicación G.</li>
 </ol>
-<p>Hence, since we don’t know how many locations we will have to go through between the starting and ending locations, we have to make a while loop that will repeat the 5-steps process described above, and that will stop as soon as we reach the ending top priority location:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># Making the final function that will return the optimal route</span></a>
+<p>Por lo tanto, dado que no sabemos cuántas ubicaciones tendremos que atravesar entre las ubicaciones inicial y final, tenemos que hacer un bucle <code>while</code> que repetirá el proceso de 5 pasos descrito anteriormente, y que se detendrá tan pronto como lo hagamos llegar a la ubicación final de máxima prioridad:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># Hacer la función final que devolverá la ruta óptima</span></a>
 <a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">def</span> route(starting_location, ending_location):</a>
 <a class="sourceLine" id="cb10-3" data-line-number="3">    route <span class="op">=</span> [starting_location]</a>
 <a class="sourceLine" id="cb10-4" data-line-number="4">    next_location <span class="op">=</span> starting_location</a>
@@ -594,227 +563,227 @@ a \sim W_s(.)
 <a class="sourceLine" id="cb10-9" data-line-number="9">        route.append(next_location)</a>
 <a class="sourceLine" id="cb10-10" data-line-number="10">        starting_location <span class="op">=</span> next_location</a>
 <a class="sourceLine" id="cb10-11" data-line-number="11">    <span class="cf">return</span> route</a></code></pre></div>
-<p>Congratulations, our tool is now ready! When we test it to go from E to G, we get indeed the two possible optimal paths after printing the final route executing the whole code several times:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># Printing the final route</span></a>
+<p>¡Felicidades, nuestra herramienta ya está lista! Cuando lo probamos para ir de E a G, obtenemos las dos rutas óptimas posibles después de imprimir la ruta final ejecutando el código completo varias veces:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># Imprimir la ruta final</span></a>
 <a class="sourceLine" id="cb11-2" data-line-number="2"><span class="bu">print</span>(<span class="st">&#39;Route:&#39;</span>)</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">route(<span class="st">&#39;E&#39;</span>, <span class="st">&#39;G&#39;</span>)</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">Route:</a>
-<a class="sourceLine" id="cb11-6" data-line-number="6">Out[<span class="dv">1</span>]: [<span class="st">&#39;E&#39;</span>, <span class="st">&#39;I&#39;</span>, <span class="st">&#39;J&#39;</span>, <span class="st">&#39;F&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;C&#39;</span>, <span class="st">&#39;G&#39;</span>]</a>
-<a class="sourceLine" id="cb11-7" data-line-number="7">Out[<span class="dv">2</span>]: [<span class="st">&#39;E&#39;</span>, <span class="st">&#39;I&#39;</span>, <span class="st">&#39;J&#39;</span>, <span class="st">&#39;K&#39;</span>, <span class="st">&#39;L&#39;</span>, <span class="st">&#39;H&#39;</span>, <span class="st">&#39;G&#39;</span>]</a></code></pre></div>
-<p>Good, we have a first version of the model that is well functioning. But we can improve it in two ways. First, by automating the reward attribution to the top priority location, so that we don’t have to do it manually. And second, by adding a feature that gives us the option to go by an intermediary location before going to the top priority location. That intermediary location should be of course in the Top 3 priority locations. And as a matter of fact, in our top priority locations ranking, the second top priority location is location K. Therefore, in order to optimize even more the warehouse flows, our autonomous warehouse robot must go by location K to collect the products on its way to the top priority location G. A way to do this is to have the option to go by any intermediary location in the process of our “route()” function. And this is exactly what we will implement as a second improvement. But first, let’s implement the first improvement, that automates the reward attribution.</p>
-<p>The way to do that is two folds: first we must make a copy (called R_new) of our reward matrix inside which the route() function will automatically update the reward in the cell of the ending location. Indeed, the ending location is one of the inputs of the route() function, so using our location_to_state dictionary we can very easily find that cell and update its reward to 1000. And second, we must include the whole Q-Learning algorithm (including the initialization step) inside the route function, right after we make that update of the reward in our copy of the rewards matrix. Indeed, in our previous implementation above, the Q-Learning process happens on the original version of the rewards matrix, which is now supposed to stay as it is, i.e. initialized to 1s and 0s only. Therefore we must include the Q-Learning process inside the route function, and make it happen on our copy R_new of the rewards matrix, instead of the original rewards matrix R. Hence, our full implementation becomes the following:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># Artificial Intelligence for Business</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="co"># Optimizing Warehouse Flows with Q-Learning</span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co"># Importing the libraries</span></a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="im">import</span> numpy <span class="im">as</span> np</a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co"># Setting the parameters gamma and alpha for the Q-Learning</span></a>
-<a class="sourceLine" id="cb12-8" data-line-number="8">gamma <span class="op">=</span> <span class="fl">0.75</span></a>
-<a class="sourceLine" id="cb12-9" data-line-number="9">alpha <span class="op">=</span> <span class="fl">0.9</span></a>
-<a class="sourceLine" id="cb12-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="co"># PART 1 - DEFINING THE ENVIRONMENT</span></a>
-<a class="sourceLine" id="cb12-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb12-13" data-line-number="13"><span class="co"># Defining the states</span></a>
-<a class="sourceLine" id="cb12-14" data-line-number="14">location_to_state <span class="op">=</span> {<span class="st">&#39;A&#39;</span>: <span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb12-15" data-line-number="15">                     <span class="st">&#39;B&#39;</span>: <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb12-16" data-line-number="16">                     <span class="st">&#39;C&#39;</span>: <span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb12-17" data-line-number="17">                     <span class="st">&#39;D&#39;</span>: <span class="dv">3</span>,</a>
-<a class="sourceLine" id="cb12-18" data-line-number="18">                     <span class="st">&#39;E&#39;</span>: <span class="dv">4</span>,</a>
-<a class="sourceLine" id="cb12-19" data-line-number="19">                     <span class="st">&#39;F&#39;</span>: <span class="dv">5</span>,</a>
-<a class="sourceLine" id="cb12-20" data-line-number="20">                     <span class="st">&#39;G&#39;</span>: <span class="dv">6</span>,</a>
-<a class="sourceLine" id="cb12-21" data-line-number="21">                     <span class="st">&#39;H&#39;</span>: <span class="dv">7</span>,</a>
-<a class="sourceLine" id="cb12-22" data-line-number="22">                     <span class="st">&#39;I&#39;</span>: <span class="dv">8</span>,</a>
-<a class="sourceLine" id="cb12-23" data-line-number="23">                     <span class="st">&#39;J&#39;</span>: <span class="dv">9</span>,</a>
-<a class="sourceLine" id="cb12-24" data-line-number="24">                     <span class="st">&#39;K&#39;</span>: <span class="dv">10</span>,</a>
-<a class="sourceLine" id="cb12-25" data-line-number="25">                     <span class="st">&#39;L&#39;</span>: <span class="dv">11</span>}</a>
-<a class="sourceLine" id="cb12-26" data-line-number="26"></a>
-<a class="sourceLine" id="cb12-27" data-line-number="27"><span class="co"># Defining the actions</span></a>
-<a class="sourceLine" id="cb12-28" data-line-number="28">actions <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>]</a>
-<a class="sourceLine" id="cb12-29" data-line-number="29"></a>
-<a class="sourceLine" id="cb12-30" data-line-number="30"><span class="co"># Defining the rewards</span></a>
-<a class="sourceLine" id="cb12-31" data-line-number="31">R <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb12-32" data-line-number="32">              [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb12-33" data-line-number="33">              [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb12-34" data-line-number="34">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb12-35" data-line-number="35">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb12-36" data-line-number="36">              [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb12-37" data-line-number="37">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb12-38" data-line-number="38">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
-<a class="sourceLine" id="cb12-39" data-line-number="39">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb12-40" data-line-number="40">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb12-41" data-line-number="41">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
-<a class="sourceLine" id="cb12-42" data-line-number="42">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>]])</a>
-<a class="sourceLine" id="cb12-43" data-line-number="43"></a>
-<a class="sourceLine" id="cb12-44" data-line-number="44"><span class="co"># PART 2 - BUILDING THE AI SOLUTION WITH Q-LEARNING</span></a>
-<a class="sourceLine" id="cb12-45" data-line-number="45"></a>
-<a class="sourceLine" id="cb12-46" data-line-number="46"><span class="co"># Making a mapping from the states to the locations</span></a>
-<a class="sourceLine" id="cb12-47" data-line-number="47">state_to_location <span class="op">=</span> {state: location <span class="cf">for</span> location, state <span class="kw">in</span> location_to_state.items()}</a>
-<a class="sourceLine" id="cb12-48" data-line-number="48"></a>
-<a class="sourceLine" id="cb12-49" data-line-number="49"><span class="co"># Making the final function that will return the route</span></a>
-<a class="sourceLine" id="cb12-50" data-line-number="50"><span class="kw">def</span> route(starting_location, ending_location):</a>
-<a class="sourceLine" id="cb12-51" data-line-number="51">    R_new <span class="op">=</span> np.copy(R)</a>
-<a class="sourceLine" id="cb12-52" data-line-number="52">    ending_state <span class="op">=</span> location_to_state[ending_location]</a>
-<a class="sourceLine" id="cb12-53" data-line-number="53">    R_new[ending_state, ending_state] <span class="op">=</span> <span class="dv">1000</span></a>
-<a class="sourceLine" id="cb12-54" data-line-number="54">    Q <span class="op">=</span> np.array(np.zeros([<span class="dv">12</span>,<span class="dv">12</span>]))</a>
-<a class="sourceLine" id="cb12-55" data-line-number="55">    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</a>
-<a class="sourceLine" id="cb12-56" data-line-number="56">        current_state <span class="op">=</span> np.random.randint(<span class="dv">0</span>,<span class="dv">12</span>)</a>
-<a class="sourceLine" id="cb12-57" data-line-number="57">        playable_actions <span class="op">=</span> []</a>
-<a class="sourceLine" id="cb12-58" data-line-number="58">        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</a>
-<a class="sourceLine" id="cb12-59" data-line-number="59">            <span class="cf">if</span> R_new[current_state, j] <span class="op">&gt;</span> <span class="dv">0</span>:</a>
-<a class="sourceLine" id="cb12-60" data-line-number="60">                playable_actions.append(j)</a>
-<a class="sourceLine" id="cb12-61" data-line-number="61">        next_state <span class="op">=</span> np.random.choice(playable_actions)</a>
-<a class="sourceLine" id="cb12-62" data-line-number="62">        TD <span class="op">=</span> R_new[current_state, next_state]</a>
-<a class="sourceLine" id="cb12-63" data-line-number="63">             <span class="op">+</span> gamma <span class="op">*</span> Q[next_state, np.argmax(Q[next_state,])]</a>
-<a class="sourceLine" id="cb12-64" data-line-number="64">             <span class="op">-</span> Q[current_state, next_state]</a>
-<a class="sourceLine" id="cb12-65" data-line-number="65">        Q[current_state, next_state] <span class="op">=</span> Q[current_state, next_state] <span class="op">+</span> alpha <span class="op">*</span> TD</a>
-<a class="sourceLine" id="cb12-66" data-line-number="66">    route <span class="op">=</span> [starting_location]</a>
-<a class="sourceLine" id="cb12-67" data-line-number="67">    next_location <span class="op">=</span> starting_location</a>
-<a class="sourceLine" id="cb12-68" data-line-number="68">    <span class="cf">while</span> (next_location <span class="op">!=</span> ending_location):</a>
-<a class="sourceLine" id="cb12-69" data-line-number="69">        starting_state <span class="op">=</span> location_to_state[starting_location]</a>
-<a class="sourceLine" id="cb12-70" data-line-number="70">        next_state <span class="op">=</span> np.argmax(Q[starting_state,])</a>
-<a class="sourceLine" id="cb12-71" data-line-number="71">        next_location <span class="op">=</span> state_to_location[next_state]</a>
-<a class="sourceLine" id="cb12-72" data-line-number="72">        route.append(next_location)</a>
-<a class="sourceLine" id="cb12-73" data-line-number="73">        starting_location <span class="op">=</span> next_location</a>
-<a class="sourceLine" id="cb12-74" data-line-number="74">    <span class="cf">return</span> route</a>
-<a class="sourceLine" id="cb12-75" data-line-number="75"></a>
-<a class="sourceLine" id="cb12-76" data-line-number="76"><span class="co"># PART 3 - GOING INTO PRODUCTION</span></a>
-<a class="sourceLine" id="cb12-77" data-line-number="77"></a>
-<a class="sourceLine" id="cb12-78" data-line-number="78"><span class="co"># Printing the final route</span></a>
-<a class="sourceLine" id="cb12-79" data-line-number="79"><span class="bu">print</span>(<span class="st">&#39;Route:&#39;</span>)</a>
-<a class="sourceLine" id="cb12-80" data-line-number="80">route(<span class="st">&#39;E&#39;</span>, <span class="st">&#39;G&#39;</span>)</a></code></pre></div>
-<p>By executing this new code several times, we get of course the same two possible optimal paths as before.</p>
-<p>Now let’s tackle the second improvement. There are three ways to add the option of going by the intermediary location K, the second top priority location:</p>
+<a class="sourceLine" id="cb11-3" data-line-number="3">route(<span class="st">&#39;E&#39;</span>, <span class="st">&#39;G&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1">Route:</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">Out[<span class="dv">1</span>]: [<span class="st">&#39;E&#39;</span>, <span class="st">&#39;I&#39;</span>, <span class="st">&#39;J&#39;</span>, <span class="st">&#39;F&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;C&#39;</span>, <span class="st">&#39;G&#39;</span>]</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">Out[<span class="dv">2</span>]: [<span class="st">&#39;E&#39;</span>, <span class="st">&#39;I&#39;</span>, <span class="st">&#39;J&#39;</span>, <span class="st">&#39;K&#39;</span>, <span class="st">&#39;L&#39;</span>, <span class="st">&#39;H&#39;</span>, <span class="st">&#39;G&#39;</span>]</a></code></pre></div>
+<p>Bien, tenemos una primera versión del modelo que funciona bien. Pero podemos mejorarlo de dos maneras. Primero, al automatizar la atribución de recompensas a la ubicación de máxima prioridad, para que no tengamos que hacerlo manualmente. Y segundo, al agregar una función que nos da la opción de ir a una ubicación intermedia antes de ir a la ubicación de máxima prioridad. Esa ubicación intermedia debe estar, por supuesto, en las 3 ubicaciones prioritarias principales. Y, de hecho, en nuestra clasificación de ubicaciones de máxima prioridad, la segunda ubicación de máxima prioridad es la ubicación K. Por lo tanto, para optimizar aún más los flujos de almacén, nuestro robot de almacén autónomo debe ir por la ubicación K para recoger los productos en su camino a la ubicación de máxima prioridad G. Una forma de hacer esto es tener la opción de ir a cualquier ubicación intermedia en el proceso de nuestra función <code>route()</code>. Y esto es exactamente lo que implementaremos como segunda mejora. Pero primero, implementemos la primera mejora, que automatiza la atribución de recompensas.</p>
+<p>La forma de hacerlo es en dos pasos: primero debemos hacer una copia (llamada <code>R_new</code>) de nuestra matriz de recompensa dentro de la cual la función <code>route()</code> actualizará automáticamente la recompensa en la celda de la ubicación final. De hecho, la ubicación final es una de las entradas de la función <code>route()</code>, por lo que al usar nuestro diccionario de <code>location_to_state</code> podemos encontrar fácilmente esa celda y actualizar su recompensa a 1000. Y segundo, debemos incluir toda la lógica del algoritmo de Q-learning (incluido el paso de inicialización) dentro de la función de ruta, justo después de hacer esa actualización de la recompensa en nuestra copia de la matriz de recompensas. De hecho, en nuestra implementación anterior anterior, el proceso de Q-Learning ocurre en la versión original de la matriz de recompensas, que ahora se supone que permanece como está, es decir, se inicializa solo a 1s y 0s. Por lo tanto, debemos incluir el proceso de Q-Learning dentro de la función de ruta y hacer que suceda en nuestra copia <code>R_new</code> de la matriz de recompensas, en lugar de la matriz de recompensas original <code>R</code>. Por lo tanto, nuestra implementación completa se convierte en lo siguiente:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="co"># Optimización de Procesos en un almacén con Q-Learning</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="co"># # Importar las librerías</span></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb13-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="co"># Configuración de los parámetros gamma y alfa para el Q-Learning</span></a>
+<a class="sourceLine" id="cb13-9" data-line-number="9">gamma <span class="op">=</span> <span class="fl">0.75</span></a>
+<a class="sourceLine" id="cb13-10" data-line-number="10">alpha <span class="op">=</span> <span class="fl">0.9</span></a>
+<a class="sourceLine" id="cb13-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb13-12" data-line-number="12"><span class="co"># PARTE 1 - DEFINICIÓN DEL ENTORNO</span></a>
+<a class="sourceLine" id="cb13-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb13-14" data-line-number="14"><span class="co"># Definición de los estados</span></a>
+<a class="sourceLine" id="cb13-15" data-line-number="15">location_to_state <span class="op">=</span> {<span class="st">&#39;A&#39;</span>: <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb13-16" data-line-number="16">                     <span class="st">&#39;B&#39;</span>: <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb13-17" data-line-number="17">                     <span class="st">&#39;C&#39;</span>: <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb13-18" data-line-number="18">                     <span class="st">&#39;D&#39;</span>: <span class="dv">3</span>,</a>
+<a class="sourceLine" id="cb13-19" data-line-number="19">                     <span class="st">&#39;E&#39;</span>: <span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb13-20" data-line-number="20">                     <span class="st">&#39;F&#39;</span>: <span class="dv">5</span>,</a>
+<a class="sourceLine" id="cb13-21" data-line-number="21">                     <span class="st">&#39;G&#39;</span>: <span class="dv">6</span>,</a>
+<a class="sourceLine" id="cb13-22" data-line-number="22">                     <span class="st">&#39;H&#39;</span>: <span class="dv">7</span>,</a>
+<a class="sourceLine" id="cb13-23" data-line-number="23">                     <span class="st">&#39;I&#39;</span>: <span class="dv">8</span>,</a>
+<a class="sourceLine" id="cb13-24" data-line-number="24">                     <span class="st">&#39;J&#39;</span>: <span class="dv">9</span>,</a>
+<a class="sourceLine" id="cb13-25" data-line-number="25">                     <span class="st">&#39;K&#39;</span>: <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb13-26" data-line-number="26">                     <span class="st">&#39;L&#39;</span>: <span class="dv">11</span>}</a>
+<a class="sourceLine" id="cb13-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb13-28" data-line-number="28"><span class="co"># Definición de las acciones</span></a>
+<a class="sourceLine" id="cb13-29" data-line-number="29">actions <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>]</a>
+<a class="sourceLine" id="cb13-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb13-31" data-line-number="31"><span class="co"># Definición de las recompensas</span></a>
+<a class="sourceLine" id="cb13-32" data-line-number="32">R <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb13-33" data-line-number="33">              [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb13-34" data-line-number="34">              [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb13-35" data-line-number="35">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb13-36" data-line-number="36">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb13-37" data-line-number="37">              [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb13-38" data-line-number="38">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb13-39" data-line-number="39">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb13-40" data-line-number="40">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb13-41" data-line-number="41">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb13-42" data-line-number="42">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb13-43" data-line-number="43">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>]])</a>
+<a class="sourceLine" id="cb13-44" data-line-number="44"></a>
+<a class="sourceLine" id="cb13-45" data-line-number="45"><span class="co"># PARTE 2 - CONSTRUCCIÓN DE LA SOLUCIÓN DE IA CON Q-LEARNING</span></a>
+<a class="sourceLine" id="cb13-46" data-line-number="46"></a>
+<a class="sourceLine" id="cb13-47" data-line-number="47"><span class="co"># Crear una función de mapping desde los estados a las ubicaciones</span></a>
+<a class="sourceLine" id="cb13-48" data-line-number="48">state_to_location <span class="op">=</span> {state: location <span class="cf">for</span> location, state <span class="kw">in</span> location_to_state.items()}</a>
+<a class="sourceLine" id="cb13-49" data-line-number="49"></a>
+<a class="sourceLine" id="cb13-50" data-line-number="50"><span class="co"># Crear una función que devuelva el camino más corto desde la ubicación inicial a la final</span></a>
+<a class="sourceLine" id="cb13-51" data-line-number="51"><span class="kw">def</span> route(starting_location, ending_location):</a>
+<a class="sourceLine" id="cb13-52" data-line-number="52">    R_new <span class="op">=</span> np.copy(R)</a>
+<a class="sourceLine" id="cb13-53" data-line-number="53">    ending_state <span class="op">=</span> location_to_state[ending_location]</a>
+<a class="sourceLine" id="cb13-54" data-line-number="54">    R_new[ending_state, ending_state] <span class="op">=</span> <span class="dv">1000</span></a>
+<a class="sourceLine" id="cb13-55" data-line-number="55">    Q <span class="op">=</span> np.array(np.zeros([<span class="dv">12</span>,<span class="dv">12</span>]))</a>
+<a class="sourceLine" id="cb13-56" data-line-number="56">    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</a>
+<a class="sourceLine" id="cb13-57" data-line-number="57">        current_state <span class="op">=</span> np.random.randint(<span class="dv">0</span>,<span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb13-58" data-line-number="58">        playable_actions <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb13-59" data-line-number="59">        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</a>
+<a class="sourceLine" id="cb13-60" data-line-number="60">            <span class="cf">if</span> R_new[current_state, j] <span class="op">&gt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb13-61" data-line-number="61">                playable_actions.append(j)</a>
+<a class="sourceLine" id="cb13-62" data-line-number="62">        next_state <span class="op">=</span> np.random.choice(playable_actions)</a>
+<a class="sourceLine" id="cb13-63" data-line-number="63">        TD <span class="op">=</span> R_new[current_state, next_state]</a>
+<a class="sourceLine" id="cb13-64" data-line-number="64">             <span class="op">+</span> gamma <span class="op">*</span> Q[next_state, np.argmax(Q[next_state,])]</a>
+<a class="sourceLine" id="cb13-65" data-line-number="65">             <span class="op">-</span> Q[current_state, next_state]</a>
+<a class="sourceLine" id="cb13-66" data-line-number="66">        Q[current_state, next_state] <span class="op">=</span> Q[current_state, next_state] <span class="op">+</span> alpha <span class="op">*</span> TD</a>
+<a class="sourceLine" id="cb13-67" data-line-number="67">    route <span class="op">=</span> [starting_location]</a>
+<a class="sourceLine" id="cb13-68" data-line-number="68">    next_location <span class="op">=</span> starting_location</a>
+<a class="sourceLine" id="cb13-69" data-line-number="69">    <span class="cf">while</span> (next_location <span class="op">!=</span> ending_location):</a>
+<a class="sourceLine" id="cb13-70" data-line-number="70">        starting_state <span class="op">=</span> location_to_state[starting_location]</a>
+<a class="sourceLine" id="cb13-71" data-line-number="71">        next_state <span class="op">=</span> np.argmax(Q[starting_state,])</a>
+<a class="sourceLine" id="cb13-72" data-line-number="72">        next_location <span class="op">=</span> state_to_location[next_state]</a>
+<a class="sourceLine" id="cb13-73" data-line-number="73">        route.append(next_location)</a>
+<a class="sourceLine" id="cb13-74" data-line-number="74">        starting_location <span class="op">=</span> next_location</a>
+<a class="sourceLine" id="cb13-75" data-line-number="75">    <span class="cf">return</span> route</a>
+<a class="sourceLine" id="cb13-76" data-line-number="76"></a>
+<a class="sourceLine" id="cb13-77" data-line-number="77"><span class="co"># PARTE 3 - PONER EL MODELO EN PRODUCCIÓN</span></a>
+<a class="sourceLine" id="cb13-78" data-line-number="78"></a>
+<a class="sourceLine" id="cb13-79" data-line-number="79"><span class="co"># Imprimir la ruta final</span></a>
+<a class="sourceLine" id="cb13-80" data-line-number="80"><span class="bu">print</span>(<span class="st">&#39;Route:&#39;</span>)</a>
+<a class="sourceLine" id="cb13-81" data-line-number="81">route(<span class="st">&#39;E&#39;</span>, <span class="st">&#39;G&#39;</span>)</a></code></pre></div>
+<p>Al ejecutar este nuevo código varias veces, obtenemos, por supuesto, las mismas dos posibles rutas óptimas que antes.</p>
+<p>Ahora abordemos la segunda mejora. Hay tres formas de agregar la opción de ir por la ubicación intermedia K, la segunda ubicación de máxima prioridad:</p>
 <ol style="list-style-type: decimal">
-<li>We give a high reward to the action leading from location J to location K. This high reward has to be larger than 1, and below 1000. Indeed it has to be larger than 1 so that the Q-Learning process favors the action leading from J to K, as opposed to the action leading from J to F which has reward 1. And it must be below than 1000 so we have to keep the highest reward on the top priority location, to make sure we end up there. Hence for example, in our rewards matrix we can give a high reward of 500 to the cell in the row of index 9 and the column of index 10, since indeed that cell corresponds to the action leading from location J (state index 9) to location K (state index 10). That way our autonomous warehouse robot will always go by location K on its way to location G. Here is how the matrix of rewards would be in that case:</li>
+<li>Otorgamos una alta recompensa a la acción que lleva de la ubicación J a la ubicación K. Esta alta recompensa debe ser mayor que 1 y menor a 1000. De hecho, debe ser mayor que 1 para que el proceso de Q-Learning favorezca la acción que lleva de J a K, en oposición a la acción que lleva de J a F que tiene la recompensa 1. Y debe ser inferior a 1000, por lo que debemos mantener la recompensa más alta en la ubicación de mayor prioridad para asegurarnos de que terminemos allí. Por lo tanto, por ejemplo, en nuestra matriz de recompensas podemos dar una alta recompensa de 500 a la celda en la fila del índice 9 y la columna del índice 10, ya que de hecho esa celda corresponde a la acción que conduce desde la ubicación J (índice de estado 9) a ubicación K (índice de estado 10). De esa manera, nuestro robot de almacén autónomo siempre irá por la ubicación K en su camino hacia la ubicación G. Así es como sería la matriz de recompensas en ese caso:</li>
 </ol>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" data-line-number="1">    <span class="co"># Defining the rewards</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">    R <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">              [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">              [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb13-5" data-line-number="5">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb13-6" data-line-number="6">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb13-7" data-line-number="7">              [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb13-8" data-line-number="8">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb13-9" data-line-number="9">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
-<a class="sourceLine" id="cb13-10" data-line-number="10">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb13-11" data-line-number="11">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">500</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb13-12" data-line-number="12">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
-<a class="sourceLine" id="cb13-13" data-line-number="13">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>]])</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co"># Definición de las recompensas</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">R <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">          [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">          [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb14-7" data-line-number="7">          [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb14-8" data-line-number="8">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb14-9" data-line-number="9">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb14-10" data-line-number="10">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb14-11" data-line-number="11">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">500</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb14-12" data-line-number="12">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb14-13" data-line-number="13">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>]])</a></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
-<li>We give a bad reward to the action leading from location J to location F. This bad reward just has to be below 0. Indeed by punishing this action with a bad reward the Q-Learning process will never favor that action leading from J to F. Hence for example, in our rewards matrix we can give a bad reward of -500 to the cell in the row of index 9 and the column of index 5, since indeed that cell corresponds to the action leading from location J (state index 9) to location F (state index 5). That way our autonomous warehouse robot will never go trough location F on its way to location G. Here is how the matrix of rewards would be in that case:</li>
+<li>Damos una mala recompensa a la acción que lleva de la ubicación J a la ubicación F. Esta mala recompensa solo tiene que ser inferior a 0. De hecho, al castigar esta acción con una mala recompensa, el proceso de Q-Learning nunca favorecerá esa acción que lleva de J a F. Por lo tanto, por ejemplo, en nuestra matriz de recompensas podemos dar una mala recompensa de -500 a la celda en la fila del índice 9 y la columna del índice 5, ya que esa celda corresponde a la acción que conduce desde la ubicación J (estado con índice 9) a la ubicación F (estado con índice 5). De esa manera, nuestro robot de almacén autónomo nunca pasará por la ubicación F en su camino hacia la ubicación G. Así es como sería la matriz de recompensas en ese caso:</li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1">    <span class="co"># Defining the rewards</span></a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">    R <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">              [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">              [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb14-7" data-line-number="7">              [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb14-8" data-line-number="8">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb14-9" data-line-number="9">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
-<a class="sourceLine" id="cb14-10" data-line-number="10">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb14-11" data-line-number="11">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">500</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb14-12" data-line-number="12">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
-<a class="sourceLine" id="cb14-13" data-line-number="13">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>]])</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co"># Definición de las recompensas</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">R <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">          [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">          [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">          [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb15-8" data-line-number="8">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb15-9" data-line-number="9">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb15-10" data-line-number="10">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb15-11" data-line-number="11">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">500</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb15-12" data-line-number="12">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb15-13" data-line-number="13">          [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>]])</a></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
-<li>We make an additional best_route() function, taking as inputs the three starting, intermediary and ending locations, that will call our previous route() function twice, a first time from the starting location to the intermediary location, and a second time from the intermediary location to the ending location.</li>
+<li>Realizamos una función adicional <code>best_route()</code>, tomando como entradas las tres ubicaciones inicial, intermedia y final, que llamará a nuestra función <code>route()</code> anterior dos veces, una primera vez desde la ubicación inicial a la ubicación intermedia, y un segunda vez desde la ubicación intermedia hasta la ubicación final.</li>
 </ol>
-<p>The first two ideas are easy to implement manually, but very tricky to implement automatically. Indeed, it is easy to find automatically the index of the intermediary location where we want to go by, but very difficult to get the index of the location that leads to that intermediary location, since it depends on the starting location and the ending location. You can try to implement either the first or second idea, you will see what I mean. Accordingly, we will implement the third idea, which can be coded in just two extra lines of code:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co"># Making the final function that returns the optimal route</span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="kw">def</span> best_route(starting_location, intermediary_location, ending_location):</a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">    <span class="cf">return</span> route(starting_location, intermediary_location)</a>
-<a class="sourceLine" id="cb15-4" data-line-number="4">           <span class="op">+</span> route(intermediary_location, ending_location)[<span class="dv">1</span>:]</a></code></pre></div>
-<p>Eventually, the final code including that major improvement for our warehouse flows optimization, becomes:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co"># Artificial Intelligence for Business</span></a>
-<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="co"># Optimizing Warehouse Flows with Q-Learning</span></a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="co"># Importing the libraries</span></a>
-<a class="sourceLine" id="cb16-5" data-line-number="5"><span class="im">import</span> numpy <span class="im">as</span> np</a>
-<a class="sourceLine" id="cb16-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb16-7" data-line-number="7"><span class="co"># Setting the parameters gamma and alpha for the Q-Learning</span></a>
-<a class="sourceLine" id="cb16-8" data-line-number="8">gamma <span class="op">=</span> <span class="fl">0.75</span></a>
-<a class="sourceLine" id="cb16-9" data-line-number="9">alpha <span class="op">=</span> <span class="fl">0.9</span></a>
-<a class="sourceLine" id="cb16-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb16-11" data-line-number="11"><span class="co"># PART 1 - DEFINING THE ENVIRONMENT</span></a>
-<a class="sourceLine" id="cb16-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb16-13" data-line-number="13"><span class="co"># Defining the states</span></a>
-<a class="sourceLine" id="cb16-14" data-line-number="14">location_to_state <span class="op">=</span> {<span class="st">&#39;A&#39;</span>: <span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb16-15" data-line-number="15">                     <span class="st">&#39;B&#39;</span>: <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb16-16" data-line-number="16">                     <span class="st">&#39;C&#39;</span>: <span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb16-17" data-line-number="17">                     <span class="st">&#39;D&#39;</span>: <span class="dv">3</span>,</a>
-<a class="sourceLine" id="cb16-18" data-line-number="18">                     <span class="st">&#39;E&#39;</span>: <span class="dv">4</span>,</a>
-<a class="sourceLine" id="cb16-19" data-line-number="19">                     <span class="st">&#39;F&#39;</span>: <span class="dv">5</span>,</a>
-<a class="sourceLine" id="cb16-20" data-line-number="20">                     <span class="st">&#39;G&#39;</span>: <span class="dv">6</span>,</a>
-<a class="sourceLine" id="cb16-21" data-line-number="21">                     <span class="st">&#39;H&#39;</span>: <span class="dv">7</span>,</a>
-<a class="sourceLine" id="cb16-22" data-line-number="22">                     <span class="st">&#39;I&#39;</span>: <span class="dv">8</span>,</a>
-<a class="sourceLine" id="cb16-23" data-line-number="23">                     <span class="st">&#39;J&#39;</span>: <span class="dv">9</span>,</a>
-<a class="sourceLine" id="cb16-24" data-line-number="24">                     <span class="st">&#39;K&#39;</span>: <span class="dv">10</span>,</a>
-<a class="sourceLine" id="cb16-25" data-line-number="25">                     <span class="st">&#39;L&#39;</span>: <span class="dv">11</span>}</a>
-<a class="sourceLine" id="cb16-26" data-line-number="26"></a>
-<a class="sourceLine" id="cb16-27" data-line-number="27"><span class="co"># Defining the actions</span></a>
-<a class="sourceLine" id="cb16-28" data-line-number="28">actions <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>]</a>
-<a class="sourceLine" id="cb16-29" data-line-number="29"></a>
-<a class="sourceLine" id="cb16-30" data-line-number="30"><span class="co"># Defining the rewards</span></a>
-<a class="sourceLine" id="cb16-31" data-line-number="31">R <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb16-32" data-line-number="32">              [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb16-33" data-line-number="33">              [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb16-34" data-line-number="34">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb16-35" data-line-number="35">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb16-36" data-line-number="36">              [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb16-37" data-line-number="37">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb16-38" data-line-number="38">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
-<a class="sourceLine" id="cb16-39" data-line-number="39">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb16-40" data-line-number="40">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb16-41" data-line-number="41">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
-<a class="sourceLine" id="cb16-42" data-line-number="42">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>]])</a>
-<a class="sourceLine" id="cb16-43" data-line-number="43"></a>
-<a class="sourceLine" id="cb16-44" data-line-number="44"><span class="co"># PART 2 - BUILDING THE AI SOLUTION WITH Q-LEARNING</span></a>
-<a class="sourceLine" id="cb16-45" data-line-number="45"></a>
-<a class="sourceLine" id="cb16-46" data-line-number="46"><span class="co"># Making a mapping from the states to the locations</span></a>
-<a class="sourceLine" id="cb16-47" data-line-number="47">state_to_location <span class="op">=</span> {state: location <span class="cf">for</span> location, state <span class="kw">in</span> location_to_state.items()}</a>
-<a class="sourceLine" id="cb16-48" data-line-number="48"></a>
-<a class="sourceLine" id="cb16-49" data-line-number="49"><span class="co"># Making a function that returns the shortest route from a starting to ending location</span></a>
-<a class="sourceLine" id="cb16-50" data-line-number="50"><span class="kw">def</span> route(starting_location, ending_location):</a>
-<a class="sourceLine" id="cb16-51" data-line-number="51">    R_new <span class="op">=</span> np.copy(R)</a>
-<a class="sourceLine" id="cb16-52" data-line-number="52">    ending_state <span class="op">=</span> location_to_state[ending_location]</a>
-<a class="sourceLine" id="cb16-53" data-line-number="53">    R_new[ending_state, ending_state] <span class="op">=</span> <span class="dv">1000</span></a>
-<a class="sourceLine" id="cb16-54" data-line-number="54">    Q <span class="op">=</span> np.array(np.zeros([<span class="dv">12</span>,<span class="dv">12</span>]))</a>
-<a class="sourceLine" id="cb16-55" data-line-number="55">    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</a>
-<a class="sourceLine" id="cb16-56" data-line-number="56">        current_state <span class="op">=</span> np.random.randint(<span class="dv">0</span>,<span class="dv">12</span>)</a>
-<a class="sourceLine" id="cb16-57" data-line-number="57">        playable_actions <span class="op">=</span> []</a>
-<a class="sourceLine" id="cb16-58" data-line-number="58">        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</a>
-<a class="sourceLine" id="cb16-59" data-line-number="59">            <span class="cf">if</span> R_new[current_state, j] <span class="op">&gt;</span> <span class="dv">0</span>:</a>
-<a class="sourceLine" id="cb16-60" data-line-number="60">                playable_actions.append(j)</a>
-<a class="sourceLine" id="cb16-61" data-line-number="61">        next_state <span class="op">=</span> np.random.choice(playable_actions)</a>
-<a class="sourceLine" id="cb16-62" data-line-number="62">        TD <span class="op">=</span> R_new[current_state, next_state]</a>
-<a class="sourceLine" id="cb16-63" data-line-number="63">             <span class="op">+</span> gamma <span class="op">*</span> Q[next_state, np.argmax(Q[next_state,])]</a>
-<a class="sourceLine" id="cb16-64" data-line-number="64">             <span class="op">-</span> Q[current_state, next_state]</a>
-<a class="sourceLine" id="cb16-65" data-line-number="65">        Q[current_state, next_state] <span class="op">=</span> Q[current_state, next_state] <span class="op">+</span> alpha <span class="op">*</span> TD</a>
-<a class="sourceLine" id="cb16-66" data-line-number="66">    route <span class="op">=</span> [starting_location]</a>
-<a class="sourceLine" id="cb16-67" data-line-number="67">    next_location <span class="op">=</span> starting_location</a>
-<a class="sourceLine" id="cb16-68" data-line-number="68">    <span class="cf">while</span> (next_location <span class="op">!=</span> ending_location):</a>
-<a class="sourceLine" id="cb16-69" data-line-number="69">        starting_state <span class="op">=</span> location_to_state[starting_location]</a>
-<a class="sourceLine" id="cb16-70" data-line-number="70">        next_state <span class="op">=</span> np.argmax(Q[starting_state,])</a>
-<a class="sourceLine" id="cb16-71" data-line-number="71">        next_location <span class="op">=</span> state_to_location[next_state]</a>
-<a class="sourceLine" id="cb16-72" data-line-number="72">        route.append(next_location)</a>
-<a class="sourceLine" id="cb16-73" data-line-number="73">        starting_location <span class="op">=</span> next_location</a>
-<a class="sourceLine" id="cb16-74" data-line-number="74">    <span class="cf">return</span> route</a>
-<a class="sourceLine" id="cb16-75" data-line-number="75"></a>
-<a class="sourceLine" id="cb16-76" data-line-number="76"><span class="co"># PART 3 - GOING INTO PRODUCTION</span></a>
-<a class="sourceLine" id="cb16-77" data-line-number="77"></a>
-<a class="sourceLine" id="cb16-78" data-line-number="78"><span class="co"># Making the final function that returns the optimal route</span></a>
-<a class="sourceLine" id="cb16-79" data-line-number="79"><span class="kw">def</span> best_route(starting_location, intermediary_location, ending_location):</a>
-<a class="sourceLine" id="cb16-80" data-line-number="80">    <span class="cf">return</span> route(starting_location, intermediary_location)</a>
-<a class="sourceLine" id="cb16-81" data-line-number="81">           <span class="op">+</span> route(intermediary_location, ending_location)[<span class="dv">1</span>:]</a>
-<a class="sourceLine" id="cb16-82" data-line-number="82"></a>
-<a class="sourceLine" id="cb16-83" data-line-number="83"><span class="co"># Printing the final route</span></a>
-<a class="sourceLine" id="cb16-84" data-line-number="84"><span class="bu">print</span>(<span class="st">&#39;Route:&#39;</span>)</a>
-<a class="sourceLine" id="cb16-85" data-line-number="85">best_route(<span class="st">&#39;E&#39;</span>, <span class="st">&#39;K&#39;</span>, <span class="st">&#39;G&#39;</span>)</a></code></pre></div>
-<p>By executing this whole new code as many times as we want, we will always get the same expected output:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" data-line-number="1">Best Route:</a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">Out[<span class="dv">1</span>]: [<span class="st">&#39;E&#39;</span>, <span class="st">&#39;I&#39;</span>, <span class="st">&#39;J&#39;</span>, <span class="st">&#39;K&#39;</span>, <span class="st">&#39;L&#39;</span>, <span class="st">&#39;H&#39;</span>, <span class="st">&#39;G&#39;</span>]</a></code></pre></div>
+<p>Las dos primeras ideas son fáciles de implementar manualmente, pero muy difíciles de implementar automáticamente. De hecho, es fácil encontrar automáticamente el índice de la ubicación intermedia donde queremos ir, pero es muy difícil obtener el índice de la ubicación que lleva a esa ubicación intermedia, ya que depende de la ubicación inicial y la ubicación final. Puedes intentar implementar la primera o la segunda idea, y verás lo que quiero decir. En consecuencia, implementaremos la tercera idea, que puede programarse en solo dos líneas adicionales de código:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co"># Hacer la función final que devuelve la ruta óptima</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw">def</span> best_route(starting_location, intermediary_location, ending_location):</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">    <span class="cf">return</span> route(starting_location, intermediary_location)</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">           <span class="op">+</span> route(intermediary_location, ending_location)[<span class="dv">1</span>:]</a></code></pre></div>
+<p>Finalmente, el código final que incluye esa mejora importante para la optimización de los flujos de nuestro almacén se convierte en:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="co"># Optimización de Procesos en un almacén con Q-Learning</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb17-4" data-line-number="4"><span class="co"># # Importar las librerías</span></a>
+<a class="sourceLine" id="cb17-5" data-line-number="5"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb17-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb17-7" data-line-number="7"><span class="co"># Configuración de los parámetros gamma y alfa para el Q-Learning</span></a>
+<a class="sourceLine" id="cb17-8" data-line-number="8">gamma <span class="op">=</span> <span class="fl">0.75</span></a>
+<a class="sourceLine" id="cb17-9" data-line-number="9">alpha <span class="op">=</span> <span class="fl">0.9</span></a>
+<a class="sourceLine" id="cb17-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb17-11" data-line-number="11"><span class="co"># PARTE 1 - DEFINICIÓN DEL ENTORNO</span></a>
+<a class="sourceLine" id="cb17-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb17-13" data-line-number="13"><span class="co"># Definición de los estados</span></a>
+<a class="sourceLine" id="cb17-14" data-line-number="14">location_to_state <span class="op">=</span> {<span class="st">&#39;A&#39;</span>: <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb17-15" data-line-number="15">                     <span class="st">&#39;B&#39;</span>: <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb17-16" data-line-number="16">                     <span class="st">&#39;C&#39;</span>: <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb17-17" data-line-number="17">                     <span class="st">&#39;D&#39;</span>: <span class="dv">3</span>,</a>
+<a class="sourceLine" id="cb17-18" data-line-number="18">                     <span class="st">&#39;E&#39;</span>: <span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb17-19" data-line-number="19">                     <span class="st">&#39;F&#39;</span>: <span class="dv">5</span>,</a>
+<a class="sourceLine" id="cb17-20" data-line-number="20">                     <span class="st">&#39;G&#39;</span>: <span class="dv">6</span>,</a>
+<a class="sourceLine" id="cb17-21" data-line-number="21">                     <span class="st">&#39;H&#39;</span>: <span class="dv">7</span>,</a>
+<a class="sourceLine" id="cb17-22" data-line-number="22">                     <span class="st">&#39;I&#39;</span>: <span class="dv">8</span>,</a>
+<a class="sourceLine" id="cb17-23" data-line-number="23">                     <span class="st">&#39;J&#39;</span>: <span class="dv">9</span>,</a>
+<a class="sourceLine" id="cb17-24" data-line-number="24">                     <span class="st">&#39;K&#39;</span>: <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb17-25" data-line-number="25">                     <span class="st">&#39;L&#39;</span>: <span class="dv">11</span>}</a>
+<a class="sourceLine" id="cb17-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb17-27" data-line-number="27"><span class="co"># Definición de las acciones</span></a>
+<a class="sourceLine" id="cb17-28" data-line-number="28">actions <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>]</a>
+<a class="sourceLine" id="cb17-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb17-30" data-line-number="30"><span class="co"># Definición de las recompensas</span></a>
+<a class="sourceLine" id="cb17-31" data-line-number="31">R <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb17-32" data-line-number="32">              [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb17-33" data-line-number="33">              [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb17-34" data-line-number="34">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb17-35" data-line-number="35">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb17-36" data-line-number="36">              [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb17-37" data-line-number="37">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb17-38" data-line-number="38">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb17-39" data-line-number="39">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb17-40" data-line-number="40">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb17-41" data-line-number="41">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb17-42" data-line-number="42">              [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>]])</a>
+<a class="sourceLine" id="cb17-43" data-line-number="43"></a>
+<a class="sourceLine" id="cb17-44" data-line-number="44"><span class="co"># PARTE 2 - CONSTRUCCIÓN DE LA SOLUCIÓN DE IA CON Q-LEARNING</span></a>
+<a class="sourceLine" id="cb17-45" data-line-number="45"></a>
+<a class="sourceLine" id="cb17-46" data-line-number="46"><span class="co"># Crear una función de mapping desde los estados a las ubicaciones</span></a>
+<a class="sourceLine" id="cb17-47" data-line-number="47">state_to_location <span class="op">=</span> {state: location <span class="cf">for</span> location, state <span class="kw">in</span> location_to_state.items()}</a>
+<a class="sourceLine" id="cb17-48" data-line-number="48"></a>
+<a class="sourceLine" id="cb17-49" data-line-number="49"><span class="co"># Crear una función que devuelva el camino más corto desde la ubicación inicial a la final</span></a>
+<a class="sourceLine" id="cb17-50" data-line-number="50"><span class="kw">def</span> route(starting_location, ending_location):</a>
+<a class="sourceLine" id="cb17-51" data-line-number="51">    R_new <span class="op">=</span> np.copy(R)</a>
+<a class="sourceLine" id="cb17-52" data-line-number="52">    ending_state <span class="op">=</span> location_to_state[ending_location]</a>
+<a class="sourceLine" id="cb17-53" data-line-number="53">    R_new[ending_state, ending_state] <span class="op">=</span> <span class="dv">1000</span></a>
+<a class="sourceLine" id="cb17-54" data-line-number="54">    Q <span class="op">=</span> np.array(np.zeros([<span class="dv">12</span>,<span class="dv">12</span>]))</a>
+<a class="sourceLine" id="cb17-55" data-line-number="55">    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</a>
+<a class="sourceLine" id="cb17-56" data-line-number="56">        current_state <span class="op">=</span> np.random.randint(<span class="dv">0</span>,<span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb17-57" data-line-number="57">        playable_actions <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb17-58" data-line-number="58">        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</a>
+<a class="sourceLine" id="cb17-59" data-line-number="59">            <span class="cf">if</span> R_new[current_state, j] <span class="op">&gt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb17-60" data-line-number="60">                playable_actions.append(j)</a>
+<a class="sourceLine" id="cb17-61" data-line-number="61">        next_state <span class="op">=</span> np.random.choice(playable_actions)</a>
+<a class="sourceLine" id="cb17-62" data-line-number="62">        TD <span class="op">=</span> R_new[current_state, next_state]</a>
+<a class="sourceLine" id="cb17-63" data-line-number="63">             <span class="op">+</span> gamma <span class="op">*</span> Q[next_state, np.argmax(Q[next_state,])]</a>
+<a class="sourceLine" id="cb17-64" data-line-number="64">             <span class="op">-</span> Q[current_state, next_state]</a>
+<a class="sourceLine" id="cb17-65" data-line-number="65">        Q[current_state, next_state] <span class="op">=</span> Q[current_state, next_state] <span class="op">+</span> alpha <span class="op">*</span> TD</a>
+<a class="sourceLine" id="cb17-66" data-line-number="66">    route <span class="op">=</span> [starting_location]</a>
+<a class="sourceLine" id="cb17-67" data-line-number="67">    next_location <span class="op">=</span> starting_location</a>
+<a class="sourceLine" id="cb17-68" data-line-number="68">    <span class="cf">while</span> (next_location <span class="op">!=</span> ending_location):</a>
+<a class="sourceLine" id="cb17-69" data-line-number="69">        starting_state <span class="op">=</span> location_to_state[starting_location]</a>
+<a class="sourceLine" id="cb17-70" data-line-number="70">        next_state <span class="op">=</span> np.argmax(Q[starting_state,])</a>
+<a class="sourceLine" id="cb17-71" data-line-number="71">        next_location <span class="op">=</span> state_to_location[next_state]</a>
+<a class="sourceLine" id="cb17-72" data-line-number="72">        route.append(next_location)</a>
+<a class="sourceLine" id="cb17-73" data-line-number="73">        starting_location <span class="op">=</span> next_location</a>
+<a class="sourceLine" id="cb17-74" data-line-number="74">    <span class="cf">return</span> route</a>
+<a class="sourceLine" id="cb17-75" data-line-number="75"></a>
+<a class="sourceLine" id="cb17-76" data-line-number="76"><span class="co"># PARTE 3 - PONER EL MODELO EN PRODUCCIÓN</span></a>
+<a class="sourceLine" id="cb17-77" data-line-number="77"></a>
+<a class="sourceLine" id="cb17-78" data-line-number="78"><span class="co"># Crear la función final que devuelve la ruta óptima</span></a>
+<a class="sourceLine" id="cb17-79" data-line-number="79"><span class="kw">def</span> best_route(starting_location, intermediary_location, ending_location):</a>
+<a class="sourceLine" id="cb17-80" data-line-number="80">    <span class="cf">return</span> route(starting_location, intermediary_location)</a>
+<a class="sourceLine" id="cb17-81" data-line-number="81">           <span class="op">+</span> route(intermediary_location, ending_location)[<span class="dv">1</span>:]</a>
+<a class="sourceLine" id="cb17-82" data-line-number="82"></a>
+<a class="sourceLine" id="cb17-83" data-line-number="83"><span class="co"># Imprimir la ruta final</span></a>
+<a class="sourceLine" id="cb17-84" data-line-number="84"><span class="bu">print</span>(<span class="st">&#39;Route:&#39;</span>)</a>
+<a class="sourceLine" id="cb17-85" data-line-number="85">best_route(<span class="st">&#39;E&#39;</span>, <span class="st">&#39;K&#39;</span>, <span class="st">&#39;G&#39;</span>)</a></code></pre></div>
+<p>Al ejecutar este código completamente nuevo tantas veces como queramos, siempre obtendremos el mismo resultado esperado:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb18-1" data-line-number="1">Best Route:</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">Out[<span class="dv">1</span>]: [<span class="st">&#39;E&#39;</span>, <span class="st">&#39;I&#39;</span>, <span class="st">&#39;J&#39;</span>, <span class="st">&#39;K&#39;</span>, <span class="st">&#39;L&#39;</span>, <span class="st">&#39;H&#39;</span>, <span class="st">&#39;G&#39;</span>]</a></code></pre></div>
 
 </div>
 </div>

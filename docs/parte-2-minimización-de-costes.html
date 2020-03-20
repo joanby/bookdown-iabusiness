@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Parte 2 Parte 2 - Minimización de Costes | Inteligencia Artificial aplicada a Negocios y Empresas</title>
+  <meta name="description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Parte 2 Parte 2 - Minimización de Costes | Inteligencia Artificial aplicada a Negocios y Empresas" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7" />
+  <meta property="og:image" content="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7Images/cover.jpg" />
+  <meta property="og:description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
+  <meta name="github-repo" content="https://github.com/joanby/ia4business" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Parte 2 Parte 2 - Minimización de Costes | Inteligencia Artificial aplicada a Negocios y Empresas" />
+  
+  <meta name="twitter:description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
+  <meta name="twitter:image" content="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7Images/cover.jpg" />
+
+<meta name="author" content="Hadelin de Ponteves y Kirill Ermenko" />
+
+
+<meta name="date" content="2020-03-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="Images/apple-icon-120x120.png" />
+  <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="optimización-de-procesos.html"/>
+<link rel="next" href="part-3-maximizing-revenues.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Inteligencia Artificial aplicada Negocios y Empresas</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introducción</a></li>
+<li class="chapter" data-level="1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html"><i class="fa fa-check"></i><b>1</b> Optimización de Procesos</a><ul>
+<li class="chapter" data-level="1.1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#caso-práctico-optimización-de-tareas-en-un-almacén-de-comercio-electrónico"><i class="fa fa-check"></i><b>1.1</b> Caso Práctico: Optimización de tareas en un almacén de comercio electrónico</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#problema-a-resolver"><i class="fa fa-check"></i><b>1.1.1</b> Problema a resolver</a></li>
+<li class="chapter" data-level="1.1.2" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#entorno-a-definir"><i class="fa fa-check"></i><b>1.1.2</b> Entorno a definir</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#solución-de-inteligencia-artificial"><i class="fa fa-check"></i><b>1.2</b> Solución de Inteligencia Artificial</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#proceso-de-decisión-de-markov"><i class="fa fa-check"></i><b>1.2.1</b> Proceso de Decisión de Markov</a></li>
+<li class="chapter" data-level="1.2.2" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#q-learning"><i class="fa fa-check"></i><b>1.2.2</b> Q-Learning</a></li>
+<li class="chapter" data-level="1.2.3" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#el-algoritmo-de-q-learning-al-completo"><i class="fa fa-check"></i><b>1.2.3</b> El algoritmo de Q-Learning al completo</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#implementación"><i class="fa fa-check"></i><b>1.3</b> Implementación</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html"><i class="fa fa-check"></i><b>2</b> Parte 2 - Minimización de Costes</a><ul>
+<li class="chapter" data-level="2.1" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#caso-práctico-minimización-de-costes-en-el-consumo-energético-de-un-centro-de-datos"><i class="fa fa-check"></i><b>2.1</b> Caso Práctico: Minimización de Costes en el Consumo Energético de un Centro de Datos</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#problema-a-resolver-1"><i class="fa fa-check"></i><b>2.1.1</b> Problema a resolver</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#solución-de-ia"><i class="fa fa-check"></i><b>2.2</b> Solución de IA</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#q-learning-en-deep-learning"><i class="fa fa-check"></i><b>2.2.1</b> Q-Learning en Deep Learning</a></li>
+<li class="chapter" data-level="2.2.2" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#experience-replay"><i class="fa fa-check"></i><b>2.2.2</b> Experience Replay</a></li>
+<li class="chapter" data-level="2.2.3" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#el-cerebro"><i class="fa fa-check"></i><b>2.2.3</b> El cerebro</a></li>
+<li class="chapter" data-level="2.2.4" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#el-algoritmo-de-deep-q-learning-al-completo"><i class="fa fa-check"></i><b>2.2.4</b> El algoritmo de Deep Q-Learning al completo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#implementation"><i class="fa fa-check"></i><b>2.3</b> Implementation</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="part-3-maximizing-revenues.html"><a href="part-3-maximizing-revenues.html"><i class="fa fa-check"></i><b>3</b> Part 3 - Maximizing Revenues</a><ul>
+<li class="chapter" data-level="3.1" data-path="part-3-maximizing-revenues.html"><a href="part-3-maximizing-revenues.html#case-study-maximizing-revenue-of-an-online-retail-business"><i class="fa fa-check"></i><b>3.1</b> Case Study: Maximizing Revenue of an Online Retail Business</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="part-3-maximizing-revenues.html"><a href="part-3-maximizing-revenues.html#problem-to-solve"><i class="fa fa-check"></i><b>3.1.1</b> Problem to solve</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="4" data-path="annex-1-artificial-neural-networks.html"><a href="annex-1-artificial-neural-networks.html"><i class="fa fa-check"></i><b>4</b> Annex 1: Artificial Neural Networks</a></li>
+<li class="chapter" data-level="5" data-path="annex-2-three-extra-ai-models.html"><a href="annex-2-three-extra-ai-models.html"><i class="fa fa-check"></i><b>5</b> Annex 2: Three Extra AI Models</a></li>
+<li class="chapter" data-level="6" data-path="annex-3-questions-and-answers.html"><a href="annex-3-questions-and-answers.html"><i class="fa fa-check"></i><b>6</b> Annex 3: Questions and Answers</a></li>
+<li class="divider"></li>
+<li><a href="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7" target="blank">Curso en Udemy</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Inteligencia Artificial aplicada a Negocios y Empresas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="parte-2---minimización-de-costes" class="section level1">
+<h1><span class="header-section-number">Parte 2</span> Parte 2 - Minimización de Costes</h1>
+<p>¡Felicitaciones por arrasar en el primer caso de estudio! Pasemos a una IA nueva y más avanzada.</p>
+<div id="caso-práctico-minimización-de-costes-en-el-consumo-energético-de-un-centro-de-datos" class="section level2">
+<h2><span class="header-section-number">2.1</span> Caso Práctico: Minimización de Costes en el Consumo Energético de un Centro de Datos</h2>
+<div id="problema-a-resolver-1" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Problema a resolver</h3>
+<p>En 2016, <a href="https://deepmind.com/blog/deepmind-ai-reduces-google-data-centre-cooling-bill-40/">la IA DeepMind minimizó una gran parte del costo de Google al reducir la factura de enfriamiento del centro de datos de Google en 40%</a> utilizando su modelo de IA DQN (Deep Q-Learning). En este caso práctico, haremos algo muy similar. Configuraremos nuestro propio entorno de servidor y construiremos una IA que controlará el enfriamiento / calentamiento del servidor para que se mantenga en un rango óptimo de temperaturas mientras se ahorra la máxima energía, minimizando así los costes. Y tal como lo hizo la IA de DeepMind, nuestro objetivo será lograr al menos un 40% de ahorro de energía.</p>
+<div id="entorno-a-definir-1" class="section level4">
+<h4><span class="header-section-number">2.1.1.1</span> Entorno a definir</h4>
+<p>Antes de definir los estados, las acciones y las recompensas, debemos explicar cómo funciona el servidor. Lo haremos en varios pasos. Primero, enumeraremos todos los parámetros y variables del entorno por los cuales se controla el servidor. Después de eso, estableceremos la suposición esencial del problema, en la cual nuestra IA dependerá para proporcionar una solución. Luego especificaremos cómo simularemos todo el proceso. Y eventualmente explicaremos el funcionamiento general del servidor y cómo la IA desempeña su papel.</p>
+<p><strong>Parámetros</strong></p>
+<ul>
+<li>la temperatura atmosférica promedio durante un mes</li>
+<li>el rango óptimo de temperaturas del servidor, que será <span class="math inline">\([18 \degree \textrm{C}, 24 \degree \textrm{C}]\)</span></li>
+<li>la temperatura mínima del servidor por debajo de la cual no funciona, que será <span class="math inline">\(-20 \degree \textrm {C}\)</span></li>
+<li>la temperatura máxima del servidor por encima de la cual no funciona, que será de <span class="math inline">\(80 \degree \textrm {C}\)</span></li>
+<li>el número mínimo de usuarios en el servidor, que será 10</li>
+<li>el número máximo de usuarios en el servidor, que será de 100</li>
+<li>el número máximo de usuarios en el servidor que puede subir o bajar por minuto, que será 5</li>
+<li>la tasa mínima de transmisión de datos en el servidor, que será 20</li>
+<li>la velocidad máxima de transmisión de datos en el servidor, que será de 300</li>
+<li>la velocidad máxima de transmisión de datos que puede subir o bajar por minuto, que será 10</li>
+</ul>
+<p><strong>Variables:</strong></p>
+<ul>
+<li>la temperatura del servidor en cualquier momento</li>
+<li>la cantidad de usuarios en el servidor en cualquier momento</li>
+<li>la velocidad de transmisión de datos en cualquier minuto</li>
+<li>la energía gastada por la IA en el servidor (para enfriarlo o calentarlo) en cualquier momento</li>
+<li>la energía gastada por el sistema de enfriamiento integrado del servidor que automáticamente lleva la temperatura del servidor al rango óptimo cada vez que la temperatura del servidor sale de este rango óptimo</li>
+</ul>
+<p>Todos estos parámetros y variables serán parte de nuestro entorno de servidor e influirán en las acciones de la IA en el servidor.</p>
+<p>A continuación, expliquemos los dos supuestos básicos del entorno. Es importante comprender que estos supuestos no están relacionados con la inteligencia artificial, sino que se utilizan para simplificar el entorno para que podamos centrarnos al máximo en la solución de inteligencia artificial.</p>
+<p><strong>Suposiciones:</strong></p>
+<p>Nos basaremos en los siguientes dos supuestos esenciales:</p>
+<p><strong>Supuesto 1: la temperatura del servidor se puede aproximar mediante Regresión lineal múltiple, mediante una función lineal de la temperatura atmosférica, el número de usuarios y la velocidad de transmisión de datos</strong>:</p>
+<p><span class="math display">\[\textrm{temp. del server} = b_0 + b_1 \times \textrm{temp. atmosf.} + b_2 \times \textrm{n. de usuarios} + b_3 \times \textrm{ratio de trans. de datos} \]</span></p>
+<p>donde <span class="math inline">\(b_0 \in \mathbb{R}\)</span>, <span class="math inline">\(b_1&gt;0\)</span>, <span class="math inline">\(b_2&gt;0\)</span> y <span class="math inline">\(b_3&gt;0\)</span>.</p>
+<p>La razón de ser de este supuesto y la razón por la cual <span class="math inline">\(b_1&gt;0\)</span>, <span class="math inline">\(b_2&gt;0\)</span> y <span class="math inline">\(b_3&gt;0\)</span> son fáciles de entender de entender. De hecho, tiene sentido que cuando la temperatura atmosférica aumenta, la temperatura del servidor aumenta. Además, cuanto más usuarios estén activos en el servidor, más gastará el servidor para manejarlos y, por lo tanto, mayor será la temperatura del servidor. Y finalmente, por supuesto, mientras más datos se transmitan dentro del servidor, más gastará el servidor para procesarlo y, por lo tanto, la temperatura más alta del servidor será. Y para fines de simplicidad, solo suponemos que estas correlaciones son lineales. Sin embargo, podría ejecutarse totalmente la misma simulación suponiendo que son cuadráticos o logarítmicos. Siéntete libre de retocar el modelo.</p>
+<p>Finalmente, supongamos que después de realizar esta Regresión lineal múltiple, obtuvimos los siguientes valores de los coeficientes: <span class="math inline">\(b_0 = 0\)</span>, <span class="math inline">\(b_1 = 1\)</span>, <span class="math inline">\(b_2 = 1.25\)</span> y <span class="math inline">\(b_3 = 1.25\)</span>. En consecuencia:</p>
+<p><span class="math display">\[\textrm{temp. del server} = \textrm{temp. atmosf.} + 1.25 \times \textrm{n. de usuarios} + 1.25 \times \textrm{ratio de trans. de datos} \]</span></p>
+<p><strong>Supuesto 2: la energía gastada por un sistema (nuestra IA o el sistema de enfriamiento integrado del servidor) que cambia la temperatura del servidor de <span class="math inline">\(T_t\)</span> a <span class="math inline">\(T_{t + 1}\)</span> en 1 unidad de tiempo (aquí 1 minuto), se puede aproximar nuevamente mediante regresión mediante una función lineal del cambio absoluto de temperatura del servidor</strong>:</p>
+<p><span class="math display">\[E_t = \alpha |\Delta T_t| + \beta = \alpha |T_{t+1} - T_t| + \beta\]</span></p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(E_t\)</span> es la energía gastada por el sistema en el servidor entre los tiempos <span class="math inline">\(t\)</span> y <span class="math inline">\(t +1\)</span>,</li>
+<li><span class="math inline">\(\Delta T_t\)</span> es el cambio de temperatura del servidor causado por el sistema entre los tiempos <span class="math inline">\(t\)</span> y <span class="math inline">\(t +1\)</span>,</li>
+<li><span class="math inline">\(T_t\)</span> es la temperatura del servidor en el instante <span class="math inline">\(t\)</span>,</li>
+<li><span class="math inline">\(T_{t + 1}\)</span> es la temperatura del servidor en el instante <span class="math inline">\(t +1\)</span>,</li>
+<li><span class="math inline">\(\alpha &gt; 0\)</span>,</li>
+<li>y <span class="math inline">\(\beta \in \mathbb{R}\)</span>.</li>
+</ul>
+<p>Nuevamente, expliquemos por qué tiene sentido intuitivamente hacer esta suposición con <span class="math inline">\(\alpha&gt;0\)</span>. Eso es simplemente porque cuanto más se calienta la IA o se enfría el servidor, más gasta energía para hacer esa transferencia de calor. De hecho, por ejemplo, imaginemos que el servidor de repente tiene problemas de sobrecalentamiento y acaba de alcanzar <span class="math inline">\(80 \degree\)</span> C, luego, dentro de una unidad de tiempo (1 minuto), la IA necesitará mucha más energía para que la temperatura del servidor vuelva a su temperatura óptima de <span class="math inline">\(24 \degree\)</span> C que devolverlo a <span class="math inline">\(50 \degree\)</span> C por ejemplo. Y de nuevo por razones de simplicidad, solo suponemos que estas correlaciones son lineales. Además (en caso de que te lo estés preguntado), ¿por qué tomamos el valor absoluto? Eso es simplemente porque cuando la IA enfría el servidor, <span class="math inline">\(T_{t + 1}&lt;T_t\)</span>, entonces <span class="math inline">\(\Delta T &lt;0\)</span>. Y, por supuesto, una energía siempre es positiva, por lo que tenemos que tomar el valor absoluto de <span class="math inline">\(\Delta T\)</span>.</p>
+<p>Finalmente, para mayor simplicidad, también asumiremos que los resultados de la regresión son <span class="math inline">\(\alpha = 1\)</span> y <span class="math inline">\(\beta = 0\)</span>, de modo que obtenemos la siguiente ecuación final basada en el supuesto 2:</p>
+<p><span class="math display">\[\begin{equation*}
+E_t = |\Delta T_t| = |T_{t+1} - T_t| =
+\begin{cases}
+T_{t+1} - T_t &amp; \textrm{si $T_{t+1} &gt; T_t$, es decir, si el servidor se calienta} \\
+T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, tes decir, si el servidor se enfria}
+\end{cases}
+\end{equation*}\]</span></p>
+<p>Ahora, expliquemos cómo simularemos el funcionamiento del servidor con los usuarios y los datos que entran y salen.</p>
+<p><strong>Simulación</strong></p>
+<p>El número de usuarios y la velocidad de transmisión de datos fluctuarán aleatoriamente para simular un servidor real. Esto lleva a una aleatoriedad en la temperatura y la IA tiene que entender cuánta potencia de enfriamiento o calefacción tiene que transferir al servidor para no deteriorar el rendimiento del servidor y, al mismo tiempo, gastar la menor energía optimizando su transferencia de calor.</p>
+<p>Ahora que tenemos la imagen completa, expliquemos el funcionamiento general del servidor y la IA dentro de este entorno.</p>
+<p><strong>Funcionamiento general:</strong></p>
+<p>Dentro de un centro de datos, estamos tratando con un servidor específico que está controlado por los parámetros y variables enumerados anteriormente. Cada minuto, algunos usuarios nuevos inician sesión en el servidor y algunos usuarios actuales cierran sesión, por lo tanto, actualizan el número de usuarios activos en el servidor. Igualmente, cada minuto se transmiten algunos datos nuevos al servidor, y algunos datos existentes se transmiten fuera del servidor, por lo tanto, se actualiza la velocidad de transmisión de datos que ocurre dentro del servidor. Por lo tanto, según el supuesto 1 anterior, la temperatura del servidor se actualiza cada minuto. Ahora, concéntrate, porque aquí es donde entenderás el gran papel que la IA tiene que jugar en el servidor. Dos posibles sistemas pueden regular la temperatura del servidor: la IA o el sistema de enfriamiento integrado del servidor. El sistema de enfriamiento integrado del servidor es un sistema no inteligente que automáticamente devolverá la temperatura del servidor a su temperatura óptima. Expliquemos esto con más detalles: cuando la temperatura del servidor se actualiza cada minuto, puede mantenerse dentro del rango de temperaturas óptimas (<span class="math inline">\([18 \degree \textrm{C}, 24 \degree \textrm{C}]\)</span>), o salir de este rango. Si sale del rango óptimo, como por ejemplo <span class="math inline">\(30 \degree\)</span> C, el sistema de enfriamiento integrado del servidor llevará automáticamente la temperatura al límite más cercano del rango óptimo, que es <span class="math inline">\(24 \degree\)</span> C. Sin embargo, el sistema de enfriamiento integrado de este servidor lo hará solo cuando la IA no esté activada. Si la IA está activada, en ese caso el sistema de enfriamiento integrado del servidor se desactiva y es la IA la que actualiza la temperatura del servidor para regularlo de la mejor manera. Pero la IA hace eso después de algunas predicciones previas, no de una manera determinista como con el sistema de enfriamiento integrado del servidor no inteligente. Antes de que haya una actualización de la cantidad de usuarios y la velocidad de transmisión de datos que hace que cambie la temperatura del servidor, la IA predice si debería enfriar el servidor, no hacer nada o calentar el servidor. Entonces ocurre el cambio de temperatura y la IA reitera. Y dado que estos dos sistemas son complementarios, los evaluaremos por separado para comparar su rendimiento.</p>
+<p>Y eso nos lleva a la energía. De hecho, recordemos que un objetivo principal de la IA es ahorrar algo de energía gastada en este servidor. En consecuencia, nuestra IA tiene que gastar menos energía que la energía gastada por el sistema de enfriamiento no inteligente en el servidor. Y dado que, según el supuesto 2 anterior, la energía gastada en el servidor (por cualquier sistema) es proporcional al cambio de temperatura dentro de una unidad de tiempo:</p>
+<p><span class="math display">\[\begin{equation*}
+E_t = |\Delta T_t| = \alpha |T_{t+1} - T_t| =
+\begin{cases}
+T_{t+1} - T_t &amp; \textrm{si $T_{t+1} &gt; T_t$, es decir, si el servidor se calienta} \\
+T_t - T_{t+1} &amp; \textrm{if $T_{t+1} &lt; T_t$, es decir, si el servidor se enfria}
+\end{cases}
+\end{equation*}\]</span></p>
+<p><br />
+</p>
+<p>entonces eso significa que la energía ahorrada por la IA en cada instante <span class="math inline">\(t\)</span> (cada minuto) es, de hecho, la diferencia en los cambios absolutos de temperatura causados en el servidor entre el sistema de enfriamiento integrado del servidor no inteligente y la IA de <span class="math inline">\(t\)</span> y <span class="math inline">\(t + 1\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+        \textrm{Energia ahorrada por la IA entre $t$ y $t+1$}
+        &amp; = |\Delta T_t^{\textrm{Sistema de Enfriamiento Integrado del Servidor}}| - |\Delta T_t^{\textrm{IA}}| \\
+        &amp; = |\Delta T_t^{\textrm{no IA}}| - |\Delta T_t^{\textrm{IA}}|
+\end{align*}\]</span></p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(\Delta T_t^{\textrm{no IA}}\)</span> es el cambio de temperatura que causaría el sistema de enfriamiento integrado del servidor sin la IA en el servidor durante la iteración <span class="math inline">\(t\)</span>, es decir, del instante <span class="math inline">\(t\)</span> al instante <span class="math inline">\(t + 1\)</span>,</li>
+<li><span class="math inline">\(\Delta T_t^{\textrm{AI}}\)</span> es el cambio de temperatura causado por la IA en el servidor durante la iteración <span class="math inline">\(t\)</span>, es decir, del instante <span class="math inline">\(t\)</span> al instante <span class="math inline">\(t + 1\)</span>.</li>
+</ul>
+<p>Nuestro objetivo será ahorrar la energía máxima cada minuto, por lo tanto, ahorrar la energía total máxima durante 1 año completo de simulación y, finalmente, ahorrar los costos máximos en la factura de electricidad de refrigeración / calefacción.</p>
+<p>¿Estamos preparados?</p>
+<p>¡Excelente! Ahora que entendemos completamente cómo funciona nuestro entorno de servidor y cómo se simula, es hora de proceder con lo que debe hacerse absolutamente al definir un entorno de IA:</p>
+<ul>
+<li>Definir los estados</li>
+<li>Definir las acciones</li>
+<li>Definir las recompensas</li>
+</ul>
+<p><strong>Definir los estados</strong></p>
+<p>El estado de entrada <span class="math inline">\(s_t\)</span> en el momento <span class="math inline">\(t\)</span> se compone de los siguientes tres elementos:</p>
+<ul>
+<li>La temperatura del servidor en el instante <span class="math inline">\(t\)</span>.</li>
+<li>El número de usuarios en el servidor en el instante <span class="math inline">\(t\)</span>.</li>
+<li>La velocidad de transmisión de datos en el servidor en el instante <span class="math inline">\(t\)</span>.</li>
+</ul>
+<p>Por lo tanto, el estado de entrada será un vector de entrada de estos tres elementos. Nuestra futura IA tomará este vector como entrada y devolverá la acción para ejecutar en cada instante <span class="math inline">\(t\)</span>.</p>
+<p><strong>Definir las acciones</strong></p>
+<p>Las acciones son simplemente los cambios de temperatura que la IA puede causar dentro del servidor, para calentarlo o enfriarlo. Para que nuestras acciones sean discretas, consideraremos 5 posibles cambios de temperatura de <span class="math inline">\(-3 \degree\)</span> C a <span class="math inline">\(+ 3 \degree\)</span> C, para que terminemos con las 5 acciones posibles que la IA puede llevar a cabo para regular la temperatura del servidor:</p>
+<table>
+<colgroup>
+<col width="42%" />
+<col width="57%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>Acción</strong></th>
+<th align="left"><strong>¿Qué hace?</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="left">La IA enfría el servidor <span class="math inline">\(3 \degree\)</span>C</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="left">La IA enfría el servidor <span class="math inline">\(1.5 \degree\)</span>C</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="left">La IA no transfiere calor ni frio al servidor (sin cambio de temperatura)</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="left">La IA calienta el servidor <span class="math inline">\(1.5 \degree\)</span>C</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="left">La IA calienta el servidor <span class="math inline">\(3 \degree\)</span>C</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Definir las recompensas.</strong></p>
+<p>Después de leer el párrafo “Funcionamiento general” anterior, puedes adivinar cuál será la recompensa. Por supuesto, la recompensa en la iteración <span class="math inline">\(t\)</span> es la energía gastada en el servidor que la IA está ahorrando con respecto al sistema de enfriamiento integrado del servidor, es decir, la diferencia entre la energía que gastaría el sistema de enfriamiento no inteligente si la IA fuera desactivada y la energía que la IA gasta en el servidor:</p>
+<p><span class="math display">\[\textrm{Reward}_t = E_t^{\textrm{no IA}} - E_t^{\textrm{IA}}\]</span></p>
+<p>Y como (Supuesto 2), la energía gastada es igual al cambio de temperatura causado en el servidor (por cualquier sistema, incluido el AI o el sistema de enfriamiento no inteligente):</p>
+<p><span class="math display">\[\begin{equation*}
+E_t = |\Delta T_t| = \alpha |T_{t+1} - T_t| =
+\begin{cases}
+T_{t+1} - T_t &amp; \textrm{si $T_{t+1} &gt; T_t$, es decir, si el servidor se calienta} \\
+T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se enfria}
+\end{cases}
+\end{equation*}\]</span></p>
+<p>entonces obtenemos que la recompensa recibida en el instante <span class="math inline">\(t\)</span> es, de hecho, la diferencia en el cambio de temperatura causada en el servidor entre el sistema de enfriamiento no inteligente (es decir, cuando no hay IA) y la IA:</p>
+<p><span class="math display">\[\begin{align*}
+    \textrm{Reward}_t
+    &amp; = \textrm{Energía ahorrada por la IA entre $t$ y $t+1$} \\
+    &amp; = E_t^{\textrm{no IA}} - E_t^{\textrm{IA}} \\
+    &amp; = |\Delta T_t^{\textrm{no IA}}| - |\Delta T_t^{\textrm{IA}}|
+\end{align*}\]</span></p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(\Delta T_t^{\textrm{no IA}}\)</span> es el cambio de temperatura que causaría el sistema de enfriamiento integrado del servidor sin la IA en el servidor durante la iteración <span class="math inline">\(t\)</span>, es decir, del instante <span class="math inline">\(t\)</span> al instante <span class="math inline">\(t + 1\)</span>,</li>
+<li><span class="math inline">\(\Delta T_t^{\textrm{AI}}\)</span> es el cambio de temperatura causado por la IA en el servidor durante la iteración <span class="math inline">\(t\)</span>, es decir, del instante <span class="math inline">\(t\)</span> al instante <span class="math inline">\(t + 1\)</span>.</li>
+</ul>
+<p><strong>Nota importante:</strong> es importante comprender que los sistemas (nuestra IA y el sistema de enfriamiento del servidor) se evaluarán por separado para calcular las recompensas. Y dado que cada vez que sus acciones conducen a temperaturas diferentes, tendremos que realizar un seguimiento por separado de las dos temperaturas <span class="math inline">\(T_t^{\textrm{IA}}\)</span> and <span class="math inline">\(T_t^{\textrm{no IA}}\)</span>.</p>
+<p>Ahora, para terminar esta sección, vamos a hacer una pequeña simulación de 2 iteraciones (es decir, 2 minutos), como un ejemplo que hará que todo quede claro.</p>
+<p><strong>Ejemplo de simulación final.</strong></p>
+<p>Digamos que estamos en el instante de tiempo <span class="math inline">\(t = 4:00\)</span> pm y que la temperatura del servidor es <span class="math inline">\(T_t = 28 \degree\)</span> C, tanto con la IA como sin la IA. En este momento exacto, la IA predice la acción 0, 1, 2, 3 o 4. Desde ahora, la temperatura del servidor está fuera del rango de temperatura óptimo <span class="math inline">\([18 \degree \textrm{C}, 24 \degree \textrm{C }]\)</span>, la IA probablemente predecirá las acciones 0, 1 o 2. Digamos que predice 1, lo que corresponde a enfriar el servidor en <span class="math inline">\(1.5 \degree\)</span> C. Por lo tanto, entre <span class="math inline">\(t = 4:00\)</span> pm y <span class="math inline">\(t + 1 = 4: 01\)</span> pm, la IA hace que la temperatura del servidor pase de $T_t^{} = 28  $ a <span class="math inline">\(T_{t + 1}^{\ textrm{IA}} = 26.5 \degree \textrm{C}\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+    \Delta T_t^{\textrm{IA}}
+    &amp; = T_{t+1}^{\textrm{IA}} - T_t^{\textrm{IA}} \\
+    &amp; = 26.5 - 27 \\
+    &amp; = -1.5 \degree \textrm{C}
+\end{align*}\]</span></p>
+<p>Por lo tanto, según el supuesto 2, la energía gastada por la IA en el servidor es:</p>
+<p><span class="math display">\[\begin{align*}
+    E_t^{\textrm{IA}}
+    &amp; = |\Delta T_t^{\textrm{IA}}| \\
+    &amp; = 1.5 \ \textrm{Joules}
+\end{align*}\]</span></p>
+<p>Bien, ahora solo falta una información para calcular la recompensa: es la energía que el sistema de enfriamiento integrado del servidor habría gastado si la IA se hubiera desactivado entre las 4:00 p.m. y las 4:01 p.m. Recordemos que este sistema de enfriamiento no inteligente lleva automáticamente la temperatura del servidor de vuelta al límite más cercano del rango de temperatura óptimo <span class="math inline">\([18 \degree \textrm{C}, 24 \degree \textrm{C}]\)</span>. Entonces, dado que a <span class="math inline">\(t = 4: 00 ¡\)</span> pm la temperatura era <span class="math inline">\(T_t = 28 \degree\)</span> C, entonces el límite más cercano del rango de temperatura óptimo en ese momento era <span class="math inline">\(24 \degree\)</span> C. Por lo tanto, el sistema de enfriamiento integrado del servidor habría cambiado la temperatura de <span class="math inline">\(T_t = 28 \degree \textrm{C}\)</span> a <span class="math inline">\(T_{t + 1} = 24 \degree \textrm{C}\)</span>, y por lo tanto la temperatura del servidor cambia habría ocurrido si no hubiera IA es:</p>
+<p><span class="math display">\[\begin{align*}
+    \Delta T_t^{\textrm{no IA}}
+    &amp; = T_{t+1}^{\textrm{no IA}} - T_t^{\textrm{no IA}} \\
+    &amp; = 24 - 28 \\
+    &amp; = -4 \degree C
+\end{align*}\]</span></p>
+<p>Por lo tanto, según el supuesto 2, la energía que el sistema de enfriamiento no inteligente habría gastado si no hubiera IA es:</p>
+<p><span class="math display">\[\begin{align*}
+    E_t^{\textrm{no IA}}
+    &amp; = |\Delta T_t^{\textrm{no IA}}| \\
+    &amp; = 4 \ \textrm{Joules}
+\end{align*}\]</span></p>
+<p>En conclusión, la recompensa que obtenemos después de llevar a cabo esta acción en el momento <span class="math inline">\(t = 4: 00\)</span> pm es:</p>
+<p><span class="math display">\[\begin{align*}
+    \textrm{Reward}
+    &amp; = E_t^{\textrm{no IA}} - E_t^{\textrm{IA}} \\
+    &amp; = 4 - 1.5 \\
+    &amp; = 2.5
+\end{align*}\]</span></p>
+<p>Luego, entre <span class="math inline">\(t = 4: 00\)</span> pm y <span class="math inline">\(t + 1 = 4: 01\)</span> pm, suceden otras cosas: algunos usuarios nuevos inician sesión en el servidor, algunos usuarios existentes cierran sesión en el servidor, algunos datos nuevos son transmitiendo dentro del servidor, y algunos datos existentes se transmiten fuera del servidor. Según el supuesto 1, estos factores hacen que la temperatura del servidor cambie. Digamos que aumentan la temperatura del servidor en <span class="math inline">\(5 \degree\)</span> C:</p>
+<p><span class="math display">\[\Delta_t \ \textrm{Temperatura Intrinseca} = 5 \degree C\]</span></p>
+<p>Ahora recuerde que estamos evaluando dos sistemas por separado: nuestra IA y el sistema de enfriamiento integrado del servidor. Por lo tanto, debemos calcular por separado las dos temperaturas que obtendríamos con estos dos sistemas a <span class="math inline">\(t + 1 = 4: 01\)</span> pm. Comencemos con la IA.</p>
+<p>La temperatura que obtenemos en <span class="math inline">\(t + 1 = 4: 01\)</span> pm cuando se activa la IA es:</p>
+<p><span class="math display">\[\begin{align*}
+    T_{t+1}^{\textrm{IA}}
+    &amp; = T_t^{\textrm{IA}} + \Delta T_t^{\textrm{IA}} + \Delta_t \ \textrm{Temperatura Intrinseca} \\
+    &amp; = 28 + (-1.5) + 5 \\
+    &amp; = 31.5 \degree C
+\end{align*}\]</span></p>
+<p>Y la temperatura que obtenemos en <span class="math inline">\(t + 1 = 4: 01\)</span> pm cuando la IA no está activada es:</p>
+<p><span class="math display">\[\begin{align*}
+    T_{t+1}^{\textrm{no IA}}
+    &amp; = T_t^{\textrm{no IA}} + \Delta T_t^{\textrm{no IA}} + \Delta_t \ \textrm{Temperatura Intrinseca} \\
+    &amp; = 28 + (-4) + 5 \\
+    &amp; = 29 \degree C
+\end{align*}\]</span></p>
+<p>Perfecto, tenemos nuestras dos temperaturas separadas, que son <span class="math inline">\(T_{t+1}^{\textrm{AI}} = 29.5 \degree C\)</span> cuando la IA está activada, y <span class="math inline">\(T_{t+1}^{\textrm{noAI}} = 27 \degree C\)</span> cuando la IA no está activada.</p>
+<p>Ahora simulemos lo que sucede entre los instantes <span class="math inline">\(t + 1 = 4:01\)</span> pm y <span class="math inline">\(t + 2 = 4:02\)</span> pm. Nuevamente, nuestra IA hará una predicción, y dado que el servidor se está calentando, digamos que predice la acción 0, que corresponde a enfriar el servidor en <span class="math inline">\(3 \degree C\)</span>, reduciéndolo a <span class="math inline">\(T_{t + 2}^{\textrm{IA}} = 28.5 \degree C\)</span>. Por lo tanto, la energía gastada por la IA entre <span class="math inline">\(t + 1 = 4: 01\)</span> pm y <span class="math inline">\(t + 2 = 4: 02\)</span> pm, es:</p>
+<p><span class="math display">\[\begin{align*}
+    E_{t+1}^{\textrm{IA}}
+    &amp; = |\Delta T_{t+1}^{\textrm{IA}}| \\
+    &amp; = |28.5 - 31.5| \\
+    &amp; = 3 \ \textrm{Joules}
+\end{align*}\]</span></p>
+<p>Ahora con respecto al sistema de enfriamiento integrado del servidor (es decir, cuando no hay IA), ya que a <span class="math inline">\(t + 1 = 4: 01\)</span> pm teníamos <span class="math inline">\(T_{t + 1}^{\textrm{no IA}} = 29 \degree C\)</span>, entonces el límite más cercano del rango óptimo de temperaturas sigue siendo <span class="math inline">\(24 \degree C\)</span>, por lo que la energía que el sistema de enfriamiento no inteligente del servidor gastaría entre <span class="math inline">\(t + 1 = 4: 01\)</span> pm y <span class="math inline">\(t + 2 = 4 : 02\)</span> pm, es:</p>
+<p><span class="math display">\[\begin{align*}
+    E_{t+1}^{\textrm{no IA}}
+    &amp; = |\Delta T_{t+1}^{\textrm{no IA}}| \\
+    &amp; = |24 - 29| \\
+    &amp; = 5 \ \textrm{Joules}
+\end{align*}\]</span></p>
+<p>De ahí la recompensa obtenida entre <span class="math inline">\(t+1 = 4:01\)</span> pm y <span class="math inline">\(t+2 = 4:02\)</span> pm, es:</p>
+<p><span class="math display">\[\begin{align*}
+    \textrm{Reward}
+    &amp; = E_{t+1}^{\textrm{no IA}} - E_{t+1}^{\textrm{IA}} \\
+    &amp; = 5 - 3 \\
+    &amp; = 2
+\end{align*}\]</span></p>
+<p>Y finalmente, la recompensa total obtenida entre <span class="math inline">\(t = 4:00\)</span> pm y <span class="math inline">\(t+2 = 4:02\)</span> pm, es:</p>
+<p><span class="math display">\[\begin{align*}
+    \textrm{Total Reward}
+    &amp; = (\textrm{Recompensa obtenida entre $t$ y $t+1$}) + (\textrm{Recompensa obtenida entre $t+1$ y $t+2$}) \\
+    &amp;  = 2.5 + 2 \\
+    &amp; = 4.5
+\end{align*}\]</span></p>
+<p>Ese fue un ejemplo de todo el proceso que sucedió en dos minutos. En nuestra implementación, ejecutaremos el mismo proceso durante 1000 épocas de 5 meses para el entrenamiento del algoritmo, y luego, una vez que nuestra IA esté entrenada, ejecutaremos el mismo proceso durante 1 año completo de simulación para la prueba. El entrenamiento se realizará con Deep Q-Learning, y aquí es donde entra en juego la siguiente sección.</p>
+</div>
+</div>
+</div>
+<div id="solución-de-ia" class="section level2">
+<h2><span class="header-section-number">2.2</span> Solución de IA</h2>
+<p>La solución de IA que resolverá el problema descrito anteriormente es un modelo Deep Q-Learning. Vamos a dar la teoría y las ecuaciones matemáticas detrás de esto.</p>
+<div id="q-learning-en-deep-learning" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Q-Learning en Deep Learning</h3>
+<p>El Deep Q-Learning consiste en combinar Q-Learning con una red neuronal artificial. Las entradas son vectores codificados, cada uno de los cuales define un estado del entorno. Estas entradas van a una red neuronal artificial, donde la salida es la acción a ejecutar. Más precisamente, digamos que el sistema tiene <span class="math inline">\(n\)</span> acciones posibles, la capa de salida de la red neuronal está compuesta por <span class="math inline">\(n\)</span> neuronas de salida, cada una correspondiente a los valores Q de cada acción que se juega en el estado actual. Entonces, la acción que se juega es la asociada con la neurona de salida que tiene el valor Q más alto (<em>argmax</em>), o la que devuelve el método <em>softmax</em>. En nuestro caso usaremos <em>argmax</em>. Y dado que los valores Q son números reales, eso hace que nuestra red neuronal sea un RNA para la regresión.</p>
+<p>Así que, para cada estado <span class="math inline">\(s_t\)</span>:</p>
+<ul>
+<li>la predicción es el valor Q, <span class="math inline">\(Q (s_t, a_t)\)</span> donde <span class="math inline">\(a_t\)</span> es elegido por argmax o softmax,</li>
+<li>el valor objetivo es <span class="math inline">\(r_t + \gamma \underset{a}{\max}(Q(s_{t+1}, a))\)</span>,</li>
+<li>el error de pérdida entre la predicción y el objetivo es el cuadrado de la diferencia temporal:</li>
+</ul>
+<p><span class="math display">\[\textrm{Loss} = \frac{1}{2} \left( r_t + \gamma \underset{a}{\max}(Q(s_{t+1}, a)) - Q(s_t, a_t) \right)^2 = \frac{1}{2} TD_t(s_t, a_t)^2.\]</span></p>
+<p>Luego, este error de pérdida se propaga hacia atrás en la red, y los pesos se actualizan de acuerdo con la cantidad que contribuyeron al error.</p>
+</div>
+<div id="experience-replay" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Experience Replay</h3>
+<p>Notemos que hasta ahora solo hemos considerado las transiciones de un estado <span class="math inline">\(s_t\)</span> al siguiente estado <span class="math inline">\(s_{t + 1}\)</span>. El problema con esto es que <span class="math inline">\(s_t\)</span> está casi siempre muy correlacionado con <span class="math inline">\(s_{t + 1}\)</span>. Por lo tanto, la red no está aprendiendo mucho. Esto podría mejorarse mucho si, en lugar de considerar solo esta transición anterior, consideramos las últimas m transiciones donde m es un gran número. Este paquete de las últimas m transiciones es lo que se llama Experience Replay o repetición de experiencia. Luego, a partir de esta repetición de experiencia, tomamos algunos bloques aleatorios de transiciones para realizar nuestras actualizaciones.</p>
+</div>
+<div id="el-cerebro" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> El cerebro</h3>
+<p>El cerebro, o más precisamente la red neuronal profunda de nuestra IA, será una red neuronal completamente conectada, compuesta de dos capas ocultas, la primera con 64 neuronas y la segunda con 32 neuronas. Y como recordatorio, esta red neuronal toma como entradas los estados del entorno y devuelve como salidas los valores Q para cada una de las 5 acciones. Este cerebro artificial se entrenará con una pérdida de “error cuadrático medio” y un optimizador Adam.</p>
+<p>Así es como se ve este cerebro artificial:</p>
+<div class="figure">
+<img src="Images/Brain.png" alt="El cerebro artificial: una red neuronal completamente conectada" />
+<p class="caption">El cerebro artificial: una red neuronal completamente conectada</p>
+</div>
+<p>Este cerebro artificial parece complejo de crear, pero lo construiremos muy fácilmente gracias a la increíble librería de Keras. Aquí hay una vista previa de la implementación completa que contiene la parte que construye este cerebro por sí mismo:<br />
+</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># Construcción del cerebro</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="kw">class</span> Brain(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb19-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb19-5" data-line-number="5">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate <span class="op">=</span> <span class="fl">0.001</span>, number_actions <span class="op">=</span> <span class="dv">11</span>):</a>
+<a class="sourceLine" id="cb19-6" data-line-number="6">        <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate</a>
+<a class="sourceLine" id="cb19-7" data-line-number="7">        states <span class="op">=</span> Input(shape <span class="op">=</span> (<span class="dv">3</span>,))</a>
+<a class="sourceLine" id="cb19-8" data-line-number="8">        x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</a>
+<a class="sourceLine" id="cb19-9" data-line-number="9">        y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</a>
+<a class="sourceLine" id="cb19-10" data-line-number="10">        q_values <span class="op">=</span> Dense(units <span class="op">=</span> number_actions, activation <span class="op">=</span> <span class="st">&#39;softmax&#39;</span>)(y)</a>
+<a class="sourceLine" id="cb19-11" data-line-number="11">        <span class="va">self</span>.model <span class="op">=</span> Model(inputs <span class="op">=</span> states, outputs <span class="op">=</span> q_values)</a>
+<a class="sourceLine" id="cb19-12" data-line-number="12">        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> <span class="va">self</span>.learning_rate))</a>
+<a class="sourceLine" id="cb19-13" data-line-number="13"><span class="op">\</span>end{lstlisting}</a></code></pre></div>
+<p>Como podemos ver con gusto, solo son necesarias un par de líneas de código.</p>
+</div>
+<div id="el-algoritmo-de-deep-q-learning-al-completo" class="section level3">
+<h3><span class="header-section-number">2.2.4</span> El algoritmo de Deep Q-Learning al completo</h3>
+<p>Resumamos los diferentes pasos de todo el proceso de Deep Q-Learning:</p>
+<p><strong>Inicialización</strong></p>
+<p>La memoria de Experience Replay se inicializa en una lista vacía <span class="math inline">\(M\)</span>.</p>
+<p>Elegimos un tamaño máximo de la memoria. En nuestro caso práctico elegimos un tamaño máximo de 100 transiciones.</p>
+<p>Comenzamos en un primer estado, correspondiente a un momento específico dentro del año.</p>
+<p>En cada instante <span class="math inline">\(t\)</span>, repetimos el siguiente proceso, hasta el final de la época (5 meses en nuestra implementación)</p>
+<ol style="list-style-type: decimal">
+<li>Predecimos los valores Q del estado actual <span class="math inline">\(s_t\)</span>.</li>
+<li>Ejecutamos la acción que corresponde al máximo de estos valores Q predichos (método argmax):
+<span class="math display">\[a_t = \underset{a}{\textrm{argmax}} Q(s_t, a)\]</span></li>
+<li>Obtenemos la recompensa:</li>
+</ol>
+<p><span class="math display">\[r_t = E_t^{\textrm{no IA}} - E_t^{\textrm{IA}}\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Alcanzamos el siguiente estado<span class="math inline">\(s_{t+1}\)</span>.</li>
+<li>Añadimos la transición actual <span class="math inline">\((s_t, a_t, r_t, s_{t+1})\)</span> a <span class="math inline">\(M\)</span>.</li>
+<li><p>Seleccionamos un bloque de transiciones al azar <span class="math inline">\(B \subset M\)</span>. Para todas las transiciones<span class="math inline">\((s_{t_B}, a_{t_B}, r_{t_B}, s_{t_B+1})\)</span> del lote aleatorio <span class="math inline">\(B\)</span>:</p>
+<ul>
+<li>Obtenemos las predicciones: <span class="math display">\[Q(s_{t_B}, a_{t_B})\]</span></li>
+<li>Obtenemos los objetivos: <span class="math display">\[r_{t_B} + \gamma \underset{a}{\max}(Q(s_{t_B+1}, a))\]</span></li>
+<li>Calculamos la pérdida entre las predicciones y los objetivos en todo el lote <span class="math inline">\(B\)</span>: <span class="math display">\[\textrm{Loss} = \frac{1}{2} \sum_B \left( r_{t_B} + \gamma \underset{a}{\max}(Q(s_{t_B+1}, a)) - Q(s_{t_B}, a_{t_B}) \right)^2 = \frac{1}{2} \sum_B TD_{t_B}(s_{t_B}, a_{t_B})^2\]</span></li>
+<li>Volvemos a propagar este error de pérdida en la red neuronal y, a través del descenso de gradiente estocástico, actualizamos los pesos según cuánto contribuyeron al error..</li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="implementation" class="section level2">
+<h2><span class="header-section-number">2.3</span> Implementation</h2>
+<p>Esta implementación se dividirá en 5 partes, cada parte con su propio archivo de Python. Estas 5 partes constituyen el marco general de IA, o Blueprint de la AI, que debe seguirse cada vez que construimos un entorno para resolver cualquier problema comercial con Deep Reinforcement Learning.</p>
+<p>Aquí están, del Paso 1 al Paso 5:</p>
+<ol style="list-style-type: decimal">
+<li>Construcción del entorno.</li>
+<li>Construcción del cerebro.</li>
+<li>Implementación del algoritmo de aprendizaje por refuerzo profundo (en nuestro caso será el modelo DQN).</li>
+<li>Entrenar a la IA.</li>
+<li>Probar de la IA.</li>
+</ol>
+<p>Estos son los pasos principales (en ese mismo orden) de la sección de teoría general de IA anterior. Implementemos así nuestra IA para nuestro caso práctico específico, siguiendo este plan de IA, en las siguientes cinco secciones correspondientes a estos cinco pasos principales. Además en cada paso, distinguiremos los subpasos que todavía forman parte del marco general de AI, de los subpasos que son específicos de nuestro caso práctico, escribiendo los títulos de las secciones de código en mayúsculas para todos los subpasos del marco general de AI, y en letras mínimas para todos los subpasos específicos de nuestro caso práctico. Eso significa que cada vez que veamos una nueva sección de código cuyo título está escrito en letras mayúsculas, entonces es el siguiente subpaso del marco general de IA, que también se debe seguir al crear una IA para cualquier otro problema comercial.</p>
+<p>So now here we go with the beginning of the journey: Step 1 - Building the Environment.</p>
+<p><br />
+</p>
+<p>This is the largest Python implementation file of this Caso Práctico, and of the course. So please make sure to rest before, recharge your batteries to get a good energy level, and as soon as you are ready, let’s tackle this together!</p>
+<p><br />
+</p>
+<p>We begin in the next page.</p>
+<div style="page-break-after: always;"></div>
+
+<p>In this first step, we are going to build the environment inside a class. Why a class? Because we would like to have our environment as an object which we can create easily with any values of some parameters we choose. For example, we can create one environment object for one server that has a certain number of connected users and a certain rate of data at a specific time, and one other environment object for another server that has a different number of connected users and a different rate of data at some other time. And thanks to this advanced structure of the class, we can easily plug-and-play the environment objects we create on different servers which have their own parameters, hence regulating their temperatures with several different AIs, so that we end up minimizing the energy consumption of a whole data center, just as Google DeepMind for Google’s data centers did with their DQN algorithm.</p>
+<p><br />
+</p>
+<p>This class follows the below sub-steps, which are part of the general AI Framework inside Step 1 - Building the environment:</p>
+
+<p>You will find the whole implementation of this Environment class in the next four pages. Remember the most important: all the code sections having their titles written in capital letters are the steps of the general AI Framework / Blueprint, and all the code sections having their titles written in minimal letters are specific to our Caso Práctico.</p>
+<p><br />
+</p>
+<p>Below is the whole implementation of our first python file. The code sections titles and the chosen variables names are clear enough to understand what is being coded, but if you need any more explanation, I encourage to watch our video tutorials where we code everything from scratch, step by step, while explaining every single line of code in terms of why, what and how. Here we go:</p>
+<p><br />
+</p>
+
+<p><br />
+</p>
+<p>Congratulations for implementing Step 1 - Building the Environment. Now let’s move on to Step 2 - Building the Brain.</p>
+<div style="page-break-after: always;"></div>
+
+<p>In this Step 2, we are going to build the artificial brain of our AI, which is nothing else than a fully connected neural network. Here it is again:</p>
+
+<p>Again, we will build this artificial brain inside a class, for the same reason as before which is to allow us to create several artificial brains for different servers inside a data center. Indeed, maybe some servers will need different artificial brains with different hyper-parameters than other servers. That’s why thanks to this class / object Python advanced structure, we can easily switch from one brain to another to regulate the temperature of a new server that requires an AI with different neural networks parameters.</p>
+<p><br />
+</p>
+<p>We build this artificial brain thanks to the amazing Keras library. From this library we use the Dense() class to create our two fully connected hidden layers, the first one having 64 hidden neurons, and the second one having 32 neurons. And we use the Dense() class again to return Q-Values, which keep in mind are the outputs of the artificial neural networks. Then later on in the training and the testing files, we will use the argmax method to select the action that has the maximum Q-Value. Then, we assemble all the components of the brain, including the inputs and the outputs, by creating it as an object of the Model() class (very useful to then save and load a model with specific weights). End eventually, we compile it with a Mean-Squared Error loss and an Adam optimizer. Thus here are the new steps of the general AI Framework:</p>
+
+<p>Here we go with the implementation:</p>
+<p><br />
+</p>
+
+<p><br />
+</p>
+<p></p>
+<p><br />
+</p>
+<p>I thought it would be valuable for you to even add one more powerful technique in your toolkit: .</p>
+<p><br />
+</p>
+<p>Dropout is a regularization technique that prevents overfitting. It simply consists of deactivating a certain rate of random neurones during each step of forward &amp; back propagation. That way, not all the neurones learn the same way, thus preventing the neural network from overfitting the training data.</p>
+<p><br />
+</p>
+<p>Here is how you implement Dropout:</p>
+
+<p><br />
+</p>
+<p>Congratulations! You have implemented Dropout. It was very simple, once again thanks to Keras.</p>
+<p>Below it the whole new brain.py implementation with Dropout:</p>
+<p><br />
+</p>
+
+<p><br />
+</p>
+<p>Now let’s move on to next step of our general AI Framework: Step 3 - Implementing the DQN algorithm.</p>
+<div style="page-break-after: always;"></div>
+
+<p>In this new Python file, we simply have to follow the Deep Q-Learning algorithm provided before. Hence, this implementation follows the following sub-steps, which are part of the general AI Framework:</p>
+
+<p>Below is the code following this new part of the AI Blueprint:</p>
+<p><br />
+</p>
+
+<div style="page-break-after: always;"></div>
+
+<p>Now that our AI has a fully functional brain, time to train it. And this is exactly what we do in this fourth Python file. The process is long, but very easy: we start by setting all the parameters, then we build the environment by creating an object of the Environment() class, then we build the brain of the AI by creating an object of the Brain() class, then we build the Deep Q-Learning model by creating an object of the DQN() class, and finally we launch the training connecting all these objects together, over 1000 epochs of 5-months period. You will notice in the training loop that we also do some exploration when playing the actions. This consists of playing some random actions from time to time. In our Caso Práctico this will be done 30% of the time, since we use an exploration parameter <span class="math inline">\(\epsilon = 0.3\)</span>, and then we force to play a random action when drawing a random value between 0 and 1 that is below <span class="math inline">\(\epsilon = 0.3\)</span>). The reason why we do some exploration is because it improves the Deep Reinforcement Learning process. This trick is called: “Exploration vs. Exploitation”. Then, besides you will also notice that we use an early stopping technique, which will make sure to stop the training if there is performance improvement.</p>
+<p><br />
+</p>
+<p>Let’s highlight these new steps that still belong to our general AI Framework / Blueprint:</p>
+
+<p>And now let’s implement this new part, Step 4 - Training the AI, of our general Blueprint. Below is the whole implementation of this fourth python file. Again, the code sections titles and the chosen variables names are clear enough to understand what is being coded. Here we go:</p>
+<p><br />
+</p>
+
+<p><br />
+</p>
+<p>After executing the code, we already see some good performance of our AI during the training, spending most of the time less energy than the alternative system, i.e. the server’s integrated cooling system. But that is only the training, now we need to see if we also obtain some good performance on a new 1-year simulation. That’s where our next, and final Python file, comes into play.</p>
+<div style="page-break-after: always;"></div>
+
+<p>Now indeed, we need to test the performance of our AI on a brand new situation. To do so, we will run a 1-year simulation, only in inference mode, meaning that there will be no training happening at any time. Our AI will only return predictions over a one full year of simulation. Then thanks to our environment object we will get in the end the total energy spent by the AI over this one full year, as well as the total energy spent by the server’s integrated cooling system. Eventually we will compare these two total energy spent, by simply computing their relative difference (in %), which will exactly give us the total energy saved by the AI. Buckle up for the final results, we will reveal them at the end of this Part 2!</p>
+<p><br />
+</p>
+<p>In terms of the AI Blueprint, here for the testing implementation we almost have the same as before, except that this time, we don’t have to create a brain object nor a DQN model object, and of course we must not run the Deep Q-Learning process over some training epochs. However we do have to create a new environment object, and instead of creating a brain, we will load our artificial brain with its pre-trained weights from the previous training that we executed in Step 4 - Training the AI. Hence, let’s give the final sub-steps of this final part of the AI Framework / Blueprint:</p>
+
+<p>And now let’s implement this fifth and final part, Step 5 - Testing the AI. Again, below is the whole implementation of our first python file. The code sections titles and the chosen variables names are clear enough to understand what is being coded, but if you need any more explanation, I encourage to watch our video tutorials where we code everything from scratch, step by step, while explaining every single line of code in terms of why, what and how. Here we go:</p>
+<p><br />
+</p>
+
+<p><br />
+</p>
+<p>And finally, we obtain in the printed results that the total energy consumption saved by the AI is…:</p>
+<p><span class="math display">\[\begin{equation*}
+    \textrm{Total Energy saved by the AI} = 39 \ \% \ !
+\end{equation*}\]</span></p>
+<p>Exactly like what Google DeepMind achieved in 2016! Indeed, if on Google you type: “DeepMind reduces Google cooling bill”, you will see that the result they achieved is 40 %. Very close to ours!</p>
+<p><br />
+</p>
+<p>Hence what we have built is surely excellent for our business client, as our AI will save them a lot of costs! Indeed, remember that thanks to our object oriented structure (working with classes and objects), we can very easily take our objects created in this implementation that we did for one server, and then plug them into other servers, so that in the end we end up saving the total energy consumption of a whole data center! That’s how Google saved billions of dollars in energy related costs, thanks to their DQN model built by DeepMind AI.</p>
+<div style="page-break-after: always;"></div>
+
+<p>Let’s recap and provide the whole AI Blueprint, so that you can print it out and put it on your wall.</p>
+<p><br />
+</p>
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="optimización-de-procesos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="part-3-maximizing-revenues.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/joanby/ia4business/edit/master/2.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["curso-ia-business-udemy.pdf", "curso-ia-business-udemy.epub"],
+"toc": {
+"collapse": "subsection"
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

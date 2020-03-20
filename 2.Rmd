@@ -1,452 +1,342 @@
-# Part 2 - Minimizing Costs
+# Parte 2 - Minimización de Costes
 
-Congratulations for smashing the first case study! Let's move on to a brand new and more advanced AI.
+¡Felicitaciones por arrasar en el primer caso de estudio! Pasemos a una IA nueva y más avanzada.
 
-## Case Study: Minimizing Costs in Energy Consumption of a Data Center
+## Caso Práctico: Minimización de Costes en el Consumo Energético de un Centro de Datos
 
-### Problem to solve
+### Problema a resolver
 
-In 2016, \href{https://deepmind.com/blog/deepmind-ai-reduces-google-data-centre-cooling-bill-40/}{DeepMind AI minimized a big part of Google's cost by reducing Google Data Centre Cooling Bill by 40\%} using their DQN AI model (Deep Q-Learning). In this case study, we will do something very similar. We will set up our own server environment, and we will build an AI that will be controlling the cooling/heating of the server so that it stays in an optimal range of temperatures while saving the maximum energy, therefore minimizing the costs. And just as DeepMind AI did, our goal will be to achieve at least 40\% energy saving.
+En 2016, [la IA DeepMind  minimizó una gran parte del costo de Google al reducir la factura de enfriamiento del centro de datos de Google en 40%](https://deepmind.com/blog/deepmind-ai-reduces-google-data-centre-cooling-bill-40/) utilizando su modelo de IA DQN (Deep Q-Learning). En este caso práctico, haremos algo muy similar. Configuraremos nuestro propio entorno de servidor y construiremos una IA que controlará el enfriamiento / calentamiento del servidor para que se mantenga en un rango óptimo de temperaturas mientras se ahorra la máxima energía, minimizando así los costes. Y tal como lo hizo la IA de DeepMind, nuestro objetivo será lograr al menos un 40% de ahorro de energía.
 
-\subsubsection{Environment to define}
+#### Entorno a definir
 
-Before we define the states, actions and rewards, we need to explain how the server operates. We will do that in several steps. First, we will list all the environment parameters and variables by which the server is controlled. After that we will set the essential assumption of the problem, on which our AI will rely to provide a solution. Then we will specify how we will simulate the whole process. And eventually we will explain the overall functioning of the server, and how the AI plays its role.
+Antes de definir los estados, las acciones y las recompensas, debemos explicar cómo funciona el servidor. Lo haremos en varios pasos. Primero, enumeraremos todos los parámetros y variables del entorno por los cuales se controla el servidor. Después de eso, estableceremos la suposición esencial del problema, en la cual nuestra IA dependerá para proporcionar una solución. Luego especificaremos cómo simularemos todo el proceso. Y eventualmente explicaremos el funcionamiento general del servidor y cómo la IA desempeña su papel.
 
-\
+**Parámetros**
 
-\textbf{Parameters:}
+* la temperatura atmosférica promedio durante un mes
+* el rango óptimo de temperaturas del servidor, que será $[18 \degree \textrm{C}, 24 \degree \textrm{C}]$
+* la temperatura mínima del servidor por debajo de la cual no funciona, que será $-20 \degree \textrm {C}$
+* la temperatura máxima del servidor por encima de la cual no funciona, que será de $80 \degree \textrm {C}$
+* el número mínimo de usuarios en el servidor, que será 10
+* el número máximo de usuarios en el servidor, que será de 100
+* el número máximo de usuarios en el servidor que puede subir o bajar por minuto, que será 5
+* la tasa mínima de transmisión de datos en el servidor, que será 20
+* la velocidad máxima de transmisión de datos en el servidor, que será de 300
+* la velocidad máxima de transmisión de datos que puede subir o bajar por minuto, que será 10
 
-\begin{itemize}
-    \item the average atmospheric temperature over a month
-    \item the optimal range of temperatures of the server, which will be $[18 \degree \textrm{C}, 24 \degree \textrm{C}]$
-    \item the minimum temperature of the server below which it fails to operate, which will be $-20 \degree \textrm{C}$
-    \item the maximum temperature of the server above which it fails to operate, which will be $80 \degree \textrm{C}$
-    \item the minimum number of users in the server, which will be 10
-    \item the maximum number of users in the server, which will be 100
-    \item the maximum number of users in the server that can go up or down per minute, which will be 5
-    \item the minimum rate of data transmission in the server, which will be 20
-    \item the maximum rate of data transmission in the server, which will be 300
-    \item the maximum rate of data transmission that can go up or down per minute, which will be 10
-\end{itemize}
 
-\textbf{Variables:}
+**Variables:**
 
-\begin{itemize}
-    \item the temperature of the server at any minute
-    \item the number of users in the server at any minute
-    \item the rate of data transmission at any minute
-    \item the energy spent by the AI onto the server (to cool it down or heat it up) at any minute
-    \item the energy spent by the server's integrated cooling system that automatically brings the server's temperature back to the optimal range whenever the server's temperature goes outside this optimal range
-\end{itemize}
+* la temperatura del servidor en cualquier momento
+* la cantidad de usuarios en el servidor en cualquier momento
+* la velocidad de transmisión de datos en cualquier minuto
+* la energía gastada por la IA en el servidor (para enfriarlo o calentarlo) en cualquier momento
+* la energía gastada por el sistema de enfriamiento integrado del servidor que automáticamente lleva la temperatura del servidor al rango óptimo cada vez que la temperatura del servidor sale de este rango óptimo
 
-All these parameters and variables will be part of our server environment and will influence the actions of the AI on the server.
+Todos estos parámetros y variables serán parte de nuestro entorno de servidor e influirán en las acciones de la IA en el servidor.
 
-\
 
-Then let's give and explain below the two core assumptions of the environment. It is important to understand that these assumptions are not AI related, but just used to simplify the environment so that we can focus the maximum on the AI solution.
+A continuación, expliquemos los dos supuestos básicos del entorno. Es importante comprender que estos supuestos no están relacionados con la inteligencia artificial, sino que se utilizan para simplificar el entorno para que podamos centrarnos al máximo en la solución de inteligencia artificial.
 
-\
+**Suposiciones:**
 
-\textbf{Assumptions:}
+Nos basaremos en los siguientes dos supuestos esenciales:
 
-\
+**Supuesto 1: la temperatura del servidor se puede aproximar mediante Regresión lineal múltiple, mediante una función lineal de la temperatura atmosférica, el número de usuarios y la velocidad de transmisión de datos**:
 
-We will rely on the following two essential assumptions:
+$$\textrm{temp. del server} = b_0 + b_1 \times \textrm{temp. atmosf.} + b_2 \times \textrm{n. de usuarios} + b_3 \times \textrm{ratio de trans. de datos} $$
 
-\
+donde $b_0 \in \mathbb{R}$, $b_1>0$, $b_2>0$ y $b_3>0$.
 
-\textbf{Assumption 1: The temperature of the server can be approximated through Multiple Linear Regression, by a linear function of the atmospheric temperature, the number of users and the rate of data transmission}:
+La razón de ser de este supuesto y la razón por la cual $b_1>0$, $b_2>0$ y $b_3>0$ son fáciles de entender de entender. De hecho, tiene sentido que cuando la temperatura atmosférica aumenta, la temperatura del servidor aumenta. Además, cuanto más usuarios estén activos en el servidor, más gastará el servidor para manejarlos y, por lo tanto, mayor será la temperatura del servidor. Y finalmente, por supuesto, mientras más datos se transmitan dentro del servidor, más gastará el servidor para procesarlo y, por lo tanto, la temperatura más alta del servidor será. Y para fines de simplicidad, solo suponemos que estas correlaciones son lineales. Sin embargo, podría ejecutarse totalmente la misma simulación suponiendo que son cuadráticos o logarítmicos. Siéntete libre de retocar el modelo.
 
-\begin{equation*}
-    \textrm{server temperature} = b_0 + b_1 \times \textrm{atmospheric temperature} + b_2 \times \textrm{number of users} + b_3 \times \textrm{data transmission rate} 
-\end{equation*}
+Finalmente, supongamos que después de realizar esta Regresión lineal múltiple, obtuvimos los siguientes valores de los coeficientes: $b_0 = 0$, $b_1 = 1$, $b_2 = 1.25$ y $b_3 = 1.25$. En consecuencia:
 
-where $b_0 \in \mathbb{R}$, $b_1>0$, $b_2>0$ and $b_3>0$.
+$$\textrm{temp. del server} = \textrm{temp. atmosf.} + 1.25 \times \textrm{n. de usuarios} + 1.25 \times \textrm{ratio de trans. de datos} $$
 
-\
+**Supuesto 2: la energía gastada por un sistema (nuestra IA o el sistema de enfriamiento integrado del servidor) que cambia la temperatura del servidor de $T_t$ a $T_{t + 1}$ en 1 unidad de tiempo (aquí 1 minuto), se puede aproximar nuevamente mediante regresión mediante una función lineal del cambio absoluto de temperatura del servidor**:
 
-The raison d'être of this assumption and the reason why $b_1>0$, $b_2>0$ and $b_3>0$ are intuitive to understand. Indeed, it makes sense that when the atmospheric temperature increases, the temperature of the server increases. Also, the more users are active in the server, the more the server has to spend energy to handle them and therefore the higher the temperature of the server will be. And finally of course, the more data is transmitted inside the server, the more the server has to spend energy to process it, and therefore the higher temperature of the server will be. And for simplicity purposes, we just suppose that these correlations are linear. However you could totally run the same simulation by assuming they are quadratic or logarithmic. Feel free to tweak around.
+$$E_t = \alpha |\Delta T_t| + \beta = \alpha |T_{t+1} - T_t| + \beta$$
 
-\
+donde:
 
-Eventually, let's assume further that after performing this Multiple Linear Regression, we obtained the following values of the coefficients: $b_0 = 0$, $b_1 = 1$, $b_2 = 1.25$ and $b_3 = 1.25$. Accordingly:
+* $E_t$ es la energía gastada por el sistema en el servidor entre los tiempos $t$ y $t +1$,
+* $\Delta T_t$ es el cambio de temperatura del servidor causado por el sistema entre los tiempos $t$ y $t +1$,
+* $T_t$ es la temperatura del servidor en el instante $t$,
+* $T_{t + 1}$ es la temperatura del servidor en el instante $t +1$,
+* $\alpha > 0$,
+* y $\beta \in \mathbb{R}$.
 
-\begin{equation*}
-    \textrm{server temperature} = \textrm{atmospheric temperature} + 1.25 \times \textrm{number of users} + 1.25 \times \textrm{data transmission rate}
-\end{equation*}
+Nuevamente, expliquemos por qué tiene sentido intuitivamente hacer esta suposición con $\alpha>0$. Eso es simplemente porque cuanto más se calienta la IA o se enfría el servidor, más gasta energía para hacer esa transferencia de calor. De hecho, por ejemplo, imaginemos que el servidor de repente tiene problemas de sobrecalentamiento y acaba de alcanzar $80 \degree$ C, luego, dentro de una unidad de tiempo (1 minuto), la IA necesitará mucha más energía para que la temperatura del servidor vuelva a su temperatura óptima de $24 \degree$ C que devolverlo a $50 \degree$ C por ejemplo. Y de nuevo por razones de simplicidad, solo suponemos que estas correlaciones son lineales. Además (en caso de que te lo estés preguntado), ¿por qué tomamos el valor absoluto? Eso es simplemente porque cuando la IA enfría el servidor, $T_{t + 1}<T_t$, entonces $\Delta T <0$. Y, por supuesto, una energía siempre es positiva, por lo que tenemos que tomar el valor absoluto de $\Delta T$.
 
-\
-
-\textbf{Assumption 2: The energy spent by a system (our AI or the server's integrated cooling system) that changes the server's temperature from $T_t$ to $T_{t+1}$ within 1 unit of time (here 1 minute), can be approximated again through regression by a linear function of the server's absolute temperature change:}
-
-\begin{equation*}
-    E_t = \alpha |\Delta T_t| + \beta = \alpha |T_{t+1} - T_t| + \beta
-\end{equation*}
-
-where:
-
-\begin{equation*}
-\begin{cases}
-\textrm{$E_t$ is the energy spent by the system onto the server between times $t$ and $t$ + 1 minute} \\
-\textrm{$\Delta T_t$ is the change of the server's temperature caused by the system between times $t$ and $t$ + 1 minute} \\
-\textrm{$T_t$ is the temperature of the server at time $t$} \\
-\textrm{$T_{t+1}$ is the temperature of the server at time $t$ + 1 minute} \\
-\alpha > 0 \\
-\beta \in \mathbb{R}
-\end{cases}
-\end{equation*}
-
-Again, let's explain why it intuitively makes sense to make this assumption with $\alpha > 0$. That's simply because the more the AI heats up or cools down the server, the more it spends energy to do that heat transfer. Indeed for example, imagine the server suddenly has overheating issues and just reached $80 \degree$C, then within one unit of time (1 minute) the AI will need much more energy to bring the server's temperature back to its optimal temperature $24 \degree$C than to bring it back to $50 \degree$C for example. And again for simplicity purposes, we just suppose that these correlations are linear. Also (in case you are wondering), why do we take the absolute value? That's simply because when the AI cools down the server, $T_{t+1} < T_t$, so $\Delta T < 0$. And of course an energy is always positive so we have to take the absolute value of $\Delta T$.
-
-\
-
-Eventually, for further simplicity purposes we will also assume that the results of the regression are $\alpha = 1$ and $\beta = 0$, so that we get, the following final equation based on Assumption 2:
+Finalmente, para mayor simplicidad, también asumiremos que los resultados de la regresión son $\alpha = 1$ y $\beta = 0$, de modo que obtenemos la siguiente ecuación final basada en el supuesto 2:
 
 \begin{equation*}
 E_t = |\Delta T_t| = |T_{t+1} - T_t| =
 \begin{cases}
-T_{t+1} - T_t & \textrm{if $T_{t+1} > T_t$, that is if the server is heated up} \\
-T_t - T_{t+1} & \textrm{if $T_{t+1} < T_t$, that is if the server is cooled down}
+T_{t+1} - T_t & \textrm{si $T_{t+1} > T_t$, es decir, si el servidor se calienta} \\
+T_t - T_{t+1} & \textrm{si $T_{t+1} < T_t$, tes decir, si el servidor se enfria}
 \end{cases}
 \end{equation*}
 
-\
 
-Now let's explain how we will simulate the server operating with the users and data coming in and out.
+Ahora, expliquemos cómo simularemos el funcionamiento del servidor con los usuarios y los datos que entran y salen.
 
-\
+**Simulación**
 
-\textbf{Simulation:}
+El número de usuarios y la velocidad de transmisión de datos fluctuarán aleatoriamente para simular un servidor real. Esto lleva a una aleatoriedad en la temperatura y la IA tiene que entender cuánta potencia de enfriamiento o calefacción tiene que transferir al servidor para no deteriorar el rendimiento del servidor y, al mismo tiempo, gastar la menor energía optimizando su transferencia de calor.
 
-\
+Ahora que tenemos la imagen completa, expliquemos el funcionamiento general del servidor y la IA dentro de este entorno.
 
-The number of users and the rate of data transmission will be randomly fluctuating to simulate an actual server. This leads to randomness in the temperature and the AI has to understand how much cooling or heating power it has to transfer to the server so as to not deteriorate the server performance and at the same time, expend the least energy by optimizing its heat transfer.
+**Funcionamiento general:**
 
-\
+Dentro de un centro de datos, estamos tratando con un servidor específico que está controlado por los parámetros y variables enumerados anteriormente. Cada minuto, algunos usuarios nuevos inician sesión en el servidor y algunos usuarios actuales cierran sesión, por lo tanto, actualizan el número de usuarios activos en el servidor. Igualmente, cada minuto se transmiten algunos datos nuevos al servidor, y algunos datos existentes se transmiten fuera del servidor, por lo tanto, se actualiza la velocidad de transmisión de datos que ocurre dentro del servidor. Por lo tanto, según el supuesto 1 anterior, la temperatura del servidor se actualiza cada minuto. Ahora, concéntrate, porque aquí es donde entenderás el gran papel que la IA tiene que jugar en el servidor. Dos posibles sistemas pueden regular la temperatura del servidor: la IA o el sistema de enfriamiento integrado del servidor. El sistema de enfriamiento integrado del servidor es un sistema no inteligente que automáticamente devolverá la temperatura del servidor a su temperatura óptima. Expliquemos esto con más detalles: cuando la temperatura del servidor se actualiza cada minuto, puede mantenerse dentro del rango de temperaturas óptimas ($[18 \degree \textrm{C}, 24 \degree \textrm{C}]$), o salir de este rango. Si sale del rango óptimo, como por ejemplo $30 \degree$ C, el sistema de enfriamiento integrado del servidor llevará automáticamente la temperatura al límite más cercano del rango óptimo, que es $24 \degree$ C. Sin embargo, el sistema de enfriamiento integrado de este servidor lo hará solo cuando la IA no esté activada. Si la IA está activada, en ese caso el sistema de enfriamiento integrado del servidor se desactiva y es la IA la que actualiza la temperatura del servidor para regularlo de la mejor manera. Pero la IA hace eso después de algunas predicciones previas, no de una manera determinista como con el sistema de enfriamiento integrado del servidor no inteligente. Antes de que haya una actualización de la cantidad de usuarios y la velocidad de transmisión de datos que hace que cambie la temperatura del servidor, la IA predice si debería enfriar el servidor, no hacer nada o calentar el servidor. Entonces ocurre el cambio de temperatura y la IA reitera. Y dado que estos dos sistemas son complementarios, los evaluaremos por separado para comparar su rendimiento.
 
-Now that we have the full picture, let's explain the overall functioning of the server and the AI inside this environment.
-
-\
-
-\textbf{Overall functioning:}
-
-\
-
-Inside a data center, we are dealing with a specific server that is controlled by the parameters and variables listed above. Every minute, some new users log on to the server and some current users log off, therefore updating the number of active users in the server. Same, every minute some new data is transmitted into the server, and some existing data is transmitted outside the server, therefore updating the rate of data transmission happening inside the server. Hence, based on Assumption 1 given above, the temperature of the server is updated every minute. Now please focus, because this is where you will understand the huge role the AI has to play on the server. Two possible systems can regulate the temperature of the server: the AI, or the server's integrated cooling system. The server's integrated cooling system is an unintelligent system that will automatically bring back the server's temperature to its optimal temperature. Let's explain this in more details: when the server's temperature is updated every minute, it can either stay within the range of optimal temperatures ($[18 \degree \textrm{C}, 24 \degree \textrm{C}]$), or go outside this range. If it goes outside the optimal range, like say $30 \degree$C, the server's integrated cooling system will automatically bring the temperature back to the closest bound of the optimal range, that is $24 \degree$C. However this server's integrated cooling system will do that only when the AI is not activated. If the AI is activated, then in that case the server's integrated cooling system is deactivated and it is the AI itself that updates the temperature of the server to regulate it the best way. But the AI does that after some prior predictions, not in a deterministic way as with the unintelligent server's integrated cooling system. Before there is an update of the number of users and the rate of data transmission causing to change the temperature of the server, the AI predicts if it should cool down the server, do nothing, or heat up the server. Then the temperature change happens and the AI reiterates. And since these two systems are complementary, we will evaluate them separately to compare their performance.
-
-And that brings us to the energy. Indeed remember that one primary goal of the AI is to save some energy spent on this server. Accordingly, our AI has to spend less energy than the energy spent by the unintelligent cooling system onto the server. And since, based on Assumption 2 given above, the energy spent on the server (by any system) is proportional to the change of temperature within one unit of time:
+Y eso nos lleva a la energía. De hecho, recordemos que un objetivo principal de la IA es ahorrar algo de energía gastada en este servidor. En consecuencia, nuestra IA tiene que gastar menos energía que la energía gastada por el sistema de enfriamiento no inteligente en el servidor. Y dado que, según el supuesto 2 anterior, la energía gastada en el servidor (por cualquier sistema) es proporcional al cambio de temperatura dentro de una unidad de tiempo:
 
 \begin{equation*}
 E_t = |\Delta T_t| = \alpha |T_{t+1} - T_t| =
 \begin{cases}
-T_{t+1} - T_t & \textrm{if $T_{t+1} > T_t$, that is if the server is heated up} \\
-T_t - T_{t+1} & \textrm{if $T_{t+1} < T_t$, that is if the server is cooled down}
+T_{t+1} - T_t & \textrm{si $T_{t+1} > T_t$, es decir, si el servidor se calienta} \\
+T_t - T_{t+1} & \textrm{if $T_{t+1} < T_t$, es decir, si el servidor se enfria}
 \end{cases}
 \end{equation*}
 
 \
 
-then that means that the energy saved by the AI at each iteration $t$ (each minute) is in fact the difference in absolute changes of temperatures caused on the server between the unintelligent server's integrated cooling system and the AI from $t$ and $t+1$:
+entonces eso significa que la energía ahorrada por la IA en cada instante $t$ (cada minuto) es, de hecho, la diferencia en los cambios absolutos de temperatura causados en el servidor entre el sistema de enfriamiento integrado del servidor no inteligente y la IA de $t$ y $t + 1$:
 
 \begin{align*}
-        \textrm{Energy saved by the AI between $t$ and $t+1$}
-        & = |\Delta T_t^{\textrm{Server's Integrated Cooling System}}| - |\Delta T_t^{\textrm{AI}}| \\
-        & = |\Delta T_t^{\textrm{noAI}}| - |\Delta T_t^{\textrm{AI}}|
+        \textrm{Energia ahorrada por la IA entre $t$ y $t+1$}
+        & = |\Delta T_t^{\textrm{Sistema de Enfriamiento Integrado del Servidor}}| - |\Delta T_t^{\textrm{IA}}| \\
+        & = |\Delta T_t^{\textrm{no IA}}| - |\Delta T_t^{\textrm{IA}}|
 \end{align*}
 
-where:
+donde:
 
-\begin{equation*}
-\begin{cases}
-\textrm{$\Delta T_t^{\textrm{noAI}}$ is the change of temperature that the server's integrated cooling system would cause} \\
-\textrm{without the AI onto the server during the iteration $t$, that is from $t$ to $t+1$ minute} \\
-\textrm{$\Delta T_t^{\textrm{AI}}$ is the change of temperature caused by the AI onto the server during the iteration $t$,} \\
-\textrm{that is from $t$ to $t+1$ minute}
-\end{cases}
-\end{equation*}
+* $\Delta T_t^{\textrm{no IA}}$ es el cambio de temperatura que causaría el sistema de enfriamiento integrado del servidor sin la IA en el servidor durante la iteración $t$, es decir, del instante $t$ al instante $t + 1$,
+* $\Delta T_t^{\textrm{AI}}$ es el cambio de temperatura causado por la IA en el servidor durante la iteración $t$, es decir, del instante $t$ al instante $t + 1$.
 
-\
 
-Our goal will be to save the maximum energy each minute, therefore saving the maximum total energy over 1 full year of simulation, and eventually saving the maximum costs in the cooling/heating electricity bill.
+Nuestro objetivo será ahorrar la energía máxima cada minuto, por lo tanto, ahorrar la energía total máxima durante 1 año completo de simulación y, finalmente, ahorrar los costos máximos en la factura de electricidad de refrigeración / calefacción.
 
-\
 
-Are you ready?
+¿Estamos preparados?
 
-\
 
-Great! Now that we fully understand how our server environment works and how it is simulated, it is time to proceed with what must be absolutely done when defining an AI environment:
+¡Excelente! Ahora que entendemos completamente cómo funciona nuestro entorno de servidor y cómo se simula, es hora de proceder con lo que debe hacerse absolutamente al definir un entorno de IA:
 
-\
+* Definir los estados
+* Definir las acciones
+* Definir las recompensas
 
-\begin{itemize}
-    \item Defining the states
-    \item Defining the actions
-    \item Defining the rewards
-\end{itemize}
+**Definir los estados**
 
-\
+El estado de entrada $s_t$ en el momento $t$ se compone de los siguientes tres elementos:
 
-\textbf{Defining the states.}
+* La temperatura del servidor en el instante $t$.
+* El número de usuarios en el servidor en el instante $t$.
+* La velocidad de transmisión de datos en el servidor en el instante $t$.
 
-\
+Por lo tanto, el estado de entrada será un vector de entrada de estos tres elementos. Nuestra futura IA tomará este vector como entrada y devolverá la acción para ejecutar en cada instante $t$.
 
-The input state $s_t$ at time $t$ is composed of the following three elements:
+**Definir las acciones**
 
-\begin{enumerate}
-    \item The temperature of the server at time $t$.
-    \item The number of users in the server at time $t$.
-    \item The rate of data transmission in the server at time $t$.
-\end{enumerate}
+Las acciones son simplemente los cambios de temperatura que la IA puede causar dentro del servidor, para calentarlo o enfriarlo. Para que nuestras acciones sean discretas, consideraremos 5 posibles cambios de temperatura de $-3 \degree$ C a $+ 3 \degree$ C, para que terminemos con las 5 acciones posibles que la IA puede llevar a cabo para regular la temperatura del servidor:
 
-Thus the input state will be an input vector of these three elements. Our future AI will take this vector as input, and will return the action to play at each time $t$.
+|**Acción** | **¿Qué hace?**|
+|:---------:|:--------------|
+0|La IA enfría el servidor $3 \degree$C
+1|La IA enfría el servidor $1.5 \degree$C
+2|La IA no transfiere calor ni frio al servidor (sin cambio de temperatura)
+3|La IA calienta el servidor $1.5 \degree$C
+4|La IA calienta el servidor $3 \degree$C
 
-\
+**Definir las recompensas.**
 
-\textbf{Defining the actions.}
+Después de leer el párrafo "Funcionamiento general" anterior, puedes adivinar cuál será la recompensa. Por supuesto, la recompensa en la iteración $t$ es la energía gastada en el servidor que la IA está ahorrando con respecto al sistema de enfriamiento integrado del servidor, es decir, la diferencia entre la energía que gastaría el sistema de enfriamiento no inteligente si la IA fuera desactivada y la energía que la IA gasta en el servidor:
 
-\
+$$\textrm{Reward}_t = E_t^{\textrm{no IA}} - E_t^{\textrm{IA}}$$
 
-The actions are simply the temperature changes that the AI can cause inside the server, in order to heat it up or cool it down. In order to make our actions discrete, we will consider 5 possible temperature changes from $-3 \degree$C to $+3 \degree$C, so that we end up with the 5 following possible actions that the AI can play to regulate the temperature of the server:
-
-\begin{table}[h!]
-  \begin{center}
-    \begin{tabular}{c|l}
-      \textbf{Action} & \textbf{What it does} \\
-      \hline
-      0 & The AI cools down the server by $3 \degree$C \\
-      1 & The AI cools down the server by $1.5 \degree$C \\
-      2 & The AI does not transfer any heat to the server (no temperature change) \\
-      3 & The AI heats up the server by $1.5 \degree$C \\
-      4 & The AI heats up the server by $3 \degree$C \\
-    \end{tabular}
-  \end{center}
-\end{table}
-
-\textbf{Defining the rewards.}
-
-\
-
-After reading the "Overall functioning" paragraph above you might guess what the reward is going to be. Of course, the reward at iteration $t$ is the energy spent on the server that the AI is saving with respect to the server's integrated cooling system, that is, the difference between the energy that the unintelligent cooling system would spend if the AI was deactivated and the energy that the AI spends onto the server:
-
-\begin{equation*}
-    \textrm{Reward}_t = E_t^{\textrm{noAI}} - E_t^{\textrm{AI}}
-\end{equation*}
-
-And since (Assumption 2), the energy spent is equal to the change of the temperature caused on the server (by any system, including the AI or the unintelligent cooling system):
+Y como (Supuesto 2), la energía gastada es igual al cambio de temperatura causado en el servidor (por cualquier sistema, incluido el AI o el sistema de enfriamiento no inteligente):
 
 \begin{equation*}
 E_t = |\Delta T_t| = \alpha |T_{t+1} - T_t| =
 \begin{cases}
-T_{t+1} - T_t & \textrm{if $T_{t+1} > T_t$, that is if the server is heated up} \\
-T_t - T_{t+1} & \textrm{if $T_{t+1} < T_t$, that is if the server is cooled down}
+T_{t+1} - T_t & \textrm{si $T_{t+1} > T_t$, es decir, si el servidor se calienta} \\
+T_t - T_{t+1} & \textrm{si $T_{t+1} < T_t$, es decir, si el servidor se enfria}
 \end{cases}
 \end{equation*}
 
-then we get that the reward received at time $t$ is in fact the difference in change of temperatures caused on the server between unintelligent cooling system (that is when there is no AI) and the AI:
+entonces obtenemos que la recompensa recibida en el instante $t$ es, de hecho, la diferencia en el cambio de temperatura causada en el servidor entre el sistema de enfriamiento no inteligente (es decir, cuando no hay IA) y la IA:
 
 \begin{align*}
     \textrm{Reward}_t
-    & = \textrm{Energy saved by the AI between $t$ and $t+1$} \\
-    & = E_t^{\textrm{noAI}} - E_t^{\textrm{AI}} \\
-    & = |\Delta T_t^{\textrm{noAI}}| - |\Delta T_t^{\textrm{AI}}|
+    & = \textrm{Energía ahorrada por la IA entre $t$ y $t+1$} \\
+    & = E_t^{\textrm{no IA}} - E_t^{\textrm{IA}} \\
+    & = |\Delta T_t^{\textrm{no IA}}| - |\Delta T_t^{\textrm{IA}}|
 \end{align*}
 
-where:
+donde:
 
-\begin{equation*}
-\begin{cases}
-\textrm{$\Delta T_t^{\textrm{noAI}}$ is the change of temperature that the server's integrated cooling system would cause} \\
-\textrm{without the AI onto the server during the iteration $t$, that is from $t$ to $t+1$ minute} \\
-\textrm{$\Delta T_t^{\textrm{AI}}$ is the change of temperature caused by the AI onto the server during the iteration $t$,} \\
-\textrm{that is from $t$ to $t+1$ minute}
-\end{cases}
-\end{equation*}
+* $\Delta T_t^{\textrm{no IA}}$ es el cambio de temperatura que causaría el sistema de enfriamiento integrado del servidor sin la IA en el servidor durante la iteración $t$, es decir, del instante $t$ al instante $t + 1$,
+* $\Delta T_t^{\textrm{AI}}$ es el cambio de temperatura causado por la IA en el servidor durante la iteración $t$, es decir, del instante $t$ al instante $t + 1$.
 
-\
 
-\textbf{Important note:} it is important to understand that the systems (our AI and the server's cooling system) will be evaluated separately, in order to compute the rewards. And since each time their actions lead to different temperatures, we will have to keep track separately of the two temperatures $T_t^{\textrm{AI}}$ and $T_t^{\textrm{noAI}}$.
+**Nota importante:** es importante comprender que los sistemas (nuestra IA y el sistema de enfriamiento del servidor) se evaluarán por separado para calcular las recompensas. Y dado que cada vez que sus acciones conducen a temperaturas diferentes, tendremos que realizar un seguimiento por separado de las dos temperaturas $T_t^{\textrm{IA}}$ and $T_t^{\textrm{no IA}}$.
 
-\
 
-Now to finish this section we are going to do a small simulation of 2 iterations (i.e. 2 minutes), as an example that will make everything crystal clear.
+Ahora, para terminar esta sección, vamos a hacer una pequeña simulación de 2 iteraciones (es decir, 2 minutos), como un ejemplo que hará que todo quede claro.
 
-\textbf{Final Simulation Example.}
+**Ejemplo de simulación final.**
 
-\
-
-Let's say that we are at time $t = 4:00$ pm and that the temperature of the server is $T_t = 28 \degree$C, both with the AI and without the AI. At this exact time, the AI predicts the action 0, 1, 2, 3 or 4. Since right now the server's temperature is outside the optimal temperature range $[18 \degree \textrm{C}, 24 \degree \textrm{C}]$, the AI will probably predict actions 0, 1 or 2. Let's say that it predicts 1, which corresponds to cooling the server down by $1.5 \degree$C. Therefore, between $t = 4:00$ pm and $t+1 = 4:01$ pm, the AI makes the server's temperature go from $T_t^{\textrm{AI}} = 28 \degree \textrm{C}$ to $T_{t+1}^{\textrm{AI}} = 26.5 \degree \textrm{C}$:
+Digamos que estamos en el instante de tiempo $t = 4:00$ pm y que la temperatura del servidor es $T_t = 28 \degree$ C, tanto con la IA como sin la IA. En este momento exacto, la IA predice la acción 0, 1, 2, 3 o 4. Desde ahora, la temperatura del servidor está fuera del rango de temperatura óptimo $[18 \degree \textrm{C}, 24 \degree \textrm{C }]$, la IA probablemente predecirá las acciones 0, 1 o 2. Digamos que predice 1, lo que corresponde a enfriar el servidor en $1.5 \degree$ C. Por lo tanto, entre $t = 4:00$ pm y $t + 1 = 4: 01$ pm, la IA hace que la temperatura del servidor pase de $T_t^{\textrm{IA}} = 28 \degree \textrm{C} $ a $T_{t + 1}^{\ textrm{IA}} = 26.5 \degree \textrm{C}$:
 
 \begin{align*}
-    \Delta T_t^{\textrm{AI}}
-    & = T_{t+1}^{\textrm{AI}} - T_t^{\textrm{AI}} \\
+    \Delta T_t^{\textrm{IA}}
+    & = T_{t+1}^{\textrm{IA}} - T_t^{\textrm{IA}} \\
     & = 26.5 - 27 \\
     & = -1.5 \degree \textrm{C}
 \end{align*}
 
-Thus, based on Assumption 2, the energy spent by the AI onto the server is:
+Por lo tanto, según el supuesto 2, la energía gastada por la IA en el servidor es:
 
 \begin{align*}
-    E_t^{\textrm{AI}}
-    & = |\Delta T_t^{\textrm{AI}}| \\
+    E_t^{\textrm{IA}}
+    & = |\Delta T_t^{\textrm{IA}}| \\
     & = 1.5 \ \textrm{Joules}
 \end{align*}
 
-Good, now only one info is missing to compute the reward: it is the energy that the server's integrated cooling system would have spent if the AI was deactivated between 4:00pm and 4:01pm. Remember that this unintelligent cooling system is automatically bringing the server's temperature back to the closest bound of the optimal temperature range $[18 \degree \textrm{C}, 24 \degree \textrm{C}]$. So since at $t = 4:00$ pm the temperature was $T_t = 28 \degree$C, then the closest bound of the optimal temperature range at that time was $24 \degree$C. Thus the server's integrated cooling system would have changed the temperature from $T_t = 28 \degree \textrm{C}$ to $T_{t+1} = 24 \degree \textrm{C}$, and therefore  the server's temperature change that would have occurred if there was no AI is:
+Bien, ahora solo falta una información para calcular la recompensa: es la energía que el sistema de enfriamiento integrado del servidor habría gastado si la IA se hubiera desactivado entre las 4:00 p.m. y las 4:01 p.m. Recordemos que este sistema de enfriamiento no inteligente lleva automáticamente la temperatura del servidor de vuelta al límite más cercano del rango de temperatura óptimo $[18 \degree \textrm{C}, 24 \degree \textrm{C}]$. Entonces, dado que a $t = 4: 00 ¡$ pm la temperatura era $T_t = 28 \degree$ C, entonces el límite más cercano del rango de temperatura óptimo en ese momento era $24 \degree$ C. Por lo tanto, el sistema de enfriamiento integrado del servidor habría cambiado la temperatura de $T_t = 28 \degree \textrm{C}$ a $T_{t + 1} = 24 \degree \textrm{C}$, y por lo tanto la temperatura del servidor cambia habría ocurrido si no hubiera IA es:
 
 \begin{align*}
-    \Delta T_t^{\textrm{noAI}}
-    & = T_{t+1}^{\textrm{noAI}} - T_t^{\textrm{noAI}} \\
+    \Delta T_t^{\textrm{no IA}}
+    & = T_{t+1}^{\textrm{no IA}} - T_t^{\textrm{no IA}} \\
     & = 24 - 28 \\
     & = -4 \degree C
 \end{align*}
 
-\
 
-Thus, based on Assumption 2, the energy that the unintelligent cooling system would have spent if there was no AI is:
+Por lo tanto, según el supuesto 2, la energía que el sistema de enfriamiento no inteligente habría gastado si no hubiera IA es:
 
 \begin{align*}
-    E_t^{\textrm{noAI}}
-    & = |\Delta T_t^{\textrm{noAI}}| \\
+    E_t^{\textrm{no IA}}
+    & = |\Delta T_t^{\textrm{no IA}}| \\
     & = 4 \ \textrm{Joules}
 \end{align*}
 
-\
 
-Hence in conclusion, the reward we get after playing this action at time $t = 4:00$ pm is:
+En conclusión, la recompensa que obtenemos después de llevar a cabo esta acción en el momento $t = 4: 00$ pm es:
 
 \begin{align*}
     \textrm{Reward}
-    & = E_t^{\textrm{noAI}} - E_t^{\textrm{AI}} \\
+    & = E_t^{\textrm{no IA}} - E_t^{\textrm{IA}} \\
     & = 4 - 1.5 \\
     & = 2.5
 \end{align*}
 
-\
 
-Then, between $t = 4:00$ pm and $t+1 = 4:01$ pm, other things happen: some new users are logging on to the server, some existing users are logging off the server, some new data is transmitting inside the server, and some existing data is transmitting outside the server. Based on Assumption 1, these factors make the server's temperature change. Let's say they increase the server's temperature by $5 \degree$C:
+Luego, entre $t = 4: 00$ pm y $t + 1 = 4: 01$ pm, suceden otras cosas: algunos usuarios nuevos inician sesión en el servidor, algunos usuarios existentes cierran sesión en el servidor, algunos datos nuevos son transmitiendo dentro del servidor, y algunos datos existentes se transmiten fuera del servidor. Según el supuesto 1, estos factores hacen que la temperatura del servidor cambie. Digamos que aumentan la temperatura del servidor en $5 \degree$ C:
 
-\begin{equation*}
-    \Delta_t \ \textrm{Intrinsic Temperature} = 5 \degree C
-\end{equation*}
+$$\Delta_t \ \textrm{Temperatura Intrinseca} = 5 \degree C$$
 
-\
 
-Now remember that we are evaluating two systems separately: our AI, and the server's integrated cooling system. Therefore we must compute separately the two temperatures we would get with these two systems at $t+1 = 4:01$ pm. Let's start with the AI.
+Ahora recuerde que estamos evaluando dos sistemas por separado: nuestra IA y el sistema de enfriamiento integrado del servidor. Por lo tanto, debemos calcular por separado las dos temperaturas que obtendríamos con estos dos sistemas a $t + 1 = 4: 01$ pm. Comencemos con la IA.
 
-\
-
-The temperature we get at $t+1 = 4:01$ pm when the AI is activated is:
+La temperatura que obtenemos en $t + 1 = 4: 01$ pm cuando se activa la IA es:
 
 \begin{align*}
-    T_{t+1}^{\textrm{AI}}
-    & = T_t^{\textrm{AI}} + \Delta T_t^{\textrm{AI}} + \Delta_t \ \textrm{Intrinsic Temperature} \\
+    T_{t+1}^{\textrm{IA}}
+    & = T_t^{\textrm{IA}} + \Delta T_t^{\textrm{IA}} + \Delta_t \ \textrm{Temperatura Intrinseca} \\
     & = 28 + (-1.5) + 5 \\
     & = 31.5 \degree C
 \end{align*}
 
-And the temperature we get at $t+1 = 4:01$ pm when the AI is not activated is:
+Y la temperatura que obtenemos en $t + 1 = 4: 01$ pm cuando la IA no está activada es:
 
 \begin{align*}
-    T_{t+1}^{\textrm{noAI}}
-    & = T_t^{\textrm{noAI}} + \Delta T_t^{\textrm{noAI}} + \Delta_t \ \textrm{Intrinsic Temperature} \\
+    T_{t+1}^{\textrm{no IA}}
+    & = T_t^{\textrm{no IA}} + \Delta T_t^{\textrm{no IA}} + \Delta_t \ \textrm{Temperatura Intrinseca} \\
     & = 28 + (-4) + 5 \\
     & = 29 \degree C
 \end{align*}
 
-Perfect, we have our two separate temperatures, which are $T_{t+1}^{\textrm{AI}} = 29.5 \degree C$ when the AI is activated, and $T_{t+1}^{\textrm{noAI}} = 27 \degree C$ when the AI is not activated.
+Perfecto, tenemos nuestras dos temperaturas separadas, que son $T_{t+1}^{\textrm{AI}} = 29.5 \degree C$ cuando la IA está activada, y $T_{t+1}^{\textrm{noAI}} = 27 \degree C$ cuando la IA no está activada.
 
-\
-
-Now let's simulate what happens between $t+1 = 4:01$ pm and $t+2 = 4:02$ pm. Again, our AI will make a prediction, and since the server is heating up, let's say it predicts action 0, which corresponds to cooling down the server by $3 \degree C$, bringing it down to $T_{t+2}^{\textrm{AI}} = 28.5 \degree C$. Therefore, the energy spent by the AI between $t+1 = 4:01$ pm and $t+2 = 4:02$ pm, is:
+Ahora simulemos lo que sucede entre los instantes $t + 1 = 4:01$ pm y $t + 2 = 4:02$ pm. Nuevamente, nuestra IA hará una predicción, y dado que el servidor se está calentando, digamos que predice la acción 0, que corresponde a enfriar el servidor en $3 \degree C$, reduciéndolo a $T_{t + 2}^{\textrm{IA}} = 28.5 \degree C$. Por lo tanto, la energía gastada por la IA entre $t + 1 = 4: 01$ pm y $t + 2 = 4: 02$ pm, es:
 
 \begin{align*}
-    E_{t+1}^{\textrm{AI}}
-    & = |\Delta T_{t+1}^{\textrm{AI}}| \\
+    E_{t+1}^{\textrm{IA}}
+    & = |\Delta T_{t+1}^{\textrm{IA}}| \\
     & = |28.5 - 31.5| \\
     & = 3 \ \textrm{Joules}
 \end{align*}
 
-Now regarding the server's integrated cooling system (i.e. when there is no AI), since at $t+1 = 4:01$ pm we had $T_{t+1}^{\textrm{noAI}} = 29 \degree C$, then the closest bound of the optimal range of temperatures is still $24 \degree C$, and so the energy that the server's unintelligent cooling system would spend between $t+1 = 4:01$ pm and $t+2 = 4:02$ pm, is:
+Ahora con respecto al sistema de enfriamiento integrado del servidor (es decir, cuando no hay IA), ya que a $t + 1 = 4: 01$ pm teníamos $T_{t + 1}^{\textrm{no IA}} = 29 \degree C$, entonces el límite más cercano del rango óptimo de temperaturas sigue siendo $24 \degree C$, por lo que la energía que el sistema de enfriamiento no inteligente del servidor gastaría entre $t + 1 = 4: 01$ pm y $t + 2 = 4 : 02$ pm, es:
 
 \begin{align*}
-    E_{t+1}^{\textrm{noAI}}
-    & = |\Delta T_{t+1}^{\textrm{noAI}}| \\
+    E_{t+1}^{\textrm{no IA}}
+    & = |\Delta T_{t+1}^{\textrm{no IA}}| \\
     & = |24 - 29| \\
     & = 5 \ \textrm{Joules}
 \end{align*}
 
-Hence the reward obtained between $t+1 = 4:01$ pm and $t+2 = 4:02$ pm, is:
+De ahí la recompensa obtenida entre $t+1 = 4:01$ pm y $t+2 = 4:02$ pm, es:
 
 \begin{align*}
     \textrm{Reward}
-    & = E_{t+1}^{\textrm{noAI}} - E_{t+1}^{\textrm{AI}} \\
+    & = E_{t+1}^{\textrm{no IA}} - E_{t+1}^{\textrm{IA}} \\
     & = 5 - 3 \\
     & = 2
 \end{align*}
 
-And finally, the total reward obtained between $t = 4:00$ pm and $t+2 = 4:02$ pm, is:
+Y finalmente, la recompensa total obtenida entre $t = 4:00$ pm y $t+2 = 4:02$ pm, es:
 
 \begin{align*}
     \textrm{Total Reward}
-    & = (\textrm{Reward obtained between $t$ and $t+1$}) + (\textrm{Reward obtained between $t+1$ and $t+2$}) \\
+    & = (\textrm{Recompensa obtenida entre $t$ y $t+1$}) + (\textrm{Recompensa obtenida entre $t+1$ y $t+2$}) \\
     &  = 2.5 + 2 \\
     & = 4.5
 \end{align*}
 
-That was an example of the whole process happening in two minutes. In our implementation we will run the same process over 1000 epochs of 5-months period for the training, and then, once our AI is trained, we will run the same process over 1 full year of simulation for the testing. The training will be done with Deep Q-Learning, and this is where the next section comes into play.
+Ese fue un ejemplo de todo el proceso que sucedió en dos minutos. En nuestra implementación, ejecutaremos el mismo proceso durante 1000 épocas de 5 meses para el entrenamiento del algoritmo, y luego, una vez que nuestra IA esté entrenada, ejecutaremos el mismo proceso durante 1 año completo de simulación para la prueba. El entrenamiento se realizará con Deep Q-Learning, y aquí es donde entra en juego la siguiente sección.
 
-\subsection{AI Solution}
+## Solución de IA
 
-The AI Solution that will solve the problem described above is a Deep Q-Learning model. Let's give the intuition and the maths equations behind it.
+La solución de IA que resolverá el problema descrito anteriormente es un modelo Deep Q-Learning. Vamos a dar la teoría y las ecuaciones matemáticas detrás de esto.
 
-\subsubsection{Q-Learning into Deep Learning}
+### Q-Learning en Deep Learning
 
-Deep Q-Learning consists of combining Q-Learning to an Artificial Neural Network. Inputs are encoded vectors, each one defining a state of the environment. These inputs go into an Artificial Neural Network, where the output is the action to play. More precisely, let's say the game has n possible actions, the output layer of the neural network is comprised of n output neurons, each one corresponding to the Q-values of each action played in the current state. Then the action played is the one associated with the output neuron that has the highest Q-value (argmax), or the one returned by the softmax method. In our case we will use argmax. And since Q-values are real numbers, that makes our neural network an ANN for Regression.
+El Deep Q-Learning consiste en combinar Q-Learning con una red neuronal artificial. Las entradas son vectores codificados, cada uno de los cuales define un estado del entorno. Estas entradas van a una red neuronal artificial, donde la salida es la acción a ejecutar. Más precisamente, digamos que el sistema tiene $n$ acciones posibles, la capa de salida de la red neuronal está compuesta por $n$ neuronas de salida, cada una correspondiente a los valores Q de cada acción que se juega en el estado actual. Entonces, la acción que se juega es la asociada con la neurona de salida que tiene el valor Q más alto (*argmax*), o la que devuelve el método *softmax*. En nuestro caso usaremos *argmax*. Y dado que los valores Q son números reales, eso hace que nuestra red neuronal sea un RNA para la regresión.
 
+Así que, para cada estado $s_t$:
+
+* la predicción es el valor Q, $Q (s_t, a_t)$ donde $a_t$ es elegido por argmax o softmax,
+* el valor objetivo es $r_t + \gamma \underset{a}{\max}(Q(s_{t+1}, a))$,
+* el error de pérdida entre la predicción y el objetivo es el cuadrado de la diferencia temporal:
+
+$$\textrm{Loss} = \frac{1}{2} \left( r_t + \gamma \underset{a}{\max}(Q(s_{t+1}, a)) - Q(s_t, a_t) \right)^2 = \frac{1}{2} TD_t(s_t, a_t)^2.$$
+
+Luego, este error de pérdida se propaga hacia atrás en la red, y los pesos se actualizan de acuerdo con la cantidad que contribuyeron al error.
+
+### Experience Replay
+
+Notemos que hasta ahora solo hemos considerado las transiciones de un estado $s_t$ al siguiente estado $s_{t + 1}$. El problema con esto es que $s_t$ está casi siempre muy correlacionado con $s_{t + 1}$. Por lo tanto, la red no está aprendiendo mucho. Esto podría mejorarse mucho si, en lugar de considerar solo esta transición anterior, consideramos las últimas m transiciones donde m es un gran número. Este paquete de las últimas m transiciones es lo que se llama Experience Replay o repetición de experiencia. Luego, a partir de esta repetición de experiencia, tomamos algunos bloques aleatorios de transiciones para realizar nuestras actualizaciones.
+
+### El cerebro
+
+El cerebro, o más precisamente la red neuronal profunda de nuestra IA, será una red neuronal completamente conectada, compuesta de dos capas ocultas, la primera con 64 neuronas y la segunda con 32 neuronas. Y como recordatorio, esta red neuronal toma como entradas los estados del entorno y devuelve como salidas los valores Q para cada una de las 5 acciones. Este cerebro artificial se entrenará con una pérdida de "error cuadrático medio" y un optimizador Adam.
+
+Así es como se ve este cerebro artificial:
+
+![El cerebro artificial: una red neuronal completamente conectada](Images/Brain.png)
+
+Este cerebro artificial parece complejo de crear, pero lo construiremos muy fácilmente gracias a la increíble librería de Keras. Aquí hay una vista previa de la implementación completa que contiene la parte que construye este cerebro por sí mismo:
 \
 
-Hence, in each state $s_t$:
-
-\begin{itemize}
-
-\item the prediction is the Q-value $Q(s_t, a_t)$ where $a_t$ is chosen by argmax or softmax
-\item the target is $r_t + \gamma \underset{a}{\max}(Q(s_{t+1}, a))$
-\item the loss error between the prediction and the target is the squared of the Temporal Difference:
-
-\begin{equation*}
-\textrm{Loss} = \frac{1}{2} \left( r_t + \gamma \underset{a}{\max}(Q(s_{t+1}, a)) - Q(s_t, a_t) \right)^2 = \frac{1}{2} TD_t(s_t, a_t)^2
-\end{equation*}
-
-\end{itemize}
-
-Then this loss error is backpropagated into the network, and the weights are updated according to how much they contributed to the error.
-
-\subsubsection{Experience Replay}
-
-We notice that so far we have only considered transitions from one state $s_t$ to the next state $s_{t+1}$. The problem with this is that $s_t$ is most of the time very correlated with $s_{t+1}$. Therefore the network is not learning much. This could be way improved if, instead of considering only this one previous transition, we considered the last m transitions where m is a large number. This pack of the last m transitions is what is called the Experience Replay. Then from this Experience Replay we take some random batches of transitions to make our updates.
-
-\subsubsection{The Brain}
-
-The brain, or more precisely the deep neural network of our AI, will be a fully connected neural network, composed of two hidden layers, the first one having 64 neurons, and the second one having 32 neurons. And as a reminder, this neural network takes as inputs the states of the environment, and returns as outputs the Q-Values for each of the 5 actions. This artificial brain will be trained with a "Mean Squared Error" loss, and an Adam optimizer.
-
-\
-
-Here is what this artificial brain looks like:
-
-\begin{figure}[!htbp]
-		\begin{center}
-			\includegraphics[scale=0.18]{Brain.png}
-			\caption{The Artificial Brain: A Fully Connected Neural Network}
-		\end{center}
-\end{figure}
-
-This artificial brain looks complex to create, but we will build it very easily thanks to the amazing Keras library. Here is actually a preview of the full implementation containing the part that builds this brain all by itself:
-
-\
-
-\begin{lstlisting}
-# Building the Brain
+```{python, eval=F}
+# Construcción del cerebro
 
 class Brain(object):
 
@@ -459,122 +349,60 @@ class Brain(object):
         self.model = Model(inputs = states, outputs = q_values)
         self.model.compile(loss = 'mse', optimizer = Adam(lr = self.learning_rate))
 \end{lstlisting}
+```
 
-\
 
-As we can see gladly, it only took a couple lines of code.
+Como podemos ver con gusto, solo son necesarias un par de líneas de código.
 
-\subsubsection{The whole Deep Q-Learning algorithm}
+### El algoritmo de Deep Q-Learning al completo
 
-\
+Resumamos los diferentes pasos de todo el proceso de Deep Q-Learning:
 
-Let's summarize the different steps of the whole Deep Q-Learning process:
+**Inicialización**
 
-\
+La memoria de Experience Replay se inicializa en una lista vacía $M$.
 
-\textbf{Initialization}:
+Elegimos un tamaño máximo de la memoria. En nuestro caso práctico elegimos un tamaño máximo de 100 transiciones.
 
-\
+Comenzamos en un primer estado, correspondiente a un momento específico dentro del año.
 
-The memory of the Experience Replay is initialized to an empty list $M$.
+En cada instante $t$, repetimos el siguiente proceso, hasta el final de la época (5 meses en nuestra implementación)
 
-\
+1. Predecimos los valores Q del estado actual $s_t$.
+2. Ejecutamos la acción que corresponde al máximo de estos valores Q predichos (método argmax):
+$$a_t = \underset{a}{\textrm{argmax}} Q(s_t, a)$$
+3. Obtenemos la recompensa:
 
-We choose a maximum size of the memory. In our case study we choose a maximum size of 100 transitions.
+$$r_t = E_t^{\textrm{no IA}} - E_t^{\textrm{IA}}$$
 
-\
+4. Alcanzamos el siguiente estado$s_{t+1}$.
+5. Añadimos la transición actual $(s_t, a_t, r_t, s_{t+1})$ a $M$.
+6. Seleccionamos un bloque de transiciones al azar $B \subset M$. Para todas las transiciones$(s_{t_B}, a_{t_B}, r_{t_B}, s_{t_B+1})$ del lote aleatorio $B$:
+    
+    * Obtenemos las predicciones: $$Q(s_{t_B}, a_{t_B})$$
+    * Obtenemos los objetivos: $$r_{t_B} + \gamma \underset{a}{\max}(Q(s_{t_B+1}, a))$$
+    * Calculamos la pérdida entre las predicciones y los objetivos en todo el lote $B$: $$\textrm{Loss} = \frac{1}{2} \sum_B \left( r_{t_B} + \gamma \underset{a}{\max}(Q(s_{t_B+1}, a)) - Q(s_{t_B}, a_{t_B}) \right)^2 = \frac{1}{2} \sum_B TD_{t_B}(s_{t_B}, a_{t_B})^2$$
+    * Volvemos a propagar este error de pérdida en la red neuronal y, a través del descenso de gradiente estocástico, actualizamos los pesos según cuánto contribuyeron al error..
 
-We start in a first state, corresponding to a specific time within the year.
+## Implementation
 
-\
+Esta implementación se dividirá en 5 partes, cada parte con su propio archivo de Python. Estas 5 partes constituyen el marco general de IA, o Blueprint de la AI, que debe seguirse cada vez que construimos un entorno para resolver cualquier problema comercial con Deep Reinforcement Learning.
 
-\textbf{At each time $t$, we repeat the following process, until the end of the epoch (5 months in our implementation)}:
+Aquí están, del Paso 1 al Paso 5:
 
-\begin{enumerate}
+1. Construcción del entorno.
+2. Construcción del cerebro.
+3. Implementación del algoritmo de aprendizaje por refuerzo profundo (en nuestro caso será el modelo DQN).
+4. Entrenar a la IA.
+5. Probar de la IA.
 
-\item We predict the Q-Values of the current state $s_t$.
-
-\item We play the action that corresponds to the maximum of these predicted Q-Values (argmax method):
-
-\begin{equation*}
-    a_t = \underset{a}{\textrm{argmax}} Q(s_t, a)
-\end{equation*}
-
-\item We get the reward:
-
-\begin{equation*}
-    r_t = E_t^{\textrm{noAI}} - E_t^{\textrm{AI}}
-\end{equation*}
-
-\item We reach the next state $s_{t+1}$.
-
-\item We append the transition $(s_t, a_t, r_t, s_{t+1})$ in $M$.
-
-\item We take a random batch $B \subset M$ of transitions. For all the transitions $(s_{t_B}, a_{t_B}, r_{t_B}, s_{t_B+1})$ of the random batch $B$:
-
-\begin{itemize}
-
-\item We get the predictions:
-
-\begin{equation*}
-Q(s_{t_B}, a_{t_B})
-\end{equation*}
-
-\item We get the targets:
-
-\begin{equation*}
-r_{t_B} + \gamma \underset{a}{\max}(Q(s_{t_B+1}, a))
-\end{equation*}
-
-\item We compute the loss between the predictions and the targets over the whole batch $B$:
-
-\begin{equation*}
-\textrm{Loss} = \frac{1}{2} \sum_B \left( r_{t_B} + \gamma \underset{a}{\max}(Q(s_{t_B+1}, a)) - Q(s_{t_B}, a_{t_B}) \right)^2 = \frac{1}{2} \sum_B TD_{t_B}(s_{t_B}, a_{t_B})^2
-\end{equation*}
-
-\item We backpropagate this loss error back into the neural network, and through stochastic gradient descent we update the weights according to how much they contributed to the error.
-
-\end{itemize}
-
-\end{enumerate}
-
-\newpage
-
-\subsection{Implementation}
-
-\
-
-This implementation will be divided in 5 parts, each part having its own python file. These 5 parts constitute the general AI Framework, or AI Blueprint, that should be followed whenever we build an environment to solve any business problem with Deep Reinforcement Learning.
-
-\
-
-Here they are, from Step 1 to Step 5:
-
-\
-
-\begin{enumerate}
-    \item \textbf{Step 1:} Building the Environment.
-    \
-    \item \textbf{Step 2:} Building the Brain.
-    \
-    \item \textbf{Step 3:} Implementing the Deep Reinforcement Learning algorithm (in our case it will be the DQN model).
-    \
-    \item \textbf{Step 4:} Training the AI.
-    \
-    \item \textbf{Step 5:} Testing the AI.
-\end{enumerate}
-
-\
-
-These are the main steps (in that same order) of the general AI Framework. Let's thus implement our AI for our specific case study, following this AI Blueprint, in the following five sections corresponding to these five main steps. Besides in each step, we will distinguish the sub-steps that are still part of the general AI Framework, from the sub-steps that are specific to our case study, by writing the titles of the code sections in capital letters for all the sub-steps of the general AI Framework, and in minimal letters for all the sub-steps specific to our case study. That means that anytime you see a new code section of which the title is written in capital letters, then it is the next sub-step of the general AI Framework, which you should also follow when building an AI for your own business problem.
-
-\
+Estos son los pasos principales (en ese mismo orden) de la sección de teoría general de IA anterior. Implementemos así nuestra IA para nuestro caso práctico específico, siguiendo este plan de IA, en las siguientes cinco secciones correspondientes a estos cinco pasos principales. Además en cada paso, distinguiremos los subpasos que todavía forman parte del marco general de AI, de los subpasos que son específicos de nuestro caso práctico, escribiendo los títulos de las secciones de código en mayúsculas para todos los subpasos del marco general de AI, y en letras mínimas para todos los subpasos específicos de nuestro caso práctico. Eso significa que cada vez que veamos una nueva sección de código cuyo título está escrito en letras mayúsculas, entonces es el siguiente subpaso del marco general de IA, que también se debe seguir al crear una IA para cualquier otro problema comercial.
 
 So now here we go with the beginning of the journey: Step 1 - Building the Environment.
 
 \
 
-This is the largest Python implementation file of this case study, and of the course. So please make sure to rest before, recharge your batteries to get a good energy level, and as soon as you are ready, let's tackle this together!
+This is the largest Python implementation file of this Caso Práctico, and of the course. So please make sure to rest before, recharge your batteries to get a good energy level, and as soon as you are ready, let's tackle this together!
 
 \
 
@@ -597,7 +425,7 @@ This class follows the below sub-steps, which are part of the general AI Framewo
     \item \textbf{Step 1-4:} Making a method that gives us at any time the current state, the last reward obtained, and whether the game is over.
 \end{enumerate}
 
-You will find the whole implementation of this Environment class in the next four pages. Remember the most important: all the code sections having their titles written in capital letters are the steps of the general AI Framework / Blueprint, and all the code sections having their titles written in minimal letters are specific to our case study.
+You will find the whole implementation of this Environment class in the next four pages. Remember the most important: all the code sections having their titles written in capital letters are the steps of the general AI Framework / Blueprint, and all the code sections having their titles written in minimal letters are specific to our Caso Práctico.
 
 \
 
@@ -606,7 +434,7 @@ Below is the whole implementation of our first python file. The code sections ti
 \
 
 \begin{lstlisting}
-# Artificial Intelligence for Business - Case Study 2
+# Artificial Intelligence for Business - Caso Práctico 2
 # Building the Environment
 
 # Importing the libraries
@@ -691,7 +519,7 @@ class Environment(object):
             self.current_rate_data = self.max_rate_data
         elif (self.current_rate_data < self.min_rate_data):
             self.current_rate_data = self.min_rate_data
-        # Computing the Delta of Intrinsic Temperature
+        # Computing the Delta of Temperatura Intrinseca
         past_intrinsic_temperature = self.intrinsic_temperature
         self.intrinsic_temperature = self.atmospheric_temperature
                                      + 1.25 * self.current_number_users
@@ -818,7 +646,7 @@ Here we go with the implementation:
 \
 
 \begin{lstlisting}
-# Artificial Intelligence for Business - Case Study 2
+# Artificial Intelligence for Business - Caso Práctico 2
 # Building the Brain
 
 # Importing the libraries
@@ -896,7 +724,7 @@ Below it the whole new brain.py implementation with Dropout:
 \
 
 \begin{lstlisting}
-# Artificial Intelligence for Business - Case Study 2
+# Artificial Intelligence for Business - Caso Práctico 2
 # Building the Brain
 
 # Importing the libraries
@@ -955,7 +783,7 @@ Below is the code following this new part of the AI Blueprint:
 \
 
 \begin{lstlisting}
-# Artificial Intelligence for Business - Case Study 2
+# Artificial Intelligence for Business - Caso Práctico 2
 # Implementing Deep Q-Learning with Experience Replay
 
 # Importing the libraries
@@ -1002,7 +830,7 @@ class DQN(object):
 
 \subsubsection{Step 4: Training the AI}
 
-Now that our AI has a fully functional brain, time to train it. And this is exactly what we do in this fourth Python file. The process is long, but very easy: we start by setting all the parameters, then we build the environment by creating an object of the Environment() class, then we build the brain of the AI by creating an object of the Brain() class, then we build the Deep Q-Learning model by creating an object of the DQN() class, and finally we launch the training connecting all these objects together, over 1000 epochs of 5-months period. You will notice in the training loop that we also do some exploration when playing the actions. This consists of playing some random actions from time to time. In our case study this will be done 30\% of the time, since we use an exploration parameter $\epsilon = 0.3$, and then we force to play a random action when drawing a random value between 0 and 1 that is below $\epsilon = 0.3$). The reason why we do some exploration is because it improves the Deep Reinforcement Learning process. This trick is called: "Exploration vs. Exploitation". Then, besides you will also notice that we use an early stopping technique, which will make sure to stop the training if there is performance improvement.
+Now that our AI has a fully functional brain, time to train it. And this is exactly what we do in this fourth Python file. The process is long, but very easy: we start by setting all the parameters, then we build the environment by creating an object of the Environment() class, then we build the brain of the AI by creating an object of the Brain() class, then we build the Deep Q-Learning model by creating an object of the DQN() class, and finally we launch the training connecting all these objects together, over 1000 epochs of 5-months period. You will notice in the training loop that we also do some exploration when playing the actions. This consists of playing some random actions from time to time. In our Caso Práctico this will be done 30\% of the time, since we use an exploration parameter $\epsilon = 0.3$, and then we force to play a random action when drawing a random value between 0 and 1 that is below $\epsilon = 0.3$). The reason why we do some exploration is because it improves the Deep Reinforcement Learning process. This trick is called: "Exploration vs. Exploitation". Then, besides you will also notice that we use an early stopping technique, which will make sure to stop the training if there is performance improvement.
 
 \
 
@@ -1022,7 +850,7 @@ And now let's implement this new part, Step 4 - Training the AI, of our general 
 \
 
 \begin{lstlisting}
-# Artificial Intelligence for Business - Case Study 2
+# Artificial Intelligence for Business - Caso Práctico 2
 # Training the AI
 
 # Installing Keras
@@ -1162,7 +990,7 @@ And now let's implement this fifth and final part, Step 5 - Testing the AI. Agai
 \
 
 \begin{lstlisting}
-# Artificial Intelligence for Business - Case Study 2
+# Artificial Intelligence for Business - Caso Práctico 2
 # Testing the AI
 
 # Installing Keras
@@ -1290,6 +1118,3 @@ Let's recap and provide the whole AI Blueprint, so that you can print it out and
     \item \textbf{Step 5-4:} Starting the simulation.
     \item \textbf{Step 5-5:} At each iteration (each minute), our AI only plays the action that results from its prediction, and no exploration or Deep Q-Learning training is happening whatsoever.
 \end{enumerate}
-
-
-

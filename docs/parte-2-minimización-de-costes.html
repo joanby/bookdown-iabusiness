@@ -24,7 +24,7 @@
 <meta name="author" content="Hadelin de Ponteves y Kirill Ermenko" />
 
 
-<meta name="date" content="2020-03-20" />
+<meta name="date" content="2020-03-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -154,7 +154,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.3" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#el-cerebro"><i class="fa fa-check"></i><b>2.2.3</b> El cerebro</a></li>
 <li class="chapter" data-level="2.2.4" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#el-algoritmo-de-deep-q-learning-al-completo"><i class="fa fa-check"></i><b>2.2.4</b> El algoritmo de Deep Q-Learning al completo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#implementation"><i class="fa fa-check"></i><b>2.3</b> Implementation</a></li>
+<li class="chapter" data-level="2.3" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#implementation"><i class="fa fa-check"></i><b>2.3</b> Implementation</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#paso-1-construcción-del-entorno"><i class="fa fa-check"></i><b>2.3.1</b> Paso 1: Construcción del Entorno</a></li>
+<li class="chapter" data-level="2.3.2" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#paso-2-construcción-del-cerebro"><i class="fa fa-check"></i><b>2.3.2</b> Paso 2: Construcción del cerebro</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="part-3-maximizing-revenues.html"><a href="part-3-maximizing-revenues.html"><i class="fa fa-check"></i><b>3</b> Part 3 - Maximizing Revenues</a><ul>
 <li class="chapter" data-level="3.1" data-path="part-3-maximizing-revenues.html"><a href="part-3-maximizing-revenues.html#case-study-maximizing-revenue-of-an-online-retail-business"><i class="fa fa-check"></i><b>3.1</b> Case Study: Maximizing Revenue of an Online Retail Business</a><ul>
@@ -519,37 +522,199 @@ T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se e
 <li>Probar de la IA.</li>
 </ol>
 <p>Estos son los pasos principales (en ese mismo orden) de la sección de teoría general de IA anterior. Implementemos así nuestra IA para nuestro caso práctico específico, siguiendo este plan de IA, en las siguientes cinco secciones correspondientes a estos cinco pasos principales. Además en cada paso, distinguiremos los subpasos que todavía forman parte del marco general de AI, de los subpasos que son específicos de nuestro caso práctico, escribiendo los títulos de las secciones de código en mayúsculas para todos los subpasos del marco general de AI, y en letras mínimas para todos los subpasos específicos de nuestro caso práctico. Eso significa que cada vez que veamos una nueva sección de código cuyo título está escrito en letras mayúsculas, entonces es el siguiente subpaso del marco general de IA, que también se debe seguir al crear una IA para cualquier otro problema comercial.</p>
-<p>So now here we go with the beginning of the journey: Step 1 - Building the Environment.</p>
-<p><br />
-</p>
-<p>This is the largest Python implementation file of this Caso Práctico, and of the course. So please make sure to rest before, recharge your batteries to get a good energy level, and as soon as you are ready, let’s tackle this together!</p>
-<p><br />
-</p>
-<p>We begin in the next page.</p>
-<div style="page-break-after: always;"></div>
-
-<p>In this first step, we are going to build the environment inside a class. Why a class? Because we would like to have our environment as an object which we can create easily with any values of some parameters we choose. For example, we can create one environment object for one server that has a certain number of connected users and a certain rate of data at a specific time, and one other environment object for another server that has a different number of connected users and a different rate of data at some other time. And thanks to this advanced structure of the class, we can easily plug-and-play the environment objects we create on different servers which have their own parameters, hence regulating their temperatures with several different AIs, so that we end up minimizing the energy consumption of a whole data center, just as Google DeepMind for Google’s data centers did with their DQN algorithm.</p>
-<p><br />
-</p>
-<p>This class follows the below sub-steps, which are part of the general AI Framework inside Step 1 - Building the environment:</p>
-
-<p>You will find the whole implementation of this Environment class in the next four pages. Remember the most important: all the code sections having their titles written in capital letters are the steps of the general AI Framework / Blueprint, and all the code sections having their titles written in minimal letters are specific to our Caso Práctico.</p>
-<p><br />
-</p>
-<p>Below is the whole implementation of our first python file. The code sections titles and the chosen variables names are clear enough to understand what is being coded, but if you need any more explanation, I encourage to watch our video tutorials where we code everything from scratch, step by step, while explaining every single line of code in terms of why, what and how. Here we go:</p>
-<p><br />
-</p>
-
-<p><br />
-</p>
-<p>Congratulations for implementing Step 1 - Building the Environment. Now let’s move on to Step 2 - Building the Brain.</p>
-<div style="page-break-after: always;"></div>
-
-<p>In this Step 2, we are going to build the artificial brain of our AI, which is nothing else than a fully connected neural network. Here it is again:</p>
-
-<p>Again, we will build this artificial brain inside a class, for the same reason as before which is to allow us to create several artificial brains for different servers inside a data center. Indeed, maybe some servers will need different artificial brains with different hyper-parameters than other servers. That’s why thanks to this class / object Python advanced structure, we can easily switch from one brain to another to regulate the temperature of a new server that requires an AI with different neural networks parameters.</p>
-<p><br />
-</p>
+<p>Así que ahora aquí vamos con el comienzo del viaje: Paso 1 - Construcción el entorno.</p>
+<p>Este es el archivo de implementación de <code>python</code> más grande de este caso práctico, y del curso. Por lo tanto, asegúrete de descansar antes, recargar las baterías para obtener un buen nivel de energía y, tan pronto como estés listo, ¡abordemos esto juntos!</p>
+<div id="paso-1-construcción-del-entorno" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Paso 1: Construcción del Entorno</h3>
+<p>En este primer paso, vamos a construir el entorno dentro de una clase. ¿Por qué una clase? Porque nos gustaría tener nuestro entorno como un objeto que podamos crear fácilmente con cualquier valor de algunos parámetros que elijamos. Por ejemplo, podemos crear un objeto de entorno para un servidor que tenga un cierto número de usuarios conectados y una cierta velocidad de datos en un momento específico, y otro objeto de entorno para otro servidor que tenga un número diferente de usuarios conectados y un número diferente tasa de datos en otro momento. Y gracias a esta estructura avanzada de la clase, podemos conectar y reproducir fácilmente los objetos del entorno que creamos en diferentes servidores que tienen sus propios parámetros, por lo tanto, regulamos sus temperaturas con varias IA diferentes, de modo que terminamos minimizando el consumo de energía. de un centro de datos completo, tal como lo hizo la DeepMind de Google para los centros de datos de Google con su algoritmo DQN.</p>
+<p>Esta clase sigue los siguientes subpasos, que son parte del marco general de IA dentro del Paso 1: construcción del entorno:</p>
+<ul>
+<li>** Paso 1-1 **: Introducción e inicialización de todos los parámetros y variables del entorno.</li>
+<li>** Paso 1-2 **: Hacer un método que actualice el entorno justo después de que la IA ejecute una acción.</li>
+<li>** Paso 1-3 **: Hacer un método que restablezca el entorno.</li>
+<li>** Paso 1-4 **: hacer un método que nos proporcione en cualquier momento el estado actual, la última recompensa obtenida y si el juego ha terminado.</li>
+</ul>
+<p>Encontrarás toda la implementación de esta clase de creación de entorno en las próximas páginas. Recuerda lo más importante: todas las secciones de código que tienen sus títulos escritos en letras mayúsculas son los pasos del framework de IA o del Blueprint general, y todas las secciones de código que tienen sus títulos escritos en letras minúsculas son específicas de nuestro caso práctico.</p>
+<p>A continuación se muestra la implementación completa de nuestro primer archivo de <code>python</code>. Los títulos de las secciones de código y los nombres de las variables elegidas son lo suficientemente claros como para comprender lo que se está codificando, pero si necesitas más explicaciones, te recomiendo que vea nuestros videos tutoriales en Udemy donde codificamos todo desde cero, paso a paso, mientras explicamos cada línea. de código en términos de por qué, qué y cómo. Aquí vamos:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="co"># Construcción del Etorno</span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="co"># Importar las librerías</span></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="im">import</span> numpy <span class="im">as</span> np</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co"># CONSTRUCCIÓN DEL ENTORNO EN UNA CLASE</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="kw">class</span> Environment(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb21-4" data-line-number="4">    </a>
+<a class="sourceLine" id="cb21-5" data-line-number="5">    <span class="co"># INTRODUCCIÓN E INICIALIZACIÓN DE TODOS LOS PARÁMETROS Y VARIABLES DEL ENTORNO</span></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6">    </a>
+<a class="sourceLine" id="cb21-7" data-line-number="7">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,</a>
+<a class="sourceLine" id="cb21-8" data-line-number="8">                optimal_temperature <span class="op">=</span> (<span class="fl">18.0</span>, <span class="fl">24.0</span>),</a>
+<a class="sourceLine" id="cb21-9" data-line-number="9">                initial_month <span class="op">=</span> <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb21-10" data-line-number="10">                initial_number_users <span class="op">=</span> <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb21-11" data-line-number="11">                initial_rate_data <span class="op">=</span> <span class="dv">60</span>):</a>
+<a class="sourceLine" id="cb21-12" data-line-number="12">        <span class="va">self</span>.monthly_atmospheric_temperatures <span class="op">=</span> [<span class="fl">1.0</span>, <span class="fl">5.0</span>, <span class="fl">7.0</span>, <span class="fl">10.0</span>, <span class="fl">11.0</span>, <span class="fl">20.0</span>,</a>
+<a class="sourceLine" id="cb21-13" data-line-number="13">                                                <span class="fl">23.0</span>, <span class="fl">24.0</span>, <span class="fl">22.0</span>, <span class="fl">10.0</span>, <span class="fl">5.0</span>, <span class="fl">1.0</span>]</a>
+<a class="sourceLine" id="cb21-14" data-line-number="14">        <span class="va">self</span>.initial_month <span class="op">=</span> initial_month</a>
+<a class="sourceLine" id="cb21-15" data-line-number="15">        <span class="va">self</span>.atmospheric_temperature <span class="op">=</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb21-16" data-line-number="16">                                <span class="va">self</span>.monthly_atmospheric_temperatures[initial_month]</a>
+<a class="sourceLine" id="cb21-17" data-line-number="17">        <span class="va">self</span>.optimal_temperature <span class="op">=</span> optimal_temperature</a>
+<a class="sourceLine" id="cb21-18" data-line-number="18">        <span class="va">self</span>.min_temperature <span class="op">=</span> <span class="dv">-20</span></a>
+<a class="sourceLine" id="cb21-19" data-line-number="19">        <span class="va">self</span>.max_temperature <span class="op">=</span> <span class="dv">80</span></a>
+<a class="sourceLine" id="cb21-20" data-line-number="20">        <span class="va">self</span>.min_number_users <span class="op">=</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb21-21" data-line-number="21">        <span class="va">self</span>.max_number_users <span class="op">=</span> <span class="dv">100</span></a>
+<a class="sourceLine" id="cb21-22" data-line-number="22">        <span class="va">self</span>.max_update_users <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb21-23" data-line-number="23">        <span class="va">self</span>.min_rate_data <span class="op">=</span> <span class="dv">20</span></a>
+<a class="sourceLine" id="cb21-24" data-line-number="24">        <span class="va">self</span>.max_rate_data <span class="op">=</span> <span class="dv">300</span></a>
+<a class="sourceLine" id="cb21-25" data-line-number="25">        <span class="va">self</span>.max_update_data <span class="op">=</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb21-26" data-line-number="26">        <span class="va">self</span>.initial_number_users <span class="op">=</span> initial_number_users</a>
+<a class="sourceLine" id="cb21-27" data-line-number="27">        <span class="va">self</span>.current_number_users <span class="op">=</span> initial_number_users</a>
+<a class="sourceLine" id="cb21-28" data-line-number="28">        <span class="va">self</span>.initial_rate_data <span class="op">=</span> initial_rate_data</a>
+<a class="sourceLine" id="cb21-29" data-line-number="29">        <span class="va">self</span>.current_rate_data <span class="op">=</span> initial_rate_data</a>
+<a class="sourceLine" id="cb21-30" data-line-number="30">        <span class="va">self</span>.intrinsic_temperature <span class="op">=</span> <span class="va">self</span>.atmospheric_temperature</a>
+<a class="sourceLine" id="cb21-31" data-line-number="31">                                     <span class="op">+</span> <span class="fl">1.25</span> <span class="op">*</span> <span class="va">self</span>.current_number_users</a>
+<a class="sourceLine" id="cb21-32" data-line-number="32">                                     <span class="op">+</span> <span class="fl">1.25</span> <span class="op">*</span> <span class="va">self</span>.current_rate_data</a>
+<a class="sourceLine" id="cb21-33" data-line-number="33">        <span class="va">self</span>.temperature_ai <span class="op">=</span> <span class="va">self</span>.intrinsic_temperature</a>
+<a class="sourceLine" id="cb21-34" data-line-number="34">        <span class="va">self</span>.temperature_noai <span class="op">=</span> (<span class="va">self</span>.optimal_temperature[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb21-35" data-line-number="35">                                <span class="op">+</span> <span class="va">self</span>.optimal_temperature[<span class="dv">1</span>]) <span class="op">/</span> <span class="fl">2.0</span></a>
+<a class="sourceLine" id="cb21-36" data-line-number="36">        <span class="va">self</span>.total_energy_ai <span class="op">=</span> <span class="fl">0.0</span></a>
+<a class="sourceLine" id="cb21-37" data-line-number="37">        <span class="va">self</span>.total_energy_noai <span class="op">=</span> <span class="fl">0.0</span></a>
+<a class="sourceLine" id="cb21-38" data-line-number="38">        <span class="va">self</span>.reward <span class="op">=</span> <span class="fl">0.0</span></a>
+<a class="sourceLine" id="cb21-39" data-line-number="39">        <span class="va">self</span>.game_over <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb21-40" data-line-number="40">        <span class="va">self</span>.train <span class="op">=</span> <span class="dv">1</span></a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb22-1" data-line-number="1">    <span class="co"># CREACIÓN DE UN MÉTODO QUE ACTUALIZA EL ENTORNO DESPUÉS DE QUE LA IA EJECUTE UNA ACCIÓN</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">    </a>
+<a class="sourceLine" id="cb22-3" data-line-number="3">    <span class="kw">def</span> update_env(<span class="va">self</span>, direction, energy_ai, month):</a>
+<a class="sourceLine" id="cb22-4" data-line-number="4">        </a>
+<a class="sourceLine" id="cb22-5" data-line-number="5">        <span class="co"># OBTENCIÓN DE LA RECOMPENSA</span></a>
+<a class="sourceLine" id="cb22-6" data-line-number="6">        </a>
+<a class="sourceLine" id="cb22-7" data-line-number="7">        <span class="co"># Calcular la energía gastada por el sistema de refrigeración del servidor cuando no hay IA</span></a>
+<a class="sourceLine" id="cb22-8" data-line-number="8">        energy_noai <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb22-9" data-line-number="9">        <span class="cf">if</span> (<span class="va">self</span>.temperature_noai <span class="op">&lt;</span> <span class="va">self</span>.optimal_temperature[<span class="dv">0</span>]):</a>
+<a class="sourceLine" id="cb22-10" data-line-number="10">            energy_noai <span class="op">=</span> <span class="va">self</span>.optimal_temperature[<span class="dv">0</span>] <span class="op">-</span> <span class="va">self</span>.temperature_noai</a>
+<a class="sourceLine" id="cb22-11" data-line-number="11">            <span class="va">self</span>.temperature_noai <span class="op">=</span> <span class="va">self</span>.optimal_temperature[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb22-12" data-line-number="12">        <span class="cf">elif</span> (<span class="va">self</span>.temperature_noai <span class="op">&gt;</span> <span class="va">self</span>.optimal_temperature[<span class="dv">1</span>]):</a>
+<a class="sourceLine" id="cb22-13" data-line-number="13">            energy_noai <span class="op">=</span> <span class="va">self</span>.temperature_noai <span class="op">-</span> <span class="va">self</span>.optimal_temperature[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb22-14" data-line-number="14">            <span class="va">self</span>.temperature_noai <span class="op">=</span> <span class="va">self</span>.optimal_temperature[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb22-15" data-line-number="15">        <span class="co"># Cálculo de la recompensa</span></a>
+<a class="sourceLine" id="cb22-16" data-line-number="16">        <span class="va">self</span>.reward <span class="op">=</span> energy_noai <span class="op">-</span> energy_ai</a>
+<a class="sourceLine" id="cb22-17" data-line-number="17">        <span class="co"># Escalado de la recompensa</span></a>
+<a class="sourceLine" id="cb22-18" data-line-number="18">        <span class="va">self</span>.reward <span class="op">=</span> <span class="fl">1e-3</span> <span class="op">*</span> <span class="va">self</span>.reward</a>
+<a class="sourceLine" id="cb22-19" data-line-number="19">        </a>
+<a class="sourceLine" id="cb22-20" data-line-number="20">        <span class="co"># OBTENCIÓN DEL SIGUIENTE ESTADO</span></a>
+<a class="sourceLine" id="cb22-21" data-line-number="21">        </a>
+<a class="sourceLine" id="cb22-22" data-line-number="22">        <span class="co"># Actualización de la temperatura atmosférica</span></a>
+<a class="sourceLine" id="cb22-23" data-line-number="23">        <span class="va">self</span>.atmospheric_temperature <span class="op">=</span> <span class="va">self</span>.monthly_atmospheric_temperatures[month]</a>
+<a class="sourceLine" id="cb22-24" data-line-number="24">        <span class="co"># Actualización del número de usuarios conectados</span></a>
+<a class="sourceLine" id="cb22-25" data-line-number="25">        <span class="va">self</span>.current_number_users <span class="op">+=</span> np.random.randint(<span class="op">-</span><span class="va">self</span>.max_update_users,</a>
+<a class="sourceLine" id="cb22-26" data-line-number="26">                                                       <span class="va">self</span>.max_update_users)</a>
+<a class="sourceLine" id="cb22-27" data-line-number="27">        <span class="cf">if</span> (<span class="va">self</span>.current_number_users <span class="op">&gt;</span> <span class="va">self</span>.max_number_users):</a>
+<a class="sourceLine" id="cb22-28" data-line-number="28">            <span class="va">self</span>.current_number_users <span class="op">=</span> <span class="va">self</span>.max_number_users</a>
+<a class="sourceLine" id="cb22-29" data-line-number="29">        <span class="cf">elif</span> (<span class="va">self</span>.current_number_users <span class="op">&lt;</span> <span class="va">self</span>.min_number_users):</a>
+<a class="sourceLine" id="cb22-30" data-line-number="30">            <span class="va">self</span>.current_number_users <span class="op">=</span> <span class="va">self</span>.min_number_users</a>
+<a class="sourceLine" id="cb22-31" data-line-number="31">        <span class="co"># Actualización del ratio de datos</span></a>
+<a class="sourceLine" id="cb22-32" data-line-number="32">        <span class="va">self</span>.current_rate_data <span class="op">+=</span> np.random.randint(<span class="op">-</span><span class="va">self</span>.max_update_data,</a>
+<a class="sourceLine" id="cb22-33" data-line-number="33">                                                    <span class="va">self</span>.max_update_data)</a>
+<a class="sourceLine" id="cb22-34" data-line-number="34">        <span class="cf">if</span> (<span class="va">self</span>.current_rate_data <span class="op">&gt;</span> <span class="va">self</span>.max_rate_data):</a>
+<a class="sourceLine" id="cb22-35" data-line-number="35">            <span class="va">self</span>.current_rate_data <span class="op">=</span> <span class="va">self</span>.max_rate_data</a>
+<a class="sourceLine" id="cb22-36" data-line-number="36">        <span class="cf">elif</span> (<span class="va">self</span>.current_rate_data <span class="op">&lt;</span> <span class="va">self</span>.min_rate_data):</a>
+<a class="sourceLine" id="cb22-37" data-line-number="37">            <span class="va">self</span>.current_rate_data <span class="op">=</span> <span class="va">self</span>.min_rate_data</a>
+<a class="sourceLine" id="cb22-38" data-line-number="38">        <span class="co"># Cálculo de la variación Temperatura Intrinseca</span></a>
+<a class="sourceLine" id="cb22-39" data-line-number="39">        past_intrinsic_temperature <span class="op">=</span> <span class="va">self</span>.intrinsic_temperature</a>
+<a class="sourceLine" id="cb22-40" data-line-number="40">        <span class="va">self</span>.intrinsic_temperature <span class="op">=</span> <span class="va">self</span>.atmospheric_temperature</a>
+<a class="sourceLine" id="cb22-41" data-line-number="41">                                     <span class="op">+</span> <span class="fl">1.25</span> <span class="op">*</span> <span class="va">self</span>.current_number_users</a>
+<a class="sourceLine" id="cb22-42" data-line-number="42">                                     <span class="op">+</span> <span class="fl">1.25</span> <span class="op">*</span> <span class="va">self</span>.current_rate_data</a>
+<a class="sourceLine" id="cb22-43" data-line-number="43">        delta_intrinsic_temperature <span class="op">=</span> <span class="va">self</span>.intrinsic_temperature</a>
+<a class="sourceLine" id="cb22-44" data-line-number="44">                                      <span class="op">-</span> past_intrinsic_temperature</a>
+<a class="sourceLine" id="cb22-45" data-line-number="45">        <span class="co"># Cálculo de la variación de temperatura causada por la IA</span></a>
+<a class="sourceLine" id="cb22-46" data-line-number="46">        <span class="cf">if</span> (direction <span class="op">==</span> <span class="dv">-1</span>):</a>
+<a class="sourceLine" id="cb22-47" data-line-number="47">            delta_temperature_ai <span class="op">=</span> <span class="op">-</span>energy_ai</a>
+<a class="sourceLine" id="cb22-48" data-line-number="48">        <span class="cf">elif</span> (direction <span class="op">==</span> <span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb22-49" data-line-number="49">            delta_temperature_ai <span class="op">=</span> energy_ai</a>
+<a class="sourceLine" id="cb22-50" data-line-number="50">        <span class="co"># Actualización de la temperatura del servidor cuado hay IA</span></a>
+<a class="sourceLine" id="cb22-51" data-line-number="51">        <span class="va">self</span>.temperature_ai <span class="op">+=</span> delta_intrinsic_temperature <span class="op">+</span> delta_temperature_ai</a>
+<a class="sourceLine" id="cb22-52" data-line-number="52">        <span class="co"># Actualización de la temperatura del servidor cuado no hay IA</span></a>
+<a class="sourceLine" id="cb22-53" data-line-number="53">        <span class="va">self</span>.temperature_noai <span class="op">+=</span> delta_intrinsic_temperature</a>
+<a class="sourceLine" id="cb22-54" data-line-number="54">        </a>
+<a class="sourceLine" id="cb22-55" data-line-number="55">        <span class="co"># OBTENCIÓN DEL FIN DE LA PARTIDA</span></a>
+<a class="sourceLine" id="cb22-56" data-line-number="56">        </a>
+<a class="sourceLine" id="cb22-57" data-line-number="57">        <span class="cf">if</span> (<span class="va">self</span>.temperature_ai <span class="op">&lt;</span> <span class="va">self</span>.min_temperature):</a>
+<a class="sourceLine" id="cb22-58" data-line-number="58">            <span class="cf">if</span> (<span class="va">self</span>.train <span class="op">==</span> <span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb22-59" data-line-number="59">                <span class="va">self</span>.game_over <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb22-60" data-line-number="60">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb22-61" data-line-number="61">                <span class="va">self</span>.total_energy_ai <span class="op">+=</span> <span class="va">self</span>.optimal_temperature[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb22-62" data-line-number="62">                                        <span class="op">-</span> <span class="va">self</span>.temperature_ai</a>
+<a class="sourceLine" id="cb22-63" data-line-number="63">                <span class="va">self</span>.temperature_ai <span class="op">=</span> <span class="va">self</span>.optimal_temperature[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb22-64" data-line-number="64">        <span class="cf">elif</span> (<span class="va">self</span>.temperature_ai <span class="op">&gt;</span> <span class="va">self</span>.max_temperature):</a>
+<a class="sourceLine" id="cb22-65" data-line-number="65">            <span class="cf">if</span> (<span class="va">self</span>.train <span class="op">==</span> <span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb22-66" data-line-number="66">                <span class="va">self</span>.game_over <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb22-67" data-line-number="67">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb22-68" data-line-number="68">                <span class="va">self</span>.total_energy_ai <span class="op">+=</span> <span class="va">self</span>.temperature_ai</a>
+<a class="sourceLine" id="cb22-69" data-line-number="69">                                        <span class="op">-</span> <span class="va">self</span>.optimal_temperature[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb22-70" data-line-number="70">                <span class="va">self</span>.temperature_ai <span class="op">=</span> <span class="va">self</span>.optimal_temperature[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb22-71" data-line-number="71">        </a>
+<a class="sourceLine" id="cb22-72" data-line-number="72">        <span class="co"># ACTUALIZACIÓN DE LOS SCORES</span></a>
+<a class="sourceLine" id="cb22-73" data-line-number="73">        </a>
+<a class="sourceLine" id="cb22-74" data-line-number="74">        <span class="co"># Actualización del total de energía gastada cuando hay IA</span></a>
+<a class="sourceLine" id="cb22-75" data-line-number="75">        <span class="va">self</span>.total_energy_ai <span class="op">+=</span> energy_ai</a>
+<a class="sourceLine" id="cb22-76" data-line-number="76">        <span class="co"># Actualización del total de energía gastada cuando no hay IA</span></a>
+<a class="sourceLine" id="cb22-77" data-line-number="77">        <span class="va">self</span>.total_energy_noai <span class="op">+=</span> energy_noai</a>
+<a class="sourceLine" id="cb22-78" data-line-number="78">        </a>
+<a class="sourceLine" id="cb22-79" data-line-number="79">        <span class="co"># ESCALADO DEL SIGUIENTE ESTADO</span></a>
+<a class="sourceLine" id="cb22-80" data-line-number="80">        </a>
+<a class="sourceLine" id="cb22-81" data-line-number="81">        scaled_temperature_ai <span class="op">=</span> (<span class="va">self</span>.temperature_ai <span class="op">-</span> <span class="va">self</span>.min_temperature)</a>
+<a class="sourceLine" id="cb22-82" data-line-number="82">                                <span class="op">/</span> (<span class="va">self</span>.max_temperature <span class="op">-</span> <span class="va">self</span>.min_temperature)</a>
+<a class="sourceLine" id="cb22-83" data-line-number="83">        scaled_number_users <span class="op">=</span> (<span class="va">self</span>.current_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users)</a>
+<a class="sourceLine" id="cb22-84" data-line-number="84">                              <span class="op">/</span> (<span class="va">self</span>.max_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users)</a>
+<a class="sourceLine" id="cb22-85" data-line-number="85">        scaled_rate_data <span class="op">=</span> (<span class="va">self</span>.current_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data)</a>
+<a class="sourceLine" id="cb22-86" data-line-number="86">                           <span class="op">/</span> (<span class="va">self</span>.max_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data)</a>
+<a class="sourceLine" id="cb22-87" data-line-number="87">        next_state <span class="op">=</span> np.matrix([scaled_temperature_ai,</a>
+<a class="sourceLine" id="cb22-88" data-line-number="88">                                scaled_number_users,</a>
+<a class="sourceLine" id="cb22-89" data-line-number="89">                                scaled_rate_data])</a>
+<a class="sourceLine" id="cb22-90" data-line-number="90">        </a>
+<a class="sourceLine" id="cb22-91" data-line-number="91">        <span class="co"># DEVOLVER EL SIGUIENTE ESTADO, LA RECOMPENSA Y EL ESTADO DE FIN DEL JUEGO</span></a>
+<a class="sourceLine" id="cb22-92" data-line-number="92">        </a>
+<a class="sourceLine" id="cb22-93" data-line-number="93">        <span class="cf">return</span> next_state, <span class="va">self</span>.reward, <span class="va">self</span>.game_over</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb23-1" data-line-number="1">    <span class="co"># CREACIÓN DE UN MÉTODO QUE REINICIA EL ENTORNO</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">    </a>
+<a class="sourceLine" id="cb23-3" data-line-number="3">    <span class="kw">def</span> reset(<span class="va">self</span>, new_month):</a>
+<a class="sourceLine" id="cb23-4" data-line-number="4">        <span class="va">self</span>.atmospheric_temperature <span class="op">=</span> <span class="va">self</span>.monthly_atmospheric_temperatures[new_month]</a>
+<a class="sourceLine" id="cb23-5" data-line-number="5">        <span class="va">self</span>.initial_month <span class="op">=</span> new_month</a>
+<a class="sourceLine" id="cb23-6" data-line-number="6">        <span class="va">self</span>.current_number_users <span class="op">=</span> <span class="va">self</span>.initial_number_users</a>
+<a class="sourceLine" id="cb23-7" data-line-number="7">        <span class="va">self</span>.current_rate_data <span class="op">=</span> <span class="va">self</span>.initial_rate_data</a>
+<a class="sourceLine" id="cb23-8" data-line-number="8">        <span class="va">self</span>.intrinsic_temperature <span class="op">=</span> <span class="va">self</span>.atmospheric_temperature</a>
+<a class="sourceLine" id="cb23-9" data-line-number="9">                                     <span class="op">+</span> <span class="fl">1.25</span> <span class="op">*</span> <span class="va">self</span>.current_number_users</a>
+<a class="sourceLine" id="cb23-10" data-line-number="10">                                     <span class="op">+</span> <span class="fl">1.25</span> <span class="op">*</span> <span class="va">self</span>.current_rate_data</a>
+<a class="sourceLine" id="cb23-11" data-line-number="11">        <span class="va">self</span>.temperature_ai <span class="op">=</span> <span class="va">self</span>.intrinsic_temperature</a>
+<a class="sourceLine" id="cb23-12" data-line-number="12">        <span class="va">self</span>.temperature_noai <span class="op">=</span> (<span class="va">self</span>.optimal_temperature[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb23-13" data-line-number="13">                                <span class="op">+</span> <span class="va">self</span>.optimal_temperature[<span class="dv">1</span>]) <span class="op">/</span> <span class="fl">2.0</span></a>
+<a class="sourceLine" id="cb23-14" data-line-number="14">        <span class="va">self</span>.total_energy_ai <span class="op">=</span> <span class="fl">0.0</span></a>
+<a class="sourceLine" id="cb23-15" data-line-number="15">        <span class="va">self</span>.total_energy_noai <span class="op">=</span> <span class="fl">0.0</span></a>
+<a class="sourceLine" id="cb23-16" data-line-number="16">        <span class="va">self</span>.reward <span class="op">=</span> <span class="fl">0.0</span></a>
+<a class="sourceLine" id="cb23-17" data-line-number="17">        <span class="va">self</span>.game_over <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb23-18" data-line-number="18">        <span class="va">self</span>.train <span class="op">=</span> <span class="dv">1</span></a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb24-1" data-line-number="1">    <span class="co"># CREACIÓN DE UN MÉTODO QUE NOS DA, A PARTIR DE CUALQUIER INSTANTE, EL ESTADO, LA RECOMPENSA Y EL FIN DE LA PARTIDA</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">    </a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">    <span class="kw">def</span> observe(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">        scaled_temperature_ai <span class="op">=</span> (<span class="va">self</span>.temperature_ai <span class="op">-</span> <span class="va">self</span>.min_temperature)</a>
+<a class="sourceLine" id="cb24-5" data-line-number="5">                                <span class="op">/</span> (<span class="va">self</span>.max_temperature <span class="op">-</span> <span class="va">self</span>.min_temperature)</a>
+<a class="sourceLine" id="cb24-6" data-line-number="6">        scaled_number_users <span class="op">=</span> (<span class="va">self</span>.current_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users)</a>
+<a class="sourceLine" id="cb24-7" data-line-number="7">                              <span class="op">/</span> (<span class="va">self</span>.max_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users)</a>
+<a class="sourceLine" id="cb24-8" data-line-number="8">        scaled_rate_data <span class="op">=</span> (<span class="va">self</span>.current_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data)</a>
+<a class="sourceLine" id="cb24-9" data-line-number="9">                           <span class="op">/</span> (<span class="va">self</span>.max_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data)</a>
+<a class="sourceLine" id="cb24-10" data-line-number="10">        current_state <span class="op">=</span> np.matrix([scaled_temperature_ai,</a>
+<a class="sourceLine" id="cb24-11" data-line-number="11">                                   scaled_number_users,</a>
+<a class="sourceLine" id="cb24-12" data-line-number="12">                                   scaled_rate_data])</a>
+<a class="sourceLine" id="cb24-13" data-line-number="13">        <span class="cf">return</span> current_state, <span class="va">self</span>.reward, <span class="va">self</span>.game_over</a></code></pre></div>
+<p>Felicidades por implementar el Paso 1: Construcción del entorno. Ahora pasemos al Paso 2: Construcción del cerebro.</p>
+</div>
+<div id="paso-2-construcción-del-cerebro" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Paso 2: Construcción del cerebro</h3>
+<p>En este Paso 2, vamos a construir el cerebro artificial de nuestra IA, que no es más que una red neuronal completamente conectada. Aquí está de nuevo:</p>
+<div class="figure">
+<img src="Brain.png" alt="El cerebro artificial: una red neuronal completamente conectada" />
+<p class="caption">El cerebro artificial: una red neuronal completamente conectada</p>
+</div>
+<p>Nuevamente, construiremos este cerebro artificial dentro de una clase, por la misma razón que antes, que nos permite crear varios cerebros artificiales para diferentes servidores dentro de un centro de datos. De hecho, tal vez algunos servidores necesitarán cerebros artificiales diferentes con hiperparámetros diferentes que otros servidores. Es por eso que gracias a esta estructura avanzada de <code>python</code> de clase / objeto, podemos cambiar fácilmente de un cerebro a otro para regular la temperatura de un nuevo servidor que requiere una IA con diferentes parámetros de redes neuronales.</p>
 <p>We build this artificial brain thanks to the amazing Keras library. From this library we use the Dense() class to create our two fully connected hidden layers, the first one having 64 hidden neurons, and the second one having 32 neurons. And we use the Dense() class again to return Q-Values, which keep in mind are the outputs of the artificial neural networks. Then later on in the training and the testing files, we will use the argmax method to select the action that has the maximum Q-Value. Then, we assemble all the components of the brain, including the inputs and the outputs, by creating it as an object of the Model() class (very useful to then save and load a model with specific weights). End eventually, we compile it with a Mean-Squared Error loss and an Adam optimizer. Thus here are the new steps of the general AI Framework:</p>
 
 <p>Here we go with the implementation:</p>
@@ -638,6 +803,7 @@ T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se e
 <p></p>
 
 
+</div>
 </div>
 </div>
             </section>

@@ -24,7 +24,7 @@
 <meta name="author" content="Hadelin de Ponteves y Kirill Ermenko" />
 
 
-<meta name="date" content="2020-03-21" />
+<meta name="date" content="2020-03-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="Images/apple-icon-120x120.png" />
   <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="optimización-de-procesos.html"/>
-<link rel="next" href="part-3-maximizing-revenues.html"/>
+<link rel="next" href="parte-3-maximización-de-beneficios-revenues.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -157,11 +157,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#implementation"><i class="fa fa-check"></i><b>2.3</b> Implementation</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#paso-1-construcción-del-entorno"><i class="fa fa-check"></i><b>2.3.1</b> Paso 1: Construcción del Entorno</a></li>
 <li class="chapter" data-level="2.3.2" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#paso-2-construcción-del-cerebro"><i class="fa fa-check"></i><b>2.3.2</b> Paso 2: Construcción del cerebro</a></li>
+<li class="chapter" data-level="2.3.3" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#paso-3-implementación-del-algoritmo-de-deep-reinforcement-learning"><i class="fa fa-check"></i><b>2.3.3</b> Paso 3: Implementación del algoritmo de Deep Reinforcement Learning</a></li>
+<li class="chapter" data-level="2.3.4" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#paso-4-entrenar-la-ia"><i class="fa fa-check"></i><b>2.3.4</b> Paso 4: Entrenar la IA</a></li>
+<li class="chapter" data-level="2.3.5" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#paso-5-probar-nuestra-ia"><i class="fa fa-check"></i><b>2.3.5</b> Paso 5: Probar nuestra IA</a></li>
 </ul></li>
+<li class="chapter" data-level="2.4" data-path="parte-2-minimización-de-costes.html"><a href="parte-2-minimización-de-costes.html#resumen-el-algoritmo-general-de-ia"><i class="fa fa-check"></i><b>2.4</b> Resumen: El Algoritmo General de IA</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="part-3-maximizing-revenues.html"><a href="part-3-maximizing-revenues.html"><i class="fa fa-check"></i><b>3</b> Part 3 - Maximizing Revenues</a><ul>
-<li class="chapter" data-level="3.1" data-path="part-3-maximizing-revenues.html"><a href="part-3-maximizing-revenues.html#case-study-maximizing-revenue-of-an-online-retail-business"><i class="fa fa-check"></i><b>3.1</b> Case Study: Maximizing Revenue of an Online Retail Business</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="part-3-maximizing-revenues.html"><a href="part-3-maximizing-revenues.html#problem-to-solve"><i class="fa fa-check"></i><b>3.1.1</b> Problem to solve</a></li>
+<li class="chapter" data-level="3" data-path="parte-3-maximización-de-beneficios-revenues.html"><a href="parte-3-maximización-de-beneficios-revenues.html"><i class="fa fa-check"></i><b>3</b> Parte 3 - Maximización de Beneficios Revenues</a><ul>
+<li class="chapter" data-level="3.1" data-path="parte-3-maximización-de-beneficios-revenues.html"><a href="parte-3-maximización-de-beneficios-revenues.html#caso-práctico-maximizing-revenue-of-an-online-retail-business"><i class="fa fa-check"></i><b>3.1</b> Caso Práctico: Maximizing Revenue of an Online Retail Business</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="parte-3-maximización-de-beneficios-revenues.html"><a href="parte-3-maximización-de-beneficios-revenues.html#problem-to-solve"><i class="fa fa-check"></i><b>3.1.1</b> Problem to solve</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
@@ -512,7 +516,7 @@ T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se e
 </div>
 <div id="implementation" class="section level2">
 <h2><span class="header-section-number">2.3</span> Implementation</h2>
-<p>Esta implementación se dividirá en 5 partes, cada parte con su propio archivo de Python. Estas 5 partes constituyen el marco general de IA, o Blueprint de la AI, que debe seguirse cada vez que construimos un entorno para resolver cualquier problema comercial con Deep Reinforcement Learning.</p>
+<p>Esta implementación se dividirá en 5 partes, cada parte con su propio archivo de Python. Estas 5 partes constituyen el algoritmo general de IA, o Blueprint de la AI, que debe seguirse cada vez que construimos un entorno para resolver cualquier problema comercial con Deep Reinforcement Learning.</p>
 <p>Aquí están, del Paso 1 al Paso 5:</p>
 <ol style="list-style-type: decimal">
 <li>Construcción del entorno.</li>
@@ -521,18 +525,18 @@ T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se e
 <li>Entrenar a la IA.</li>
 <li>Probar de la IA.</li>
 </ol>
-<p>Estos son los pasos principales (en ese mismo orden) de la sección de teoría general de IA anterior. Implementemos así nuestra IA para nuestro caso práctico específico, siguiendo este plan de IA, en las siguientes cinco secciones correspondientes a estos cinco pasos principales. Además en cada paso, distinguiremos los subpasos que todavía forman parte del marco general de AI, de los subpasos que son específicos de nuestro caso práctico, escribiendo los títulos de las secciones de código en mayúsculas para todos los subpasos del marco general de AI, y en letras mínimas para todos los subpasos específicos de nuestro caso práctico. Eso significa que cada vez que veamos una nueva sección de código cuyo título está escrito en letras mayúsculas, entonces es el siguiente subpaso del marco general de IA, que también se debe seguir al crear una IA para cualquier otro problema comercial.</p>
+<p>Estos son los pasos principales (en ese mismo orden) de la sección de teoría general de IA anterior. Implementemos así nuestra IA para nuestro caso práctico específico, siguiendo este plan de IA, en las siguientes cinco secciones correspondientes a estos cinco pasos principales. Además en cada paso, distinguiremos los subpasos que todavía forman parte del algoritmo general de AI, de los subpasos que son específicos de nuestro caso práctico, escribiendo los títulos de las secciones de código en mayúsculas para todos los subpasos del algoritmo general de AI, y en letras mínimas para todos los subpasos específicos de nuestro caso práctico. Eso significa que cada vez que veamos una nueva sección de código cuyo título está escrito en letras mayúsculas, entonces es el siguiente subpaso del algoritmo general de IA, que también se debe seguir al crear una IA para cualquier otro problema comercial.</p>
 <p>Así que ahora aquí vamos con el comienzo del viaje: Paso 1 - Construcción el entorno.</p>
 <p>Este es el archivo de implementación de <code>python</code> más grande de este caso práctico, y del curso. Por lo tanto, asegúrete de descansar antes, recargar las baterías para obtener un buen nivel de energía y, tan pronto como estés listo, ¡abordemos esto juntos!</p>
 <div id="paso-1-construcción-del-entorno" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> Paso 1: Construcción del Entorno</h3>
 <p>En este primer paso, vamos a construir el entorno dentro de una clase. ¿Por qué una clase? Porque nos gustaría tener nuestro entorno como un objeto que podamos crear fácilmente con cualquier valor de algunos parámetros que elijamos. Por ejemplo, podemos crear un objeto de entorno para un servidor que tenga un cierto número de usuarios conectados y una cierta velocidad de datos en un momento específico, y otro objeto de entorno para otro servidor que tenga un número diferente de usuarios conectados y un número diferente tasa de datos en otro momento. Y gracias a esta estructura avanzada de la clase, podemos conectar y reproducir fácilmente los objetos del entorno que creamos en diferentes servidores que tienen sus propios parámetros, por lo tanto, regulamos sus temperaturas con varias IA diferentes, de modo que terminamos minimizando el consumo de energía. de un centro de datos completo, tal como lo hizo la DeepMind de Google para los centros de datos de Google con su algoritmo DQN.</p>
-<p>Esta clase sigue los siguientes subpasos, que son parte del marco general de IA dentro del Paso 1: construcción del entorno:</p>
+<p>Esta clase sigue los siguientes subpasos, que son parte del algoritmo general de IA dentro del Paso 1: construcción del entorno:</p>
 <ul>
-<li>** Paso 1-1 **: Introducción e inicialización de todos los parámetros y variables del entorno.</li>
-<li>** Paso 1-2 **: Hacer un método que actualice el entorno justo después de que la IA ejecute una acción.</li>
-<li>** Paso 1-3 **: Hacer un método que restablezca el entorno.</li>
-<li>** Paso 1-4 **: hacer un método que nos proporcione en cualquier momento el estado actual, la última recompensa obtenida y si el juego ha terminado.</li>
+<li><strong>Paso 1-1</strong>: Introducción e inicialización de todos los parámetros y variables del entorno.</li>
+<li><strong>Paso 1-2</strong>: Hacer un método que actualice el entorno justo después de que la IA ejecute una acción.</li>
+<li><strong>Paso 1-3</strong>: Hacer un método que restablezca el entorno.</li>
+<li><strong>Paso 1-4</strong>: hacer un método que nos proporcione en cualquier momento el estado actual, la última recompensa obtenida y si el juego ha terminado.</li>
 </ul>
 <p>Encontrarás toda la implementación de esta clase de creación de entorno en las próximas páginas. Recuerda lo más importante: todas las secciones de código que tienen sus títulos escritos en letras mayúsculas son los pasos del framework de IA o del Blueprint general, y todas las secciones de código que tienen sus títulos escritos en letras minúsculas son específicas de nuestro caso práctico.</p>
 <p>A continuación se muestra la implementación completa de nuestro primer archivo de <code>python</code>. Los títulos de las secciones de código y los nombres de las variables elegidas son lo suficientemente claros como para comprender lo que se está codificando, pero si necesitas más explicaciones, te recomiendo que vea nuestros videos tutoriales en Udemy donde codificamos todo desde cero, paso a paso, mientras explicamos cada línea. de código en términos de por qué, qué y cómo. Aquí vamos:</p>
@@ -715,95 +719,399 @@ T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se e
 <p class="caption">El cerebro artificial: una red neuronal completamente conectada</p>
 </div>
 <p>Nuevamente, construiremos este cerebro artificial dentro de una clase, por la misma razón que antes, que nos permite crear varios cerebros artificiales para diferentes servidores dentro de un centro de datos. De hecho, tal vez algunos servidores necesitarán cerebros artificiales diferentes con hiperparámetros diferentes que otros servidores. Es por eso que gracias a esta estructura avanzada de <code>python</code> de clase / objeto, podemos cambiar fácilmente de un cerebro a otro para regular la temperatura de un nuevo servidor que requiere una IA con diferentes parámetros de redes neuronales.</p>
-<p>We build this artificial brain thanks to the amazing Keras library. From this library we use the Dense() class to create our two fully connected hidden layers, the first one having 64 hidden neurons, and the second one having 32 neurons. And we use the Dense() class again to return Q-Values, which keep in mind are the outputs of the artificial neural networks. Then later on in the training and the testing files, we will use the argmax method to select the action that has the maximum Q-Value. Then, we assemble all the components of the brain, including the inputs and the outputs, by creating it as an object of the Model() class (very useful to then save and load a model with specific weights). End eventually, we compile it with a Mean-Squared Error loss and an Adam optimizer. Thus here are the new steps of the general AI Framework:</p>
-
-<p>Here we go with the implementation:</p>
-<p><br />
+<p>Construiremos este cerebro artificial gracias a la increíble biblioteca <code>Keras</code>. Desde esta librería utilizaremos la clase <code>Dense()</code> para crear nuestras dos capas ocultas completamente conectadas, la primera con 64 neuronas ocultas y la segunda con 32 neuronas. Y luego, utilizaremos la clase <code>Dense()</code> nuevamente para devolver los valores Q, que tienen en cuenta las salidas de las redes neuronales artificiales. Luego, más adelante en el entrenamiento y los archivos de prueba, utilizaremos el método argmax para seleccionar la acción que tenga el valor Q máximo. Luego, ensamblamos todos los componentes del cerebro, incluidas las entradas y las salidas, creándolo como un objeto de la clase <code>Model()</code> (muy útil para luego guardar y cargar un modelo en producción con pesos específicos). Finalmente, lo compilaremos con una función de pérdidas que medirá el error cuadrático medio y el optimizador de Adam. Así, aquí están los nuevos pasos del algoritmo general de IA:</p>
+<ul>
+<li><strong>Paso 2-1:</strong> Construir la capa de entrada compuesta de los estados de entrada.</li>
+<li><strong>Paso 2-2:</strong> Construir las capas ocultas con un número elegido de estas capas y neuronas dentro de cada una, completamente conectadas a la capa de entrada y entre ellas.</li>
+<li><strong>Paso 2-3:</strong> Construir la capa de salida, completamente conectada a la última capa oculta.</li>
+<li><strong>Paso 2-4:</strong> Ensamblar la arquitectura completa dentro de un modelo de <code>Keras</code>.</li>
+<li><strong>Paso 2-5:</strong> Compilación del modelo con una función de pérdida de error cuadrático medio y el optimizador elegido.</li>
+</ul>
+<p>Aquí vamos con la implementación:<br />
 </p>
-
-<p><br />
-</p>
-<p></p>
-<p><br />
-</p>
-<p>I thought it would be valuable for you to even add one more powerful technique in your toolkit: .</p>
-<p><br />
-</p>
-<p>Dropout is a regularization technique that prevents overfitting. It simply consists of deactivating a certain rate of random neurones during each step of forward &amp; back propagation. That way, not all the neurones learn the same way, thus preventing the neural network from overfitting the training data.</p>
-<p><br />
-</p>
-<p>Here is how you implement Dropout:</p>
-
-<p><br />
-</p>
-<p>Congratulations! You have implemented Dropout. It was very simple, once again thanks to Keras.</p>
-<p>Below it the whole new brain.py implementation with Dropout:</p>
-<p><br />
-</p>
-
-<p><br />
-</p>
-<p>Now let’s move on to next step of our general AI Framework: Step 3 - Implementing the DQN algorithm.</p>
-<div style="page-break-after: always;"></div>
-
-<p>In this new Python file, we simply have to follow the Deep Q-Learning algorithm provided before. Hence, this implementation follows the following sub-steps, which are part of the general AI Framework:</p>
-
-<p>Below is the code following this new part of the AI Blueprint:</p>
-<p><br />
-</p>
-
-<div style="page-break-after: always;"></div>
-
-<p>Now that our AI has a fully functional brain, time to train it. And this is exactly what we do in this fourth Python file. The process is long, but very easy: we start by setting all the parameters, then we build the environment by creating an object of the Environment() class, then we build the brain of the AI by creating an object of the Brain() class, then we build the Deep Q-Learning model by creating an object of the DQN() class, and finally we launch the training connecting all these objects together, over 1000 epochs of 5-months period. You will notice in the training loop that we also do some exploration when playing the actions. This consists of playing some random actions from time to time. In our Caso Práctico this will be done 30% of the time, since we use an exploration parameter <span class="math inline">\(\epsilon = 0.3\)</span>, and then we force to play a random action when drawing a random value between 0 and 1 that is below <span class="math inline">\(\epsilon = 0.3\)</span>). The reason why we do some exploration is because it improves the Deep Reinforcement Learning process. This trick is called: “Exploration vs. Exploitation”. Then, besides you will also notice that we use an early stopping technique, which will make sure to stop the training if there is performance improvement.</p>
-<p><br />
-</p>
-<p>Let’s highlight these new steps that still belong to our general AI Framework / Blueprint:</p>
-
-<p>And now let’s implement this new part, Step 4 - Training the AI, of our general Blueprint. Below is the whole implementation of this fourth python file. Again, the code sections titles and the chosen variables names are clear enough to understand what is being coded. Here we go:</p>
-<p><br />
-</p>
-
-<p><br />
-</p>
-<p>After executing the code, we already see some good performance of our AI during the training, spending most of the time less energy than the alternative system, i.e. the server’s integrated cooling system. But that is only the training, now we need to see if we also obtain some good performance on a new 1-year simulation. That’s where our next, and final Python file, comes into play.</p>
-<div style="page-break-after: always;"></div>
-
-<p>Now indeed, we need to test the performance of our AI on a brand new situation. To do so, we will run a 1-year simulation, only in inference mode, meaning that there will be no training happening at any time. Our AI will only return predictions over a one full year of simulation. Then thanks to our environment object we will get in the end the total energy spent by the AI over this one full year, as well as the total energy spent by the server’s integrated cooling system. Eventually we will compare these two total energy spent, by simply computing their relative difference (in %), which will exactly give us the total energy saved by the AI. Buckle up for the final results, we will reveal them at the end of this Part 2!</p>
-<p><br />
-</p>
-<p>In terms of the AI Blueprint, here for the testing implementation we almost have the same as before, except that this time, we don’t have to create a brain object nor a DQN model object, and of course we must not run the Deep Q-Learning process over some training epochs. However we do have to create a new environment object, and instead of creating a brain, we will load our artificial brain with its pre-trained weights from the previous training that we executed in Step 4 - Training the AI. Hence, let’s give the final sub-steps of this final part of the AI Framework / Blueprint:</p>
-
-<p>And now let’s implement this fifth and final part, Step 5 - Testing the AI. Again, below is the whole implementation of our first python file. The code sections titles and the chosen variables names are clear enough to understand what is being coded, but if you need any more explanation, I encourage to watch our video tutorials where we code everything from scratch, step by step, while explaining every single line of code in terms of why, what and how. Here we go:</p>
-<p><br />
-</p>
-
-<p><br />
-</p>
-<p>And finally, we obtain in the printed results that the total energy consumption saved by the AI is…:</p>
-<p><span class="math display">\[\begin{equation*}
-    \textrm{Total Energy saved by the AI} = 39 \ \% \ !
-\end{equation*}\]</span></p>
-<p>Exactly like what Google DeepMind achieved in 2016! Indeed, if on Google you type: “DeepMind reduces Google cooling bill”, you will see that the result they achieved is 40 %. Very close to ours!</p>
-<p><br />
-</p>
-<p>Hence what we have built is surely excellent for our business client, as our AI will save them a lot of costs! Indeed, remember that thanks to our object oriented structure (working with classes and objects), we can very easily take our objects created in this implementation that we did for one server, and then plug them into other servers, so that in the end we end up saving the total energy consumption of a whole data center! That’s how Google saved billions of dollars in energy related costs, thanks to their DQN model built by DeepMind AI.</p>
-<div style="page-break-after: always;"></div>
-
-<p>Let’s recap and provide the whole AI Blueprint, so that you can print it out and put it on your wall.</p>
-<p><br />
-</p>
-<p></p>
-
-<p></p>
-
-<p></p>
-
-<p></p>
-
-<p></p>
-
-
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="co"># Construcción del cerebro</span></a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb25-4" data-line-number="4"><span class="co"># Importar las librerías</span></a>
+<a class="sourceLine" id="cb25-5" data-line-number="5"><span class="im">from</span> keras.layers <span class="im">import</span> Input, Dense</a>
+<a class="sourceLine" id="cb25-6" data-line-number="6"><span class="im">from</span> keras.models <span class="im">import</span> Model</a>
+<a class="sourceLine" id="cb25-7" data-line-number="7"><span class="im">from</span> keras.optimizers <span class="im">import</span> Adam</a>
+<a class="sourceLine" id="cb25-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb25-9" data-line-number="9"><span class="co"># CONSTRUCCIÓN DEL CEREBRO</span></a>
+<a class="sourceLine" id="cb25-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb25-11" data-line-number="11"><span class="kw">class</span> Brain(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb25-12" data-line-number="12">    </a>
+<a class="sourceLine" id="cb25-13" data-line-number="13">    <span class="co"># CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA EN EL MÉTODO DE INICIALIZACIÓN</span></a>
+<a class="sourceLine" id="cb25-14" data-line-number="14">    </a>
+<a class="sourceLine" id="cb25-15" data-line-number="15">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate <span class="op">=</span> <span class="fl">0.001</span>, number_actions <span class="op">=</span> <span class="dv">5</span>):</a>
+<a class="sourceLine" id="cb25-16" data-line-number="16">        <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate</a>
+<a class="sourceLine" id="cb25-17" data-line-number="17">        </a>
+<a class="sourceLine" id="cb25-18" data-line-number="18">        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA DE LOS ESTADOS DE ETRADA</span></a>
+<a class="sourceLine" id="cb25-19" data-line-number="19">        states <span class="op">=</span> Input(shape <span class="op">=</span> (<span class="dv">3</span>,))</a>
+<a class="sourceLine" id="cb25-20" data-line-number="20">        </a>
+<a class="sourceLine" id="cb25-21" data-line-number="21">        <span class="co"># CONSTRUCCIÓN DE LAS DOS CAPAS OCULTAS TOTALMENTE CONECTADAS</span></a>
+<a class="sourceLine" id="cb25-22" data-line-number="22">        x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</a>
+<a class="sourceLine" id="cb25-23" data-line-number="23">        y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</a>
+<a class="sourceLine" id="cb25-24" data-line-number="24">        </a>
+<a class="sourceLine" id="cb25-25" data-line-number="25">        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA A LA ÚLTIMA CAPA OCULTA</span></a>
+<a class="sourceLine" id="cb25-26" data-line-number="26">        q_values <span class="op">=</span> Dense(units <span class="op">=</span> number_actions, activation <span class="op">=</span> <span class="st">&#39;softmax&#39;</span>)(y)</a>
+<a class="sourceLine" id="cb25-27" data-line-number="27">        </a>
+<a class="sourceLine" id="cb25-28" data-line-number="28">        <span class="co"># ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS</span></a>
+<a class="sourceLine" id="cb25-29" data-line-number="29">        <span class="va">self</span>.model <span class="op">=</span> Model(inputs <span class="op">=</span> states, outputs <span class="op">=</span> q_values)</a>
+<a class="sourceLine" id="cb25-30" data-line-number="30">        </a>
+<a class="sourceLine" id="cb25-31" data-line-number="31">        <span class="co"># COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO MEDIO Y EL OPTIMIZADOR ELEGIDO</span></a>
+<a class="sourceLine" id="cb25-32" data-line-number="32">        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> learning_rate))</a></code></pre></div>
+<p><strong>Dropout.</strong></p>
+<p>Hemos pensado que sería valioso para nosotros incluso agregar una técnica más poderosa en nuestro kit de herramientas de IA: el <strong>Dropout</strong>.</p>
+<p>El <strong>dropout</strong> es una técnica de regularización que evita el sobreajuste. Simplemente consiste en desactivar una cierta proporción de neuronas aleatorias durante cada paso de propagación hacia adelante y hacia atrás. De esa manera, no todas las neuronas aprenden de la misma manera, evitando así que la red neuronal sobreajuste los datos de entrenamiento.</p>
+<p>Así es como implementamos el Dropout:</p>
+<ol style="list-style-type: decimal">
+<li>Primero importamos la función <code>Dropout</code>:</li>
+</ol>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb26-1" data-line-number="1">    <span class="im">from</span> keras.layers:<span class="im">from</span> keras.layers <span class="im">import</span> Input, Dense, Dropout</a></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Luego, activamos el Dropout en la primera capa oculta <code>x</code>, con una proporción de 0.1, lo que significa que el 10% de las neuronas se desactivarán aleatoriamente durante el entrenamiento a cada iteración:</li>
+</ol>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb27-1" data-line-number="1">    x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</a>
+<a class="sourceLine" id="cb27-2" data-line-number="2">    x <span class="op">=</span> Dropout(rate <span class="op">=</span> <span class="fl">0.1</span>)(x)</a></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Y finalmente, activamos de nuevo e Dropout en la segunda capa oculta <code>y</code>, con una proporción de 0.1, lo que significa que eñ 10% de las neuronas se desactivarán aleatoriamente durante el entrenamiento a cada iteración:</li>
+</ol>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb28-1" data-line-number="1">    y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</a>
+<a class="sourceLine" id="cb28-2" data-line-number="2">    y <span class="op">=</span> Dropout(rate <span class="op">=</span> <span class="fl">0.1</span>)(y)</a></code></pre></div>
+<p>¡Felicidades! Has implementado el Dropout. Es realmente muy simple, una vez más gracias a Keras.</p>
+<p>Debajo está la implementación mejorada del fichero <code>new_brain.py</code> con Dropout incluido:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="co"># Construcción del cerebro</span></a>
+<a class="sourceLine" id="cb29-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb29-4" data-line-number="4"><span class="co"># Importar las librerías</span></a>
+<a class="sourceLine" id="cb29-5" data-line-number="5"><span class="im">from</span> keras.layers <span class="im">import</span> Input, Dense, Dropout</a>
+<a class="sourceLine" id="cb29-6" data-line-number="6"><span class="im">from</span> keras.models <span class="im">import</span> Model</a>
+<a class="sourceLine" id="cb29-7" data-line-number="7"><span class="im">from</span> keras.optimizers <span class="im">import</span> Adam</a>
+<a class="sourceLine" id="cb29-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb29-9" data-line-number="9"><span class="co"># CONSTRUCCIÓN DEL CEREBRO</span></a>
+<a class="sourceLine" id="cb29-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb29-11" data-line-number="11"><span class="kw">class</span> Brain(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb29-12" data-line-number="12">    </a>
+<a class="sourceLine" id="cb29-13" data-line-number="13">    <span class="co"># CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA EN EL MÉTODO DE INICIALIZACIÓN</span></a>
+<a class="sourceLine" id="cb29-14" data-line-number="14">    </a>
+<a class="sourceLine" id="cb29-15" data-line-number="15">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate <span class="op">=</span> <span class="fl">0.001</span>, number_actions <span class="op">=</span> <span class="dv">5</span>):</a>
+<a class="sourceLine" id="cb29-16" data-line-number="16">        <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate</a>
+<a class="sourceLine" id="cb29-17" data-line-number="17">        </a>
+<a class="sourceLine" id="cb29-18" data-line-number="18">        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA DE LOS ESTADOS DE ETRADA</span></a>
+<a class="sourceLine" id="cb29-19" data-line-number="19">        states <span class="op">=</span> Input(shape <span class="op">=</span> (<span class="dv">3</span>,))</a>
+<a class="sourceLine" id="cb29-20" data-line-number="20">        </a>
+<a class="sourceLine" id="cb29-21" data-line-number="21">        <span class="co"># CONSTRUCCIÓN DE PRIMERA CAPA OCULTAS TOTALMENTE CONECTADA CON DROPOUT ACTIVADO</span></a>
+<a class="sourceLine" id="cb29-22" data-line-number="22">        x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</a>
+<a class="sourceLine" id="cb29-23" data-line-number="23">        x <span class="op">=</span> Dropout(rate <span class="op">=</span> <span class="fl">0.1</span>)(x)</a>
+<a class="sourceLine" id="cb29-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb29-25" data-line-number="25">        <span class="co"># CONSTRUCCIÓN DE SEGUNDA CAPA OCULTAS TOTALMENTE CONECTADA CON DROPOUT ACTIVADO</span></a>
+<a class="sourceLine" id="cb29-26" data-line-number="26">        y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</a>
+<a class="sourceLine" id="cb29-27" data-line-number="27">        y <span class="op">=</span> Dropout(rate <span class="op">=</span> <span class="fl">0.1</span>)(y)</a>
+<a class="sourceLine" id="cb29-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb29-29" data-line-number="29">        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA A LA ÚLTIMA CAPA OCULTA</span></a>
+<a class="sourceLine" id="cb29-30" data-line-number="30">        q_values <span class="op">=</span> Dense(units <span class="op">=</span> number_actions, activation <span class="op">=</span> <span class="st">&#39;softmax&#39;</span>)(y)</a>
+<a class="sourceLine" id="cb29-31" data-line-number="31">        </a>
+<a class="sourceLine" id="cb29-32" data-line-number="32">        <span class="co"># ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS</span></a>
+<a class="sourceLine" id="cb29-33" data-line-number="33">        <span class="va">self</span>.model <span class="op">=</span> Model(inputs <span class="op">=</span> states, outputs <span class="op">=</span> q_values)</a>
+<a class="sourceLine" id="cb29-34" data-line-number="34">        </a>
+<a class="sourceLine" id="cb29-35" data-line-number="35">        <span class="co"># COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO MEDIO Y EL OPTIMIZADOR ELEGIDO</span></a>
+<a class="sourceLine" id="cb29-36" data-line-number="36">        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> learning_rate))</a></code></pre></div>
+<p>Ahora pasemos al siguiente paso de nuestro algoritmo general de IA: Paso 3: Implementación del algoritmo DQN.</p>
 </div>
+<div id="paso-3-implementación-del-algoritmo-de-deep-reinforcement-learning" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> Paso 3: Implementación del algoritmo de Deep Reinforcement Learning</h3>
+<p>En este nuevo archivo de <code>python</code>, simplemente tenemos que seguir el algoritmo Deep Q-Learning que hemos visto anteriormente. Por lo tanto, esta implementación sigue los siguientes subpasos, que forman parte del algoritmo general de IA:</p>
+<ul>
+<li><strong>Paso 3-1:</strong> Introducción e inicialización de todos los parámetros y variables del modelo de DQN.</li>
+<li><strong>Paso 3-2:</strong> Hacer un método que construya la memoria en Repetición de Experiencia.</li>
+<li><strong>Paso 3-3:</strong> Hacer un método que construya y devuelva dos lotes de 10 entradas y 10 objetivos</li>
+</ul>
+<p>A continuación se muestra el código que sigue a esta nueva parte del Blueprint de IA:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="co"># Implementar el algoritmo de Deep Q-Learning con Repetición de Experiencia</span></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4"><span class="co"># Importar las librerías</span></a>
+<a class="sourceLine" id="cb30-5" data-line-number="5"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb30-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb30-7" data-line-number="7"><span class="co"># IMPLEMENTAR EL DEEP Q-LEARNING CON REPETICIÓN DE EXPERIENCIA</span></a>
+<a class="sourceLine" id="cb30-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb30-9" data-line-number="9"><span class="kw">class</span> DQN(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb30-10" data-line-number="10">    </a>
+<a class="sourceLine" id="cb30-11" data-line-number="11">    <span class="co"># INTRODUCIR E INICIALIZAR TODOS LOS PARÁMETROS Y VARIABLES DEL DQN</span></a>
+<a class="sourceLine" id="cb30-12" data-line-number="12">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, max_memory <span class="op">=</span> <span class="dv">100</span>, discount <span class="op">=</span> <span class="fl">0.9</span>):</a>
+<a class="sourceLine" id="cb30-13" data-line-number="13">        <span class="va">self</span>.memory <span class="op">=</span> <span class="bu">list</span>()</a>
+<a class="sourceLine" id="cb30-14" data-line-number="14">        <span class="va">self</span>.max_memory <span class="op">=</span> max_memory</a>
+<a class="sourceLine" id="cb30-15" data-line-number="15">        <span class="va">self</span>.discount <span class="op">=</span> discount</a>
+<a class="sourceLine" id="cb30-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb30-17" data-line-number="17">    <span class="co"># CREACIÓN DE UN MÉTODO QUE CONSTRUYA LA MEMORIA DE LA REPETICIÓN DE EXPERIENCIA</span></a>
+<a class="sourceLine" id="cb30-18" data-line-number="18">    <span class="kw">def</span> remember(<span class="va">self</span>, transition, game_over):</a>
+<a class="sourceLine" id="cb30-19" data-line-number="19">        <span class="va">self</span>.memory.append([transition, game_over])</a>
+<a class="sourceLine" id="cb30-20" data-line-number="20">        <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.memory) <span class="op">&gt;</span> <span class="va">self</span>.max_memory:</a>
+<a class="sourceLine" id="cb30-21" data-line-number="21">            <span class="kw">del</span> <span class="va">self</span>.memory[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb30-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb30-23" data-line-number="23">    <span class="co"># CREACIÓN DEL MÉTODO QUE COSTRUYE DOS LOTES DE ENTRADAS Y OBJETIVOS</span></a>
+<a class="sourceLine" id="cb30-24" data-line-number="24">    <span class="kw">def</span> get_batch(<span class="va">self</span>, model, batch_size <span class="op">=</span> <span class="dv">10</span>):</a>
+<a class="sourceLine" id="cb30-25" data-line-number="25">        len_memory <span class="op">=</span> <span class="bu">len</span>(<span class="va">self</span>.memory)</a>
+<a class="sourceLine" id="cb30-26" data-line-number="26">        num_inputs <span class="op">=</span> <span class="va">self</span>.memory[<span class="dv">0</span>][<span class="dv">0</span>][<span class="dv">0</span>].shape[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb30-27" data-line-number="27">        num_outputs <span class="op">=</span> model.output_shape[<span class="op">-</span><span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb30-28" data-line-number="28">        inputs <span class="op">=</span> np.zeros((<span class="bu">min</span>(len_memory, batch_size), num_inputs))</a>
+<a class="sourceLine" id="cb30-29" data-line-number="29">        targets <span class="op">=</span> np.zeros((<span class="bu">min</span>(len_memory, batch_size), num_outputs))</a>
+<a class="sourceLine" id="cb30-30" data-line-number="30">        <span class="cf">for</span> i, idx <span class="kw">in</span> <span class="bu">enumerate</span>(np.random.randint(<span class="dv">0</span>, len_memory,</a>
+<a class="sourceLine" id="cb30-31" data-line-number="31">                                                  size <span class="op">=</span> <span class="bu">min</span>(len_memory, batch_size))):</a>
+<a class="sourceLine" id="cb30-32" data-line-number="32">            current_state, action, reward, next_state <span class="op">=</span> <span class="va">self</span>.memory[idx][<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb30-33" data-line-number="33">            game_over <span class="op">=</span> <span class="va">self</span>.memory[idx][<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb30-34" data-line-number="34">            inputs[i] <span class="op">=</span> current_state</a>
+<a class="sourceLine" id="cb30-35" data-line-number="35">            targets[i] <span class="op">=</span> model.predict(current_state)[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb30-36" data-line-number="36">            Q_sa <span class="op">=</span> np.<span class="bu">max</span>(model.predict(next_state)[<span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb30-37" data-line-number="37">            <span class="cf">if</span> game_over:</a>
+<a class="sourceLine" id="cb30-38" data-line-number="38">                targets[i, action] <span class="op">=</span> reward</a>
+<a class="sourceLine" id="cb30-39" data-line-number="39">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb30-40" data-line-number="40">                targets[i, action] <span class="op">=</span> reward <span class="op">+</span> <span class="va">self</span>.discount <span class="op">*</span> Q_sa</a>
+<a class="sourceLine" id="cb30-41" data-line-number="41">        <span class="cf">return</span> inputs, targets</a></code></pre></div>
+</div>
+<div id="paso-4-entrenar-la-ia" class="section level3">
+<h3><span class="header-section-number">2.3.4</span> Paso 4: Entrenar la IA</h3>
+<p>Ahora que nuestra IA tiene un cerebro completamente funcional, es hora de entrenarlo. Y esto es exactamente lo que hacemos en este cuarto archivo de <code>python</code>. El proceso es largo, pero muy fácil: comenzamos estableciendo todos los parámetros, luego construimos el entorno creando un objeto de la clase <code>Environment()</code>, luego construimos el cerebro de la IA creando un objeto de la clase <code>Brain()</code>, luego construimos el modelo de Deep Q-Learning creando un objeto de la clase <code>DQN()</code>, y finalmente lanzamos la fase de entrenamiento que conecta todos estos objetos, durante 1000 echos de 5 meses cada uno. Notarás en la fase de entrenamiento de entrenamiento que también exploramos un poco cuando llevamos a cabo las acciones las acciones. Esto consiste en ejecutar algunas acciones aleatorias de vez en cuando. En nuestro Caso Práctico, esto se realizará el 30% de las veces, ya que usamos un parámetro de exploración <span class="math inline">\(\epsilon = 0.3\)</span>, y luego lo forzamos a ejecutar una acción aleatoria al obtener un valor aleatorio entre 0 y 1 que está por debajo de <span class="math inline">\(\epsilon = 0.3\)</span>). La razón por la que hacemos un poco de exploración es porque mejora el proceso de aprendizaje por refuerzo profundo. Este truco se llama: <em>Exploración vs. Explotación</em>. Luego, además, también veremos que utilizamos una técnica de detención temprana, que se asegurará de detener el entrenamiento si ya no hay una mejora palpable en el rendimiento.</p>
+<p>Destaquemos estos nuevos pasos que aún pertenecen a nuestro algoritmo general de IA:</p>
+<ul>
+<li><strong>Paso 4-1:</strong> Construcción del entorno creando un objeto de la clase Environment.</li>
+<li><strong>Paso 4-2:</strong> Construyendo el cerebro artificial creando un objeto de la clase de Brain</li>
+<li><strong>Paso 4-3:</strong> Construyendo el modelo DQN creando un objeto de la clase DQN.</li>
+<li><strong>Paso 4-4:</strong> Elección del modo de entrenamiento.</li>
+<li><strong>Paso 4-5:</strong> Comenzar el entrenamiento con un bule <code>for</code> durante más de 100 epochs de períodos de 5 meses.</li>
+<li><strong>Paso 4-6:</strong> Durante cada epoch, repetimos todo el proceso de Deep Q-Learning, al tiempo que exploramos el 30% de las veces.</li>
+</ul>
+<p>Y ahora implementemos esta nueva parte, Paso 4: Entrenamiento de la IA, de nuestro algoritmo general. A continuación se muestra la implementación completa de este cuarto archivo de <code>python</code>. Una vez más, los títulos de las secciones de código y los nombres de las variables elegidas son lo suficientemente claros como para comprender lo que se programa en cada caso Aquí vamos:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="co"># Entrenamiento de la IA</span></a>
+<a class="sourceLine" id="cb31-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb31-4" data-line-number="4"><span class="co"># Instalación de Keras</span></a>
+<a class="sourceLine" id="cb31-5" data-line-number="5"><span class="co"># conda install -c conda-forge keras</span></a>
+<a class="sourceLine" id="cb31-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb31-7" data-line-number="7"><span class="co"># Importar las librerías y el resto de ficheros de python</span></a>
+<a class="sourceLine" id="cb31-8" data-line-number="8"><span class="im">import</span> os</a>
+<a class="sourceLine" id="cb31-9" data-line-number="9"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb31-10" data-line-number="10"><span class="im">import</span> random <span class="im">as</span> rn</a>
+<a class="sourceLine" id="cb31-11" data-line-number="11"><span class="im">import</span> environment</a>
+<a class="sourceLine" id="cb31-12" data-line-number="12"><span class="im">import</span> brain</a>
+<a class="sourceLine" id="cb31-13" data-line-number="13"><span class="im">import</span> dqn</a>
+<a class="sourceLine" id="cb31-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb31-15" data-line-number="15"><span class="co"># Establecer semillas para la reproducibilidad del experimento</span></a>
+<a class="sourceLine" id="cb31-16" data-line-number="16">os.environ[<span class="st">&#39;PYTHONHASHSEED&#39;</span>] <span class="op">=</span> <span class="st">&#39;0&#39;</span></a>
+<a class="sourceLine" id="cb31-17" data-line-number="17">np.random.seed(<span class="dv">42</span>)</a>
+<a class="sourceLine" id="cb31-18" data-line-number="18">rn.seed(<span class="dv">12345</span>)</a>
+<a class="sourceLine" id="cb31-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb31-20" data-line-number="20"><span class="co"># CONFIGURACIÓN DE LOS PARÁMETROS</span></a>
+<a class="sourceLine" id="cb31-21" data-line-number="21">epsilon <span class="op">=</span> <span class="fl">.3</span></a>
+<a class="sourceLine" id="cb31-22" data-line-number="22">number_actions <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb31-23" data-line-number="23">direction_boundary <span class="op">=</span> (number_actions <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb31-24" data-line-number="24">number_epochs <span class="op">=</span> <span class="dv">100</span></a>
+<a class="sourceLine" id="cb31-25" data-line-number="25">max_memory <span class="op">=</span> <span class="dv">3000</span></a>
+<a class="sourceLine" id="cb31-26" data-line-number="26">batch_size <span class="op">=</span> <span class="dv">512</span></a>
+<a class="sourceLine" id="cb31-27" data-line-number="27">temperature_step <span class="op">=</span> <span class="fl">1.5</span></a>
+<a class="sourceLine" id="cb31-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb31-29" data-line-number="29"><span class="co"># CONSTRUCCIÓN DEL ENTORNO CREANDO UN OBJETO DE LA CLASE ENVIRONMENT CLASS</span></a>
+<a class="sourceLine" id="cb31-30" data-line-number="30">env <span class="op">=</span> environment.Environment(optimal_temperature <span class="op">=</span> (<span class="fl">18.0</span>, <span class="fl">24.0</span>),</a>
+<a class="sourceLine" id="cb31-31" data-line-number="31">                              initial_month <span class="op">=</span> <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb31-32" data-line-number="32">                              initial_number_users <span class="op">=</span> <span class="dv">20</span>,</a>
+<a class="sourceLine" id="cb31-33" data-line-number="33">                              initial_rate_data <span class="op">=</span> <span class="dv">30</span>)</a>
+<a class="sourceLine" id="cb31-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb31-35" data-line-number="35"><span class="co"># CONSTRUCCIÓN DEL CEREBRO CREADO UN OBJETO DE LA CLASE BRAIN</span></a>
+<a class="sourceLine" id="cb31-36" data-line-number="36">brain <span class="op">=</span> brain.Brain(learning_rate <span class="op">=</span> <span class="fl">0.00001</span>, number_actions <span class="op">=</span> number_actions)</a>
+<a class="sourceLine" id="cb31-37" data-line-number="37"></a>
+<a class="sourceLine" id="cb31-38" data-line-number="38"><span class="co"># CONSTRUCCIÓN DEL MODELO DE DQN CREANDO UN OBJETO DE LA CLASE DQN </span></a>
+<a class="sourceLine" id="cb31-39" data-line-number="39">dqn <span class="op">=</span> dqn.DQN(max_memory <span class="op">=</span> max_memory, discount <span class="op">=</span> <span class="fl">0.9</span>)</a>
+<a class="sourceLine" id="cb31-40" data-line-number="40"></a>
+<a class="sourceLine" id="cb31-41" data-line-number="41"><span class="co"># ELECCIÓN DEL MODO DE ENTRENAMIENTO</span></a>
+<a class="sourceLine" id="cb31-42" data-line-number="42">train <span class="op">=</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb31-43" data-line-number="43"></a>
+<a class="sourceLine" id="cb31-44" data-line-number="44"><span class="co"># Entrenamiento de la IA</span></a>
+<a class="sourceLine" id="cb31-45" data-line-number="45">env.train <span class="op">=</span> train</a>
+<a class="sourceLine" id="cb31-46" data-line-number="46">model <span class="op">=</span> brain.model</a>
+<a class="sourceLine" id="cb31-47" data-line-number="47">early_stopping <span class="op">=</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb31-48" data-line-number="48">patience <span class="op">=</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb31-49" data-line-number="49">best_total_reward <span class="op">=</span> <span class="op">-</span>np.inf</a>
+<a class="sourceLine" id="cb31-50" data-line-number="50">patience_count <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb31-51" data-line-number="51"><span class="cf">if</span> (env.train):</a>
+<a class="sourceLine" id="cb31-52" data-line-number="52">    <span class="co"># ARRANCAR EL BUCLE SOBRE TODAS LAS EPOCHS (1 Epoch = 5 Meses)</span></a>
+<a class="sourceLine" id="cb31-53" data-line-number="53">    <span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, number_epochs):</a>
+<a class="sourceLine" id="cb31-54" data-line-number="54">        <span class="co"># INICIALIZACIÓN DE LAS VARIABLES TANTO DEL ENVIRONMENT COMO DEL BUCLE DE ENTRENAMIENTO</span></a>
+<a class="sourceLine" id="cb31-55" data-line-number="55">        total_reward <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb31-56" data-line-number="56">        loss <span class="op">=</span> <span class="fl">0.</span></a>
+<a class="sourceLine" id="cb31-57" data-line-number="57">        new_month <span class="op">=</span> np.random.randint(<span class="dv">0</span>, <span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb31-58" data-line-number="58">        env.reset(new_month <span class="op">=</span> new_month)</a>
+<a class="sourceLine" id="cb31-59" data-line-number="59">        game_over <span class="op">=</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb31-60" data-line-number="60">        current_state, _, _ <span class="op">=</span> env.observe()</a>
+<a class="sourceLine" id="cb31-61" data-line-number="61">        timestep <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb31-62" data-line-number="62">        <span class="co"># EMPEZAR EL BUCLE SOBRE TODOS LOS TIMESTEPS (1 Timestep = 1 Minuto) EN UN EPOCH</span></a>
+<a class="sourceLine" id="cb31-63" data-line-number="63">        <span class="cf">while</span> ((<span class="kw">not</span> game_over) <span class="kw">and</span> timestep <span class="op">&lt;=</span> <span class="dv">5</span> <span class="op">*</span> <span class="dv">30</span> <span class="op">*</span> <span class="dv">24</span> <span class="op">*</span> <span class="dv">60</span>):</a>
+<a class="sourceLine" id="cb31-64" data-line-number="64">            <span class="co"># EJECUTAR LA SIGUIENTE ACCIÓN POR EXPLORACIÓN</span></a>
+<a class="sourceLine" id="cb31-65" data-line-number="65">            <span class="cf">if</span> np.random.rand() <span class="op">&lt;=</span> epsilon:</a>
+<a class="sourceLine" id="cb31-66" data-line-number="66">                action <span class="op">=</span> np.random.randint(<span class="dv">0</span>, number_actions)</a>
+<a class="sourceLine" id="cb31-67" data-line-number="67">                <span class="cf">if</span> (action <span class="op">-</span> direction_boundary <span class="op">&lt;</span> <span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb31-68" data-line-number="68">                    direction <span class="op">=</span> <span class="dv">-1</span></a>
+<a class="sourceLine" id="cb31-69" data-line-number="69">                <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb31-70" data-line-number="70">                    direction <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb31-71" data-line-number="71">                energy_ai <span class="op">=</span> <span class="bu">abs</span>(action <span class="op">-</span> direction_boundary) <span class="op">*</span> temperature_step</a>
+<a class="sourceLine" id="cb31-72" data-line-number="72">            </a>
+<a class="sourceLine" id="cb31-73" data-line-number="73">            <span class="co"># EJECUTAR LA SIGUIENTE ACCIÓN POR INFERENCIA</span></a>
+<a class="sourceLine" id="cb31-74" data-line-number="74">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb31-75" data-line-number="75">                q_values <span class="op">=</span> model.predict(current_state)</a>
+<a class="sourceLine" id="cb31-76" data-line-number="76">                action <span class="op">=</span> np.argmax(q_values[<span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb31-77" data-line-number="77">                <span class="cf">if</span> (action <span class="op">-</span> direction_boundary <span class="op">&lt;</span> <span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb31-78" data-line-number="78">                    direction <span class="op">=</span> <span class="dv">-1</span></a>
+<a class="sourceLine" id="cb31-79" data-line-number="79">                <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb31-80" data-line-number="80">                    direction <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb31-81" data-line-number="81">                energy_ai <span class="op">=</span> <span class="bu">abs</span>(action <span class="op">-</span> direction_boundary) <span class="op">*</span> temperature_step</a>
+<a class="sourceLine" id="cb31-82" data-line-number="82">            <span class="co"># ACTUALIZACIÓN DEL ENTORNO BUSCANDO EL SIGUIENTE ESTADO</span></a>
+<a class="sourceLine" id="cb31-83" data-line-number="83">            next_state, reward, game_over <span class="op">=</span> env.update_env(direction,</a>
+<a class="sourceLine" id="cb31-84" data-line-number="84">                                                           energy_ai,</a>
+<a class="sourceLine" id="cb31-85" data-line-number="85">                                                           <span class="bu">int</span>(timestep <span class="op">/</span> (<span class="dv">30</span><span class="op">*</span><span class="dv">24</span><span class="op">*</span><span class="dv">60</span>)))</a>
+<a class="sourceLine" id="cb31-86" data-line-number="86">            total_reward <span class="op">+=</span> reward</a>
+<a class="sourceLine" id="cb31-87" data-line-number="87">            <span class="co"># ALMACENAR LA NUEVA TRANSICIÓN EN LA MEMORIA</span></a>
+<a class="sourceLine" id="cb31-88" data-line-number="88">            dqn.remember([current_state, action, reward, next_state], game_over)</a>
+<a class="sourceLine" id="cb31-89" data-line-number="89">            <span class="co"># REUNIR EN DOS LOTES SEPARADOS LAS ENTRADAS Y LOS OBJETIVOS</span></a>
+<a class="sourceLine" id="cb31-90" data-line-number="90">            inputs, targets <span class="op">=</span> dqn.get_batch(model, batch_size <span class="op">=</span> batch_size)</a>
+<a class="sourceLine" id="cb31-91" data-line-number="91">            <span class="co"># CALCULAR LA PÉRDIDA EN LOS DOS LOTES DE ENTRADAS Y OBJETIVOS</span></a>
+<a class="sourceLine" id="cb31-92" data-line-number="92">            loss <span class="op">+=</span> model.train_on_batch(inputs, targets)</a>
+<a class="sourceLine" id="cb31-93" data-line-number="93">            timestep <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb31-94" data-line-number="94">            current_state <span class="op">=</span> next_state</a>
+<a class="sourceLine" id="cb31-95" data-line-number="95">        <span class="co"># IMPRIMIR EL RESULTADO DE ENTREAMIENTO PARA CADA EPOCH</span></a>
+<a class="sourceLine" id="cb31-96" data-line-number="96">        <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a>
+<a class="sourceLine" id="cb31-97" data-line-number="97">        <span class="bu">print</span>(<span class="st">&quot;Epoch: </span><span class="sc">{:03d}</span><span class="st">/</span><span class="sc">{:03d}</span><span class="st">&quot;</span>.<span class="bu">format</span>(epoch, number_epochs))</a>
+<a class="sourceLine" id="cb31-98" data-line-number="98">        <span class="bu">print</span>(<span class="st">&quot;Total Energy spent with an AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_ai))</a>
+<a class="sourceLine" id="cb31-99" data-line-number="99">        <span class="bu">print</span>(<span class="st">&quot;Total Energy spent with no AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_noai))</a>
+<a class="sourceLine" id="cb31-100" data-line-number="100">        <span class="co"># EARLY STOPPING</span></a>
+<a class="sourceLine" id="cb31-101" data-line-number="101">        <span class="cf">if</span> (early_stopping):</a>
+<a class="sourceLine" id="cb31-102" data-line-number="102">            <span class="cf">if</span> (total_reward <span class="op">&lt;=</span> best_total_reward):</a>
+<a class="sourceLine" id="cb31-103" data-line-number="103">                patience_count <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb31-104" data-line-number="104">            <span class="cf">elif</span> (total_reward <span class="op">&gt;</span> best_total_reward):</a>
+<a class="sourceLine" id="cb31-105" data-line-number="105">                best_total_reward <span class="op">=</span> total_reward</a>
+<a class="sourceLine" id="cb31-106" data-line-number="106">                patience_count <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb31-107" data-line-number="107">            <span class="cf">if</span> (patience_count <span class="op">&gt;=</span> patience):</a>
+<a class="sourceLine" id="cb31-108" data-line-number="108">                <span class="bu">print</span>(<span class="st">&quot;Early Stopping&quot;</span>)</a>
+<a class="sourceLine" id="cb31-109" data-line-number="109">                <span class="cf">break</span></a>
+<a class="sourceLine" id="cb31-110" data-line-number="110">        <span class="co"># GUARDAR EL MODELO</span></a>
+<a class="sourceLine" id="cb31-111" data-line-number="111">        model.save(<span class="st">&quot;model.h5&quot;</span>)</a></code></pre></div>
+<p>Después de ejecutar el código, ya vemos un buen rendimiento de nuestra IA durante el entrenamiento, gastando la mayor parte del tiempo menos energía que el sistema alternativo, es decir, el sistema de enfriamiento integrado del servidor. Pero ese es solo el entrenamiento, ahora necesitamos ver si también obtenemos un buen rendimiento en una nueva simulación de 1 año. Ahí es donde entra en juego nuestro próximo y último archivo de <code>python</code>.</p>
+</div>
+<div id="paso-5-probar-nuestra-ia" class="section level3">
+<h3><span class="header-section-number">2.3.5</span> Paso 5: Probar nuestra IA</h3>
+<p>Ahora, de hecho, tenemos que probar el rendimiento de nuestra IA en una situación completamente nueva. Para hacerlo, ejecutaremos una simulación de 1 año, solo en modo de inferencia, lo que significa que no habrá entrenamiento en ningún momento. Nuestra IA solo devolverá predicciones durante un año completo de simulación. Luego, gracias a nuestro objeto Environment, obtendremos al final la energía total gastada por la IA durante este año completo, así como la energía total gastada por el sistema de enfriamiento integrado del servidor. Eventualmente compararemos estas dos energías totales gastadas, simplemente calculando su diferencia relativa (en %), lo que nos dará exactamente la energía total ahorrada por la IA. ¡Abróchate el cinturón para los ver los resultados finales, que revelaremos al final de esta Parte 2!</p>
+<p>En términos de nuestro algoritmo de IA, aquí para la implementación de prueba casi tenemos lo mismo que antes, excepto que esta vez, no tenemos que crear un objeto Brain ni un objeto modelo DQN, y por supuesto no debemos ejecutar el proceso de Deep Q-Learning durante las épocas de entrenamiento. Sin embargo, tenemos que crear un nuevo objeto de Environment, y en lugar de crear un cerebro, cargaremos nuestro cerebro artificial con sus pesos pre-entrenados del entrenamiento anterior que ejecutamos en el Paso 4 - Entrenamiento de la IA. Por lo tanto, demos los subpasos finales de esta parte final del algoritmo de IA:</p>
+<ul>
+<li><strong>Paso 5-1:</strong> Construcción de un nuevo entorno creando un objeto de la clase Environment.</li>
+<li><strong>Paso 5-2:</strong> Carga del cerebro artificial con sus pesos pre-entrenados del entrenamiento anterior.</li>
+<li><strong>Paso 5-3:</strong> Elección del modo de inferencia.</li>
+<li><strong>Paso 5-4:</strong> Iniciación de la simulación de 1 año.</li>
+<li><strong>Paso 5-5:</strong> En cada iteración (cada minuto), nuestra IA solo ejecuta la acción que resulta de su predicción, y no se lleva a cabo ninguna exploración o entrenamiento de Deep Q-Learning.</li>
+</ul>
+<p>Y ahora implementemos esta quinta y última parte, Paso 5: Prueba de la IA. Una vez más, a continuación se muestra la implementación completa de nuestro último archivo de Python. Los títulos de las secciones de código y los nombres de las variables elegidas son lo suficientemente claros como para comprender lo que se está programando, pero si necesitas más explicaciones, te recomiendo que veas nuestros videos tutoriales en Udemy donde programamos todo desde cero, paso a paso, mientras explicamos cada línea de código en términos de por qué, qué y cómo. Aquí vamos:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></a>
+<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="co"># Prueba de la AI</span></a>
+<a class="sourceLine" id="cb32-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb32-4" data-line-number="4"><span class="co"># Instalación de Keras</span></a>
+<a class="sourceLine" id="cb32-5" data-line-number="5"><span class="co"># conda install -c conda-forge keras</span></a>
+<a class="sourceLine" id="cb32-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb32-7" data-line-number="7"><span class="co"># Importar las librerías y el resto de ficheros de python</span></a>
+<a class="sourceLine" id="cb32-8" data-line-number="8"><span class="im">import</span> os</a>
+<a class="sourceLine" id="cb32-9" data-line-number="9"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb32-10" data-line-number="10"><span class="im">import</span> random <span class="im">as</span> rn</a>
+<a class="sourceLine" id="cb32-11" data-line-number="11"><span class="im">from</span> keras.models <span class="im">import</span> load_model</a>
+<a class="sourceLine" id="cb32-12" data-line-number="12"><span class="im">import</span> environment</a>
+<a class="sourceLine" id="cb32-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb32-14" data-line-number="14"><span class="co"># Establecer semillas para la reproducibilidad del experimento</span></a>
+<a class="sourceLine" id="cb32-15" data-line-number="15">os.environ[<span class="st">&#39;PYTHONHASHSEED&#39;</span>] <span class="op">=</span> <span class="st">&#39;0&#39;</span></a>
+<a class="sourceLine" id="cb32-16" data-line-number="16">np.random.seed(<span class="dv">42</span>)</a>
+<a class="sourceLine" id="cb32-17" data-line-number="17">rn.seed(<span class="dv">12345</span>)</a>
+<a class="sourceLine" id="cb32-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb32-19" data-line-number="19"><span class="co"># CONFIGURACIÓN DE LOS PARÁMETROS</span></a>
+<a class="sourceLine" id="cb32-20" data-line-number="20">number_actions <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb32-21" data-line-number="21">direction_boundary <span class="op">=</span> (number_actions <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb32-22" data-line-number="22">temperature_step <span class="op">=</span> <span class="fl">1.5</span></a>
+<a class="sourceLine" id="cb32-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb32-24" data-line-number="24"><span class="co"># CONSTRUCCIÓN DEL ENTORNO CREANDO UN OBJETO DE LA CLASE ENVIRONMENT</span></a>
+<a class="sourceLine" id="cb32-25" data-line-number="25">env <span class="op">=</span> environment.Environment(optimal_temperature <span class="op">=</span> (<span class="fl">18.0</span>, <span class="fl">24.0</span>),</a>
+<a class="sourceLine" id="cb32-26" data-line-number="26">                              initial_month <span class="op">=</span> <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb32-27" data-line-number="27">                              initial_number_users <span class="op">=</span> <span class="dv">20</span>,</a>
+<a class="sourceLine" id="cb32-28" data-line-number="28">                              initial_rate_data <span class="op">=</span> <span class="dv">30</span>)</a>
+<a class="sourceLine" id="cb32-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb32-30" data-line-number="30"><span class="co"># CARGA DEL MODELO PRE-ENTRENADO</span></a>
+<a class="sourceLine" id="cb32-31" data-line-number="31">model <span class="op">=</span> load_model(<span class="st">&quot;model.h5&quot;</span>)</a>
+<a class="sourceLine" id="cb32-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb32-33" data-line-number="33"><span class="co"># ELECCIÓN DEL MODO</span></a>
+<a class="sourceLine" id="cb32-34" data-line-number="34">train <span class="op">=</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb32-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb32-36" data-line-number="36"><span class="co"># EJECUTAR UN AÑO DE SIMULACIÓN EN MODO INFERENCIA</span></a>
+<a class="sourceLine" id="cb32-37" data-line-number="37">env.train <span class="op">=</span> train</a>
+<a class="sourceLine" id="cb32-38" data-line-number="38">current_state, _, _ <span class="op">=</span> env.observe()</a>
+<a class="sourceLine" id="cb32-39" data-line-number="39"><span class="cf">for</span> timestep <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">12</span> <span class="op">*</span> <span class="dv">30</span> <span class="op">*</span> <span class="dv">24</span> <span class="op">*</span> <span class="dv">60</span>):</a>
+<a class="sourceLine" id="cb32-40" data-line-number="40">    q_values <span class="op">=</span> model.predict(current_state)</a>
+<a class="sourceLine" id="cb32-41" data-line-number="41">    action <span class="op">=</span> np.argmax(q_values[<span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb32-42" data-line-number="42">    <span class="cf">if</span> (action <span class="op">-</span> direction_boundary <span class="op">&lt;</span> <span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb32-43" data-line-number="43">        direction <span class="op">=</span> <span class="dv">-1</span></a>
+<a class="sourceLine" id="cb32-44" data-line-number="44">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb32-45" data-line-number="45">        direction <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb32-46" data-line-number="46">    energy_ai <span class="op">=</span> <span class="bu">abs</span>(action <span class="op">-</span> direction_boundary) <span class="op">*</span> temperature_step</a>
+<a class="sourceLine" id="cb32-47" data-line-number="47">    next_state, reward, game_over <span class="op">=</span> env.update_env(direction,</a>
+<a class="sourceLine" id="cb32-48" data-line-number="48">                                                   energy_ai,</a>
+<a class="sourceLine" id="cb32-49" data-line-number="49">                                                   <span class="bu">int</span>(timestep <span class="op">/</span> (<span class="dv">30</span><span class="op">*</span><span class="dv">24</span><span class="op">*</span><span class="dv">60</span>)))</a>
+<a class="sourceLine" id="cb32-50" data-line-number="50">    current_state <span class="op">=</span> next_state</a>
+<a class="sourceLine" id="cb32-51" data-line-number="51"></a>
+<a class="sourceLine" id="cb32-52" data-line-number="52"><span class="co"># IMPRIMIR LOS RESULTADOS DE ENTREAMIENTO PARA CADA EPOCH</span></a>
+<a class="sourceLine" id="cb32-53" data-line-number="53"><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a>
+<a class="sourceLine" id="cb32-54" data-line-number="54"><span class="bu">print</span>(<span class="st">&quot;Total Energy spent with an AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_ai))</a>
+<a class="sourceLine" id="cb32-55" data-line-number="55"><span class="bu">print</span>(<span class="st">&quot;Total Energy spent with no AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_noai))</a>
+<a class="sourceLine" id="cb32-56" data-line-number="56"><span class="bu">print</span>(<span class="st">&quot;ENERGY SAVED: </span><span class="sc">{:.0f}</span><span class="st"> %&quot;</span>.<span class="bu">format</span>((env.total_energy_noai <span class="op">-</span> env.total_energy_ai)</a>
+<a class="sourceLine" id="cb32-57" data-line-number="57">                                     <span class="op">/</span> env.total_energy_noai <span class="op">*</span> <span class="dv">100</span>))</a></code></pre></div>
+<p>Y finalmente, obtenemos en los resultados impresos que el consumo total de energía ahorrado por la IA es …:</p>
+<p><span class="math display">\[\textrm{Total Energy saved by the AI} = 39 \ \% \ !\]</span></p>
+<p>¡Exactamente igual a lo que la DeepMind de Google logró en 2016! De hecho, si en Google escribes: <em>DeepMind reduce la factura de enfriamiento de Google</em>, verá que el resultado que lograron es del 40 %. Muy cerca de la nuestra!</p>
+<p>Por lo tanto, lo que hemos construido es seguramente excelente para nuestro cliente comercial, ya que nuestra IA les ahorrará muchos costes. De hecho, recuerda que gracias a nuestra estructura orientada a objetos (trabajando con clases y objetos), podemos tomar fácilmente nuestros objetos creados en esta implementación que hicimos para un servidor, y luego conectarlos a otros servidores, para que al final podamos ¡terminar ahorrando en el consumo total de energía de un centro de datos al completo! Así es como Google ahorró miles de millones de dólares en costes relacionados con la energía, gracias a su modelo DQN creado por la IA DeepMind.</p>
+</div>
+</div>
+<div id="resumen-el-algoritmo-general-de-ia" class="section level2">
+<h2><span class="header-section-number">2.4</span> Resumen: El Algoritmo General de IA</h2>
+<p>Recapitulemos y proporcionemos el algoritmo completo de IA, para que puedas imprimirlo y ponerlo en tu pared.</p>
+<p><strong>Paso 1: Construcción del Entorno</strong></p>
+<ul>
+<li><strong>Paso 1-1</strong>: Introducción e inicialización de todos los parámetros y variables del entorno.</li>
+<li><strong>Paso 1-2</strong>: Hacer un método que actualice el entorno justo después de que la IA ejecute una acción.</li>
+<li><strong>Paso 1-3</strong>: Hacer un método que restablezca el entorno.</li>
+<li><strong>Paso 1-4</strong>: hacer un método que nos proporcione en cualquier momento el estado actual, la última recompensa obtenida y si el juego ha terminado.</li>
+</ul>
+<p>**Paso 2: Construcción del Cerebro</p>
+<ul>
+<li><strong>Paso 2-1:</strong> Construir la capa de entrada compuesta de los estados de entrada.</li>
+<li><strong>Paso 2-2:</strong> Construir las capas ocultas con un número elegido de estas capas y neuronas dentro de cada una, completamente conectadas a la capa de entrada y entre ellas.</li>
+<li><strong>Paso 2-3:</strong> Construir la capa de salida, completamente conectada a la última capa oculta.</li>
+<li><strong>Paso 2-4:</strong> Ensamblar la arquitectura completa dentro de un modelo de <code>Keras</code>.</li>
+<li><strong>Paso 2-5:</strong> Compilación del modelo con una función de pérdida de error cuadrático medio y el optimizador elegido.</li>
+</ul>
+<p><strong>Paso 3: Implementación del algoritmo de Deep Reinforcement Learning</strong></p>
+<ul>
+<li><strong>Paso 3-1:</strong> Introducción e inicialización de todos los parámetros y variables del modelo de DQN.</li>
+<li><strong>Paso 3-2:</strong> Hacer un método que construya la memoria en Repetición de Experiencia.</li>
+<li><strong>Paso 3-3:</strong> Hacer un método que construya y devuelva dos lotes de 10 entradas y 10 objetivos</li>
+</ul>
+<p><strong>Paso 4: Entrenamiento de la IA</strong></p>
+<ul>
+<li><strong>Paso 4-1:</strong> Construcción del entorno creando un objeto de la clase Environment.</li>
+<li><strong>Paso 4-2:</strong> Construyendo el cerebro artificial creando un objeto de la clase de Brain</li>
+<li><strong>Paso 4-3:</strong> Construyendo el modelo DQN creando un objeto de la clase DQN.</li>
+<li><strong>Paso 4-4:</strong> Elección del modo de entrenamiento.</li>
+<li><strong>Paso 4-5:</strong> Comenzar el entrenamiento con un bule <code>for</code> durante más de 100 epochs de períodos de 5 meses.</li>
+</ul>
+<p><strong>Paso 5: Probar la IA</strong></p>
+<ul>
+<li><strong>Paso 5-1:</strong> Construcción de un nuevo entorno creando un objeto de la clase Environment.</li>
+<li><strong>Paso 5-2:</strong> Carga del cerebro artificial con sus pesos pre-entrenados del entrenamiento anterior.</li>
+<li><strong>Paso 5-3:</strong> Elección del modo de inferencia.</li>
+<li><strong>Paso 5-4:</strong> Iniciación de la simulación de 1 año.</li>
+<li><strong>Paso 5-5:</strong> En cada iteración (cada minuto), nuestra IA solo ejecuta la acción que resulta de su predicción, y no se lleva a cabo ninguna exploración o entrenamiento de Deep Q-Learning.</li>
+</ul>
+
 </div>
 </div>
             </section>
@@ -812,7 +1120,7 @@ T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se e
         </div>
       </div>
 <a href="optimización-de-procesos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="part-3-maximizing-revenues.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="parte-3-maximización-de-beneficios-revenues.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

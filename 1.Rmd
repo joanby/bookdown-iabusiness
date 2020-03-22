@@ -281,21 +281,21 @@ Comenzamos en el estado inicial $s_0$. Llevamos a cabo una acción aleatoria pos
 
 **Para cada instante $t \ge 1$**, repetiremos un cierto número de veces (1000 veces en nuestro código) lo siguiente:
 
-* Seleccionamos un estado aleatorio $s_t$ de nuestros 12 estados posibles:
+1. Seleccionamos un estado aleatorio $s_t$ de nuestros 12 estados posibles:
 
 $$s_t = \textrm{random}(0,1,2,3,4,5,6,7,8,9,10,11)$$
 
-* Llevamos a cabo una acción aleatoria $a_t$ que puede conducir al siguiente estado posible, es decir, de modo que $R(s_t,a_t) > 0$:
+2. Llevamos a cabo una acción aleatoria $a_t$ que puede conducir al siguiente estado posible, es decir, de modo que $R(s_t,a_t) > 0$:
 
 $$a_t = \textrm{random}(0,1,2,3,4,5,6,7,8,9,10,11) \textrm{ t.q. } R(s_t,a_t) > 0$$
 
-* Llegamos al siguiente estado $s_{t + 1}$ y obtenemos la recompensa $R(s_t,a_t)$
+3. Llegamos al siguiente estado $s_{t + 1}$ y obtenemos la recompensa $R(s_t,a_t)$
 
-* Calculamos la Diferencia Temporal $TD_t(s_t,a_t)$:
+4. Calculamos la Diferencia Temporal $TD_t(s_t,a_t)$:
 
 $$TD_t(s_t,a_t) = R(s_t,a_t) + \gamma \underset{a}{\max}(Q(s_{t+1},a)) - Q(s_t, a_t)$$
 
-* Actualizamos el valor Q aplicando la ecuación de Bellman:
+5. Actualizamos el valor Q aplicando la ecuación de Bellman:
 
 $$Q_t(s_t,a_t) = Q_{t-1}(s_t,a_t) + \alpha TD_t(s_t,a_t)$$
 

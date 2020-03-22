@@ -1,8 +1,8 @@
-# Part 3 - Maximizing Revenues
+# Parte 3 - Maximización de Beneficios Revenues
 
 Congratulations for smashing the first and second case studies! Now let’s move on to a very different kind of Artificial Intelligence, that has tremendous efficiency for businesses, and that you must absolutely know about.
 
-## Case Study: Maximizing Revenue of an Online Retail Business
+## Caso Práctico: Maximizing Revenue of an Online Retail Business
 
 ### Problem to solve
 
@@ -10,7 +10,7 @@ Imagine an Online Retail Business that has million of customers. These customers
 
 \
 
-In this previous Utopian example, we only had two strategies, and besides we knew their conversion rates. However in our case study we will be facing 9 different strategies, and our AI will have no idea of which is the best one, and absolutely no prior information on any of their conversion rates. However we will make the assumption that each of these 9 strategies does have a fixed conversion rate. These strategies were carefully and smartly elaborated by the marketing team, and each of them has the same goal: convert the maximum clients to the premium plan. However, these 9 strategies are all different. They have different forms, different packages, different ads, and different special deals to convince and persuade the clients to subscribe to the premium plan. Of course, the marketing team has no idea of which of these 9 strategies is the best one. But they want to figure it out as soon as possible, and by saving the maximum costs, which one has the highest conversion rate, because they know how finding and deploying that best strategy can significantly maximize the revenues. Also, the marketing experts choose not to send an email to their 100 million customers, because that would be costly and they would risk spamming too many customers. Instead they will subtly look for that best strategy through online learning. What is online learning? It will consist of deploying a strategy each time a customer browses the online retail business website to hang out inside or buy some products. Then as the customer navigates the website, he or she will suddenly get a pop-up ad, suggesting him or her to subscribe to the premium plan. And for each customer browsing the website, only one of the 9 strategies will be deployed. Then the user will choose, or not, to take action and subscribe to the premium plan. If the customer subscribes, it is a success, otherwise, it is a failure. The more customers we do this with, the more feed-backs we get, and the better we could get an idea of what is the best strategy. But of course, we will not figure that out manually, visually, or with some simple maths. Instead we want to implement the smartest algorithm that will figure out what is the best strategy in the least amount of time. And that's for the same two reasons: first because deploying each strategy has a cost (e.g. coming from the pop-up ad), and second because the company wants to annoy the least customers with their ad.
+In this previous Utopian example, we only had two strategies, and besides we knew their conversion rates. However in our Caso Práctico we will be facing 9 different strategies, and our AI will have no idea of which is the best one, and absolutely no prior information on any of their conversion rates. However we will make the assumption that each of these 9 strategies does have a fixed conversion rate. These strategies were carefully and smartly elaborated by the marketing team, and each of them has the same goal: convert the maximum clients to the premium plan. However, these 9 strategies are all different. They have different forms, different packages, different ads, and different special deals to convince and persuade the clients to subscribe to the premium plan. Of course, the marketing team has no idea of which of these 9 strategies is the best one. But they want to figure it out as soon as possible, and by saving the maximum costs, which one has the highest conversion rate, because they know how finding and deploying that best strategy can significantly maximize the revenues. Also, the marketing experts choose not to send an email to their 100 million customers, because that would be costly and they would risk spamming too many customers. Instead they will subtly look for that best strategy through online learning. What is online learning? It will consist of deploying a strategy each time a customer browses the online retail business website to hang out inside or buy some products. Then as the customer navigates the website, he or she will suddenly get a pop-up ad, suggesting him or her to subscribe to the premium plan. And for each customer browsing the website, only one of the 9 strategies will be deployed. Then the user will choose, or not, to take action and subscribe to the premium plan. If the customer subscribes, it is a success, otherwise, it is a failure. The more customers we do this with, the more feed-backs we get, and the better we could get an idea of what is the best strategy. But of course, we will not figure that out manually, visually, or with some simple maths. Instead we want to implement the smartest algorithm that will figure out what is the best strategy in the least amount of time. And that's for the same two reasons: first because deploying each strategy has a cost (e.g. coming from the pop-up ad), and second because the company wants to annoy the least customers with their ad.
 
 \newpage
 
@@ -26,7 +26,7 @@ Let's sum up the differences in features of these 9 strategies simply this way:
 
 \
 
-In order to simulate this case study, we will assume these strategies have the following conversion rates:
+In order to simulate this Caso Práctico, we will assume these strategies have the following conversion rates:
 
 \begin{figure}[!htbp]
 		\begin{center}
@@ -113,7 +113,7 @@ The AI solution that will figure out the best strategy is called "Thompson Sampl
 
 \subsection{Implementation}
 
-Let's provide the whole implementation of Thompson Sampling for this specific case study, following the same simulation given above.
+Let's provide the whole implementation of Thompson Sampling for this specific Caso Práctico, following the same simulation given above.
 
 \
 

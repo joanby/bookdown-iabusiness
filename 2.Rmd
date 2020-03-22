@@ -386,7 +386,7 @@ $$r_t = E_t^{\textrm{no IA}} - E_t^{\textrm{IA}}$$
 
 ## Implementation
 
-Esta implementación se dividirá en 5 partes, cada parte con su propio archivo de Python. Estas 5 partes constituyen el marco general de IA, o Blueprint de la AI, que debe seguirse cada vez que construimos un entorno para resolver cualquier problema comercial con Deep Reinforcement Learning.
+Esta implementación se dividirá en 5 partes, cada parte con su propio archivo de Python. Estas 5 partes constituyen el algoritmo general de IA, o Blueprint de la AI, que debe seguirse cada vez que construimos un entorno para resolver cualquier problema comercial con Deep Reinforcement Learning.
 
 Aquí están, del Paso 1 al Paso 5:
 
@@ -396,7 +396,7 @@ Aquí están, del Paso 1 al Paso 5:
 4. Entrenar a la IA.
 5. Probar de la IA.
 
-Estos son los pasos principales (en ese mismo orden) de la sección de teoría general de IA anterior. Implementemos así nuestra IA para nuestro caso práctico específico, siguiendo este plan de IA, en las siguientes cinco secciones correspondientes a estos cinco pasos principales. Además en cada paso, distinguiremos los subpasos que todavía forman parte del marco general de AI, de los subpasos que son específicos de nuestro caso práctico, escribiendo los títulos de las secciones de código en mayúsculas para todos los subpasos del marco general de AI, y en letras mínimas para todos los subpasos específicos de nuestro caso práctico. Eso significa que cada vez que veamos una nueva sección de código cuyo título está escrito en letras mayúsculas, entonces es el siguiente subpaso del marco general de IA, que también se debe seguir al crear una IA para cualquier otro problema comercial.
+Estos son los pasos principales (en ese mismo orden) de la sección de teoría general de IA anterior. Implementemos así nuestra IA para nuestro caso práctico específico, siguiendo este plan de IA, en las siguientes cinco secciones correspondientes a estos cinco pasos principales. Además en cada paso, distinguiremos los subpasos que todavía forman parte del algoritmo general de AI, de los subpasos que son específicos de nuestro caso práctico, escribiendo los títulos de las secciones de código en mayúsculas para todos los subpasos del algoritmo general de AI, y en letras mínimas para todos los subpasos específicos de nuestro caso práctico. Eso significa que cada vez que veamos una nueva sección de código cuyo título está escrito en letras mayúsculas, entonces es el siguiente subpaso del algoritmo general de IA, que también se debe seguir al crear una IA para cualquier otro problema comercial.
 
 Así que ahora aquí vamos con el comienzo del viaje: Paso 1 - Construcción el entorno.
 
@@ -407,12 +407,12 @@ Este es el archivo de implementación de `python` más grande de este caso prác
 
 En este primer paso, vamos a construir el entorno dentro de una clase. ¿Por qué una clase? Porque nos gustaría tener nuestro entorno como un objeto que podamos crear fácilmente con cualquier valor de algunos parámetros que elijamos. Por ejemplo, podemos crear un objeto de entorno para un servidor que tenga un cierto número de usuarios conectados y una cierta velocidad de datos en un momento específico, y otro objeto de entorno para otro servidor que tenga un número diferente de usuarios conectados y un número diferente tasa de datos en otro momento. Y gracias a esta estructura avanzada de la clase, podemos conectar y reproducir fácilmente los objetos del entorno que creamos en diferentes servidores que tienen sus propios parámetros, por lo tanto, regulamos sus temperaturas con varias IA diferentes, de modo que terminamos minimizando el consumo de energía. de un centro de datos completo, tal como lo hizo la  DeepMind de Google para los centros de datos de Google con su algoritmo DQN.
 
-Esta clase sigue los siguientes subpasos, que son parte del marco general de IA dentro del Paso 1: construcción del entorno:
+Esta clase sigue los siguientes subpasos, que son parte del algoritmo general de IA dentro del Paso 1: construcción del entorno:
 
-* ** Paso 1-1 **: Introducción e inicialización de todos los parámetros y variables del entorno.
-* ** Paso 1-2 **: Hacer un método que actualice el entorno justo después de que la IA ejecute una acción.
-* ** Paso 1-3 **: Hacer un método que restablezca el entorno.
-* ** Paso 1-4 **: hacer un método que nos proporcione en cualquier momento el estado actual, la última recompensa obtenida y si el juego ha terminado.
+* **Paso 1-1**: Introducción e inicialización de todos los parámetros y variables del entorno.
+* **Paso 1-2**: Hacer un método que actualice el entorno justo después de que la IA ejecute una acción.
+* **Paso 1-3**: Hacer un método que restablezca el entorno.
+* **Paso 1-4**: hacer un método que nos proporcione en cualquier momento el estado actual, la última recompensa obtenida y si el juego ha terminado.
 
 Encontrarás toda la implementación de esta clase de creación de entorno en las próximas páginas. Recuerda lo más importante: todas las secciones de código que tienen sus títulos escritos en letras mayúsculas son los pasos del framework de IA o del Blueprint general, y todas las secciones de código que tienen sus títulos escritos en letras minúsculas son específicas de nuestro caso práctico.
 
@@ -615,181 +615,155 @@ En este Paso 2, vamos a construir el cerebro artificial de nuestra IA, que no es
 Nuevamente, construiremos este cerebro artificial dentro de una clase, por la misma razón que antes, que nos permite crear varios cerebros artificiales para diferentes servidores dentro de un centro de datos. De hecho, tal vez algunos servidores necesitarán cerebros artificiales diferentes con hiperparámetros diferentes que otros servidores. Es por eso que gracias a esta estructura avanzada de `python` de clase / objeto, podemos cambiar fácilmente de un cerebro a otro para regular la temperatura de un nuevo servidor que requiere una IA con diferentes parámetros de redes neuronales.
 
 
-We build this artificial brain thanks to the amazing Keras library. From this library we use the Dense() class to create our two fully connected hidden layers, the first one having 64 hidden neurons, and the second one having 32 neurons. And we use the Dense() class again to return Q-Values, which keep in mind are the outputs of the artificial neural networks. Then later on in the training and the testing files, we will use the argmax method to select the action that has the maximum Q-Value. Then, we assemble all the components of the brain, including the inputs and the outputs, by creating it as an object of the Model() class (very useful to then save and load a model with specific weights). End eventually, we compile it with a Mean-Squared Error loss and an Adam optimizer. Thus here are the new steps of the general AI Framework:
+Construiremos este cerebro artificial gracias a la increíble biblioteca `Keras`. Desde esta librería utilizaremos la clase `Dense()` para crear nuestras dos capas ocultas completamente conectadas, la primera con 64 neuronas ocultas y la segunda con 32 neuronas. Y luego, utilizaremos la clase `Dense()` nuevamente para devolver los valores Q, que tienen en cuenta las salidas de las redes neuronales artificiales. Luego, más adelante en el entrenamiento y los archivos de prueba, utilizaremos el método argmax para seleccionar la acción que tenga el valor Q máximo. Luego, ensamblamos todos los componentes del cerebro, incluidas las entradas y las salidas, creándolo como un objeto de la clase `Model()` (muy útil para luego guardar y cargar un modelo en producción con pesos específicos). Finalmente, lo compilaremos con una función de pérdidas que medirá el error cuadrático medio y el optimizador de Adam. Así, aquí están los nuevos pasos del algoritmo general de IA:
 
-\begin{enumerate}
-    \item \textbf{Step 2-1:} Building the input layer composed of the input states.
-    \item \textbf{Step 2-2:} Building the hidden layers with a chosen number of these layers and neurons inside each, fully connected to the input layer and between each other.
-    \item \textbf{Step 2-3:} Building the output layer, fully connected to the last hidden layer.
-    \item \textbf{Step 2-4:} Assembling the full architecture inside a model object.
-    \item \textbf{Step 2-5:} Compiling the model with a Mean-Squared Error loss function and a chosen optimizer.
-\end{enumerate}
+* **Paso 2-1:** Construir la capa de entrada compuesta de los estados de entrada.
+* **Paso 2-2:** Construir las capas ocultas con un número elegido de estas capas y neuronas dentro de cada una, completamente conectadas a la capa de entrada y entre ellas.
+* **Paso 2-3:** Construir la capa de salida, completamente conectada a la última capa oculta.
+* **Paso 2-4:** Ensamblar la arquitectura completa dentro de un modelo de `Keras`.
+* **Paso 2-5:** Compilación del modelo con una función de pérdida de error cuadrático medio y el optimizador elegido.
 
-Here we go with the implementation:
-
+Aquí vamos con la implementación:
 \
 
-\begin{lstlisting}
-# Artificial Intelligence for Business - Caso Práctico 2
-# Building the Brain
+```{python, eval=F}
+# Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2
+# Construcción del cerebro
 
 # Importar las librerías
 from keras.layers import Input, Dense
 from keras.models import Model
 from keras.optimizers import Adam
 
-# BUILDING THE BRAIN
+# CONSTRUCCIÓN DEL CEREBRO
 
 class Brain(object):
     
-    # BUILDING A FULLY CONNECTED NEURAL NETWORK DIRECTLY INSIDE THE INIT METHOD
+    # CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA EN EL MÉTODO DE INICIALIZACIÓN
     
     def __init__(self, learning_rate = 0.001, number_actions = 5):
         self.learning_rate = learning_rate
         
-        # BUILDIND THE INPUT LAYER COMPOSED OF THE INPUT STATE
+        # CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA DE LOS ESTADOS DE ETRADA
         states = Input(shape = (3,))
         
-        # BUILDING THE FULLY CONNECTED HIDDEN LAYERS
+        # CONSTRUCCIÓN DE LAS DOS CAPAS OCULTAS TOTALMENTE CONECTADAS
         x = Dense(units = 64, activation = 'sigmoid')(states)
         y = Dense(units = 32, activation = 'sigmoid')(x)
         
-        # BUILDING THE OUTPUT LAYER, FULLY CONNECTED TO THE LAST HIDDEN LAYER
+        # CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA A LA ÚLTIMA CAPA OCULTA
         q_values = Dense(units = number_actions, activation = 'softmax')(y)
         
-        # ASSEMBLING THE FULL ARCHITECTURE INSIDE A MODEL OBJECT
+        # ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS
         self.model = Model(inputs = states, outputs = q_values)
         
-        # COMPILING THE MODEL WITH A MEAN-SQUARED ERROR LOSS AND A CHOSEN OPTIMIZER
+        # COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO MEDIO Y EL OPTIMIZADOR ELEGIDO
         self.model.compile(loss = 'mse', optimizer = Adam(lr = learning_rate))
-\end{lstlisting}
+```
 
-\
+**Dropout.**
 
-\textbf{Dropout.}
+Hemos pensado que sería valioso para nosotros incluso agregar una técnica más poderosa en nuestro kit de herramientas de IA: el **Dropout**.
 
-\
+El **dropout** es una técnica de regularización que evita el sobreajuste. Simplemente consiste en desactivar una cierta proporción de neuronas aleatorias durante cada paso de propagación hacia adelante y hacia atrás. De esa manera, no todas las neuronas aprenden de la misma manera, evitando así que la red neuronal sobreajuste los datos de entrenamiento.
 
-I thought it would be valuable for you to even add one more powerful technique in your toolkit: \textbf{Dropout}.
+Así es como implementamos el Dropout:
 
-\
-
-Dropout is a regularization technique that prevents overfitting. It simply consists of deactivating a certain rate of random neurones during each step of forward \& back propagation. That way, not all the neurones learn the same way, thus preventing the neural network from overfitting the training data.
-
-\
-
-Here is how you implement Dropout:
-
-\begin{enumerate}
-    \item First, import Dropout:
-    \begin{lstlisting}
+1. Primero importamos la función `Dropout`:
+```{python, eval=F}
     from keras.layers:from keras.layers import Input, Dense, Dropout
-    \end{lstlisting}
-    \
-    \item Then, activate Dropout in the first hidden layer x, with a rate of 0.1, meaning that 10\% of the neurones will be randomly deactivated:
-    \begin{lstlisting}
+    ```
+2. Luego, activamos el Dropout en la primera capa oculta `x`, con una proporción de 0.1, lo que significa que el 10% de las neuronas se desactivarán aleatoriamente durante el entrenamiento a cada iteración:
+```{python, eval=F}
     x = Dense(units = 64, activation = 'sigmoid')(states)
     x = Dropout(rate = 0.1)(x)
-    \end{lstlisting}
-    \
-    \item And finally, activate Dropout in the second hidden layer y, with a rate of 0.1, meaning that 10\% of the neurones will be randomly deactivated:
-    \begin{lstlisting}
+```
+3. Y finalmente, activamos de nuevo e Dropout en la segunda capa oculta `y`, con una proporción de 0.1, lo que significa que eñ 10% de las neuronas se desactivarán aleatoriamente durante el entrenamiento a cada iteración:
+```{python, eval=F}
     y = Dense(units = 32, activation = 'sigmoid')(x)
     y = Dropout(rate = 0.1)(y)
-    \end{lstlisting}
-\end{enumerate}
+```
 
-\
+¡Felicidades! Has implementado el Dropout. Es realmente muy simple, una vez más gracias a Keras.
 
-Congratulations! You have implemented Dropout. It was very simple, once again thanks to Keras.
+Debajo está la implementación mejorada del fichero `new_brain.py` con Dropout incluido:
 
-Below it the whole new brain.py implementation with Dropout:
 
-\
-
-\begin{lstlisting}
-# Artificial Intelligence for Business - Caso Práctico 2
-# Building the Brain
+```{python, eval=F}
+# Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2
+# Construcción del cerebro
 
 # Importar las librerías
 from keras.layers import Input, Dense, Dropout
 from keras.models import Model
 from keras.optimizers import Adam
 
-# BUILDING THE BRAIN
+# CONSTRUCCIÓN DEL CEREBRO
 
 class Brain(object):
     
-    # BUILDING A FULLY CONNECTED NEURAL NETWORK DIRECTLY INSIDE THE INIT METHOD
+    # CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA EN EL MÉTODO DE INICIALIZACIÓN
     
     def __init__(self, learning_rate = 0.001, number_actions = 5):
         self.learning_rate = learning_rate
         
-        # BUILDIND THE INPUT LAYER COMPOSED OF THE INPUT STATE
+        # CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA DE LOS ESTADOS DE ETRADA
         states = Input(shape = (3,))
         
-        # BUILDING THE FIRST FULLY CONNECTED HIDDEN LAYER WITH DROPOUT ACTIVATED
+        # CONSTRUCCIÓN DE PRIMERA CAPA OCULTAS TOTALMENTE CONECTADA CON DROPOUT ACTIVADO
         x = Dense(units = 64, activation = 'sigmoid')(states)
         x = Dropout(rate = 0.1)(x)
-        
-        # BUILDING THE SECOND FULLY CONNECTED HIDDEN LAYER WITH DROPOUT ACTIVATED
+
+        # CONSTRUCCIÓN DE SEGUNDA CAPA OCULTAS TOTALMENTE CONECTADA CON DROPOUT ACTIVADO
         y = Dense(units = 32, activation = 'sigmoid')(x)
         y = Dropout(rate = 0.1)(y)
-        
-        # BUILDING THE OUTPUT LAYER, FULLY CONNECTED TO THE LAST HIDDEN LAYER
+
+        # CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA A LA ÚLTIMA CAPA OCULTA
         q_values = Dense(units = number_actions, activation = 'softmax')(y)
         
-        # ASSEMBLING THE FULL ARCHITECTURE INSIDE A MODEL OBJECT
+        # ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS
         self.model = Model(inputs = states, outputs = q_values)
         
-        # COMPILING THE MODEL WITH A MEAN-SQUARED ERROR LOSS AND A CHOSEN OPTIMIZER
+        # COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO MEDIO Y EL OPTIMIZADOR ELEGIDO
         self.model.compile(loss = 'mse', optimizer = Adam(lr = learning_rate))
-\end{lstlisting}
+```
 
-\
+Ahora pasemos al siguiente paso de nuestro algoritmo general de IA: Paso 3: Implementación del algoritmo DQN.
 
-Now let's move on to next step of our general AI Framework: Step 3 - Implementing the DQN algorithm.
+### Paso 3: Implementación del algoritmo de Deep Reinforcement Learning
 
-\newpage
+En este nuevo archivo de `python`, simplemente tenemos que seguir el algoritmo Deep Q-Learning que hemos visto anteriormente. Por lo tanto, esta implementación sigue los siguientes subpasos, que forman parte del algoritmo general de IA:
 
-\subsubsection{Step 3: Implementing the Deep Reinforcement Learning algorithm}
+* **Paso 3-1:** Introducción e inicialización de todos los parámetros y variables del modelo de DQN.
+* **Paso 3-2:** Hacer un método que construya la memoria en Repetición de Experiencia.
+* **Paso 3-3:** Hacer un método que construya y devuelva dos lotes de 10 entradas y 10 objetivos
 
-In this new Python file, we simply have to follow the Deep Q-Learning algorithm provided before. Hence, this implementation follows the following sub-steps, which are part of the general AI Framework:
+A continuación se muestra el código que sigue a esta nueva parte del Blueprint de IA:
 
-\begin{enumerate}
-    \item \textbf{Step 3-1:} Introducing and initializing all the parameters and variables of the DQN model.
-    \item \textbf{Step 3-2:} Making a method that builds the memory in Experience Replay.
-    \item \textbf{Step 3-3:} Making a method that builds and returns two batches of 10 inputs and 10 targets
-\end{enumerate}
-
-Below is the code following this new part of the AI Blueprint:
-
-\
-
-\begin{lstlisting}
-# Artificial Intelligence for Business - Caso Práctico 2
-# Implementing Deep Q-Learning with Experience Replay
+```{python, eval=F}
+# Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2
+# Implementar el algoritmo de Deep Q-Learning con Repetición de Experiencia
 
 # Importar las librerías
 import numpy as np
 
-# IMPLEMENTING DEEP Q-LEARNING WITH EXPERIENCE REPLAY
+# IMPLEMENTAR EL DEEP Q-LEARNING CON REPETICIÓN DE EXPERIENCIA
 
 class DQN(object):
     
-    # INTRODUCING AND INITIALIZING ALL THE PARAMETERS AND VARIABLES OF THE DQN
+    # INTRODUCIR E INICIALIZAR TODOS LOS PARÁMETROS Y VARIABLES DEL DQN
     def __init__(self, max_memory = 100, discount = 0.9):
         self.memory = list()
         self.max_memory = max_memory
         self.discount = discount
 
-    # MAKING A METHOD THAT BUILDS THE MEMORY IN EXPERIENCE REPLAY
+    # CREACIÓN DE UN MÉTODO QUE CONSTRUYA LA MEMORIA DE LA REPETICIÓN DE EXPERIENCIA
     def remember(self, transition, game_over):
         self.memory.append([transition, game_over])
         if len(self.memory) > self.max_memory:
             del self.memory[0]
 
-    # MAKING A METHOD THAT BUILDS TWO BATCHES OF INPUTS AND TARGETS
+    # CREACIÓN DEL MÉTODO QUE COSTRUYE DOS LOTES DE ENTRADAS Y OBJETIVOS
     def get_batch(self, model, batch_size = 10):
         len_memory = len(self.memory)
         num_inputs = self.memory[0][0][0].shape[1]
@@ -808,39 +782,32 @@ class DQN(object):
             else:
                 targets[i, action] = reward + self.discount * Q_sa
         return inputs, targets
-\end{lstlisting}
+```
 
-\newpage
+### Paso 4: Entrenar la IA
 
-\subsubsection{Step 4: Training the AI}
+Ahora que nuestra IA tiene un cerebro completamente funcional, es hora de entrenarlo. Y esto es exactamente lo que hacemos en este cuarto archivo de `python`. El proceso es largo, pero muy fácil: comenzamos estableciendo todos los parámetros, luego construimos el entorno creando un objeto de la clase `Environment()`, luego construimos el cerebro de la IA creando un objeto de la clase `Brain()`, luego construimos el modelo de Deep Q-Learning creando un objeto de la clase `DQN()`, y finalmente lanzamos la fase de entrenamiento que conecta todos estos objetos, durante 1000 echos de 5 meses cada uno. Notarás en la fase de entrenamiento de entrenamiento que también exploramos un poco cuando llevamos a cabo las acciones las acciones. Esto consiste en ejecutar algunas acciones aleatorias de vez en cuando. En nuestro Caso Práctico, esto se realizará el 30% de las veces, ya que usamos un parámetro de exploración $\epsilon = 0.3$, y luego lo forzamos a ejecutar una acción aleatoria al obtener un valor aleatorio entre 0 y 1 que está por debajo de $\epsilon = 0.3$). La razón por la que hacemos un poco de exploración es porque mejora el proceso de aprendizaje por refuerzo profundo. Este truco se llama: *Exploración vs. Explotación*. Luego, además, también veremos que utilizamos una técnica de detención temprana, que se asegurará de detener el entrenamiento si ya no hay una mejora palpable en el rendimiento.
 
-Now that our AI has a fully functional brain, time to train it. And this is exactly what we do in this fourth Python file. The process is long, but very easy: we start by setting all the parameters, then we build the environment by creating an object of the Environment() class, then we build the brain of the AI by creating an object of the Brain() class, then we build the Deep Q-Learning model by creating an object of the DQN() class, and finally we launch the training connecting all these objects together, over 1000 epochs of 5-months period. You will notice in the training loop that we also do some exploration when playing the actions. This consists of playing some random actions from time to time. In our Caso Práctico this will be done 30\% of the time, since we use an exploration parameter $\epsilon = 0.3$, and then we force to play a random action when drawing a random value between 0 and 1 that is below $\epsilon = 0.3$). The reason why we do some exploration is because it improves the Deep Reinforcement Learning process. This trick is called: "Exploration vs. Exploitation". Then, besides you will also notice that we use an early stopping technique, which will make sure to stop the training if there is performance improvement.
+Destaquemos estos nuevos pasos que aún pertenecen a nuestro algoritmo general de IA:
 
-\
+* **Paso 4-1:** Construcción del entorno creando un objeto de la clase Environment.
+* **Paso 4-2:** Construyendo el cerebro artificial creando un objeto de la clase de Brain
+* **Paso 4-3:** Construyendo el modelo DQN creando un objeto de la clase DQN.
+* **Paso 4-4:** Elección del modo de entrenamiento.
+* **Paso 4-5:** Comenzar el entrenamiento con un bule `for` durante más de 100 epochs de períodos de 5 meses.
+* **Paso 4-6:** Durante cada epoch, repetimos todo el proceso de Deep Q-Learning, al tiempo que exploramos el 30% de las veces.
 
-Let's highlight these new steps that still belong to our general AI Framework / Blueprint:
 
-\begin{enumerate}
-    \item \textbf{Step 4-1:} Building the environment by creating an object of the Environment class.
-    \item \textbf{Step 4-2:} Building the artificial brain by creating an object of the brain class.
-    \item \textbf{Step 4-3:} Building the DQN model by creating an object of the DQN class.
-    \item \textbf{Step 4-4:} Choosing the training mode.
-    \item \textbf{Step 4-5:} Starting the training with a for loop over 100 epochs of 5-months periods.
-    \item \textbf{Step 4-6:} During each epoch we repeat the whole Deep Q-Learning process, while also doing some exploration 30\% of the time.
-\end{enumerate}
+Y ahora implementemos esta nueva parte, Paso 4: Entrenamiento de la IA, de nuestro algoritmo general. A continuación se muestra la implementación completa de este cuarto archivo de `python`. Una vez más, los títulos de las secciones de código y los nombres de las variables elegidas son lo suficientemente claros como para comprender lo que se programa en cada caso Aquí vamos:
 
-And now let's implement this new part, Step 4 - Training the AI, of our general Blueprint. Below is the whole implementation of this fourth python file. Again, the code sections titles and the chosen variables names are clear enough to understand what is being coded. Here we go:
+```{python, eval=F}
+# Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2
+# Entrenamiento de la IA
 
-\
-
-\begin{lstlisting}
-# Artificial Intelligence for Business - Caso Práctico 2
-# Training the AI
-
-# Installing Keras
+# Instalación de Keras
 # conda install -c conda-forge keras
 
-# Importar las librerías and the other python files
+# Importar las librerías y el resto de ficheros de python
 import os
 import numpy as np
 import random as rn
@@ -848,12 +815,12 @@ import environment
 import brain
 import dqn
 
-# Setting seeds for reproducibility
+# Establecer semillas para la reproducibilidad del experimento
 os.environ['PYTHONHASHSEED'] = '0'
 np.random.seed(42)
 rn.seed(12345)
 
-# SETTING THE PARAMETERS
+# CONFIGURACIÓN DE LOS PARÁMETROS
 epsilon = .3
 number_actions = 5
 direction_boundary = (number_actions - 1) / 2
@@ -862,22 +829,22 @@ max_memory = 3000
 batch_size = 512
 temperature_step = 1.5
 
-# BUILDING THE ENVIRONMENT BY SIMPLY CREATING AN OBJECT OF THE ENVIRONMENT CLASS
+# CONSTRUCCIÓN DEL ENTORNO CREANDO UN OBJETO DE LA CLASE ENVIRONMENT CLASS
 env = environment.Environment(optimal_temperature = (18.0, 24.0),
                               initial_month = 0,
                               initial_number_users = 20,
                               initial_rate_data = 30)
 
-# BUILDING THE BRAIN BY SIMPLY CREATING AN OBJECT OF THE BRAIN CLASS
+# CONSTRUCCIÓN DEL CEREBRO CREADO UN OBJETO DE LA CLASE BRAIN
 brain = brain.Brain(learning_rate = 0.00001, number_actions = number_actions)
 
-# BUILDING THE DQN MODEL BY SIMPLY CREATING AN OBJECT OF THE DQN CLASS
+# CONSTRUCCIÓN DEL MODELO DE DQN CREANDO UN OBJETO DE LA CLASE DQN 
 dqn = dqn.DQN(max_memory = max_memory, discount = 0.9)
 
-# CHOOSING THE MODE
+# ELECCIÓN DEL MODO DE ENTRENAMIENTO
 train = True
 
-# TRAINING THE AI
+# Entrenamiento de la IA
 env.train = train
 model = brain.model
 early_stopping = True
@@ -885,9 +852,9 @@ patience = 10
 best_total_reward = -np.inf
 patience_count = 0
 if (env.train):
-    # STARTING THE LOOP OVER ALL THE EPOCHS (1 Epoch = 5 Months)
+    # ARRANCAR EL BUCLE SOBRE TODAS LAS EPOCHS (1 Epoch = 5 Meses)
     for epoch in range(1, number_epochs):
-        # INITIALIAZING ALL THE VARIABLES OF BOTH THE ENVIRONMENT AND THE TRAINING LOOP
+        # INICIALIZACIÓN DE LAS VARIABLES TANTO DEL ENVIRONMENT COMO DEL BUCLE DE ENTRENAMIENTO
         total_reward = 0
         loss = 0.
         new_month = np.random.randint(0, 12)
@@ -895,9 +862,9 @@ if (env.train):
         game_over = False
         current_state, _, _ = env.observe()
         timestep = 0
-        # STARTING THE LOOP OVER ALL THE TIMESTEPS (1 Timestep = 1 Minute) IN ONE EPOCH
+        # EMPEZAR EL BUCLE SOBRE TODOS LOS TIMESTEPS (1 Timestep = 1 Minuto) EN UN EPOCH
         while ((not game_over) and timestep <= 5 * 30 * 24 * 60):
-            # PLAYING THE NEXT ACTION BY EXPLORATION
+            # EJECUTAR LA SIGUIENTE ACCIÓN POR EXPLORACIÓN
             if np.random.rand() <= epsilon:
                 action = np.random.randint(0, number_actions)
                 if (action - direction_boundary < 0):
@@ -906,7 +873,7 @@ if (env.train):
                     direction = 1
                 energy_ai = abs(action - direction_boundary) * temperature_step
             
-            # PLAYING THE NEXT ACTION BY INFERENCE
+            # EJECUTAR LA SIGUIENTE ACCIÓN POR INFERENCIA
             else:
                 q_values = model.predict(current_state)
                 action = np.argmax(q_values[0])
@@ -915,20 +882,20 @@ if (env.train):
                 else:
                     direction = 1
                 energy_ai = abs(action - direction_boundary) * temperature_step
-            # UPDATING THE ENVIRONMENT AND REACHING THE NEXT STATE
+            # ACTUALIZACIÓN DEL ENTORNO BUSCANDO EL SIGUIENTE ESTADO
             next_state, reward, game_over = env.update_env(direction,
                                                            energy_ai,
                                                            int(timestep / (30*24*60)))
             total_reward += reward
-            # STORING THIS NEW TRANSITION INTO THE MEMORY
+            # ALMACENAR LA NUEVA TRANSICIÓN EN LA MEMORIA
             dqn.remember([current_state, action, reward, next_state], game_over)
-            # GATHERING IN TWO SEPARATE BATCHES THE INPUTS AND THE TARGETS
+            # REUNIR EN DOS LOTES SEPARADOS LAS ENTRADAS Y LOS OBJETIVOS
             inputs, targets = dqn.get_batch(model, batch_size = batch_size)
-            # COMPUTING THE LOSS OVER THE TWO WHOLE BATCHES OF INPUTS AND TARGETS
+            # CALCULAR LA PÉRDIDA EN LOS DOS LOTES DE ENTRADAS Y OBJETIVOS
             loss += model.train_on_batch(inputs, targets)
             timestep += 1
             current_state = next_state
-        # PRINTING THE TRAINING RESULTS FOR EACH EPOCH
+        # IMPRIMIR EL RESULTADO DE ENTREAMIENTO PARA CADA EPOCH
         print("\n")
         print("Epoch: {:03d}/{:03d}".format(epoch, number_epochs))
         print("Total Energy spent with an AI: {:.0f}".format(env.total_energy_ai))
@@ -943,73 +910,63 @@ if (env.train):
             if (patience_count >= patience):
                 print("Early Stopping")
                 break
-        # SAVING THE MODEL
+        # GUARDAR EL MODELO
         model.save("model.h5")
-\end{lstlisting}
+```
 
-\
+Después de ejecutar el código, ya vemos un buen rendimiento de nuestra IA durante el entrenamiento, gastando la mayor parte del tiempo menos energía que el sistema alternativo, es decir, el sistema de enfriamiento integrado del servidor. Pero ese es solo el entrenamiento, ahora necesitamos ver si también obtenemos un buen rendimiento en una nueva simulación de 1 año. Ahí es donde entra en juego nuestro próximo y último archivo de `python`.
 
-After executing the code, we already see some good performance of our AI during the training, spending most of the time less energy than the alternative system, i.e. the server's integrated cooling system. But that is only the training, now we need to see if we also obtain some good performance on a new 1-year simulation. That's where our next, and final Python file, comes into play. 
+### Paso 5: Probar nuestra IA
 
-\newpage
+Ahora, de hecho, tenemos que probar el rendimiento de nuestra IA en una situación completamente nueva. Para hacerlo, ejecutaremos una simulación de 1 año, solo en modo de inferencia, lo que significa que no habrá entrenamiento en ningún momento. Nuestra IA solo devolverá predicciones durante un año completo de simulación. Luego, gracias a nuestro objeto Environment, obtendremos al final la energía total gastada por la IA durante este año completo, así como la energía total gastada por el sistema de enfriamiento integrado del servidor. Eventualmente compararemos estas dos energías totales gastadas, simplemente calculando su diferencia relativa (en %), lo que nos dará exactamente la energía total ahorrada por la IA. ¡Abróchate el cinturón para los ver los resultados finales, que revelaremos al final de esta Parte 2!
 
-\subsubsection{Step 5: Testing the AI}
+En términos de nuestro algoritmo de IA, aquí para la implementación de prueba casi tenemos lo mismo que antes, excepto que esta vez, no tenemos que crear un objeto Brain ni un objeto modelo DQN, y por supuesto no debemos ejecutar el proceso de Deep Q-Learning durante las épocas de entrenamiento. Sin embargo, tenemos que crear un nuevo objeto de Environment, y en lugar de crear un cerebro, cargaremos nuestro cerebro artificial con sus pesos pre-entrenados del entrenamiento anterior que ejecutamos en el Paso 4 - Entrenamiento de la IA. Por lo tanto, demos los subpasos finales de esta parte final del algoritmo de IA:
 
-Now indeed, we need to test the performance of our AI on a brand new situation. To do so, we will run a 1-year simulation, only in inference mode, meaning that there will be no training happening at any time. Our AI will only return predictions over a one full year of simulation. Then thanks to our environment object we will get in the end the total energy spent by the AI over this one full year, as well as the total energy spent by the server's integrated cooling system. Eventually we will compare these two total energy spent, by simply computing their relative difference (in \%), which will exactly give us the total energy saved by the AI. Buckle up for the final results, we will reveal them at the end of this Part 2!
+* **Paso 5-1:** Construcción de un nuevo entorno creando un objeto de la clase Environment.
+* **Paso 5-2:** Carga del cerebro artificial con sus pesos pre-entrenados del entrenamiento anterior.
+* **Paso 5-3:** Elección del modo de inferencia.
+* **Paso 5-4:** Iniciación de la simulación de 1 año.
+* **Paso 5-5:** En cada iteración (cada minuto), nuestra IA solo ejecuta la acción que resulta de su predicción, y no se lleva a cabo ninguna exploración o entrenamiento de Deep Q-Learning.
 
-\
+Y ahora implementemos esta quinta y última parte, Paso 5: Prueba de la IA. Una vez más, a continuación se muestra la implementación completa de nuestro último archivo de Python. Los títulos de las secciones de código y los nombres de las variables elegidas son lo suficientemente claros como para comprender lo que se está programando, pero si necesitas más explicaciones, te recomiendo que veas nuestros videos tutoriales en Udemy donde programamos todo desde cero, paso a paso, mientras explicamos cada línea de código en términos de por qué, qué y cómo. Aquí vamos:
 
-In terms of the AI Blueprint, here for the testing implementation we almost have the same as before, except that this time, we don't have to create a brain object nor a DQN model object, and of course we must not run the Deep Q-Learning process over some training epochs. However we do have to create a new environment object, and instead of creating a brain, we will load our artificial brain with its pre-trained weights from the previous training that we executed in Step 4 - Training the AI. Hence, let's give the final sub-steps of this final part of the AI Framework / Blueprint:
+```{python, eval=F}
+# Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2
+# Prueba de la AI
 
-\begin{enumerate}
-    \item \textbf{Step 5-1:} Building a new environment by creating an object of the Environment class.
-    \item \textbf{Step 5-2:} Loading the artificial brain with its pre-trained weights from the previous training.
-    \item \textbf{Step 5-3:} Choosing the inference mode.
-    \item \textbf{Step 5-4:} Starting the 1-year simulation.
-    \item \textbf{Step 5-5:} At each iteration (each minute), our AI only plays the action that results from its prediction, and no exploration or Deep Q-Learning training is happening whatsoever.
-\end{enumerate}
-
-And now let's implement this fifth and final part, Step 5 - Testing the AI. Again, below is the whole implementation of our first python file. The code sections titles and the chosen variables names are clear enough to understand what is being coded, but if you need any more explanation, I encourage to watch our video tutorials where we code everything from scratch, step by step, while explaining every single line of code in terms of why, what and how. Here we go:
-
-\
-
-\begin{lstlisting}
-# Artificial Intelligence for Business - Caso Práctico 2
-# Testing the AI
-
-# Installing Keras
+# Instalación de Keras
 # conda install -c conda-forge keras
 
-# Importar las librerías and the other python files
+# Importar las librerías y el resto de ficheros de python
 import os
 import numpy as np
 import random as rn
 from keras.models import load_model
 import environment
 
-# Setting seeds for reproducibility
+# Establecer semillas para la reproducibilidad del experimento
 os.environ['PYTHONHASHSEED'] = '0'
 np.random.seed(42)
 rn.seed(12345)
 
-# SETTING THE PARAMETERS
+# CONFIGURACIÓN DE LOS PARÁMETROS
 number_actions = 5
 direction_boundary = (number_actions - 1) / 2
 temperature_step = 1.5
 
-# BUILDING THE ENVIRONMENT BY SIMPLY CREATING AN OBJECT OF THE ENVIRONMENT CLASS
+# CONSTRUCCIÓN DEL ENTORNO CREANDO UN OBJETO DE LA CLASE ENVIRONMENT
 env = environment.Environment(optimal_temperature = (18.0, 24.0),
                               initial_month = 0,
                               initial_number_users = 20,
                               initial_rate_data = 30)
 
-# LOADING A PRE-TRAINED BRAIN
+# CARGA DEL MODELO PRE-ENTRENADO
 model = load_model("model.h5")
 
-# CHOOSING THE MODE
+# ELECCIÓN DEL MODO
 train = False
 
-# RUNNING A 1 YEAR SIMULATION IN INFERENCE MODE
+# EJECUTAR UN AÑO DE SIMULACIÓN EN MODO INFERENCIA
 env.train = train
 current_state, _, _ = env.observe()
 for timestep in range(0, 12 * 30 * 24 * 60):
@@ -1025,80 +982,61 @@ for timestep in range(0, 12 * 30 * 24 * 60):
                                                    int(timestep / (30*24*60)))
     current_state = next_state
 
-# PRINTING THE TRAINING RESULTS FOR EACH EPOCH
+# IMPRIMIR LOS RESULTADOS DE ENTREAMIENTO PARA CADA EPOCH
 print("\n")
 print("Total Energy spent with an AI: {:.0f}".format(env.total_energy_ai))
 print("Total Energy spent with no AI: {:.0f}".format(env.total_energy_noai))
 print("ENERGY SAVED: {:.0f} %".format((env.total_energy_noai - env.total_energy_ai)
                                      / env.total_energy_noai * 100))
-\end{lstlisting}
+``` 
 
-\
+Y finalmente, obtenemos en los resultados impresos que el consumo total de energía ahorrado por la IA es ...:
 
-And finally, we obtain in the printed results that the total energy consumption saved by the AI is...: 
+$$\textrm{Total Energy saved by the AI} = 39 \ \% \ !$$
 
-\begin{equation*}
-    \textrm{Total Energy saved by the AI} = 39 \ \% \ !
-\end{equation*}
+¡Exactamente igual a lo que la DeepMind de Google logró en 2016! De hecho, si en Google escribes: *DeepMind reduce la factura de enfriamiento de Google*, verá que el resultado que lograron es del 40 %. Muy cerca de la nuestra!
 
-Exactly like what Google DeepMind achieved in 2016! Indeed, if on Google you type: "DeepMind reduces Google cooling bill", you will see that the result they achieved is 40 \%. Very close to ours!
+Por lo tanto, lo que hemos construido es seguramente excelente para nuestro cliente comercial, ya que nuestra IA les ahorrará muchos costes. De hecho, recuerda que gracias a nuestra estructura orientada a objetos (trabajando con clases y objetos), podemos tomar fácilmente nuestros objetos creados en esta implementación que hicimos para un servidor, y luego conectarlos a otros servidores, para que al final podamos ¡terminar ahorrando en el consumo total de energía de un centro de datos al completo! Así es como Google ahorró miles de millones de dólares en costes relacionados con la energía, gracias a su modelo DQN creado por la IA DeepMind.
 
-\
 
-Hence what we have built is surely excellent for our business client, as our AI will save them a lot of costs! Indeed, remember that thanks to our object oriented structure (working with classes and objects), we can very easily take our objects created in this implementation that we did for one server, and then plug them into other servers, so that in the end we end up saving the total energy consumption of a whole data center! That's how Google saved billions of dollars in energy related costs, thanks to their DQN model built by DeepMind AI.
+## Resumen: El Algoritmo General de IA
 
-\newpage
+Recapitulemos y proporcionemos el algoritmo completo de IA, para que puedas imprimirlo y ponerlo en tu pared.
 
-\subsubsection{Recap: The General AI Framework / Blueprint}
+**Paso 1: Construcción del Entorno**
 
-Let's recap and provide the whole AI Blueprint, so that you can print it out and put it on your wall.
+* **Paso 1-1**: Introducción e inicialización de todos los parámetros y variables del entorno.
+* **Paso 1-2**: Hacer un método que actualice el entorno justo después de que la IA ejecute una acción.
+* **Paso 1-3**: Hacer un método que restablezca el entorno.
+* **Paso 1-4**: hacer un método que nos proporcione en cualquier momento el estado actual, la última recompensa obtenida y si el juego ha terminado.
 
-\
+**Paso 2: Construcción del Cerebro
 
-\textbf{Step 1: Building the Environment}
+* **Paso 2-1:** Construir la capa de entrada compuesta de los estados de entrada.
+* **Paso 2-2:** Construir las capas ocultas con un número elegido de estas capas y neuronas dentro de cada una, completamente conectadas a la capa de entrada y entre ellas.
+* **Paso 2-3:** Construir la capa de salida, completamente conectada a la última capa oculta.
+* **Paso 2-4:** Ensamblar la arquitectura completa dentro de un modelo de `Keras`.
+* **Paso 2-5:** Compilación del modelo con una función de pérdida de error cuadrático medio y el optimizador elegido.
 
-\begin{enumerate}
-    \item \textbf{Step 1-1:} Introducing and initializing all the parameters and variables of the environment.
-    \item \textbf{Step 1-2:} Making a method that updates the environment right after the AI plays an action.
-    \item \textbf{Step 1-3:} Making a method that resets the environment.
-    \item \textbf{Step 1-4:} Making a method that gives us at any time the current state, the last reward obtained, and whether the game is over.
-\end{enumerate}
 
-\textbf{Step 2: Building the Brain}
+**Paso 3: Implementación del algoritmo de Deep Reinforcement Learning**
 
-\begin{enumerate}
-    \item \textbf{Step 2-1:} Building the input layer composed of the input states.
-    \item \textbf{Step 2-2:} Building the hidden layers with a chosen number of these layers and neurons inside each, fully connected to the input layer and between each other.
-    \item \textbf{Step 2-3:} Building the output layer, fully connected to the last hidden layer.
-    \item \textbf{Step 2-4:} Assembling the full architecture inside a model object.
-    \item \textbf{Step 2-5:} Compiling the model with a Mean-Squared Error loss function and a chosen optimizer.
-\end{enumerate}
+* **Paso 3-1:** Introducción e inicialización de todos los parámetros y variables del modelo de DQN.
+* **Paso 3-2:** Hacer un método que construya la memoria en Repetición de Experiencia.
+* **Paso 3-3:** Hacer un método que construya y devuelva dos lotes de 10 entradas y 10 objetivos
 
-\textbf{Step 3: Implementing the Deep Reinforcement Learning Algorithm}
+**Paso 4: Entrenamiento de la IA**
 
-\begin{enumerate}
-    \item \textbf{Step 3-1:} Introducing and initializing all the parameters and variables of the DQN model.
-    \item \textbf{Step 3-2:} Making a method that builds the memory in Experience Replay.
-    \item \textbf{Step 3-3:} Making a method that builds and returns two batches of 10 inputs and 10 targets
-\end{enumerate}
+* **Paso 4-1:** Construcción del entorno creando un objeto de la clase Environment.
+* **Paso 4-2:** Construyendo el cerebro artificial creando un objeto de la clase de Brain
+* **Paso 4-3:** Construyendo el modelo DQN creando un objeto de la clase DQN.
+* **Paso 4-4:** Elección del modo de entrenamiento.
+* **Paso 4-5:** Comenzar el entrenamiento con un bule `for` durante más de 100 epochs de períodos de 5 meses.
 
-\textbf{Step 4: Training the AI}
+**Paso 5: Probar la IA**
 
-\begin{enumerate}
-    \item \textbf{Step 4-1:} Building the environment by creating an object of the Environment class built in Step 1.
-    \item \textbf{Step 4-2:} Building the artificial brain by creating an object of the Brain class built in Step 2.
-    \item \textbf{Step 4-3:} Building the DQN model by creating an object of the DQN class built in Step 3.
-    \item \textbf{Step 4-4:} Choosing the training mode.
-    \item \textbf{Step 4-5:} Starting the training with a for loop over a chosen number of epochs.
-    \item \textbf{Step 4-6:} During each epoch we repeat the whole Deep Q-Learning process, while also doing some exploration 30\% of the time.
-\end{enumerate}
-
-\textbf{Step 5: Testing the AI}
-
-\begin{enumerate}
-    \item \textbf{Step 5-1:} Building a new environment by creating an object of the Environment class built in Step 1.
-    \item \textbf{Step 5-2:} Loading the artificial brain with its pre-trained weights from the previous training.
-    \item \textbf{Step 5-3:} Choosing the inference mode.
-    \item \textbf{Step 5-4:} Starting the simulation.
-    \item \textbf{Step 5-5:} At each iteration (each minute), our AI only plays the action that results from its prediction, and no exploration or Deep Q-Learning training is happening whatsoever.
-\end{enumerate}
+* **Paso 5-1:** Construcción de un nuevo entorno creando un objeto de la clase Environment.
+* **Paso 5-2:** Carga del cerebro artificial con sus pesos pre-entrenados del entrenamiento anterior.
+* **Paso 5-3:** Elección del modo de inferencia.
+* **Paso 5-4:** Iniciación de la simulación de 1 año.
+* **Paso 5-5:** En cada iteración (cada minuto), nuestra IA solo ejecuta la acción que resulta de su predicción, y no se lleva a cabo ninguna exploración o entrenamiento de Deep Q-Learning.

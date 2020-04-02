@@ -1,4 +1,4 @@
-# Parte 3 - Maximización de Beneficios Revenues
+# Maximización de Beneficios Revenues
 
 ¡Felicidades por seguir el primer y segundo estudio de caso! Ahora pasemos a un tipo muy diferente de Inteligencia Artificial, que tiene una eficiencia tremenda para las empresas y negocios y que sin duda alguna debes conocer.
 
@@ -44,25 +44,26 @@ La solución de IA que determinará la mejor estrategia se llama *muestreo de Th
 
 **Para cada ronda $n$, repetimos durante más de 1000 iteraciones, los siguientes tres pasos**:
 
-
-* **Paso 1** Para cada iteración $i$, se elige un valor aleatorio que siga la distribución:
+**Paso 1** Para cada iteración $i$, se elige un valor aleatorio que siga la distribución:
 
 $$\theta_i(n) \sim \beta(N_i^1(n)+1,N_i^0(n)+1)$$
 
 donde:
-  * $N_i^1(n)$ es el número de veces que la estrategia $i$ ha recibido una recompensa igual a 1 en la ronda $n$,
-  * $N_i^0(n)$ es el número de veces que la estrategia $i$ ha recibido una recompensa igual a 0 en la ronda $n$.
 
-* **Paso 2** Seleccionamos la estrategia $s(n)$ que nos da el mayor valor$\theta_i(n)$:
++ $N_i^1(n)$ es el número de veces que la estrategia $i$-ésima ha recibido una recompensa igual a 1 hasta la ronda $n$-ésima,
++ $N_i^0(n)$ es el número de veces que la estrategia $i$-ésima ha recibido una recompensa igual a 0 hasta la ronda $n$-ésima.
+
+**Paso 2** Seleccionamos la estrategia $s(n)$ que nos da el mayor valor$\theta_i(n)$:
 
 $$s(n) = \underset{i\in\{1,...,9\}}{\textrm{argmax}}(\theta_i(n))$$
 
-* **Paso 3** Actualizamos $N_{s(n)}^1(n)$ y $N_{s(n)}^0(n)$ según las siguientes condiciones:
-  * Si la estrategia selecxcionada $s(n)$ tiene una recompensa igual a 1:
+**Paso 3** Actualizamos $N_{s(n)}^1(n)$ y $N_{s(n)}^0(n)$ según las siguientes condiciones:
+    
++ Si la estrategia seleccionada $s(n)$ tiene una recompensa igual a 1:
   
 $$N_{s(n)}^1(n) := N_{s(n)}^1(n) + 1$$
-
-  * Si la estrategia selecxcionada $s(n)$ tiene una recompensa igual a 0:
+    
++ Si la estrategia seleccionada $s(n)$ tiene una recompensa igual a 0:
   
 $$N_{s(n)}^0(n) := N_{s(n)}^0(n) + 1$$
 

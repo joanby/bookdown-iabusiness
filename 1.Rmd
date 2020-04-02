@@ -17,7 +17,7 @@ El almacén pertenece a una empresa online minorista que vende productos a una v
 
 A medida que los clientes hacen los pedidos online, un robot de almacén autónomo se mueve por el almacén para recoger los productos para futuras entregas. Así es como se ve:
 
-![Autonomous Warehouse Robot](Images/Autonomous_Warehouse_Robot.jpg){width=100%}
+![Robot de Almacen Autónomo](Images/Autonomous_Warehouse_Robot.jpg){width=100%}
 
 Las 12 ubicaciones están conectadas a un sistema informático, que clasifica en tiempo real las prioridades de recolección de productos para estas 12 ubicaciones. Por ejemplo, en un momento específico $t$, devolverá la siguiente clasificación:
 

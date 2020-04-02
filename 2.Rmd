@@ -1,4 +1,4 @@
-# Parte 2 - Minimización de Costes
+# Minimización de Costes
 
 ¡Felicidades por darlo todo en el primer caso de estudio! Pasemos a una IA nueva y más avanzada.
 
@@ -609,7 +609,7 @@ Felicidades por implementar el Paso 1: Construcción del entorno. Ahora pasemos 
 
 En este Paso 2, vamos a construir el cerebro artificial de nuestra IA, que no es más que una red neuronal completamente conectada. Aquí está de nuevo:
 
-![El cerebro artificial: una red neuronal completamente conectada](Brain.png)
+![El cerebro artificial: una red neuronal completamente conectada](Images/Brain.png)
 
 Nuevamente, construiremos este cerebro artificial dentro de una clase, por la misma razón que antes, que nos permite crear varios cerebros artificiales para diferentes servidores dentro de un centro de datos. De hecho, tal vez algunos servidores necesitarán cerebros artificiales diferentes con hiperparámetros diferentes que otros servidores. Es por eso que gracias a esta estructura avanzada de `python` de clase / objeto, podemos cambiar fácilmente de un cerebro a otro para regular la temperatura de un nuevo servidor que requiere una IA con diferentes parámetros de redes neuronales.
 

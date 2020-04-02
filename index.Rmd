@@ -13,17 +13,12 @@ link-citations: yes
 github-repo: https://github.com/joanby/ia4business
 description: "Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos."
 url: 'https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7'
-cover-image: "Images/cover.jpg"
+cover-image: "Images/Course_Image.png"
 apple-touch-icon: "Images/apple-icon-120x120.png"
 apple-touch-icon-size: 120
 favicon: "Images/favicon.ico"
 ---
 
-
-\begin{titlepage}
-
-
-\setcounter{tocdepth}{4}
 \renewcommand{\contentsname}{Tabla de Contenidos}
 \tableofcontents
 

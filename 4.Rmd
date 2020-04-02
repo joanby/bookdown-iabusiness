@@ -1,5 +1,4 @@
-# Conclusion{-}
+# Conclusión{-}
 
-Thank you so much again for joining this course, and congratulations for completing it! We highly recommend that you keep this book close to you whenever you are building an AI to solve a business problem. Or at least, try to keep the general AI Framework. On our side, it was our pleasure making this course, and writing this book. Don't hesitate to leave a review in the course if you wish. Until then, enjoy AI for Business!
-
+¡Muchas gracias de nuevo por unirte a este curso en Udemy y felicidades por completarlo! Te recomendamos encarecidamente que mantengas este libro cerca de ti cada vez que construyas una IA para resolver un problema comercial. O al menos, trata de mantener el algoritmo general de IA que hemos construido en cada parte del curso. Para nosotros, ha sido todo un placer hacer este curso y escribir este libro. No dudes en dejar un comentario en el curso si lo deseas. Hasta entonces, ¡disfruta de IA aplicada a Negocios y Empresas!
 

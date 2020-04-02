@@ -1,6 +1,6 @@
 # Parte 2 - Minimización de Costes
 
-¡Felicitaciones por arrasar en el primer caso de estudio! Pasemos a una IA nueva y más avanzada.
+¡Felicidades por darlo todo en el primer caso de estudio! Pasemos a una IA nueva y más avanzada.
 
 ## Caso Práctico: Minimización de Costes en el Consumo Energético de un Centro de Datos
 
@@ -15,9 +15,9 @@ Antes de definir los estados, las acciones y las recompensas, debemos explicar c
 **Parámetros**
 
 * la temperatura atmosférica promedio durante un mes
-* el rango óptimo de temperaturas del servidor, que será $[18 \degree \textrm{C}, 24 \degree \textrm{C}]$
-* la temperatura mínima del servidor por debajo de la cual no funciona, que será $-20 \degree \textrm {C}$
-* la temperatura máxima del servidor por encima de la cual no funciona, que será de $80 \degree \textrm {C}$
+* el rango óptimo de temperaturas del servidor, que será $[18^{\circ} \textrm{C}, 24^{\circ} \textrm{C}]$
+* la temperatura mínima del servidor por debajo de la cual no funciona, que será $-20^{\circ} \textrm {C}$
+* la temperatura máxima del servidor por encima de la cual no funciona, que será de $80^{\circ} \textrm {C}$
 * el número mínimo de usuarios en el servidor, que será 10
 * el número máximo de usuarios en el servidor, que será de 100
 * el número máximo de usuarios en el servidor que puede subir o bajar por minuto, que será 5
@@ -68,7 +68,7 @@ donde:
 * $\alpha > 0$,
 * y $\beta \in \mathbb{R}$.
 
-Nuevamente, expliquemos por qué tiene sentido intuitivamente hacer esta suposición con $\alpha>0$. Eso es simplemente porque cuanto más se calienta la IA o se enfría el servidor, más gasta energía para hacer esa transferencia de calor. De hecho, por ejemplo, imaginemos que el servidor de repente tiene problemas de sobrecalentamiento y acaba de alcanzar $80 \degree$ C, luego, dentro de una unidad de tiempo (1 minuto), la IA necesitará mucha más energía para que la temperatura del servidor vuelva a su temperatura óptima de $24 \degree$ C que devolverlo a $50 \degree$ C por ejemplo. Y de nuevo por razones de simplicidad, solo suponemos que estas correlaciones son lineales. Además (en caso de que te lo estés preguntado), ¿por qué tomamos el valor absoluto? Eso es simplemente porque cuando la IA enfría el servidor, $T_{t + 1}<T_t$, entonces $\Delta T <0$. Y, por supuesto, una energía siempre es positiva, por lo que tenemos que tomar el valor absoluto de $\Delta T$.
+Nuevamente, expliquemos por qué tiene sentido intuitivamente hacer esta suposición con $\alpha>0$. Eso es simplemente porque cuanto más se calienta la IA o se enfría el servidor, más gasta energía para hacer esa transferencia de calor. De hecho, por ejemplo, imaginemos que el servidor de repente tiene problemas de sobrecalentamiento y acaba de alcanzar $80^{\circ}$ C, luego, dentro de una unidad de tiempo (1 minuto), la IA necesitará mucha más energía para que la temperatura del servidor vuelva a su temperatura óptima de $24^{\circ}$ C que devolverlo a $50^{\circ}$ C por ejemplo. Y de nuevo por razones de simplicidad, solo suponemos que estas correlaciones son lineales. Además (en caso de que te lo estés preguntado), ¿por qué tomamos el valor absoluto? Eso es simplemente porque cuando la IA enfría el servidor, $T_{t + 1}<T_t$, entonces $\Delta T <0$. Y, por supuesto, una energía siempre es positiva, por lo que tenemos que tomar el valor absoluto de $\Delta T$.
 
 Finalmente, para mayor simplicidad, también asumiremos que los resultados de la regresión son $\alpha = 1$ y $\beta = 0$, de modo que obtenemos la siguiente ecuación final basada en el supuesto 2:
 
@@ -76,7 +76,7 @@ Finalmente, para mayor simplicidad, también asumiremos que los resultados de la
 E_t = |\Delta T_t| = |T_{t+1} - T_t| =
 \begin{cases}
 T_{t+1} - T_t & \textrm{si $T_{t+1} > T_t$, es decir, si el servidor se calienta} \\
-T_t - T_{t+1} & \textrm{si $T_{t+1} < T_t$, tes decir, si el servidor se enfria}
+T_t - T_{t+1} & \textrm{si $T_{t+1} < T_t$, es decir, si el servidor se enfria}
 \end{cases}
 \end{equation*}
 
@@ -91,7 +91,7 @@ Ahora que tenemos la imagen completa, expliquemos el funcionamiento general del 
 
 **Funcionamiento general:**
 
-Dentro de un centro de datos, estamos tratando con un servidor específico que está controlado por los parámetros y variables enumerados anteriormente. Cada minuto, algunos usuarios nuevos inician sesión en el servidor y algunos usuarios actuales cierran sesión, por lo tanto, actualizan el número de usuarios activos en el servidor. Igualmente, cada minuto se transmiten algunos datos nuevos al servidor, y algunos datos existentes se transmiten fuera del servidor, por lo tanto, se actualiza la velocidad de transmisión de datos que ocurre dentro del servidor. Por lo tanto, según el supuesto 1 anterior, la temperatura del servidor se actualiza cada minuto. Ahora, concéntrate, porque aquí es donde entenderás el gran papel que la IA tiene que jugar en el servidor. Dos posibles sistemas pueden regular la temperatura del servidor: la IA o el sistema de enfriamiento integrado del servidor. El sistema de enfriamiento integrado del servidor es un sistema no inteligente que automáticamente devolverá la temperatura del servidor a su temperatura óptima. Expliquemos esto con más detalles: cuando la temperatura del servidor se actualiza cada minuto, puede mantenerse dentro del rango de temperaturas óptimas ($[18 \degree \textrm{C}, 24 \degree \textrm{C}]$), o salir de este rango. Si sale del rango óptimo, como por ejemplo $30 \degree$ C, el sistema de enfriamiento integrado del servidor llevará automáticamente la temperatura al límite más cercano del rango óptimo, que es $24 \degree$ C. Sin embargo, el sistema de enfriamiento integrado de este servidor lo hará solo cuando la IA no esté activada. Si la IA está activada, en ese caso el sistema de enfriamiento integrado del servidor se desactiva y es la IA la que actualiza la temperatura del servidor para regularlo de la mejor manera. Pero la IA hace eso después de algunas predicciones previas, no de una manera determinista como con el sistema de enfriamiento integrado del servidor no inteligente. Antes de que haya una actualización de la cantidad de usuarios y la velocidad de transmisión de datos que hace que cambie la temperatura del servidor, la IA predice si debería enfriar el servidor, no hacer nada o calentar el servidor. Entonces ocurre el cambio de temperatura y la IA reitera. Y dado que estos dos sistemas son complementarios, los evaluaremos por separado para comparar su rendimiento.
+Dentro de un centro de datos, estamos tratando con un servidor específico que está controlado por los parámetros y variables enumerados anteriormente. Cada minuto, algunos usuarios nuevos inician sesión en el servidor y algunos usuarios actuales cierran sesión, por lo tanto, actualizan el número de usuarios activos en el servidor. Igualmente, cada minuto se transmiten algunos datos nuevos al servidor, y algunos datos existentes se transmiten fuera del servidor, por lo tanto, se actualiza la velocidad de transmisión de datos que ocurre dentro del servidor. Por lo tanto, según el supuesto 1 anterior, la temperatura del servidor se actualiza cada minuto. Ahora, concéntrate, porque aquí es donde entenderás el gran papel que la IA tiene que jugar en el servidor. Dos posibles sistemas pueden regular la temperatura del servidor: la IA o el sistema de enfriamiento integrado del servidor. El sistema de enfriamiento integrado del servidor es un sistema no inteligente que automáticamente devolverá la temperatura del servidor a su temperatura óptima. Expliquemos esto con más detalles: cuando la temperatura del servidor se actualiza cada minuto, puede mantenerse dentro del rango de temperaturas óptimas ($[18^{\circ} \textrm{C}, 24^{\circ} \textrm{C}]$), o salir de este rango. Si sale del rango óptimo, como por ejemplo $30^{\circ}$ C, el sistema de enfriamiento integrado del servidor llevará automáticamente la temperatura al límite más cercano del rango óptimo, que es $24^{\circ}$ C. Sin embargo, el sistema de enfriamiento integrado de este servidor lo hará solo cuando la IA no esté activada. Si la IA está activada, en ese caso el sistema de enfriamiento integrado del servidor se desactiva y es la IA la que actualiza la temperatura del servidor para regularlo de la mejor manera. Pero la IA hace eso después de algunas predicciones previas, no de una manera determinista como con el sistema de enfriamiento integrado del servidor no inteligente. Antes de que haya una actualización de la cantidad de usuarios y la velocidad de transmisión de datos que hace que cambie la temperatura del servidor, la IA predice si debería enfriar el servidor, no hacer nada o calentar el servidor. Entonces ocurre el cambio de temperatura y la IA reitera. Y dado que estos dos sistemas son complementarios, los evaluaremos por separado para comparar su rendimiento.
 
 Y eso nos lleva a la energía. De hecho, recordemos que un objetivo principal de la IA es ahorrar algo de energía gastada en este servidor. En consecuencia, nuestra IA tiene que gastar menos energía que la energía gastada por el sistema de enfriamiento no inteligente en el servidor. Y dado que, según el supuesto 2 anterior, la energía gastada en el servidor (por cualquier sistema) es proporcional al cambio de temperatura dentro de una unidad de tiempo:
 
@@ -143,15 +143,15 @@ Por lo tanto, el estado de entrada será un vector de entrada de estos tres elem
 
 **Definir las acciones**
 
-Las acciones son simplemente los cambios de temperatura que la IA puede causar dentro del servidor, para calentarlo o enfriarlo. Para que nuestras acciones sean discretas, consideraremos 5 posibles cambios de temperatura de $-3 \degree$ C a $+ 3 \degree$ C, para que terminemos con las 5 acciones posibles que la IA puede llevar a cabo para regular la temperatura del servidor:
+Las acciones son simplemente los cambios de temperatura que la IA puede causar dentro del servidor, para calentarlo o enfriarlo. Para que nuestras acciones sean discretas, consideraremos 5 posibles cambios de temperatura de $-3^{\circ}$ C a $+ 3^{\circ}$ C, para que terminemos con las 5 acciones posibles que la IA puede llevar a cabo para regular la temperatura del servidor:
 
 |**Acción** | **¿Qué hace?**|
 |:---------:|:--------------|
-0|La IA enfría el servidor $3 \degree$C
-1|La IA enfría el servidor $1.5 \degree$C
+0|La IA enfría el servidor $3^{\circ}$C
+1|La IA enfría el servidor $1.5^{\circ}$C
 2|La IA no transfiere calor ni frio al servidor (sin cambio de temperatura)
-3|La IA calienta el servidor $1.5 \degree$C
-4|La IA calienta el servidor $3 \degree$C
+3|La IA calienta el servidor $1.5^{\circ}$C
+4|La IA calienta el servidor $3^{\circ}$C
 
 **Definir las recompensas.**
 
@@ -191,13 +191,13 @@ Ahora, para terminar esta sección, vamos a hacer una pequeña simulación de 2 
 
 **Ejemplo de simulación final.**
 
-Digamos que estamos en el instante de tiempo $t = 4:00$ pm y que la temperatura del servidor es $T_t = 28 \degree$ C, tanto con la IA como sin la IA. En este momento exacto, la IA predice la acción 0, 1, 2, 3 o 4. Desde ahora, la temperatura del servidor está fuera del rango de temperatura óptimo $[18 \degree \textrm{C}, 24 \degree \textrm{C }]$, la IA probablemente predecirá las acciones 0, 1 o 2. Digamos que predice 1, lo que corresponde a enfriar el servidor en $1.5 \degree$ C. Por lo tanto, entre $t = 4:00$ pm y $t + 1 = 4: 01$ pm, la IA hace que la temperatura del servidor pase de $T_t^{\textrm{IA}} = 28 \degree \textrm{C} $ a $T_{t + 1}^{\ textrm{IA}} = 26.5 \degree \textrm{C}$:
+Digamos que estamos en el instante de tiempo $t = 4:00$ pm y que la temperatura del servidor es $T_t = 28^{\circ}$ C, tanto con la IA como sin la IA. En este momento exacto, la IA predice la acción 0, 1, 2, 3 o 4. Desde ahora, la temperatura del servidor está fuera del rango de temperatura óptimo $[18^{\circ} \textrm{C}, 24^{\circ} \textrm{C }]$, la IA probablemente predecirá las acciones 0, 1 o 2. Digamos que predice 1, lo que corresponde a enfriar el servidor en $1.5^{\circ}$ C. Por lo tanto, entre $t = 4:00$ pm y $t + 1 = 4: 01$ pm, la IA hace que la temperatura del servidor pase de $T_t^{\textrm{IA}} = 28^{\circ} \textrm{C} $ a $T_{t + 1}^{\ textrm{IA}} = 26.5^{\circ} \textrm{C}$:
 
 \begin{align*}
     \Delta T_t^{\textrm{IA}}
     & = T_{t+1}^{\textrm{IA}} - T_t^{\textrm{IA}} \\
     & = 26.5 - 27 \\
-    & = -1.5 \degree \textrm{C}
+    & = -1.5^{\circ} \textrm{C}
 \end{align*}
 
 Por lo tanto, según el supuesto 2, la energía gastada por la IA en el servidor es:
@@ -208,13 +208,13 @@ Por lo tanto, según el supuesto 2, la energía gastada por la IA en el servidor
     & = 1.5 \ \textrm{Joules}
 \end{align*}
 
-Bien, ahora solo falta una información para calcular la recompensa: es la energía que el sistema de enfriamiento integrado del servidor habría gastado si la IA se hubiera desactivado entre las 4:00 p.m. y las 4:01 p.m. Recordemos que este sistema de enfriamiento no inteligente lleva automáticamente la temperatura del servidor de vuelta al límite más cercano del rango de temperatura óptimo $[18 \degree \textrm{C}, 24 \degree \textrm{C}]$. Entonces, dado que a $t = 4: 00 ¡$ pm la temperatura era $T_t = 28 \degree$ C, entonces el límite más cercano del rango de temperatura óptimo en ese momento era $24 \degree$ C. Por lo tanto, el sistema de enfriamiento integrado del servidor habría cambiado la temperatura de $T_t = 28 \degree \textrm{C}$ a $T_{t + 1} = 24 \degree \textrm{C}$, y por lo tanto la temperatura del servidor cambia habría ocurrido si no hubiera IA es:
+Bien, ahora solo falta una información para calcular la recompensa: es la energía que el sistema de enfriamiento integrado del servidor habría gastado si la IA se hubiera desactivado entre las 4:00 p.m. y las 4:01 p.m. Recordemos que este sistema de enfriamiento no inteligente lleva automáticamente la temperatura del servidor de vuelta al límite más cercano del rango de temperatura óptimo $[18^{\circ} \textrm{C}, 24^{\circ} \textrm{C}]$. Entonces, dado que a $t = 4: 00 ¡$ pm la temperatura era $T_t = 28^{\circ}$ C, entonces el límite más cercano del rango de temperatura óptimo en ese momento era $24^{\circ}$ C. Por lo tanto, el sistema de enfriamiento integrado del servidor habría cambiado la temperatura de $T_t = 28^{\circ} \textrm{C}$ a $T_{t + 1} = 24^{\circ} \textrm{C}$, y por lo tanto la temperatura del servidor cambia habría ocurrido si no hubiera IA es:
 
 \begin{align*}
     \Delta T_t^{\textrm{no IA}}
     & = T_{t+1}^{\textrm{no IA}} - T_t^{\textrm{no IA}} \\
     & = 24 - 28 \\
-    & = -4 \degree C
+    & = -4^{\circ} C
 \end{align*}
 
 
@@ -237,9 +237,9 @@ En conclusión, la recompensa que obtenemos después de llevar a cabo esta acci�
 \end{align*}
 
 
-Luego, entre $t = 4: 00$ pm y $t + 1 = 4: 01$ pm, suceden otras cosas: algunos usuarios nuevos inician sesión en el servidor, algunos usuarios existentes cierran sesión en el servidor, algunos datos nuevos son transmitiendo dentro del servidor, y algunos datos existentes se transmiten fuera del servidor. Según el supuesto 1, estos factores hacen que la temperatura del servidor cambie. Digamos que aumentan la temperatura del servidor en $5 \degree$ C:
+Luego, entre $t = 4: 00$ pm y $t + 1 = 4: 01$ pm, suceden otras cosas: algunos usuarios nuevos inician sesión en el servidor, algunos usuarios existentes cierran sesión en el servidor, algunos datos nuevos son transmitiendo dentro del servidor, y algunos datos existentes se transmiten fuera del servidor. Según el supuesto 1, estos factores hacen que la temperatura del servidor cambie. Digamos que aumentan la temperatura del servidor en $5^{\circ}$ C:
 
-$$\Delta_t \ \textrm{Temperatura Intrinseca} = 5 \degree C$$
+$$\Delta_t \ \textrm{Temperatura Intrinseca} = 5^{\circ} C$$
 
 
 Ahora recuerde que estamos evaluando dos sistemas por separado: nuestra IA y el sistema de enfriamiento integrado del servidor. Por lo tanto, debemos calcular por separado las dos temperaturas que obtendríamos con estos dos sistemas a $t + 1 = 4: 01$ pm. Comencemos con la IA.
@@ -250,7 +250,7 @@ La temperatura que obtenemos en $t + 1 = 4: 01$ pm cuando se activa la IA es:
     T_{t+1}^{\textrm{IA}}
     & = T_t^{\textrm{IA}} + \Delta T_t^{\textrm{IA}} + \Delta_t \ \textrm{Temperatura Intrinseca} \\
     & = 28 + (-1.5) + 5 \\
-    & = 31.5 \degree C
+    & = 31.5^{\circ} C
 \end{align*}
 
 Y la temperatura que obtenemos en $t + 1 = 4: 01$ pm cuando la IA no está activada es:
@@ -259,12 +259,12 @@ Y la temperatura que obtenemos en $t + 1 = 4: 01$ pm cuando la IA no está activ
     T_{t+1}^{\textrm{no IA}}
     & = T_t^{\textrm{no IA}} + \Delta T_t^{\textrm{no IA}} + \Delta_t \ \textrm{Temperatura Intrinseca} \\
     & = 28 + (-4) + 5 \\
-    & = 29 \degree C
+    & = 29^{\circ} C
 \end{align*}
 
-Perfecto, tenemos nuestras dos temperaturas separadas, que son $T_{t+1}^{\textrm{AI}} = 29.5 \degree C$ cuando la IA está activada, y $T_{t+1}^{\textrm{noAI}} = 27 \degree C$ cuando la IA no está activada.
+Perfecto, tenemos nuestras dos temperaturas separadas, que son $T_{t+1}^{\textrm{AI}} = 29.5^{\circ} C$ cuando la IA está activada, y $T_{t+1}^{\textrm{noAI}} = 27^{\circ} C$ cuando la IA no está activada.
 
-Ahora simulemos lo que sucede entre los instantes $t + 1 = 4:01$ pm y $t + 2 = 4:02$ pm. Nuevamente, nuestra IA hará una predicción, y dado que el servidor se está calentando, digamos que predice la acción 0, que corresponde a enfriar el servidor en $3 \degree C$, reduciéndolo a $T_{t + 2}^{\textrm{IA}} = 28.5 \degree C$. Por lo tanto, la energía gastada por la IA entre $t + 1 = 4: 01$ pm y $t + 2 = 4: 02$ pm, es:
+Ahora simulemos lo que sucede entre los instantes $t + 1 = 4:01$ pm y $t + 2 = 4:02$ pm. Nuevamente, nuestra IA hará una predicción, y dado que el servidor se está calentando, digamos que predice la acción 0, que corresponde a enfriar el servidor en $3^{\circ} C$, reduciéndolo a $T_{t + 2}^{\textrm{IA}} = 28.5^{\circ} C$. Por lo tanto, la energía gastada por la IA entre $t + 1 = 4: 01$ pm y $t + 2 = 4: 02$ pm, es:
 
 \begin{align*}
     E_{t+1}^{\textrm{IA}}
@@ -273,7 +273,7 @@ Ahora simulemos lo que sucede entre los instantes $t + 1 = 4:01$ pm y $t + 2 = 4
     & = 3 \ \textrm{Joules}
 \end{align*}
 
-Ahora con respecto al sistema de enfriamiento integrado del servidor (es decir, cuando no hay IA), ya que a $t + 1 = 4: 01$ pm teníamos $T_{t + 1}^{\textrm{no IA}} = 29 \degree C$, entonces el límite más cercano del rango óptimo de temperaturas sigue siendo $24 \degree C$, por lo que la energía que el sistema de enfriamiento no inteligente del servidor gastaría entre $t + 1 = 4: 01$ pm y $t + 2 = 4 : 02$ pm, es:
+Ahora con respecto al sistema de enfriamiento integrado del servidor (es decir, cuando no hay IA), ya que a $t + 1 = 4: 01$ pm teníamos $T_{t + 1}^{\textrm{no IA}} = 29^{\circ} C$, entonces el límite más cercano del rango óptimo de temperaturas sigue siendo $24^{\circ} C$, por lo que la energía que el sistema de enfriamiento no inteligente del servidor gastaría entre $t + 1 = 4: 01$ pm y $t + 2 = 4 : 02$ pm, es:
 
 \begin{align*}
     E_{t+1}^{\textrm{no IA}}
@@ -348,7 +348,6 @@ class Brain(object):
         q_values = Dense(units = number_actions, activation = 'softmax')(y)
         self.model = Model(inputs = states, outputs = q_values)
         self.model.compile(loss = 'mse', optimizer = Adam(lr = self.learning_rate))
-\end{lstlisting}
 ```
 
 
@@ -377,11 +376,11 @@ $$r_t = E_t^{\textrm{no IA}} - E_t^{\textrm{IA}}$$
 
 4. Alcanzamos el siguiente estado$s_{t+1}$.
 5. Añadimos la transición actual $(s_t, a_t, r_t, s_{t+1})$ a $M$.
-6. Seleccionamos un bloque de transiciones al azar $B \subset M$. Para todas las transiciones$(s_{t_B}, a_{t_B}, r_{t_B}, s_{t_B+1})$ del lote aleatorio $B$:
+6. Seleccionamos un bloque de transiciones al azar $B \subset M$. Para todas las transiciones$(s_{t_B}, a_{t_B}, r_{t_B}, s_{t_B+1})$ del bloquealeatorio $B$:
     
     * Obtenemos las predicciones: $$Q(s_{t_B}, a_{t_B})$$
     * Obtenemos los objetivos: $$r_{t_B} + \gamma \underset{a}{\max}(Q(s_{t_B+1}, a))$$
-    * Calculamos la pérdida entre las predicciones y los objetivos en todo el lote $B$: $$\textrm{Loss} = \frac{1}{2} \sum_B \left( r_{t_B} + \gamma \underset{a}{\max}(Q(s_{t_B+1}, a)) - Q(s_{t_B}, a_{t_B}) \right)^2 = \frac{1}{2} \sum_B TD_{t_B}(s_{t_B}, a_{t_B})^2$$
+    * Calculamos la pérdida entre las predicciones y los objetivos en todo el bloque$B$: $$\textrm{Loss} = \frac{1}{2} \sum_B \left( r_{t_B} + \gamma \underset{a}{\max}(Q(s_{t_B+1}, a)) - Q(s_{t_B}, a_{t_B}) \right)^2 = \frac{1}{2} \sum_B TD_{t_B}(s_{t_B}, a_{t_B})^2$$
     * Volvemos a propagar este error de pérdida en la red neuronal y, a través del descenso de gradiente estocástico, actualizamos los pesos según cuánto contribuyeron al error..
 
 ## Implementation

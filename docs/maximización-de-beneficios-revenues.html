@@ -330,13 +330,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb36-2" data-line-number="2">relative_return <span class="op">=</span> (total_reward_ts <span class="op">-</span> total_reward_rs) <span class="op">/</span> total_reward_rs <span class="op">*</span> <span class="dv">100</span></a>
 <a class="sourceLine" id="cb36-3" data-line-number="3"><span class="bu">print</span>(<span class="st">&quot;Rendimiento Relativo: </span><span class="sc">{:.0f}</span><span class="st"> %&quot;</span>.<span class="bu">format</span>(relative_return))</a></code></pre></div>
 <p>Y prepárate, porque al ejecutar este código obtenemos un retorno relativo final, de …:</p>
-<pre><code>## Rendimiento Relativo: 112 %</code></pre>
+<pre><code>## Rendimiento Relativo: 102 %</code></pre>
 <p>En otras palabras, el muestreo de Thompson casi duplicó el rendimiento de nuestro punto de referencia de la selección aleatoria.</p>
 <p>Y finalmente, representemos el histograma de las estrategias seleccionadas, para verificar que efectivamente la Estrategia 7 (la de índice 6) fue la más seleccionada por el algoritmo, ya que es la que tiene la tasa de conversión más alta:¡</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co"># Representación del histograma de selecciones</span></a>
 <a class="sourceLine" id="cb38-2" data-line-number="2">plt.hist(strategies_selected_ts)</a></code></pre></div>
-<pre><code>## (array([   29.,   114.,    74.,   163.,     0.,   149.,    34.,  9351.,
-##           54.,    32.]), array([ 0. ,  0.8,  1.6,  2.4,  3.2,  4. ,  4.8,  5.6,  6.4,  7.2,  8. ]), &lt;a list of 10 Patch objects&gt;)</code></pre>
+<pre><code>## (array([   64.,    67.,    87.,   504.,     0.,   143.,    43.,  8952.,
+##          107.,    33.]), array([ 0. ,  0.8,  1.6,  2.4,  3.2,  4. ,  4.8,  5.6,  6.4,  7.2,  8. ]), &lt;a list of 10 Patch objects&gt;)</code></pre>
 <div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb40-1" data-line-number="1">plt.title(<span class="st">&#39;Histograma de Selecciones&#39;</span>)</a>
 <a class="sourceLine" id="cb40-2" data-line-number="2">plt.xlabel(<span class="st">&#39;Estrategia&#39;</span>)</a>
 <a class="sourceLine" id="cb40-3" data-line-number="3">plt.ylabel(<span class="st">&#39;Numero de veces que se ha seleccionado la estrategia&#39;</span>)</a>

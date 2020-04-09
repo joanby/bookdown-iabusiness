@@ -132,7 +132,7 @@ Y así es como el sistema de recompensas funcionará con Q-Learning. Atribuimos 
 
 ## Solución de Inteligencia Artificial
 
-The AI Solution that will solve the problem described above is a Q-Learning model. Since the latter is based on Markov Decision Processes, or MDPs, we will start by explaining what they are, and then we will move on to the intuition and maths details behind the Q-Learning model.
+La solución de IA que resolverá el problema descrito anteriormente es un modelo de Q-Learning. Dado que este último se basa en los procesos de decisión de Markov, o MDP, comenzaremos explicando cuáles son, y luego pasaremos a la intuición y los detalles matemáticos detrás del modelo Q-Learning.
 
 ### Proceso de Decisión de Markov
 

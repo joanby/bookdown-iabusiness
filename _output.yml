@@ -5,7 +5,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">Inteligencia Artificial aplicada Negocios y Empresas</a></li>
       after: |
-        <li><a href="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7" target="blank">Curso en Udemy</a></li>
+        <li><a href="https://cursos.frogamesformacion.com/courses/take/ia-aplicada-negocios?coupon=frogames30" target="blank">Curso en Frogames</a></li>
     edit: https://github.com/joanby/ia4business/edit/master/%s
     download: ["pdf", "epub"]
     search: yes

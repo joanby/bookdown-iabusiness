@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Parte 4 Anexos adicionales | Inteligencia Artificial aplicada a Negocios y Empresas</title>
   <meta name="description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Parte 4 Anexos adicionales | Inteligencia Artificial aplicada a Negocios y Empresas" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7" />
-  <meta property="og:image" content="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7Images/Course_Image.png" />
+  <meta property="og:image" content="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7/Images/Course_Image.png" />
   <meta property="og:description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
   <meta name="github-repo" content="https://github.com/joanby/ia4business" />
 
@@ -19,12 +18,12 @@
   <meta name="twitter:title" content="Parte 4 Anexos adicionales | Inteligencia Artificial aplicada a Negocios y Empresas" />
   
   <meta name="twitter:description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
-  <meta name="twitter:image" content="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7Images/Course_Image.png" />
+  <meta name="twitter:image" content="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7/Images/Course_Image.png" />
 
 <meta name="author" content="Hadelin de Ponteves y Kirill Ermenko" />
 
 
-<meta name="date" content="2020-04-09" />
+<meta name="date" content="2022-05-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,8 @@
   <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="conclusión.html"/>
 
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,29 +49,33 @@
 
 
 
-
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +84,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -115,6 +119,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -132,29 +137,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introducción</a></li>
-<li class="chapter" data-level="1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html"><i class="fa fa-check"></i><b>1</b> Optimización de Procesos</a><ul>
-<li class="chapter" data-level="1.1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#caso-práctico-optimización-de-tareas-en-un-almacén-de-comercio-electrónico"><i class="fa fa-check"></i><b>1.1</b> Caso Práctico: Optimización de tareas en un almacén de comercio electrónico</a><ul>
+<li class="chapter" data-level="1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html"><i class="fa fa-check"></i><b>1</b> Optimización de Procesos</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#caso-práctico-optimización-de-tareas-en-un-almacén-de-comercio-electrónico"><i class="fa fa-check"></i><b>1.1</b> Caso Práctico: Optimización de tareas en un almacén de comercio electrónico</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#problema-a-resolver"><i class="fa fa-check"></i><b>1.1.1</b> Problema a resolver</a></li>
 <li class="chapter" data-level="1.1.2" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#entorno-a-definir"><i class="fa fa-check"></i><b>1.1.2</b> Entorno a definir</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#solución-de-inteligencia-artificial"><i class="fa fa-check"></i><b>1.2</b> Solución de Inteligencia Artificial</a><ul>
+<li class="chapter" data-level="1.2" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#solución-de-inteligencia-artificial"><i class="fa fa-check"></i><b>1.2</b> Solución de Inteligencia Artificial</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#proceso-de-decisión-de-markov"><i class="fa fa-check"></i><b>1.2.1</b> Proceso de Decisión de Markov</a></li>
 <li class="chapter" data-level="1.2.2" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#q-learning"><i class="fa fa-check"></i><b>1.2.2</b> Q-Learning</a></li>
 <li class="chapter" data-level="1.2.3" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#el-algoritmo-de-q-learning-al-completo"><i class="fa fa-check"></i><b>1.2.3</b> El algoritmo de Q-Learning al completo</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#implementación"><i class="fa fa-check"></i><b>1.3</b> Implementación</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html"><i class="fa fa-check"></i><b>2</b> Minimización de Costes</a><ul>
-<li class="chapter" data-level="2.1" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#caso-práctico-minimización-de-costes-en-el-consumo-energético-de-un-centro-de-datos"><i class="fa fa-check"></i><b>2.1</b> Caso Práctico: Minimización de Costes en el Consumo Energético de un Centro de Datos</a><ul>
+<li class="chapter" data-level="2" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html"><i class="fa fa-check"></i><b>2</b> Minimización de Costes</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#caso-práctico-minimización-de-costes-en-el-consumo-energético-de-un-centro-de-datos"><i class="fa fa-check"></i><b>2.1</b> Caso Práctico: Minimización de Costes en el Consumo Energético de un Centro de Datos</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#problema-a-resolver-1"><i class="fa fa-check"></i><b>2.1.1</b> Problema a resolver</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#solución-de-ia"><i class="fa fa-check"></i><b>2.2</b> Solución de IA</a><ul>
+<li class="chapter" data-level="2.2" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#solución-de-ia"><i class="fa fa-check"></i><b>2.2</b> Solución de IA</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#q-learning-en-deep-learning"><i class="fa fa-check"></i><b>2.2.1</b> Q-Learning en Deep Learning</a></li>
 <li class="chapter" data-level="2.2.2" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#experience-replay"><i class="fa fa-check"></i><b>2.2.2</b> Experience Replay</a></li>
 <li class="chapter" data-level="2.2.3" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#el-cerebro"><i class="fa fa-check"></i><b>2.2.3</b> El cerebro</a></li>
 <li class="chapter" data-level="2.2.4" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#el-algoritmo-de-deep-q-learning-al-completo"><i class="fa fa-check"></i><b>2.2.4</b> El algoritmo de Deep Q-Learning al completo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#implementation"><i class="fa fa-check"></i><b>2.3</b> Implementation</a><ul>
+<li class="chapter" data-level="2.3" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#implementation"><i class="fa fa-check"></i><b>2.3</b> Implementation</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#paso-1-construcción-del-entorno"><i class="fa fa-check"></i><b>2.3.1</b> Paso 1: Construcción del Entorno</a></li>
 <li class="chapter" data-level="2.3.2" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#paso-2-construcción-del-cerebro"><i class="fa fa-check"></i><b>2.3.2</b> Paso 2: Construcción del cerebro</a></li>
 <li class="chapter" data-level="2.3.3" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#paso-3-implementación-del-algoritmo-de-deep-reinforcement-learning"><i class="fa fa-check"></i><b>2.3.3</b> Paso 3: Implementación del algoritmo de Deep Reinforcement Learning</a></li>
@@ -163,8 +175,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#resumen-el-algoritmo-general-de-ia"><i class="fa fa-check"></i><b>2.4</b> Resumen: El Algoritmo General de IA</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html"><i class="fa fa-check"></i><b>3</b> Maximización de Beneficios Revenues</a><ul>
-<li class="chapter" data-level="3.1" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html#caso-práctico-maximización-de-beeficios-de-un-negocio-de-venta-online-en-línea"><i class="fa fa-check"></i><b>3.1</b> Caso Práctico: Maximización de beeficios de un negocio de venta online en línea</a><ul>
+<li class="chapter" data-level="3" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html"><i class="fa fa-check"></i><b>3</b> Maximización de Beneficios Revenues</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html#caso-práctico-maximización-de-beeficios-de-un-negocio-de-venta-online-en-línea"><i class="fa fa-check"></i><b>3.1</b> Caso Práctico: Maximización de beeficios de un negocio de venta online en línea</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html#problema-a-reesolver"><i class="fa fa-check"></i><b>3.1.1</b> Problema a reesolver</a></li>
 <li class="chapter" data-level="3.1.2" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html#definición-del-entorno"><i class="fa fa-check"></i><b>3.1.2</b> Definición del Entorno</a></li>
 </ul></li>
@@ -172,8 +186,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html#implementación-1"><i class="fa fa-check"></i><b>3.3</b> Implementación</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusión.html"><a href="conclusión.html"><i class="fa fa-check"></i>Conclusión</a></li>
-<li class="chapter" data-level="4" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html"><i class="fa fa-check"></i><b>4</b> Anexos adicionales</a><ul>
-<li class="chapter" data-level="4.1" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#anexo-1-redes-neuronales-artificiales"><i class="fa fa-check"></i><b>4.1</b> Anexo 1: Redes Neuronales Artificiales</a><ul>
+<li class="chapter" data-level="4" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html"><i class="fa fa-check"></i><b>4</b> Anexos adicionales</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#anexo-1-redes-neuronales-artificiales"><i class="fa fa-check"></i><b>4.1</b> Anexo 1: Redes Neuronales Artificiales</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#la-neurona"><i class="fa fa-check"></i><b>4.1.1</b> La Neurona</a></li>
 <li class="chapter" data-level="4.1.2" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#la-función-de-activación"><i class="fa fa-check"></i><b>4.1.2</b> La Función de Activación</a></li>
 <li class="chapter" data-level="4.1.3" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#cómo-funcionan-las-redes-neuronales"><i class="fa fa-check"></i><b>4.1.3</b> ¿Cómo funcionan las Redes Neuronales?</a></li>
@@ -182,19 +198,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.6" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#gradiente-descendente"><i class="fa fa-check"></i><b>4.1.6</b> Gradiente Descendente</a></li>
 <li class="chapter" data-level="4.1.7" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#optimizadores"><i class="fa fa-check"></i><b>4.1.7</b> Optimizadores</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#anexo-2-tres-modelos-adicionales-de-ia"><i class="fa fa-check"></i><b>4.2</b> Anexo 2: Tres modelos adicionales de IA</a><ul>
+<li class="chapter" data-level="4.2" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#anexo-2-tres-modelos-adicionales-de-ia"><i class="fa fa-check"></i><b>4.2</b> Anexo 2: Tres modelos adicionales de IA</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#aprendizaje-convolucional-q-profundo"><i class="fa fa-check"></i><b>4.2.1</b> Aprendizaje convolucional Q-profundo</a></li>
 <li class="chapter" data-level="4.2.2" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#asynchronous-actor-critic-agents-a3c"><i class="fa fa-check"></i><b>4.2.2</b> Asynchronous Actor-Critic Agents (A3C)</a></li>
 <li class="chapter" data-level="4.2.3" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#búsqueda-aleatoria-aumentada"><i class="fa fa-check"></i><b>4.2.3</b> Búsqueda aleatoria aumentada</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#anexo-3-preguntas-y-respuestas"><i class="fa fa-check"></i><b>4.3</b> Anexo 3: Preguntas y Respuestas</a><ul>
+<li class="chapter" data-level="4.3" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#anexo-3-preguntas-y-respuestas"><i class="fa fa-check"></i><b>4.3</b> Anexo 3: Preguntas y Respuestas</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#pr-de-la-parte-1---optimización-de-procesos"><i class="fa fa-check"></i><b>4.3.1</b> P&amp;R de la Parte 1 - Optimización de Procesos</a></li>
 <li class="chapter" data-level="4.3.2" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#pr-de-la-parte-2---minimización-de-costes"><i class="fa fa-check"></i><b>4.3.2</b> P&amp;R de la Parte 2 - Minimización de Costes</a></li>
 <li class="chapter" data-level="4.3.3" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#pr-de-la-parte-3---maximización-de-beneficios"><i class="fa fa-check"></i><b>4.3.3</b> P&amp;R de la Parte 3 - Maximización de Beneficios</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7" target="blank">Curso en Udemy</a></li>
+<li><a href="https://cursos.frogamesformacion.com/courses/take/ia-aplicada-negocios?coupon=frogames30" target="blank">Curso en Frogames</a></li>
 
 </ul>
 
@@ -213,10 +231,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="anexos-adicionales" class="section level1">
-<h1><span class="header-section-number">Parte 4</span> Anexos adicionales</h1>
-<div id="anexo-1-redes-neuronales-artificiales" class="section level2">
-<h2><span class="header-section-number">4.1</span> Anexo 1: Redes Neuronales Artificiales</h2>
+<div id="anexos-adicionales" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Parte 4</span> Anexos adicionales<a href="anexos-adicionales.html#anexos-adicionales" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="anexo-1-redes-neuronales-artificiales" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Anexo 1: Redes Neuronales Artificiales<a href="anexos-adicionales.html#anexo-1-redes-neuronales-artificiales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En este apartado Anexo, encontrarás toda la teoría necesaria de Redes Neuronales Artificiales, que son el apartado principal del modelo de Deep Q-Learning model que hemos creado en la Parte 2 - Minimización de Costes. Este es el plan de ataque que seguiremos para estudiar acerca de las Redes Neuronales Artificiales:</p>
 <ul>
 <li>La Neurona</li>
@@ -227,8 +245,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Gradiente Descendente</li>
 <li>Gradiente Descendente por bloques y Gradiente Descendente Estocástico</li>
 </ul>
-<div id="la-neurona" class="section level3">
-<h3><span class="header-section-number">4.1.1</span> La Neurona</h3>
+<div id="la-neurona" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> La Neurona<a href="anexos-adicionales.html#la-neurona" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La neurona es el bloque de construcción básico de las redes neuronales artificiales. En las siguientes imágenes se muestran neuronas reales de la vida real que se han colocado sobre un vidrio, coloreadas un poco con tinte y observadas con un microscopio:</p>
 <p><img src="Images/ANN_1.png" /></p>
 <p>Como podemos ver, tienen la estructura de un cuerpo con muchas ramas diferentes que salen de ellos. Pero la pregunta es: ¿cómo podemos recrear esta estructura en una máquina? De hecho, realmente necesitamos recrearlo en un ordenador, ya que el objetivo de Deep Learning es imitar cómo funciona el cerebro humano, con la esperanza de que al hacerlo creemos algo increíble: una infraestructura poderosa para que las máquinas puedan aprender.</p>
@@ -247,8 +265,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Y ahora para terminar con la neurona, agreguemos los últimos elementos que faltan en esta representación, pero también los más importantes: los pesos. A cada sinapsis (flecha azul) se le atribuirá un peso. Cuanto mayor sea el peso, más fuerte será la señal a través de la sinapsis. Y lo que es fundamental entender es que, estos pesos, serán lo que la máquina actualizará y actualizará con el tiempo para mejorar las predicciones. Veámoslo en el gráfico anterior, para asegurarnos de que los visualizamos correctamente antes de seguir:</p>
 <p><img src="Images/ANN_8.png" /></p>
 </div>
-<div id="la-función-de-activación" class="section level3">
-<h3><span class="header-section-number">4.1.2</span> La Función de Activación</h3>
+<div id="la-función-de-activación" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> La Función de Activación<a href="anexos-adicionales.html#la-función-de-activación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La función de activación es la función <span class="math inline">\(\phi\)</span> que opera dentro de la neurona, que tomará como entradas la combinación lineal de los valores de entrada multiplicados por sus pesos asociados, y sumados entre si y que devolverá el valor de salida:</p>
 <p><img src="Images/ANN_9.png" /></p>
 <p>calculado como</p>
@@ -262,8 +280,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>La función de activación de la tangente hiperbólica</li>
 </ul>
 <p>Vamos a verlas todas una por una:</p>
-<div id="la-función-de-activación-de-umbral" class="section level4">
-<h4><span class="header-section-number">4.1.2.1</span> La función de activación de umbral</h4>
+<div id="la-función-de-activación-de-umbral" class="section level4 hasAnchor" number="4.1.2.1">
+<h4><span class="header-section-number">4.1.2.1</span> La función de activación de umbral<a href="anexos-adicionales.html#la-función-de-activación-de-umbral" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>La función de activación de umbral, también llamada función escalón, se define simplemente como:</p>
 <p><span class="math display">\[
 \phi(x) =
@@ -277,8 +295,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Esto significa que la señal que pasa por la neurona será discontinua, y solo se activará si:</p>
 <p><span class="math display">\[\sum_{i=1}^m w_i x_i \ge 0\]</span></p>
 </div>
-<div id="la-función-de-activación-sigmoidea" class="section level4">
-<h4><span class="header-section-number">4.1.2.2</span> La función de activación sigmoidea</h4>
+<div id="la-función-de-activación-sigmoidea" class="section level4 hasAnchor" number="4.1.2.2">
+<h4><span class="header-section-number">4.1.2.2</span> La función de activación sigmoidea<a href="anexos-adicionales.html#la-función-de-activación-sigmoidea" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Ahora echemos un vistazo a la siguiente función de activación: la función de activación sigmoidea.</p>
 <p>La función de activación sigmoidea es la más efectiva y ampliamente utilizada en Redes Neuronales Artificiales, pero principalmente dentro de la última capa oculta (si se trata de una red neuronal profunda compuesta de varias capas ocultas) que pasa la señal hacia la capa de salida.</p>
 <p>La función de activación sigmoidea se define como:</p>
@@ -287,8 +305,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="Images/ANN_11.png" /></p>
 <p>Esto significa que la señal que pasa por la neurona será continua y siempre se activará. Y cuanto mayor sea <span class="math inline">\(\sum_{i = 1}^m w_i x_i\)</span>, más fuerte será esa señal.</p>
 </div>
-<div id="la-función-de-activación-rectificadora" class="section level4">
-<h4><span class="header-section-number">4.1.2.3</span> La función de activación rectificadora</h4>
+<div id="la-función-de-activación-rectificadora" class="section level4 hasAnchor" number="4.1.2.3">
+<h4><span class="header-section-number">4.1.2.3</span> La función de activación rectificadora<a href="anexos-adicionales.html#la-función-de-activación-rectificadora" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Ahora echemos un vistazo a otra función de activación ampliamente utilizada: la función de activación rectificadora.</p>
 <p>La solemos encontrar en la mayoría de las redes neuronales <strong>profundas</strong>, pero sobretodo dentro de las capas ocultas, a diferencia de la función sigmoidea que se usa más bien para la capa de salida.</p>
 <p>La función de activación rectificadora se define simplemente como:</p>
@@ -299,8 +317,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[\sum_{i=1}^m w_i x_i \ge 0\]</span></p>
 <p>Y como mayor sea <span class="math inline">\(\sum_{i=1}^m w_i x_i\)</span> por encima de 0, más fuerte será la señal transmitida.</p>
 </div>
-<div id="la-función-de-activación-de-la-tangente-hiperbólica" class="section level4">
-<h4><span class="header-section-number">4.1.2.4</span> La función de activación de la tangente hiperbólica</h4>
+<div id="la-función-de-activación-de-la-tangente-hiperbólica" class="section level4 hasAnchor" number="4.1.2.4">
+<h4><span class="header-section-number">4.1.2.4</span> La función de activación de la tangente hiperbólica<a href="anexos-adicionales.html#la-función-de-activación-de-la-tangente-hiperbólica" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Ahora echemos un vistazo a la siguiente función de activación: la función de activación de la tangente hiperbólica.</p>
 <p>La función de activación de la tangente hiperbólica es la menos utilizada, aunque a veces puede ser una opción más relevante en algunas Redes Neuronales Artificiales, especialmente cuando las entradas están estandarizadas.</p>
 <p>La función de activación de la tangente hiperbólica se define por lo siguiente:</p>
@@ -322,8 +340,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Ahora pasemos a la siguiente sección para explicar cómo funcionan las redes neuronales.</p>
 </div>
 </div>
-<div id="cómo-funcionan-las-redes-neuronales" class="section level3">
-<h3><span class="header-section-number">4.1.3</span> ¿Cómo funcionan las Redes Neuronales?</h3>
+<div id="cómo-funcionan-las-redes-neuronales" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> ¿Cómo funcionan las Redes Neuronales?<a href="anexos-adicionales.html#cómo-funcionan-las-redes-neuronales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para explicar esto, consideremos el problema de predecir los precios inmobiliarios. Tenemos algunas variables independientes que vamos a utilizar para predecir el precio de casas y apartamentos. Para simplificar, y para poder representar todo en un gráfico, digamos que nuestras variables independientes (nuestros predictores) son las siguientes:</p>
 <ul>
 <li>Área (pies cuadrados)</li>
@@ -336,8 +354,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Representemos esto en el siguiente gráfico:</p>
 <p><img src="Images/ANN_17.png" /></p>
 </div>
-<div id="cómo-aprenden-las-redes-neuronales" class="section level3">
-<h3><span class="header-section-number">4.1.4</span> ¿Cómo aprenden las Redes Neuronales?</h3>
+<div id="cómo-aprenden-las-redes-neuronales" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> ¿Cómo aprenden las Redes Neuronales?<a href="anexos-adicionales.html#cómo-aprenden-las-redes-neuronales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En pocas palabras, las redes neuronales aprenden actualizando, durante muchas iteraciones llamadas <code>epochs</code>, los pesos de todas las entradas y neuronas ocultas (cuando tienen varias capas ocultas), hacia siempre el mismo objetivo: el de reducir el error de pérdida entre las predicciones y los valores reales.</p>
 <p>De hecho, para que las Redes Neurales aprendan, necesitamos los valores reales, que también se denominan objetivos. En nuestro ejemplo anterior sobre la fijación de precios inmobiliarios, los valores reales son los precios reales de las casas y apartamentos en ventas. Estos precios reales dependen de las variables independientes enumeradas anteriormente (área, número de habitaciones, distancia a la ciudad y edad), y la red neuronal aprenderá a hacer mejores predicciones de estos precios, ejecutando el siguiente proceso:</p>
 <ul>
@@ -356,17 +374,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Representemos las dos fases principales, Propagación hacia adelante y Propagación hacia atrás, de todo este proceso en los dos gráficos siguientes:</p>
 </div>
-<div id="propagación-hacia-adelante-and-propagación-hacia-atrás" class="section level3">
-<h3><span class="header-section-number">4.1.5</span> Propagación hacia adelante and propagación hacia atrás</h3>
+<div id="propagación-hacia-adelante-and-propagación-hacia-atrás" class="section level3 hasAnchor" number="4.1.5">
+<h3><span class="header-section-number">4.1.5</span> Propagación hacia adelante and propagación hacia atrás<a href="anexos-adicionales.html#propagación-hacia-adelante-and-propagación-hacia-atrás" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Fase 1: Propagación hacia adelante:</strong></p>
 <p><img src="Images/ANN_18.png" /></p>
 <p><strong>Fase 2: Propagación hacia atrás:</strong></p>
 <p><img src="Images/ANN_19.png" /></p>
 </div>
-<div id="gradiente-descendente" class="section level3">
-<h3><span class="header-section-number">4.1.6</span> Gradiente Descendente</h3>
-<div id="introducción-al-gradiente-descendente" class="section level4">
-<h4><span class="header-section-number">4.1.6.1</span> Introducción al Gradiente Descendente</h4>
+<div id="gradiente-descendente" class="section level3 hasAnchor" number="4.1.6">
+<h3><span class="header-section-number">4.1.6</span> Gradiente Descendente<a href="anexos-adicionales.html#gradiente-descendente" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="introducción-al-gradiente-descendente" class="section level4 hasAnchor" number="4.1.6.1">
+<h4><span class="header-section-number">4.1.6.1</span> Introducción al Gradiente Descendente<a href="anexos-adicionales.html#introducción-al-gradiente-descendente" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Cuando las personas hablan de Machine Learning o Deep Learning, hablan principalmente de los algoritmos que se utilizan. Pero las preguntas reales son, ¿por qué se considera que esos algoritmos son algoritmos de Aprendizaje automático o Aprendizaje profundo y otros no? ¿Cuál es la técnica subyacente que los diferencia?</p>
 <p>La respuesta a la primera pregunta es bastante intuitiva: se considera que esos algoritmos aprenden sus parámetros por sí mismos. Esta propiedad no era muy común antes y la mayoría de los algoritmos fueron ajustados a mano por ingenieros para lograr una especificación / meta requerida.</p>
 <p>Pero entonces apareció la idea de incorporar el Gradiente Descendente a los mismos y la mayoría de los algoritmos que no funcionaban antes, de repente tuvieron sentido y comenzaron a optimizarse.</p>
@@ -399,8 +417,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Cada algoritmo que utiliza el Gradiente Descendente como técnica de optimización tiene parámetros (pesos) que cambian durante el proceso de optimización. Cuando decimos que estamos buscando el mínimo de la función de pérdida, en realidad queremos decir que estamos buscando los valores de los pesos para los cuales la pérdida tiene el valor más bajo posible.</p>
 <p>En consecuencia, para responder a nuestra segunda pregunta desde el principio, el punto en común que tienen todos los algoritmos de Aprendizaje automático desde la regresión lineal a las redes neuronales más complicadas es, de hecho, el Gradiente Descendente.</p>
 </div>
-<div id="idea-del-gradiente-descendente" class="section level4">
-<h4><span class="header-section-number">4.1.6.2</span> Idea del Gradiente Descendente</h4>
+<div id="idea-del-gradiente-descendente" class="section level4 hasAnchor" number="4.1.6.2">
+<h4><span class="header-section-number">4.1.6.2</span> Idea del Gradiente Descendente<a href="anexos-adicionales.html#idea-del-gradiente-descendente" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Como hemos visto, el Gradiente Descendente es una técnica de optimización que nos ayuda a encontrar el mínimo de una función de costo. Ahora visualicémoslo de la manera más intuitiva, como la siguiente bola en un bol (junro con un poco de espray matemático encima):</p>
 <p><img src="Images/ANN_20.png" /></p>
 <p>Imagina que esta es una sección transversal de un bol, dentro del cual dejamos caer una pequeña bola roja y dejamos que llegue al fondo del mismo Después de un tiempo dejará de rodar, ya que ha encontrado el punto ideal para ello, en el fondo del tazón.</p>
@@ -428,8 +446,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Stochastic Gradiente Descendente</li>
 </ul>
 </div>
-<div id="gradiente-descendente-en-bloques" class="section level4">
-<h4><span class="header-section-number">4.1.6.3</span> Gradiente Descendente en bloques</h4>
+<div id="gradiente-descendente-en-bloques" class="section level4 hasAnchor" number="4.1.6.3">
+<h4><span class="header-section-number">4.1.6.3</span> Gradiente Descendente en bloques<a href="anexos-adicionales.html#gradiente-descendente-en-bloques" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>“Gradiente Descendente”, “Gradiente Descendente en Bloques”, “Gradiente Descendente Mini Batch”, “Gradiente Descendente Estocástico”.. Hay tantos términos y alguien que justo comienza a meterse en este mundillo puede encontrarlo muy confuso</p>
 <p>La principal diferencia en todas estas versiones de Gradiente Descendente es la forma en que subministramos nuestros datos a un modelo y la frecuencia con la que actualizamos nuestros parámetros (pesos) para mover nuestra pequeña bola roja. Comencemos explicando el Gradiente Descendente en bloques.</p>
 <p>Gradiente descendente en bloques es exactamente lo que hicimos en la Parte 2: Minimización de costes, donde recordemos que teníamos un lote de entradas que alimentaban la red neuronal, propagándolas hacia adelante para obtener al final un lote de predicciones, que a su vez se comparan con un lote de objetivos. El error de pérdida global entre las predicciones y los objetivos de los dos lotes se calcula como la suma de los errores de pérdida entre cada predicción y su objetivo asociado. Esa pérdida global se propaga nuevamente a la red neuronal, donde se realiza Gradiente Descendente o Gradiente Descendente estocástico para actualizar todos los pesos, de acuerdo con cómo fueron de responsables de ese error de pérdida global.</p>
@@ -443,8 +461,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Sin embargo, en la mayoría de los problemas, incluidos los problemas comerciales, la función de coste no será convexa (como en este mismo ejemplo gráfico en 3D a continuación), por lo que no permite que Gradiente Descendente funcione correctamente. Aquí es donde entra en juego el Gradiente Descendente Estocástico.</p>
 <p><img src="Images/ANN_26.png" /></p>
 </div>
-<div id="gradiente-descendente-estocástico" class="section level4">
-<h4><span class="header-section-number">4.1.6.4</span> Gradiente Descendente Estocástico</h4>
+<div id="gradiente-descendente-estocástico" class="section level4 hasAnchor" number="4.1.6.4">
+<h4><span class="header-section-number">4.1.6.4</span> Gradiente Descendente Estocástico<a href="anexos-adicionales.html#gradiente-descendente-estocástico" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Gradiente Descendente Estocástico (SGD) viene a salvarnos de la catástrofe anterior. De hecho, proporciona mejores resultados en general, evitando que el algoritmo se atasque en un mínimo local. Sin embargo, como su nombre lo indica, es estocástico, o en otras palabras, aleatorio. Debido a esta propiedad, no importa cuántas veces ejecutemos el algoritmo, el proceso siempre será ligeramente diferente. Y eso, independientemente de la inicialización.</p>
 <p>El Gradiente Descendente Estocástico no se ejecuta sobre todo el conjunto de datos a la vez, sino que se introducen las entradas una a una. Por lo tanto, el proceso es así:</p>
 <ol style="list-style-type: decimal">
@@ -467,18 +485,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Para finalizar esta sección, repasemos la diferencia entre gradiente descendente en bloque y gradiente descendente estocástico, con el siguiente gráfico:</p>
 <p><img src="Images/ANN_31.png" /></p>
 </div>
-<div id="gradiente-descendente-mini-batch" class="section level4">
-<h4><span class="header-section-number">4.1.6.5</span> Gradiente Descendente Mini-Batch</h4>
+<div id="gradiente-descendente-mini-batch" class="section level4 hasAnchor" number="4.1.6.5">
+<h4><span class="header-section-number">4.1.6.5</span> Gradiente Descendente Mini-Batch<a href="anexos-adicionales.html#gradiente-descendente-mini-batch" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>El Gradiente Descendente Mini-Batchutiliza lo mejor de ambos mundos para combinar gradiente descendente en bloques con el dradiente descendente estocástico. Esto se hace alimentando la red neuronal con lotes de datos en lugar de alimentar filas de observaciones individuales una por una o todo el conjunto de datos a la vez.</p>
 <p>Este enfoque es más rápido que el Gradiente Descendente Estocástico clásico y evita que se atasque en un mínimo local. Esto también ayuda cuando las personas no tienen suficientes recursos informáticos para cargar todo el conjunto de datos en la memoria, o suficiente potencia de procesamiento para obtener el beneficio completo del Gradiente Descendente Estocástico.</p>
 </div>
 </div>
-<div id="optimizadores" class="section level3">
-<h3><span class="header-section-number">4.1.7</span> Optimizadores</h3>
+<div id="optimizadores" class="section level3 hasAnchor" number="4.1.7">
+<h3><span class="header-section-number">4.1.7</span> Optimizadores<a href="anexos-adicionales.html#optimizadores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El optimizador es exactamente la herramienta que actualizará los pesos de la red neuronal a través del gradiente estocástico descendente. Hasta este punto, solo hemos mencionado el optimizador Adam (consulta la Parte 2: Minimización de costos), que es el optimizador más común utilizado para los modelos de Aprendizaje profundo y Aprendizaje por refuerzo profundo. Sin embargo, hay muchos más optimizadores que tienen sus propios beneficios y aplicaciones.</p>
 <p>Veamos los optimizadores de gradiente descendente más famosos y ampliamente utilizados.</p>
-<div id="optimizador-momentum" class="section level4">
-<h4><span class="header-section-number">4.1.7.1</span> Optimizador Momentum</h4>
+<div id="optimizador-momentum" class="section level4 hasAnchor" number="4.1.7.1">
+<h4><span class="header-section-number">4.1.7.1</span> Optimizador Momentum<a href="anexos-adicionales.html#optimizador-momentum" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>El Gradiente Descendente Estocástico clásico tiene oscilaciones muy grandes, lo que deja margen de mejora. El optimizador Momentum (también llamado optimizador de impulso) maneja estas grandes oscilaciones agregando fracciones de las direcciones calculadas en el paso anterior al paso actual. Esto amplifica la velocidad de la actualización de dirección actual. En el gráfico a continuación podemos ver y comparar el SGD clásico y el SGD Momentum en acción:</p>
 <p><img src="Images/ANN_32.png" /></p>
 <p>Los beneficios de optimizador Momentum son los siguientes:</p>
@@ -492,13 +510,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Menos frecuente en las librerías de Deep Learning, lo que requiere el conocimiento adicional de programación para su implementación.</li>
 </ul>
 </div>
-<div id="el-optimizador-de-gradiente-acelerado-de-nesterov" class="section level4">
-<h4><span class="header-section-number">4.1.7.2</span> El optimizador de gradiente acelerado de Nesterov</h4>
+<div id="el-optimizador-de-gradiente-acelerado-de-nesterov" class="section level4 hasAnchor" number="4.1.7.2">
+<h4><span class="header-section-number">4.1.7.2</span> El optimizador de gradiente acelerado de Nesterov<a href="anexos-adicionales.html#el-optimizador-de-gradiente-acelerado-de-nesterov" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Yuri Nesterov resolvió el problema de sobrepasar el mínimo global del optimizador Momentum invirtiendo el orden de cálculo en la fórmula de actualización:</p>
 <p><img src="Images/ANN_33.png" /></p>
 </div>
-<div id="el-optimizador-adagrad-gradientes-adaptativos" class="section level4">
-<h4><span class="header-section-number">4.1.7.3</span> El optimizador AdaGrad (gradientes adaptativos)</h4>
+<div id="el-optimizador-adagrad-gradientes-adaptativos" class="section level4 hasAnchor" number="4.1.7.3">
+<h4><span class="header-section-number">4.1.7.3</span> El optimizador AdaGrad (gradientes adaptativos)<a href="anexos-adicionales.html#el-optimizador-adagrad-gradientes-adaptativos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>La idea de adaptar nuestras actualizaciones de acuerdo con la pendiente de la función de error, proveniente del optimizador de Nesterov, se toma y aplica en el optimizador AdaGrad al tiempo que se optimiza también la tasa de aprendizaje.</p>
 <p>Por lo tanto, en el optimizador AdaGrad tenemos el mismo principio, no solo aplicado en gradientes sino también en la tasa de aprendizaje.</p>
 <p>Estos son los beneficios de este optimizador:</p>
@@ -512,12 +530,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Es menos frecuente en las librerías de Deep Learning, lo que requiere el conocimiento necesario para su implementación.</li>
 </ul>
 </div>
-<div id="el-optimizador-adadelta" class="section level4">
-<h4><span class="header-section-number">4.1.7.4</span> El optimizador AdaDelta</h4>
+<div id="el-optimizador-adadelta" class="section level4 hasAnchor" number="4.1.7.4">
+<h4><span class="header-section-number">4.1.7.4</span> El optimizador AdaDelta<a href="anexos-adicionales.html#el-optimizador-adadelta" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>El AdaDelta Optimizer se inventó para corregir ese problema de disminución de la tasa de aprendizaje del optimizador AdaGrad ( el primer inconveniente anterior). No es necesario dar más detalles, solo necesitamos presentar el optimizador AdaDelta y su particularidad para comprender la fortaleza del optimizador más utilizado y más eficaz: el optimizador Adam</p>
 </div>
-<div id="el-optimizador-adam-adaptive-moment-estimation" class="section level4">
-<h4><span class="header-section-number">4.1.7.5</span> El optimizador Adam (Adaptive Moment Estimation)</h4>
+<div id="el-optimizador-adam-adaptive-moment-estimation" class="section level4 hasAnchor" number="4.1.7.5">
+<h4><span class="header-section-number">4.1.7.5</span> El optimizador Adam (Adaptive Moment Estimation)<a href="anexos-adicionales.html#el-optimizador-adam-adaptive-moment-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>El optimizador Adam es una mejora enorme con respecto al AdaDelta. La idea detrás de esto es almacenar en una memoria los cambios de impulso, ya que calculamos la tasa de aprendizaje para cada parámetro por separado.</p>
 <p>Conviene recordar bien los beneficios del optimizador Adam, que deben tenerse en cuenta al construir una red neuronal.</p>
 <ul>
@@ -525,69 +543,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Viene implementado de serie en la mayoría de librerías de Deep Learning (Keras, TensorFlow, PyTorch). No lo echarás en falta.</li>
 </ul>
 <p>Por supuesto, este es el que usamos al construir el Cerebro Artificial de nuestra IA en la Parte 2 - Minimización de los costes. Veamos nuevamente el código que construye este cerebro artificial y notemos, en la última línea de código, la simplicidad de seleccionar el Adam Optimizer al crearlo:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></a>
-<a class="sourceLine" id="cb46-2" data-line-number="2"><span class="co"># Construcción del cerebro</span></a>
-<a class="sourceLine" id="cb46-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb46-4" data-line-number="4"><span class="co"># Importar las librerías</span></a>
-<a class="sourceLine" id="cb46-5" data-line-number="5"><span class="im">from</span> keras.layers <span class="im">import</span> Input, Dense</a>
-<a class="sourceLine" id="cb46-6" data-line-number="6"><span class="im">from</span> keras.models <span class="im">import</span> Model</a>
-<a class="sourceLine" id="cb46-7" data-line-number="7"><span class="im">from</span> keras.optimizers <span class="im">import</span> Adam</a>
-<a class="sourceLine" id="cb46-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb46-9" data-line-number="9"><span class="co"># CONSTRUCCIÓN DEL CEREBRO</span></a>
-<a class="sourceLine" id="cb46-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb46-11" data-line-number="11"><span class="kw">class</span> Brain(<span class="bu">object</span>):</a>
-<a class="sourceLine" id="cb46-12" data-line-number="12">    </a>
-<a class="sourceLine" id="cb46-13" data-line-number="13">    <span class="co"># CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA EN EL MÉTODO DE INICIALIZACIÓN</span></a>
-<a class="sourceLine" id="cb46-14" data-line-number="14">    </a>
-<a class="sourceLine" id="cb46-15" data-line-number="15">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate <span class="op">=</span> <span class="fl">0.001</span>, number_actions <span class="op">=</span> <span class="dv">5</span>):</a>
-<a class="sourceLine" id="cb46-16" data-line-number="16">        <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate</a>
-<a class="sourceLine" id="cb46-17" data-line-number="17">        </a>
-<a class="sourceLine" id="cb46-18" data-line-number="18">        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA DE LOS ESTADOS DE ETRADA</span></a>
-<a class="sourceLine" id="cb46-19" data-line-number="19">        states <span class="op">=</span> Input(shape <span class="op">=</span> (<span class="dv">3</span>,))</a>
-<a class="sourceLine" id="cb46-20" data-line-number="20">        </a>
-<a class="sourceLine" id="cb46-21" data-line-number="21">        <span class="co"># CONSTRUCCIÓN DE LAS DOS CAPAS OCULTAS TOTALMENTE CONECTADAS</span></a>
-<a class="sourceLine" id="cb46-22" data-line-number="22">        x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</a>
-<a class="sourceLine" id="cb46-23" data-line-number="23">        y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</a>
-<a class="sourceLine" id="cb46-24" data-line-number="24">        </a>
-<a class="sourceLine" id="cb46-25" data-line-number="25">        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA A LA ÚLTIMA CAPA OCULTA</span></a>
-<a class="sourceLine" id="cb46-26" data-line-number="26">        q_values <span class="op">=</span> Dense(units <span class="op">=</span> number_actions, activation <span class="op">=</span> <span class="st">&#39;softmax&#39;</span>)(y)</a>
-<a class="sourceLine" id="cb46-27" data-line-number="27">        </a>
-<a class="sourceLine" id="cb46-28" data-line-number="28">        <span class="co"># ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS</span></a>
-<a class="sourceLine" id="cb46-29" data-line-number="29">        <span class="va">self</span>.model <span class="op">=</span> Model(inputs <span class="op">=</span> states, outputs <span class="op">=</span> q_values)</a>
-<a class="sourceLine" id="cb46-30" data-line-number="30">        </a>
-<a class="sourceLine" id="cb46-31" data-line-number="31">        <span class="co"># COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO MEDIO Y EL OPTIMIZADOR ELEGIDO</span></a>
-<a class="sourceLine" id="cb46-32" data-line-number="32">        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> learning_rate))</a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="anexos-adicionales.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></span>
+<span id="cb46-2"><a href="anexos-adicionales.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Construcción del cerebro</span></span>
+<span id="cb46-3"><a href="anexos-adicionales.html#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="anexos-adicionales.html#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar las librerías</span></span>
+<span id="cb46-5"><a href="anexos-adicionales.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.layers <span class="im">import</span> Input, Dense</span>
+<span id="cb46-6"><a href="anexos-adicionales.html#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.models <span class="im">import</span> Model</span>
+<span id="cb46-7"><a href="anexos-adicionales.html#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.optimizers <span class="im">import</span> Adam</span>
+<span id="cb46-8"><a href="anexos-adicionales.html#cb46-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-9"><a href="anexos-adicionales.html#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="co"># CONSTRUCCIÓN DEL CEREBRO</span></span>
+<span id="cb46-10"><a href="anexos-adicionales.html#cb46-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-11"><a href="anexos-adicionales.html#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Brain(<span class="bu">object</span>):</span>
+<span id="cb46-12"><a href="anexos-adicionales.html#cb46-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb46-13"><a href="anexos-adicionales.html#cb46-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA EN EL MÉTODO DE INICIALIZACIÓN</span></span>
+<span id="cb46-14"><a href="anexos-adicionales.html#cb46-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb46-15"><a href="anexos-adicionales.html#cb46-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate <span class="op">=</span> <span class="fl">0.001</span>, number_actions <span class="op">=</span> <span class="dv">5</span>):</span>
+<span id="cb46-16"><a href="anexos-adicionales.html#cb46-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate</span>
+<span id="cb46-17"><a href="anexos-adicionales.html#cb46-17" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb46-18"><a href="anexos-adicionales.html#cb46-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA DE LOS ESTADOS DE ETRADA</span></span>
+<span id="cb46-19"><a href="anexos-adicionales.html#cb46-19" aria-hidden="true" tabindex="-1"></a>        states <span class="op">=</span> Input(shape <span class="op">=</span> (<span class="dv">3</span>,))</span>
+<span id="cb46-20"><a href="anexos-adicionales.html#cb46-20" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb46-21"><a href="anexos-adicionales.html#cb46-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LAS DOS CAPAS OCULTAS TOTALMENTE CONECTADAS</span></span>
+<span id="cb46-22"><a href="anexos-adicionales.html#cb46-22" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</span>
+<span id="cb46-23"><a href="anexos-adicionales.html#cb46-23" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</span>
+<span id="cb46-24"><a href="anexos-adicionales.html#cb46-24" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb46-25"><a href="anexos-adicionales.html#cb46-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA A LA ÚLTIMA CAPA OCULTA</span></span>
+<span id="cb46-26"><a href="anexos-adicionales.html#cb46-26" aria-hidden="true" tabindex="-1"></a>        q_values <span class="op">=</span> Dense(units <span class="op">=</span> number_actions, activation <span class="op">=</span> <span class="st">&#39;softmax&#39;</span>)(y)</span>
+<span id="cb46-27"><a href="anexos-adicionales.html#cb46-27" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb46-28"><a href="anexos-adicionales.html#cb46-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS</span></span>
+<span id="cb46-29"><a href="anexos-adicionales.html#cb46-29" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> Model(inputs <span class="op">=</span> states, outputs <span class="op">=</span> q_values)</span>
+<span id="cb46-30"><a href="anexos-adicionales.html#cb46-30" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb46-31"><a href="anexos-adicionales.html#cb46-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO MEDIO Y EL OPTIMIZADOR ELEGIDO</span></span>
+<span id="cb46-32"><a href="anexos-adicionales.html#cb46-32" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> learning_rate))</span></code></pre></div>
 </div>
 </div>
 </div>
-<div id="anexo-2-tres-modelos-adicionales-de-ia" class="section level2">
-<h2><span class="header-section-number">4.2</span> Anexo 2: Tres modelos adicionales de IA</h2>
+<div id="anexo-2-tres-modelos-adicionales-de-ia" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Anexo 2: Tres modelos adicionales de IA<a href="anexos-adicionales.html#anexo-2-tres-modelos-adicionales-de-ia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Como bonificación, en esta sección proporcionamos tres modelos adicionales de IA, más cercanos al estado del arte. Sin embargo, estos modelos de IA no están necesariamente adaptados para resolver problemas comerciales, sino más bien para resolver tareas específicas como entrenar a un robot virtual para caminar. Vamos a estudiar tres modelos poderosos, incluidos dos en la rama de Aprendizaje por refuerzo profundo de IA, y uno en la rama de políticas de gradiente (Policy Gradient):</p>
 <ul>
 <li>Aprendizaje convolucional Q-profundo (Deep Reinforcement Learning)</li>
 <li>A3C (Deep Reinforcement Learning)</li>
 <li>Búsqueda aleatoria aumentada (Policy Gradient)</li>
 </ul>
-<div id="aprendizaje-convolucional-q-profundo" class="section level3">
-<h3><span class="header-section-number">4.2.1</span> Aprendizaje convolucional Q-profundo</h3>
+<div id="aprendizaje-convolucional-q-profundo" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Aprendizaje convolucional Q-profundo<a href="anexos-adicionales.html#aprendizaje-convolucional-q-profundo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En la sección anterior, nuestras entradas eran valores codificados por vectores que definían los estados del entorno. Pero dado que un vector codificado no conserva la estructura espacial de una imagen, esta no es la mejor forma de describir un estado. La estructura espacial es realmente importante porque nos da más información para predecir el próximo estado, y predecir el siguiente estado es, por supuesto, esencial para que nuestra IA sepa cuál es el próximo movimiento correcto. Por lo tanto, debemos preservar la estructura espacial y, para hacerlo, nuestras entradas deben ser imágenes en 3D (2D para la matriz de píxeles más una dimensión adicional para los colores). En ese caso, las entradas son simplemente las imágenes de la pantalla en sí, exactamente como lo que ve un humano cuando ve. Siguiendo esta analogía, la IA actúa como un humano: observa las imágenes de entrada de la pantalla al jugar, las imágenes de entrada entran en una red neuronal convolucional (el cerebro para un humano) que detectará el estado en cada imagen. Sin embargo, esta red neuronal convolucional no contiene capas de agrupación, porque perderían la ubicación de los objetos dentro de la imagen y, por supuesto, la IA debe realizar un seguimiento de los objetos. Por lo tanto, solo conservamos las capas convolucionales, y luego al aplanarlas en un vector unidimensional, obtenemos la entrada de nuestra red de Deep Q-Learning anterior. Entonces se está ejecutando el mismo proceso.</p>
 <p>Por lo tanto, en resumen, Deep Convolutional Q-Learning es lo mismo que Deep Q-Learning, con la única diferencia de que las entradas ahora son imágenes, y se agrega una red neuronal convolucional al comienzo de la red Deep Q-Learning totalmente conectada a detectar los estados (o simplemente los objetos) de las imágenes.</p>
 <p><img src="Images/DCQL.png" /></p>
 </div>
-<div id="asynchronous-actor-critic-agents-a3c" class="section level3">
-<h3><span class="header-section-number">4.2.2</span> Asynchronous Actor-Critic Agents (A3C)</h3>
-<div id="idea-del-a3c" class="section level4">
-<h4><span class="header-section-number">4.2.2.1</span> Idea del A3C</h4>
+<div id="asynchronous-actor-critic-agents-a3c" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Asynchronous Actor-Critic Agents (A3C)<a href="anexos-adicionales.html#asynchronous-actor-critic-agents-a3c" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="idea-del-a3c" class="section level4 hasAnchor" number="4.2.2.1">
+<h4><span class="header-section-number">4.2.2.1</span> Idea del A3C<a href="anexos-adicionales.html#idea-del-a3c" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Hasta ahora, la acción que se ejecuta en cada momento ha sido la salida de una red neuronal, como si solo un agente estuviera decidiendo la estrategia para jugar el juego. Este ya no será el caso con A3C. Esta vez, vamos a tener varios agentes, cada uno interactuando con su propia copia del entorno. Digamos que hay <span class="math inline">\(n\)</span> agentes <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>,…, <span class="math inline">\(A_n\)</span>.</p>
 <p>Cada agente comparte dos redes: el actor y el crítico. El crítico evalúa los estados actuales, mientras que el actor evalúa los posibles valores en el estado actual. El actor está acostumbrado a tomar decisiones. En cada época del entrenamiento para el agente, selecciona la última versión de las redes compartidas y usa al actor durante <span class="math inline">\(n\)</span> pasos para tomar una decisión. Sobre los <span class="math inline">\(n\)</span> pasos, recopila todos los nuevos estados observados, los valores de estos nuevos estados, las recompensas, etc. Después de los <span class="math inline">\(n\)</span> pasos, el agente utiliza las observaciones recopiladas para actualizar los modelos compartidos. Los tiempos de época y, por lo tanto, los tiempos de actualizaciones de la red compartida por el agente no son síncronos, de ahí el nombre.</p>
 <p>De esa manera, si un agente desafortunado comienza a quedar atrapado en una política subóptima pero atractiva, alcanzará ese estado, porque otros agentes también actualizaron la política compartida antes de que el agente se atasque, y continuará una exploración efectiva.</p>
 <p>Para explicar las reglas de actualización del actor y el crítico, veamos las redes como funciones que dependen de los vectores de los parámetros <span class="math inline">\(\theta\)</span> (para el actor) y <span class="math inline">\(\theta_v\)</span> (para el crítico).</p>
 </div>
-<div id="el-proceso-al-completo-del-a3c" class="section level4">
-<h4><span class="header-section-number">4.2.2.2</span> El proceso al completo del A3C</h4>
+<div id="el-proceso-al-completo-del-a3c" class="section level4 hasAnchor" number="4.2.2.2">
+<h4><span class="header-section-number">4.2.2.2</span> El proceso al completo del A3C<a href="anexos-adicionales.html#el-proceso-al-completo-del-a3c" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>El algoritmo oficial A3C es el del paper de Google DeepMind, <a href="https://arxiv.org/pdf/1602.01783.pdf">Métodos asíncronos para el aprendizaje por refuerzo profundo</a>. En este artículo se encuentra precisamente dicho algoritmo S3:</p>
 <div class="figure">
-<img src="Images/S3.png" alt="A3C algorithm (https://arxiv.org/pdf/1602.01783.pdf)" />
+<img src="Images/S3.png" alt="" />
 <p class="caption">A3C algorithm (<a href="https://arxiv.org/pdf/1602.01783.pdf" class="uri">https://arxiv.org/pdf/1602.01783.pdf</a>)</p>
 </div>
 <p><img src="Images/A3C.png" /></p>
@@ -602,16 +620,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 </div>
-<div id="búsqueda-aleatoria-aumentada" class="section level3">
-<h3><span class="header-section-number">4.2.3</span> Búsqueda aleatoria aumentada</h3>
-<div id="problema-a-resolver-2" class="section level4">
-<h4><span class="header-section-number">4.2.3.1</span> Problema a resolver</h4>
+<div id="búsqueda-aleatoria-aumentada" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Búsqueda aleatoria aumentada<a href="anexos-adicionales.html#búsqueda-aleatoria-aumentada" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="problema-a-resolver-2" class="section level4 hasAnchor" number="4.2.3.1">
+<h4><span class="header-section-number">4.2.3.1</span> Problema a resolver<a href="anexos-adicionales.html#problema-a-resolver-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Queremos construir y entrenar una IA que camina o corre por un campo. El campo es un terreno plano que se ve así:</p>
 <p><img src="Images/Half_Cheetah.png" /></p>
 <p>En este mismo campo puedes ver un <em>Half-Cheetah</em>. Este será uno de los agentes que entrenaremos para caminar en este campo. Tanto el campo como el agente forman lo que llamamos un entorno, que pertenece a <code>PyBullet</code>, la interfaz oficial de Python para Bullet Physics SDK especializada en Simulación de Robótica y Aprendizaje `pr refuerzo, construida y desarrollada por Erwin Coumans. Para obtener más información, puedes leer en <a href="https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit">este documento</a> o también puede consultar su <a href="https://github.com/bulletphysics/bullet3">página de GitHub</a>.</p>
 </div>
-<div id="solución-de-ia-2" class="section level4">
-<h4><span class="header-section-number">4.2.3.2</span> Solución de IA</h4>
+<div id="solución-de-ia-2" class="section level4 hasAnchor" number="4.2.3.2">
+<h4><span class="header-section-number">4.2.3.2</span> Solución de IA<a href="anexos-adicionales.html#solución-de-ia-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>La solución a nuestro problema es un modelo de IA muy reciente llamado <strong>ARS</strong>, o <strong>Búsqueda aleatoria aumentada</strong>. El documento de investigación relacionado fue publicado por Horia Mania, Aurelia Guy y Benjamin Recht el 20 de marzo de 2018. Puede leer aquí el <a href="https://arxiv.org/pdf/1803.07055.pdf">documento de investigación completo</a>.</p>
 <p>ARS se basa en una rama específica de Inteligencia Artificial llamada Estrategias Evolutivas. La diferencia es que en estrategias evolutivas se usan redes neuronales profundas paralelas de varias capas, mientras que ARS usa una política lineal simple, que es un Perceptron (una red neuronal superficial de una capa compuesta de varias neuronas). ARS también es ligeramente similar a <strong>PPO</strong> - <strong>Optimización de política proximal</strong>, en el sentido de que ARS tiene como objetivo optimizar una política (una función de los estados que devuelven las acciones para ejecutar) que realiza las mejores acciones que permiten la IA caminar. Sin embargo, la técnica es diferente. Si tiene curiosidad sobre <strong>PPO</strong>, puedes consultar el <a href="https://arxiv.org/pdf/1707.06347.pdf">trabajo de investigación</a>.</p>
 <p>Ahora profundicemos en el ARS.</p>
@@ -751,10 +769,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div id="anexo-3-preguntas-y-respuestas" class="section level2">
-<h2><span class="header-section-number">4.3</span> Anexo 3: Preguntas y Respuestas</h2>
-<div id="pr-de-la-parte-1---optimización-de-procesos" class="section level3">
-<h3><span class="header-section-number">4.3.1</span> P&amp;R de la Parte 1 - Optimización de Procesos</h3>
+<div id="anexo-3-preguntas-y-respuestas" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Anexo 3: Preguntas y Respuestas<a href="anexos-adicionales.html#anexo-3-preguntas-y-respuestas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="pr-de-la-parte-1---optimización-de-procesos" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> P&amp;R de la Parte 1 - Optimización de Procesos<a href="anexos-adicionales.html#pr-de-la-parte-1---optimización-de-procesos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>¿Qué son el Plan y la Política?</strong></p>
 <p>En pocas palabras, el plan es el proceso de crear el entorno de los estados de entrada, y la política es la función que toma los estados de entrada definidos por el plan como entradas y devuelve las acciones a ejecutar como salidas. Así, en el estudio de caso, todo el proceso que hacemos de definir el entorno de almacén es nuestro plan y la política es nuestra IA. Echa un vistazo a los siguientes enlaces, ya que pueden ayudarte a obtener un contexto adicional:</p>
 <ul>
@@ -765,8 +783,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Está determinado por el desarrollador de IA a través de la experimentación. Primero se intenta con 1 (sin descuento), luego se disminuye un poco y se observa si obtienen mejores resultados. Y al repetir esto se encuentra un valor óptimo.</p>
 <p>Aquí se agregarán más preguntas y sus respuestas, tan pronto como se hagan preguntas relevantes dentro del curso.</p>
 </div>
-<div id="pr-de-la-parte-2---minimización-de-costes" class="section level3">
-<h3><span class="header-section-number">4.3.2</span> P&amp;R de la Parte 2 - Minimización de Costes</h3>
+<div id="pr-de-la-parte-2---minimización-de-costes" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> P&amp;R de la Parte 2 - Minimización de Costes<a href="anexos-adicionales.html#pr-de-la-parte-2---minimización-de-costes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>En Deep Reinforcement Learning, ¿cuándo usar Argmax vs Softmax?</strong></p>
 <p>Utilizamos Argmax para problemas no demasiado complejos (como problemas de negocios) y Softmax para problemas complejos como la IA de un videojuego o hacer que un robot camine. De hecho, para los problemas complejos se suele necesitar hacer un poco de exploración vs explotación, y eso es exactamente lo que Softmax nos permite hacer. Sin embargo, los problemas empresariales no son demasiado complejos, por lo que no es necesario explorar mucho y, por lo tanto, un método Argmax suele ser suficiente.</p>
 <p><strong>¿Hay alguna razón específica para elegir dos capas con 64 y 32 neuronas para la arquitectura del cerebro? ¿Deberíamos prestar atención al sobreajuste?</strong></p>
@@ -777,8 +795,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Aquí se agregarán más preguntas y sus respuestas, tan pronto como se hagan preguntas relevantes dentro del curso.</p>
 </div>
-<div id="pr-de-la-parte-3---maximización-de-beneficios" class="section level3">
-<h3><span class="header-section-number">4.3.3</span> P&amp;R de la Parte 3 - Maximización de Beneficios</h3>
+<div id="pr-de-la-parte-3---maximización-de-beneficios" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> P&amp;R de la Parte 3 - Maximización de Beneficios<a href="anexos-adicionales.html#pr-de-la-parte-3---maximización-de-beneficios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>¿Podríamos ver con mayor detalle qué es una distribución? ¿Qué hay en el eje <span class="math inline">\(x\)</span> y el eje <span class="math inline">\(y\)</span>?</strong></p>
 <p>Supongamos que tenemos un experimento para seleccionar la estrategia que se mostrará a los clientes un total de 100 veces (es decir, con 100 clientes separados, uno tras otro), y calculamos la frecuencia de la selección de la estrategia. Luego lo repetimos nuevamente por otras 100 veces. Y nuevamente por otras 100 veces. Por lo tanto, obtenemos muchas frecuencias. Si repetimos tales cálculos de frecuencia muchas veces, por ejemplo 500 veces, podemos trazar un histograma de estas frecuencias. Según el Teorema central del límite, tendrá forma de campana y su media será la media de todas las frecuencias que obtuvimos durante el experimento. Por lo tanto, en conclusión, en el eje <span class="math inline">\(x\)</span> tendremos los diferentes valores posibles de estas frecuencias, y en el eje <span class="math inline">\(y\)</span> tendremos el número de veces que obtuvimos cada frecuencia durante el experimento.</p>
 <p><strong>En la primera clase de teoría del curso, ¿por qué D5 (en naranja) es la mejor distribución? ¿Por qué no es D3 (en rosa)?</strong></p>
@@ -811,7 +829,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -830,6 +847,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -850,10 +868,13 @@ gitbook.start({
 "text": null
 },
 "download": ["curso-ia-business-udemy.pdf", "curso-ia-business-udemy.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
-},
-"search": true
+}
 });
 });
 </script>

@@ -44,6 +44,7 @@ En cada una de esas partes, seguiremos el mismo esquema de tres pasos:
 
 ```{r, echo=FALSE}
 library(reticulate)
-#use_python("/usr/bin/python")
+#reticulate::use_python("/Users/juangabriel/opt/anaconda3/bin/python3")
 ```
+
 

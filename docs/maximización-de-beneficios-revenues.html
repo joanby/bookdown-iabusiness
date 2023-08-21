@@ -352,7 +352,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb36-2"><a href="maximización-de-beneficios-revenues.html#cb36-2" aria-hidden="true" tabindex="-1"></a>relative_return <span class="op">=</span> (total_reward_ts <span class="op">-</span> total_reward_rs) <span class="op">/</span> total_reward_rs <span class="op">*</span> <span class="dv">100</span></span>
 <span id="cb36-3"><a href="maximización-de-beneficios-revenues.html#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Rendimiento Relativo: </span><span class="sc">{:.0f}</span><span class="st"> %&quot;</span>.<span class="bu">format</span>(relative_return))</span></code></pre></div>
 <p>Y prepárate, porque al ejecutar este código obtenemos un retorno relativo final, de …:</p>
-<pre><code>## Rendimiento Relativo: 101 %</code></pre>
+<pre><code>## Rendimiento Relativo: 92 %</code></pre>
 <p>En otras palabras, el muestreo de Thompson casi duplicó el rendimiento de nuestro punto de referencia de la selección aleatoria.</p>
 <p>Y finalmente, representemos el histograma de las estrategias seleccionadas, para verificar que efectivamente la Estrategia 7 (la de índice 6) fue la más seleccionada por el algoritmo, ya que es la que tiene la tasa de conversión más alta:¡</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="maximización-de-beneficios-revenues.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Representación del histograma de selecciones</span></span>
@@ -361,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb38-4"><a href="maximización-de-beneficios-revenues.html#cb38-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&#39;Estrategia&#39;</span>)</span>
 <span id="cb38-5"><a href="maximización-de-beneficios-revenues.html#cb38-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&#39;Numero de veces que se ha seleccionado la estrategia&#39;</span>)</span>
 <span id="cb38-6"><a href="maximización-de-beneficios-revenues.html#cb38-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="curso-ia-business-udemy_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p><img src="curso-ia-business-frogames_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <p>Al ejecutar este código final, obtenemos el siguiente histograma:</p>
 <p><img src="Images/Histogram.png" /></p>
 <p>Y de hecho, es la estrategia del índice 6, es decir, la Estrategia 7, la que fue, con diferencia, la más seleccionada. El muestreo de Thompson ha sido capaz de identificarlo rápidamente. Y, de hecho, si volvemos a ejecutar el mismo código pero con solo 1000 clientes, nos damos cuenta de que el muestreo de Thompson todavía puede identificar la Estrategia 7 como la mejor, con muchas menos pruebas.</p>
@@ -438,10 +438,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb42-5"><a href="maximización-de-beneficios-revenues.html#cb42-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&#39;Arrepentimiento&#39;</span>)</span>
 <span id="cb42-6"><a href="maximización-de-beneficios-revenues.html#cb42-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
 <p>Si representamos la curva de arrepentimiento de la estrategia aleatoria, obtenemos lo siguiente:</p>
-<p><img src="curso-ia-business-udemy_files/figure-html/unnamed-chunk-43-3.png" width="672" /></p>
+<p><img src="curso-ia-business-frogames_files/figure-html/unnamed-chunk-43-3.png" width="672" /></p>
 <p>Y, por supuesto, no observamos absolutamente ninguna convergencia de la estrategia aleatoria hacia la mejor estrategia.</p>
 <p>Sin embargo, si ahora representamos la curva de arrepentimiento del modelo de muestreo de Thompson, obtenemos la siguiente curva hermosa:</p>
-<p><img src="curso-ia-business-udemy_files/figure-html/unnamed-chunk-44-5.png" width="672" />
+<p><img src="curso-ia-business-frogames_files/figure-html/unnamed-chunk-44-5.png" width="672" />
 Y obviamente, el muestreo de Thompson está convergiendo muy bien hacia la mejor estrategia.</p>
 <p>Finalmente, aquí está el código final que incluye esa Curva de arrepentimiento del muestreo de Thompson:</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="maximización-de-beneficios-revenues.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Muestreo de Thompson</span></span>
@@ -573,7 +573,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["curso-ia-business-udemy.pdf", "curso-ia-business-udemy.epub"],
+"download": {},
 "search": {
 "engine": "fuse",
 "options": null

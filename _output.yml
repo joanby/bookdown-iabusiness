@@ -7,7 +7,7 @@ bookdown::gitbook:
       after: |
         <li><a href="https://cursos.frogamesformacion.com/courses/take/ia-aplicada-negocios?coupon=frogames30" target="blank">Curso en Frogames</a></li>
     edit: https://github.com/joanby/ia4business/edit/master/%s
-    download: ["pdf", "epub"]
+    download: [] #"pdf", "epub"]
     search: yes
 bookdown::pdf_book:
   includes:

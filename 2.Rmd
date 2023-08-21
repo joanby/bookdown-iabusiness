@@ -419,7 +419,7 @@ A continuación se muestra la implementación completa de nuestro primer archivo
 
 ```{python, eval = F}
 # Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2
-# Construcción del Etorno
+# Construcción del Entorno
 
 # Importar las librerías
 import numpy as np
@@ -430,18 +430,19 @@ import numpy as np
 
 class Environment(object):
     
-    # INTRODUCCIÓN E INICIALIZACIÓN DE TODOS LOS PARÁMETROS Y VARIABLES DEL ENTORNO
+    # INTRODUCCIÓN E INICIALIZACIÓN DE TODOS LOS PARÁMETROS Y 
+    # VARIABLES DEL ENTORNO
     
     def __init__(self,
                 optimal_temperature = (18.0, 24.0),
                 initial_month = 0,
                 initial_number_users = 10,
                 initial_rate_data = 60):
-        self.monthly_atmospheric_temperatures = [1.0, 5.0, 7.0, 10.0, 11.0, 20.0,
-                                                23.0, 24.0, 22.0, 10.0, 5.0, 1.0]
+        self.monthly_atmospheric_temperatures = [1.0, 5.0, 7.0, 10.0, 11.0, 
+                                      20.0,23.0, 24.0, 22.0, 10.0, 5.0, 1.0]
         self.initial_month = initial_month
         self.atmospheric_temperature = \
-                                self.monthly_atmospheric_temperatures[initial_month]
+                            self.monthly_atmospheric_temperatures[initial_month]
         self.optimal_temperature = optimal_temperature
         self.min_temperature = -20
         self.max_temperature = 80
@@ -470,13 +471,15 @@ class Environment(object):
 ``` 
 
 ```{python, eval = F}
-    # CREACIÓN DE UN MÉTODO QUE ACTUALIZA EL ENTORNO DESPUÉS DE QUE LA IA EJECUTE UNA ACCIÓN
+    # CREACIÓN DE UN MÉTODO QUE ACTUALIZA EL ENTORNO DESPUÉS 
+    # DE QUE LA IA EJECUTE UNA ACCIÓN
     
     def update_env(self, direction, energy_ai, month):
         
         # OBTENCIÓN DE LA RECOMPENSA
         
-        # Calcular la energía gastada por el sistema de refrigeración del servidor cuando no hay IA
+        # Calcular la energía gastada por el sistema de refrigeración 
+        # del servidor cuando no hay IA
         energy_noai = 0
         if (self.temperature_noai < self.optimal_temperature[0]):
             energy_noai = self.optimal_temperature[0] - self.temperature_noai
@@ -492,7 +495,8 @@ class Environment(object):
         # OBTENCIÓN DEL SIGUIENTE ESTADO
         
         # Actualización de la temperatura atmosférica
-        self.atmospheric_temperature = self.monthly_atmospheric_temperatures[month]
+        self.atmospheric_temperature = 
+                        self.monthly_atmospheric_temperatures[month]
         # Actualización del número de usuarios conectados
         self.current_number_users += np.random.randint(-self.max_update_users,
                                                        self.max_update_users)
@@ -520,7 +524,8 @@ class Environment(object):
         elif (direction == 1):
             delta_temperature_ai = energy_ai
         # Actualización de la temperatura del servidor cuado hay IA
-        self.temperature_ai += delta_intrinsic_temperature + delta_temperature_ai
+        self.temperature_ai += delta_intrinsic_temperature + 
+                               delta_temperature_ai
         # Actualización de la temperatura del servidor cuado no hay IA
         self.temperature_noai += delta_intrinsic_temperature
         
@@ -560,7 +565,8 @@ class Environment(object):
                                 scaled_number_users,
                                 scaled_rate_data])
         
-        # DEVOLVER EL SIGUIENTE ESTADO, LA RECOMPENSA Y EL ESTADO DE FIN DEL JUEGO
+        # DEVOLVER EL SIGUIENTE ESTADO, LA RECOMPENSA 
+        # Y EL ESTADO DE FIN DEL JUEGO
         
         return next_state, self.reward, self.game_over
 ``` 
@@ -569,7 +575,8 @@ class Environment(object):
     # CREACIÓN DE UN MÉTODO QUE REINICIA EL ENTORNO
     
     def reset(self, new_month):
-        self.atmospheric_temperature = self.monthly_atmospheric_temperatures[new_month]
+        self.atmospheric_temperature = 
+                          self.monthly_atmospheric_temperatures[new_month]
         self.initial_month = new_month
         self.current_number_users = self.initial_number_users
         self.current_rate_data = self.initial_rate_data
@@ -587,7 +594,8 @@ class Environment(object):
 ``` 
 
 ```{python, eval = F}
-    # CREACIÓN DE UN MÉTODO QUE NOS DA, A PARTIR DE CUALQUIER INSTANTE, EL ESTADO, LA RECOMPENSA Y EL FIN DE LA PARTIDA
+    # CREACIÓN DE UN MÉTODO QUE NOS DA, A PARTIR DE CUALQUIER INSTANTE, 
+    # EL ESTADO, LA RECOMPENSA Y EL FIN DE LA PARTIDA
     
     def observe(self):
         scaled_temperature_ai = (self.temperature_ai - self.min_temperature)
@@ -638,25 +646,29 @@ from keras.optimizers import Adam
 
 class Brain(object):
     
-    # CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA EN EL MÉTODO DE INICIALIZACIÓN
+    # CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA 
+    # EN EL MÉTODO DE INICIALIZACIÓN
     
     def __init__(self, learning_rate = 0.001, number_actions = 5):
         self.learning_rate = learning_rate
         
-        # CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA DE LOS ESTADOS DE ETRADA
+        # CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA 
+        # DE LOS ESTADOS DE ETRADA
         states = Input(shape = (3,))
         
         # CONSTRUCCIÓN DE LAS DOS CAPAS OCULTAS TOTALMENTE CONECTADAS
         x = Dense(units = 64, activation = 'sigmoid')(states)
         y = Dense(units = 32, activation = 'sigmoid')(x)
         
-        # CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA A LA ÚLTIMA CAPA OCULTA
+        # CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA 
+        # A LA ÚLTIMA CAPA OCULTA
         q_values = Dense(units = number_actions, activation = 'softmax')(y)
         
         # ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS
         self.model = Model(inputs = states, outputs = q_values)
         
-        # COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO MEDIO Y EL OPTIMIZADOR ELEGIDO
+        # COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO 
+        # MEDIO Y EL OPTIMIZADOR ELEGIDO
         self.model.compile(loss = 'mse', optimizer = Adam(lr = learning_rate))
 ```
 
@@ -701,7 +713,8 @@ from keras.optimizers import Adam
 
 class Brain(object):
     
-    # CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA EN EL MÉTODO DE INICIALIZACIÓN
+    # CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA 
+    #EN EL MÉTODO DE INICIALIZACIÓN
     
     def __init__(self, learning_rate = 0.001, number_actions = 5):
         self.learning_rate = learning_rate
@@ -709,21 +722,25 @@ class Brain(object):
         # CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA DE LOS ESTADOS DE ETRADA
         states = Input(shape = (3,))
         
-        # CONSTRUCCIÓN DE PRIMERA CAPA OCULTAS TOTALMENTE CONECTADA CON DROPOUT ACTIVADO
+        # CONSTRUCCIÓN DE PRIMERA CAPA OCULTAS TOTALMENTE CONECTADA 
+        # CON DROPOUT ACTIVADO
         x = Dense(units = 64, activation = 'sigmoid')(states)
         x = Dropout(rate = 0.1)(x)
 
-        # CONSTRUCCIÓN DE SEGUNDA CAPA OCULTAS TOTALMENTE CONECTADA CON DROPOUT ACTIVADO
+        # CONSTRUCCIÓN DE SEGUNDA CAPA OCULTAS TOTALMENTE CONECTADA 
+        # CON DROPOUT ACTIVADO
         y = Dense(units = 32, activation = 'sigmoid')(x)
         y = Dropout(rate = 0.1)(y)
 
-        # CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA A LA ÚLTIMA CAPA OCULTA
+        # CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA 
+        # A LA ÚLTIMA CAPA OCULTA
         q_values = Dense(units = number_actions, activation = 'softmax')(y)
         
         # ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS
         self.model = Model(inputs = states, outputs = q_values)
         
-        # COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO MEDIO Y EL OPTIMIZADOR ELEGIDO
+        # COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO 
+        # MEDIO Y EL OPTIMIZADOR ELEGIDO
         self.model.compile(loss = 'mse', optimizer = Adam(lr = learning_rate))
 ```
 
@@ -756,7 +773,8 @@ class DQN(object):
         self.max_memory = max_memory
         self.discount = discount
 
-    # CREACIÓN DE UN MÉTODO QUE CONSTRUYA LA MEMORIA DE LA REPETICIÓN DE EXPERIENCIA
+    # CREACIÓN DE UN MÉTODO QUE CONSTRUYA LA MEMORIA DE LA 
+    # REPETICIÓN DE EXPERIENCIA
     def remember(self, transition, game_over):
         self.memory.append([transition, game_over])
         if len(self.memory) > self.max_memory:
@@ -770,7 +788,7 @@ class DQN(object):
         inputs = np.zeros((min(len_memory, batch_size), num_inputs))
         targets = np.zeros((min(len_memory, batch_size), num_outputs))
         for i, idx in enumerate(np.random.randint(0, len_memory,
-                                                  size = min(len_memory, batch_size))):
+                                          size = min(len_memory, batch_size))):
             current_state, action, reward, next_state = self.memory[idx][0]
             game_over = self.memory[idx][1]
             inputs[i] = current_state
@@ -853,7 +871,8 @@ patience_count = 0
 if (env.train):
     # ARRANCAR EL BUCLE SOBRE TODAS LAS EPOCHS (1 Epoch = 5 Meses)
     for epoch in range(1, number_epochs):
-        # INICIALIZACIÓN DE LAS VARIABLES TANTO DEL ENVIRONMENT COMO DEL BUCLE DE ENTRENAMIENTO
+        # INICIALIZACIÓN DE LAS VARIABLES TANTO DEL ENVIRONMENT 
+        # COMO DEL BUCLE DE ENTRENAMIENTO
         total_reward = 0
         loss = 0.
         new_month = np.random.randint(0, 12)
@@ -861,7 +880,8 @@ if (env.train):
         game_over = False
         current_state, _, _ = env.observe()
         timestep = 0
-        # EMPEZAR EL BUCLE SOBRE TODOS LOS TIMESTEPS (1 Timestep = 1 Minuto) EN UN EPOCH
+        # EMPEZAR EL BUCLE SOBRE TODOS LOS TIMESTEPS (1 Timestep = 1 Minuto) 
+        # EN UN EPOCH
         while ((not game_over) and timestep <= 5 * 30 * 24 * 60):
             # EJECUTAR LA SIGUIENTE ACCIÓN POR EXPLORACIÓN
             if np.random.rand() <= epsilon:
@@ -882,9 +902,9 @@ if (env.train):
                     direction = 1
                 energy_ai = abs(action - direction_boundary) * temperature_step
             # ACTUALIZACIÓN DEL ENTORNO BUSCANDO EL SIGUIENTE ESTADO
-            next_state, reward, game_over = env.update_env(direction,
-                                                           energy_ai,
-                                                           int(timestep / (30*24*60)))
+            next_state, reward, game_over = 
+                                  env.update_env(direction, energy_ai,
+                                                 int(timestep / (30*24*60)))
             total_reward += reward
             # ALMACENAR LA NUEVA TRANSICIÓN EN LA MEMORIA
             dqn.remember([current_state, action, reward, next_state], game_over)

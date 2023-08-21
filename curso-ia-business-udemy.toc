@@ -21,49 +21,49 @@
 \contentsline {section}{\numberline {2.3}Implementation}{39}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Paso 1: Construcción del Entorno}{40}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Paso 2: Construcción del cerebro}{44}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Paso 3: Implementación del algoritmo de Deep Reinforcement Learning}{47}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Paso 4: Entrenar la IA}{48}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5}Paso 5: Probar nuestra IA}{51}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.3}Paso 3: Implementación del algoritmo de Deep Reinforcement Learning}{48}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Paso 4: Entrenar la IA}{49}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Paso 5: Probar nuestra IA}{52}{subsection.2.3.5}%
 \contentsline {section}{\numberline {2.4}Resumen: El Algoritmo General de IA}{54}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Maximización de Beneficios Revenues}{55}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Caso Práctico: Maximización de beeficios de un negocio de venta online en línea}{55}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Problema a reesolver}{55}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Definición del Entorno}{57}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Solución de IA}{58}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Implementación}{59}{section.3.3}%
-\contentsline {chapter}{Conclusión}{71}{chapter*.7}%
-\contentsline {chapter}{\numberline {4}Anexos adicionales}{73}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Anexo 1: Redes Neuronales Artificiales}{73}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}La Neurona}{73}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}La Función de Activación}{78}{subsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.2.1}La función de activación de umbral}{79}{subsubsection.4.1.2.1}%
-\contentsline {subsubsection}{\numberline {4.1.2.2}La función de activación sigmoidea}{80}{subsubsection.4.1.2.2}%
-\contentsline {subsubsection}{\numberline {4.1.2.3}La función de activación rectificadora}{80}{subsubsection.4.1.2.3}%
-\contentsline {subsubsection}{\numberline {4.1.2.4}La función de activación de la tangente hiperbólica}{81}{subsubsection.4.1.2.4}%
-\contentsline {subsection}{\numberline {4.1.3}¿Cómo funcionan las Redes Neuronales?}{84}{subsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.1.4}¿Cómo aprenden las Redes Neuronales?}{85}{subsection.4.1.4}%
-\contentsline {subsection}{\numberline {4.1.5}Propagación hacia adelante and propagación hacia atrás}{86}{subsection.4.1.5}%
-\contentsline {subsection}{\numberline {4.1.6}Gradiente Descendente}{87}{subsection.4.1.6}%
-\contentsline {subsubsection}{\numberline {4.1.6.1}Introducción al Gradiente Descendente}{87}{subsubsection.4.1.6.1}%
-\contentsline {subsubsection}{\numberline {4.1.6.2}Idea del Gradiente Descendente}{88}{subsubsection.4.1.6.2}%
-\contentsline {subsubsection}{\numberline {4.1.6.3}Gradiente Descendente en bloques}{93}{subsubsection.4.1.6.3}%
-\contentsline {subsubsection}{\numberline {4.1.6.4}Gradiente Descendente Estocástico}{95}{subsubsection.4.1.6.4}%
-\contentsline {subsubsection}{\numberline {4.1.6.5}Gradiente Descendente Mini-Batch}{98}{subsubsection.4.1.6.5}%
-\contentsline {subsection}{\numberline {4.1.7}Optimizadores}{98}{subsection.4.1.7}%
-\contentsline {subsubsection}{\numberline {4.1.7.1}Optimizador Momentum}{98}{subsubsection.4.1.7.1}%
-\contentsline {subsubsection}{\numberline {4.1.7.2}El optimizador de gradiente acelerado de Nesterov}{99}{subsubsection.4.1.7.2}%
-\contentsline {subsubsection}{\numberline {4.1.7.3}El optimizador AdaGrad (gradientes adaptativos)}{100}{subsubsection.4.1.7.3}%
-\contentsline {subsubsection}{\numberline {4.1.7.4}El optimizador AdaDelta}{100}{subsubsection.4.1.7.4}%
-\contentsline {subsubsection}{\numberline {4.1.7.5}El optimizador Adam (Adaptive Moment Estimation)}{100}{subsubsection.4.1.7.5}%
-\contentsline {section}{\numberline {4.2}Anexo 2: Tres modelos adicionales de IA}{101}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Aprendizaje convolucional Q-profundo}{101}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Asynchronous Actor-Critic Agents (A3C)}{102}{subsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.2.1}Idea del A3C}{102}{subsubsection.4.2.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2.2}El proceso al completo del A3C}{103}{subsubsection.4.2.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Búsqueda aleatoria aumentada}{104}{subsection.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.3.1}Problema a resolver}{104}{subsubsection.4.2.3.1}%
-\contentsline {subsubsection}{\numberline {4.2.3.2}Solución de IA}{105}{subsubsection.4.2.3.2}%
-\contentsline {section}{\numberline {4.3}Anexo 3: Preguntas y Respuestas}{111}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}P\&R de la Parte 1 - Optimización de Procesos}{111}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}P\&R de la Parte 2 - Minimización de Costes}{111}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}P\&R de la Parte 3 - Maximización de Beneficios}{112}{subsection.4.3.3}%
+\contentsline {chapter}{\numberline {3}Maximización de Beneficios Revenues}{57}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Caso Práctico: Maximización de beeficios de un negocio de venta online en línea}{57}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Problema a reesolver}{57}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Definición del Entorno}{59}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Solución de IA}{60}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Implementación}{61}{section.3.3}%
+\contentsline {chapter}{Conclusión}{73}{chapter*.7}%
+\contentsline {chapter}{\numberline {4}Anexos adicionales}{75}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Anexo 1: Redes Neuronales Artificiales}{75}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}La Neurona}{75}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}La Función de Activación}{80}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}La función de activación de umbral}{81}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}La función de activación sigmoidea}{82}{subsubsection.4.1.2.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.3}La función de activación rectificadora}{82}{subsubsection.4.1.2.3}%
+\contentsline {subsubsection}{\numberline {4.1.2.4}La función de activación de la tangente hiperbólica}{83}{subsubsection.4.1.2.4}%
+\contentsline {subsection}{\numberline {4.1.3}¿Cómo funcionan las Redes Neuronales?}{86}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}¿Cómo aprenden las Redes Neuronales?}{87}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}Propagación hacia adelante and propagación hacia atrás}{88}{subsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.1.6}Gradiente Descendente}{89}{subsection.4.1.6}%
+\contentsline {subsubsection}{\numberline {4.1.6.1}Introducción al Gradiente Descendente}{89}{subsubsection.4.1.6.1}%
+\contentsline {subsubsection}{\numberline {4.1.6.2}Idea del Gradiente Descendente}{90}{subsubsection.4.1.6.2}%
+\contentsline {subsubsection}{\numberline {4.1.6.3}Gradiente Descendente en bloques}{95}{subsubsection.4.1.6.3}%
+\contentsline {subsubsection}{\numberline {4.1.6.4}Gradiente Descendente Estocástico}{97}{subsubsection.4.1.6.4}%
+\contentsline {subsubsection}{\numberline {4.1.6.5}Gradiente Descendente Mini-Batch}{100}{subsubsection.4.1.6.5}%
+\contentsline {subsection}{\numberline {4.1.7}Optimizadores}{100}{subsection.4.1.7}%
+\contentsline {subsubsection}{\numberline {4.1.7.1}Optimizador Momentum}{100}{subsubsection.4.1.7.1}%
+\contentsline {subsubsection}{\numberline {4.1.7.2}El optimizador de gradiente acelerado de Nesterov}{101}{subsubsection.4.1.7.2}%
+\contentsline {subsubsection}{\numberline {4.1.7.3}El optimizador AdaGrad (gradientes adaptativos)}{102}{subsubsection.4.1.7.3}%
+\contentsline {subsubsection}{\numberline {4.1.7.4}El optimizador AdaDelta}{102}{subsubsection.4.1.7.4}%
+\contentsline {subsubsection}{\numberline {4.1.7.5}El optimizador Adam (Adaptive Moment Estimation)}{102}{subsubsection.4.1.7.5}%
+\contentsline {section}{\numberline {4.2}Anexo 2: Tres modelos adicionales de IA}{103}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Aprendizaje convolucional Q-profundo}{103}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Asynchronous Actor-Critic Agents (A3C)}{104}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}Idea del A3C}{104}{subsubsection.4.2.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2.2}El proceso al completo del A3C}{105}{subsubsection.4.2.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Búsqueda aleatoria aumentada}{106}{subsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.3.1}Problema a resolver}{106}{subsubsection.4.2.3.1}%
+\contentsline {subsubsection}{\numberline {4.2.3.2}Solución de IA}{107}{subsubsection.4.2.3.2}%
+\contentsline {section}{\numberline {4.3}Anexo 3: Preguntas y Respuestas}{113}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}P\&R de la Parte 1 - Optimización de Procesos}{113}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}P\&R de la Parte 2 - Minimización de Costes}{113}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}P\&R de la Parte 3 - Maximización de Beneficios}{114}{subsection.4.3.3}%

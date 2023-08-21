@@ -5,25 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Parte 4 Anexos adicionales | Inteligencia Artificial aplicada a Negocios y Empresas</title>
-  <meta name="description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="description" content="Aprende a aplicar los algoritmos de Machine Learning e Inteligencia Artificial con Python en los tres aspectos más importantes del mundo de los negocios: la optimización de procesos, la minimización de gastos y la maximización de beneficios. Completamente en castellano y explicado por Juan Gabriel Gomila, instructor online reconocido a nivel mundial además de CEO de Frogames Formación SL." />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Parte 4 Anexos adicionales | Inteligencia Artificial aplicada a Negocios y Empresas" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7/Images/Course_Image.png" />
-  <meta property="og:description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
+  <meta property="og:image" content="https://cursos.frogamesformacion.com/courses/ia-aplicada-negocios?et=paid&amp;ref=846b3f&amp;coupon=frogames30/Images/Course_Image.png" />
+  <meta property="og:description" content="Aprende a aplicar los algoritmos de Machine Learning e Inteligencia Artificial con Python en los tres aspectos más importantes del mundo de los negocios: la optimización de procesos, la minimización de gastos y la maximización de beneficios. Completamente en castellano y explicado por Juan Gabriel Gomila, instructor online reconocido a nivel mundial además de CEO de Frogames Formación SL." />
   <meta name="github-repo" content="https://github.com/joanby/ia4business" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Parte 4 Anexos adicionales | Inteligencia Artificial aplicada a Negocios y Empresas" />
   
-  <meta name="twitter:description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
-  <meta name="twitter:image" content="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7/Images/Course_Image.png" />
+  <meta name="twitter:description" content="Aprende a aplicar los algoritmos de Machine Learning e Inteligencia Artificial con Python en los tres aspectos más importantes del mundo de los negocios: la optimización de procesos, la minimización de gastos y la maximización de beneficios. Completamente en castellano y explicado por Juan Gabriel Gomila, instructor online reconocido a nivel mundial además de CEO de Frogames Formación SL." />
+  <meta name="twitter:image" content="https://cursos.frogamesformacion.com/courses/ia-aplicada-negocios?et=paid&amp;ref=846b3f&amp;coupon=frogames30/Images/Course_Image.png" />
 
 <meta name="author" content="Hadelin de Ponteves y Kirill Ermenko" />
 
 
-<meta name="date" content="2022-05-18" />
+<meta name="date" content="2023-08-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -543,38 +547,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Viene implementado de serie en la mayoría de librerías de Deep Learning (Keras, TensorFlow, PyTorch). No lo echarás en falta.</li>
 </ul>
 <p>Por supuesto, este es el que usamos al construir el Cerebro Artificial de nuestra IA en la Parte 2 - Minimización de los costes. Veamos nuevamente el código que construye este cerebro artificial y notemos, en la última línea de código, la simplicidad de seleccionar el Adam Optimizer al crearlo:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="anexos-adicionales.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></span>
-<span id="cb46-2"><a href="anexos-adicionales.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Construcción del cerebro</span></span>
-<span id="cb46-3"><a href="anexos-adicionales.html#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-4"><a href="anexos-adicionales.html#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar las librerías</span></span>
-<span id="cb46-5"><a href="anexos-adicionales.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.layers <span class="im">import</span> Input, Dense</span>
-<span id="cb46-6"><a href="anexos-adicionales.html#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.models <span class="im">import</span> Model</span>
-<span id="cb46-7"><a href="anexos-adicionales.html#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.optimizers <span class="im">import</span> Adam</span>
-<span id="cb46-8"><a href="anexos-adicionales.html#cb46-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-9"><a href="anexos-adicionales.html#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="co"># CONSTRUCCIÓN DEL CEREBRO</span></span>
-<span id="cb46-10"><a href="anexos-adicionales.html#cb46-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-11"><a href="anexos-adicionales.html#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Brain(<span class="bu">object</span>):</span>
-<span id="cb46-12"><a href="anexos-adicionales.html#cb46-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb46-13"><a href="anexos-adicionales.html#cb46-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA EN EL MÉTODO DE INICIALIZACIÓN</span></span>
-<span id="cb46-14"><a href="anexos-adicionales.html#cb46-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb46-15"><a href="anexos-adicionales.html#cb46-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate <span class="op">=</span> <span class="fl">0.001</span>, number_actions <span class="op">=</span> <span class="dv">5</span>):</span>
-<span id="cb46-16"><a href="anexos-adicionales.html#cb46-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate</span>
-<span id="cb46-17"><a href="anexos-adicionales.html#cb46-17" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb46-18"><a href="anexos-adicionales.html#cb46-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA DE LOS ESTADOS DE ETRADA</span></span>
-<span id="cb46-19"><a href="anexos-adicionales.html#cb46-19" aria-hidden="true" tabindex="-1"></a>        states <span class="op">=</span> Input(shape <span class="op">=</span> (<span class="dv">3</span>,))</span>
-<span id="cb46-20"><a href="anexos-adicionales.html#cb46-20" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb46-21"><a href="anexos-adicionales.html#cb46-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LAS DOS CAPAS OCULTAS TOTALMENTE CONECTADAS</span></span>
-<span id="cb46-22"><a href="anexos-adicionales.html#cb46-22" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</span>
-<span id="cb46-23"><a href="anexos-adicionales.html#cb46-23" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</span>
-<span id="cb46-24"><a href="anexos-adicionales.html#cb46-24" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb46-25"><a href="anexos-adicionales.html#cb46-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA A LA ÚLTIMA CAPA OCULTA</span></span>
-<span id="cb46-26"><a href="anexos-adicionales.html#cb46-26" aria-hidden="true" tabindex="-1"></a>        q_values <span class="op">=</span> Dense(units <span class="op">=</span> number_actions, activation <span class="op">=</span> <span class="st">&#39;softmax&#39;</span>)(y)</span>
-<span id="cb46-27"><a href="anexos-adicionales.html#cb46-27" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb46-28"><a href="anexos-adicionales.html#cb46-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS</span></span>
-<span id="cb46-29"><a href="anexos-adicionales.html#cb46-29" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> Model(inputs <span class="op">=</span> states, outputs <span class="op">=</span> q_values)</span>
-<span id="cb46-30"><a href="anexos-adicionales.html#cb46-30" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb46-31"><a href="anexos-adicionales.html#cb46-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO MEDIO Y EL OPTIMIZADOR ELEGIDO</span></span>
-<span id="cb46-32"><a href="anexos-adicionales.html#cb46-32" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> learning_rate))</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="anexos-adicionales.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></span>
+<span id="cb44-2"><a href="anexos-adicionales.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Construcción del cerebro</span></span>
+<span id="cb44-3"><a href="anexos-adicionales.html#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="anexos-adicionales.html#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar las librerías</span></span>
+<span id="cb44-5"><a href="anexos-adicionales.html#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.layers <span class="im">import</span> Input, Dense</span>
+<span id="cb44-6"><a href="anexos-adicionales.html#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.models <span class="im">import</span> Model</span>
+<span id="cb44-7"><a href="anexos-adicionales.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.optimizers <span class="im">import</span> Adam</span>
+<span id="cb44-8"><a href="anexos-adicionales.html#cb44-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-9"><a href="anexos-adicionales.html#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="co"># CONSTRUCCIÓN DEL CEREBRO</span></span>
+<span id="cb44-10"><a href="anexos-adicionales.html#cb44-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-11"><a href="anexos-adicionales.html#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Brain(<span class="bu">object</span>):</span>
+<span id="cb44-12"><a href="anexos-adicionales.html#cb44-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb44-13"><a href="anexos-adicionales.html#cb44-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA EN EL MÉTODO DE INICIALIZACIÓN</span></span>
+<span id="cb44-14"><a href="anexos-adicionales.html#cb44-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb44-15"><a href="anexos-adicionales.html#cb44-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate <span class="op">=</span> <span class="fl">0.001</span>, number_actions <span class="op">=</span> <span class="dv">5</span>):</span>
+<span id="cb44-16"><a href="anexos-adicionales.html#cb44-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate</span>
+<span id="cb44-17"><a href="anexos-adicionales.html#cb44-17" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb44-18"><a href="anexos-adicionales.html#cb44-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA DE LOS ESTADOS DE ETRADA</span></span>
+<span id="cb44-19"><a href="anexos-adicionales.html#cb44-19" aria-hidden="true" tabindex="-1"></a>        states <span class="op">=</span> Input(shape <span class="op">=</span> (<span class="dv">3</span>,))</span>
+<span id="cb44-20"><a href="anexos-adicionales.html#cb44-20" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb44-21"><a href="anexos-adicionales.html#cb44-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LAS DOS CAPAS OCULTAS TOTALMENTE CONECTADAS</span></span>
+<span id="cb44-22"><a href="anexos-adicionales.html#cb44-22" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</span>
+<span id="cb44-23"><a href="anexos-adicionales.html#cb44-23" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</span>
+<span id="cb44-24"><a href="anexos-adicionales.html#cb44-24" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb44-25"><a href="anexos-adicionales.html#cb44-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA A LA ÚLTIMA CAPA OCULTA</span></span>
+<span id="cb44-26"><a href="anexos-adicionales.html#cb44-26" aria-hidden="true" tabindex="-1"></a>        q_values <span class="op">=</span> Dense(units <span class="op">=</span> number_actions, activation <span class="op">=</span> <span class="st">&#39;softmax&#39;</span>)(y)</span>
+<span id="cb44-27"><a href="anexos-adicionales.html#cb44-27" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb44-28"><a href="anexos-adicionales.html#cb44-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS</span></span>
+<span id="cb44-29"><a href="anexos-adicionales.html#cb44-29" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> Model(inputs <span class="op">=</span> states, outputs <span class="op">=</span> q_values)</span>
+<span id="cb44-30"><a href="anexos-adicionales.html#cb44-30" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb44-31"><a href="anexos-adicionales.html#cb44-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO MEDIO Y EL OPTIMIZADOR ELEGIDO</span></span>
+<span id="cb44-32"><a href="anexos-adicionales.html#cb44-32" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> learning_rate))</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -694,7 +698,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \delta_{1,n} &amp; \delta_{2,n} &amp; \cdots &amp; \delta_{m,n}
 \end{pmatrix}
 \]</span></p>
-<p>“Positivo” viene del hecho de que estamos <em>agregando</em> los valores pequeños <span class="math inline">\(\delta_{i, j}\)</span> a nuestros pesos <span class="math inline">\(\theta_{i, j}\)</span>. Estas pequeñas perturbaciones <span class="math inline">\(\delta_{i, j}\)</span> se muestrean a partir de una distribución gaussiana $(0, ) $ (la desviación estándar <span class="math inline">\(\sigma\)</span> es lo que llamamos “ruido” en el modelo ARS .</p>
+<p>“Positivo” viene del hecho de que estamos <em>agregando</em> los valores pequeños <span class="math inline">\(\delta_{i, j}\)</span> a nuestros pesos <span class="math inline">\(\theta_{i, j}\)</span>. Estas pequeñas perturbaciones <span class="math inline">\(\delta_{i, j}\)</span> se muestrean a partir de una distribución gaussiana <span class="math inline">\(\mathcal{N}(0, \sigma)\)</span> (la desviación estándar <span class="math inline">\(\sigma\)</span> es lo que llamamos “ruido” en el modelo ARS .</p>
 <p>Y cada vez que hacemos esto, también aplicamos exactamente las mismas perturbaciones <span class="math inline">\(\delta_{i, j}\)</span> a nuestros pesos <span class="math inline">\(\theta_{i, j}\)</span>, pero en la dirección opuesta <span class="math inline">\(-\Delta_k\)</span>, simplemente esta vez restando exactamente el mismo <span class="math inline">\(\delta_{i, j}\)</span>:</p>
 <p><span class="math display">\[
 \begin{pmatrix}
@@ -885,7 +889,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -5,25 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Parte 1 Optimización de Procesos | Inteligencia Artificial aplicada a Negocios y Empresas</title>
-  <meta name="description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="description" content="Aprende a aplicar los algoritmos de Machine Learning e Inteligencia Artificial con Python en los tres aspectos más importantes del mundo de los negocios: la optimización de procesos, la minimización de gastos y la maximización de beneficios. Completamente en castellano y explicado por Juan Gabriel Gomila, instructor online reconocido a nivel mundial además de CEO de Frogames Formación SL." />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Parte 1 Optimización de Procesos | Inteligencia Artificial aplicada a Negocios y Empresas" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7/Images/Course_Image.png" />
-  <meta property="og:description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
+  <meta property="og:image" content="https://cursos.frogamesformacion.com/courses/ia-aplicada-negocios?et=paid&amp;ref=846b3f&amp;coupon=frogames30/Images/Course_Image.png" />
+  <meta property="og:description" content="Aprende a aplicar los algoritmos de Machine Learning e Inteligencia Artificial con Python en los tres aspectos más importantes del mundo de los negocios: la optimización de procesos, la minimización de gastos y la maximización de beneficios. Completamente en castellano y explicado por Juan Gabriel Gomila, instructor online reconocido a nivel mundial además de CEO de Frogames Formación SL." />
   <meta name="github-repo" content="https://github.com/joanby/ia4business" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Parte 1 Optimización de Procesos | Inteligencia Artificial aplicada a Negocios y Empresas" />
   
-  <meta name="twitter:description" content="Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos." />
-  <meta name="twitter:image" content="https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7/Images/Course_Image.png" />
+  <meta name="twitter:description" content="Aprende a aplicar los algoritmos de Machine Learning e Inteligencia Artificial con Python en los tres aspectos más importantes del mundo de los negocios: la optimización de procesos, la minimización de gastos y la maximización de beneficios. Completamente en castellano y explicado por Juan Gabriel Gomila, instructor online reconocido a nivel mundial además de CEO de Frogames Formación SL." />
+  <meta name="twitter:image" content="https://cursos.frogamesformacion.com/courses/ia-aplicada-negocios?et=paid&amp;ref=846b3f&amp;coupon=frogames30/Images/Course_Image.png" />
 
 <meta name="author" content="Hadelin de Ponteves y Kirill Ermenko" />
 
 
-<meta name="date" content="2022-05-18" />
+<meta name="date" content="2023-08-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -387,7 +391,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Definir las recompensas.</strong></p>
 <p>Lo último que tenemos que hacer ahora para construir nuestro entorno es definir un sistema de recompensas. Más específicamente, tenemos que definir una función de recompensa <span class="math inline">\(R\)</span> que toma como entradas un estado <span class="math inline">\(s\)</span> y una acción <span class="math inline">\(a\)</span>, y devuelve una recompensa numérica que la IA obtendrá al llevar a cabo la acción <span class="math inline">\(a\)</span> en el estado <span class="math inline">\(s\)</span>:</p>
 <p><span class="math display">\[R : (\textrm{state}, \textrm{action}) \mapsto r \in \mathbb{R}\]</span></p>
-<p>Entonces, ¿cómo vamos a construir esa función para nuestro caso práctico? Aquí esto es simple. Dado que hay un número discreto y finito de estados (los índices de 0 a 11), así como un número discreto y finito de acciones (mismos índices de 0 a 11), la mejor manera de construir nuestra función de recompensa R es simplemente hacer una matriz. Nuestra función de recompensa será exactamente una matriz de 12 filas y 12 columnas, donde las filas corresponden a los estados y las columnas corresponden a las acciones. De esa forma, en nuestra función $R: (s, a) r  in $, <span class="math inline">\(s\)</span> será el índice de la fila de la matriz, <span class="math inline">\(a\)</span> será el índice de la columna de matriz, y <span class="math inline">\(r\)</span> será la celda de los índices <span class="math inline">\((s, a)\)</span> en la matriz.</p>
+<p>Entonces, ¿cómo vamos a construir esa función para nuestro caso práctico? Aquí esto es simple. Dado que hay un número discreto y finito de estados (los índices de 0 a 11), así como un número discreto y finito de acciones (mismos índices de 0 a 11), la mejor manera de construir nuestra función de recompensa R es simplemente hacer una matriz. Nuestra función de recompensa será exactamente una matriz de 12 filas y 12 columnas, donde las filas corresponden a los estados y las columnas corresponden a las acciones. De esa forma, en nuestra función <span class="math inline">\(R: (s, a) \mapsto r \in \mathbb{R}\)</span>, <span class="math inline">\(s\)</span> será el índice de la fila de la matriz, <span class="math inline">\(a\)</span> será el índice de la columna de matriz, y <span class="math inline">\(r\)</span> será la celda de los índices <span class="math inline">\((s, a)\)</span> en la matriz.</p>
 <p>Por lo tanto, lo único que tenemos que hacer ahora para definir nuestra función de recompensa es simplemente llenar esta matriz con las recompensas numéricas. Y como acabamos de decir en el párrafo anterior, lo que tenemos que hacer primero es atribuir, para cada una de las 12 ubicaciones, una recompensa 0 por las acciones que el robot no puede ejecutar, y una recompensa 1 por las acciones que el robot puede llevar a cabo. Al hacer eso para cada una de las 12 ubicaciones, terminaremos con una matriz de recompensas. Vamos a construirlo paso a paso, comenzando con la primera ubicación:</p>
 <p><em>Ubicación A.</em></p>
 <p>Cuando se encuentra en la ubicación A, el robot solo puede ir a la ubicación B. Por lo tanto, dado que la ubicación A tiene el índice 0 (primera fila de la matriz) y la ubicación B tiene el índice 1 (segunda columna de la matriz), la primera fila de la matriz de las recompensas obtendrá un 1 en la segunda columna y un 0 en todas las otras columnas, así:</p>
@@ -466,8 +470,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Ahora supongamos que estamos en el instante <span class="math inline">\(t\)</span>, en cierto estado <span class="math inline">\(s_t\)</span>. Llevamos a cabo una acción aleatoria <span class="math inline">\(a_t\)</span>, que nos lleva al estado <span class="math inline">\(s_{t + 1}\)</span> y obtenemos la recompensa <span class="math inline">\(R(s_t, a_t)\)</span>.</p>
 <p>Ahora podemos presentar la diferencia temporal, que básicamente es el corazón de Q-Learning. La diferencia temporal en el tiempo <span class="math inline">\(t\)</span>, denotada por <span class="math inline">\(TD_t(s_t, a_t)\)</span>, es la diferencia entre:</p>
 <ul>
-<li><p><span class="math inline">\(R(s_t,a_t) + \gamma \underset{a}{\max}(Q(s_{t+1},a))\)</span>, es decir la recompensa <span class="math inline">\(R (s_t, a_t)\)</span> obtenida al llevar a cabo la acción <span class="math inline">\(a_t\)</span> en el estado <span class="math inline">\(s_t\)</span>, más el valor Q de la mejor acción jugada en el estado futuro <span class="math inline">\(s_{t + 1}\)</span>, descontado por un factor $$, llamado factor de descuento.</p></li>
-<li><p>y <span class="math inline">\(Q(s_t, a_t)\)</span>, es decir el valor Q de la acción <span class="math inline">\(a_t\)</span> llevada a cabo en el estado $ s_t $,</p></li>
+<li><p><span class="math inline">\(R(s_t,a_t) + \gamma \underset{a}{\max}(Q(s_{t+1},a))\)</span>, es decir la recompensa <span class="math inline">\(R (s_t, a_t)\)</span> obtenida al llevar a cabo la acción <span class="math inline">\(a_t\)</span> en el estado <span class="math inline">\(s_t\)</span>, más el valor Q de la mejor acción jugada en el estado futuro <span class="math inline">\(s_{t+1}\)</span>, descontado por un factor <span class="math inline">\(\gamma \in [0,1]\)</span>, llamado factor de descuento.</p></li>
+<li><p>y <span class="math inline">\(Q(s_t, a_t)\)</span>, es decir el valor Q de la acción <span class="math inline">\(a_t\)</span> llevada a cabo en el estado <span class="math inline">\(s_t\)</span>,</p></li>
 </ul>
 <p>que nos lleva a:</p>
 <p><span class="math display">\[TD_t(s_t,a_t) = R(s_t,a_t) + \gamma \underset{a}{\max}(Q(s_{t+1},a)) - Q(s_t,a_t)\]</span></p>
@@ -529,7 +533,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Primero, comenzamos importando las librerías que se usarán en esta implementación. Estos solo incluyen la biblioteca <code>numpy</code>, que ofrece una forma práctica de trabajar con matrices y operaciones matemáticas:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="optimización-de-procesos.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar las librerías</span></span>
 <span id="cb1-2"><a href="optimización-de-procesos.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
-<p>Luego establecemos los parámetros de nuestro modelo. Estos incluyen el factor de descuento <span class="math inline">\(\gamma\)</span> y la tasa de aprendizaje $$, que como vimos en la Sección 1.2, son los únicos parámetros del algoritmo Q-Learning:</p>
+<p>Luego establecemos los parámetros de nuestro modelo. Estos incluyen el factor de descuento <span class="math inline">\(\gamma\)</span> y la tasa de aprendizaje <span class="math inline">\(\alpha\)</span>, que como vimos en la Sección 1.2, son los únicos parámetros del algoritmo Q-Learning:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="optimización-de-procesos.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuración de los parámetros gamma y alfa para el Q-Learning</span></span>
 <span id="cb2-2"><a href="optimización-de-procesos.html#cb2-2" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="fl">0.75</span></span>
 <span id="cb2-3"><a href="optimización-de-procesos.html#cb2-3" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">0.9</span></span></code></pre></div>
@@ -580,9 +584,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-6"><a href="optimización-de-procesos.html#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> R[current_state, j] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
 <span id="cb7-7"><a href="optimización-de-procesos.html#cb7-7" aria-hidden="true" tabindex="-1"></a>            playable_actions.append(j)</span>
 <span id="cb7-8"><a href="optimización-de-procesos.html#cb7-8" aria-hidden="true" tabindex="-1"></a>    next_state <span class="op">=</span> np.random.choice(playable_actions)</span>
-<span id="cb7-9"><a href="optimización-de-procesos.html#cb7-9" aria-hidden="true" tabindex="-1"></a>    TD <span class="op">=</span> R[current_state, next_state] <span class="op">+</span> gamma<span class="op">*</span>Q[next_state, np.argmax(Q[next_state,])]</span>
-<span id="cb7-10"><a href="optimización-de-procesos.html#cb7-10" aria-hidden="true" tabindex="-1"></a>         <span class="op">-</span> Q[current_state, next_state]</span>
-<span id="cb7-11"><a href="optimización-de-procesos.html#cb7-11" aria-hidden="true" tabindex="-1"></a>    Q[current_state, next_state] <span class="op">=</span> Q[current_state, next_state] <span class="op">+</span> alpha<span class="op">*</span>TD</span></code></pre></div>
+<span id="cb7-9"><a href="optimización-de-procesos.html#cb7-9" aria-hidden="true" tabindex="-1"></a>    TD <span class="op">=</span> R[current_state, next_state] <span class="op">+</span> </span>
+<span id="cb7-10"><a href="optimización-de-procesos.html#cb7-10" aria-hidden="true" tabindex="-1"></a>         gamma<span class="op">*</span>Q[next_state, np.argmax(Q[next_state,])] <span class="op">-</span> </span>
+<span id="cb7-11"><a href="optimización-de-procesos.html#cb7-11" aria-hidden="true" tabindex="-1"></a>         Q[current_state, next_state]</span>
+<span id="cb7-12"><a href="optimización-de-procesos.html#cb7-12" aria-hidden="true" tabindex="-1"></a>    Q[current_state, next_state] <span class="op">=</span> Q[current_state, next_state] <span class="op">+</span> alpha<span class="op">*</span>TD</span></code></pre></div>
 <p>Opcional: en esta etapa del código, nuestra matriz de valores Q está lista. Podemos echarle un vistazo ejecutando todo el código que hemos implementado hasta ahora e ingresando las siguientes dos instrucciones en la consola:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="optimización-de-procesos.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Q-Values:&quot;</span>)</span>
 <span id="cb8-2"><a href="optimización-de-procesos.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Q.astype(<span class="bu">int</span>))</span></code></pre></div>
@@ -594,7 +599,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="optimización-de-procesos.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PARTE 3 - PONER EL MODELO EN PRODUCCIÓN</span></span>
 <span id="cb9-2"><a href="optimización-de-procesos.html#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="optimización-de-procesos.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Hacer un mapeo de los estados a las ubicaciones</span></span>
-<span id="cb9-4"><a href="optimización-de-procesos.html#cb9-4" aria-hidden="true" tabindex="-1"></a>state_to_location <span class="op">=</span> {state: location <span class="cf">for</span> location, state <span class="kw">in</span> location_to_state.items()}</span></code></pre></div>
+<span id="cb9-4"><a href="optimización-de-procesos.html#cb9-4" aria-hidden="true" tabindex="-1"></a>state_to_location <span class="op">=</span> {state: location </span>
+<span id="cb9-5"><a href="optimización-de-procesos.html#cb9-5" aria-hidden="true" tabindex="-1"></a>                      <span class="cf">for</span> location, state <span class="kw">in</span> location_to_state.items()}</span></code></pre></div>
 <p>Aquí es cuando entra en juego la sección de código más importante. Estamos a punto de implementar la función final <code>route ()</code> que tomará como entradas las ubicaciones de inicio y finalización, y que devolverá la ruta óptima entre estas dos ubicaciones. Para explicar exactamente qué hará esta función de ruta, enumeremos los diferentes pasos del proceso, al pasar de la ubicación E a la ubicación G:</p>
 <ol style="list-style-type: decimal">
 <li>Comenzamos en nuestra ubicación inicial E.</li>
@@ -672,40 +678,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-45"><a href="optimización-de-procesos.html#cb13-45" aria-hidden="true" tabindex="-1"></a><span class="co"># PARTE 2 - CONSTRUCCIÓN DE LA SOLUCIÓN DE IA CON Q-LEARNING</span></span>
 <span id="cb13-46"><a href="optimización-de-procesos.html#cb13-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-47"><a href="optimización-de-procesos.html#cb13-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una función de mapping desde los estados a las ubicaciones</span></span>
-<span id="cb13-48"><a href="optimización-de-procesos.html#cb13-48" aria-hidden="true" tabindex="-1"></a>state_to_location <span class="op">=</span> {state: location <span class="cf">for</span> location, state <span class="kw">in</span> location_to_state.items()}</span>
-<span id="cb13-49"><a href="optimización-de-procesos.html#cb13-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-50"><a href="optimización-de-procesos.html#cb13-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una función que devuelva el camino más corto desde la ubicación inicial a la final</span></span>
-<span id="cb13-51"><a href="optimización-de-procesos.html#cb13-51" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> route(starting_location, ending_location):</span>
-<span id="cb13-52"><a href="optimización-de-procesos.html#cb13-52" aria-hidden="true" tabindex="-1"></a>    R_new <span class="op">=</span> np.copy(R)</span>
-<span id="cb13-53"><a href="optimización-de-procesos.html#cb13-53" aria-hidden="true" tabindex="-1"></a>    ending_state <span class="op">=</span> location_to_state[ending_location]</span>
-<span id="cb13-54"><a href="optimización-de-procesos.html#cb13-54" aria-hidden="true" tabindex="-1"></a>    R_new[ending_state, ending_state] <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb13-55"><a href="optimización-de-procesos.html#cb13-55" aria-hidden="true" tabindex="-1"></a>    Q <span class="op">=</span> np.array(np.zeros([<span class="dv">12</span>,<span class="dv">12</span>]))</span>
-<span id="cb13-56"><a href="optimización-de-procesos.html#cb13-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
-<span id="cb13-57"><a href="optimización-de-procesos.html#cb13-57" aria-hidden="true" tabindex="-1"></a>        current_state <span class="op">=</span> np.random.randint(<span class="dv">0</span>,<span class="dv">12</span>)</span>
-<span id="cb13-58"><a href="optimización-de-procesos.html#cb13-58" aria-hidden="true" tabindex="-1"></a>        playable_actions <span class="op">=</span> []</span>
-<span id="cb13-59"><a href="optimización-de-procesos.html#cb13-59" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</span>
-<span id="cb13-60"><a href="optimización-de-procesos.html#cb13-60" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> R_new[current_state, j] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb13-61"><a href="optimización-de-procesos.html#cb13-61" aria-hidden="true" tabindex="-1"></a>                playable_actions.append(j)</span>
-<span id="cb13-62"><a href="optimización-de-procesos.html#cb13-62" aria-hidden="true" tabindex="-1"></a>        next_state <span class="op">=</span> np.random.choice(playable_actions)</span>
-<span id="cb13-63"><a href="optimización-de-procesos.html#cb13-63" aria-hidden="true" tabindex="-1"></a>        TD <span class="op">=</span> R_new[current_state, next_state]</span>
-<span id="cb13-64"><a href="optimización-de-procesos.html#cb13-64" aria-hidden="true" tabindex="-1"></a>             <span class="op">+</span> gamma <span class="op">*</span> Q[next_state, np.argmax(Q[next_state,])]</span>
-<span id="cb13-65"><a href="optimización-de-procesos.html#cb13-65" aria-hidden="true" tabindex="-1"></a>             <span class="op">-</span> Q[current_state, next_state]</span>
-<span id="cb13-66"><a href="optimización-de-procesos.html#cb13-66" aria-hidden="true" tabindex="-1"></a>        Q[current_state, next_state] <span class="op">=</span> Q[current_state, next_state] <span class="op">+</span> alpha <span class="op">*</span> TD</span>
-<span id="cb13-67"><a href="optimización-de-procesos.html#cb13-67" aria-hidden="true" tabindex="-1"></a>    route <span class="op">=</span> [starting_location]</span>
-<span id="cb13-68"><a href="optimización-de-procesos.html#cb13-68" aria-hidden="true" tabindex="-1"></a>    next_location <span class="op">=</span> starting_location</span>
-<span id="cb13-69"><a href="optimización-de-procesos.html#cb13-69" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (next_location <span class="op">!=</span> ending_location):</span>
-<span id="cb13-70"><a href="optimización-de-procesos.html#cb13-70" aria-hidden="true" tabindex="-1"></a>        starting_state <span class="op">=</span> location_to_state[starting_location]</span>
-<span id="cb13-71"><a href="optimización-de-procesos.html#cb13-71" aria-hidden="true" tabindex="-1"></a>        next_state <span class="op">=</span> np.argmax(Q[starting_state,])</span>
-<span id="cb13-72"><a href="optimización-de-procesos.html#cb13-72" aria-hidden="true" tabindex="-1"></a>        next_location <span class="op">=</span> state_to_location[next_state]</span>
-<span id="cb13-73"><a href="optimización-de-procesos.html#cb13-73" aria-hidden="true" tabindex="-1"></a>        route.append(next_location)</span>
-<span id="cb13-74"><a href="optimización-de-procesos.html#cb13-74" aria-hidden="true" tabindex="-1"></a>        starting_location <span class="op">=</span> next_location</span>
-<span id="cb13-75"><a href="optimización-de-procesos.html#cb13-75" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> route</span>
-<span id="cb13-76"><a href="optimización-de-procesos.html#cb13-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-77"><a href="optimización-de-procesos.html#cb13-77" aria-hidden="true" tabindex="-1"></a><span class="co"># PARTE 3 - PONER EL MODELO EN PRODUCCIÓN</span></span>
-<span id="cb13-78"><a href="optimización-de-procesos.html#cb13-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-79"><a href="optimización-de-procesos.html#cb13-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimir la ruta final</span></span>
-<span id="cb13-80"><a href="optimización-de-procesos.html#cb13-80" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Route:&#39;</span>)</span>
-<span id="cb13-81"><a href="optimización-de-procesos.html#cb13-81" aria-hidden="true" tabindex="-1"></a>route(<span class="st">&#39;E&#39;</span>, <span class="st">&#39;G&#39;</span>)</span></code></pre></div>
+<span id="cb13-48"><a href="optimización-de-procesos.html#cb13-48" aria-hidden="true" tabindex="-1"></a>state_to_location <span class="op">=</span> {state: location </span>
+<span id="cb13-49"><a href="optimización-de-procesos.html#cb13-49" aria-hidden="true" tabindex="-1"></a>                      <span class="cf">for</span> location, state <span class="kw">in</span> location_to_state.items()}</span>
+<span id="cb13-50"><a href="optimización-de-procesos.html#cb13-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-51"><a href="optimización-de-procesos.html#cb13-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una función que devuelva el camino más corto desde </span></span>
+<span id="cb13-52"><a href="optimización-de-procesos.html#cb13-52" aria-hidden="true" tabindex="-1"></a><span class="co"># la ubicación inicial a la final</span></span>
+<span id="cb13-53"><a href="optimización-de-procesos.html#cb13-53" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> route(starting_location, ending_location):</span>
+<span id="cb13-54"><a href="optimización-de-procesos.html#cb13-54" aria-hidden="true" tabindex="-1"></a>    R_new <span class="op">=</span> np.copy(R)</span>
+<span id="cb13-55"><a href="optimización-de-procesos.html#cb13-55" aria-hidden="true" tabindex="-1"></a>    ending_state <span class="op">=</span> location_to_state[ending_location]</span>
+<span id="cb13-56"><a href="optimización-de-procesos.html#cb13-56" aria-hidden="true" tabindex="-1"></a>    R_new[ending_state, ending_state] <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb13-57"><a href="optimización-de-procesos.html#cb13-57" aria-hidden="true" tabindex="-1"></a>    Q <span class="op">=</span> np.array(np.zeros([<span class="dv">12</span>,<span class="dv">12</span>]))</span>
+<span id="cb13-58"><a href="optimización-de-procesos.html#cb13-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb13-59"><a href="optimización-de-procesos.html#cb13-59" aria-hidden="true" tabindex="-1"></a>        current_state <span class="op">=</span> np.random.randint(<span class="dv">0</span>,<span class="dv">12</span>)</span>
+<span id="cb13-60"><a href="optimización-de-procesos.html#cb13-60" aria-hidden="true" tabindex="-1"></a>        playable_actions <span class="op">=</span> []</span>
+<span id="cb13-61"><a href="optimización-de-procesos.html#cb13-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</span>
+<span id="cb13-62"><a href="optimización-de-procesos.html#cb13-62" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> R_new[current_state, j] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb13-63"><a href="optimización-de-procesos.html#cb13-63" aria-hidden="true" tabindex="-1"></a>                playable_actions.append(j)</span>
+<span id="cb13-64"><a href="optimización-de-procesos.html#cb13-64" aria-hidden="true" tabindex="-1"></a>        next_state <span class="op">=</span> np.random.choice(playable_actions)</span>
+<span id="cb13-65"><a href="optimización-de-procesos.html#cb13-65" aria-hidden="true" tabindex="-1"></a>        TD <span class="op">=</span> R_new[current_state, next_state]</span>
+<span id="cb13-66"><a href="optimización-de-procesos.html#cb13-66" aria-hidden="true" tabindex="-1"></a>             <span class="op">+</span> gamma <span class="op">*</span> Q[next_state, np.argmax(Q[next_state,])]</span>
+<span id="cb13-67"><a href="optimización-de-procesos.html#cb13-67" aria-hidden="true" tabindex="-1"></a>             <span class="op">-</span> Q[current_state, next_state]</span>
+<span id="cb13-68"><a href="optimización-de-procesos.html#cb13-68" aria-hidden="true" tabindex="-1"></a>        Q[current_state, next_state] <span class="op">=</span> Q[current_state, next_state] <span class="op">+</span> </span>
+<span id="cb13-69"><a href="optimización-de-procesos.html#cb13-69" aria-hidden="true" tabindex="-1"></a>                                       alpha <span class="op">*</span> TD</span>
+<span id="cb13-70"><a href="optimización-de-procesos.html#cb13-70" aria-hidden="true" tabindex="-1"></a>    route <span class="op">=</span> [starting_location]</span>
+<span id="cb13-71"><a href="optimización-de-procesos.html#cb13-71" aria-hidden="true" tabindex="-1"></a>    next_location <span class="op">=</span> starting_location</span>
+<span id="cb13-72"><a href="optimización-de-procesos.html#cb13-72" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (next_location <span class="op">!=</span> ending_location):</span>
+<span id="cb13-73"><a href="optimización-de-procesos.html#cb13-73" aria-hidden="true" tabindex="-1"></a>        starting_state <span class="op">=</span> location_to_state[starting_location]</span>
+<span id="cb13-74"><a href="optimización-de-procesos.html#cb13-74" aria-hidden="true" tabindex="-1"></a>        next_state <span class="op">=</span> np.argmax(Q[starting_state,])</span>
+<span id="cb13-75"><a href="optimización-de-procesos.html#cb13-75" aria-hidden="true" tabindex="-1"></a>        next_location <span class="op">=</span> state_to_location[next_state]</span>
+<span id="cb13-76"><a href="optimización-de-procesos.html#cb13-76" aria-hidden="true" tabindex="-1"></a>        route.append(next_location)</span>
+<span id="cb13-77"><a href="optimización-de-procesos.html#cb13-77" aria-hidden="true" tabindex="-1"></a>        starting_location <span class="op">=</span> next_location</span>
+<span id="cb13-78"><a href="optimización-de-procesos.html#cb13-78" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> route</span>
+<span id="cb13-79"><a href="optimización-de-procesos.html#cb13-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-80"><a href="optimización-de-procesos.html#cb13-80" aria-hidden="true" tabindex="-1"></a><span class="co"># PARTE 3 - PONER EL MODELO EN PRODUCCIÓN</span></span>
+<span id="cb13-81"><a href="optimización-de-procesos.html#cb13-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-82"><a href="optimización-de-procesos.html#cb13-82" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimir la ruta final</span></span>
+<span id="cb13-83"><a href="optimización-de-procesos.html#cb13-83" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Route:&#39;</span>)</span>
+<span id="cb13-84"><a href="optimización-de-procesos.html#cb13-84" aria-hidden="true" tabindex="-1"></a>route(<span class="st">&#39;E&#39;</span>, <span class="st">&#39;G&#39;</span>)</span></code></pre></div>
 <p>Al ejecutar este nuevo código varias veces, obtenemos, por supuesto, las mismas dos posibles rutas óptimas que antes.</p>
 <p>Ahora abordemos la segunda mejora. Hay tres formas de agregar la opción de ir por la ubicación intermedia K, la segunda ubicación de máxima prioridad:</p>
 <ol style="list-style-type: decimal">
@@ -795,45 +804,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-44"><a href="optimización-de-procesos.html#cb17-44" aria-hidden="true" tabindex="-1"></a><span class="co"># PARTE 2 - CONSTRUCCIÓN DE LA SOLUCIÓN DE IA CON Q-LEARNING</span></span>
 <span id="cb17-45"><a href="optimización-de-procesos.html#cb17-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-46"><a href="optimización-de-procesos.html#cb17-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una función de mapping desde los estados a las ubicaciones</span></span>
-<span id="cb17-47"><a href="optimización-de-procesos.html#cb17-47" aria-hidden="true" tabindex="-1"></a>state_to_location <span class="op">=</span> {state: location <span class="cf">for</span> location, state <span class="kw">in</span> location_to_state.items()}</span>
-<span id="cb17-48"><a href="optimización-de-procesos.html#cb17-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-49"><a href="optimización-de-procesos.html#cb17-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una función que devuelva el camino más corto desde la ubicación inicial a la final</span></span>
-<span id="cb17-50"><a href="optimización-de-procesos.html#cb17-50" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> route(starting_location, ending_location):</span>
-<span id="cb17-51"><a href="optimización-de-procesos.html#cb17-51" aria-hidden="true" tabindex="-1"></a>    R_new <span class="op">=</span> np.copy(R)</span>
-<span id="cb17-52"><a href="optimización-de-procesos.html#cb17-52" aria-hidden="true" tabindex="-1"></a>    ending_state <span class="op">=</span> location_to_state[ending_location]</span>
-<span id="cb17-53"><a href="optimización-de-procesos.html#cb17-53" aria-hidden="true" tabindex="-1"></a>    R_new[ending_state, ending_state] <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb17-54"><a href="optimización-de-procesos.html#cb17-54" aria-hidden="true" tabindex="-1"></a>    Q <span class="op">=</span> np.array(np.zeros([<span class="dv">12</span>,<span class="dv">12</span>]))</span>
-<span id="cb17-55"><a href="optimización-de-procesos.html#cb17-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
-<span id="cb17-56"><a href="optimización-de-procesos.html#cb17-56" aria-hidden="true" tabindex="-1"></a>        current_state <span class="op">=</span> np.random.randint(<span class="dv">0</span>,<span class="dv">12</span>)</span>
-<span id="cb17-57"><a href="optimización-de-procesos.html#cb17-57" aria-hidden="true" tabindex="-1"></a>        playable_actions <span class="op">=</span> []</span>
-<span id="cb17-58"><a href="optimización-de-procesos.html#cb17-58" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</span>
-<span id="cb17-59"><a href="optimización-de-procesos.html#cb17-59" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> R_new[current_state, j] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb17-60"><a href="optimización-de-procesos.html#cb17-60" aria-hidden="true" tabindex="-1"></a>                playable_actions.append(j)</span>
-<span id="cb17-61"><a href="optimización-de-procesos.html#cb17-61" aria-hidden="true" tabindex="-1"></a>        next_state <span class="op">=</span> np.random.choice(playable_actions)</span>
-<span id="cb17-62"><a href="optimización-de-procesos.html#cb17-62" aria-hidden="true" tabindex="-1"></a>        TD <span class="op">=</span> R_new[current_state, next_state]</span>
-<span id="cb17-63"><a href="optimización-de-procesos.html#cb17-63" aria-hidden="true" tabindex="-1"></a>             <span class="op">+</span> gamma <span class="op">*</span> Q[next_state, np.argmax(Q[next_state,])]</span>
-<span id="cb17-64"><a href="optimización-de-procesos.html#cb17-64" aria-hidden="true" tabindex="-1"></a>             <span class="op">-</span> Q[current_state, next_state]</span>
-<span id="cb17-65"><a href="optimización-de-procesos.html#cb17-65" aria-hidden="true" tabindex="-1"></a>        Q[current_state, next_state] <span class="op">=</span> Q[current_state, next_state] <span class="op">+</span> alpha <span class="op">*</span> TD</span>
-<span id="cb17-66"><a href="optimización-de-procesos.html#cb17-66" aria-hidden="true" tabindex="-1"></a>    route <span class="op">=</span> [starting_location]</span>
-<span id="cb17-67"><a href="optimización-de-procesos.html#cb17-67" aria-hidden="true" tabindex="-1"></a>    next_location <span class="op">=</span> starting_location</span>
-<span id="cb17-68"><a href="optimización-de-procesos.html#cb17-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (next_location <span class="op">!=</span> ending_location):</span>
-<span id="cb17-69"><a href="optimización-de-procesos.html#cb17-69" aria-hidden="true" tabindex="-1"></a>        starting_state <span class="op">=</span> location_to_state[starting_location]</span>
-<span id="cb17-70"><a href="optimización-de-procesos.html#cb17-70" aria-hidden="true" tabindex="-1"></a>        next_state <span class="op">=</span> np.argmax(Q[starting_state,])</span>
-<span id="cb17-71"><a href="optimización-de-procesos.html#cb17-71" aria-hidden="true" tabindex="-1"></a>        next_location <span class="op">=</span> state_to_location[next_state]</span>
-<span id="cb17-72"><a href="optimización-de-procesos.html#cb17-72" aria-hidden="true" tabindex="-1"></a>        route.append(next_location)</span>
-<span id="cb17-73"><a href="optimización-de-procesos.html#cb17-73" aria-hidden="true" tabindex="-1"></a>        starting_location <span class="op">=</span> next_location</span>
-<span id="cb17-74"><a href="optimización-de-procesos.html#cb17-74" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> route</span>
-<span id="cb17-75"><a href="optimización-de-procesos.html#cb17-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-76"><a href="optimización-de-procesos.html#cb17-76" aria-hidden="true" tabindex="-1"></a><span class="co"># PARTE 3 - PONER EL MODELO EN PRODUCCIÓN</span></span>
-<span id="cb17-77"><a href="optimización-de-procesos.html#cb17-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-78"><a href="optimización-de-procesos.html#cb17-78" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear la función final que devuelve la ruta óptima</span></span>
-<span id="cb17-79"><a href="optimización-de-procesos.html#cb17-79" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> best_route(starting_location, intermediary_location, ending_location):</span>
-<span id="cb17-80"><a href="optimización-de-procesos.html#cb17-80" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> route(starting_location, intermediary_location)</span>
-<span id="cb17-81"><a href="optimización-de-procesos.html#cb17-81" aria-hidden="true" tabindex="-1"></a>           <span class="op">+</span> route(intermediary_location, ending_location)[<span class="dv">1</span>:]</span>
-<span id="cb17-82"><a href="optimización-de-procesos.html#cb17-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-83"><a href="optimización-de-procesos.html#cb17-83" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimir la ruta final</span></span>
-<span id="cb17-84"><a href="optimización-de-procesos.html#cb17-84" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Route:&#39;</span>)</span>
-<span id="cb17-85"><a href="optimización-de-procesos.html#cb17-85" aria-hidden="true" tabindex="-1"></a>best_route(<span class="st">&#39;E&#39;</span>, <span class="st">&#39;K&#39;</span>, <span class="st">&#39;G&#39;</span>)</span></code></pre></div>
+<span id="cb17-47"><a href="optimización-de-procesos.html#cb17-47" aria-hidden="true" tabindex="-1"></a>state_to_location <span class="op">=</span> {state: location </span>
+<span id="cb17-48"><a href="optimización-de-procesos.html#cb17-48" aria-hidden="true" tabindex="-1"></a>                      <span class="cf">for</span> location, state <span class="kw">in</span> location_to_state.items()}</span>
+<span id="cb17-49"><a href="optimización-de-procesos.html#cb17-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-50"><a href="optimización-de-procesos.html#cb17-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una función que devuelva el camino más corto </span></span>
+<span id="cb17-51"><a href="optimización-de-procesos.html#cb17-51" aria-hidden="true" tabindex="-1"></a><span class="co"># desde la ubicación inicial a la final</span></span>
+<span id="cb17-52"><a href="optimización-de-procesos.html#cb17-52" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> route(starting_location, ending_location):</span>
+<span id="cb17-53"><a href="optimización-de-procesos.html#cb17-53" aria-hidden="true" tabindex="-1"></a>    R_new <span class="op">=</span> np.copy(R)</span>
+<span id="cb17-54"><a href="optimización-de-procesos.html#cb17-54" aria-hidden="true" tabindex="-1"></a>    ending_state <span class="op">=</span> location_to_state[ending_location]</span>
+<span id="cb17-55"><a href="optimización-de-procesos.html#cb17-55" aria-hidden="true" tabindex="-1"></a>    R_new[ending_state, ending_state] <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb17-56"><a href="optimización-de-procesos.html#cb17-56" aria-hidden="true" tabindex="-1"></a>    Q <span class="op">=</span> np.array(np.zeros([<span class="dv">12</span>,<span class="dv">12</span>]))</span>
+<span id="cb17-57"><a href="optimización-de-procesos.html#cb17-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb17-58"><a href="optimización-de-procesos.html#cb17-58" aria-hidden="true" tabindex="-1"></a>        current_state <span class="op">=</span> np.random.randint(<span class="dv">0</span>,<span class="dv">12</span>)</span>
+<span id="cb17-59"><a href="optimización-de-procesos.html#cb17-59" aria-hidden="true" tabindex="-1"></a>        playable_actions <span class="op">=</span> []</span>
+<span id="cb17-60"><a href="optimización-de-procesos.html#cb17-60" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>):</span>
+<span id="cb17-61"><a href="optimización-de-procesos.html#cb17-61" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> R_new[current_state, j] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb17-62"><a href="optimización-de-procesos.html#cb17-62" aria-hidden="true" tabindex="-1"></a>                playable_actions.append(j)</span>
+<span id="cb17-63"><a href="optimización-de-procesos.html#cb17-63" aria-hidden="true" tabindex="-1"></a>        next_state <span class="op">=</span> np.random.choice(playable_actions)</span>
+<span id="cb17-64"><a href="optimización-de-procesos.html#cb17-64" aria-hidden="true" tabindex="-1"></a>        TD <span class="op">=</span> R_new[current_state, next_state]</span>
+<span id="cb17-65"><a href="optimización-de-procesos.html#cb17-65" aria-hidden="true" tabindex="-1"></a>             <span class="op">+</span> gamma <span class="op">*</span> Q[next_state, np.argmax(Q[next_state,])]</span>
+<span id="cb17-66"><a href="optimización-de-procesos.html#cb17-66" aria-hidden="true" tabindex="-1"></a>             <span class="op">-</span> Q[current_state, next_state]</span>
+<span id="cb17-67"><a href="optimización-de-procesos.html#cb17-67" aria-hidden="true" tabindex="-1"></a>        Q[current_state, next_state] <span class="op">=</span> Q[current_state, next_state] <span class="op">+</span> </span>
+<span id="cb17-68"><a href="optimización-de-procesos.html#cb17-68" aria-hidden="true" tabindex="-1"></a>                                       alpha <span class="op">*</span> TD</span>
+<span id="cb17-69"><a href="optimización-de-procesos.html#cb17-69" aria-hidden="true" tabindex="-1"></a>    route <span class="op">=</span> [starting_location]</span>
+<span id="cb17-70"><a href="optimización-de-procesos.html#cb17-70" aria-hidden="true" tabindex="-1"></a>    next_location <span class="op">=</span> starting_location</span>
+<span id="cb17-71"><a href="optimización-de-procesos.html#cb17-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (next_location <span class="op">!=</span> ending_location):</span>
+<span id="cb17-72"><a href="optimización-de-procesos.html#cb17-72" aria-hidden="true" tabindex="-1"></a>        starting_state <span class="op">=</span> location_to_state[starting_location]</span>
+<span id="cb17-73"><a href="optimización-de-procesos.html#cb17-73" aria-hidden="true" tabindex="-1"></a>        next_state <span class="op">=</span> np.argmax(Q[starting_state,])</span>
+<span id="cb17-74"><a href="optimización-de-procesos.html#cb17-74" aria-hidden="true" tabindex="-1"></a>        next_location <span class="op">=</span> state_to_location[next_state]</span>
+<span id="cb17-75"><a href="optimización-de-procesos.html#cb17-75" aria-hidden="true" tabindex="-1"></a>        route.append(next_location)</span>
+<span id="cb17-76"><a href="optimización-de-procesos.html#cb17-76" aria-hidden="true" tabindex="-1"></a>        starting_location <span class="op">=</span> next_location</span>
+<span id="cb17-77"><a href="optimización-de-procesos.html#cb17-77" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> route</span>
+<span id="cb17-78"><a href="optimización-de-procesos.html#cb17-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-79"><a href="optimización-de-procesos.html#cb17-79" aria-hidden="true" tabindex="-1"></a><span class="co"># PARTE 3 - PONER EL MODELO EN PRODUCCIÓN</span></span>
+<span id="cb17-80"><a href="optimización-de-procesos.html#cb17-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-81"><a href="optimización-de-procesos.html#cb17-81" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear la función final que devuelve la ruta óptima</span></span>
+<span id="cb17-82"><a href="optimización-de-procesos.html#cb17-82" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> best_route(starting_location, intermediary_location, ending_location):</span>
+<span id="cb17-83"><a href="optimización-de-procesos.html#cb17-83" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> route(starting_location, intermediary_location)</span>
+<span id="cb17-84"><a href="optimización-de-procesos.html#cb17-84" aria-hidden="true" tabindex="-1"></a>           <span class="op">+</span> route(intermediary_location, ending_location)[<span class="dv">1</span>:]</span>
+<span id="cb17-85"><a href="optimización-de-procesos.html#cb17-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-86"><a href="optimización-de-procesos.html#cb17-86" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimir la ruta final</span></span>
+<span id="cb17-87"><a href="optimización-de-procesos.html#cb17-87" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Route:&#39;</span>)</span>
+<span id="cb17-88"><a href="optimización-de-procesos.html#cb17-88" aria-hidden="true" tabindex="-1"></a>best_route(<span class="st">&#39;E&#39;</span>, <span class="st">&#39;K&#39;</span>, <span class="st">&#39;G&#39;</span>)</span></code></pre></div>
 <p>Al ejecutar este código completamente nuevo tantas veces como queramos, siempre obtendremos el mismo resultado esperado:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="optimización-de-procesos.html#cb18-1" aria-hidden="true" tabindex="-1"></a>Best Route:</span>
 <span id="cb18-2"><a href="optimización-de-procesos.html#cb18-2" aria-hidden="true" tabindex="-1"></a>Out[<span class="dv">1</span>]: [<span class="st">&#39;E&#39;</span>, <span class="st">&#39;I&#39;</span>, <span class="st">&#39;J&#39;</span>, <span class="st">&#39;K&#39;</span>, <span class="st">&#39;L&#39;</span>, <span class="st">&#39;H&#39;</span>, <span class="st">&#39;G&#39;</span>]</span></code></pre></div>
@@ -906,7 +918,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

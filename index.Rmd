@@ -11,18 +11,13 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: https://github.com/joanby/ia4business
-description: "Asienta las bases para convertirte en el Data Scientist del futuro con todo el contenido de estadística descriptiva del curso. En particular verás los mismos contenidos que explicamos en primero de carrera a matemáticos, ingenieros, economistas, biólogos, médicos o informáticos."
-url: 'https://www.udemy.com/course/ia4business/?couponCode=B85F8D52148DF5AAD8F7'
+description: "Aprende a aplicar los algoritmos de Machine Learning e Inteligencia Artificial con Python en los tres aspectos más importantes del mundo de los negocios: la optimización de procesos, la minimización de gastos y la maximización de beneficios. Completamente en castellano y explicado por Juan Gabriel Gomila, instructor online reconocido a nivel mundial además de CEO de Frogames Formación SL."
+url: 'https://cursos.frogamesformacion.com/courses/ia-aplicada-negocios?et=paid&ref=846b3f&coupon=frogames30'
 cover-image: "Images/Course_Image.png"
 apple-touch-icon: "Images/apple-icon-120x120.png"
 apple-touch-icon-size: 120
 favicon: "Images/favicon.ico"
 ---
-
-\renewcommand{\contentsname}{Tabla de Contenidos}
-\tableofcontents
-
-\newpage
 
 # Introducción {-}
 
@@ -44,7 +39,7 @@ En cada una de esas partes, seguiremos el mismo esquema de tres pasos:
 
 ```{r, echo=FALSE}
 library(reticulate)
-#reticulate::use_python("/Users/juangabriel/opt/anaconda3/bin/python3")
+reticulate::use_python("/Users/juangabriel/opt/anaconda3/bin/python3")
 ```
 
 

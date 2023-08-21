@@ -269,7 +269,7 @@ for n in range(0, N):
     total_reward_bs = max(rewards_strategies)
     # Arrepentimiento
     regret.append(total_reward_bs - total_reward_rs)
-````
+```
 
 Y finalmente, por supuesto, representamos el arrepentimiento sobre las rondas con este simple código (no tenemos que especificar las coordenadas x en la función `plt.plot()` porque las rondas ya son índices desde 0 hasta N):
 

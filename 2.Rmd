@@ -191,7 +191,7 @@ Ahora, para terminar esta sección, vamos a hacer una pequeña simulación de 2 
 
 **Ejemplo de simulación final.**
 
-Digamos que estamos en el instante de tiempo $t = 4:00$ pm y que la temperatura del servidor es $T_t = 28^{\circ}$ C, tanto con la IA como sin la IA. En este momento exacto, la IA predice la acción 0, 1, 2, 3 o 4. Desde ahora, la temperatura del servidor está fuera del rango de temperatura óptimo $[18^{\circ} \textrm{C}, 24^{\circ} \textrm{C }]$, la IA probablemente predecirá las acciones 0, 1 o 2. Digamos que predice 1, lo que corresponde a enfriar el servidor en $1.5^{\circ}$ C. Por lo tanto, entre $t = 4:00$ pm y $t + 1 = 4: 01$ pm, la IA hace que la temperatura del servidor pase de $T_t^{\textrm{IA}} = 28^{\circ} \textrm{C} $ a $T_{t + 1}^{\ textrm{IA}} = 26.5^{\circ} \textrm{C}$:
+Digamos que estamos en el instante de tiempo $t = 4:00$ pm y que la temperatura del servidor es $T_t = 28^\circ$ C, tanto con la IA como sin la IA. En este momento exacto, la IA predice la acción 0, 1, 2, 3 o 4. Desde ahora, la temperatura del servidor está fuera del rango de temperatura óptimo $[18^{\circ} \textrm{C}, 24^{\circ} \textrm{C }]$, la IA probablemente predecirá las acciones 0, 1 o 2. Digamos que predice 1, lo que corresponde a enfriar el servidor en $1.5^{\circ}$ C. Por lo tanto, entre $t = 4:00$ pm y $t + 1 = 4: 01$ pm, la IA hace que la temperatura del servidor pase de $T_t^{\textrm{IA}} = 28^{\circ} \textrm{C}$ a $T_{t + 1}^{\ textrm{IA}} = 26.5^{\circ} \textrm{C}$:
 
 \begin{align*}
     \Delta T_t^{\textrm{IA}}
@@ -415,7 +415,7 @@ Esta clase sigue los siguientes subpasos, que son parte del algoritmo general de
 
 Encontrarás toda la implementación de esta clase de creación de entorno en las próximas páginas. Recuerda lo más importante: todas las secciones de código que tienen sus títulos escritos en letras mayúsculas son los pasos del framework de IA o del Blueprint general, y todas las secciones de código que tienen sus títulos escritos en letras minúsculas son específicas de nuestro caso práctico.
 
-A continuación se muestra la implementación completa de nuestro primer archivo de `python`. Los títulos de las secciones de código y los nombres de las variables elegidas son lo suficientemente claros como para comprender lo que se está codificando, pero si necesitas más explicaciones, te recomiendo que vea nuestros videos tutoriales en Udemy donde codificamos todo desde cero, paso a paso, mientras explicamos cada línea. de código en términos de por qué, qué y cómo. Aquí vamos:
+A continuación se muestra la implementación completa de nuestro primer archivo de `python`. Los títulos de las secciones de código y los nombres de las variables elegidas son lo suficientemente claros como para comprender lo que se está codificando, pero si necesitas más explicaciones, te recomiendo que vea nuestros videos tutoriales en la plataforma de [Frogames Formación](https://cursos.frogamesformacion.com/courses/ia-aplicada-negocios?et=paid&ref=846b3f&coupon=frogames30) donde codificamos todo desde cero, paso a paso, mientras explicamos cada línea. de código en términos de por qué, qué y cómo. Aquí vamos:
 
 ```{python, eval = F}
 # Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2
@@ -671,7 +671,7 @@ Así es como implementamos el Dropout:
 1. Primero importamos la función `Dropout`:
 ```{python, eval=F}
     from keras.layers:from keras.layers import Input, Dense, Dropout
-    ```
+```
 2. Luego, activamos el Dropout en la primera capa oculta `x`, con una proporción de 0.1, lo que significa que el 10% de las neuronas se desactivarán aleatoriamente durante el entrenamiento a cada iteración:
 ```{python, eval=F}
     x = Dense(units = 64, activation = 'sigmoid')(states)
@@ -927,7 +927,7 @@ En términos de nuestro algoritmo de IA, aquí para la implementación de prueba
 * **Paso 5-4:** Iniciación de la simulación de 1 año.
 * **Paso 5-5:** En cada iteración (cada minuto), nuestra IA solo ejecuta la acción que resulta de su predicción, y no se lleva a cabo ninguna exploración o entrenamiento de Deep Q-Learning.
 
-Y ahora implementemos esta quinta y última parte, Paso 5: Prueba de la IA. Una vez más, a continuación se muestra la implementación completa de nuestro último archivo de Python. Los títulos de las secciones de código y los nombres de las variables elegidas son lo suficientemente claros como para comprender lo que se está programando, pero si necesitas más explicaciones, te recomiendo que veas nuestros videos tutoriales en Udemy donde programamos todo desde cero, paso a paso, mientras explicamos cada línea de código en términos de por qué, qué y cómo. Aquí vamos:
+Y ahora implementemos esta quinta y última parte, Paso 5: Prueba de la IA. Una vez más, a continuación se muestra la implementación completa de nuestro último archivo de Python. Los títulos de las secciones de código y los nombres de las variables elegidas son lo suficientemente claros como para comprender lo que se está programando, pero si necesitas más explicaciones, te recomiendo que veas nuestros videos tutoriales en [Frogames Formación](https://cursos.frogamesformacion.com/courses/ia-aplicada-negocios?et=paid&ref=846b3f&coupon=frogames30) donde programamos todo desde cero, paso a paso, mientras explicamos cada línea de código en términos de por qué, qué y cómo. Aquí vamos:
 
 ```{python, eval=F}
 # Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2

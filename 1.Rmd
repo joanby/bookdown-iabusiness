@@ -93,7 +93,7 @@ Lo último que tenemos que hacer ahora para construir nuestro entorno es definir
 
 $$R : (\textrm{state}, \textrm{action}) \mapsto r \in \mathbb{R}$$
 
-Entonces, ¿cómo vamos a construir esa función para nuestro caso práctico? Aquí esto es simple. Dado que hay un número discreto y finito de estados (los índices de 0 a 11), así como un número discreto y finito de acciones (mismos índices de 0 a 11), la mejor manera de construir nuestra función de recompensa R es simplemente hacer una matriz. Nuestra función de recompensa será exactamente una matriz de 12 filas y 12 columnas, donde las filas corresponden a los estados y las columnas corresponden a las acciones. De esa forma, en nuestra función $R: (s, a) \mapsto r \ in \mathbb{R} $, $s$ será el índice de la fila de la matriz, $a$ será el índice de la columna de matriz, y $r$ será la celda de los índices $(s, a)$ en la matriz.
+Entonces, ¿cómo vamos a construir esa función para nuestro caso práctico? Aquí esto es simple. Dado que hay un número discreto y finito de estados (los índices de 0 a 11), así como un número discreto y finito de acciones (mismos índices de 0 a 11), la mejor manera de construir nuestra función de recompensa R es simplemente hacer una matriz. Nuestra función de recompensa será exactamente una matriz de 12 filas y 12 columnas, donde las filas corresponden a los estados y las columnas corresponden a las acciones. De esa forma, en nuestra función $R: (s, a) \mapsto r \in \mathbb{R}$, $s$ será el índice de la fila de la matriz, $a$ será el índice de la columna de matriz, y $r$ será la celda de los índices $(s, a)$ en la matriz.
 
 Por lo tanto, lo único que tenemos que hacer ahora para definir nuestra función de recompensa es simplemente llenar esta matriz con las recompensas numéricas. Y como acabamos de decir en el párrafo anterior, lo que tenemos que hacer primero es atribuir, para cada una de las 12 ubicaciones, una recompensa 0 por las acciones que el robot no puede ejecutar, y una recompensa 1 por las acciones que el robot puede llevar a cabo. Al hacer eso para cada una de las 12 ubicaciones, terminaremos con una matriz de recompensas. Vamos a construirlo paso a paso, comenzando con la primera ubicación: 
 
@@ -216,9 +216,9 @@ Ahora supongamos que estamos en el instante $t$, en cierto estado $s_t$. Llevamo
 
 Ahora podemos presentar la diferencia temporal, que básicamente es el corazón de Q-Learning. La diferencia temporal en el tiempo $t$, denotada por $TD_t(s_t, a_t)$, es la diferencia entre:
 
-* $R(s_t,a_t) + \gamma \underset{a}{\max}(Q(s_{t+1},a))$, es decir la recompensa $R (s_t, a_t)$ obtenida al llevar a cabo la acción $a_t$ en el estado $s_t$, más el valor Q de la mejor acción jugada en el estado futuro $s_{t + 1}$, descontado por un factor $\gamma \in [0,1] $, llamado factor de descuento.
+* $R(s_t,a_t) + \gamma \underset{a}{\max}(Q(s_{t+1},a))$, es decir la recompensa $R (s_t, a_t)$ obtenida al llevar a cabo la acción $a_t$ en el estado $s_t$, más el valor Q de la mejor acción jugada en el estado futuro $s_{t+1}$, descontado por un factor $\gamma \in [0,1]$, llamado factor de descuento.
 
-* y $Q(s_t, a_t)$, es decir el valor Q de la acción $a_t$ llevada a cabo en el estado $ s_t $,
+* y $Q(s_t, a_t)$, es decir el valor Q de la acción $a_t$ llevada a cabo en el estado $s_t$,
 
 que nos lleva a:
 
@@ -310,7 +310,7 @@ Primero, comenzamos importando las librerías que se usarán en esta implementac
 import numpy as np
 ```
 
-Luego establecemos los parámetros de nuestro modelo. Estos incluyen el factor de descuento $\gamma$ y la tasa de aprendizaje $\alpha $, que como vimos en la Sección 1.2, son los únicos parámetros del algoritmo Q-Learning:
+Luego establecemos los parámetros de nuestro modelo. Estos incluyen el factor de descuento $\gamma$ y la tasa de aprendizaje $\alpha$, que como vimos en la Sección 1.2, son los únicos parámetros del algoritmo Q-Learning:
 
 ```{python, eval=T}
 # Configuración de los parámetros gamma y alfa para el Q-Learning
@@ -384,8 +384,9 @@ for i in range(1000):
         if R[current_state, j] > 0:
             playable_actions.append(j)
     next_state = np.random.choice(playable_actions)
-    TD = R[current_state, next_state] + gamma*Q[next_state, np.argmax(Q[next_state,])]
-         - Q[current_state, next_state]
+    TD = R[current_state, next_state] + 
+         gamma*Q[next_state, np.argmax(Q[next_state,])] - 
+         Q[current_state, next_state]
     Q[current_state, next_state] = Q[current_state, next_state] + alpha*TD
 ```
 
@@ -410,7 +411,8 @@ Bien, ahora que tenemos nuestra matriz de valores Q, ¡estamos listos para lleva
 # PARTE 3 - PONER EL MODELO EN PRODUCCIÓN
 
 # Hacer un mapeo de los estados a las ubicaciones
-state_to_location = {state: location for location, state in location_to_state.items()}
+state_to_location = {state: location 
+                      for location, state in location_to_state.items()}
 ```
 
 Aquí es cuando entra en juego la sección de código más importante. Estamos a punto de implementar la función final `route ()` que tomará como entradas las ubicaciones de inicio y finalización, y que devolverá la ruta óptima entre estas dos ubicaciones. Para explicar exactamente qué hará esta función de ruta, enumeremos los diferentes pasos del proceso, al pasar de la ubicación E a la ubicación G:
@@ -504,9 +506,11 @@ R = np.array([[0,1,0,0,0,0,0,0,0,0,0,0],
 # PARTE 2 - CONSTRUCCIÓN DE LA SOLUCIÓN DE IA CON Q-LEARNING
 
 # Crear una función de mapping desde los estados a las ubicaciones
-state_to_location = {state: location for location, state in location_to_state.items()}
+state_to_location = {state: location 
+                      for location, state in location_to_state.items()}
 
-# Crear una función que devuelva el camino más corto desde la ubicación inicial a la final
+# Crear una función que devuelva el camino más corto desde 
+# la ubicación inicial a la final
 def route(starting_location, ending_location):
     R_new = np.copy(R)
     ending_state = location_to_state[ending_location]
@@ -522,7 +526,8 @@ def route(starting_location, ending_location):
         TD = R_new[current_state, next_state]
              + gamma * Q[next_state, np.argmax(Q[next_state,])]
              - Q[current_state, next_state]
-        Q[current_state, next_state] = Q[current_state, next_state] + alpha * TD
+        Q[current_state, next_state] = Q[current_state, next_state] + 
+                                       alpha * TD
     route = [starting_location]
     next_location = starting_location
     while (next_location != ending_location):
@@ -640,9 +645,11 @@ R = np.array([[0,1,0,0,0,0,0,0,0,0,0,0],
 # PARTE 2 - CONSTRUCCIÓN DE LA SOLUCIÓN DE IA CON Q-LEARNING
 
 # Crear una función de mapping desde los estados a las ubicaciones
-state_to_location = {state: location for location, state in location_to_state.items()}
+state_to_location = {state: location 
+                      for location, state in location_to_state.items()}
 
-# Crear una función que devuelva el camino más corto desde la ubicación inicial a la final
+# Crear una función que devuelva el camino más corto 
+# desde la ubicación inicial a la final
 def route(starting_location, ending_location):
     R_new = np.copy(R)
     ending_state = location_to_state[ending_location]
@@ -658,7 +665,8 @@ def route(starting_location, ending_location):
         TD = R_new[current_state, next_state]
              + gamma * Q[next_state, np.argmax(Q[next_state,])]
              - Q[current_state, next_state]
-        Q[current_state, next_state] = Q[current_state, next_state] + alpha * TD
+        Q[current_state, next_state] = Q[current_state, next_state] + 
+                                       alpha * TD
     route = [starting_location]
     next_location = starting_location
     while (next_location != ending_location):

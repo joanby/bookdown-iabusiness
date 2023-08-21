@@ -626,7 +626,7 @@ $$
 \end{pmatrix}
 $$
 
-"Positivo" viene del hecho de que estamos *agregando* los valores pequeños $\delta_{i, j}$ a nuestros pesos $\theta_{i, j}$. Estas pequeñas perturbaciones $\delta_{i, j}$ se muestrean a partir de una distribución gaussiana $\mathcal{N}(0, \sigma) $ (la desviación estándar $\sigma$ es lo que llamamos "ruido" en el modelo ARS .
+"Positivo" viene del hecho de que estamos *agregando* los valores pequeños $\delta_{i, j}$ a nuestros pesos $\theta_{i, j}$. Estas pequeñas perturbaciones $\delta_{i, j}$ se muestrean a partir de una distribución gaussiana $\mathcal{N}(0, \sigma)$ (la desviación estándar $\sigma$ es lo que llamamos "ruido" en el modelo ARS .
 
 Y cada vez que hacemos esto, también aplicamos exactamente las mismas perturbaciones $\delta_{i, j}$ a nuestros pesos $\theta_{i, j}$, pero en la dirección opuesta $-\Delta_k$, simplemente esta vez restando exactamente el mismo $\delta_{i, j}$:
 

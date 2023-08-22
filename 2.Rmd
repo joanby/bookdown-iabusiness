@@ -915,7 +915,8 @@ if (env.train):
                                                  int(timestep / (30*24*60)))
             total_reward += reward
             # ALMACENAR LA NUEVA TRANSICIÓN EN LA MEMORIA
-            dqn.remember([current_state, action, reward, next_state], game_over)
+            dqn.remember([current_state, action, reward, next_state], 
+                         game_over)
             # REUNIR EN DOS LOTES SEPARADOS LAS ENTRADAS Y LOS OBJETIVOS
             inputs, targets = dqn.get_batch(model, batch_size = batch_size)
             # CALCULAR LA PÉRDIDA EN LOS DOS LOTES DE ENTRADAS Y OBJETIVOS

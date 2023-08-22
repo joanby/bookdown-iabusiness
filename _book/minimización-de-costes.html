@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Parte 2 Minimización de Costes | Inteligencia Artificial aplicada a Negocios y Empresas</title>
+  <meta name="description" content="Aprende a aplicar los algoritmos de Machine Learning e Inteligencia Artificial con Python en los tres aspectos más importantes del mundo de los negocios: la optimización de procesos, la minimización de gastos y la maximización de beneficios. Completamente en castellano y explicado por Juan Gabriel Gomila, instructor online reconocido a nivel mundial además de CEO de Frogames Formación SL." />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Parte 2 Minimización de Costes | Inteligencia Artificial aplicada a Negocios y Empresas" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://cursos.frogamesformacion.com/courses/ia-aplicada-negocios?et=paid&amp;ref=846b3f&amp;coupon=frogames30/Images/Course_Image.png" />
+  <meta property="og:description" content="Aprende a aplicar los algoritmos de Machine Learning e Inteligencia Artificial con Python en los tres aspectos más importantes del mundo de los negocios: la optimización de procesos, la minimización de gastos y la maximización de beneficios. Completamente en castellano y explicado por Juan Gabriel Gomila, instructor online reconocido a nivel mundial además de CEO de Frogames Formación SL." />
+  <meta name="github-repo" content="https://github.com/joanby/ia4business" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Parte 2 Minimización de Costes | Inteligencia Artificial aplicada a Negocios y Empresas" />
+  
+  <meta name="twitter:description" content="Aprende a aplicar los algoritmos de Machine Learning e Inteligencia Artificial con Python en los tres aspectos más importantes del mundo de los negocios: la optimización de procesos, la minimización de gastos y la maximización de beneficios. Completamente en castellano y explicado por Juan Gabriel Gomila, instructor online reconocido a nivel mundial además de CEO de Frogames Formación SL." />
+  <meta name="twitter:image" content="https://cursos.frogamesformacion.com/courses/ia-aplicada-negocios?et=paid&amp;ref=846b3f&amp;coupon=frogames30/Images/Course_Image.png" />
+
+<meta name="author" content="Hadelin de Ponteves y Kirill Ermenko" />
+
+
+<meta name="date" content="2023-08-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="Images/apple-icon-120x120.png" />
+  <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="optimización-de-procesos.html"/>
+<link rel="next" href="maximización-de-beneficios.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Inteligencia Artificial aplicada Negocios y Empresas</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introducción</a></li>
+<li class="chapter" data-level="1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html"><i class="fa fa-check"></i><b>1</b> Optimización de Procesos</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#caso-práctico-optimización-de-tareas-en-un-almacén-de-comercio-electrónico"><i class="fa fa-check"></i><b>1.1</b> Caso Práctico: Optimización de tareas en un almacén de comercio electrónico</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#problema-a-resolver"><i class="fa fa-check"></i><b>1.1.1</b> Problema a resolver</a></li>
+<li class="chapter" data-level="1.1.2" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#entorno-a-definir"><i class="fa fa-check"></i><b>1.1.2</b> Entorno a definir</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#solución-de-inteligencia-artificial"><i class="fa fa-check"></i><b>1.2</b> Solución de Inteligencia Artificial</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#proceso-de-decisión-de-markov"><i class="fa fa-check"></i><b>1.2.1</b> Proceso de Decisión de Markov</a></li>
+<li class="chapter" data-level="1.2.2" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#q-learning"><i class="fa fa-check"></i><b>1.2.2</b> Q-Learning</a></li>
+<li class="chapter" data-level="1.2.3" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#el-algoritmo-de-q-learning-al-completo"><i class="fa fa-check"></i><b>1.2.3</b> El algoritmo de Q-Learning al completo</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="optimización-de-procesos.html"><a href="optimización-de-procesos.html#implementación"><i class="fa fa-check"></i><b>1.3</b> Implementación</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html"><i class="fa fa-check"></i><b>2</b> Minimización de Costes</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#caso-práctico-minimización-de-costes-en-el-consumo-energético-de-un-centro-de-datos"><i class="fa fa-check"></i><b>2.1</b> Caso Práctico: Minimización de Costes en el Consumo Energético de un Centro de Datos</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#problema-a-resolver-1"><i class="fa fa-check"></i><b>2.1.1</b> Problema a resolver</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#solución-de-ia"><i class="fa fa-check"></i><b>2.2</b> Solución de IA</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#q-learning-en-deep-learning"><i class="fa fa-check"></i><b>2.2.1</b> Q-Learning en Deep Learning</a></li>
+<li class="chapter" data-level="2.2.2" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#experience-replay"><i class="fa fa-check"></i><b>2.2.2</b> Experience Replay</a></li>
+<li class="chapter" data-level="2.2.3" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#el-cerebro"><i class="fa fa-check"></i><b>2.2.3</b> El cerebro</a></li>
+<li class="chapter" data-level="2.2.4" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#el-algoritmo-de-deep-q-learning-al-completo"><i class="fa fa-check"></i><b>2.2.4</b> El algoritmo de Deep Q-Learning al completo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#implementation"><i class="fa fa-check"></i><b>2.3</b> Implementation</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#paso-1-construcción-del-entorno"><i class="fa fa-check"></i><b>2.3.1</b> Paso 1: Construcción del Entorno</a></li>
+<li class="chapter" data-level="2.3.2" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#paso-2-construcción-del-cerebro"><i class="fa fa-check"></i><b>2.3.2</b> Paso 2: Construcción del cerebro</a></li>
+<li class="chapter" data-level="2.3.3" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#paso-3-implementación-del-algoritmo-de-deep-reinforcement-learning"><i class="fa fa-check"></i><b>2.3.3</b> Paso 3: Implementación del algoritmo de Deep Reinforcement Learning</a></li>
+<li class="chapter" data-level="2.3.4" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#paso-4-entrenar-la-ia"><i class="fa fa-check"></i><b>2.3.4</b> Paso 4: Entrenar la IA</a></li>
+<li class="chapter" data-level="2.3.5" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#paso-5-probar-nuestra-ia"><i class="fa fa-check"></i><b>2.3.5</b> Paso 5: Probar nuestra IA</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#resumen-el-algoritmo-general-de-ia"><i class="fa fa-check"></i><b>2.4</b> Resumen: El Algoritmo General de IA</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html"><i class="fa fa-check"></i><b>3</b> Maximización de Beneficios</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html#caso-práctico-maximización-de-beeficios-de-un-negocio-de-venta-online-en-línea"><i class="fa fa-check"></i><b>3.1</b> Caso Práctico: Maximización de beeficios de un negocio de venta online en línea</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html#problema-a-reesolver"><i class="fa fa-check"></i><b>3.1.1</b> Problema a reesolver</a></li>
+<li class="chapter" data-level="3.1.2" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html#definición-del-entorno"><i class="fa fa-check"></i><b>3.1.2</b> Definición del Entorno</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html#solución-de-ia-1"><i class="fa fa-check"></i><b>3.2</b> Solución de IA</a></li>
+<li class="chapter" data-level="3.3" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html#implementación-1"><i class="fa fa-check"></i><b>3.3</b> Implementación</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusión.html"><a href="conclusión.html"><i class="fa fa-check"></i>Conclusión</a></li>
+<li class="chapter" data-level="4" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html"><i class="fa fa-check"></i><b>4</b> Anexos adicionales</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#anexo-1-redes-neuronales-artificiales"><i class="fa fa-check"></i><b>4.1</b> Anexo 1: Redes Neuronales Artificiales</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#la-neurona"><i class="fa fa-check"></i><b>4.1.1</b> La Neurona</a></li>
+<li class="chapter" data-level="4.1.2" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#la-función-de-activación"><i class="fa fa-check"></i><b>4.1.2</b> La Función de Activación</a></li>
+<li class="chapter" data-level="4.1.3" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#cómo-funcionan-las-redes-neuronales"><i class="fa fa-check"></i><b>4.1.3</b> ¿Cómo funcionan las Redes Neuronales?</a></li>
+<li class="chapter" data-level="4.1.4" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#cómo-aprenden-las-redes-neuronales"><i class="fa fa-check"></i><b>4.1.4</b> ¿Cómo aprenden las Redes Neuronales?</a></li>
+<li class="chapter" data-level="4.1.5" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#propagación-hacia-adelante-and-propagación-hacia-atrás"><i class="fa fa-check"></i><b>4.1.5</b> Propagación hacia adelante and propagación hacia atrás</a></li>
+<li class="chapter" data-level="4.1.6" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#gradiente-descendente"><i class="fa fa-check"></i><b>4.1.6</b> Gradiente Descendente</a></li>
+<li class="chapter" data-level="4.1.7" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#optimizadores"><i class="fa fa-check"></i><b>4.1.7</b> Optimizadores</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#anexo-2-tres-modelos-adicionales-de-ia"><i class="fa fa-check"></i><b>4.2</b> Anexo 2: Tres modelos adicionales de IA</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#aprendizaje-convolucional-q-profundo"><i class="fa fa-check"></i><b>4.2.1</b> Aprendizaje convolucional Q-profundo</a></li>
+<li class="chapter" data-level="4.2.2" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#asynchronous-actor-critic-agents-a3c"><i class="fa fa-check"></i><b>4.2.2</b> Asynchronous Actor-Critic Agents (A3C)</a></li>
+<li class="chapter" data-level="4.2.3" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#búsqueda-aleatoria-aumentada"><i class="fa fa-check"></i><b>4.2.3</b> Búsqueda aleatoria aumentada</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#anexo-3-preguntas-y-respuestas"><i class="fa fa-check"></i><b>4.3</b> Anexo 3: Preguntas y Respuestas</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#pr-de-la-parte-1---optimización-de-procesos"><i class="fa fa-check"></i><b>4.3.1</b> P&amp;R de la Parte 1 - Optimización de Procesos</a></li>
+<li class="chapter" data-level="4.3.2" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#pr-de-la-parte-2---minimización-de-costes"><i class="fa fa-check"></i><b>4.3.2</b> P&amp;R de la Parte 2 - Minimización de Costes</a></li>
+<li class="chapter" data-level="4.3.3" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html#pr-de-la-parte-3---maximización-de-beneficios"><i class="fa fa-check"></i><b>4.3.3</b> P&amp;R de la Parte 3 - Maximización de Beneficios</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://cursos.frogamesformacion.com/courses/take/ia-aplicada-negocios?coupon=frogames30" target="blank">Curso en Frogames</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Inteligencia Artificial aplicada a Negocios y Empresas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="minimización-de-costes" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Parte 2</span> Minimización de Costes<a href="minimización-de-costes.html#minimización-de-costes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>¡Felicidades por darlo todo en el primer caso de estudio! Pasemos a una IA nueva y más avanzada.</p>
+<div id="caso-práctico-minimización-de-costes-en-el-consumo-energético-de-un-centro-de-datos" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Caso Práctico: Minimización de Costes en el Consumo Energético de un Centro de Datos<a href="minimización-de-costes.html#caso-práctico-minimización-de-costes-en-el-consumo-energético-de-un-centro-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="problema-a-resolver-1" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Problema a resolver<a href="minimización-de-costes.html#problema-a-resolver-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En 2016, <a href="https://deepmind.com/blog/deepmind-ai-reduces-google-data-centre-cooling-bill-40/">la IA DeepMind minimizó una gran parte del costo de Google al reducir la factura de enfriamiento del centro de datos de Google en 40%</a> utilizando su modelo de IA DQN (Deep Q-Learning). En este caso práctico, haremos algo muy similar. Configuraremos nuestro propio entorno de servidor y construiremos una IA que controlará el enfriamiento / calentamiento del servidor para que se mantenga en un rango óptimo de temperaturas mientras se ahorra la máxima energía, minimizando así los costes. Y tal como lo hizo la IA de DeepMind, nuestro objetivo será lograr al menos un 40% de ahorro de energía.</p>
+<div id="entorno-a-definir-1" class="section level4 hasAnchor" number="2.1.1.1">
+<h4><span class="header-section-number">2.1.1.1</span> Entorno a definir<a href="minimización-de-costes.html#entorno-a-definir-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Antes de definir los estados, las acciones y las recompensas, debemos explicar cómo funciona el servidor. Lo haremos en varios pasos. Primero, enumeraremos todos los parámetros y variables del entorno por los cuales se controla el servidor. Después de eso, estableceremos la suposición esencial del problema, en la cual nuestra IA dependerá para proporcionar una solución. Luego especificaremos cómo simularemos todo el proceso. Y eventualmente explicaremos el funcionamiento general del servidor y cómo la IA desempeña su papel.</p>
+<p><strong>Parámetros</strong></p>
+<ul>
+<li>la temperatura atmosférica promedio durante un mes</li>
+<li>el rango óptimo de temperaturas del servidor, que será <span class="math inline">\([18^{\circ} \textrm{C}, 24^{\circ} \textrm{C}]\)</span></li>
+<li>la temperatura mínima del servidor por debajo de la cual no funciona, que será <span class="math inline">\(-20^{\circ} \textrm {C}\)</span></li>
+<li>la temperatura máxima del servidor por encima de la cual no funciona, que será de <span class="math inline">\(80^{\circ} \textrm {C}\)</span></li>
+<li>el número mínimo de usuarios en el servidor, que será 10</li>
+<li>el número máximo de usuarios en el servidor, que será de 100</li>
+<li>el número máximo de usuarios en el servidor que puede subir o bajar por minuto, que será 5</li>
+<li>la tasa mínima de transmisión de datos en el servidor, que será 20</li>
+<li>la velocidad máxima de transmisión de datos en el servidor, que será de 300</li>
+<li>la velocidad máxima de transmisión de datos que puede subir o bajar por minuto, que será 10</li>
+</ul>
+<p><strong>Variables:</strong></p>
+<ul>
+<li>la temperatura del servidor en cualquier momento</li>
+<li>la cantidad de usuarios en el servidor en cualquier momento</li>
+<li>la velocidad de transmisión de datos en cualquier minuto</li>
+<li>la energía gastada por la IA en el servidor (para enfriarlo o calentarlo) en cualquier momento</li>
+<li>la energía gastada por el sistema de enfriamiento integrado del servidor que automáticamente lleva la temperatura del servidor al rango óptimo cada vez que la temperatura del servidor sale de este rango óptimo</li>
+</ul>
+<p>Todos estos parámetros y variables serán parte de nuestro entorno de servidor e influirán en las acciones de la IA en el servidor.</p>
+<p>A continuación, expliquemos los dos supuestos básicos del entorno. Es importante comprender que estos supuestos no están relacionados con la inteligencia artificial, sino que se utilizan para simplificar el entorno para que podamos centrarnos al máximo en la solución de inteligencia artificial.</p>
+<p><strong>Suposiciones:</strong></p>
+<p>Nos basaremos en los siguientes dos supuestos esenciales:</p>
+<p><strong>Supuesto 1: la temperatura del servidor se puede aproximar mediante Regresión lineal múltiple, mediante una función lineal de la temperatura atmosférica, el número de usuarios y la velocidad de transmisión de datos</strong>:</p>
+<p><span class="math display">\[\textrm{temp. del server} = b_0 + b_1 \times \textrm{temp. atmosf.} + b_2 \times \textrm{n. de usuarios} + b_3 \times \textrm{ratio de trans. de datos} \]</span></p>
+<p>donde <span class="math inline">\(b_0 \in \mathbb{R}\)</span>, <span class="math inline">\(b_1&gt;0\)</span>, <span class="math inline">\(b_2&gt;0\)</span> y <span class="math inline">\(b_3&gt;0\)</span>.</p>
+<p>La razón de ser de este supuesto y la razón por la cual <span class="math inline">\(b_1&gt;0\)</span>, <span class="math inline">\(b_2&gt;0\)</span> y <span class="math inline">\(b_3&gt;0\)</span> son fáciles de entender de entender. De hecho, tiene sentido que cuando la temperatura atmosférica aumenta, la temperatura del servidor aumenta. Además, cuanto más usuarios estén activos en el servidor, más gastará el servidor para manejarlos y, por lo tanto, mayor será la temperatura del servidor. Y finalmente, por supuesto, mientras más datos se transmitan dentro del servidor, más gastará el servidor para procesarlo y, por lo tanto, la temperatura más alta del servidor será. Y para fines de simplicidad, solo suponemos que estas correlaciones son lineales. Sin embargo, podría ejecutarse totalmente la misma simulación suponiendo que son cuadráticos o logarítmicos. Siéntete libre de retocar el modelo.</p>
+<p>Finalmente, supongamos que después de realizar esta Regresión lineal múltiple, obtuvimos los siguientes valores de los coeficientes: <span class="math inline">\(b_0 = 0\)</span>, <span class="math inline">\(b_1 = 1\)</span>, <span class="math inline">\(b_2 = 1.25\)</span> y <span class="math inline">\(b_3 = 1.25\)</span>. En consecuencia:</p>
+<p><span class="math display">\[\textrm{temp. del server} = \textrm{temp. atmosf.} + 1.25 \times \textrm{n. de usuarios} + 1.25 \times \textrm{ratio de trans. de datos} \]</span></p>
+<p><strong>Supuesto 2: la energía gastada por un sistema (nuestra IA o el sistema de enfriamiento integrado del servidor) que cambia la temperatura del servidor de <span class="math inline">\(T_t\)</span> a <span class="math inline">\(T_{t + 1}\)</span> en 1 unidad de tiempo (aquí 1 minuto), se puede aproximar nuevamente mediante regresión mediante una función lineal del cambio absoluto de temperatura del servidor</strong>:</p>
+<p><span class="math display">\[E_t = \alpha |\Delta T_t| + \beta = \alpha |T_{t+1} - T_t| + \beta\]</span></p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(E_t\)</span> es la energía gastada por el sistema en el servidor entre los tiempos <span class="math inline">\(t\)</span> y <span class="math inline">\(t +1\)</span>,</li>
+<li><span class="math inline">\(\Delta T_t\)</span> es el cambio de temperatura del servidor causado por el sistema entre los tiempos <span class="math inline">\(t\)</span> y <span class="math inline">\(t +1\)</span>,</li>
+<li><span class="math inline">\(T_t\)</span> es la temperatura del servidor en el instante <span class="math inline">\(t\)</span>,</li>
+<li><span class="math inline">\(T_{t + 1}\)</span> es la temperatura del servidor en el instante <span class="math inline">\(t +1\)</span>,</li>
+<li><span class="math inline">\(\alpha &gt; 0\)</span>,</li>
+<li>y <span class="math inline">\(\beta \in \mathbb{R}\)</span>.</li>
+</ul>
+<p>Nuevamente, expliquemos por qué tiene sentido intuitivamente hacer esta suposición con <span class="math inline">\(\alpha&gt;0\)</span>. Eso es simplemente porque cuanto más se calienta la IA o se enfría el servidor, más gasta energía para hacer esa transferencia de calor. De hecho, por ejemplo, imaginemos que el servidor de repente tiene problemas de sobrecalentamiento y acaba de alcanzar <span class="math inline">\(80^{\circ}\)</span> C, luego, dentro de una unidad de tiempo (1 minuto), la IA necesitará mucha más energía para que la temperatura del servidor vuelva a su temperatura óptima de <span class="math inline">\(24^{\circ}\)</span> C que devolverlo a <span class="math inline">\(50^{\circ}\)</span> C por ejemplo. Y de nuevo por razones de simplicidad, solo suponemos que estas correlaciones son lineales. Además (en caso de que te lo estés preguntado), ¿por qué tomamos el valor absoluto? Eso es simplemente porque cuando la IA enfría el servidor, <span class="math inline">\(T_{t + 1}&lt;T_t\)</span>, entonces <span class="math inline">\(\Delta T &lt;0\)</span>. Y, por supuesto, una energía siempre es positiva, por lo que tenemos que tomar el valor absoluto de <span class="math inline">\(\Delta T\)</span>.</p>
+<p>Finalmente, para mayor simplicidad, también asumiremos que los resultados de la regresión son <span class="math inline">\(\alpha = 1\)</span> y <span class="math inline">\(\beta = 0\)</span>, de modo que obtenemos la siguiente ecuación final basada en el supuesto 2:</p>
+<p><span class="math display">\[\begin{equation*}
+E_t = |\Delta T_t| = |T_{t+1} - T_t| =
+\begin{cases}
+T_{t+1} - T_t &amp; \textrm{si $T_{t+1} &gt; T_t$, es decir, si el servidor se calienta} \\
+T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se enfria}
+\end{cases}
+\end{equation*}\]</span></p>
+<p>Ahora, expliquemos cómo simularemos el funcionamiento del servidor con los usuarios y los datos que entran y salen.</p>
+<p><strong>Simulación</strong></p>
+<p>El número de usuarios y la velocidad de transmisión de datos fluctuarán aleatoriamente para simular un servidor real. Esto lleva a una aleatoriedad en la temperatura y la IA tiene que entender cuánta potencia de enfriamiento o calefacción tiene que transferir al servidor para no deteriorar el rendimiento del servidor y, al mismo tiempo, gastar la menor energía optimizando su transferencia de calor.</p>
+<p>Ahora que tenemos la imagen completa, expliquemos el funcionamiento general del servidor y la IA dentro de este entorno.</p>
+<p><strong>Funcionamiento general:</strong></p>
+<p>Dentro de un centro de datos, estamos tratando con un servidor específico que está controlado por los parámetros y variables enumerados anteriormente. Cada minuto, algunos usuarios nuevos inician sesión en el servidor y algunos usuarios actuales cierran sesión, por lo tanto, actualizan el número de usuarios activos en el servidor. Igualmente, cada minuto se transmiten algunos datos nuevos al servidor, y algunos datos existentes se transmiten fuera del servidor, por lo tanto, se actualiza la velocidad de transmisión de datos que ocurre dentro del servidor. Por lo tanto, según el supuesto 1 anterior, la temperatura del servidor se actualiza cada minuto. Ahora, concéntrate, porque aquí es donde entenderás el gran papel que la IA tiene que jugar en el servidor. Dos posibles sistemas pueden regular la temperatura del servidor: la IA o el sistema de enfriamiento integrado del servidor. El sistema de enfriamiento integrado del servidor es un sistema no inteligente que automáticamente devolverá la temperatura del servidor a su temperatura óptima. Expliquemos esto con más detalles: cuando la temperatura del servidor se actualiza cada minuto, puede mantenerse dentro del rango de temperaturas óptimas (<span class="math inline">\([18^{\circ} \textrm{C}, 24^{\circ} \textrm{C}]\)</span>), o salir de este rango. Si sale del rango óptimo, como por ejemplo <span class="math inline">\(30^{\circ}\)</span> C, el sistema de enfriamiento integrado del servidor llevará automáticamente la temperatura al límite más cercano del rango óptimo, que es <span class="math inline">\(24^{\circ}\)</span> C. Sin embargo, el sistema de enfriamiento integrado de este servidor lo hará solo cuando la IA no esté activada. Si la IA está activada, en ese caso el sistema de enfriamiento integrado del servidor se desactiva y es la IA la que actualiza la temperatura del servidor para regularlo de la mejor manera. Pero la IA hace eso después de algunas predicciones previas, no de una manera determinista como con el sistema de enfriamiento integrado del servidor no inteligente. Antes de que haya una actualización de la cantidad de usuarios y la velocidad de transmisión de datos que hace que cambie la temperatura del servidor, la IA predice si debería enfriar el servidor, no hacer nada o calentar el servidor. Entonces ocurre el cambio de temperatura y la IA reitera. Y dado que estos dos sistemas son complementarios, los evaluaremos por separado para comparar su rendimiento.</p>
+<p>Y eso nos lleva a la energía. De hecho, recordemos que un objetivo principal de la IA es ahorrar algo de energía gastada en este servidor. En consecuencia, nuestra IA tiene que gastar menos energía que la energía gastada por el sistema de enfriamiento no inteligente en el servidor. Y dado que, según el supuesto 2 anterior, la energía gastada en el servidor (por cualquier sistema) es proporcional al cambio de temperatura dentro de una unidad de tiempo:</p>
+<p><span class="math display">\[\begin{equation*}
+E_t = |\Delta T_t| = \alpha |T_{t+1} - T_t| =
+\begin{cases}
+T_{t+1} - T_t &amp; \textrm{si $T_{t+1} &gt; T_t$, es decir, si el servidor se calienta} \\
+T_t - T_{t+1} &amp; \textrm{if $T_{t+1} &lt; T_t$, es decir, si el servidor se enfria}
+\end{cases}
+\end{equation*}\]</span></p>
+<p><br />
+</p>
+<p>entonces eso significa que la energía ahorrada por la IA en cada instante <span class="math inline">\(t\)</span> (cada minuto) es, de hecho, la diferencia en los cambios absolutos de temperatura causados en el servidor entre el sistema de enfriamiento integrado del servidor no inteligente y la IA de <span class="math inline">\(t\)</span> y <span class="math inline">\(t + 1\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+        \textrm{Energia ahorrada por la IA entre $t$ y $t+1$}
+        &amp; = |\Delta T_t^{\textrm{Sistema de Enfriamiento Integrado del Servidor}}| - |\Delta T_t^{\textrm{IA}}| \\
+        &amp; = |\Delta T_t^{\textrm{no IA}}| - |\Delta T_t^{\textrm{IA}}|
+\end{align*}\]</span></p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(\Delta T_t^{\textrm{no IA}}\)</span> es el cambio de temperatura que causaría el sistema de enfriamiento integrado del servidor sin la IA en el servidor durante la iteración <span class="math inline">\(t\)</span>, es decir, del instante <span class="math inline">\(t\)</span> al instante <span class="math inline">\(t + 1\)</span>,</li>
+<li><span class="math inline">\(\Delta T_t^{\textrm{AI}}\)</span> es el cambio de temperatura causado por la IA en el servidor durante la iteración <span class="math inline">\(t\)</span>, es decir, del instante <span class="math inline">\(t\)</span> al instante <span class="math inline">\(t + 1\)</span>.</li>
+</ul>
+<p>Nuestro objetivo será ahorrar la energía máxima cada minuto, por lo tanto, ahorrar la energía total máxima durante 1 año completo de simulación y, finalmente, ahorrar los costos máximos en la factura de electricidad de refrigeración / calefacción.</p>
+<p>¿Estamos preparados?</p>
+<p>¡Excelente! Ahora que entendemos completamente cómo funciona nuestro entorno de servidor y cómo se simula, es hora de proceder con lo que debe hacerse absolutamente al definir un entorno de IA:</p>
+<ul>
+<li>Definir los estados</li>
+<li>Definir las acciones</li>
+<li>Definir las recompensas</li>
+</ul>
+<p><strong>Definir los estados</strong></p>
+<p>El estado de entrada <span class="math inline">\(s_t\)</span> en el momento <span class="math inline">\(t\)</span> se compone de los siguientes tres elementos:</p>
+<ul>
+<li>La temperatura del servidor en el instante <span class="math inline">\(t\)</span>.</li>
+<li>El número de usuarios en el servidor en el instante <span class="math inline">\(t\)</span>.</li>
+<li>La velocidad de transmisión de datos en el servidor en el instante <span class="math inline">\(t\)</span>.</li>
+</ul>
+<p>Por lo tanto, el estado de entrada será un vector de entrada de estos tres elementos. Nuestra futura IA tomará este vector como entrada y devolverá la acción para ejecutar en cada instante <span class="math inline">\(t\)</span>.</p>
+<p><strong>Definir las acciones</strong></p>
+<p>Las acciones son simplemente los cambios de temperatura que la IA puede causar dentro del servidor, para calentarlo o enfriarlo. Para que nuestras acciones sean discretas, consideraremos 5 posibles cambios de temperatura de <span class="math inline">\(-3^{\circ}\)</span> C a <span class="math inline">\(+ 3^{\circ}\)</span> C, para que terminemos con las 5 acciones posibles que la IA puede llevar a cabo para regular la temperatura del servidor:</p>
+<table>
+<colgroup>
+<col width="42%" />
+<col width="57%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>Acción</strong></th>
+<th align="left"><strong>¿Qué hace?</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="left">La IA enfría el servidor <span class="math inline">\(3^{\circ}\)</span>C</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="left">La IA enfría el servidor <span class="math inline">\(1.5^{\circ}\)</span>C</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="left">La IA no transfiere calor ni frio al servidor (sin cambio de temperatura)</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="left">La IA calienta el servidor <span class="math inline">\(1.5^{\circ}\)</span>C</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="left">La IA calienta el servidor <span class="math inline">\(3^{\circ}\)</span>C</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Definir las recompensas.</strong></p>
+<p>Después de leer el párrafo “Funcionamiento general” anterior, puedes adivinar cuál será la recompensa. Por supuesto, la recompensa en la iteración <span class="math inline">\(t\)</span> es la energía gastada en el servidor que la IA está ahorrando con respecto al sistema de enfriamiento integrado del servidor, es decir, la diferencia entre la energía que gastaría el sistema de enfriamiento no inteligente si la IA fuera desactivada y la energía que la IA gasta en el servidor:</p>
+<p><span class="math display">\[\textrm{Reward}_t = E_t^{\textrm{no IA}} - E_t^{\textrm{IA}}\]</span></p>
+<p>Y como (Supuesto 2), la energía gastada es igual al cambio de temperatura causado en el servidor (por cualquier sistema, incluido el AI o el sistema de enfriamiento no inteligente):</p>
+<p><span class="math display">\[\begin{equation*}
+E_t = |\Delta T_t| = \alpha |T_{t+1} - T_t| =
+\begin{cases}
+T_{t+1} - T_t &amp; \textrm{si $T_{t+1} &gt; T_t$, es decir, si el servidor se calienta} \\
+T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se enfria}
+\end{cases}
+\end{equation*}\]</span></p>
+<p>entonces obtenemos que la recompensa recibida en el instante <span class="math inline">\(t\)</span> es, de hecho, la diferencia en el cambio de temperatura causada en el servidor entre el sistema de enfriamiento no inteligente (es decir, cuando no hay IA) y la IA:</p>
+<p><span class="math display">\[\begin{align*}
+    \textrm{Reward}_t
+    &amp; = \textrm{Energía ahorrada por la IA entre $t$ y $t+1$} \\
+    &amp; = E_t^{\textrm{no IA}} - E_t^{\textrm{IA}} \\
+    &amp; = |\Delta T_t^{\textrm{no IA}}| - |\Delta T_t^{\textrm{IA}}|
+\end{align*}\]</span></p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(\Delta T_t^{\textrm{no IA}}\)</span> es el cambio de temperatura que causaría el sistema de enfriamiento integrado del servidor sin la IA en el servidor durante la iteración <span class="math inline">\(t\)</span>, es decir, del instante <span class="math inline">\(t\)</span> al instante <span class="math inline">\(t + 1\)</span>,</li>
+<li><span class="math inline">\(\Delta T_t^{\textrm{AI}}\)</span> es el cambio de temperatura causado por la IA en el servidor durante la iteración <span class="math inline">\(t\)</span>, es decir, del instante <span class="math inline">\(t\)</span> al instante <span class="math inline">\(t + 1\)</span>.</li>
+</ul>
+<p><strong>Nota importante:</strong> es importante comprender que los sistemas (nuestra IA y el sistema de enfriamiento del servidor) se evaluarán por separado para calcular las recompensas. Y dado que cada vez que sus acciones conducen a temperaturas diferentes, tendremos que realizar un seguimiento por separado de las dos temperaturas <span class="math inline">\(T_t^{\textrm{IA}}\)</span> and <span class="math inline">\(T_t^{\textrm{no IA}}\)</span>.</p>
+<p>Ahora, para terminar esta sección, vamos a hacer una pequeña simulación de 2 iteraciones (es decir, 2 minutos), como un ejemplo que hará que todo quede claro.</p>
+<p><strong>Ejemplo de simulación final.</strong></p>
+<p>Digamos que estamos en el instante de tiempo <span class="math inline">\(t = 4:00\)</span> pm y que la temperatura del servidor es <span class="math inline">\(T_t = 28^\circ\)</span> C, tanto con la IA como sin la IA. En este momento exacto, la IA predice la acción 0, 1, 2, 3 o 4. Desde ahora, la temperatura del servidor está fuera del rango de temperatura óptimo <span class="math inline">\([18^{\circ} \textrm{C}, 24^{\circ} \textrm{C }]\)</span>, la IA probablemente predecirá las acciones 0, 1 o 2. Digamos que predice 1, lo que corresponde a enfriar el servidor en <span class="math inline">\(1.5^{\circ}\)</span> C. Por lo tanto, entre <span class="math inline">\(t = 4:00\)</span> pm y <span class="math inline">\(t + 1 = 4: 01\)</span> pm, la IA hace que la temperatura del servidor pase de <span class="math inline">\(T_t^{\textrm{IA}} = 28^{\circ} \textrm{C}\)</span> a <span class="math inline">\(T_{t + 1}^{\ textrm{IA}} = 26.5^{\circ} \textrm{C}\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+    \Delta T_t^{\textrm{IA}}
+    &amp; = T_{t+1}^{\textrm{IA}} - T_t^{\textrm{IA}} \\
+    &amp; = 26.5 - 27 \\
+    &amp; = -1.5^{\circ} \textrm{C}
+\end{align*}\]</span></p>
+<p>Por lo tanto, según el supuesto 2, la energía gastada por la IA en el servidor es:</p>
+<p><span class="math display">\[\begin{align*}
+    E_t^{\textrm{IA}}
+    &amp; = |\Delta T_t^{\textrm{IA}}| \\
+    &amp; = 1.5 \ \textrm{Joules}
+\end{align*}\]</span></p>
+<p>Bien, ahora solo falta una información para calcular la recompensa: es la energía que el sistema de enfriamiento integrado del servidor habría gastado si la IA se hubiera desactivado entre las 4:00 p.m. y las 4:01 p.m. Recordemos que este sistema de enfriamiento no inteligente lleva automáticamente la temperatura del servidor de vuelta al límite más cercano del rango de temperatura óptimo <span class="math inline">\([18^{\circ} \textrm{C}, 24^{\circ} \textrm{C}]\)</span>. Entonces, dado que a <span class="math inline">\(t = 4: 00 ¡\)</span> pm la temperatura era <span class="math inline">\(T_t = 28^{\circ}\)</span> C, entonces el límite más cercano del rango de temperatura óptimo en ese momento era <span class="math inline">\(24^{\circ}\)</span> C. Por lo tanto, el sistema de enfriamiento integrado del servidor habría cambiado la temperatura de <span class="math inline">\(T_t = 28^{\circ} \textrm{C}\)</span> a <span class="math inline">\(T_{t + 1} = 24^{\circ} \textrm{C}\)</span>, y por lo tanto la temperatura del servidor cambia habría ocurrido si no hubiera IA es:</p>
+<p><span class="math display">\[\begin{align*}
+    \Delta T_t^{\textrm{no IA}}
+    &amp; = T_{t+1}^{\textrm{no IA}} - T_t^{\textrm{no IA}} \\
+    &amp; = 24 - 28 \\
+    &amp; = -4^{\circ} C
+\end{align*}\]</span></p>
+<p>Por lo tanto, según el supuesto 2, la energía que el sistema de enfriamiento no inteligente habría gastado si no hubiera IA es:</p>
+<p><span class="math display">\[\begin{align*}
+    E_t^{\textrm{no IA}}
+    &amp; = |\Delta T_t^{\textrm{no IA}}| \\
+    &amp; = 4 \ \textrm{Joules}
+\end{align*}\]</span></p>
+<p>En conclusión, la recompensa que obtenemos después de llevar a cabo esta acción en el momento <span class="math inline">\(t = 4: 00\)</span> pm es:</p>
+<p><span class="math display">\[\begin{align*}
+    \textrm{Reward}
+    &amp; = E_t^{\textrm{no IA}} - E_t^{\textrm{IA}} \\
+    &amp; = 4 - 1.5 \\
+    &amp; = 2.5
+\end{align*}\]</span></p>
+<p>Luego, entre <span class="math inline">\(t = 4: 00\)</span> pm y <span class="math inline">\(t + 1 = 4: 01\)</span> pm, suceden otras cosas: algunos usuarios nuevos inician sesión en el servidor, algunos usuarios existentes cierran sesión en el servidor, algunos datos nuevos son transmitiendo dentro del servidor, y algunos datos existentes se transmiten fuera del servidor. Según el supuesto 1, estos factores hacen que la temperatura del servidor cambie. Digamos que aumentan la temperatura del servidor en <span class="math inline">\(5^{\circ}\)</span> C:</p>
+<p><span class="math display">\[\Delta_t \ \textrm{Temperatura Intrinseca} = 5^{\circ} C\]</span></p>
+<p>Ahora recuerde que estamos evaluando dos sistemas por separado: nuestra IA y el sistema de enfriamiento integrado del servidor. Por lo tanto, debemos calcular por separado las dos temperaturas que obtendríamos con estos dos sistemas a <span class="math inline">\(t + 1 = 4: 01\)</span> pm. Comencemos con la IA.</p>
+<p>La temperatura que obtenemos en <span class="math inline">\(t + 1 = 4: 01\)</span> pm cuando se activa la IA es:</p>
+<p><span class="math display">\[\begin{align*}
+    T_{t+1}^{\textrm{IA}}
+    &amp; = T_t^{\textrm{IA}} + \Delta T_t^{\textrm{IA}} + \Delta_t \ \textrm{Temperatura Intrinseca} \\
+    &amp; = 28 + (-1.5) + 5 \\
+    &amp; = 31.5^{\circ} C
+\end{align*}\]</span></p>
+<p>Y la temperatura que obtenemos en <span class="math inline">\(t + 1 = 4: 01\)</span> pm cuando la IA no está activada es:</p>
+<p><span class="math display">\[\begin{align*}
+    T_{t+1}^{\textrm{no IA}}
+    &amp; = T_t^{\textrm{no IA}} + \Delta T_t^{\textrm{no IA}} + \Delta_t \ \textrm{Temperatura Intrinseca} \\
+    &amp; = 28 + (-4) + 5 \\
+    &amp; = 29^{\circ} C
+\end{align*}\]</span></p>
+<p>Perfecto, tenemos nuestras dos temperaturas separadas, que son <span class="math inline">\(T_{t+1}^{\textrm{AI}} = 29.5^{\circ} C\)</span> cuando la IA está activada, y <span class="math inline">\(T_{t+1}^{\textrm{noAI}} = 27^{\circ} C\)</span> cuando la IA no está activada.</p>
+<p>Ahora simulemos lo que sucede entre los instantes <span class="math inline">\(t + 1 = 4:01\)</span> pm y <span class="math inline">\(t + 2 = 4:02\)</span> pm. Nuevamente, nuestra IA hará una predicción, y dado que el servidor se está calentando, digamos que predice la acción 0, que corresponde a enfriar el servidor en <span class="math inline">\(3^{\circ} C\)</span>, reduciéndolo a <span class="math inline">\(T_{t + 2}^{\textrm{IA}} = 28.5^{\circ} C\)</span>. Por lo tanto, la energía gastada por la IA entre <span class="math inline">\(t + 1 = 4: 01\)</span> pm y <span class="math inline">\(t + 2 = 4: 02\)</span> pm, es:</p>
+<p><span class="math display">\[\begin{align*}
+    E_{t+1}^{\textrm{IA}}
+    &amp; = |\Delta T_{t+1}^{\textrm{IA}}| \\
+    &amp; = |28.5 - 31.5| \\
+    &amp; = 3 \ \textrm{Joules}
+\end{align*}\]</span></p>
+<p>Ahora con respecto al sistema de enfriamiento integrado del servidor (es decir, cuando no hay IA), ya que a <span class="math inline">\(t + 1 = 4: 01\)</span> pm teníamos <span class="math inline">\(T_{t + 1}^{\textrm{no IA}} = 29^{\circ} C\)</span>, entonces el límite más cercano del rango óptimo de temperaturas sigue siendo <span class="math inline">\(24^{\circ} C\)</span>, por lo que la energía que el sistema de enfriamiento no inteligente del servidor gastaría entre <span class="math inline">\(t + 1 = 4: 01\)</span> pm y <span class="math inline">\(t + 2 = 4 : 02\)</span> pm, es:</p>
+<p><span class="math display">\[\begin{align*}
+    E_{t+1}^{\textrm{no IA}}
+    &amp; = |\Delta T_{t+1}^{\textrm{no IA}}| \\
+    &amp; = |24 - 29| \\
+    &amp; = 5 \ \textrm{Joules}
+\end{align*}\]</span></p>
+<p>De ahí la recompensa obtenida entre <span class="math inline">\(t+1 = 4:01\)</span> pm y <span class="math inline">\(t+2 = 4:02\)</span> pm, es:</p>
+<p><span class="math display">\[\begin{align*}
+    \textrm{Reward}
+    &amp; = E_{t+1}^{\textrm{no IA}} - E_{t+1}^{\textrm{IA}} \\
+    &amp; = 5 - 3 \\
+    &amp; = 2
+\end{align*}\]</span></p>
+<p>Y finalmente, la recompensa total obtenida entre <span class="math inline">\(t = 4:00\)</span> pm y <span class="math inline">\(t+2 = 4:02\)</span> pm, es:</p>
+<p><span class="math display">\[\begin{align*}
+    \textrm{Total Reward}
+    &amp; = (\textrm{Recompensa obtenida entre $t$ y $t+1$}) + (\textrm{Recompensa obtenida entre $t+1$ y $t+2$}) \\
+    &amp;  = 2.5 + 2 \\
+    &amp; = 4.5
+\end{align*}\]</span></p>
+<p>Ese fue un ejemplo de todo el proceso que sucedió en dos minutos. En nuestra implementación, ejecutaremos el mismo proceso durante 1000 épocas de 5 meses para el entrenamiento del algoritmo, y luego, una vez que nuestra IA esté entrenada, ejecutaremos el mismo proceso durante 1 año completo de simulación para la prueba. El entrenamiento se realizará con Deep Q-Learning, y aquí es donde entra en juego la siguiente sección.</p>
+</div>
+</div>
+</div>
+<div id="solución-de-ia" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Solución de IA<a href="minimización-de-costes.html#solución-de-ia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La solución de IA que resolverá el problema descrito anteriormente es un modelo Deep Q-Learning. Vamos a dar la teoría y las ecuaciones matemáticas detrás de esto.</p>
+<div id="q-learning-en-deep-learning" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Q-Learning en Deep Learning<a href="minimización-de-costes.html#q-learning-en-deep-learning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El Deep Q-Learning consiste en combinar Q-Learning con una red neuronal artificial. Las entradas son vectores codificados, cada uno de los cuales define un estado del entorno. Estas entradas van a una red neuronal artificial, donde la salida es la acción a ejecutar. Más precisamente, digamos que el sistema tiene <span class="math inline">\(n\)</span> acciones posibles, la capa de salida de la red neuronal está compuesta por <span class="math inline">\(n\)</span> neuronas de salida, cada una correspondiente a los valores Q de cada acción que se juega en el estado actual. Entonces, la acción que se juega es la asociada con la neurona de salida que tiene el valor Q más alto (<em>argmax</em>), o la que devuelve el método <em>softmax</em>. En nuestro caso usaremos <em>argmax</em>. Y dado que los valores Q son números reales, eso hace que nuestra red neuronal sea un RNA para la regresión.</p>
+<p>Así que, para cada estado <span class="math inline">\(s_t\)</span>:</p>
+<ul>
+<li>la predicción es el valor Q, <span class="math inline">\(Q (s_t, a_t)\)</span> donde <span class="math inline">\(a_t\)</span> es elegido por argmax o softmax,</li>
+<li>el valor objetivo es <span class="math inline">\(r_t + \gamma \underset{a}{\max}(Q(s_{t+1}, a))\)</span>,</li>
+<li>el error de pérdida entre la predicción y el objetivo es el cuadrado de la diferencia temporal:</li>
+</ul>
+<p><span class="math display">\[\textrm{Loss} = \frac{1}{2} \left( r_t + \gamma \underset{a}{\max}(Q(s_{t+1}, a)) - Q(s_t, a_t) \right)^2 = \frac{1}{2} TD_t(s_t, a_t)^2.\]</span></p>
+<p>Luego, este error de pérdida se propaga hacia atrás en la red, y los pesos se actualizan de acuerdo con la cantidad que contribuyeron al error.</p>
+</div>
+<div id="experience-replay" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Experience Replay<a href="minimización-de-costes.html#experience-replay" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Notemos que hasta ahora solo hemos considerado las transiciones de un estado <span class="math inline">\(s_t\)</span> al siguiente estado <span class="math inline">\(s_{t + 1}\)</span>. El problema con esto es que <span class="math inline">\(s_t\)</span> está casi siempre muy correlacionado con <span class="math inline">\(s_{t + 1}\)</span>. Por lo tanto, la red no está aprendiendo mucho. Esto podría mejorarse mucho si, en lugar de considerar solo esta transición anterior, consideramos las últimas m transiciones donde m es un gran número. Este paquete de las últimas m transiciones es lo que se llama Experience Replay o repetición de experiencia. Luego, a partir de esta repetición de experiencia, tomamos algunos bloques aleatorios de transiciones para realizar nuestras actualizaciones.</p>
+</div>
+<div id="el-cerebro" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> El cerebro<a href="minimización-de-costes.html#el-cerebro" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El cerebro, o más precisamente la red neuronal profunda de nuestra IA, será una red neuronal completamente conectada, compuesta de dos capas ocultas, la primera con 64 neuronas y la segunda con 32 neuronas. Y como recordatorio, esta red neuronal toma como entradas los estados del entorno y devuelve como salidas los valores Q para cada una de las 5 acciones. Este cerebro artificial se entrenará con una pérdida de “error cuadrático medio” y un optimizador Adam.</p>
+<p>Así es como se ve este cerebro artificial:</p>
+<div class="figure">
+<img src="Images/Brain.png" alt="" />
+<p class="caption">El cerebro artificial: una red neuronal completamente conectada</p>
+</div>
+<p>Este cerebro artificial parece complejo de crear, pero lo construiremos muy fácilmente gracias a la increíble librería de Keras. Aquí hay una vista previa de la implementación completa que contiene la parte que construye este cerebro por sí mismo:<br />
+</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="minimización-de-costes.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construcción del cerebro</span></span>
+<span id="cb19-2"><a href="minimización-de-costes.html#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="minimización-de-costes.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Brain(<span class="bu">object</span>):</span>
+<span id="cb19-4"><a href="minimización-de-costes.html#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="minimización-de-costes.html#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate <span class="op">=</span> <span class="fl">0.001</span>, number_actions <span class="op">=</span> <span class="dv">11</span>):</span>
+<span id="cb19-6"><a href="minimización-de-costes.html#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate</span>
+<span id="cb19-7"><a href="minimización-de-costes.html#cb19-7" aria-hidden="true" tabindex="-1"></a>        states <span class="op">=</span> Input(shape <span class="op">=</span> (<span class="dv">3</span>,))</span>
+<span id="cb19-8"><a href="minimización-de-costes.html#cb19-8" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</span>
+<span id="cb19-9"><a href="minimización-de-costes.html#cb19-9" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</span>
+<span id="cb19-10"><a href="minimización-de-costes.html#cb19-10" aria-hidden="true" tabindex="-1"></a>        q_values <span class="op">=</span> Dense(units <span class="op">=</span> number_actions, activation <span class="op">=</span> <span class="st">&#39;softmax&#39;</span>)(y)</span>
+<span id="cb19-11"><a href="minimización-de-costes.html#cb19-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> Model(inputs <span class="op">=</span> states, outputs <span class="op">=</span> q_values)</span>
+<span id="cb19-12"><a href="minimización-de-costes.html#cb19-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, </span>
+<span id="cb19-13"><a href="minimización-de-costes.html#cb19-13" aria-hidden="true" tabindex="-1"></a>                           optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> <span class="va">self</span>.learning_rate))</span></code></pre></div>
+<p>Como podemos ver con gusto, solo son necesarias un par de líneas de código.</p>
+</div>
+<div id="el-algoritmo-de-deep-q-learning-al-completo" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> El algoritmo de Deep Q-Learning al completo<a href="minimización-de-costes.html#el-algoritmo-de-deep-q-learning-al-completo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Resumamos los diferentes pasos de todo el proceso de Deep Q-Learning:</p>
+<p><strong>Inicialización</strong></p>
+<p>La memoria de Experience Replay se inicializa en una lista vacía <span class="math inline">\(M\)</span>.</p>
+<p>Elegimos un tamaño máximo de la memoria. En nuestro caso práctico elegimos un tamaño máximo de 100 transiciones.</p>
+<p>Comenzamos en un primer estado, correspondiente a un momento específico dentro del año.</p>
+<p>En cada instante <span class="math inline">\(t\)</span>, repetimos el siguiente proceso, hasta el final de la época (5 meses en nuestra implementación)</p>
+<ol style="list-style-type: decimal">
+<li>Predecimos los valores Q del estado actual <span class="math inline">\(s_t\)</span>.</li>
+<li>Ejecutamos la acción que corresponde al máximo de estos valores Q predichos (método argmax):
+<span class="math display">\[a_t = \underset{a}{\textrm{argmax}} Q(s_t, a)\]</span></li>
+<li>Obtenemos la recompensa:</li>
+</ol>
+<p><span class="math display">\[r_t = E_t^{\textrm{no IA}} - E_t^{\textrm{IA}}\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Alcanzamos el siguiente estado<span class="math inline">\(s_{t+1}\)</span>.</p></li>
+<li><p>Añadimos la transición actual <span class="math inline">\((s_t, a_t, r_t, s_{t+1})\)</span> a <span class="math inline">\(M\)</span>.</p></li>
+<li><p>Seleccionamos un bloque de transiciones al azar <span class="math inline">\(B \subset M\)</span>. Para todas las transiciones<span class="math inline">\((s_{t_B}, a_{t_B}, r_{t_B}, s_{t_B+1})\)</span> del bloquealeatorio <span class="math inline">\(B\)</span>:</p>
+<ul>
+<li>Obtenemos las predicciones: <span class="math display">\[Q(s_{t_B}, a_{t_B})\]</span></li>
+<li>Obtenemos los objetivos: <span class="math display">\[r_{t_B} + \gamma \underset{a}{\max}(Q(s_{t_B+1}, a))\]</span></li>
+<li>Calculamos la pérdida entre las predicciones y los objetivos en todo el bloque<span class="math inline">\(B\)</span>: <span class="math display">\[\textrm{Loss} = \frac{1}{2} \sum_B \left( r_{t_B} + \gamma \underset{a}{\max}(Q(s_{t_B+1}, a)) - Q(s_{t_B}, a_{t_B}) \right)^2 = \frac{1}{2} \sum_B TD_{t_B}(s_{t_B}, a_{t_B})^2\]</span></li>
+<li>Volvemos a propagar este error de pérdida en la red neuronal y, a través del descenso de gradiente estocástico, actualizamos los pesos según cuánto contribuyeron al error..</li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="implementation" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Implementation<a href="minimización-de-costes.html#implementation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Esta implementación se dividirá en 5 partes, cada parte con su propio archivo de Python. Estas 5 partes constituyen el algoritmo general de IA, o Blueprint de la AI, que debe seguirse cada vez que construimos un entorno para resolver cualquier problema comercial con Deep Reinforcement Learning.</p>
+<p>Aquí están, del Paso 1 al Paso 5:</p>
+<ol style="list-style-type: decimal">
+<li>Construcción del entorno.</li>
+<li>Construcción del cerebro.</li>
+<li>Implementación del algoritmo de aprendizaje por refuerzo profundo (en nuestro caso será el modelo DQN).</li>
+<li>Entrenar a la IA.</li>
+<li>Probar de la IA.</li>
+</ol>
+<p>Estos son los pasos principales (en ese mismo orden) de la sección de teoría general de IA anterior. Implementemos así nuestra IA para nuestro caso práctico específico, siguiendo este plan de IA, en las siguientes cinco secciones correspondientes a estos cinco pasos principales. Además en cada paso, distinguiremos los subpasos que todavía forman parte del algoritmo general de AI, de los subpasos que son específicos de nuestro caso práctico, escribiendo los títulos de las secciones de código en mayúsculas para todos los subpasos del algoritmo general de AI, y en letras mínimas para todos los subpasos específicos de nuestro caso práctico. Eso significa que cada vez que veamos una nueva sección de código cuyo título está escrito en letras mayúsculas, entonces es el siguiente subpaso del algoritmo general de IA, que también se debe seguir al crear una IA para cualquier otro problema comercial.</p>
+<p>Así que ahora aquí vamos con el comienzo del viaje: Paso 1 - Construcción el entorno.</p>
+<p>Este es el archivo de implementación de <code>python</code> más grande de este caso práctico, y del curso. Por lo tanto, asegúrete de descansar antes, recargar las baterías para obtener un buen nivel de energía y, tan pronto como estés listo, ¡abordemos esto juntos!</p>
+<div id="paso-1-construcción-del-entorno" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Paso 1: Construcción del Entorno<a href="minimización-de-costes.html#paso-1-construcción-del-entorno" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En este primer paso, vamos a construir el entorno dentro de una clase. ¿Por qué una clase? Porque nos gustaría tener nuestro entorno como un objeto que podamos crear fácilmente con cualquier valor de algunos parámetros que elijamos. Por ejemplo, podemos crear un objeto de entorno para un servidor que tenga un cierto número de usuarios conectados y una cierta velocidad de datos en un momento específico, y otro objeto de entorno para otro servidor que tenga un número diferente de usuarios conectados y un número diferente tasa de datos en otro momento. Y gracias a esta estructura avanzada de la clase, podemos conectar y reproducir fácilmente los objetos del entorno que creamos en diferentes servidores que tienen sus propios parámetros, por lo tanto, regulamos sus temperaturas con varias IA diferentes, de modo que terminamos minimizando el consumo de energía. de un centro de datos completo, tal como lo hizo la DeepMind de Google para los centros de datos de Google con su algoritmo DQN.</p>
+<p>Esta clase sigue los siguientes subpasos, que son parte del algoritmo general de IA dentro del Paso 1: construcción del entorno:</p>
+<ul>
+<li><strong>Paso 1-1</strong>: Introducción e inicialización de todos los parámetros y variables del entorno.</li>
+<li><strong>Paso 1-2</strong>: Hacer un método que actualice el entorno justo después de que la IA ejecute una acción.</li>
+<li><strong>Paso 1-3</strong>: Hacer un método que restablezca el entorno.</li>
+<li><strong>Paso 1-4</strong>: hacer un método que nos proporcione en cualquier momento el estado actual, la última recompensa obtenida y si el juego ha terminado.</li>
+</ul>
+<p>Encontrarás toda la implementación de esta clase de creación de entorno en las próximas páginas. Recuerda lo más importante: todas las secciones de código que tienen sus títulos escritos en letras mayúsculas son los pasos del framework de IA o del Blueprint general, y todas las secciones de código que tienen sus títulos escritos en letras minúsculas son específicas de nuestro caso práctico.</p>
+<p>A continuación se muestra la implementación completa de nuestro primer archivo de <code>python</code>. Los títulos de las secciones de código y los nombres de las variables elegidas son lo suficientemente claros como para comprender lo que se está codificando, pero si necesitas más explicaciones, te recomiendo que vea nuestros videos tutoriales en la plataforma de <a href="https://cursos.frogamesformacion.com/courses/ia-aplicada-negocios?et=paid&amp;ref=846b3f&amp;coupon=frogames30">Frogames Formación</a> donde codificamos todo desde cero, paso a paso, mientras explicamos cada línea. de código en términos de por qué, qué y cómo. Aquí vamos:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="minimización-de-costes.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></span>
+<span id="cb20-2"><a href="minimización-de-costes.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Construcción del Entorno</span></span>
+<span id="cb20-3"><a href="minimización-de-costes.html#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="minimización-de-costes.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar las librerías</span></span>
+<span id="cb20-5"><a href="minimización-de-costes.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="minimización-de-costes.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CONSTRUCCIÓN DEL ENTORNO EN UNA CLASE</span></span>
+<span id="cb21-2"><a href="minimización-de-costes.html#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="minimización-de-costes.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Environment(<span class="bu">object</span>):</span>
+<span id="cb21-4"><a href="minimización-de-costes.html#cb21-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-5"><a href="minimización-de-costes.html#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># INTRODUCCIÓN E INICIALIZACIÓN DE TODOS LOS PARÁMETROS Y </span></span>
+<span id="cb21-6"><a href="minimización-de-costes.html#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># VARIABLES DEL ENTORNO</span></span>
+<span id="cb21-7"><a href="minimización-de-costes.html#cb21-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-8"><a href="minimización-de-costes.html#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,</span>
+<span id="cb21-9"><a href="minimización-de-costes.html#cb21-9" aria-hidden="true" tabindex="-1"></a>                optimal_temperature <span class="op">=</span> (<span class="fl">18.0</span>, <span class="fl">24.0</span>),</span>
+<span id="cb21-10"><a href="minimización-de-costes.html#cb21-10" aria-hidden="true" tabindex="-1"></a>                initial_month <span class="op">=</span> <span class="dv">0</span>,</span>
+<span id="cb21-11"><a href="minimización-de-costes.html#cb21-11" aria-hidden="true" tabindex="-1"></a>                initial_number_users <span class="op">=</span> <span class="dv">10</span>,</span>
+<span id="cb21-12"><a href="minimización-de-costes.html#cb21-12" aria-hidden="true" tabindex="-1"></a>                initial_rate_data <span class="op">=</span> <span class="dv">60</span>):</span>
+<span id="cb21-13"><a href="minimización-de-costes.html#cb21-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.monthly_atmospheric_temperatures <span class="op">=</span> [<span class="fl">1.0</span>, <span class="fl">5.0</span>, <span class="fl">7.0</span>, <span class="fl">10.0</span>, <span class="fl">11.0</span>, </span>
+<span id="cb21-14"><a href="minimización-de-costes.html#cb21-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="fl">20.0</span>,<span class="fl">23.0</span>, <span class="fl">24.0</span>, <span class="fl">22.0</span>, <span class="fl">10.0</span>, <span class="fl">5.0</span>, <span class="fl">1.0</span>]</span>
+<span id="cb21-15"><a href="minimización-de-costes.html#cb21-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.initial_month <span class="op">=</span> initial_month</span>
+<span id="cb21-16"><a href="minimización-de-costes.html#cb21-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.atmospheric_temperature <span class="op">=</span> <span class="op">\</span></span>
+<span id="cb21-17"><a href="minimización-de-costes.html#cb21-17" aria-hidden="true" tabindex="-1"></a>                          <span class="va">self</span>.monthly_atmospheric_temperatures[initial_month]</span>
+<span id="cb21-18"><a href="minimización-de-costes.html#cb21-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.optimal_temperature <span class="op">=</span> optimal_temperature</span>
+<span id="cb21-19"><a href="minimización-de-costes.html#cb21-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.min_temperature <span class="op">=</span> <span class="op">-</span><span class="dv">20</span></span>
+<span id="cb21-20"><a href="minimización-de-costes.html#cb21-20" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.max_temperature <span class="op">=</span> <span class="dv">80</span></span>
+<span id="cb21-21"><a href="minimización-de-costes.html#cb21-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.min_number_users <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb21-22"><a href="minimización-de-costes.html#cb21-22" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.max_number_users <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb21-23"><a href="minimización-de-costes.html#cb21-23" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.max_update_users <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb21-24"><a href="minimización-de-costes.html#cb21-24" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.min_rate_data <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb21-25"><a href="minimización-de-costes.html#cb21-25" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.max_rate_data <span class="op">=</span> <span class="dv">300</span></span>
+<span id="cb21-26"><a href="minimización-de-costes.html#cb21-26" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.max_update_data <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb21-27"><a href="minimización-de-costes.html#cb21-27" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.initial_number_users <span class="op">=</span> initial_number_users</span>
+<span id="cb21-28"><a href="minimización-de-costes.html#cb21-28" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.current_number_users <span class="op">=</span> initial_number_users</span>
+<span id="cb21-29"><a href="minimización-de-costes.html#cb21-29" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.initial_rate_data <span class="op">=</span> initial_rate_data</span>
+<span id="cb21-30"><a href="minimización-de-costes.html#cb21-30" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.current_rate_data <span class="op">=</span> initial_rate_data</span>
+<span id="cb21-31"><a href="minimización-de-costes.html#cb21-31" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.intrinsic_temperature <span class="op">=</span> <span class="va">self</span>.atmospheric_temperature</span>
+<span id="cb21-32"><a href="minimización-de-costes.html#cb21-32" aria-hidden="true" tabindex="-1"></a>                                     <span class="op">+</span> <span class="fl">1.25</span> <span class="op">*</span> <span class="va">self</span>.current_number_users</span>
+<span id="cb21-33"><a href="minimización-de-costes.html#cb21-33" aria-hidden="true" tabindex="-1"></a>                                     <span class="op">+</span> <span class="fl">1.25</span> <span class="op">*</span> <span class="va">self</span>.current_rate_data</span>
+<span id="cb21-34"><a href="minimización-de-costes.html#cb21-34" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.temperature_ai <span class="op">=</span> <span class="va">self</span>.intrinsic_temperature</span>
+<span id="cb21-35"><a href="minimización-de-costes.html#cb21-35" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.temperature_noai <span class="op">=</span> (<span class="va">self</span>.optimal_temperature[<span class="dv">0</span>]</span>
+<span id="cb21-36"><a href="minimización-de-costes.html#cb21-36" aria-hidden="true" tabindex="-1"></a>                                <span class="op">+</span> <span class="va">self</span>.optimal_temperature[<span class="dv">1</span>]) <span class="op">/</span> <span class="fl">2.0</span></span>
+<span id="cb21-37"><a href="minimización-de-costes.html#cb21-37" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.total_energy_ai <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb21-38"><a href="minimización-de-costes.html#cb21-38" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.total_energy_noai <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb21-39"><a href="minimización-de-costes.html#cb21-39" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.reward <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb21-40"><a href="minimización-de-costes.html#cb21-40" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.game_over <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb21-41"><a href="minimización-de-costes.html#cb21-41" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.train <span class="op">=</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="minimización-de-costes.html#cb22-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CREACIÓN DE UN MÉTODO QUE ACTUALIZA EL ENTORNO DESPUÉS </span></span>
+<span id="cb22-2"><a href="minimización-de-costes.html#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># DE QUE LA IA EJECUTE UNA ACCIÓN</span></span>
+<span id="cb22-3"><a href="minimización-de-costes.html#cb22-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-4"><a href="minimización-de-costes.html#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> update_env(<span class="va">self</span>, direction, energy_ai, month):</span>
+<span id="cb22-5"><a href="minimización-de-costes.html#cb22-5" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-6"><a href="minimización-de-costes.html#cb22-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># OBTENCIÓN DE LA RECOMPENSA</span></span>
+<span id="cb22-7"><a href="minimización-de-costes.html#cb22-7" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-8"><a href="minimización-de-costes.html#cb22-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Calcular la energía gastada por el sistema de refrigeración </span></span>
+<span id="cb22-9"><a href="minimización-de-costes.html#cb22-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># del servidor cuando no hay IA</span></span>
+<span id="cb22-10"><a href="minimización-de-costes.html#cb22-10" aria-hidden="true" tabindex="-1"></a>        energy_noai <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb22-11"><a href="minimización-de-costes.html#cb22-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="va">self</span>.temperature_noai <span class="op">&lt;</span> <span class="va">self</span>.optimal_temperature[<span class="dv">0</span>]):</span>
+<span id="cb22-12"><a href="minimización-de-costes.html#cb22-12" aria-hidden="true" tabindex="-1"></a>            energy_noai <span class="op">=</span> <span class="va">self</span>.optimal_temperature[<span class="dv">0</span>] <span class="op">-</span> <span class="va">self</span>.temperature_noai</span>
+<span id="cb22-13"><a href="minimización-de-costes.html#cb22-13" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.temperature_noai <span class="op">=</span> <span class="va">self</span>.optimal_temperature[<span class="dv">0</span>]</span>
+<span id="cb22-14"><a href="minimización-de-costes.html#cb22-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (<span class="va">self</span>.temperature_noai <span class="op">&gt;</span> <span class="va">self</span>.optimal_temperature[<span class="dv">1</span>]):</span>
+<span id="cb22-15"><a href="minimización-de-costes.html#cb22-15" aria-hidden="true" tabindex="-1"></a>            energy_noai <span class="op">=</span> <span class="va">self</span>.temperature_noai <span class="op">-</span> <span class="va">self</span>.optimal_temperature[<span class="dv">1</span>]</span>
+<span id="cb22-16"><a href="minimización-de-costes.html#cb22-16" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.temperature_noai <span class="op">=</span> <span class="va">self</span>.optimal_temperature[<span class="dv">1</span>]</span>
+<span id="cb22-17"><a href="minimización-de-costes.html#cb22-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Cálculo de la recompensa</span></span>
+<span id="cb22-18"><a href="minimización-de-costes.html#cb22-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.reward <span class="op">=</span> energy_noai <span class="op">-</span> energy_ai</span>
+<span id="cb22-19"><a href="minimización-de-costes.html#cb22-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Escalado de la recompensa</span></span>
+<span id="cb22-20"><a href="minimización-de-costes.html#cb22-20" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.reward <span class="op">=</span> <span class="fl">1e-3</span> <span class="op">*</span> <span class="va">self</span>.reward</span>
+<span id="cb22-21"><a href="minimización-de-costes.html#cb22-21" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-22"><a href="minimización-de-costes.html#cb22-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># OBTENCIÓN DEL SIGUIENTE ESTADO</span></span>
+<span id="cb22-23"><a href="minimización-de-costes.html#cb22-23" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-24"><a href="minimización-de-costes.html#cb22-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Actualización de la temperatura atmosférica</span></span>
+<span id="cb22-25"><a href="minimización-de-costes.html#cb22-25" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.atmospheric_temperature <span class="op">=</span> </span>
+<span id="cb22-26"><a href="minimización-de-costes.html#cb22-26" aria-hidden="true" tabindex="-1"></a>                        <span class="va">self</span>.monthly_atmospheric_temperatures[month]</span>
+<span id="cb22-27"><a href="minimización-de-costes.html#cb22-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Actualización del número de usuarios conectados</span></span>
+<span id="cb22-28"><a href="minimización-de-costes.html#cb22-28" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.current_number_users <span class="op">+=</span> np.random.randint(<span class="op">-</span><span class="va">self</span>.max_update_users,</span>
+<span id="cb22-29"><a href="minimización-de-costes.html#cb22-29" aria-hidden="true" tabindex="-1"></a>                                                       <span class="va">self</span>.max_update_users)</span>
+<span id="cb22-30"><a href="minimización-de-costes.html#cb22-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="va">self</span>.current_number_users <span class="op">&gt;</span> <span class="va">self</span>.max_number_users):</span>
+<span id="cb22-31"><a href="minimización-de-costes.html#cb22-31" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.current_number_users <span class="op">=</span> <span class="va">self</span>.max_number_users</span>
+<span id="cb22-32"><a href="minimización-de-costes.html#cb22-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (<span class="va">self</span>.current_number_users <span class="op">&lt;</span> <span class="va">self</span>.min_number_users):</span>
+<span id="cb22-33"><a href="minimización-de-costes.html#cb22-33" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.current_number_users <span class="op">=</span> <span class="va">self</span>.min_number_users</span>
+<span id="cb22-34"><a href="minimización-de-costes.html#cb22-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Actualización del ratio de datos</span></span>
+<span id="cb22-35"><a href="minimización-de-costes.html#cb22-35" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.current_rate_data <span class="op">+=</span> np.random.randint(<span class="op">-</span><span class="va">self</span>.max_update_data,</span>
+<span id="cb22-36"><a href="minimización-de-costes.html#cb22-36" aria-hidden="true" tabindex="-1"></a>                                                    <span class="va">self</span>.max_update_data)</span>
+<span id="cb22-37"><a href="minimización-de-costes.html#cb22-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="va">self</span>.current_rate_data <span class="op">&gt;</span> <span class="va">self</span>.max_rate_data):</span>
+<span id="cb22-38"><a href="minimización-de-costes.html#cb22-38" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.current_rate_data <span class="op">=</span> <span class="va">self</span>.max_rate_data</span>
+<span id="cb22-39"><a href="minimización-de-costes.html#cb22-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (<span class="va">self</span>.current_rate_data <span class="op">&lt;</span> <span class="va">self</span>.min_rate_data):</span>
+<span id="cb22-40"><a href="minimización-de-costes.html#cb22-40" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.current_rate_data <span class="op">=</span> <span class="va">self</span>.min_rate_data</span>
+<span id="cb22-41"><a href="minimización-de-costes.html#cb22-41" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Cálculo de la variación Temperatura Intrinseca</span></span>
+<span id="cb22-42"><a href="minimización-de-costes.html#cb22-42" aria-hidden="true" tabindex="-1"></a>        past_intrinsic_temperature <span class="op">=</span> <span class="va">self</span>.intrinsic_temperature</span>
+<span id="cb22-43"><a href="minimización-de-costes.html#cb22-43" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.intrinsic_temperature <span class="op">=</span> <span class="va">self</span>.atmospheric_temperature</span>
+<span id="cb22-44"><a href="minimización-de-costes.html#cb22-44" aria-hidden="true" tabindex="-1"></a>                                     <span class="op">+</span> <span class="fl">1.25</span> <span class="op">*</span> <span class="va">self</span>.current_number_users</span>
+<span id="cb22-45"><a href="minimización-de-costes.html#cb22-45" aria-hidden="true" tabindex="-1"></a>                                     <span class="op">+</span> <span class="fl">1.25</span> <span class="op">*</span> <span class="va">self</span>.current_rate_data</span>
+<span id="cb22-46"><a href="minimización-de-costes.html#cb22-46" aria-hidden="true" tabindex="-1"></a>        delta_intrinsic_temperature <span class="op">=</span> <span class="va">self</span>.intrinsic_temperature</span>
+<span id="cb22-47"><a href="minimización-de-costes.html#cb22-47" aria-hidden="true" tabindex="-1"></a>                                      <span class="op">-</span> past_intrinsic_temperature</span>
+<span id="cb22-48"><a href="minimización-de-costes.html#cb22-48" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Cálculo de la variación de temperatura causada por la IA</span></span>
+<span id="cb22-49"><a href="minimización-de-costes.html#cb22-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (direction <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb22-50"><a href="minimización-de-costes.html#cb22-50" aria-hidden="true" tabindex="-1"></a>            delta_temperature_ai <span class="op">=</span> <span class="op">-</span>energy_ai</span>
+<span id="cb22-51"><a href="minimización-de-costes.html#cb22-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (direction <span class="op">==</span> <span class="dv">1</span>):</span>
+<span id="cb22-52"><a href="minimización-de-costes.html#cb22-52" aria-hidden="true" tabindex="-1"></a>            delta_temperature_ai <span class="op">=</span> energy_ai</span>
+<span id="cb22-53"><a href="minimización-de-costes.html#cb22-53" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Actualización de la temperatura del servidor cuado hay IA</span></span>
+<span id="cb22-54"><a href="minimización-de-costes.html#cb22-54" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.temperature_ai <span class="op">+=</span> delta_intrinsic_temperature <span class="op">+</span> </span>
+<span id="cb22-55"><a href="minimización-de-costes.html#cb22-55" aria-hidden="true" tabindex="-1"></a>                               delta_temperature_ai</span>
+<span id="cb22-56"><a href="minimización-de-costes.html#cb22-56" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Actualización de la temperatura del servidor cuado no hay IA</span></span>
+<span id="cb22-57"><a href="minimización-de-costes.html#cb22-57" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.temperature_noai <span class="op">+=</span> delta_intrinsic_temperature</span>
+<span id="cb22-58"><a href="minimización-de-costes.html#cb22-58" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-59"><a href="minimización-de-costes.html#cb22-59" aria-hidden="true" tabindex="-1"></a>        <span class="co"># OBTENCIÓN DEL FIN DE LA PARTIDA</span></span>
+<span id="cb22-60"><a href="minimización-de-costes.html#cb22-60" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-61"><a href="minimización-de-costes.html#cb22-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="va">self</span>.temperature_ai <span class="op">&lt;</span> <span class="va">self</span>.min_temperature):</span>
+<span id="cb22-62"><a href="minimización-de-costes.html#cb22-62" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (<span class="va">self</span>.train <span class="op">==</span> <span class="dv">1</span>):</span>
+<span id="cb22-63"><a href="minimización-de-costes.html#cb22-63" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.game_over <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb22-64"><a href="minimización-de-costes.html#cb22-64" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb22-65"><a href="minimización-de-costes.html#cb22-65" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.total_energy_ai <span class="op">+=</span> <span class="va">self</span>.optimal_temperature[<span class="dv">0</span>]</span>
+<span id="cb22-66"><a href="minimización-de-costes.html#cb22-66" aria-hidden="true" tabindex="-1"></a>                                        <span class="op">-</span> <span class="va">self</span>.temperature_ai</span>
+<span id="cb22-67"><a href="minimización-de-costes.html#cb22-67" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.temperature_ai <span class="op">=</span> <span class="va">self</span>.optimal_temperature[<span class="dv">0</span>]</span>
+<span id="cb22-68"><a href="minimización-de-costes.html#cb22-68" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (<span class="va">self</span>.temperature_ai <span class="op">&gt;</span> <span class="va">self</span>.max_temperature):</span>
+<span id="cb22-69"><a href="minimización-de-costes.html#cb22-69" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (<span class="va">self</span>.train <span class="op">==</span> <span class="dv">1</span>):</span>
+<span id="cb22-70"><a href="minimización-de-costes.html#cb22-70" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.game_over <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb22-71"><a href="minimización-de-costes.html#cb22-71" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb22-72"><a href="minimización-de-costes.html#cb22-72" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.total_energy_ai <span class="op">+=</span> <span class="va">self</span>.temperature_ai</span>
+<span id="cb22-73"><a href="minimización-de-costes.html#cb22-73" aria-hidden="true" tabindex="-1"></a>                                        <span class="op">-</span> <span class="va">self</span>.optimal_temperature[<span class="dv">1</span>]</span>
+<span id="cb22-74"><a href="minimización-de-costes.html#cb22-74" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.temperature_ai <span class="op">=</span> <span class="va">self</span>.optimal_temperature[<span class="dv">1</span>]</span>
+<span id="cb22-75"><a href="minimización-de-costes.html#cb22-75" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-76"><a href="minimización-de-costes.html#cb22-76" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ACTUALIZACIÓN DE LOS SCORES</span></span>
+<span id="cb22-77"><a href="minimización-de-costes.html#cb22-77" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-78"><a href="minimización-de-costes.html#cb22-78" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Actualización del total de energía gastada cuando hay IA</span></span>
+<span id="cb22-79"><a href="minimización-de-costes.html#cb22-79" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.total_energy_ai <span class="op">+=</span> energy_ai</span>
+<span id="cb22-80"><a href="minimización-de-costes.html#cb22-80" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Actualización del total de energía gastada cuando no hay IA</span></span>
+<span id="cb22-81"><a href="minimización-de-costes.html#cb22-81" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.total_energy_noai <span class="op">+=</span> energy_noai</span>
+<span id="cb22-82"><a href="minimización-de-costes.html#cb22-82" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-83"><a href="minimización-de-costes.html#cb22-83" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ESCALADO DEL SIGUIENTE ESTADO</span></span>
+<span id="cb22-84"><a href="minimización-de-costes.html#cb22-84" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-85"><a href="minimización-de-costes.html#cb22-85" aria-hidden="true" tabindex="-1"></a>        scaled_temperature_ai <span class="op">=</span> </span>
+<span id="cb22-86"><a href="minimización-de-costes.html#cb22-86" aria-hidden="true" tabindex="-1"></a>                (<span class="va">self</span>.temperature_ai <span class="op">-</span> <span class="va">self</span>.min_temperature) <span class="op">/</span></span>
+<span id="cb22-87"><a href="minimización-de-costes.html#cb22-87" aria-hidden="true" tabindex="-1"></a>                  (<span class="va">self</span>.max_temperature <span class="op">-</span> <span class="va">self</span>.min_temperature)</span>
+<span id="cb22-88"><a href="minimización-de-costes.html#cb22-88" aria-hidden="true" tabindex="-1"></a>        scaled_number_users <span class="op">=</span> </span>
+<span id="cb22-89"><a href="minimización-de-costes.html#cb22-89" aria-hidden="true" tabindex="-1"></a>                (<span class="va">self</span>.current_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users) <span class="op">/</span></span>
+<span id="cb22-90"><a href="minimización-de-costes.html#cb22-90" aria-hidden="true" tabindex="-1"></a>                  (<span class="va">self</span>.max_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users)</span>
+<span id="cb22-91"><a href="minimización-de-costes.html#cb22-91" aria-hidden="true" tabindex="-1"></a>        scaled_rate_data <span class="op">=</span> </span>
+<span id="cb22-92"><a href="minimización-de-costes.html#cb22-92" aria-hidden="true" tabindex="-1"></a>                (<span class="va">self</span>.current_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data) <span class="op">/</span></span>
+<span id="cb22-93"><a href="minimización-de-costes.html#cb22-93" aria-hidden="true" tabindex="-1"></a>                  (<span class="va">self</span>.max_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data)</span>
+<span id="cb22-94"><a href="minimización-de-costes.html#cb22-94" aria-hidden="true" tabindex="-1"></a>        next_state <span class="op">=</span> np.matrix([scaled_temperature_ai,</span>
+<span id="cb22-95"><a href="minimización-de-costes.html#cb22-95" aria-hidden="true" tabindex="-1"></a>                                scaled_number_users,</span>
+<span id="cb22-96"><a href="minimización-de-costes.html#cb22-96" aria-hidden="true" tabindex="-1"></a>                                scaled_rate_data])</span>
+<span id="cb22-97"><a href="minimización-de-costes.html#cb22-97" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-98"><a href="minimización-de-costes.html#cb22-98" aria-hidden="true" tabindex="-1"></a>        <span class="co"># DEVOLVER EL SIGUIENTE ESTADO, LA RECOMPENSA </span></span>
+<span id="cb22-99"><a href="minimización-de-costes.html#cb22-99" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Y EL ESTADO DE FIN DEL JUEGO</span></span>
+<span id="cb22-100"><a href="minimización-de-costes.html#cb22-100" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-101"><a href="minimización-de-costes.html#cb22-101" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> next_state, <span class="va">self</span>.reward, <span class="va">self</span>.game_over</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="minimización-de-costes.html#cb23-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CREACIÓN DE UN MÉTODO QUE REINICIA EL ENTORNO</span></span>
+<span id="cb23-2"><a href="minimización-de-costes.html#cb23-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-3"><a href="minimización-de-costes.html#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> reset(<span class="va">self</span>, new_month):</span>
+<span id="cb23-4"><a href="minimización-de-costes.html#cb23-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.atmospheric_temperature <span class="op">=</span> </span>
+<span id="cb23-5"><a href="minimización-de-costes.html#cb23-5" aria-hidden="true" tabindex="-1"></a>                          <span class="va">self</span>.monthly_atmospheric_temperatures[new_month]</span>
+<span id="cb23-6"><a href="minimización-de-costes.html#cb23-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.initial_month <span class="op">=</span> new_month</span>
+<span id="cb23-7"><a href="minimización-de-costes.html#cb23-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.current_number_users <span class="op">=</span> <span class="va">self</span>.initial_number_users</span>
+<span id="cb23-8"><a href="minimización-de-costes.html#cb23-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.current_rate_data <span class="op">=</span> <span class="va">self</span>.initial_rate_data</span>
+<span id="cb23-9"><a href="minimización-de-costes.html#cb23-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.intrinsic_temperature <span class="op">=</span> <span class="va">self</span>.atmospheric_temperature</span>
+<span id="cb23-10"><a href="minimización-de-costes.html#cb23-10" aria-hidden="true" tabindex="-1"></a>                                     <span class="op">+</span> <span class="fl">1.25</span> <span class="op">*</span> <span class="va">self</span>.current_number_users</span>
+<span id="cb23-11"><a href="minimización-de-costes.html#cb23-11" aria-hidden="true" tabindex="-1"></a>                                     <span class="op">+</span> <span class="fl">1.25</span> <span class="op">*</span> <span class="va">self</span>.current_rate_data</span>
+<span id="cb23-12"><a href="minimización-de-costes.html#cb23-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.temperature_ai <span class="op">=</span> <span class="va">self</span>.intrinsic_temperature</span>
+<span id="cb23-13"><a href="minimización-de-costes.html#cb23-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.temperature_noai <span class="op">=</span> (<span class="va">self</span>.optimal_temperature[<span class="dv">0</span>]</span>
+<span id="cb23-14"><a href="minimización-de-costes.html#cb23-14" aria-hidden="true" tabindex="-1"></a>                                <span class="op">+</span> <span class="va">self</span>.optimal_temperature[<span class="dv">1</span>]) <span class="op">/</span> <span class="fl">2.0</span></span>
+<span id="cb23-15"><a href="minimización-de-costes.html#cb23-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.total_energy_ai <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb23-16"><a href="minimización-de-costes.html#cb23-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.total_energy_noai <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb23-17"><a href="minimización-de-costes.html#cb23-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.reward <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb23-18"><a href="minimización-de-costes.html#cb23-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.game_over <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb23-19"><a href="minimización-de-costes.html#cb23-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.train <span class="op">=</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="minimización-de-costes.html#cb24-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CREACIÓN DE UN MÉTODO QUE NOS DA, A PARTIR DE CUALQUIER INSTANTE, </span></span>
+<span id="cb24-2"><a href="minimización-de-costes.html#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># EL ESTADO, LA RECOMPENSA Y EL FIN DE LA PARTIDA</span></span>
+<span id="cb24-3"><a href="minimización-de-costes.html#cb24-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-4"><a href="minimización-de-costes.html#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> observe(<span class="va">self</span>):</span>
+<span id="cb24-5"><a href="minimización-de-costes.html#cb24-5" aria-hidden="true" tabindex="-1"></a>        scaled_temperature_ai <span class="op">=</span> </span>
+<span id="cb24-6"><a href="minimización-de-costes.html#cb24-6" aria-hidden="true" tabindex="-1"></a>                (<span class="va">self</span>.temperature_ai <span class="op">-</span> <span class="va">self</span>.min_temperature) <span class="op">/</span></span>
+<span id="cb24-7"><a href="minimización-de-costes.html#cb24-7" aria-hidden="true" tabindex="-1"></a>                  (<span class="va">self</span>.max_temperature <span class="op">-</span> <span class="va">self</span>.min_temperature)</span>
+<span id="cb24-8"><a href="minimización-de-costes.html#cb24-8" aria-hidden="true" tabindex="-1"></a>        scaled_number_users <span class="op">=</span> </span>
+<span id="cb24-9"><a href="minimización-de-costes.html#cb24-9" aria-hidden="true" tabindex="-1"></a>                (<span class="va">self</span>.current_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users) <span class="op">/</span></span>
+<span id="cb24-10"><a href="minimización-de-costes.html#cb24-10" aria-hidden="true" tabindex="-1"></a>                  (<span class="va">self</span>.max_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users)</span>
+<span id="cb24-11"><a href="minimización-de-costes.html#cb24-11" aria-hidden="true" tabindex="-1"></a>        scaled_rate_data <span class="op">=</span> </span>
+<span id="cb24-12"><a href="minimización-de-costes.html#cb24-12" aria-hidden="true" tabindex="-1"></a>                (<span class="va">self</span>.current_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data) <span class="op">/</span></span>
+<span id="cb24-13"><a href="minimización-de-costes.html#cb24-13" aria-hidden="true" tabindex="-1"></a>                  (<span class="va">self</span>.max_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data)</span>
+<span id="cb24-14"><a href="minimización-de-costes.html#cb24-14" aria-hidden="true" tabindex="-1"></a>        current_state <span class="op">=</span> np.matrix([scaled_temperature_ai,</span>
+<span id="cb24-15"><a href="minimización-de-costes.html#cb24-15" aria-hidden="true" tabindex="-1"></a>                                   scaled_number_users,</span>
+<span id="cb24-16"><a href="minimización-de-costes.html#cb24-16" aria-hidden="true" tabindex="-1"></a>                                   scaled_rate_data])</span>
+<span id="cb24-17"><a href="minimización-de-costes.html#cb24-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> current_state, <span class="va">self</span>.reward, <span class="va">self</span>.game_over</span></code></pre></div>
+<p>Felicidades por implementar el Paso 1: Construcción del entorno. Ahora pasemos al Paso 2: Construcción del cerebro.</p>
+</div>
+<div id="paso-2-construcción-del-cerebro" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Paso 2: Construcción del cerebro<a href="minimización-de-costes.html#paso-2-construcción-del-cerebro" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En este Paso 2, vamos a construir el cerebro artificial de nuestra IA, que no es más que una red neuronal completamente conectada. Aquí está de nuevo:</p>
+<div class="figure">
+<img src="Images/Brain.png" alt="" />
+<p class="caption">El cerebro artificial: una red neuronal completamente conectada</p>
+</div>
+<p>Nuevamente, construiremos este cerebro artificial dentro de una clase, por la misma razón que antes, que nos permite crear varios cerebros artificiales para diferentes servidores dentro de un centro de datos. De hecho, tal vez algunos servidores necesitarán cerebros artificiales diferentes con hiperparámetros diferentes que otros servidores. Es por eso que gracias a esta estructura avanzada de <code>python</code> de clase / objeto, podemos cambiar fácilmente de un cerebro a otro para regular la temperatura de un nuevo servidor que requiere una IA con diferentes parámetros de redes neuronales.</p>
+<p>Construiremos este cerebro artificial gracias a la increíble biblioteca <code>Keras</code>. Desde esta librería utilizaremos la clase <code>Dense()</code> para crear nuestras dos capas ocultas completamente conectadas, la primera con 64 neuronas ocultas y la segunda con 32 neuronas. Y luego, utilizaremos la clase <code>Dense()</code> nuevamente para devolver los valores Q, que tienen en cuenta las salidas de las redes neuronales artificiales. Luego, más adelante en el entrenamiento y los archivos de prueba, utilizaremos el método argmax para seleccionar la acción que tenga el valor Q máximo. Luego, ensamblamos todos los componentes del cerebro, incluidas las entradas y las salidas, creándolo como un objeto de la clase <code>Model()</code> (muy útil para luego guardar y cargar un modelo en producción con pesos específicos). Finalmente, lo compilaremos con una función de pérdidas que medirá el error cuadrático medio y el optimizador de Adam. Así, aquí están los nuevos pasos del algoritmo general de IA:</p>
+<ul>
+<li><strong>Paso 2-1:</strong> Construir la capa de entrada compuesta de los estados de entrada.</li>
+<li><strong>Paso 2-2:</strong> Construir las capas ocultas con un número elegido de estas capas y neuronas dentro de cada una, completamente conectadas a la capa de entrada y entre ellas.</li>
+<li><strong>Paso 2-3:</strong> Construir la capa de salida, completamente conectada a la última capa oculta.</li>
+<li><strong>Paso 2-4:</strong> Ensamblar la arquitectura completa dentro de un modelo de <code>Keras</code>.</li>
+<li><strong>Paso 2-5:</strong> Compilación del modelo con una función de pérdida de error cuadrático medio y el optimizador elegido.</li>
+</ul>
+<p>Aquí vamos con la implementación:<br />
+</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="minimización-de-costes.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></span>
+<span id="cb25-2"><a href="minimización-de-costes.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Construcción del cerebro</span></span>
+<span id="cb25-3"><a href="minimización-de-costes.html#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="minimización-de-costes.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar las librerías</span></span>
+<span id="cb25-5"><a href="minimización-de-costes.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.layers <span class="im">import</span> Input, Dense</span>
+<span id="cb25-6"><a href="minimización-de-costes.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.models <span class="im">import</span> Model</span>
+<span id="cb25-7"><a href="minimización-de-costes.html#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.optimizers <span class="im">import</span> Adam</span>
+<span id="cb25-8"><a href="minimización-de-costes.html#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="minimización-de-costes.html#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co"># CONSTRUCCIÓN DEL CEREBRO</span></span>
+<span id="cb25-10"><a href="minimización-de-costes.html#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="minimización-de-costes.html#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Brain(<span class="bu">object</span>):</span>
+<span id="cb25-12"><a href="minimización-de-costes.html#cb25-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-13"><a href="minimización-de-costes.html#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA </span></span>
+<span id="cb25-14"><a href="minimización-de-costes.html#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># EN EL MÉTODO DE INICIALIZACIÓN</span></span>
+<span id="cb25-15"><a href="minimización-de-costes.html#cb25-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-16"><a href="minimización-de-costes.html#cb25-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate <span class="op">=</span> <span class="fl">0.001</span>, number_actions <span class="op">=</span> <span class="dv">5</span>):</span>
+<span id="cb25-17"><a href="minimización-de-costes.html#cb25-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate</span>
+<span id="cb25-18"><a href="minimización-de-costes.html#cb25-18" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb25-19"><a href="minimización-de-costes.html#cb25-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA </span></span>
+<span id="cb25-20"><a href="minimización-de-costes.html#cb25-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># DE LOS ESTADOS DE ETRADA</span></span>
+<span id="cb25-21"><a href="minimización-de-costes.html#cb25-21" aria-hidden="true" tabindex="-1"></a>        states <span class="op">=</span> Input(shape <span class="op">=</span> (<span class="dv">3</span>,))</span>
+<span id="cb25-22"><a href="minimización-de-costes.html#cb25-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb25-23"><a href="minimización-de-costes.html#cb25-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LAS DOS CAPAS OCULTAS TOTALMENTE CONECTADAS</span></span>
+<span id="cb25-24"><a href="minimización-de-costes.html#cb25-24" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</span>
+<span id="cb25-25"><a href="minimización-de-costes.html#cb25-25" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</span>
+<span id="cb25-26"><a href="minimización-de-costes.html#cb25-26" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb25-27"><a href="minimización-de-costes.html#cb25-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA </span></span>
+<span id="cb25-28"><a href="minimización-de-costes.html#cb25-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># A LA ÚLTIMA CAPA OCULTA</span></span>
+<span id="cb25-29"><a href="minimización-de-costes.html#cb25-29" aria-hidden="true" tabindex="-1"></a>        q_values <span class="op">=</span> Dense(units <span class="op">=</span> number_actions, activation <span class="op">=</span> <span class="st">&#39;softmax&#39;</span>)(y)</span>
+<span id="cb25-30"><a href="minimización-de-costes.html#cb25-30" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb25-31"><a href="minimización-de-costes.html#cb25-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS</span></span>
+<span id="cb25-32"><a href="minimización-de-costes.html#cb25-32" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> Model(inputs <span class="op">=</span> states, outputs <span class="op">=</span> q_values)</span>
+<span id="cb25-33"><a href="minimización-de-costes.html#cb25-33" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb25-34"><a href="minimización-de-costes.html#cb25-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO </span></span>
+<span id="cb25-35"><a href="minimización-de-costes.html#cb25-35" aria-hidden="true" tabindex="-1"></a>        <span class="co"># MEDIO Y EL OPTIMIZADOR ELEGIDO</span></span>
+<span id="cb25-36"><a href="minimización-de-costes.html#cb25-36" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> learning_rate))</span></code></pre></div>
+<p><strong>Dropout.</strong></p>
+<p>Hemos pensado que sería valioso para nosotros incluso agregar una técnica más poderosa en nuestro kit de herramientas de IA: el <strong>Dropout</strong>.</p>
+<p>El <strong>dropout</strong> es una técnica de regularización que evita el sobreajuste. Simplemente consiste en desactivar una cierta proporción de neuronas aleatorias durante cada paso de propagación hacia adelante y hacia atrás. De esa manera, no todas las neuronas aprenden de la misma manera, evitando así que la red neuronal sobreajuste los datos de entrenamiento.</p>
+<p>Así es como implementamos el Dropout:</p>
+<ol style="list-style-type: decimal">
+<li>Primero importamos la función <code>Dropout</code>:</li>
+</ol>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="minimización-de-costes.html#cb26-1" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> keras.layers:<span class="im">from</span> keras.layers <span class="im">import</span> Input, Dense, Dropout</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Luego, activamos el Dropout en la primera capa oculta <code>x</code>, con una proporción de 0.1, lo que significa que el 10% de las neuronas se desactivarán aleatoriamente durante el entrenamiento a cada iteración:</li>
+</ol>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="minimización-de-costes.html#cb27-1" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</span>
+<span id="cb27-2"><a href="minimización-de-costes.html#cb27-2" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> Dropout(rate <span class="op">=</span> <span class="fl">0.1</span>)(x)</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Y finalmente, activamos de nuevo e Dropout en la segunda capa oculta <code>y</code>, con una proporción de 0.1, lo que significa que eñ 10% de las neuronas se desactivarán aleatoriamente durante el entrenamiento a cada iteración:</li>
+</ol>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="minimización-de-costes.html#cb28-1" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</span>
+<span id="cb28-2"><a href="minimización-de-costes.html#cb28-2" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> Dropout(rate <span class="op">=</span> <span class="fl">0.1</span>)(y)</span></code></pre></div>
+<p>¡Felicidades! Has implementado el Dropout. Es realmente muy simple, una vez más gracias a Keras.</p>
+<p>Debajo está la implementación mejorada del fichero <code>new_brain.py</code> con Dropout incluido:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="minimización-de-costes.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></span>
+<span id="cb29-2"><a href="minimización-de-costes.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Construcción del cerebro</span></span>
+<span id="cb29-3"><a href="minimización-de-costes.html#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="minimización-de-costes.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar las librerías</span></span>
+<span id="cb29-5"><a href="minimización-de-costes.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.layers <span class="im">import</span> Input, Dense, Dropout</span>
+<span id="cb29-6"><a href="minimización-de-costes.html#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.models <span class="im">import</span> Model</span>
+<span id="cb29-7"><a href="minimización-de-costes.html#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.optimizers <span class="im">import</span> Adam</span>
+<span id="cb29-8"><a href="minimización-de-costes.html#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="minimización-de-costes.html#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co"># CONSTRUCCIÓN DEL CEREBRO</span></span>
+<span id="cb29-10"><a href="minimización-de-costes.html#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-11"><a href="minimización-de-costes.html#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Brain(<span class="bu">object</span>):</span>
+<span id="cb29-12"><a href="minimización-de-costes.html#cb29-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-13"><a href="minimización-de-costes.html#cb29-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA </span></span>
+<span id="cb29-14"><a href="minimización-de-costes.html#cb29-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">#EN EL MÉTODO DE INICIALIZACIÓN</span></span>
+<span id="cb29-15"><a href="minimización-de-costes.html#cb29-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-16"><a href="minimización-de-costes.html#cb29-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate <span class="op">=</span> <span class="fl">0.001</span>, number_actions <span class="op">=</span> <span class="dv">5</span>):</span>
+<span id="cb29-17"><a href="minimización-de-costes.html#cb29-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate</span>
+<span id="cb29-18"><a href="minimización-de-costes.html#cb29-18" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-19"><a href="minimización-de-costes.html#cb29-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA </span></span>
+<span id="cb29-20"><a href="minimización-de-costes.html#cb29-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># DE LOS ESTADOS DE ETRADA</span></span>
+<span id="cb29-21"><a href="minimización-de-costes.html#cb29-21" aria-hidden="true" tabindex="-1"></a>        states <span class="op">=</span> Input(shape <span class="op">=</span> (<span class="dv">3</span>,))</span>
+<span id="cb29-22"><a href="minimización-de-costes.html#cb29-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-23"><a href="minimización-de-costes.html#cb29-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE PRIMERA CAPA OCULTAS TOTALMENTE CONECTADA </span></span>
+<span id="cb29-24"><a href="minimización-de-costes.html#cb29-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CON DROPOUT ACTIVADO</span></span>
+<span id="cb29-25"><a href="minimización-de-costes.html#cb29-25" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</span>
+<span id="cb29-26"><a href="minimización-de-costes.html#cb29-26" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> Dropout(rate <span class="op">=</span> <span class="fl">0.1</span>)(x)</span>
+<span id="cb29-27"><a href="minimización-de-costes.html#cb29-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-28"><a href="minimización-de-costes.html#cb29-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE SEGUNDA CAPA OCULTAS TOTALMENTE CONECTADA </span></span>
+<span id="cb29-29"><a href="minimización-de-costes.html#cb29-29" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CON DROPOUT ACTIVADO</span></span>
+<span id="cb29-30"><a href="minimización-de-costes.html#cb29-30" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</span>
+<span id="cb29-31"><a href="minimización-de-costes.html#cb29-31" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> Dropout(rate <span class="op">=</span> <span class="fl">0.1</span>)(y)</span>
+<span id="cb29-32"><a href="minimización-de-costes.html#cb29-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-33"><a href="minimización-de-costes.html#cb29-33" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA </span></span>
+<span id="cb29-34"><a href="minimización-de-costes.html#cb29-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># A LA ÚLTIMA CAPA OCULTA</span></span>
+<span id="cb29-35"><a href="minimización-de-costes.html#cb29-35" aria-hidden="true" tabindex="-1"></a>        q_values <span class="op">=</span> Dense(units <span class="op">=</span> number_actions, activation <span class="op">=</span> <span class="st">&#39;softmax&#39;</span>)(y)</span>
+<span id="cb29-36"><a href="minimización-de-costes.html#cb29-36" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-37"><a href="minimización-de-costes.html#cb29-37" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS</span></span>
+<span id="cb29-38"><a href="minimización-de-costes.html#cb29-38" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> Model(inputs <span class="op">=</span> states, outputs <span class="op">=</span> q_values)</span>
+<span id="cb29-39"><a href="minimización-de-costes.html#cb29-39" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-40"><a href="minimización-de-costes.html#cb29-40" aria-hidden="true" tabindex="-1"></a>        <span class="co"># COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO </span></span>
+<span id="cb29-41"><a href="minimización-de-costes.html#cb29-41" aria-hidden="true" tabindex="-1"></a>        <span class="co"># MEDIO Y EL OPTIMIZADOR ELEGIDO</span></span>
+<span id="cb29-42"><a href="minimización-de-costes.html#cb29-42" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> learning_rate))</span></code></pre></div>
+<p>Ahora pasemos al siguiente paso de nuestro algoritmo general de IA: Paso 3: Implementación del algoritmo DQN.</p>
+</div>
+<div id="paso-3-implementación-del-algoritmo-de-deep-reinforcement-learning" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Paso 3: Implementación del algoritmo de Deep Reinforcement Learning<a href="minimización-de-costes.html#paso-3-implementación-del-algoritmo-de-deep-reinforcement-learning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En este nuevo archivo de <code>python</code>, simplemente tenemos que seguir el algoritmo Deep Q-Learning que hemos visto anteriormente. Por lo tanto, esta implementación sigue los siguientes subpasos, que forman parte del algoritmo general de IA:</p>
+<ul>
+<li><strong>Paso 3-1:</strong> Introducción e inicialización de todos los parámetros y variables del modelo de DQN.</li>
+<li><strong>Paso 3-2:</strong> Hacer un método que construya la memoria en Repetición de Experiencia.</li>
+<li><strong>Paso 3-3:</strong> Hacer un método que construya y devuelva dos lotes de 10 entradas y 10 objetivos</li>
+</ul>
+<p>A continuación se muestra el código que sigue a esta nueva parte del Blueprint de IA:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="minimización-de-costes.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></span>
+<span id="cb30-2"><a href="minimización-de-costes.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Implementar el algoritmo de Deep Q-Learning con Repetición de Experiencia</span></span>
+<span id="cb30-3"><a href="minimización-de-costes.html#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="minimización-de-costes.html#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar las librerías</span></span>
+<span id="cb30-5"><a href="minimización-de-costes.html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb30-6"><a href="minimización-de-costes.html#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="minimización-de-costes.html#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># IMPLEMENTAR EL DEEP Q-LEARNING CON REPETICIÓN DE EXPERIENCIA</span></span>
+<span id="cb30-8"><a href="minimización-de-costes.html#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="minimización-de-costes.html#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DQN(<span class="bu">object</span>):</span>
+<span id="cb30-10"><a href="minimización-de-costes.html#cb30-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-11"><a href="minimización-de-costes.html#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># INTRODUCIR E INICIALIZAR TODOS LOS PARÁMETROS Y VARIABLES DEL DQN</span></span>
+<span id="cb30-12"><a href="minimización-de-costes.html#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, max_memory <span class="op">=</span> <span class="dv">100</span>, discount <span class="op">=</span> <span class="fl">0.9</span>):</span>
+<span id="cb30-13"><a href="minimización-de-costes.html#cb30-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.memory <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb30-14"><a href="minimización-de-costes.html#cb30-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.max_memory <span class="op">=</span> max_memory</span>
+<span id="cb30-15"><a href="minimización-de-costes.html#cb30-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.discount <span class="op">=</span> discount</span>
+<span id="cb30-16"><a href="minimización-de-costes.html#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-17"><a href="minimización-de-costes.html#cb30-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CREACIÓN DE UN MÉTODO QUE CONSTRUYA LA MEMORIA DE LA </span></span>
+<span id="cb30-18"><a href="minimización-de-costes.html#cb30-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># REPETICIÓN DE EXPERIENCIA</span></span>
+<span id="cb30-19"><a href="minimización-de-costes.html#cb30-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> remember(<span class="va">self</span>, transition, game_over):</span>
+<span id="cb30-20"><a href="minimización-de-costes.html#cb30-20" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.memory.append([transition, game_over])</span>
+<span id="cb30-21"><a href="minimización-de-costes.html#cb30-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.memory) <span class="op">&gt;</span> <span class="va">self</span>.max_memory:</span>
+<span id="cb30-22"><a href="minimización-de-costes.html#cb30-22" aria-hidden="true" tabindex="-1"></a>            <span class="kw">del</span> <span class="va">self</span>.memory[<span class="dv">0</span>]</span>
+<span id="cb30-23"><a href="minimización-de-costes.html#cb30-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-24"><a href="minimización-de-costes.html#cb30-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CREACIÓN DEL MÉTODO QUE COSTRUYE DOS LOTES DE ENTRADAS Y OBJETIVOS</span></span>
+<span id="cb30-25"><a href="minimización-de-costes.html#cb30-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_batch(<span class="va">self</span>, model, batch_size <span class="op">=</span> <span class="dv">10</span>):</span>
+<span id="cb30-26"><a href="minimización-de-costes.html#cb30-26" aria-hidden="true" tabindex="-1"></a>        len_memory <span class="op">=</span> <span class="bu">len</span>(<span class="va">self</span>.memory)</span>
+<span id="cb30-27"><a href="minimización-de-costes.html#cb30-27" aria-hidden="true" tabindex="-1"></a>        num_inputs <span class="op">=</span> <span class="va">self</span>.memory[<span class="dv">0</span>][<span class="dv">0</span>][<span class="dv">0</span>].shape[<span class="dv">1</span>]</span>
+<span id="cb30-28"><a href="minimización-de-costes.html#cb30-28" aria-hidden="true" tabindex="-1"></a>        num_outputs <span class="op">=</span> model.output_shape[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb30-29"><a href="minimización-de-costes.html#cb30-29" aria-hidden="true" tabindex="-1"></a>        inputs <span class="op">=</span> np.zeros((<span class="bu">min</span>(len_memory, batch_size), num_inputs))</span>
+<span id="cb30-30"><a href="minimización-de-costes.html#cb30-30" aria-hidden="true" tabindex="-1"></a>        targets <span class="op">=</span> np.zeros((<span class="bu">min</span>(len_memory, batch_size), num_outputs))</span>
+<span id="cb30-31"><a href="minimización-de-costes.html#cb30-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i, idx <span class="kw">in</span> <span class="bu">enumerate</span>(np.random.randint(<span class="dv">0</span>, len_memory,</span>
+<span id="cb30-32"><a href="minimización-de-costes.html#cb30-32" aria-hidden="true" tabindex="-1"></a>                                          size <span class="op">=</span> <span class="bu">min</span>(len_memory, batch_size))):</span>
+<span id="cb30-33"><a href="minimización-de-costes.html#cb30-33" aria-hidden="true" tabindex="-1"></a>            current_state, action, reward, next_state <span class="op">=</span> <span class="va">self</span>.memory[idx][<span class="dv">0</span>]</span>
+<span id="cb30-34"><a href="minimización-de-costes.html#cb30-34" aria-hidden="true" tabindex="-1"></a>            game_over <span class="op">=</span> <span class="va">self</span>.memory[idx][<span class="dv">1</span>]</span>
+<span id="cb30-35"><a href="minimización-de-costes.html#cb30-35" aria-hidden="true" tabindex="-1"></a>            inputs[i] <span class="op">=</span> current_state</span>
+<span id="cb30-36"><a href="minimización-de-costes.html#cb30-36" aria-hidden="true" tabindex="-1"></a>            targets[i] <span class="op">=</span> model.predict(current_state)[<span class="dv">0</span>]</span>
+<span id="cb30-37"><a href="minimización-de-costes.html#cb30-37" aria-hidden="true" tabindex="-1"></a>            Q_sa <span class="op">=</span> np.<span class="bu">max</span>(model.predict(next_state)[<span class="dv">0</span>])</span>
+<span id="cb30-38"><a href="minimización-de-costes.html#cb30-38" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> game_over:</span>
+<span id="cb30-39"><a href="minimización-de-costes.html#cb30-39" aria-hidden="true" tabindex="-1"></a>                targets[i, action] <span class="op">=</span> reward</span>
+<span id="cb30-40"><a href="minimización-de-costes.html#cb30-40" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb30-41"><a href="minimización-de-costes.html#cb30-41" aria-hidden="true" tabindex="-1"></a>                targets[i, action] <span class="op">=</span> reward <span class="op">+</span> <span class="va">self</span>.discount <span class="op">*</span> Q_sa</span>
+<span id="cb30-42"><a href="minimización-de-costes.html#cb30-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> inputs, targets</span></code></pre></div>
+</div>
+<div id="paso-4-entrenar-la-ia" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Paso 4: Entrenar la IA<a href="minimización-de-costes.html#paso-4-entrenar-la-ia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ahora que nuestra IA tiene un cerebro completamente funcional, es hora de entrenarlo. Y esto es exactamente lo que hacemos en este cuarto archivo de <code>python</code>. El proceso es largo, pero muy fácil: comenzamos estableciendo todos los parámetros, luego construimos el entorno creando un objeto de la clase <code>Environment()</code>, luego construimos el cerebro de la IA creando un objeto de la clase <code>Brain()</code>, luego construimos el modelo de Deep Q-Learning creando un objeto de la clase <code>DQN()</code>, y finalmente lanzamos la fase de entrenamiento que conecta todos estos objetos, durante 1000 echos de 5 meses cada uno. Notarás en la fase de entrenamiento de entrenamiento que también exploramos un poco cuando llevamos a cabo las acciones las acciones. Esto consiste en ejecutar algunas acciones aleatorias de vez en cuando. En nuestro Caso Práctico, esto se realizará el 30% de las veces, ya que usamos un parámetro de exploración <span class="math inline">\(\epsilon = 0.3\)</span>, y luego lo forzamos a ejecutar una acción aleatoria al obtener un valor aleatorio entre 0 y 1 que está por debajo de <span class="math inline">\(\epsilon = 0.3\)</span>). La razón por la que hacemos un poco de exploración es porque mejora el proceso de aprendizaje por refuerzo profundo. Este truco se llama: <em>Exploración vs. Explotación</em>. Luego, además, también veremos que utilizamos una técnica de detención temprana, que se asegurará de detener el entrenamiento si ya no hay una mejora palpable en el rendimiento.</p>
+<p>Destaquemos estos nuevos pasos que aún pertenecen a nuestro algoritmo general de IA:</p>
+<ul>
+<li><strong>Paso 4-1:</strong> Construcción del entorno creando un objeto de la clase Environment.</li>
+<li><strong>Paso 4-2:</strong> Construyendo el cerebro artificial creando un objeto de la clase de Brain</li>
+<li><strong>Paso 4-3:</strong> Construyendo el modelo DQN creando un objeto de la clase DQN.</li>
+<li><strong>Paso 4-4:</strong> Elección del modo de entrenamiento.</li>
+<li><strong>Paso 4-5:</strong> Comenzar el entrenamiento con un bule <code>for</code> durante más de 100 epochs de períodos de 5 meses.</li>
+<li><strong>Paso 4-6:</strong> Durante cada epoch, repetimos todo el proceso de Deep Q-Learning, al tiempo que exploramos el 30% de las veces.</li>
+</ul>
+<p>Y ahora implementemos esta nueva parte, Paso 4: Entrenamiento de la IA, de nuestro algoritmo general. A continuación se muestra la implementación completa de este cuarto archivo de <code>python</code>. Una vez más, los títulos de las secciones de código y los nombres de las variables elegidas son lo suficientemente claros como para comprender lo que se programa en cada caso Aquí vamos:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="minimización-de-costes.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></span>
+<span id="cb31-2"><a href="minimización-de-costes.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Entrenamiento de la IA</span></span>
+<span id="cb31-3"><a href="minimización-de-costes.html#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="minimización-de-costes.html#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalación de Keras</span></span>
+<span id="cb31-5"><a href="minimización-de-costes.html#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co"># conda install -c conda-forge keras</span></span>
+<span id="cb31-6"><a href="minimización-de-costes.html#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="minimización-de-costes.html#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar las librerías y el resto de ficheros de python</span></span>
+<span id="cb31-8"><a href="minimización-de-costes.html#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb31-9"><a href="minimización-de-costes.html#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb31-10"><a href="minimización-de-costes.html#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random <span class="im">as</span> rn</span>
+<span id="cb31-11"><a href="minimización-de-costes.html#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> environment</span>
+<span id="cb31-12"><a href="minimización-de-costes.html#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> brain</span>
+<span id="cb31-13"><a href="minimización-de-costes.html#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dqn</span>
+<span id="cb31-14"><a href="minimización-de-costes.html#cb31-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-15"><a href="minimización-de-costes.html#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Establecer semillas para la reproducibilidad del experimento</span></span>
+<span id="cb31-16"><a href="minimización-de-costes.html#cb31-16" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">&#39;PYTHONHASHSEED&#39;</span>] <span class="op">=</span> <span class="st">&#39;0&#39;</span></span>
+<span id="cb31-17"><a href="minimización-de-costes.html#cb31-17" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb31-18"><a href="minimización-de-costes.html#cb31-18" aria-hidden="true" tabindex="-1"></a>rn.seed(<span class="dv">12345</span>)</span>
+<span id="cb31-19"><a href="minimización-de-costes.html#cb31-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-20"><a href="minimización-de-costes.html#cb31-20" aria-hidden="true" tabindex="-1"></a><span class="co"># CONFIGURACIÓN DE LOS PARÁMETROS</span></span>
+<span id="cb31-21"><a href="minimización-de-costes.html#cb31-21" aria-hidden="true" tabindex="-1"></a>epsilon <span class="op">=</span> <span class="fl">.3</span></span>
+<span id="cb31-22"><a href="minimización-de-costes.html#cb31-22" aria-hidden="true" tabindex="-1"></a>number_actions <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb31-23"><a href="minimización-de-costes.html#cb31-23" aria-hidden="true" tabindex="-1"></a>direction_boundary <span class="op">=</span> (number_actions <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb31-24"><a href="minimización-de-costes.html#cb31-24" aria-hidden="true" tabindex="-1"></a>number_epochs <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb31-25"><a href="minimización-de-costes.html#cb31-25" aria-hidden="true" tabindex="-1"></a>max_memory <span class="op">=</span> <span class="dv">3000</span></span>
+<span id="cb31-26"><a href="minimización-de-costes.html#cb31-26" aria-hidden="true" tabindex="-1"></a>batch_size <span class="op">=</span> <span class="dv">512</span></span>
+<span id="cb31-27"><a href="minimización-de-costes.html#cb31-27" aria-hidden="true" tabindex="-1"></a>temperature_step <span class="op">=</span> <span class="fl">1.5</span></span>
+<span id="cb31-28"><a href="minimización-de-costes.html#cb31-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-29"><a href="minimización-de-costes.html#cb31-29" aria-hidden="true" tabindex="-1"></a><span class="co"># CONSTRUCCIÓN DEL ENTORNO CREANDO UN OBJETO DE LA CLASE ENVIRONMENT CLASS</span></span>
+<span id="cb31-30"><a href="minimización-de-costes.html#cb31-30" aria-hidden="true" tabindex="-1"></a>env <span class="op">=</span> environment.Environment(optimal_temperature <span class="op">=</span> (<span class="fl">18.0</span>, <span class="fl">24.0</span>),</span>
+<span id="cb31-31"><a href="minimización-de-costes.html#cb31-31" aria-hidden="true" tabindex="-1"></a>                              initial_month <span class="op">=</span> <span class="dv">0</span>,</span>
+<span id="cb31-32"><a href="minimización-de-costes.html#cb31-32" aria-hidden="true" tabindex="-1"></a>                              initial_number_users <span class="op">=</span> <span class="dv">20</span>,</span>
+<span id="cb31-33"><a href="minimización-de-costes.html#cb31-33" aria-hidden="true" tabindex="-1"></a>                              initial_rate_data <span class="op">=</span> <span class="dv">30</span>)</span>
+<span id="cb31-34"><a href="minimización-de-costes.html#cb31-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-35"><a href="minimización-de-costes.html#cb31-35" aria-hidden="true" tabindex="-1"></a><span class="co"># CONSTRUCCIÓN DEL CEREBRO CREADO UN OBJETO DE LA CLASE BRAIN</span></span>
+<span id="cb31-36"><a href="minimización-de-costes.html#cb31-36" aria-hidden="true" tabindex="-1"></a>brain <span class="op">=</span> brain.Brain(learning_rate <span class="op">=</span> <span class="fl">0.00001</span>, number_actions <span class="op">=</span> number_actions)</span>
+<span id="cb31-37"><a href="minimización-de-costes.html#cb31-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-38"><a href="minimización-de-costes.html#cb31-38" aria-hidden="true" tabindex="-1"></a><span class="co"># CONSTRUCCIÓN DEL MODELO DE DQN CREANDO UN OBJETO DE LA CLASE DQN </span></span>
+<span id="cb31-39"><a href="minimización-de-costes.html#cb31-39" aria-hidden="true" tabindex="-1"></a>dqn <span class="op">=</span> dqn.DQN(max_memory <span class="op">=</span> max_memory, discount <span class="op">=</span> <span class="fl">0.9</span>)</span>
+<span id="cb31-40"><a href="minimización-de-costes.html#cb31-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-41"><a href="minimización-de-costes.html#cb31-41" aria-hidden="true" tabindex="-1"></a><span class="co"># ELECCIÓN DEL MODO DE ENTRENAMIENTO</span></span>
+<span id="cb31-42"><a href="minimización-de-costes.html#cb31-42" aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb31-43"><a href="minimización-de-costes.html#cb31-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-44"><a href="minimización-de-costes.html#cb31-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Entrenamiento de la IA</span></span>
+<span id="cb31-45"><a href="minimización-de-costes.html#cb31-45" aria-hidden="true" tabindex="-1"></a>env.train <span class="op">=</span> train</span>
+<span id="cb31-46"><a href="minimización-de-costes.html#cb31-46" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> brain.model</span>
+<span id="cb31-47"><a href="minimización-de-costes.html#cb31-47" aria-hidden="true" tabindex="-1"></a>early_stopping <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb31-48"><a href="minimización-de-costes.html#cb31-48" aria-hidden="true" tabindex="-1"></a>patience <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb31-49"><a href="minimización-de-costes.html#cb31-49" aria-hidden="true" tabindex="-1"></a>best_total_reward <span class="op">=</span> <span class="op">-</span>np.inf</span>
+<span id="cb31-50"><a href="minimización-de-costes.html#cb31-50" aria-hidden="true" tabindex="-1"></a>patience_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb31-51"><a href="minimización-de-costes.html#cb31-51" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (env.train):</span>
+<span id="cb31-52"><a href="minimización-de-costes.html#cb31-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ARRANCAR EL BUCLE SOBRE TODAS LAS EPOCHS (1 Epoch = 5 Meses)</span></span>
+<span id="cb31-53"><a href="minimización-de-costes.html#cb31-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, number_epochs):</span>
+<span id="cb31-54"><a href="minimización-de-costes.html#cb31-54" aria-hidden="true" tabindex="-1"></a>        <span class="co"># INICIALIZACIÓN DE LAS VARIABLES TANTO DEL ENVIRONMENT </span></span>
+<span id="cb31-55"><a href="minimización-de-costes.html#cb31-55" aria-hidden="true" tabindex="-1"></a>        <span class="co"># COMO DEL BUCLE DE ENTRENAMIENTO</span></span>
+<span id="cb31-56"><a href="minimización-de-costes.html#cb31-56" aria-hidden="true" tabindex="-1"></a>        total_reward <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb31-57"><a href="minimización-de-costes.html#cb31-57" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> <span class="fl">0.</span></span>
+<span id="cb31-58"><a href="minimización-de-costes.html#cb31-58" aria-hidden="true" tabindex="-1"></a>        new_month <span class="op">=</span> np.random.randint(<span class="dv">0</span>, <span class="dv">12</span>)</span>
+<span id="cb31-59"><a href="minimización-de-costes.html#cb31-59" aria-hidden="true" tabindex="-1"></a>        env.reset(new_month <span class="op">=</span> new_month)</span>
+<span id="cb31-60"><a href="minimización-de-costes.html#cb31-60" aria-hidden="true" tabindex="-1"></a>        game_over <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb31-61"><a href="minimización-de-costes.html#cb31-61" aria-hidden="true" tabindex="-1"></a>        current_state, _, _ <span class="op">=</span> env.observe()</span>
+<span id="cb31-62"><a href="minimización-de-costes.html#cb31-62" aria-hidden="true" tabindex="-1"></a>        timestep <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb31-63"><a href="minimización-de-costes.html#cb31-63" aria-hidden="true" tabindex="-1"></a>        <span class="co"># EMPEZAR EL BUCLE SOBRE TODOS LOS TIMESTEPS (1 Timestep = 1 Minuto) </span></span>
+<span id="cb31-64"><a href="minimización-de-costes.html#cb31-64" aria-hidden="true" tabindex="-1"></a>        <span class="co"># EN UN EPOCH</span></span>
+<span id="cb31-65"><a href="minimización-de-costes.html#cb31-65" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> ((<span class="kw">not</span> game_over) <span class="kw">and</span> timestep <span class="op">&lt;=</span> <span class="dv">5</span> <span class="op">*</span> <span class="dv">30</span> <span class="op">*</span> <span class="dv">24</span> <span class="op">*</span> <span class="dv">60</span>):</span>
+<span id="cb31-66"><a href="minimización-de-costes.html#cb31-66" aria-hidden="true" tabindex="-1"></a>            <span class="co"># EJECUTAR LA SIGUIENTE ACCIÓN POR EXPLORACIÓN</span></span>
+<span id="cb31-67"><a href="minimización-de-costes.html#cb31-67" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> np.random.rand() <span class="op">&lt;=</span> epsilon:</span>
+<span id="cb31-68"><a href="minimización-de-costes.html#cb31-68" aria-hidden="true" tabindex="-1"></a>                action <span class="op">=</span> np.random.randint(<span class="dv">0</span>, number_actions)</span>
+<span id="cb31-69"><a href="minimización-de-costes.html#cb31-69" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> (action <span class="op">-</span> direction_boundary <span class="op">&lt;</span> <span class="dv">0</span>):</span>
+<span id="cb31-70"><a href="minimización-de-costes.html#cb31-70" aria-hidden="true" tabindex="-1"></a>                    direction <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb31-71"><a href="minimización-de-costes.html#cb31-71" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
+<span id="cb31-72"><a href="minimización-de-costes.html#cb31-72" aria-hidden="true" tabindex="-1"></a>                    direction <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb31-73"><a href="minimización-de-costes.html#cb31-73" aria-hidden="true" tabindex="-1"></a>                energy_ai <span class="op">=</span> <span class="bu">abs</span>(action <span class="op">-</span> direction_boundary) <span class="op">*</span> temperature_step</span>
+<span id="cb31-74"><a href="minimización-de-costes.html#cb31-74" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb31-75"><a href="minimización-de-costes.html#cb31-75" aria-hidden="true" tabindex="-1"></a>            <span class="co"># EJECUTAR LA SIGUIENTE ACCIÓN POR INFERENCIA</span></span>
+<span id="cb31-76"><a href="minimización-de-costes.html#cb31-76" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb31-77"><a href="minimización-de-costes.html#cb31-77" aria-hidden="true" tabindex="-1"></a>                q_values <span class="op">=</span> model.predict(current_state)</span>
+<span id="cb31-78"><a href="minimización-de-costes.html#cb31-78" aria-hidden="true" tabindex="-1"></a>                action <span class="op">=</span> np.argmax(q_values[<span class="dv">0</span>])</span>
+<span id="cb31-79"><a href="minimización-de-costes.html#cb31-79" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> (action <span class="op">-</span> direction_boundary <span class="op">&lt;</span> <span class="dv">0</span>):</span>
+<span id="cb31-80"><a href="minimización-de-costes.html#cb31-80" aria-hidden="true" tabindex="-1"></a>                    direction <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb31-81"><a href="minimización-de-costes.html#cb31-81" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
+<span id="cb31-82"><a href="minimización-de-costes.html#cb31-82" aria-hidden="true" tabindex="-1"></a>                    direction <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb31-83"><a href="minimización-de-costes.html#cb31-83" aria-hidden="true" tabindex="-1"></a>                energy_ai <span class="op">=</span> <span class="bu">abs</span>(action <span class="op">-</span> direction_boundary) <span class="op">*</span> temperature_step</span>
+<span id="cb31-84"><a href="minimización-de-costes.html#cb31-84" aria-hidden="true" tabindex="-1"></a>            <span class="co"># ACTUALIZACIÓN DEL ENTORNO BUSCANDO EL SIGUIENTE ESTADO</span></span>
+<span id="cb31-85"><a href="minimización-de-costes.html#cb31-85" aria-hidden="true" tabindex="-1"></a>            next_state, reward, game_over <span class="op">=</span> </span>
+<span id="cb31-86"><a href="minimización-de-costes.html#cb31-86" aria-hidden="true" tabindex="-1"></a>                                  env.update_env(direction, energy_ai,</span>
+<span id="cb31-87"><a href="minimización-de-costes.html#cb31-87" aria-hidden="true" tabindex="-1"></a>                                                 <span class="bu">int</span>(timestep <span class="op">/</span> (<span class="dv">30</span><span class="op">*</span><span class="dv">24</span><span class="op">*</span><span class="dv">60</span>)))</span>
+<span id="cb31-88"><a href="minimización-de-costes.html#cb31-88" aria-hidden="true" tabindex="-1"></a>            total_reward <span class="op">+=</span> reward</span>
+<span id="cb31-89"><a href="minimización-de-costes.html#cb31-89" aria-hidden="true" tabindex="-1"></a>            <span class="co"># ALMACENAR LA NUEVA TRANSICIÓN EN LA MEMORIA</span></span>
+<span id="cb31-90"><a href="minimización-de-costes.html#cb31-90" aria-hidden="true" tabindex="-1"></a>            dqn.remember([current_state, action, reward, next_state], </span>
+<span id="cb31-91"><a href="minimización-de-costes.html#cb31-91" aria-hidden="true" tabindex="-1"></a>                         game_over)</span>
+<span id="cb31-92"><a href="minimización-de-costes.html#cb31-92" aria-hidden="true" tabindex="-1"></a>            <span class="co"># REUNIR EN DOS LOTES SEPARADOS LAS ENTRADAS Y LOS OBJETIVOS</span></span>
+<span id="cb31-93"><a href="minimización-de-costes.html#cb31-93" aria-hidden="true" tabindex="-1"></a>            inputs, targets <span class="op">=</span> dqn.get_batch(model, batch_size <span class="op">=</span> batch_size)</span>
+<span id="cb31-94"><a href="minimización-de-costes.html#cb31-94" aria-hidden="true" tabindex="-1"></a>            <span class="co"># CALCULAR LA PÉRDIDA EN LOS DOS LOTES DE ENTRADAS Y OBJETIVOS</span></span>
+<span id="cb31-95"><a href="minimización-de-costes.html#cb31-95" aria-hidden="true" tabindex="-1"></a>            loss <span class="op">+=</span> model.train_on_batch(inputs, targets)</span>
+<span id="cb31-96"><a href="minimización-de-costes.html#cb31-96" aria-hidden="true" tabindex="-1"></a>            timestep <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb31-97"><a href="minimización-de-costes.html#cb31-97" aria-hidden="true" tabindex="-1"></a>            current_state <span class="op">=</span> next_state</span>
+<span id="cb31-98"><a href="minimización-de-costes.html#cb31-98" aria-hidden="true" tabindex="-1"></a>        <span class="co"># IMPRIMIR EL RESULTADO DE ENTREAMIENTO PARA CADA EPOCH</span></span>
+<span id="cb31-99"><a href="minimización-de-costes.html#cb31-99" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb31-100"><a href="minimización-de-costes.html#cb31-100" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Epoch: </span><span class="sc">{:03d}</span><span class="st">/</span><span class="sc">{:03d}</span><span class="st">&quot;</span>.<span class="bu">format</span>(epoch, number_epochs))</span>
+<span id="cb31-101"><a href="minimización-de-costes.html#cb31-101" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Energía gastada con AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_ai))</span>
+<span id="cb31-102"><a href="minimización-de-costes.html#cb31-102" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Energía gastada sin AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_noai))</span>
+<span id="cb31-103"><a href="minimización-de-costes.html#cb31-103" aria-hidden="true" tabindex="-1"></a>        <span class="co"># EARLY STOPPING</span></span>
+<span id="cb31-104"><a href="minimización-de-costes.html#cb31-104" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (early_stopping):</span>
+<span id="cb31-105"><a href="minimización-de-costes.html#cb31-105" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (total_reward <span class="op">&lt;=</span> best_total_reward):</span>
+<span id="cb31-106"><a href="minimización-de-costes.html#cb31-106" aria-hidden="true" tabindex="-1"></a>                patience_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb31-107"><a href="minimización-de-costes.html#cb31-107" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> (total_reward <span class="op">&gt;</span> best_total_reward):</span>
+<span id="cb31-108"><a href="minimización-de-costes.html#cb31-108" aria-hidden="true" tabindex="-1"></a>                best_total_reward <span class="op">=</span> total_reward</span>
+<span id="cb31-109"><a href="minimización-de-costes.html#cb31-109" aria-hidden="true" tabindex="-1"></a>                patience_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb31-110"><a href="minimización-de-costes.html#cb31-110" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (patience_count <span class="op">&gt;=</span> patience):</span>
+<span id="cb31-111"><a href="minimización-de-costes.html#cb31-111" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">&quot;Early Stopping&quot;</span>)</span>
+<span id="cb31-112"><a href="minimización-de-costes.html#cb31-112" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb31-113"><a href="minimización-de-costes.html#cb31-113" aria-hidden="true" tabindex="-1"></a>        <span class="co"># GUARDAR EL MODELO</span></span>
+<span id="cb31-114"><a href="minimización-de-costes.html#cb31-114" aria-hidden="true" tabindex="-1"></a>        model.save(<span class="st">&quot;model.h5&quot;</span>)</span></code></pre></div>
+<p>Después de ejecutar el código, ya vemos un buen rendimiento de nuestra IA durante el entrenamiento, gastando la mayor parte del tiempo menos energía que el sistema alternativo, es decir, el sistema de enfriamiento integrado del servidor. Pero ese es solo el entrenamiento, ahora necesitamos ver si también obtenemos un buen rendimiento en una nueva simulación de 1 año. Ahí es donde entra en juego nuestro próximo y último archivo de <code>python</code>.</p>
+</div>
+<div id="paso-5-probar-nuestra-ia" class="section level3 hasAnchor" number="2.3.5">
+<h3><span class="header-section-number">2.3.5</span> Paso 5: Probar nuestra IA<a href="minimización-de-costes.html#paso-5-probar-nuestra-ia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ahora, de hecho, tenemos que probar el rendimiento de nuestra IA en una situación completamente nueva. Para hacerlo, ejecutaremos una simulación de 1 año, solo en modo de inferencia, lo que significa que no habrá entrenamiento en ningún momento. Nuestra IA solo devolverá predicciones durante un año completo de simulación. Luego, gracias a nuestro objeto Environment, obtendremos al final la energía total gastada por la IA durante este año completo, así como la energía total gastada por el sistema de enfriamiento integrado del servidor. Eventualmente compararemos estas dos energías totales gastadas, simplemente calculando su diferencia relativa (en %), lo que nos dará exactamente la energía total ahorrada por la IA. ¡Abróchate el cinturón para los ver los resultados finales, que revelaremos al final de esta Parte 2!</p>
+<p>En términos de nuestro algoritmo de IA, aquí para la implementación de prueba casi tenemos lo mismo que antes, excepto que esta vez, no tenemos que crear un objeto Brain ni un objeto modelo DQN, y por supuesto no debemos ejecutar el proceso de Deep Q-Learning durante las épocas de entrenamiento. Sin embargo, tenemos que crear un nuevo objeto de Environment, y en lugar de crear un cerebro, cargaremos nuestro cerebro artificial con sus pesos pre-entrenados del entrenamiento anterior que ejecutamos en el Paso 4 - Entrenamiento de la IA. Por lo tanto, demos los subpasos finales de esta parte final del algoritmo de IA:</p>
+<ul>
+<li><strong>Paso 5-1:</strong> Construcción de un nuevo entorno creando un objeto de la clase Environment.</li>
+<li><strong>Paso 5-2:</strong> Carga del cerebro artificial con sus pesos pre-entrenados del entrenamiento anterior.</li>
+<li><strong>Paso 5-3:</strong> Elección del modo de inferencia.</li>
+<li><strong>Paso 5-4:</strong> Iniciación de la simulación de 1 año.</li>
+<li><strong>Paso 5-5:</strong> En cada iteración (cada minuto), nuestra IA solo ejecuta la acción que resulta de su predicción, y no se lleva a cabo ninguna exploración o entrenamiento de Deep Q-Learning.</li>
+</ul>
+<p>Y ahora implementemos esta quinta y última parte, Paso 5: Prueba de la IA. Una vez más, a continuación se muestra la implementación completa de nuestro último archivo de Python. Los títulos de las secciones de código y los nombres de las variables elegidas son lo suficientemente claros como para comprender lo que se está programando, pero si necesitas más explicaciones, te recomiendo que veas nuestros videos tutoriales en <a href="https://cursos.frogamesformacion.com/courses/ia-aplicada-negocios?et=paid&amp;ref=846b3f&amp;coupon=frogames30">Frogames Formación</a> donde programamos todo desde cero, paso a paso, mientras explicamos cada línea de código en términos de por qué, qué y cómo. Aquí vamos:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="minimización-de-costes.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></span>
+<span id="cb32-2"><a href="minimización-de-costes.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba de la AI</span></span>
+<span id="cb32-3"><a href="minimización-de-costes.html#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="minimización-de-costes.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalación de Keras</span></span>
+<span id="cb32-5"><a href="minimización-de-costes.html#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># conda install -c conda-forge keras</span></span>
+<span id="cb32-6"><a href="minimización-de-costes.html#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="minimización-de-costes.html#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar las librerías y el resto de ficheros de python</span></span>
+<span id="cb32-8"><a href="minimización-de-costes.html#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb32-9"><a href="minimización-de-costes.html#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb32-10"><a href="minimización-de-costes.html#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random <span class="im">as</span> rn</span>
+<span id="cb32-11"><a href="minimización-de-costes.html#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.models <span class="im">import</span> load_model</span>
+<span id="cb32-12"><a href="minimización-de-costes.html#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> environment</span>
+<span id="cb32-13"><a href="minimización-de-costes.html#cb32-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-14"><a href="minimización-de-costes.html#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Establecer semillas para la reproducibilidad del experimento</span></span>
+<span id="cb32-15"><a href="minimización-de-costes.html#cb32-15" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">&#39;PYTHONHASHSEED&#39;</span>] <span class="op">=</span> <span class="st">&#39;0&#39;</span></span>
+<span id="cb32-16"><a href="minimización-de-costes.html#cb32-16" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb32-17"><a href="minimización-de-costes.html#cb32-17" aria-hidden="true" tabindex="-1"></a>rn.seed(<span class="dv">12345</span>)</span>
+<span id="cb32-18"><a href="minimización-de-costes.html#cb32-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-19"><a href="minimización-de-costes.html#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="co"># CONFIGURACIÓN DE LOS PARÁMETROS</span></span>
+<span id="cb32-20"><a href="minimización-de-costes.html#cb32-20" aria-hidden="true" tabindex="-1"></a>number_actions <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb32-21"><a href="minimización-de-costes.html#cb32-21" aria-hidden="true" tabindex="-1"></a>direction_boundary <span class="op">=</span> (number_actions <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb32-22"><a href="minimización-de-costes.html#cb32-22" aria-hidden="true" tabindex="-1"></a>temperature_step <span class="op">=</span> <span class="fl">1.5</span></span>
+<span id="cb32-23"><a href="minimización-de-costes.html#cb32-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-24"><a href="minimización-de-costes.html#cb32-24" aria-hidden="true" tabindex="-1"></a><span class="co"># CONSTRUCCIÓN DEL ENTORNO CREANDO UN OBJETO DE LA CLASE ENVIRONMENT</span></span>
+<span id="cb32-25"><a href="minimización-de-costes.html#cb32-25" aria-hidden="true" tabindex="-1"></a>env <span class="op">=</span> environment.Environment(optimal_temperature <span class="op">=</span> (<span class="fl">18.0</span>, <span class="fl">24.0</span>),</span>
+<span id="cb32-26"><a href="minimización-de-costes.html#cb32-26" aria-hidden="true" tabindex="-1"></a>                              initial_month <span class="op">=</span> <span class="dv">0</span>,</span>
+<span id="cb32-27"><a href="minimización-de-costes.html#cb32-27" aria-hidden="true" tabindex="-1"></a>                              initial_number_users <span class="op">=</span> <span class="dv">20</span>,</span>
+<span id="cb32-28"><a href="minimización-de-costes.html#cb32-28" aria-hidden="true" tabindex="-1"></a>                              initial_rate_data <span class="op">=</span> <span class="dv">30</span>)</span>
+<span id="cb32-29"><a href="minimización-de-costes.html#cb32-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-30"><a href="minimización-de-costes.html#cb32-30" aria-hidden="true" tabindex="-1"></a><span class="co"># CARGA DEL MODELO PRE-ENTRENADO</span></span>
+<span id="cb32-31"><a href="minimización-de-costes.html#cb32-31" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> load_model(<span class="st">&quot;model.h5&quot;</span>)</span>
+<span id="cb32-32"><a href="minimización-de-costes.html#cb32-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-33"><a href="minimización-de-costes.html#cb32-33" aria-hidden="true" tabindex="-1"></a><span class="co"># ELECCIÓN DEL MODO</span></span>
+<span id="cb32-34"><a href="minimización-de-costes.html#cb32-34" aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb32-35"><a href="minimización-de-costes.html#cb32-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-36"><a href="minimización-de-costes.html#cb32-36" aria-hidden="true" tabindex="-1"></a><span class="co"># EJECUTAR UN AÑO DE SIMULACIÓN EN MODO INFERENCIA</span></span>
+<span id="cb32-37"><a href="minimización-de-costes.html#cb32-37" aria-hidden="true" tabindex="-1"></a>env.train <span class="op">=</span> train</span>
+<span id="cb32-38"><a href="minimización-de-costes.html#cb32-38" aria-hidden="true" tabindex="-1"></a>current_state, _, _ <span class="op">=</span> env.observe()</span>
+<span id="cb32-39"><a href="minimización-de-costes.html#cb32-39" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> timestep <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">12</span> <span class="op">*</span> <span class="dv">30</span> <span class="op">*</span> <span class="dv">24</span> <span class="op">*</span> <span class="dv">60</span>):</span>
+<span id="cb32-40"><a href="minimización-de-costes.html#cb32-40" aria-hidden="true" tabindex="-1"></a>    q_values <span class="op">=</span> model.predict(current_state)</span>
+<span id="cb32-41"><a href="minimización-de-costes.html#cb32-41" aria-hidden="true" tabindex="-1"></a>    action <span class="op">=</span> np.argmax(q_values[<span class="dv">0</span>])</span>
+<span id="cb32-42"><a href="minimización-de-costes.html#cb32-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (action <span class="op">-</span> direction_boundary <span class="op">&lt;</span> <span class="dv">0</span>):</span>
+<span id="cb32-43"><a href="minimización-de-costes.html#cb32-43" aria-hidden="true" tabindex="-1"></a>        direction <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb32-44"><a href="minimización-de-costes.html#cb32-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb32-45"><a href="minimización-de-costes.html#cb32-45" aria-hidden="true" tabindex="-1"></a>        direction <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb32-46"><a href="minimización-de-costes.html#cb32-46" aria-hidden="true" tabindex="-1"></a>    energy_ai <span class="op">=</span> <span class="bu">abs</span>(action <span class="op">-</span> direction_boundary) <span class="op">*</span> temperature_step</span>
+<span id="cb32-47"><a href="minimización-de-costes.html#cb32-47" aria-hidden="true" tabindex="-1"></a>    next_state, reward, game_over <span class="op">=</span> env.update_env(direction,</span>
+<span id="cb32-48"><a href="minimización-de-costes.html#cb32-48" aria-hidden="true" tabindex="-1"></a>                                                   energy_ai,</span>
+<span id="cb32-49"><a href="minimización-de-costes.html#cb32-49" aria-hidden="true" tabindex="-1"></a>                                                   <span class="bu">int</span>(timestep <span class="op">/</span> (<span class="dv">30</span><span class="op">*</span><span class="dv">24</span><span class="op">*</span><span class="dv">60</span>)))</span>
+<span id="cb32-50"><a href="minimización-de-costes.html#cb32-50" aria-hidden="true" tabindex="-1"></a>    current_state <span class="op">=</span> next_state</span>
+<span id="cb32-51"><a href="minimización-de-costes.html#cb32-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-52"><a href="minimización-de-costes.html#cb32-52" aria-hidden="true" tabindex="-1"></a><span class="co"># IMPRIMIR LOS RESULTADOS DE ENTREAMIENTO PARA CADA EPOCH</span></span>
+<span id="cb32-53"><a href="minimización-de-costes.html#cb32-53" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb32-54"><a href="minimización-de-costes.html#cb32-54" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Energía gastada con AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_ai))</span>
+<span id="cb32-55"><a href="minimización-de-costes.html#cb32-55" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Energía gastada con AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_noai))</span>
+<span id="cb32-56"><a href="minimización-de-costes.html#cb32-56" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;AHORRO DE ENERGÍA: </span><span class="sc">{:.0f}</span><span class="st"> %&quot;</span>.</span>
+<span id="cb32-57"><a href="minimización-de-costes.html#cb32-57" aria-hidden="true" tabindex="-1"></a>        <span class="bu">format</span>((env.total_energy_noai <span class="op">-</span> env.total_energy_ai)</span>
+<span id="cb32-58"><a href="minimización-de-costes.html#cb32-58" aria-hidden="true" tabindex="-1"></a>                  <span class="op">/</span> env.total_energy_noai <span class="op">*</span> <span class="dv">100</span>))</span></code></pre></div>
+<p>Y finalmente, obtenemos en los resultados impresos que el consumo total de energía ahorrado por la IA es …:</p>
+<p><span class="math display">\[\textrm{Total Energy saved by the AI} = 39 \ \% \ !\]</span></p>
+<p>¡Exactamente igual a lo que la DeepMind de Google logró en 2016! De hecho, si en Google escribes: <em>DeepMind reduce la factura de enfriamiento de Google</em>, verá que el resultado que lograron es del 40 %. Muy cerca de la nuestra!</p>
+<p>Por lo tanto, lo que hemos construido es seguramente excelente para nuestro cliente comercial, ya que nuestra IA les ahorrará muchos costes. De hecho, recuerda que gracias a nuestra estructura orientada a objetos (trabajando con clases y objetos), podemos tomar fácilmente nuestros objetos creados en esta implementación que hicimos para un servidor, y luego conectarlos a otros servidores, para que al final podamos ¡terminar ahorrando en el consumo total de energía de un centro de datos al completo! Así es como Google ahorró miles de millones de dólares en costes relacionados con la energía, gracias a su modelo DQN creado por la IA DeepMind.</p>
+</div>
+</div>
+<div id="resumen-el-algoritmo-general-de-ia" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Resumen: El Algoritmo General de IA<a href="minimización-de-costes.html#resumen-el-algoritmo-general-de-ia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Recapitulemos y proporcionemos el algoritmo completo de IA, para que puedas imprimirlo y ponerlo en tu pared.</p>
+<p><strong>Paso 1: Construcción del Entorno</strong></p>
+<ul>
+<li><strong>Paso 1-1</strong>: Introducción e inicialización de todos los parámetros y variables del entorno.</li>
+<li><strong>Paso 1-2</strong>: Hacer un método que actualice el entorno justo después de que la IA ejecute una acción.</li>
+<li><strong>Paso 1-3</strong>: Hacer un método que restablezca el entorno.</li>
+<li><strong>Paso 1-4</strong>: hacer un método que nos proporcione en cualquier momento el estado actual, la última recompensa obtenida y si el juego ha terminado.</li>
+</ul>
+<p>**Paso 2: Construcción del Cerebro</p>
+<ul>
+<li><strong>Paso 2-1:</strong> Construir la capa de entrada compuesta de los estados de entrada.</li>
+<li><strong>Paso 2-2:</strong> Construir las capas ocultas con un número elegido de estas capas y neuronas dentro de cada una, completamente conectadas a la capa de entrada y entre ellas.</li>
+<li><strong>Paso 2-3:</strong> Construir la capa de salida, completamente conectada a la última capa oculta.</li>
+<li><strong>Paso 2-4:</strong> Ensamblar la arquitectura completa dentro de un modelo de <code>Keras</code>.</li>
+<li><strong>Paso 2-5:</strong> Compilación del modelo con una función de pérdida de error cuadrático medio y el optimizador elegido.</li>
+</ul>
+<p><strong>Paso 3: Implementación del algoritmo de Deep Reinforcement Learning</strong></p>
+<ul>
+<li><strong>Paso 3-1:</strong> Introducción e inicialización de todos los parámetros y variables del modelo de DQN.</li>
+<li><strong>Paso 3-2:</strong> Hacer un método que construya la memoria en Repetición de Experiencia.</li>
+<li><strong>Paso 3-3:</strong> Hacer un método que construya y devuelva dos lotes de 10 entradas y 10 objetivos</li>
+</ul>
+<p><strong>Paso 4: Entrenamiento de la IA</strong></p>
+<ul>
+<li><strong>Paso 4-1:</strong> Construcción del entorno creando un objeto de la clase Environment.</li>
+<li><strong>Paso 4-2:</strong> Construyendo el cerebro artificial creando un objeto de la clase de Brain</li>
+<li><strong>Paso 4-3:</strong> Construyendo el modelo DQN creando un objeto de la clase DQN.</li>
+<li><strong>Paso 4-4:</strong> Elección del modo de entrenamiento.</li>
+<li><strong>Paso 4-5:</strong> Comenzar el entrenamiento con un bule <code>for</code> durante más de 100 epochs de períodos de 5 meses.</li>
+</ul>
+<p><strong>Paso 5: Probar la IA</strong></p>
+<ul>
+<li><strong>Paso 5-1:</strong> Construcción de un nuevo entorno creando un objeto de la clase Environment.</li>
+<li><strong>Paso 5-2:</strong> Carga del cerebro artificial con sus pesos pre-entrenados del entrenamiento anterior.</li>
+<li><strong>Paso 5-3:</strong> Elección del modo de inferencia.</li>
+<li><strong>Paso 5-4:</strong> Iniciación de la simulación de 1 año.</li>
+<li><strong>Paso 5-5:</strong> En cada iteración (cada minuto), nuestra IA solo ejecuta la acción que resulta de su predicción, y no se lleva a cabo ninguna exploración o entrenamiento de Deep Q-Learning.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="optimización-de-procesos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="maximización-de-beneficios.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/joanby/ia4business/edit/master/2.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": {},
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

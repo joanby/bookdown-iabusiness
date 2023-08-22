@@ -353,7 +353,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb36-2"><a href="maximización-de-beneficios.html#cb36-2" aria-hidden="true" tabindex="-1"></a>relative_return <span class="op">=</span> (total_reward_ts <span class="op">-</span> total_reward_rs) <span class="op">/</span> total_reward_rs <span class="op">*</span> <span class="dv">100</span></span>
 <span id="cb36-3"><a href="maximización-de-beneficios.html#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Rendimiento Relativo: </span><span class="sc">{:.0f}</span><span class="st"> %&quot;</span>.<span class="bu">format</span>(relative_return))</span></code></pre></div>
 <p>Y prepárate, porque al ejecutar este código obtenemos un retorno relativo final, de …:</p>
-<pre><code>## Rendimiento Relativo: 95 %</code></pre>
+<pre><code>## Rendimiento Relativo: 93 %</code></pre>
 <p>En otras palabras, el muestreo de Thompson casi duplicó el rendimiento de nuestro punto de referencia de la selección aleatoria.</p>
 <p>Y finalmente, representemos el histograma de las estrategias seleccionadas, para verificar que efectivamente la Estrategia 7 (la de índice 6) fue la más seleccionada por el algoritmo, ya que es la que tiene la tasa de conversión más alta:¡</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="maximización-de-beneficios.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Representación del histograma de selecciones</span></span>

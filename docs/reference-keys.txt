@@ -23,7 +23,7 @@ paso-3-implementación-del-algoritmo-de-deep-reinforcement-learning
 paso-4-entrenar-la-ia
 paso-5-probar-nuestra-ia
 resumen-el-algoritmo-general-de-ia
-maximización-de-beneficios-revenues
+maximización-de-beneficios
 caso-práctico-maximización-de-beeficios-de-un-negocio-de-venta-online-en-línea
 problema-a-reesolver
 definición-del-entorno

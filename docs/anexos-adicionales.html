@@ -23,7 +23,7 @@
 <meta name="author" content="Hadelin de Ponteves y Kirill Ermenko" />
 
 
-<meta name="date" content="2023-08-21" />
+<meta name="date" content="2023-08-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -179,15 +179,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#resumen-el-algoritmo-general-de-ia"><i class="fa fa-check"></i><b>2.4</b> Resumen: El Algoritmo General de IA</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html"><i class="fa fa-check"></i><b>3</b> Maximización de Beneficios Revenues</a>
+<li class="chapter" data-level="3" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html"><i class="fa fa-check"></i><b>3</b> Maximización de Beneficios</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html#caso-práctico-maximización-de-beeficios-de-un-negocio-de-venta-online-en-línea"><i class="fa fa-check"></i><b>3.1</b> Caso Práctico: Maximización de beeficios de un negocio de venta online en línea</a>
+<li class="chapter" data-level="3.1" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html#caso-práctico-maximización-de-beeficios-de-un-negocio-de-venta-online-en-línea"><i class="fa fa-check"></i><b>3.1</b> Caso Práctico: Maximización de beeficios de un negocio de venta online en línea</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html#problema-a-reesolver"><i class="fa fa-check"></i><b>3.1.1</b> Problema a reesolver</a></li>
-<li class="chapter" data-level="3.1.2" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html#definición-del-entorno"><i class="fa fa-check"></i><b>3.1.2</b> Definición del Entorno</a></li>
+<li class="chapter" data-level="3.1.1" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html#problema-a-reesolver"><i class="fa fa-check"></i><b>3.1.1</b> Problema a reesolver</a></li>
+<li class="chapter" data-level="3.1.2" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html#definición-del-entorno"><i class="fa fa-check"></i><b>3.1.2</b> Definición del Entorno</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html#solución-de-ia-1"><i class="fa fa-check"></i><b>3.2</b> Solución de IA</a></li>
-<li class="chapter" data-level="3.3" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html#implementación-1"><i class="fa fa-check"></i><b>3.3</b> Implementación</a></li>
+<li class="chapter" data-level="3.2" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html#solución-de-ia-1"><i class="fa fa-check"></i><b>3.2</b> Solución de IA</a></li>
+<li class="chapter" data-level="3.3" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html#implementación-1"><i class="fa fa-check"></i><b>3.3</b> Implementación</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusión.html"><a href="conclusión.html"><i class="fa fa-check"></i>Conclusión</a></li>
 <li class="chapter" data-level="4" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html"><i class="fa fa-check"></i><b>4</b> Anexos adicionales</a>
@@ -547,38 +547,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Viene implementado de serie en la mayoría de librerías de Deep Learning (Keras, TensorFlow, PyTorch). No lo echarás en falta.</li>
 </ul>
 <p>Por supuesto, este es el que usamos al construir el Cerebro Artificial de nuestra IA en la Parte 2 - Minimización de los costes. Veamos nuevamente el código que construye este cerebro artificial y notemos, en la última línea de código, la simplicidad de seleccionar el Adam Optimizer al crearlo:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="anexos-adicionales.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></span>
-<span id="cb44-2"><a href="anexos-adicionales.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Construcción del cerebro</span></span>
-<span id="cb44-3"><a href="anexos-adicionales.html#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-4"><a href="anexos-adicionales.html#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar las librerías</span></span>
-<span id="cb44-5"><a href="anexos-adicionales.html#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.layers <span class="im">import</span> Input, Dense</span>
-<span id="cb44-6"><a href="anexos-adicionales.html#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.models <span class="im">import</span> Model</span>
-<span id="cb44-7"><a href="anexos-adicionales.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.optimizers <span class="im">import</span> Adam</span>
-<span id="cb44-8"><a href="anexos-adicionales.html#cb44-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-9"><a href="anexos-adicionales.html#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="co"># CONSTRUCCIÓN DEL CEREBRO</span></span>
-<span id="cb44-10"><a href="anexos-adicionales.html#cb44-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-11"><a href="anexos-adicionales.html#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Brain(<span class="bu">object</span>):</span>
-<span id="cb44-12"><a href="anexos-adicionales.html#cb44-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb44-13"><a href="anexos-adicionales.html#cb44-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA EN EL MÉTODO DE INICIALIZACIÓN</span></span>
-<span id="cb44-14"><a href="anexos-adicionales.html#cb44-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb44-15"><a href="anexos-adicionales.html#cb44-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate <span class="op">=</span> <span class="fl">0.001</span>, number_actions <span class="op">=</span> <span class="dv">5</span>):</span>
-<span id="cb44-16"><a href="anexos-adicionales.html#cb44-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate</span>
-<span id="cb44-17"><a href="anexos-adicionales.html#cb44-17" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb44-18"><a href="anexos-adicionales.html#cb44-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA DE LOS ESTADOS DE ETRADA</span></span>
-<span id="cb44-19"><a href="anexos-adicionales.html#cb44-19" aria-hidden="true" tabindex="-1"></a>        states <span class="op">=</span> Input(shape <span class="op">=</span> (<span class="dv">3</span>,))</span>
-<span id="cb44-20"><a href="anexos-adicionales.html#cb44-20" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb44-21"><a href="anexos-adicionales.html#cb44-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LAS DOS CAPAS OCULTAS TOTALMENTE CONECTADAS</span></span>
-<span id="cb44-22"><a href="anexos-adicionales.html#cb44-22" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</span>
-<span id="cb44-23"><a href="anexos-adicionales.html#cb44-23" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</span>
-<span id="cb44-24"><a href="anexos-adicionales.html#cb44-24" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb44-25"><a href="anexos-adicionales.html#cb44-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA A LA ÚLTIMA CAPA OCULTA</span></span>
-<span id="cb44-26"><a href="anexos-adicionales.html#cb44-26" aria-hidden="true" tabindex="-1"></a>        q_values <span class="op">=</span> Dense(units <span class="op">=</span> number_actions, activation <span class="op">=</span> <span class="st">&#39;softmax&#39;</span>)(y)</span>
-<span id="cb44-27"><a href="anexos-adicionales.html#cb44-27" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb44-28"><a href="anexos-adicionales.html#cb44-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS</span></span>
-<span id="cb44-29"><a href="anexos-adicionales.html#cb44-29" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> Model(inputs <span class="op">=</span> states, outputs <span class="op">=</span> q_values)</span>
-<span id="cb44-30"><a href="anexos-adicionales.html#cb44-30" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb44-31"><a href="anexos-adicionales.html#cb44-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO MEDIO Y EL OPTIMIZADOR ELEGIDO</span></span>
-<span id="cb44-32"><a href="anexos-adicionales.html#cb44-32" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> learning_rate))</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="anexos-adicionales.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inteligencia Artificial aplicada a Negocios y Empresas - Caso Práctico 2</span></span>
+<span id="cb45-2"><a href="anexos-adicionales.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Construcción del cerebro</span></span>
+<span id="cb45-3"><a href="anexos-adicionales.html#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="anexos-adicionales.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar las librerías</span></span>
+<span id="cb45-5"><a href="anexos-adicionales.html#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.layers <span class="im">import</span> Input, Dense</span>
+<span id="cb45-6"><a href="anexos-adicionales.html#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.models <span class="im">import</span> Model</span>
+<span id="cb45-7"><a href="anexos-adicionales.html#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.optimizers <span class="im">import</span> Adam</span>
+<span id="cb45-8"><a href="anexos-adicionales.html#cb45-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-9"><a href="anexos-adicionales.html#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="co"># CONSTRUCCIÓN DEL CEREBRO</span></span>
+<span id="cb45-10"><a href="anexos-adicionales.html#cb45-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-11"><a href="anexos-adicionales.html#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Brain(<span class="bu">object</span>):</span>
+<span id="cb45-12"><a href="anexos-adicionales.html#cb45-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb45-13"><a href="anexos-adicionales.html#cb45-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA </span></span>
+<span id="cb45-14"><a href="anexos-adicionales.html#cb45-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># EN EL MÉTODO DE INICIALIZACIÓN</span></span>
+<span id="cb45-15"><a href="anexos-adicionales.html#cb45-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb45-16"><a href="anexos-adicionales.html#cb45-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate <span class="op">=</span> <span class="fl">0.001</span>, number_actions <span class="op">=</span> <span class="dv">5</span>):</span>
+<span id="cb45-17"><a href="anexos-adicionales.html#cb45-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate</span>
+<span id="cb45-18"><a href="anexos-adicionales.html#cb45-18" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb45-19"><a href="anexos-adicionales.html#cb45-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA DE </span></span>
+<span id="cb45-20"><a href="anexos-adicionales.html#cb45-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">#LOS ESTADOS DE ENTRADA</span></span>
+<span id="cb45-21"><a href="anexos-adicionales.html#cb45-21" aria-hidden="true" tabindex="-1"></a>        states <span class="op">=</span> Input(shape <span class="op">=</span> (<span class="dv">3</span>,))</span>
+<span id="cb45-22"><a href="anexos-adicionales.html#cb45-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb45-23"><a href="anexos-adicionales.html#cb45-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LAS DOS CAPAS OCULTAS TOTALMENTE CONECTADAS</span></span>
+<span id="cb45-24"><a href="anexos-adicionales.html#cb45-24" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</span>
+<span id="cb45-25"><a href="anexos-adicionales.html#cb45-25" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</span>
+<span id="cb45-26"><a href="anexos-adicionales.html#cb45-26" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb45-27"><a href="anexos-adicionales.html#cb45-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA A </span></span>
+<span id="cb45-28"><a href="anexos-adicionales.html#cb45-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># LA ÚLTIMA CAPA OCULTA</span></span>
+<span id="cb45-29"><a href="anexos-adicionales.html#cb45-29" aria-hidden="true" tabindex="-1"></a>        q_values <span class="op">=</span> Dense(units <span class="op">=</span> number_actions, activation <span class="op">=</span> <span class="st">&#39;softmax&#39;</span>)(y)</span>
+<span id="cb45-30"><a href="anexos-adicionales.html#cb45-30" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb45-31"><a href="anexos-adicionales.html#cb45-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS</span></span>
+<span id="cb45-32"><a href="anexos-adicionales.html#cb45-32" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> Model(inputs <span class="op">=</span> states, outputs <span class="op">=</span> q_values)</span>
+<span id="cb45-33"><a href="anexos-adicionales.html#cb45-33" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb45-34"><a href="anexos-adicionales.html#cb45-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR </span></span>
+<span id="cb45-35"><a href="anexos-adicionales.html#cb45-35" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CUADRÁTICO MEDIO Y EL OPTIMIZADOR ELEGIDO</span></span>
+<span id="cb45-36"><a href="anexos-adicionales.html#cb45-36" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> learning_rate))</span></code></pre></div>
 </div>
 </div>
 </div>

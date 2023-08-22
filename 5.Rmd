@@ -452,25 +452,29 @@ from keras.optimizers import Adam
 
 class Brain(object):
     
-    # CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA EN EL MÉTODO DE INICIALIZACIÓN
+    # CONSTRUCCIÓN DE UNA RED NEURONAL TOTALMENTE CONECTADA 
+    # EN EL MÉTODO DE INICIALIZACIÓN
     
     def __init__(self, learning_rate = 0.001, number_actions = 5):
         self.learning_rate = learning_rate
         
-        # CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA DE LOS ESTADOS DE ETRADA
+        # CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA DE 
+        #LOS ESTADOS DE ENTRADA
         states = Input(shape = (3,))
         
         # CONSTRUCCIÓN DE LAS DOS CAPAS OCULTAS TOTALMENTE CONECTADAS
         x = Dense(units = 64, activation = 'sigmoid')(states)
         y = Dense(units = 32, activation = 'sigmoid')(x)
         
-        # CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA A LA ÚLTIMA CAPA OCULTA
+        # CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA A 
+        # LA ÚLTIMA CAPA OCULTA
         q_values = Dense(units = number_actions, activation = 'softmax')(y)
         
         # ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS
         self.model = Model(inputs = states, outputs = q_values)
         
-        # COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO MEDIO Y EL OPTIMIZADOR ELEGIDO
+        # COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR 
+        # CUADRÁTICO MEDIO Y EL OPTIMIZADOR ELEGIDO
         self.model.compile(loss = 'mse', optimizer = Adam(lr = learning_rate))
 ```
 

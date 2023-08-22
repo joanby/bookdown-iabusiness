@@ -1,4 +1,4 @@
-# Maximización de Beneficios Revenues
+# Maximización de Beneficios
 
 ¡Felicidades por seguir el primer y segundo estudio de caso! Ahora pasemos a un tipo muy diferente de Inteligencia Artificial, que tiene una eficiencia tremenda para las empresas y negocios y que sin duda alguna debes conocer.
 
@@ -88,7 +88,8 @@ Primero, importamos las librerías necesarias y establecemos los parámetros ($N
 
 ```{python, eval=T}
 # Inteligencia Artificial aplicada a Negocios y Empresas
-# Maximizando los ingresos de un negocio minorista en línea con el muestreo de Thompson
+# Maximizando los ingresos de un negocio minorista en línea
+# con el muestreo de Thompson
 
 # Importar las librerías
 import numpy as np
@@ -141,9 +142,9 @@ for n in range(0, N):
             strategy_ts = i
     reward_ts = X[n, strategy_ts]
     if reward_ts == 1:
-        numbers_of_rewards_1[strategy_ts] = numbers_of_rewards_1[strategy_ts] + 1
+        numbers_of_rewards_1[strategy_ts] += 1
     else:
-        numbers_of_rewards_0[strategy_ts] = numbers_of_rewards_0[strategy_ts] + 1
+        numbers_of_rewards_0[strategy_ts] += 1
     strategies_selected_ts.append(strategy_ts)
     total_reward_ts = total_reward_ts + reward_ts
 ```
@@ -168,7 +169,7 @@ En otras palabras, el muestreo de Thompson casi duplicó el rendimiento de nuest
 
 Y finalmente, representemos el histograma de las estrategias seleccionadas, para verificar que efectivamente la Estrategia 7 (la de índice 6) fue la más seleccionada por el algoritmo, ya que es la que tiene la tasa de conversión más alta:¡
 
-```{python, eval=T}
+```{python, eval=F, echo=T}
 # Representación del histograma de selecciones
 plt.hist(strategies_selected_ts)
 plt.title('Histograma de Selecciones')
@@ -228,9 +229,9 @@ for n in range(0, N):
             strategy_ts = i
     reward_ts = X[n, strategy_ts]
     if reward_ts == 1:
-        numbers_of_rewards_1[strategy_ts] = numbers_of_rewards_1[strategy_ts] + 1
+        numbers_of_rewards_1[strategy_ts] += 1
     else:
-        numbers_of_rewards_0[strategy_ts] = numbers_of_rewards_0[strategy_ts] + 1
+        numbers_of_rewards_0[strategy_ts] += 1
     strategies_selected_ts.append(strategy_ts)
     total_reward_ts = total_reward_ts + reward_ts
     # La mejor estrategia
@@ -284,20 +285,13 @@ plt.show()
 
 Si representamos la curva de arrepentimiento de la estrategia aleatoria, obtenemos lo siguiente:
 
-```{python, eval=T, echo=F}
-# Representación de la curva de arrepentimiento
-plt.plot(regret)
-plt.title('Curva de Arrepentimiento - Seleccion Aleatoria')
-plt.xlabel('Ronda')
-plt.ylabel('Arrepentimiento')
-plt.show()
-```
+![](Images/Regret_Curve_Random_Strategy.png)
 
 Y, por supuesto, no observamos absolutamente ninguna convergencia de la estrategia aleatoria hacia la mejor estrategia.
 
 Sin embargo, si ahora representamos la curva de arrepentimiento del modelo de muestreo de Thompson, obtenemos la siguiente curva hermosa:
 
-```{python, eval=T, echo=F}
+```{python, eval=F, echo=T}
 # Representación de la curva de arrepentimiento
 plt.plot(regret_old)
 plt.title('Curva de Arrepentimiento - Muestreo de Thompson')
@@ -305,6 +299,9 @@ plt.xlabel('Ronda')
 plt.ylabel('Arrepentimiento')
 plt.show()
 ```
+
+![](Images/Regret_Curve_Thompson_Sampling.png)
+
 Y obviamente, el muestreo de Thompson está convergiendo muy bien hacia la mejor estrategia.
 
 Finalmente, aquí está el código final que incluye esa Curva de arrepentimiento del muestreo de Thompson:
@@ -329,7 +326,8 @@ for i in range(N):
         if np.random.rand() <= conversion_rates[j]:
             X[i,j] = 1
 
-# Implementación de la estrategia aleatoria y del muestreo de Thompson con la curva de arrepentimiento
+# Implementación de la estrategia aleatoria y del muestreo de Thompson
+# con la curva de arrepentimiento
 strategies_selected_rs = []
 strategies_selected_ts = []
 total_reward_rs = 0
@@ -356,9 +354,9 @@ for n in range(0, N):
             strategy_ts = i
     reward_ts = X[n, strategy_ts]
     if reward_ts == 1:
-        numbers_of_rewards_1[strategy_ts] = numbers_of_rewards_1[strategy_ts] + 1
+        numbers_of_rewards_1[strategy_ts] += 1
     else:
-        numbers_of_rewards_0[strategy_ts] = numbers_of_rewards_0[strategy_ts] + 1
+        numbers_of_rewards_0[strategy_ts] += 1
     strategies_selected_ts.append(strategy_ts)
     total_reward_ts = total_reward_ts + reward_ts
     # La mejor estrategia

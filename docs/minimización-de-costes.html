@@ -23,7 +23,7 @@
 <meta name="author" content="Hadelin de Ponteves y Kirill Ermenko" />
 
 
-<meta name="date" content="2023-08-21" />
+<meta name="date" content="2023-08-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="Images/apple-icon-120x120.png" />
   <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="optimización-de-procesos.html"/>
-<link rel="next" href="maximización-de-beneficios-revenues.html"/>
+<link rel="next" href="maximización-de-beneficios.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -179,15 +179,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="minimización-de-costes.html"><a href="minimización-de-costes.html#resumen-el-algoritmo-general-de-ia"><i class="fa fa-check"></i><b>2.4</b> Resumen: El Algoritmo General de IA</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html"><i class="fa fa-check"></i><b>3</b> Maximización de Beneficios Revenues</a>
+<li class="chapter" data-level="3" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html"><i class="fa fa-check"></i><b>3</b> Maximización de Beneficios</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html#caso-práctico-maximización-de-beeficios-de-un-negocio-de-venta-online-en-línea"><i class="fa fa-check"></i><b>3.1</b> Caso Práctico: Maximización de beeficios de un negocio de venta online en línea</a>
+<li class="chapter" data-level="3.1" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html#caso-práctico-maximización-de-beeficios-de-un-negocio-de-venta-online-en-línea"><i class="fa fa-check"></i><b>3.1</b> Caso Práctico: Maximización de beeficios de un negocio de venta online en línea</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html#problema-a-reesolver"><i class="fa fa-check"></i><b>3.1.1</b> Problema a reesolver</a></li>
-<li class="chapter" data-level="3.1.2" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html#definición-del-entorno"><i class="fa fa-check"></i><b>3.1.2</b> Definición del Entorno</a></li>
+<li class="chapter" data-level="3.1.1" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html#problema-a-reesolver"><i class="fa fa-check"></i><b>3.1.1</b> Problema a reesolver</a></li>
+<li class="chapter" data-level="3.1.2" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html#definición-del-entorno"><i class="fa fa-check"></i><b>3.1.2</b> Definición del Entorno</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html#solución-de-ia-1"><i class="fa fa-check"></i><b>3.2</b> Solución de IA</a></li>
-<li class="chapter" data-level="3.3" data-path="maximización-de-beneficios-revenues.html"><a href="maximización-de-beneficios-revenues.html#implementación-1"><i class="fa fa-check"></i><b>3.3</b> Implementación</a></li>
+<li class="chapter" data-level="3.2" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html#solución-de-ia-1"><i class="fa fa-check"></i><b>3.2</b> Solución de IA</a></li>
+<li class="chapter" data-level="3.3" data-path="maximización-de-beneficios.html"><a href="maximización-de-beneficios.html#implementación-1"><i class="fa fa-check"></i><b>3.3</b> Implementación</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusión.html"><a href="conclusión.html"><i class="fa fa-check"></i>Conclusión</a></li>
 <li class="chapter" data-level="4" data-path="anexos-adicionales.html"><a href="anexos-adicionales.html"><i class="fa fa-check"></i><b>4</b> Anexos adicionales</a>
@@ -525,7 +525,8 @@ T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se e
 <span id="cb19-9"><a href="minimización-de-costes.html#cb19-9" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</span>
 <span id="cb19-10"><a href="minimización-de-costes.html#cb19-10" aria-hidden="true" tabindex="-1"></a>        q_values <span class="op">=</span> Dense(units <span class="op">=</span> number_actions, activation <span class="op">=</span> <span class="st">&#39;softmax&#39;</span>)(y)</span>
 <span id="cb19-11"><a href="minimización-de-costes.html#cb19-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> Model(inputs <span class="op">=</span> states, outputs <span class="op">=</span> q_values)</span>
-<span id="cb19-12"><a href="minimización-de-costes.html#cb19-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> <span class="va">self</span>.learning_rate))</span></code></pre></div>
+<span id="cb19-12"><a href="minimización-de-costes.html#cb19-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, </span>
+<span id="cb19-13"><a href="minimización-de-costes.html#cb19-13" aria-hidden="true" tabindex="-1"></a>                           optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> <span class="va">self</span>.learning_rate))</span></code></pre></div>
 <p>Como podemos ver con gusto, solo son necesarias un par de líneas de código.</p>
 </div>
 <div id="el-algoritmo-de-deep-q-learning-al-completo" class="section level3 hasAnchor" number="2.2.4">
@@ -603,7 +604,7 @@ T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se e
 <span id="cb21-14"><a href="minimización-de-costes.html#cb21-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="fl">20.0</span>,<span class="fl">23.0</span>, <span class="fl">24.0</span>, <span class="fl">22.0</span>, <span class="fl">10.0</span>, <span class="fl">5.0</span>, <span class="fl">1.0</span>]</span>
 <span id="cb21-15"><a href="minimización-de-costes.html#cb21-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.initial_month <span class="op">=</span> initial_month</span>
 <span id="cb21-16"><a href="minimización-de-costes.html#cb21-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.atmospheric_temperature <span class="op">=</span> <span class="op">\</span></span>
-<span id="cb21-17"><a href="minimización-de-costes.html#cb21-17" aria-hidden="true" tabindex="-1"></a>                            <span class="va">self</span>.monthly_atmospheric_temperatures[initial_month]</span>
+<span id="cb21-17"><a href="minimización-de-costes.html#cb21-17" aria-hidden="true" tabindex="-1"></a>                          <span class="va">self</span>.monthly_atmospheric_temperatures[initial_month]</span>
 <span id="cb21-18"><a href="minimización-de-costes.html#cb21-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.optimal_temperature <span class="op">=</span> optimal_temperature</span>
 <span id="cb21-19"><a href="minimización-de-costes.html#cb21-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.min_temperature <span class="op">=</span> <span class="op">-</span><span class="dv">20</span></span>
 <span id="cb21-20"><a href="minimización-de-costes.html#cb21-20" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.max_temperature <span class="op">=</span> <span class="dv">80</span></span>
@@ -712,20 +713,23 @@ T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se e
 <span id="cb22-82"><a href="minimización-de-costes.html#cb22-82" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb22-83"><a href="minimización-de-costes.html#cb22-83" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ESCALADO DEL SIGUIENTE ESTADO</span></span>
 <span id="cb22-84"><a href="minimización-de-costes.html#cb22-84" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb22-85"><a href="minimización-de-costes.html#cb22-85" aria-hidden="true" tabindex="-1"></a>        scaled_temperature_ai <span class="op">=</span> (<span class="va">self</span>.temperature_ai <span class="op">-</span> <span class="va">self</span>.min_temperature)</span>
-<span id="cb22-86"><a href="minimización-de-costes.html#cb22-86" aria-hidden="true" tabindex="-1"></a>                                <span class="op">/</span> (<span class="va">self</span>.max_temperature <span class="op">-</span> <span class="va">self</span>.min_temperature)</span>
-<span id="cb22-87"><a href="minimización-de-costes.html#cb22-87" aria-hidden="true" tabindex="-1"></a>        scaled_number_users <span class="op">=</span> (<span class="va">self</span>.current_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users)</span>
-<span id="cb22-88"><a href="minimización-de-costes.html#cb22-88" aria-hidden="true" tabindex="-1"></a>                              <span class="op">/</span> (<span class="va">self</span>.max_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users)</span>
-<span id="cb22-89"><a href="minimización-de-costes.html#cb22-89" aria-hidden="true" tabindex="-1"></a>        scaled_rate_data <span class="op">=</span> (<span class="va">self</span>.current_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data)</span>
-<span id="cb22-90"><a href="minimización-de-costes.html#cb22-90" aria-hidden="true" tabindex="-1"></a>                           <span class="op">/</span> (<span class="va">self</span>.max_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data)</span>
-<span id="cb22-91"><a href="minimización-de-costes.html#cb22-91" aria-hidden="true" tabindex="-1"></a>        next_state <span class="op">=</span> np.matrix([scaled_temperature_ai,</span>
-<span id="cb22-92"><a href="minimización-de-costes.html#cb22-92" aria-hidden="true" tabindex="-1"></a>                                scaled_number_users,</span>
-<span id="cb22-93"><a href="minimización-de-costes.html#cb22-93" aria-hidden="true" tabindex="-1"></a>                                scaled_rate_data])</span>
-<span id="cb22-94"><a href="minimización-de-costes.html#cb22-94" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb22-95"><a href="minimización-de-costes.html#cb22-95" aria-hidden="true" tabindex="-1"></a>        <span class="co"># DEVOLVER EL SIGUIENTE ESTADO, LA RECOMPENSA </span></span>
-<span id="cb22-96"><a href="minimización-de-costes.html#cb22-96" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Y EL ESTADO DE FIN DEL JUEGO</span></span>
+<span id="cb22-85"><a href="minimización-de-costes.html#cb22-85" aria-hidden="true" tabindex="-1"></a>        scaled_temperature_ai <span class="op">=</span> </span>
+<span id="cb22-86"><a href="minimización-de-costes.html#cb22-86" aria-hidden="true" tabindex="-1"></a>                (<span class="va">self</span>.temperature_ai <span class="op">-</span> <span class="va">self</span>.min_temperature) <span class="op">/</span></span>
+<span id="cb22-87"><a href="minimización-de-costes.html#cb22-87" aria-hidden="true" tabindex="-1"></a>                  (<span class="va">self</span>.max_temperature <span class="op">-</span> <span class="va">self</span>.min_temperature)</span>
+<span id="cb22-88"><a href="minimización-de-costes.html#cb22-88" aria-hidden="true" tabindex="-1"></a>        scaled_number_users <span class="op">=</span> </span>
+<span id="cb22-89"><a href="minimización-de-costes.html#cb22-89" aria-hidden="true" tabindex="-1"></a>                (<span class="va">self</span>.current_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users) <span class="op">/</span></span>
+<span id="cb22-90"><a href="minimización-de-costes.html#cb22-90" aria-hidden="true" tabindex="-1"></a>                  (<span class="va">self</span>.max_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users)</span>
+<span id="cb22-91"><a href="minimización-de-costes.html#cb22-91" aria-hidden="true" tabindex="-1"></a>        scaled_rate_data <span class="op">=</span> </span>
+<span id="cb22-92"><a href="minimización-de-costes.html#cb22-92" aria-hidden="true" tabindex="-1"></a>                (<span class="va">self</span>.current_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data) <span class="op">/</span></span>
+<span id="cb22-93"><a href="minimización-de-costes.html#cb22-93" aria-hidden="true" tabindex="-1"></a>                  (<span class="va">self</span>.max_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data)</span>
+<span id="cb22-94"><a href="minimización-de-costes.html#cb22-94" aria-hidden="true" tabindex="-1"></a>        next_state <span class="op">=</span> np.matrix([scaled_temperature_ai,</span>
+<span id="cb22-95"><a href="minimización-de-costes.html#cb22-95" aria-hidden="true" tabindex="-1"></a>                                scaled_number_users,</span>
+<span id="cb22-96"><a href="minimización-de-costes.html#cb22-96" aria-hidden="true" tabindex="-1"></a>                                scaled_rate_data])</span>
 <span id="cb22-97"><a href="minimización-de-costes.html#cb22-97" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb22-98"><a href="minimización-de-costes.html#cb22-98" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> next_state, <span class="va">self</span>.reward, <span class="va">self</span>.game_over</span></code></pre></div>
+<span id="cb22-98"><a href="minimización-de-costes.html#cb22-98" aria-hidden="true" tabindex="-1"></a>        <span class="co"># DEVOLVER EL SIGUIENTE ESTADO, LA RECOMPENSA </span></span>
+<span id="cb22-99"><a href="minimización-de-costes.html#cb22-99" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Y EL ESTADO DE FIN DEL JUEGO</span></span>
+<span id="cb22-100"><a href="minimización-de-costes.html#cb22-100" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-101"><a href="minimización-de-costes.html#cb22-101" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> next_state, <span class="va">self</span>.reward, <span class="va">self</span>.game_over</span></code></pre></div>
 <div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="minimización-de-costes.html#cb23-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CREACIÓN DE UN MÉTODO QUE REINICIA EL ENTORNO</span></span>
 <span id="cb23-2"><a href="minimización-de-costes.html#cb23-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb23-3"><a href="minimización-de-costes.html#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> reset(<span class="va">self</span>, new_month):</span>
@@ -749,16 +753,19 @@ T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se e
 <span id="cb24-2"><a href="minimización-de-costes.html#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># EL ESTADO, LA RECOMPENSA Y EL FIN DE LA PARTIDA</span></span>
 <span id="cb24-3"><a href="minimización-de-costes.html#cb24-3" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb24-4"><a href="minimización-de-costes.html#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> observe(<span class="va">self</span>):</span>
-<span id="cb24-5"><a href="minimización-de-costes.html#cb24-5" aria-hidden="true" tabindex="-1"></a>        scaled_temperature_ai <span class="op">=</span> (<span class="va">self</span>.temperature_ai <span class="op">-</span> <span class="va">self</span>.min_temperature)</span>
-<span id="cb24-6"><a href="minimización-de-costes.html#cb24-6" aria-hidden="true" tabindex="-1"></a>                                <span class="op">/</span> (<span class="va">self</span>.max_temperature <span class="op">-</span> <span class="va">self</span>.min_temperature)</span>
-<span id="cb24-7"><a href="minimización-de-costes.html#cb24-7" aria-hidden="true" tabindex="-1"></a>        scaled_number_users <span class="op">=</span> (<span class="va">self</span>.current_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users)</span>
-<span id="cb24-8"><a href="minimización-de-costes.html#cb24-8" aria-hidden="true" tabindex="-1"></a>                              <span class="op">/</span> (<span class="va">self</span>.max_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users)</span>
-<span id="cb24-9"><a href="minimización-de-costes.html#cb24-9" aria-hidden="true" tabindex="-1"></a>        scaled_rate_data <span class="op">=</span> (<span class="va">self</span>.current_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data)</span>
-<span id="cb24-10"><a href="minimización-de-costes.html#cb24-10" aria-hidden="true" tabindex="-1"></a>                           <span class="op">/</span> (<span class="va">self</span>.max_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data)</span>
-<span id="cb24-11"><a href="minimización-de-costes.html#cb24-11" aria-hidden="true" tabindex="-1"></a>        current_state <span class="op">=</span> np.matrix([scaled_temperature_ai,</span>
-<span id="cb24-12"><a href="minimización-de-costes.html#cb24-12" aria-hidden="true" tabindex="-1"></a>                                   scaled_number_users,</span>
-<span id="cb24-13"><a href="minimización-de-costes.html#cb24-13" aria-hidden="true" tabindex="-1"></a>                                   scaled_rate_data])</span>
-<span id="cb24-14"><a href="minimización-de-costes.html#cb24-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> current_state, <span class="va">self</span>.reward, <span class="va">self</span>.game_over</span></code></pre></div>
+<span id="cb24-5"><a href="minimización-de-costes.html#cb24-5" aria-hidden="true" tabindex="-1"></a>        scaled_temperature_ai <span class="op">=</span> </span>
+<span id="cb24-6"><a href="minimización-de-costes.html#cb24-6" aria-hidden="true" tabindex="-1"></a>                (<span class="va">self</span>.temperature_ai <span class="op">-</span> <span class="va">self</span>.min_temperature) <span class="op">/</span></span>
+<span id="cb24-7"><a href="minimización-de-costes.html#cb24-7" aria-hidden="true" tabindex="-1"></a>                  (<span class="va">self</span>.max_temperature <span class="op">-</span> <span class="va">self</span>.min_temperature)</span>
+<span id="cb24-8"><a href="minimización-de-costes.html#cb24-8" aria-hidden="true" tabindex="-1"></a>        scaled_number_users <span class="op">=</span> </span>
+<span id="cb24-9"><a href="minimización-de-costes.html#cb24-9" aria-hidden="true" tabindex="-1"></a>                (<span class="va">self</span>.current_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users) <span class="op">/</span></span>
+<span id="cb24-10"><a href="minimización-de-costes.html#cb24-10" aria-hidden="true" tabindex="-1"></a>                  (<span class="va">self</span>.max_number_users <span class="op">-</span> <span class="va">self</span>.min_number_users)</span>
+<span id="cb24-11"><a href="minimización-de-costes.html#cb24-11" aria-hidden="true" tabindex="-1"></a>        scaled_rate_data <span class="op">=</span> </span>
+<span id="cb24-12"><a href="minimización-de-costes.html#cb24-12" aria-hidden="true" tabindex="-1"></a>                (<span class="va">self</span>.current_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data) <span class="op">/</span></span>
+<span id="cb24-13"><a href="minimización-de-costes.html#cb24-13" aria-hidden="true" tabindex="-1"></a>                  (<span class="va">self</span>.max_rate_data <span class="op">-</span> <span class="va">self</span>.min_rate_data)</span>
+<span id="cb24-14"><a href="minimización-de-costes.html#cb24-14" aria-hidden="true" tabindex="-1"></a>        current_state <span class="op">=</span> np.matrix([scaled_temperature_ai,</span>
+<span id="cb24-15"><a href="minimización-de-costes.html#cb24-15" aria-hidden="true" tabindex="-1"></a>                                   scaled_number_users,</span>
+<span id="cb24-16"><a href="minimización-de-costes.html#cb24-16" aria-hidden="true" tabindex="-1"></a>                                   scaled_rate_data])</span>
+<span id="cb24-17"><a href="minimización-de-costes.html#cb24-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> current_state, <span class="va">self</span>.reward, <span class="va">self</span>.game_over</span></code></pre></div>
 <p>Felicidades por implementar el Paso 1: Construcción del entorno. Ahora pasemos al Paso 2: Construcción del cerebro.</p>
 </div>
 <div id="paso-2-construcción-del-cerebro" class="section level3 hasAnchor" number="2.3.2">
@@ -853,29 +860,30 @@ T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se e
 <span id="cb29-16"><a href="minimización-de-costes.html#cb29-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate <span class="op">=</span> <span class="fl">0.001</span>, number_actions <span class="op">=</span> <span class="dv">5</span>):</span>
 <span id="cb29-17"><a href="minimización-de-costes.html#cb29-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate</span>
 <span id="cb29-18"><a href="minimización-de-costes.html#cb29-18" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb29-19"><a href="minimización-de-costes.html#cb29-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA DE LOS ESTADOS DE ETRADA</span></span>
-<span id="cb29-20"><a href="minimización-de-costes.html#cb29-20" aria-hidden="true" tabindex="-1"></a>        states <span class="op">=</span> Input(shape <span class="op">=</span> (<span class="dv">3</span>,))</span>
-<span id="cb29-21"><a href="minimización-de-costes.html#cb29-21" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb29-22"><a href="minimización-de-costes.html#cb29-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE PRIMERA CAPA OCULTAS TOTALMENTE CONECTADA </span></span>
-<span id="cb29-23"><a href="minimización-de-costes.html#cb29-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CON DROPOUT ACTIVADO</span></span>
-<span id="cb29-24"><a href="minimización-de-costes.html#cb29-24" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</span>
-<span id="cb29-25"><a href="minimización-de-costes.html#cb29-25" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> Dropout(rate <span class="op">=</span> <span class="fl">0.1</span>)(x)</span>
-<span id="cb29-26"><a href="minimización-de-costes.html#cb29-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-27"><a href="minimización-de-costes.html#cb29-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE SEGUNDA CAPA OCULTAS TOTALMENTE CONECTADA </span></span>
-<span id="cb29-28"><a href="minimización-de-costes.html#cb29-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CON DROPOUT ACTIVADO</span></span>
-<span id="cb29-29"><a href="minimización-de-costes.html#cb29-29" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</span>
-<span id="cb29-30"><a href="minimización-de-costes.html#cb29-30" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> Dropout(rate <span class="op">=</span> <span class="fl">0.1</span>)(y)</span>
-<span id="cb29-31"><a href="minimización-de-costes.html#cb29-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-32"><a href="minimización-de-costes.html#cb29-32" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA </span></span>
-<span id="cb29-33"><a href="minimización-de-costes.html#cb29-33" aria-hidden="true" tabindex="-1"></a>        <span class="co"># A LA ÚLTIMA CAPA OCULTA</span></span>
-<span id="cb29-34"><a href="minimización-de-costes.html#cb29-34" aria-hidden="true" tabindex="-1"></a>        q_values <span class="op">=</span> Dense(units <span class="op">=</span> number_actions, activation <span class="op">=</span> <span class="st">&#39;softmax&#39;</span>)(y)</span>
-<span id="cb29-35"><a href="minimización-de-costes.html#cb29-35" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb29-36"><a href="minimización-de-costes.html#cb29-36" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS</span></span>
-<span id="cb29-37"><a href="minimización-de-costes.html#cb29-37" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> Model(inputs <span class="op">=</span> states, outputs <span class="op">=</span> q_values)</span>
-<span id="cb29-38"><a href="minimización-de-costes.html#cb29-38" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb29-39"><a href="minimización-de-costes.html#cb29-39" aria-hidden="true" tabindex="-1"></a>        <span class="co"># COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO </span></span>
-<span id="cb29-40"><a href="minimización-de-costes.html#cb29-40" aria-hidden="true" tabindex="-1"></a>        <span class="co"># MEDIO Y EL OPTIMIZADOR ELEGIDO</span></span>
-<span id="cb29-41"><a href="minimización-de-costes.html#cb29-41" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> learning_rate))</span></code></pre></div>
+<span id="cb29-19"><a href="minimización-de-costes.html#cb29-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE ENTRADA COMPUESTA </span></span>
+<span id="cb29-20"><a href="minimización-de-costes.html#cb29-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># DE LOS ESTADOS DE ETRADA</span></span>
+<span id="cb29-21"><a href="minimización-de-costes.html#cb29-21" aria-hidden="true" tabindex="-1"></a>        states <span class="op">=</span> Input(shape <span class="op">=</span> (<span class="dv">3</span>,))</span>
+<span id="cb29-22"><a href="minimización-de-costes.html#cb29-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-23"><a href="minimización-de-costes.html#cb29-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE PRIMERA CAPA OCULTAS TOTALMENTE CONECTADA </span></span>
+<span id="cb29-24"><a href="minimización-de-costes.html#cb29-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CON DROPOUT ACTIVADO</span></span>
+<span id="cb29-25"><a href="minimización-de-costes.html#cb29-25" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">64</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(states)</span>
+<span id="cb29-26"><a href="minimización-de-costes.html#cb29-26" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> Dropout(rate <span class="op">=</span> <span class="fl">0.1</span>)(x)</span>
+<span id="cb29-27"><a href="minimización-de-costes.html#cb29-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-28"><a href="minimización-de-costes.html#cb29-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE SEGUNDA CAPA OCULTAS TOTALMENTE CONECTADA </span></span>
+<span id="cb29-29"><a href="minimización-de-costes.html#cb29-29" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CON DROPOUT ACTIVADO</span></span>
+<span id="cb29-30"><a href="minimización-de-costes.html#cb29-30" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> Dense(units <span class="op">=</span> <span class="dv">32</span>, activation <span class="op">=</span> <span class="st">&#39;sigmoid&#39;</span>)(x)</span>
+<span id="cb29-31"><a href="minimización-de-costes.html#cb29-31" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> Dropout(rate <span class="op">=</span> <span class="fl">0.1</span>)(y)</span>
+<span id="cb29-32"><a href="minimización-de-costes.html#cb29-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-33"><a href="minimización-de-costes.html#cb29-33" aria-hidden="true" tabindex="-1"></a>        <span class="co"># CONSTRUCCIÓN DE LA CAPA DE SALIDA, TOTALMENTE CONECTADA </span></span>
+<span id="cb29-34"><a href="minimización-de-costes.html#cb29-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># A LA ÚLTIMA CAPA OCULTA</span></span>
+<span id="cb29-35"><a href="minimización-de-costes.html#cb29-35" aria-hidden="true" tabindex="-1"></a>        q_values <span class="op">=</span> Dense(units <span class="op">=</span> number_actions, activation <span class="op">=</span> <span class="st">&#39;softmax&#39;</span>)(y)</span>
+<span id="cb29-36"><a href="minimización-de-costes.html#cb29-36" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-37"><a href="minimización-de-costes.html#cb29-37" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ENSAMBLAR LA ARQUITECTURA COMPLETA EN UN MODELO DE KERAS</span></span>
+<span id="cb29-38"><a href="minimización-de-costes.html#cb29-38" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> Model(inputs <span class="op">=</span> states, outputs <span class="op">=</span> q_values)</span>
+<span id="cb29-39"><a href="minimización-de-costes.html#cb29-39" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-40"><a href="minimización-de-costes.html#cb29-40" aria-hidden="true" tabindex="-1"></a>        <span class="co"># COMPILAR EL MODELO CON LA FUNCIÓN DE PÉRDIDAS DE ERROR CUADRÁTICO </span></span>
+<span id="cb29-41"><a href="minimización-de-costes.html#cb29-41" aria-hidden="true" tabindex="-1"></a>        <span class="co"># MEDIO Y EL OPTIMIZADOR ELEGIDO</span></span>
+<span id="cb29-42"><a href="minimización-de-costes.html#cb29-42" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model.<span class="bu">compile</span>(loss <span class="op">=</span> <span class="st">&#39;mse&#39;</span>, optimizer <span class="op">=</span> Adam(lr <span class="op">=</span> learning_rate))</span></code></pre></div>
 <p>Ahora pasemos al siguiente paso de nuestro algoritmo general de IA: Paso 3: Implementación del algoritmo DQN.</p>
 </div>
 <div id="paso-3-implementación-del-algoritmo-de-deep-reinforcement-learning" class="section level3 hasAnchor" number="2.3.3">
@@ -1042,8 +1050,8 @@ T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se e
 <span id="cb31-97"><a href="minimización-de-costes.html#cb31-97" aria-hidden="true" tabindex="-1"></a>        <span class="co"># IMPRIMIR EL RESULTADO DE ENTREAMIENTO PARA CADA EPOCH</span></span>
 <span id="cb31-98"><a href="minimización-de-costes.html#cb31-98" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb31-99"><a href="minimización-de-costes.html#cb31-99" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Epoch: </span><span class="sc">{:03d}</span><span class="st">/</span><span class="sc">{:03d}</span><span class="st">&quot;</span>.<span class="bu">format</span>(epoch, number_epochs))</span>
-<span id="cb31-100"><a href="minimización-de-costes.html#cb31-100" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Total Energy spent with an AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_ai))</span>
-<span id="cb31-101"><a href="minimización-de-costes.html#cb31-101" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Total Energy spent with no AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_noai))</span>
+<span id="cb31-100"><a href="minimización-de-costes.html#cb31-100" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Energía gastada con AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_ai))</span>
+<span id="cb31-101"><a href="minimización-de-costes.html#cb31-101" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Energía gastada sin AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_noai))</span>
 <span id="cb31-102"><a href="minimización-de-costes.html#cb31-102" aria-hidden="true" tabindex="-1"></a>        <span class="co"># EARLY STOPPING</span></span>
 <span id="cb31-103"><a href="minimización-de-costes.html#cb31-103" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (early_stopping):</span>
 <span id="cb31-104"><a href="minimización-de-costes.html#cb31-104" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (total_reward <span class="op">&lt;=</span> best_total_reward):</span>
@@ -1123,10 +1131,11 @@ T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se e
 <span id="cb32-51"><a href="minimización-de-costes.html#cb32-51" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-52"><a href="minimización-de-costes.html#cb32-52" aria-hidden="true" tabindex="-1"></a><span class="co"># IMPRIMIR LOS RESULTADOS DE ENTREAMIENTO PARA CADA EPOCH</span></span>
 <span id="cb32-53"><a href="minimización-de-costes.html#cb32-53" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb32-54"><a href="minimización-de-costes.html#cb32-54" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Total Energy spent with an AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_ai))</span>
-<span id="cb32-55"><a href="minimización-de-costes.html#cb32-55" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Total Energy spent with no AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_noai))</span>
-<span id="cb32-56"><a href="minimización-de-costes.html#cb32-56" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;ENERGY SAVED: </span><span class="sc">{:.0f}</span><span class="st"> %&quot;</span>.<span class="bu">format</span>((env.total_energy_noai <span class="op">-</span> env.total_energy_ai)</span>
-<span id="cb32-57"><a href="minimización-de-costes.html#cb32-57" aria-hidden="true" tabindex="-1"></a>                                     <span class="op">/</span> env.total_energy_noai <span class="op">*</span> <span class="dv">100</span>))</span></code></pre></div>
+<span id="cb32-54"><a href="minimización-de-costes.html#cb32-54" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Energía gastada con AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_ai))</span>
+<span id="cb32-55"><a href="minimización-de-costes.html#cb32-55" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Energía gastada con AI: </span><span class="sc">{:.0f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(env.total_energy_noai))</span>
+<span id="cb32-56"><a href="minimización-de-costes.html#cb32-56" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;AHORRO DE ENERGÍA: </span><span class="sc">{:.0f}</span><span class="st"> %&quot;</span>.</span>
+<span id="cb32-57"><a href="minimización-de-costes.html#cb32-57" aria-hidden="true" tabindex="-1"></a>        <span class="bu">format</span>((env.total_energy_noai <span class="op">-</span> env.total_energy_ai)</span>
+<span id="cb32-58"><a href="minimización-de-costes.html#cb32-58" aria-hidden="true" tabindex="-1"></a>                  <span class="op">/</span> env.total_energy_noai <span class="op">*</span> <span class="dv">100</span>))</span></code></pre></div>
 <p>Y finalmente, obtenemos en los resultados impresos que el consumo total de energía ahorrado por la IA es …:</p>
 <p><span class="math display">\[\textrm{Total Energy saved by the AI} = 39 \ \% \ !\]</span></p>
 <p>¡Exactamente igual a lo que la DeepMind de Google logró en 2016! De hecho, si en Google escribes: <em>DeepMind reduce la factura de enfriamiento de Google</em>, verá que el resultado que lograron es del 40 %. Muy cerca de la nuestra!</p>
@@ -1182,7 +1191,7 @@ T_t - T_{t+1} &amp; \textrm{si $T_{t+1} &lt; T_t$, es decir, si el servidor se e
         </div>
       </div>
 <a href="optimización-de-procesos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="maximización-de-beneficios-revenues.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="maximización-de-beneficios.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

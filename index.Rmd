@@ -21,7 +21,11 @@ favicon: "Images/favicon.ico"
 
 # Introducción {-}
 
-Este libro es el complemento de nuestro curso online *Inteligencia Artificial aplicada a Negocios y Empresas* disponible en [Frogames Formación](https://cursos.frogamesformacion.com/courses/ia-aplicada-negocios?coupon=frogames30). Cubre los tres casos prácticos de empresa reales que se resuelven, cada uno de ellos, con una técnica diferente del mundo de la inteligencia artificial:
+Este libro es el complemento de nuestro curso online *Inteligencia Artificial aplicada a Negocios y Empresas* disponible en [Frogames Formación](https://cursos.frogamesformacion.com/courses/ia-aplicada-negocios?coupon=frogames30). 
+
+![Curso actualizado de nivel de dificultad 2, disponible en Frogames Formación, incluído en la Ruta de IA. ](Images/ia-inteligencia-artificial-negocios-empresas.jpg)
+
+Cubre la explicación y el detalle de los tres casos prácticos de empresa reales que se resuelven en el curso, cada uno de ellos, con una técnica diferente del mundo de la inteligencia artificial:
 
 |**Part** | **Case Study** | **AI Solution**  |
 |:-------:|:--------------:|:----------------:|
@@ -29,7 +33,7 @@ Este libro es el complemento de nuestro curso online *Inteligencia Artificial ap
 2 - Minimización de Costes | Minimizar los gastos de energía del servidor de un centro de datos | Deep Q-Learning
 3 - Maximización de Beneficios | Mazimizar los beneficios de un negocio online de venta al por menor | Muestreo Thompson
 
-En cada una de esas partes, seguiremos el mismo esquema de tres pasos:
+En cada una de estos tres casos prácticos, seguiremos el mismo esquema de tres pasos para enfrentarnos al problema planteado:
 
 * **Caso Práctico** Comenzaremos explicando el problema que tenemos que resolver y construiremos desde cero el entorno en el que trabajaremos.
 * **AI Solution.** Te daremos no solo la teoría general sino también todos los detalles matemáticos del modelo de IA que resolverán el caso práctico
